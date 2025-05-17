@@ -36,6 +36,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'list_slack_channel_configurations' function.
 class ListSlackChannelConfigurationsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
@@ -51,6 +52,7 @@ class SlackChannelConfiguration(BaseValidatorModel):
     notifyOnResolveCase: Optional[bool] = None
 
 
+# This class is the input for the 'list_slack_workspace_configurations' function.
 class ListSlackWorkspaceConfigurationsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
@@ -65,10 +67,12 @@ class PutAccountAliasRequest(BaseValidatorModel):
     accountAlias: str
 
 
+# This class is the input for the 'register_slack_workspace_for_organization' function.
 class RegisterSlackWorkspaceForOrganizationRequest(BaseValidatorModel):
     teamId: str
 
 
+# This class is the input for the 'update_slack_channel_configuration' function.
 class UpdateSlackChannelConfigurationRequest(BaseValidatorModel):
     channelId: str
     teamId: str
@@ -85,6 +89,7 @@ class GetAccountAliasResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_slack_workspace_for_organization' function.
 class RegisterSlackWorkspaceForOrganizationResult(BaseValidatorModel):
     accountType: AccountTypeType
     teamId: str
@@ -92,6 +97,7 @@ class RegisterSlackWorkspaceForOrganizationResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_slack_channel_configuration' function.
 class UpdateSlackChannelConfigurationResult(BaseValidatorModel):
     channelId: str
     channelName: str
@@ -104,12 +110,14 @@ class UpdateSlackChannelConfigurationResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_slack_channel_configurations' function.
 class ListSlackChannelConfigurationsResult(BaseValidatorModel):
     slackChannelConfigurations: List[SlackChannelConfiguration]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_slack_workspace_configurations' function.
 class ListSlackWorkspaceConfigurationsResult(BaseValidatorModel):
     slackWorkspaceConfigurations: List[SlackWorkspaceConfiguration]
     ResponseMetadata: ResponseMetadata

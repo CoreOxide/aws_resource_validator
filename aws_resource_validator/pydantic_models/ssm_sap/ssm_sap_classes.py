@@ -92,6 +92,7 @@ class DatabaseSummary(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'delete_resource_permission' function.
 class DeleteResourcePermissionInput(BaseValidatorModel):
     ResourceArn: str
     ActionType: Optional[Literal['RESTORE']] = None
@@ -116,17 +117,20 @@ class Filter(BaseValidatorModel):
     Operator: FilterOperatorType
 
 
+# This class is the input for the 'get_application' function.
 class GetApplicationInput(BaseValidatorModel):
     ApplicationId: Optional[str] = None
     ApplicationArn: Optional[str] = None
     AppRegistryArn: Optional[str] = None
 
 
+# This class is the input for the 'get_component' function.
 class GetComponentInput(BaseValidatorModel):
     ApplicationId: str
     ComponentId: str
 
 
+# This class is the input for the 'get_database' function.
 class GetDatabaseInput(BaseValidatorModel):
     ApplicationId: Optional[str] = None
     ComponentId: Optional[str] = None
@@ -134,6 +138,7 @@ class GetDatabaseInput(BaseValidatorModel):
     DatabaseArn: Optional[str] = None
 
 
+# This class is the input for the 'get_operation' function.
 class GetOperationInput(BaseValidatorModel):
     OperationId: str
 
@@ -152,6 +157,7 @@ class Operation(BaseValidatorModel):
     LastUpdatedTime: Optional[datetime] = None
 
 
+# This class is the input for the 'get_resource_permission' function.
 class GetResourcePermissionInput(BaseValidatorModel):
     ResourceArn: str
     ActionType: Optional[Literal['RESTORE']] = None
@@ -163,12 +169,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_components' function.
 class ListComponentsInput(BaseValidatorModel):
     ApplicationId: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_databases' function.
 class ListDatabasesInput(BaseValidatorModel):
     ApplicationId: Optional[str] = None
     ComponentId: Optional[str] = None
@@ -176,6 +184,7 @@ class ListDatabasesInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -185,20 +194,24 @@ class Resource(BaseValidatorModel):
     ResourceType: Optional[str] = None
 
 
+# This class is the input for the 'put_resource_permission' function.
 class PutResourcePermissionInput(BaseValidatorModel):
     ActionType: Literal['RESTORE']
     SourceResourceArn: str
     ResourceArn: str
 
 
+# This class is the input for the 'start_application' function.
 class StartApplicationInput(BaseValidatorModel):
     ApplicationId: str
 
 
+# This class is the input for the 'start_application_refresh' function.
 class StartApplicationRefreshInput(BaseValidatorModel):
     ApplicationId: str
 
 
+# This class is the input for the 'stop_application' function.
 class StopApplicationInput(BaseValidatorModel):
     ApplicationId: str
     StopConnectedEntity: Optional[Literal['DBMS']] = None
@@ -237,6 +250,7 @@ class AssociatedHost(BaseValidatorModel):
     OsVersion: Optional[str] = None
 
 
+# This class is the input for the 'update_application_settings' function.
 class UpdateApplicationSettingsInput(BaseValidatorModel):
     ApplicationId: str
     CredentialsToAddOrUpdate: Optional[List[ApplicationCredential]] = None
@@ -245,6 +259,7 @@ class UpdateApplicationSettingsInput(BaseValidatorModel):
     DatabaseArn: Optional[str] = None
 
 
+# This class is the input for the 'register_application' function.
 class RegisterApplicationInput(BaseValidatorModel):
     ApplicationId: str
     ApplicationType: ApplicationTypeType
@@ -257,83 +272,98 @@ class RegisterApplicationInput(BaseValidatorModel):
     ComponentsInfo: Optional[List[ComponentInfo]] = None
 
 
+# This class is the output for the 'delete_resource_permission' function.
 class DeleteResourcePermissionOutput(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_application' function.
 class GetApplicationOutput(BaseValidatorModel):
     Application: Application
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_permission' function.
 class GetResourcePermissionOutput(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_applications' function.
 class ListApplicationsOutput(BaseValidatorModel):
     Applications: List[ApplicationSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_components' function.
 class ListComponentsOutput(BaseValidatorModel):
     Components: List[ComponentSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_databases' function.
 class ListDatabasesOutput(BaseValidatorModel):
     Databases: List[DatabaseSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_resource_permission' function.
 class PutResourcePermissionOutput(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_application' function.
 class RegisterApplicationOutput(BaseValidatorModel):
     Application: Application
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_application' function.
 class StartApplicationOutput(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_application_refresh' function.
 class StartApplicationRefreshOutput(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_application' function.
 class StopApplicationOutput(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_application_settings' function.
 class UpdateApplicationSettingsOutput(BaseValidatorModel):
     Message: str
     OperationIds: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'list_applications' function.
 class ListApplicationsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filters: Optional[List[Filter]] = None
 
 
+# This class is the input for the 'list_operation_events' function.
 class ListOperationEventsInput(BaseValidatorModel):
     OperationId: str
     MaxResults: Optional[int] = None
@@ -341,6 +371,7 @@ class ListOperationEventsInput(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
 
 
+# This class is the input for the 'list_operations' function.
 class ListOperationsInput(BaseValidatorModel):
     ApplicationId: str
     MaxResults: Optional[int] = None
@@ -348,11 +379,13 @@ class ListOperationsInput(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
 
 
+# This class is the output for the 'get_operation' function.
 class GetOperationOutput(BaseValidatorModel):
     Operation: Operation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_operations' function.
 class ListOperationsOutput(BaseValidatorModel):
     Operations: List[Operation]
     ResponseMetadata: ResponseMetadata
@@ -395,6 +428,7 @@ class OperationEvent(BaseValidatorModel):
     Timestamp: Optional[datetime] = None
 
 
+# This class is the output for the 'get_database' function.
 class GetDatabaseOutput(BaseValidatorModel):
     Database: Database
     Tags: Dict[str, str]
@@ -424,12 +458,14 @@ class Component(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
+# This class is the output for the 'list_operation_events' function.
 class ListOperationEventsOutput(BaseValidatorModel):
     OperationEvents: List[OperationEvent]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_component' function.
 class GetComponentOutput(BaseValidatorModel):
     Component: Component
     Tags: Dict[str, str]

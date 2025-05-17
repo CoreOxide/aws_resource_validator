@@ -73,6 +73,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_backups' function.
 class DescribeBackupsRequest(BaseValidatorModel):
     BackupId: Optional[str] = None
     ServerName: Optional[str] = None
@@ -80,6 +81,7 @@ class DescribeBackupsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_events' function.
 class DescribeEventsRequest(BaseValidatorModel):
     ServerName: str
     NextToken: Optional[str] = None
@@ -93,6 +95,7 @@ class ServerEvent(BaseValidatorModel):
     LogUrl: Optional[str] = None
 
 
+# This class is the input for the 'describe_node_association_status' function.
 class DescribeNodeAssociationStatusRequest(BaseValidatorModel):
     NodeAssociationStatusToken: str
     ServerName: str
@@ -103,18 +106,21 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'describe_servers' function.
 class DescribeServersRequest(BaseValidatorModel):
     ServerName: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'restore_server' function.
 class RestoreServerRequest(BaseValidatorModel):
     BackupId: str
     ServerName: str
@@ -127,12 +133,14 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_server_engine_attributes' function.
 class UpdateServerEngineAttributesRequest(BaseValidatorModel):
     ServerName: str
     AttributeName: str
     AttributeValue: Optional[str] = None
 
 
+# This class is the input for the 'update_server' function.
 class UpdateServerRequest(BaseValidatorModel):
     ServerName: str
     DisableAutomatedBackup: Optional[bool] = None
@@ -141,18 +149,21 @@ class UpdateServerRequest(BaseValidatorModel):
     PreferredBackupWindow: Optional[str] = None
 
 
+# This class is the input for the 'associate_node' function.
 class AssociateNodeRequest(BaseValidatorModel):
     ServerName: str
     NodeName: str
     EngineAttributes: List[EngineAttribute]
 
 
+# This class is the input for the 'disassociate_node' function.
 class DisassociateNodeRequest(BaseValidatorModel):
     ServerName: str
     NodeName: str
     EngineAttributes: Optional[List[EngineAttribute]] = None
 
 
+# This class is the input for the 'export_server_engine_attribute' function.
 class ExportServerEngineAttributeRequest(BaseValidatorModel):
     ExportAttributeName: str
     ServerName: str
@@ -186,11 +197,13 @@ class Server(BaseValidatorModel):
     ServerArn: Optional[str] = None
 
 
+# This class is the input for the 'start_maintenance' function.
 class StartMaintenanceRequest(BaseValidatorModel):
     ServerName: str
     EngineAttributes: Optional[List[EngineAttribute]] = None
 
 
+# This class is the output for the 'associate_node' function.
 class AssociateNodeResponse(BaseValidatorModel):
     NodeAssociationStatusToken: str
     ResponseMetadata: ResponseMetadata
@@ -201,40 +214,47 @@ class DescribeAccountAttributesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_node_association_status' function.
 class DescribeNodeAssociationStatusResponse(BaseValidatorModel):
     NodeAssociationStatus: NodeAssociationStatusType
     EngineAttributes: List[EngineAttribute]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_node' function.
 class DisassociateNodeResponse(BaseValidatorModel):
     NodeAssociationStatusToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'export_server_engine_attribute' function.
 class ExportServerEngineAttributeResponse(BaseValidatorModel):
     EngineAttribute: EngineAttribute
     ServerName: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_backup' function.
 class CreateBackupResponse(BaseValidatorModel):
     Backup: Backup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_backups' function.
 class DescribeBackupsResponse(BaseValidatorModel):
     Backups: List[Backup]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_backup' function.
 class CreateBackupRequest(BaseValidatorModel):
     ServerName: str
     Description: Optional[str] = None
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_server' function.
 class CreateServerRequest(BaseValidatorModel):
     Engine: str
     ServerName: str
@@ -259,6 +279,7 @@ class CreateServerRequest(BaseValidatorModel):
     BackupId: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -291,6 +312,7 @@ class ListTagsForResourceRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'describe_events' function.
 class DescribeEventsResponse(BaseValidatorModel):
     ServerEvents: List[ServerEvent]
     ResponseMetadata: ResponseMetadata
@@ -303,32 +325,38 @@ class DescribeNodeAssociationStatusRequestWait(BaseValidatorModel):
     WaiterConfig: Optional[WaiterConfig] = None
 
 
+# This class is the output for the 'create_server' function.
 class CreateServerResponse(BaseValidatorModel):
     Server: Server
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_servers' function.
 class DescribeServersResponse(BaseValidatorModel):
     Servers: List[Server]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'restore_server' function.
 class RestoreServerResponse(BaseValidatorModel):
     Server: Server
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_maintenance' function.
 class StartMaintenanceResponse(BaseValidatorModel):
     Server: Server
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_server_engine_attributes' function.
 class UpdateServerEngineAttributesResponse(BaseValidatorModel):
     Server: Server
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_server' function.
 class UpdateServerResponse(BaseValidatorModel):
     Server: Server
     ResponseMetadata: ResponseMetadata

@@ -45,6 +45,7 @@ class ConfigurationError(BaseValidatorModel):
     message: Optional[str] = None
 
 
+# This class is the input for the 'create_credential_locker' function.
 class CreateCredentialLockerRequest(BaseValidatorModel):
     Name: Optional[str] = None
     ClientToken: Optional[str] = None
@@ -59,6 +60,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_destination' function.
 class CreateDestinationRequest(BaseValidatorModel):
     DeliveryDestinationArn: str
     DeliveryDestinationType: Literal['KINESIS']
@@ -69,6 +71,7 @@ class CreateDestinationRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_event_log_configuration' function.
 class CreateEventLogConfigurationRequest(BaseValidatorModel):
     ResourceType: str
     EventLogLevel: LogLevelType
@@ -76,6 +79,7 @@ class CreateEventLogConfigurationRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'create_notification_configuration' function.
 class CreateNotificationConfigurationRequest(BaseValidatorModel):
     EventType: EventTypeType
     DestinationName: str
@@ -83,6 +87,7 @@ class CreateNotificationConfigurationRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_provisioning_profile' function.
 class CreateProvisioningProfileRequest(BaseValidatorModel):
     ProvisioningType: ProvisioningTypeType
     CaCertificate: Optional[str] = None
@@ -98,35 +103,43 @@ class CredentialLockerSummary(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'delete_credential_locker' function.
 class DeleteCredentialLockerRequest(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'delete_destination' function.
 class DeleteDestinationRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'delete_event_log_configuration' function.
 class DeleteEventLogConfigurationRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'delete_managed_thing' function.
 class DeleteManagedThingRequest(BaseValidatorModel):
     Identifier: str
     Force: Optional[bool] = None
 
 
+# This class is the input for the 'delete_notification_configuration' function.
 class DeleteNotificationConfigurationRequest(BaseValidatorModel):
     EventType: EventTypeType
 
 
+# This class is the input for the 'delete_ota_task_configuration' function.
 class DeleteOtaTaskConfigurationRequest(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'delete_ota_task' function.
 class DeleteOtaTaskRequest(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'delete_provisioning_profile' function.
 class DeleteProvisioningProfileRequest(BaseValidatorModel):
     Identifier: str
 
@@ -151,50 +164,62 @@ class RolloutRateIncreaseCriteria(BaseValidatorModel):
     numberOfSucceededThings: Optional[int] = None
 
 
+# This class is the input for the 'get_credential_locker' function.
 class GetCredentialLockerRequest(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'get_destination' function.
 class GetDestinationRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'get_device_discovery' function.
 class GetDeviceDiscoveryRequest(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'get_event_log_configuration' function.
 class GetEventLogConfigurationRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_managed_thing_capabilities' function.
 class GetManagedThingCapabilitiesRequest(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'get_managed_thing_connectivity_data' function.
 class GetManagedThingConnectivityDataRequest(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'get_managed_thing_meta_data' function.
 class GetManagedThingMetaDataRequest(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'get_managed_thing' function.
 class GetManagedThingRequest(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'get_managed_thing_state' function.
 class GetManagedThingStateRequest(BaseValidatorModel):
     ManagedThingId: str
 
 
+# This class is the input for the 'get_notification_configuration' function.
 class GetNotificationConfigurationRequest(BaseValidatorModel):
     EventType: EventTypeType
 
 
+# This class is the input for the 'get_ota_task_configuration' function.
 class GetOtaTaskConfigurationRequest(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'get_ota_task' function.
 class GetOtaTaskRequest(BaseValidatorModel):
     Identifier: str
 
@@ -211,10 +236,12 @@ class TaskProcessingDetails(BaseValidatorModel):
     processingTargets: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_provisioning_profile' function.
 class GetProvisioningProfileRequest(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'get_runtime_log_configuration' function.
 class GetRuntimeLogConfigurationRequest(BaseValidatorModel):
     ManagedThingId: str
 
@@ -230,6 +257,7 @@ class RuntimeLogConfigurations(BaseValidatorModel):
     DeleteLocalStoreAfterUpload: Optional[bool] = None
 
 
+# This class is the input for the 'get_schema_version' function.
 class GetSchemaVersionRequest(BaseValidatorModel):
     Type: SchemaVersionTypeType
     SchemaVersionedId: str
@@ -242,21 +270,25 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_credential_lockers' function.
 class ListCredentialLockersRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_destinations' function.
 class ListDestinationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_event_log_configurations' function.
 class ListEventLogConfigurationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_managed_thing_schemas' function.
 class ListManagedThingSchemasRequest(BaseValidatorModel):
     Identifier: str
     EndpointIdFilter: Optional[str] = None
@@ -271,6 +303,7 @@ class ManagedThingSchemaListItem(BaseValidatorModel):
     Schema: Optional[Dict[str, Any]] = None
 
 
+# This class is the input for the 'list_managed_things' function.
 class ListManagedThingsRequest(BaseValidatorModel):
     OwnerFilter: Optional[str] = None
     CredentialLockerFilter: Optional[str] = None
@@ -304,6 +337,7 @@ class ManagedThingSummary(BaseValidatorModel):
     ActivatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'list_notification_configurations' function.
 class ListNotificationConfigurationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -314,6 +348,7 @@ class NotificationConfigurationSummary(BaseValidatorModel):
     DestinationName: Optional[str] = None
 
 
+# This class is the input for the 'list_ota_task_configurations' function.
 class ListOtaTaskConfigurationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -325,12 +360,14 @@ class OtaTaskConfigurationSummary(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'list_ota_task_executions' function.
 class ListOtaTaskExecutionsRequest(BaseValidatorModel):
     Identifier: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_ota_tasks' function.
 class ListOtaTasksRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -345,6 +382,7 @@ class OtaTaskSummary(BaseValidatorModel):
     Status: Optional[OtaStatusType] = None
 
 
+# This class is the input for the 'list_provisioning_profiles' function.
 class ListProvisioningProfilesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -357,6 +395,7 @@ class ProvisioningProfileSummary(BaseValidatorModel):
     ProvisioningType: Optional[ProvisioningTypeType] = None
 
 
+# This class is the input for the 'list_schema_versions' function.
 class ListSchemaVersionsRequest(BaseValidatorModel):
     Type: SchemaVersionTypeType
     MaxResults: Optional[int] = None
@@ -399,19 +438,23 @@ class OtaTaskTimeoutConfig(BaseValidatorModel):
     InProgressTimeoutInMinutes: Optional[int] = None
 
 
+# This class is the input for the 'put_default_encryption_configuration' function.
 class PutDefaultEncryptionConfigurationRequest(BaseValidatorModel):
     encryptionType: EncryptionTypeType
     kmsKeyArn: Optional[str] = None
 
 
+# This class is the input for the 'put_hub_configuration' function.
 class PutHubConfigurationRequest(BaseValidatorModel):
     HubTokenTimerExpirySettingInSeconds: int
 
 
+# This class is the input for the 'reset_runtime_log_configuration' function.
 class ResetRuntimeLogConfigurationRequest(BaseValidatorModel):
     ManagedThingId: str
 
 
+# This class is the input for the 'start_device_discovery' function.
 class StartDeviceDiscoveryRequest(BaseValidatorModel):
     DiscoveryType: DiscoveryTypeType
     ControllerIdentifier: Optional[str] = None
@@ -429,6 +472,7 @@ class StateCapability(BaseValidatorModel):
     properties: Optional[Dict[str, Any]] = None
 
 
+# This class is the input for the 'update_destination' function.
 class UpdateDestinationRequest(BaseValidatorModel):
     Name: str
     DeliveryDestinationArn: Optional[str] = None
@@ -437,16 +481,19 @@ class UpdateDestinationRequest(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'update_event_log_configuration' function.
 class UpdateEventLogConfigurationRequest(BaseValidatorModel):
     Id: str
     EventLogLevel: LogLevelType
 
 
+# This class is the input for the 'update_notification_configuration' function.
 class UpdateNotificationConfigurationRequest(BaseValidatorModel):
     EventType: EventTypeType
     DestinationName: str
 
 
+# This class is the input for the 'update_ota_task' function.
 class UpdateOtaTaskRequest(BaseValidatorModel):
     Identifier: str
     Description: Optional[str] = None
@@ -485,6 +532,7 @@ class ConfigurationStatus(BaseValidatorModel):
     error: Optional[ConfigurationError] = None
 
 
+# This class is the output for the 'create_credential_locker' function.
 class CreateCredentialLockerResponse(BaseValidatorModel):
     Id: str
     Arn: str
@@ -492,16 +540,19 @@ class CreateCredentialLockerResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_destination' function.
 class CreateDestinationResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_event_log_configuration' function.
 class CreateEventLogConfigurationResponse(BaseValidatorModel):
     Id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_managed_thing' function.
 class CreateManagedThingResponse(BaseValidatorModel):
     Id: str
     Arn: str
@@ -509,16 +560,19 @@ class CreateManagedThingResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_notification_configuration' function.
 class CreateNotificationConfigurationResponse(BaseValidatorModel):
     EventType: EventTypeType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_ota_task_configuration' function.
 class CreateOtaTaskConfigurationResponse(BaseValidatorModel):
     TaskConfigurationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_ota_task' function.
 class CreateOtaTaskResponse(BaseValidatorModel):
     TaskId: str
     TaskArn: str
@@ -526,6 +580,7 @@ class CreateOtaTaskResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_provisioning_profile' function.
 class CreateProvisioningProfileResponse(BaseValidatorModel):
     Arn: str
     Name: str
@@ -536,10 +591,12 @@ class CreateProvisioningProfileResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_ota_task' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_credential_locker' function.
 class GetCredentialLockerResponse(BaseValidatorModel):
     Id: str
     Arn: str
@@ -554,6 +611,7 @@ class GetCustomEndpointResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_destination' function.
 class GetDestinationResponse(BaseValidatorModel):
     Description: str
     DeliveryDestinationArn: str
@@ -566,6 +624,7 @@ class GetDestinationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_device_discovery' function.
 class GetDeviceDiscoveryResponse(BaseValidatorModel):
     Id: str
     Arn: str
@@ -579,6 +638,7 @@ class GetDeviceDiscoveryResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_event_log_configuration' function.
 class GetEventLogConfigurationResponse(BaseValidatorModel):
     Id: str
     ResourceType: str
@@ -593,6 +653,7 @@ class GetHubConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_managed_thing_connectivity_data' function.
 class GetManagedThingConnectivityDataResponse(BaseValidatorModel):
     ManagedThingId: str
     Connected: bool
@@ -601,12 +662,14 @@ class GetManagedThingConnectivityDataResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_managed_thing_meta_data' function.
 class GetManagedThingMetaDataResponse(BaseValidatorModel):
     ManagedThingId: str
     MetaData: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_managed_thing' function.
 class GetManagedThingResponse(BaseValidatorModel):
     Id: str
     Arn: str
@@ -636,6 +699,7 @@ class GetManagedThingResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_notification_configuration' function.
 class GetNotificationConfigurationResponse(BaseValidatorModel):
     EventType: EventTypeType
     DestinationName: str
@@ -645,6 +709,7 @@ class GetNotificationConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_provisioning_profile' function.
 class GetProvisioningProfileResponse(BaseValidatorModel):
     Arn: str
     Name: str
@@ -655,6 +720,7 @@ class GetProvisioningProfileResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_schema_version' function.
 class GetSchemaVersionResponse(BaseValidatorModel):
     SchemaId: str
     Type: SchemaVersionTypeType
@@ -666,6 +732,7 @@ class GetSchemaVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_hub_configuration' function.
 class PutHubConfigurationResponse(BaseValidatorModel):
     HubTokenTimerExpirySettingInSeconds: int
     ResponseMetadata: ResponseMetadata
@@ -676,29 +743,34 @@ class RegisterCustomEndpointResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'send_managed_thing_command' function.
 class SendManagedThingCommandResponse(BaseValidatorModel):
     TraceId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_device_discovery' function.
 class StartDeviceDiscoveryResponse(BaseValidatorModel):
     Id: str
     StartedAt: datetime
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_credential_lockers' function.
 class ListCredentialLockersResponse(BaseValidatorModel):
     Items: List[CredentialLockerSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_destinations' function.
 class ListDestinationsResponse(BaseValidatorModel):
     DestinationList: List[DestinationSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_event_log_configurations' function.
 class ListEventLogConfigurationsResponse(BaseValidatorModel):
     EventLogConfigurationList: List[EventLogConfigurationSummary]
     ResponseMetadata: ResponseMetadata
@@ -711,12 +783,14 @@ class ExponentialRolloutRate(BaseValidatorModel):
     RateIncreaseCriteria: Optional[RolloutRateIncreaseCriteria] = None
 
 
+# This class is the output for the 'get_runtime_log_configuration' function.
 class GetRuntimeLogConfigurationResponse(BaseValidatorModel):
     ManagedThingId: str
     RuntimeLogConfigurations: RuntimeLogConfigurations
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_runtime_log_configuration' function.
 class PutRuntimeLogConfigurationRequest(BaseValidatorModel):
     ManagedThingId: str
     RuntimeLogConfigurations: RuntimeLogConfigurations
@@ -782,42 +856,49 @@ class ListSchemaVersionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_managed_thing_schemas' function.
 class ListManagedThingSchemasResponse(BaseValidatorModel):
     Items: List[ManagedThingSchemaListItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_managed_things' function.
 class ListManagedThingsResponse(BaseValidatorModel):
     Items: List[ManagedThingSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_notification_configurations' function.
 class ListNotificationConfigurationsResponse(BaseValidatorModel):
     NotificationConfigurationList: List[NotificationConfigurationSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_ota_task_configurations' function.
 class ListOtaTaskConfigurationsResponse(BaseValidatorModel):
     Items: List[OtaTaskConfigurationSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_ota_tasks' function.
 class ListOtaTasksResponse(BaseValidatorModel):
     Tasks: List[OtaTaskSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_provisioning_profiles' function.
 class ListProvisioningProfilesResponse(BaseValidatorModel):
     Items: List[ProvisioningProfileSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_schema_versions' function.
 class ListSchemaVersionsResponse(BaseValidatorModel):
     Items: List[SchemaVersionListItem]
     ResponseMetadata: ResponseMetadata
@@ -880,6 +961,7 @@ class GetDefaultEncryptionConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_default_encryption_configuration' function.
 class PutDefaultEncryptionConfigurationResponse(BaseValidatorModel):
     configurationStatus: ConfigurationStatus
     encryptionType: EncryptionTypeType
@@ -894,12 +976,14 @@ class OtaTaskExecutionRolloutConfig(BaseValidatorModel):
 OtaTaskExecutionRetryConfigUnion = Union[OtaTaskExecutionRetryConfig, OtaTaskExecutionRetryConfigOutput]
 
 
+# This class is the output for the 'list_ota_task_executions' function.
 class ListOtaTaskExecutionsResponse(BaseValidatorModel):
     ExecutionSummaries: List[OtaTaskExecutionSummaries]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_ota_task' function.
 class GetOtaTaskResponse(BaseValidatorModel):
     TaskId: str
     TaskArn: str
@@ -922,17 +1006,20 @@ class GetOtaTaskResponse(BaseValidatorModel):
 OtaTaskSchedulingConfigUnion = Union[OtaTaskSchedulingConfig, OtaTaskSchedulingConfigOutput]
 
 
+# This class is the output for the 'get_managed_thing_state' function.
 class GetManagedThingStateResponse(BaseValidatorModel):
     Endpoints: List[StateEndpoint]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'send_managed_thing_command' function.
 class SendManagedThingCommandRequest(BaseValidatorModel):
     ManagedThingId: str
     Endpoints: List[CommandEndpoint]
     ConnectorAssociationId: Optional[str] = None
 
 
+# This class is the output for the 'get_managed_thing_capabilities' function.
 class GetManagedThingCapabilitiesResponse(BaseValidatorModel):
     ManagedThingId: str
     Capabilities: str
@@ -954,6 +1041,7 @@ class PushConfig(BaseValidatorModel):
     TimeoutConfig: Optional[OtaTaskTimeoutConfig] = None
 
 
+# This class is the input for the 'create_ota_task' function.
 class CreateOtaTaskRequest(BaseValidatorModel):
     S3Url: str
     OtaType: OtaTypeType
@@ -969,6 +1057,7 @@ class CreateOtaTaskRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_managed_thing' function.
 class CreateManagedThingRequest(BaseValidatorModel):
     Role: RoleType
     AuthenticationMaterial: str
@@ -987,6 +1076,7 @@ class CreateManagedThingRequest(BaseValidatorModel):
     MetaData: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_managed_thing' function.
 class UpdateManagedThingRequest(BaseValidatorModel):
     Identifier: str
     Owner: Optional[str] = None
@@ -1002,6 +1092,7 @@ class UpdateManagedThingRequest(BaseValidatorModel):
     MetaData: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'get_ota_task_configuration' function.
 class GetOtaTaskConfigurationResponse(BaseValidatorModel):
     TaskConfigurationId: str
     Name: str
@@ -1013,6 +1104,7 @@ class GetOtaTaskConfigurationResponse(BaseValidatorModel):
 PushConfigUnion = Union[PushConfig, PushConfigOutput]
 
 
+# This class is the input for the 'create_ota_task_configuration' function.
 class CreateOtaTaskConfigurationRequest(BaseValidatorModel):
     Description: Optional[str] = None
     Name: Optional[str] = None

@@ -57,10 +57,12 @@ class EndpointDescription(BaseValidatorModel):
     ClientIPPreservationEnabled: Optional[bool] = None
 
 
+# This class is the input for the 'advertise_byoip_cidr' function.
 class AdvertiseByoipCidrRequest(BaseValidatorModel):
     Cidr: str
 
 
+# This class is the input for the 'allow_custom_routing_traffic' function.
 class AllowCustomRoutingTrafficRequest(BaseValidatorModel):
     EndpointGroupArn: str
     EndpointId: str
@@ -124,34 +126,42 @@ class CustomRoutingDestinationDescription(BaseValidatorModel):
     Protocols: Optional[List[ProtocolType]] = None
 
 
+# This class is the input for the 'delete_accelerator' function.
 class DeleteAcceleratorRequest(BaseValidatorModel):
     AcceleratorArn: str
 
 
+# This class is the input for the 'delete_cross_account_attachment' function.
 class DeleteCrossAccountAttachmentRequest(BaseValidatorModel):
     AttachmentArn: str
 
 
+# This class is the input for the 'delete_custom_routing_accelerator' function.
 class DeleteCustomRoutingAcceleratorRequest(BaseValidatorModel):
     AcceleratorArn: str
 
 
+# This class is the input for the 'delete_custom_routing_endpoint_group' function.
 class DeleteCustomRoutingEndpointGroupRequest(BaseValidatorModel):
     EndpointGroupArn: str
 
 
+# This class is the input for the 'delete_custom_routing_listener' function.
 class DeleteCustomRoutingListenerRequest(BaseValidatorModel):
     ListenerArn: str
 
 
+# This class is the input for the 'delete_endpoint_group' function.
 class DeleteEndpointGroupRequest(BaseValidatorModel):
     EndpointGroupArn: str
 
 
+# This class is the input for the 'delete_listener' function.
 class DeleteListenerRequest(BaseValidatorModel):
     ListenerArn: str
 
 
+# This class is the input for the 'deny_custom_routing_traffic' function.
 class DenyCustomRoutingTrafficRequest(BaseValidatorModel):
     EndpointGroupArn: str
     EndpointId: str
@@ -160,42 +170,52 @@ class DenyCustomRoutingTrafficRequest(BaseValidatorModel):
     DenyAllTrafficToEndpoint: Optional[bool] = None
 
 
+# This class is the input for the 'deprovision_byoip_cidr' function.
 class DeprovisionByoipCidrRequest(BaseValidatorModel):
     Cidr: str
 
 
+# This class is the input for the 'describe_accelerator_attributes' function.
 class DescribeAcceleratorAttributesRequest(BaseValidatorModel):
     AcceleratorArn: str
 
 
+# This class is the input for the 'describe_accelerator' function.
 class DescribeAcceleratorRequest(BaseValidatorModel):
     AcceleratorArn: str
 
 
+# This class is the input for the 'describe_cross_account_attachment' function.
 class DescribeCrossAccountAttachmentRequest(BaseValidatorModel):
     AttachmentArn: str
 
 
+# This class is the input for the 'describe_custom_routing_accelerator_attributes' function.
 class DescribeCustomRoutingAcceleratorAttributesRequest(BaseValidatorModel):
     AcceleratorArn: str
 
 
+# This class is the input for the 'describe_custom_routing_accelerator' function.
 class DescribeCustomRoutingAcceleratorRequest(BaseValidatorModel):
     AcceleratorArn: str
 
 
+# This class is the input for the 'describe_custom_routing_endpoint_group' function.
 class DescribeCustomRoutingEndpointGroupRequest(BaseValidatorModel):
     EndpointGroupArn: str
 
 
+# This class is the input for the 'describe_custom_routing_listener' function.
 class DescribeCustomRoutingListenerRequest(BaseValidatorModel):
     ListenerArn: str
 
 
+# This class is the input for the 'describe_endpoint_group' function.
 class DescribeEndpointGroupRequest(BaseValidatorModel):
     EndpointGroupArn: str
 
 
+# This class is the input for the 'describe_listener' function.
 class DescribeListenerRequest(BaseValidatorModel):
     ListenerArn: str
 
@@ -216,21 +236,25 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_accelerators' function.
 class ListAcceleratorsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_byoip_cidrs' function.
 class ListByoipCidrsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_cross_account_attachments' function.
 class ListCrossAccountAttachmentsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_cross_account_resources' function.
 class ListCrossAccountResourcesRequest(BaseValidatorModel):
     ResourceOwnerAwsAccountId: str
     AcceleratorArn: Optional[str] = None
@@ -238,23 +262,27 @@ class ListCrossAccountResourcesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_custom_routing_accelerators' function.
 class ListCustomRoutingAcceleratorsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_custom_routing_endpoint_groups' function.
 class ListCustomRoutingEndpointGroupsRequest(BaseValidatorModel):
     ListenerArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_custom_routing_listeners' function.
 class ListCustomRoutingListenersRequest(BaseValidatorModel):
     AcceleratorArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_custom_routing_port_mappings_by_destination' function.
 class ListCustomRoutingPortMappingsByDestinationRequest(BaseValidatorModel):
     EndpointId: str
     DestinationAddress: str
@@ -262,6 +290,7 @@ class ListCustomRoutingPortMappingsByDestinationRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_custom_routing_port_mappings' function.
 class ListCustomRoutingPortMappingsRequest(BaseValidatorModel):
     AcceleratorArn: str
     EndpointGroupArn: Optional[str] = None
@@ -269,22 +298,26 @@ class ListCustomRoutingPortMappingsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_endpoint_groups' function.
 class ListEndpointGroupsRequest(BaseValidatorModel):
     ListenerArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_listeners' function.
 class ListListenersRequest(BaseValidatorModel):
     AcceleratorArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'remove_custom_routing_endpoints' function.
 class RemoveCustomRoutingEndpointsRequest(BaseValidatorModel):
     EndpointIds: List[str]
     EndpointGroupArn: str
@@ -295,6 +328,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_accelerator_attributes' function.
 class UpdateAcceleratorAttributesRequest(BaseValidatorModel):
     AcceleratorArn: str
     FlowLogsEnabled: Optional[bool] = None
@@ -302,6 +336,7 @@ class UpdateAcceleratorAttributesRequest(BaseValidatorModel):
     FlowLogsS3Prefix: Optional[str] = None
 
 
+# This class is the input for the 'update_accelerator' function.
 class UpdateAcceleratorRequest(BaseValidatorModel):
     AcceleratorArn: str
     Name: Optional[str] = None
@@ -310,6 +345,7 @@ class UpdateAcceleratorRequest(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
+# This class is the input for the 'update_custom_routing_accelerator_attributes' function.
 class UpdateCustomRoutingAcceleratorAttributesRequest(BaseValidatorModel):
     AcceleratorArn: str
     FlowLogsEnabled: Optional[bool] = None
@@ -317,6 +353,7 @@ class UpdateCustomRoutingAcceleratorAttributesRequest(BaseValidatorModel):
     FlowLogsS3Prefix: Optional[str] = None
 
 
+# This class is the input for the 'update_custom_routing_accelerator' function.
 class UpdateCustomRoutingAcceleratorRequest(BaseValidatorModel):
     AcceleratorArn: str
     Name: Optional[str] = None
@@ -325,6 +362,7 @@ class UpdateCustomRoutingAcceleratorRequest(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
+# This class is the input for the 'withdraw_byoip_cidr' function.
 class WithdrawByoipCidrRequest(BaseValidatorModel):
     Cidr: str
 
@@ -355,22 +393,26 @@ class CustomRoutingAccelerator(BaseValidatorModel):
     LastModifiedTime: Optional[datetime] = None
 
 
+# This class is the input for the 'add_custom_routing_endpoints' function.
 class AddCustomRoutingEndpointsRequest(BaseValidatorModel):
     EndpointConfigurations: List[CustomRoutingEndpointConfiguration]
     EndpointGroupArn: str
 
 
+# This class is the output for the 'add_custom_routing_endpoints' function.
 class AddCustomRoutingEndpointsResponse(BaseValidatorModel):
     EndpointDescriptions: List[CustomRoutingEndpointDescription]
     EndpointGroupArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_accelerator_attributes' function.
 class DescribeAcceleratorAttributesResponse(BaseValidatorModel):
     AcceleratorAttributes: AcceleratorAttributes
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'remove_endpoints' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
@@ -380,16 +422,19 @@ class ListCrossAccountResourceAccountsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_accelerator_attributes' function.
 class UpdateAcceleratorAttributesResponse(BaseValidatorModel):
     AcceleratorAttributes: AcceleratorAttributes
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'add_endpoints' function.
 class AddEndpointsRequest(BaseValidatorModel):
     EndpointConfigurations: List[EndpointConfiguration]
     EndpointGroupArn: str
 
 
+# This class is the output for the 'add_endpoints' function.
 class AddEndpointsResponse(BaseValidatorModel):
     EndpointDescriptions: List[EndpointDescription]
     EndpointGroupArn: str
@@ -405,6 +450,7 @@ class Attachment(BaseValidatorModel):
     CreatedTime: Optional[datetime] = None
 
 
+# This class is the input for the 'update_cross_account_attachment' function.
 class UpdateCrossAccountAttachmentRequest(BaseValidatorModel):
     AttachmentArn: str
     Name: Optional[str] = None
@@ -420,11 +466,13 @@ class ByoipCidr(BaseValidatorModel):
     Events: Optional[List[ByoipCidrEvent]] = None
 
 
+# This class is the input for the 'provision_byoip_cidr' function.
 class ProvisionByoipCidrRequest(BaseValidatorModel):
     Cidr: str
     CidrAuthorizationContext: CidrAuthorizationContext
 
 
+# This class is the input for the 'create_accelerator' function.
 class CreateAcceleratorRequest(BaseValidatorModel):
     Name: str
     IdempotencyToken: str
@@ -434,6 +482,7 @@ class CreateAcceleratorRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_cross_account_attachment' function.
 class CreateCrossAccountAttachmentRequest(BaseValidatorModel):
     Name: str
     IdempotencyToken: str
@@ -442,6 +491,7 @@ class CreateCrossAccountAttachmentRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_custom_routing_accelerator' function.
 class CreateCustomRoutingAcceleratorRequest(BaseValidatorModel):
     Name: str
     IdempotencyToken: str
@@ -451,6 +501,7 @@ class CreateCustomRoutingAcceleratorRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -461,6 +512,7 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the input for the 'create_custom_routing_endpoint_group' function.
 class CreateCustomRoutingEndpointGroupRequest(BaseValidatorModel):
     ListenerArn: str
     EndpointGroupRegion: str
@@ -468,12 +520,14 @@ class CreateCustomRoutingEndpointGroupRequest(BaseValidatorModel):
     IdempotencyToken: str
 
 
+# This class is the input for the 'create_custom_routing_listener' function.
 class CreateCustomRoutingListenerRequest(BaseValidatorModel):
     AcceleratorArn: str
     PortRanges: List[PortRange]
     IdempotencyToken: str
 
 
+# This class is the input for the 'create_listener' function.
 class CreateListenerRequest(BaseValidatorModel):
     AcceleratorArn: str
     PortRanges: List[PortRange]
@@ -494,11 +548,13 @@ class Listener(BaseValidatorModel):
     ClientAffinity: Optional[ClientAffinityType] = None
 
 
+# This class is the input for the 'update_custom_routing_listener' function.
 class UpdateCustomRoutingListenerRequest(BaseValidatorModel):
     ListenerArn: str
     PortRanges: List[PortRange]
 
 
+# This class is the input for the 'update_listener' function.
 class UpdateListenerRequest(BaseValidatorModel):
     ListenerArn: str
     PortRanges: Optional[List[PortRange]] = None
@@ -506,6 +562,7 @@ class UpdateListenerRequest(BaseValidatorModel):
     ClientAffinity: Optional[ClientAffinityType] = None
 
 
+# This class is the input for the 'create_endpoint_group' function.
 class CreateEndpointGroupRequest(BaseValidatorModel):
     ListenerArn: str
     EndpointGroupRegion: str
@@ -533,6 +590,7 @@ class EndpointGroup(BaseValidatorModel):
     PortOverrides: Optional[List[PortOverride]] = None
 
 
+# This class is the input for the 'update_endpoint_group' function.
 class UpdateEndpointGroupRequest(BaseValidatorModel):
     EndpointGroupArn: str
     EndpointConfigurations: Optional[List[EndpointConfiguration]] = None
@@ -545,17 +603,20 @@ class UpdateEndpointGroupRequest(BaseValidatorModel):
     PortOverrides: Optional[List[PortOverride]] = None
 
 
+# This class is the output for the 'list_cross_account_resources' function.
 class ListCrossAccountResourcesResponse(BaseValidatorModel):
     CrossAccountResources: List[CrossAccountResource]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_custom_routing_accelerator_attributes' function.
 class DescribeCustomRoutingAcceleratorAttributesResponse(BaseValidatorModel):
     AcceleratorAttributes: CustomRoutingAcceleratorAttributes
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_custom_routing_accelerator_attributes' function.
 class UpdateCustomRoutingAcceleratorAttributesResponse(BaseValidatorModel):
     AcceleratorAttributes: CustomRoutingAcceleratorAttributes
     ResponseMetadata: ResponseMetadata
@@ -588,6 +649,7 @@ class PortMapping(BaseValidatorModel):
     DestinationTrafficState: Optional[CustomRoutingDestinationTrafficStateType] = None
 
 
+# This class is the input for the 'remove_endpoints' function.
 class RemoveEndpointsRequest(BaseValidatorModel):
     EndpointIdentifiers: List[EndpointIdentifier]
     EndpointGroupArn: str
@@ -647,180 +709,214 @@ class ListListenersRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'create_accelerator' function.
 class CreateAcceleratorResponse(BaseValidatorModel):
     Accelerator: Accelerator
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_accelerator' function.
 class DescribeAcceleratorResponse(BaseValidatorModel):
     Accelerator: Accelerator
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_accelerators' function.
 class ListAcceleratorsResponse(BaseValidatorModel):
     Accelerators: List[Accelerator]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_accelerator' function.
 class UpdateAcceleratorResponse(BaseValidatorModel):
     Accelerator: Accelerator
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_custom_routing_accelerator' function.
 class CreateCustomRoutingAcceleratorResponse(BaseValidatorModel):
     Accelerator: CustomRoutingAccelerator
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_custom_routing_accelerator' function.
 class DescribeCustomRoutingAcceleratorResponse(BaseValidatorModel):
     Accelerator: CustomRoutingAccelerator
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_custom_routing_accelerators' function.
 class ListCustomRoutingAcceleratorsResponse(BaseValidatorModel):
     Accelerators: List[CustomRoutingAccelerator]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_custom_routing_accelerator' function.
 class UpdateCustomRoutingAcceleratorResponse(BaseValidatorModel):
     Accelerator: CustomRoutingAccelerator
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_cross_account_attachment' function.
 class CreateCrossAccountAttachmentResponse(BaseValidatorModel):
     CrossAccountAttachment: Attachment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_cross_account_attachment' function.
 class DescribeCrossAccountAttachmentResponse(BaseValidatorModel):
     CrossAccountAttachment: Attachment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_cross_account_attachments' function.
 class ListCrossAccountAttachmentsResponse(BaseValidatorModel):
     CrossAccountAttachments: List[Attachment]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_cross_account_attachment' function.
 class UpdateCrossAccountAttachmentResponse(BaseValidatorModel):
     CrossAccountAttachment: Attachment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'advertise_byoip_cidr' function.
 class AdvertiseByoipCidrResponse(BaseValidatorModel):
     ByoipCidr: ByoipCidr
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'deprovision_byoip_cidr' function.
 class DeprovisionByoipCidrResponse(BaseValidatorModel):
     ByoipCidr: ByoipCidr
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_byoip_cidrs' function.
 class ListByoipCidrsResponse(BaseValidatorModel):
     ByoipCidrs: List[ByoipCidr]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'provision_byoip_cidr' function.
 class ProvisionByoipCidrResponse(BaseValidatorModel):
     ByoipCidr: ByoipCidr
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'withdraw_byoip_cidr' function.
 class WithdrawByoipCidrResponse(BaseValidatorModel):
     ByoipCidr: ByoipCidr
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_custom_routing_listener' function.
 class CreateCustomRoutingListenerResponse(BaseValidatorModel):
     Listener: CustomRoutingListener
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_custom_routing_listener' function.
 class DescribeCustomRoutingListenerResponse(BaseValidatorModel):
     Listener: CustomRoutingListener
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_custom_routing_listeners' function.
 class ListCustomRoutingListenersResponse(BaseValidatorModel):
     Listeners: List[CustomRoutingListener]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_custom_routing_listener' function.
 class UpdateCustomRoutingListenerResponse(BaseValidatorModel):
     Listener: CustomRoutingListener
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_listener' function.
 class CreateListenerResponse(BaseValidatorModel):
     Listener: Listener
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_listener' function.
 class DescribeListenerResponse(BaseValidatorModel):
     Listener: Listener
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_listeners' function.
 class ListListenersResponse(BaseValidatorModel):
     Listeners: List[Listener]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_listener' function.
 class UpdateListenerResponse(BaseValidatorModel):
     Listener: Listener
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_endpoint_group' function.
 class CreateEndpointGroupResponse(BaseValidatorModel):
     EndpointGroup: EndpointGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_endpoint_group' function.
 class DescribeEndpointGroupResponse(BaseValidatorModel):
     EndpointGroup: EndpointGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_endpoint_groups' function.
 class ListEndpointGroupsResponse(BaseValidatorModel):
     EndpointGroups: List[EndpointGroup]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_endpoint_group' function.
 class UpdateEndpointGroupResponse(BaseValidatorModel):
     EndpointGroup: EndpointGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_custom_routing_endpoint_group' function.
 class CreateCustomRoutingEndpointGroupResponse(BaseValidatorModel):
     EndpointGroup: CustomRoutingEndpointGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_custom_routing_endpoint_group' function.
 class DescribeCustomRoutingEndpointGroupResponse(BaseValidatorModel):
     EndpointGroup: CustomRoutingEndpointGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_custom_routing_endpoint_groups' function.
 class ListCustomRoutingEndpointGroupsResponse(BaseValidatorModel):
     EndpointGroups: List[CustomRoutingEndpointGroup]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_custom_routing_port_mappings_by_destination' function.
 class ListCustomRoutingPortMappingsByDestinationResponse(BaseValidatorModel):
     DestinationPortMappings: List[DestinationPortMapping]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_custom_routing_port_mappings' function.
 class ListCustomRoutingPortMappingsResponse(BaseValidatorModel):
     PortMappings: List[PortMapping]
     ResponseMetadata: ResponseMetadata

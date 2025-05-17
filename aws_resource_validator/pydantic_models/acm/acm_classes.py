@@ -49,10 +49,12 @@ class CertificateSummary(BaseValidatorModel):
     RevokedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'delete_certificate' function.
 class DeleteCertificateRequest(BaseValidatorModel):
     CertificateArn: str
 
 
+# This class is the input for the 'describe_certificate' function.
 class DescribeCertificateRequest(BaseValidatorModel):
     CertificateArn: str
 
@@ -91,6 +93,7 @@ class Filters(BaseValidatorModel):
     keyTypes: Optional[List[KeyAlgorithmType]] = None
 
 
+# This class is the input for the 'get_certificate' function.
 class GetCertificateRequest(BaseValidatorModel):
     CertificateArn: str
 
@@ -101,35 +104,42 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_certificate' function.
 class ListTagsForCertificateRequest(BaseValidatorModel):
     CertificateArn: str
 
 
+# This class is the input for the 'renew_certificate' function.
 class RenewCertificateRequest(BaseValidatorModel):
     CertificateArn: str
 
 
+# This class is the input for the 'resend_validation_email' function.
 class ResendValidationEmailRequest(BaseValidatorModel):
     CertificateArn: str
     Domain: str
     ValidationDomain: str
 
 
+# This class is the input for the 'add_tags_to_certificate' function.
 class AddTagsToCertificateRequest(BaseValidatorModel):
     CertificateArn: str
     Tags: List[Tag]
 
 
+# This class is the input for the 'remove_tags_from_certificate' function.
 class RemoveTagsFromCertificateRequest(BaseValidatorModel):
     CertificateArn: str
     Tags: List[Tag]
 
 
+# This class is the input for the 'export_certificate' function.
 class ExportCertificateRequest(BaseValidatorModel):
     CertificateArn: str
     Passphrase: Blob
 
 
+# This class is the input for the 'import_certificate' function.
 class ImportCertificateRequest(BaseValidatorModel):
     Certificate: Blob
     PrivateKey: Blob
@@ -138,6 +148,7 @@ class ImportCertificateRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_certificate_options' function.
 class UpdateCertificateOptionsRequest(BaseValidatorModel):
     CertificateArn: str
     Options: CertificateOptions
@@ -148,10 +159,12 @@ class DescribeCertificateRequestWait(BaseValidatorModel):
     WaiterConfig: Optional[WaiterConfig] = None
 
 
+# This class is the output for the 'update_certificate_options' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'export_certificate' function.
 class ExportCertificateResponse(BaseValidatorModel):
     Certificate: str
     CertificateChain: str
@@ -159,33 +172,39 @@ class ExportCertificateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_certificate' function.
 class GetCertificateResponse(BaseValidatorModel):
     Certificate: str
     CertificateChain: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_certificate' function.
 class ImportCertificateResponse(BaseValidatorModel):
     CertificateArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_certificates' function.
 class ListCertificatesResponse(BaseValidatorModel):
     CertificateSummaryList: List[CertificateSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_certificate' function.
 class ListTagsForCertificateResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'request_certificate' function.
 class RequestCertificateResponse(BaseValidatorModel):
     CertificateArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'request_certificate' function.
 class RequestCertificateRequest(BaseValidatorModel):
     DomainName: str
     ValidationMethod: Optional[ValidationMethodType] = None
@@ -212,11 +231,13 @@ class GetAccountConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_account_configuration' function.
 class PutAccountConfigurationRequest(BaseValidatorModel):
     IdempotencyToken: str
     ExpiryEvents: Optional[ExpiryEventsConfiguration] = None
 
 
+# This class is the input for the 'list_certificates' function.
 class ListCertificatesRequest(BaseValidatorModel):
     CertificateStatuses: Optional[List[CertificateStatusType]] = None
     Includes: Optional[Filters] = None
@@ -270,6 +291,7 @@ class CertificateDetail(BaseValidatorModel):
     Options: Optional[CertificateOptions] = None
 
 
+# This class is the output for the 'describe_certificate' function.
 class DescribeCertificateResponse(BaseValidatorModel):
     Certificate: CertificateDetail
     ResponseMetadata: ResponseMetadata

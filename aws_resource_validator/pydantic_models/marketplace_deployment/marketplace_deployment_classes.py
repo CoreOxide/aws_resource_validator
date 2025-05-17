@@ -13,6 +13,7 @@ class DeploymentParameterInput(BaseValidatorModel):
     secretString: str
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -37,11 +38,13 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_deployment_parameter' function.
 class PutDeploymentParameterResponse(BaseValidatorModel):
     agreementId: str
     deploymentParameterId: str
@@ -50,6 +53,7 @@ class PutDeploymentParameterResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_deployment_parameter' function.
 class PutDeploymentParameterRequest(BaseValidatorModel):
     agreementId: str
     catalog: str

@@ -12,6 +12,7 @@ class SnsConfiguration(BaseValidatorModel):
     TopicArn: str
 
 
+# This class is the input for the 'cancel_query' function.
 class CancelQueryRequest(BaseValidatorModel):
     QueryId: str
 
@@ -55,6 +56,7 @@ class TimeSeriesDataPoint(BaseValidatorModel):
     Value: Dict[str, Any]
 
 
+# This class is the input for the 'delete_scheduled_query' function.
 class DeleteScheduledQueryRequest(BaseValidatorModel):
     ScheduledQueryArn: str
 
@@ -64,6 +66,7 @@ class Endpoint(BaseValidatorModel):
     CachePeriodInMinutes: int
 
 
+# This class is the input for the 'describe_scheduled_query' function.
 class DescribeScheduledQueryRequest(BaseValidatorModel):
     ScheduledQueryArn: str
 
@@ -111,11 +114,13 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_scheduled_queries' function.
 class ListScheduledQueriesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
     MaxResults: Optional[int] = None
@@ -128,6 +133,7 @@ class MultiMeasureAttributeMapping(BaseValidatorModel):
     TargetMultiMeasureAttributeName: Optional[str] = None
 
 
+# This class is the input for the 'prepare_query' function.
 class PrepareQueryRequest(BaseValidatorModel):
     QueryString: str
     ValidateOnly: Optional[bool] = None
@@ -164,6 +170,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_scheduled_query' function.
 class UpdateScheduledQueryRequest(BaseValidatorModel):
     ScheduledQueryArn: str
     State: ScheduledQueryStateType
@@ -178,16 +185,19 @@ class NotificationConfiguration(BaseValidatorModel):
     SnsConfiguration: SnsConfiguration
 
 
+# This class is the output for the 'cancel_query' function.
 class CancelQueryResponse(BaseValidatorModel):
     CancellationMessage: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_scheduled_query' function.
 class CreateScheduledQueryResponse(BaseValidatorModel):
     Arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_scheduled_query' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
@@ -204,6 +214,7 @@ class Type(BaseValidatorModel):
     RowColumnInfo: Optional[List[ColumnInfo]] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -244,6 +255,7 @@ class ErrorReportLocation(BaseValidatorModel):
     S3ReportLocation: Optional[S3ReportLocation] = None
 
 
+# This class is the input for the 'execute_scheduled_query' function.
 class ExecuteScheduledQueryRequest(BaseValidatorModel):
     ScheduledQueryArn: str
     InvocationTime: Timestamp
@@ -293,6 +305,7 @@ class QueryRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'query' function.
 class QueryRequest(BaseValidatorModel):
     QueryString: str
     ClientToken: Optional[str] = None
@@ -406,6 +419,7 @@ class QueryComputeResponse(BaseValidatorModel):
     ProvisionedCapacity: Optional[ProvisionedCapacityResponse] = None
 
 
+# This class is the output for the 'prepare_query' function.
 class PrepareQueryResponse(BaseValidatorModel):
     QueryString: str
     Columns: List[SelectColumn]
@@ -431,6 +445,7 @@ class QueryResponsePaginator(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'query' function.
 class QueryResponse(BaseValidatorModel):
     QueryId: str
     Rows: List[Row]
@@ -451,12 +466,14 @@ class ScheduledQueryRunSummary(BaseValidatorModel):
     FailureReason: Optional[str] = None
 
 
+# This class is the output for the 'list_scheduled_queries' function.
 class ListScheduledQueriesResponse(BaseValidatorModel):
     ScheduledQueries: List[ScheduledQuery]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'update_account_settings' function.
 class UpdateAccountSettingsRequest(BaseValidatorModel):
     MaxQueryTCU: Optional[int] = None
     QueryPricingModel: Optional[QueryPricingModelType] = None
@@ -470,6 +487,7 @@ class DescribeAccountSettingsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_account_settings' function.
 class UpdateAccountSettingsResponse(BaseValidatorModel):
     MaxQueryTCU: int
     QueryPricingModel: QueryPricingModelType
@@ -497,6 +515,7 @@ class ScheduledQueryDescription(BaseValidatorModel):
     RecentlyFailedRuns: Optional[List[ScheduledQueryRunSummary]] = None
 
 
+# This class is the input for the 'create_scheduled_query' function.
 class CreateScheduledQueryRequest(BaseValidatorModel):
     Name: str
     QueryString: str
@@ -510,6 +529,7 @@ class CreateScheduledQueryRequest(BaseValidatorModel):
     KmsKeyId: Optional[str] = None
 
 
+# This class is the output for the 'describe_scheduled_query' function.
 class DescribeScheduledQueryResponse(BaseValidatorModel):
     ScheduledQuery: ScheduledQueryDescription
     ResponseMetadata: ResponseMetadata

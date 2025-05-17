@@ -68,6 +68,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_qualification_type' function.
 class CreateQualificationTypeRequest(BaseValidatorModel):
     Name: str
     Description: str
@@ -121,24 +122,29 @@ class DisassociateQualificationFromWorkerRequest(BaseValidatorModel):
     Reason: Optional[str] = None
 
 
+# This class is the input for the 'get_assignment' function.
 class GetAssignmentRequest(BaseValidatorModel):
     AssignmentId: str
 
 
+# This class is the input for the 'get_file_upload_url' function.
 class GetFileUploadURLRequest(BaseValidatorModel):
     AssignmentId: str
     QuestionIdentifier: str
 
 
+# This class is the input for the 'get_hit' function.
 class GetHITRequest(BaseValidatorModel):
     HITId: str
 
 
+# This class is the input for the 'get_qualification_score' function.
 class GetQualificationScoreRequest(BaseValidatorModel):
     QualificationTypeId: str
     WorkerId: str
 
 
+# This class is the input for the 'get_qualification_type' function.
 class GetQualificationTypeRequest(BaseValidatorModel):
     QualificationTypeId: str
 
@@ -149,6 +155,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_assignments_for_hit' function.
 class ListAssignmentsForHITRequest(BaseValidatorModel):
     HITId: str
     NextToken: Optional[str] = None
@@ -156,6 +163,7 @@ class ListAssignmentsForHITRequest(BaseValidatorModel):
     AssignmentStatuses: Optional[List[AssignmentStatusType]] = None
 
 
+# This class is the input for the 'list_bonus_payments' function.
 class ListBonusPaymentsRequest(BaseValidatorModel):
     HITId: Optional[str] = None
     AssignmentId: Optional[str] = None
@@ -163,17 +171,20 @@ class ListBonusPaymentsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_hits_for_qualification_type' function.
 class ListHITsForQualificationTypeRequest(BaseValidatorModel):
     QualificationTypeId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_hits' function.
 class ListHITsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_qualification_requests' function.
 class ListQualificationRequestsRequest(BaseValidatorModel):
     QualificationTypeId: Optional[str] = None
     NextToken: Optional[str] = None
@@ -189,6 +200,7 @@ class QualificationRequest(BaseValidatorModel):
     SubmitTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_qualification_types' function.
 class ListQualificationTypesRequest(BaseValidatorModel):
     MustBeRequestable: bool
     Query: Optional[str] = None
@@ -197,6 +209,7 @@ class ListQualificationTypesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_review_policy_results_for_hit' function.
 class ListReviewPolicyResultsForHITRequest(BaseValidatorModel):
     HITId: str
     PolicyLevels: Optional[List[ReviewPolicyLevelType]] = None
@@ -206,6 +219,7 @@ class ListReviewPolicyResultsForHITRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_reviewable_hits' function.
 class ListReviewableHITsRequest(BaseValidatorModel):
     HITTypeId: Optional[str] = None
     Status: Optional[ReviewableHITStatusType] = None
@@ -213,6 +227,7 @@ class ListReviewableHITsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_worker_blocks' function.
 class ListWorkerBlocksRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -223,6 +238,7 @@ class WorkerBlock(BaseValidatorModel):
     Reason: Optional[str] = None
 
 
+# This class is the input for the 'list_workers_with_qualification_type' function.
 class ListWorkersWithQualificationTypeRequest(BaseValidatorModel):
     QualificationTypeId: str
     Status: Optional[QualificationStatusType] = None
@@ -248,6 +264,7 @@ class NotifyWorkersFailureStatus(BaseValidatorModel):
     WorkerId: Optional[str] = None
 
 
+# This class is the input for the 'notify_workers' function.
 class NotifyWorkersRequest(BaseValidatorModel):
     Subject: str
     MessageText: str
@@ -314,6 +331,7 @@ class UpdateHITTypeOfHITRequest(BaseValidatorModel):
     HITTypeId: str
 
 
+# This class is the input for the 'update_qualification_type' function.
 class UpdateQualificationTypeRequest(BaseValidatorModel):
     QualificationTypeId: str
     Description: Optional[str] = None
@@ -326,6 +344,7 @@ class UpdateQualificationTypeRequest(BaseValidatorModel):
     AutoGrantedValue: Optional[int] = None
 
 
+# This class is the output for the 'create_hit_type' function.
 class CreateHITTypeResponse(BaseValidatorModel):
     HITTypeId: str
     ResponseMetadata: ResponseMetadata
@@ -337,11 +356,13 @@ class GetAccountBalanceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_file_upload_url' function.
 class GetFileUploadURLResponse(BaseValidatorModel):
     FileUploadURL: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_assignments_for_hit' function.
 class ListAssignmentsForHITResponse(BaseValidatorModel):
     NumResults: int
     Assignments: List[Assignment]
@@ -349,6 +370,7 @@ class ListAssignmentsForHITResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_bonus_payments' function.
 class ListBonusPaymentsResponse(BaseValidatorModel):
     NumResults: int
     BonusPayments: List[BonusPayment]
@@ -356,16 +378,19 @@ class ListBonusPaymentsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_qualification_type' function.
 class CreateQualificationTypeResponse(BaseValidatorModel):
     QualificationType: QualificationType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_qualification_type' function.
 class GetQualificationTypeResponse(BaseValidatorModel):
     QualificationType: QualificationType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_qualification_types' function.
 class ListQualificationTypesResponse(BaseValidatorModel):
     NumResults: int
     QualificationTypes: List[QualificationType]
@@ -373,6 +398,7 @@ class ListQualificationTypesResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_qualification_type' function.
 class UpdateQualificationTypeResponse(BaseValidatorModel):
     QualificationType: QualificationType
     ResponseMetadata: ResponseMetadata
@@ -427,6 +453,7 @@ class ListWorkersWithQualificationTypeRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_qualification_requests' function.
 class ListQualificationRequestsResponse(BaseValidatorModel):
     NumResults: int
     QualificationRequests: List[QualificationRequest]
@@ -434,6 +461,7 @@ class ListQualificationRequestsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_worker_blocks' function.
 class ListWorkerBlocksResponse(BaseValidatorModel):
     NumResults: int
     WorkerBlocks: List[WorkerBlock]
@@ -479,6 +507,7 @@ class UpdateNotificationSettingsRequest(BaseValidatorModel):
     Active: Optional[bool] = None
 
 
+# This class is the output for the 'notify_workers' function.
 class NotifyWorkersResponse(BaseValidatorModel):
     NotifyWorkersFailureStatuses: List[NotifyWorkersFailureStatus]
     ResponseMetadata: ResponseMetadata
@@ -532,11 +561,13 @@ class HIT(BaseValidatorModel):
 QualificationRequirementUnion = Union[QualificationRequirement, QualificationRequirementOutput]
 
 
+# This class is the output for the 'get_qualification_score' function.
 class GetQualificationScoreResponse(BaseValidatorModel):
     Qualification: Qualification
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_workers_with_qualification_type' function.
 class ListWorkersWithQualificationTypeResponse(BaseValidatorModel):
     NumResults: int
     Qualifications: List[Qualification]
@@ -554,27 +585,32 @@ class ReviewPolicy(BaseValidatorModel):
     Parameters: Optional[List[PolicyParameter]] = None
 
 
+# This class is the output for the 'create_hit' function.
 class CreateHITResponse(BaseValidatorModel):
     HIT: HIT
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_hit_with_hit_type' function.
 class CreateHITWithHITTypeResponse(BaseValidatorModel):
     HIT: HIT
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_assignment' function.
 class GetAssignmentResponse(BaseValidatorModel):
     Assignment: Assignment
     HIT: HIT
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_hit' function.
 class GetHITResponse(BaseValidatorModel):
     HIT: HIT
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_hits_for_qualification_type' function.
 class ListHITsForQualificationTypeResponse(BaseValidatorModel):
     NumResults: int
     HITs: List[HIT]
@@ -582,6 +618,7 @@ class ListHITsForQualificationTypeResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_hits' function.
 class ListHITsResponse(BaseValidatorModel):
     NumResults: int
     HITs: List[HIT]
@@ -589,6 +626,7 @@ class ListHITsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_reviewable_hits' function.
 class ListReviewableHITsResponse(BaseValidatorModel):
     NumResults: int
     HITs: List[HIT]
@@ -596,6 +634,7 @@ class ListReviewableHITsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_hit_type' function.
 class CreateHITTypeRequest(BaseValidatorModel):
     AssignmentDurationInSeconds: int
     Reward: str
@@ -606,6 +645,7 @@ class CreateHITTypeRequest(BaseValidatorModel):
     QualificationRequirements: Optional[List[QualificationRequirementUnion]] = None
 
 
+# This class is the output for the 'list_review_policy_results_for_hit' function.
 class ListReviewPolicyResultsForHITResponse(BaseValidatorModel):
     HITId: str
     AssignmentReviewPolicy: ReviewPolicyOutput
@@ -618,6 +658,7 @@ class ListReviewPolicyResultsForHITResponse(BaseValidatorModel):
 ReviewPolicyUnion = Union[ReviewPolicy, ReviewPolicyOutput]
 
 
+# This class is the input for the 'create_hit' function.
 class CreateHITRequest(BaseValidatorModel):
     LifetimeInSeconds: int
     AssignmentDurationInSeconds: int
@@ -637,6 +678,7 @@ class CreateHITRequest(BaseValidatorModel):
     HITLayoutParameters: Optional[List[HITLayoutParameter]] = None
 
 
+# This class is the input for the 'create_hit_with_hit_type' function.
 class CreateHITWithHITTypeRequest(BaseValidatorModel):
     HITTypeId: str
     LifetimeInSeconds: int

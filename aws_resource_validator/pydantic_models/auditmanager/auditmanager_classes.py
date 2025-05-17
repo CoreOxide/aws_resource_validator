@@ -142,6 +142,7 @@ class AssociateAssessmentReportEvidenceFolderRequest(BaseValidatorModel):
     evidenceFolderId: str
 
 
+# This class is the input for the 'batch_associate_assessment_report_evidence' function.
 class BatchAssociateAssessmentReportEvidenceRequest(BaseValidatorModel):
     assessmentId: str
     evidenceFolderId: str
@@ -169,11 +170,13 @@ class BatchDeleteDelegationByAssessmentError(BaseValidatorModel):
     errorMessage: Optional[str] = None
 
 
+# This class is the input for the 'batch_delete_delegation_by_assessment' function.
 class BatchDeleteDelegationByAssessmentRequest(BaseValidatorModel):
     delegationIds: List[str]
     assessmentId: str
 
 
+# This class is the input for the 'batch_disassociate_assessment_report_evidence' function.
 class BatchDisassociateAssessmentReportEvidenceRequest(BaseValidatorModel):
     assessmentId: str
     evidenceFolderId: str
@@ -218,6 +221,7 @@ class CreateAssessmentFrameworkControl(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'create_assessment_report' function.
 class CreateAssessmentReportRequest(BaseValidatorModel):
     name: str
     assessmentId: str
@@ -288,10 +292,12 @@ class Resource(BaseValidatorModel):
     complianceCheck: Optional[str] = None
 
 
+# This class is the input for the 'get_assessment_framework' function.
 class GetAssessmentFrameworkRequest(BaseValidatorModel):
     frameworkId: str
 
 
+# This class is the input for the 'get_assessment_report_url' function.
 class GetAssessmentReportUrlRequest(BaseValidatorModel):
     assessmentReportId: str
     assessmentId: str
@@ -302,10 +308,12 @@ class URL(BaseValidatorModel):
     link: Optional[str] = None
 
 
+# This class is the input for the 'get_assessment' function.
 class GetAssessmentRequest(BaseValidatorModel):
     assessmentId: str
 
 
+# This class is the input for the 'get_change_logs' function.
 class GetChangeLogsRequest(BaseValidatorModel):
     assessmentId: str
     controlSetId: Optional[str] = None
@@ -314,15 +322,18 @@ class GetChangeLogsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_control' function.
 class GetControlRequest(BaseValidatorModel):
     controlId: str
 
 
+# This class is the input for the 'get_delegations' function.
 class GetDelegationsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_evidence_by_evidence_folder' function.
 class GetEvidenceByEvidenceFolderRequest(BaseValidatorModel):
     assessmentId: str
     controlSetId: str
@@ -331,16 +342,19 @@ class GetEvidenceByEvidenceFolderRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_evidence_file_upload_url' function.
 class GetEvidenceFileUploadUrlRequest(BaseValidatorModel):
     fileName: str
 
 
+# This class is the input for the 'get_evidence_folder' function.
 class GetEvidenceFolderRequest(BaseValidatorModel):
     assessmentId: str
     controlSetId: str
     evidenceFolderId: str
 
 
+# This class is the input for the 'get_evidence_folders_by_assessment_control' function.
 class GetEvidenceFoldersByAssessmentControlRequest(BaseValidatorModel):
     assessmentId: str
     controlSetId: str
@@ -349,12 +363,14 @@ class GetEvidenceFoldersByAssessmentControlRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_evidence_folders_by_assessment' function.
 class GetEvidenceFoldersByAssessmentRequest(BaseValidatorModel):
     assessmentId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_evidence' function.
 class GetEvidenceRequest(BaseValidatorModel):
     assessmentId: str
     controlSetId: str
@@ -362,6 +378,7 @@ class GetEvidenceRequest(BaseValidatorModel):
     evidenceId: str
 
 
+# This class is the input for the 'get_insights_by_assessment' function.
 class GetInsightsByAssessmentRequest(BaseValidatorModel):
     assessmentId: str
 
@@ -392,10 +409,12 @@ class ServiceMetadata(BaseValidatorModel):
     category: Optional[str] = None
 
 
+# This class is the input for the 'get_settings' function.
 class GetSettingsRequest(BaseValidatorModel):
     attribute: SettingAttributeType
 
 
+# This class is the input for the 'list_assessment_control_insights_by_control_domain' function.
 class ListAssessmentControlInsightsByControlDomainRequest(BaseValidatorModel):
     controlDomainId: str
     assessmentId: str
@@ -403,46 +422,54 @@ class ListAssessmentControlInsightsByControlDomainRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_assessment_framework_share_requests' function.
 class ListAssessmentFrameworkShareRequestsRequest(BaseValidatorModel):
     requestType: ShareRequestTypeType
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_assessment_frameworks' function.
 class ListAssessmentFrameworksRequest(BaseValidatorModel):
     frameworkType: FrameworkTypeType
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_assessment_reports' function.
 class ListAssessmentReportsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_assessments' function.
 class ListAssessmentsRequest(BaseValidatorModel):
     status: Optional[AssessmentStatusType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_control_domain_insights_by_assessment' function.
 class ListControlDomainInsightsByAssessmentRequest(BaseValidatorModel):
     assessmentId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_control_domain_insights' function.
 class ListControlDomainInsightsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_control_insights_by_control_domain' function.
 class ListControlInsightsByControlDomainRequest(BaseValidatorModel):
     controlDomainId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_controls' function.
 class ListControlsRequest(BaseValidatorModel):
     controlType: ControlTypeType
     nextToken: Optional[str] = None
@@ -450,12 +477,14 @@ class ListControlsRequest(BaseValidatorModel):
     controlCatalogId: Optional[str] = None
 
 
+# This class is the input for the 'list_keywords_for_data_source' function.
 class ListKeywordsForDataSourceRequest(BaseValidatorModel):
     source: DataSourceTypeType
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_notifications' function.
 class ListNotificationsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -472,19 +501,23 @@ class Notification(BaseValidatorModel):
     source: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'register_account' function.
 class RegisterAccountRequest(BaseValidatorModel):
     kmsKey: Optional[str] = None
     delegatedAdminAccount: Optional[str] = None
 
 
+# This class is the input for the 'register_organization_admin_account' function.
 class RegisterOrganizationAdminAccountRequest(BaseValidatorModel):
     adminAccountId: str
 
 
+# This class is the input for the 'start_assessment_framework_share' function.
 class StartAssessmentFrameworkShareRequest(BaseValidatorModel):
     frameworkId: str
     destinationAccount: str
@@ -502,6 +535,7 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_assessment_control' function.
 class UpdateAssessmentControlRequest(BaseValidatorModel):
     assessmentId: str
     controlSetId: str
@@ -510,6 +544,7 @@ class UpdateAssessmentControlRequest(BaseValidatorModel):
     commentBody: Optional[str] = None
 
 
+# This class is the input for the 'update_assessment_control_set_status' function.
 class UpdateAssessmentControlSetStatusRequest(BaseValidatorModel):
     assessmentId: str
     controlSetId: str
@@ -517,17 +552,20 @@ class UpdateAssessmentControlSetStatusRequest(BaseValidatorModel):
     comment: str
 
 
+# This class is the input for the 'update_assessment_framework_share' function.
 class UpdateAssessmentFrameworkShareRequest(BaseValidatorModel):
     requestId: str
     requestType: ShareRequestTypeType
     action: ShareRequestActionType
 
 
+# This class is the input for the 'update_assessment_status' function.
 class UpdateAssessmentStatusRequest(BaseValidatorModel):
     assessmentId: str
     status: AssessmentStatusType
 
 
+# This class is the input for the 'validate_assessment_report_integrity' function.
 class ValidateAssessmentReportIntegrityRequest(BaseValidatorModel):
     s3RelativePath: str
 
@@ -565,18 +603,21 @@ class AssessmentControl(BaseValidatorModel):
     assessmentReportEvidenceCount: Optional[int] = None
 
 
+# This class is the output for the 'batch_associate_assessment_report_evidence' function.
 class BatchAssociateAssessmentReportEvidenceResponse(BaseValidatorModel):
     evidenceIds: List[str]
     errors: List[AssessmentReportEvidenceError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_disassociate_assessment_report_evidence' function.
 class BatchDisassociateAssessmentReportEvidenceResponse(BaseValidatorModel):
     evidenceIds: List[str]
     errors: List[AssessmentReportEvidenceError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_assessment_report' function.
 class CreateAssessmentReportResponse(BaseValidatorModel):
     assessmentReport: AssessmentReport
     ResponseMetadata: ResponseMetadata
@@ -592,23 +633,27 @@ class GetAccountStatusResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_evidence_file_upload_url' function.
 class GetEvidenceFileUploadUrlResponse(BaseValidatorModel):
     evidenceFileName: str
     uploadUrl: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_evidence_folder' function.
 class GetEvidenceFolderResponse(BaseValidatorModel):
     evidenceFolder: AssessmentEvidenceFolder
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_evidence_folders_by_assessment_control' function.
 class GetEvidenceFoldersByAssessmentControlResponse(BaseValidatorModel):
     evidenceFolders: List[AssessmentEvidenceFolder]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_evidence_folders_by_assessment' function.
 class GetEvidenceFoldersByAssessmentResponse(BaseValidatorModel):
     evidenceFolders: List[AssessmentEvidenceFolder]
     ResponseMetadata: ResponseMetadata
@@ -621,56 +666,66 @@ class GetOrganizationAdminAccountResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_assessment_framework_share_requests' function.
 class ListAssessmentFrameworkShareRequestsResponse(BaseValidatorModel):
     assessmentFrameworkShareRequests: List[AssessmentFrameworkShareRequest]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_assessment_frameworks' function.
 class ListAssessmentFrameworksResponse(BaseValidatorModel):
     frameworkMetadataList: List[AssessmentFrameworkMetadata]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_assessment_reports' function.
 class ListAssessmentReportsResponse(BaseValidatorModel):
     assessmentReports: List[AssessmentReportMetadata]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_keywords_for_data_source' function.
 class ListKeywordsForDataSourceResponse(BaseValidatorModel):
     keywords: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_account' function.
 class RegisterAccountResponse(BaseValidatorModel):
     status: AccountStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_organization_admin_account' function.
 class RegisterOrganizationAdminAccountResponse(BaseValidatorModel):
     adminAccountId: str
     organizationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_assessment_framework_share' function.
 class StartAssessmentFrameworkShareResponse(BaseValidatorModel):
     assessmentFrameworkShareRequest: AssessmentFrameworkShareRequest
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_assessment_framework_share' function.
 class UpdateAssessmentFrameworkShareResponse(BaseValidatorModel):
     assessmentFrameworkShareRequest: AssessmentFrameworkShareRequest
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'validate_assessment_report_integrity' function.
 class ValidateAssessmentReportIntegrityResponse(BaseValidatorModel):
     signatureValid: bool
     signatureAlgorithm: str
@@ -686,11 +741,13 @@ class BatchCreateDelegationByAssessmentError(BaseValidatorModel):
     errorMessage: Optional[str] = None
 
 
+# This class is the input for the 'batch_create_delegation_by_assessment' function.
 class BatchCreateDelegationByAssessmentRequest(BaseValidatorModel):
     createDelegationRequests: List[CreateDelegationRequest]
     assessmentId: str
 
 
+# This class is the output for the 'batch_delete_delegation_by_assessment' function.
 class BatchDeleteDelegationByAssessmentResponse(BaseValidatorModel):
     errors: List[BatchDeleteDelegationByAssessmentError]
     ResponseMetadata: ResponseMetadata
@@ -702,6 +759,7 @@ class BatchImportEvidenceToAssessmentControlError(BaseValidatorModel):
     errorMessage: Optional[str] = None
 
 
+# This class is the input for the 'batch_import_evidence_to_assessment_control' function.
 class BatchImportEvidenceToAssessmentControlRequest(BaseValidatorModel):
     assessmentId: str
     controlSetId: str
@@ -709,6 +767,7 @@ class BatchImportEvidenceToAssessmentControlRequest(BaseValidatorModel):
     manualEvidence: List[ManualEvidence]
 
 
+# This class is the output for the 'get_change_logs' function.
 class GetChangeLogsResponse(BaseValidatorModel):
     changeLogs: List[ChangeLog]
     ResponseMetadata: ResponseMetadata
@@ -760,6 +819,7 @@ class CreateControlMappingSource(BaseValidatorModel):
     troubleshootingText: Optional[str] = None
 
 
+# This class is the output for the 'list_controls' function.
 class ListControlsResponse(BaseValidatorModel):
     controlMetadataList: List[ControlMetadata]
     ResponseMetadata: ResponseMetadata
@@ -777,12 +837,14 @@ class UpdateAssessmentFrameworkControlSet(BaseValidatorModel):
     id: Optional[str] = None
 
 
+# This class is the output for the 'get_delegations' function.
 class GetDelegationsResponse(BaseValidatorModel):
     delegations: List[DelegationMetadata]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'update_settings' function.
 class UpdateSettingsRequest(BaseValidatorModel):
     snsTopic: Optional[str] = None
     defaultAssessmentReportsDestination: Optional[AssessmentReportsDestination] = None
@@ -822,11 +884,13 @@ class Evidence(BaseValidatorModel):
     assessmentReportSelection: Optional[str] = None
 
 
+# This class is the output for the 'get_assessment_report_url' function.
 class GetAssessmentReportUrlResponse(BaseValidatorModel):
     preSignedUrl: URL
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_insights_by_assessment' function.
 class GetInsightsByAssessmentResponse(BaseValidatorModel):
     insights: InsightsByAssessment
     ResponseMetadata: ResponseMetadata
@@ -842,6 +906,7 @@ class GetServicesInScopeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_notifications' function.
 class ListNotificationsResponse(BaseValidatorModel):
     notifications: List[Notification]
     ResponseMetadata: ResponseMetadata
@@ -864,6 +929,7 @@ class AssessmentMetadata(BaseValidatorModel):
 ScopeUnion = Union[Scope, ScopeOutput]
 
 
+# This class is the output for the 'list_assessments' function.
 class ListAssessmentsResponse(BaseValidatorModel):
     assessmentMetadata: List[AssessmentMetadataItem]
     ResponseMetadata: ResponseMetadata
@@ -881,40 +947,47 @@ class AssessmentControlSet(BaseValidatorModel):
     manualEvidenceCount: Optional[int] = None
 
 
+# This class is the output for the 'update_assessment_control' function.
 class UpdateAssessmentControlResponse(BaseValidatorModel):
     control: AssessmentControl
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_create_delegation_by_assessment' function.
 class BatchCreateDelegationByAssessmentResponse(BaseValidatorModel):
     delegations: List[Delegation]
     errors: List[BatchCreateDelegationByAssessmentError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_import_evidence_to_assessment_control' function.
 class BatchImportEvidenceToAssessmentControlResponse(BaseValidatorModel):
     errors: List[BatchImportEvidenceToAssessmentControlError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_control_domain_insights_by_assessment' function.
 class ListControlDomainInsightsByAssessmentResponse(BaseValidatorModel):
     controlDomainInsights: List[ControlDomainInsights]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_control_domain_insights' function.
 class ListControlDomainInsightsResponse(BaseValidatorModel):
     controlDomainInsights: List[ControlDomainInsights]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_assessment_control_insights_by_control_domain' function.
 class ListAssessmentControlInsightsByControlDomainResponse(BaseValidatorModel):
     controlInsightsByAssessment: List[ControlInsightsMetadataByAssessmentItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_control_insights_by_control_domain' function.
 class ListControlInsightsByControlDomainResponse(BaseValidatorModel):
     controlInsightsMetadata: List[ControlInsightsMetadataItem]
     ResponseMetadata: ResponseMetadata
@@ -940,6 +1013,7 @@ class Control(BaseValidatorModel):
     state: Optional[ControlStateType] = None
 
 
+# This class is the input for the 'update_control' function.
 class UpdateControlRequest(BaseValidatorModel):
     controlId: str
     name: str
@@ -950,6 +1024,7 @@ class UpdateControlRequest(BaseValidatorModel):
     actionPlanInstructions: Optional[str] = None
 
 
+# This class is the input for the 'create_control' function.
 class CreateControlRequest(BaseValidatorModel):
     name: str
     controlMappingSources: List[CreateControlMappingSource]
@@ -960,6 +1035,7 @@ class CreateControlRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_assessment_framework' function.
 class CreateAssessmentFrameworkRequest(BaseValidatorModel):
     name: str
     controlSets: List[CreateAssessmentFrameworkControlSet]
@@ -968,6 +1044,7 @@ class CreateAssessmentFrameworkRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_assessment_framework' function.
 class UpdateAssessmentFrameworkRequest(BaseValidatorModel):
     frameworkId: str
     name: str
@@ -976,27 +1053,32 @@ class UpdateAssessmentFrameworkRequest(BaseValidatorModel):
     complianceType: Optional[str] = None
 
 
+# This class is the output for the 'get_settings' function.
 class GetSettingsResponse(BaseValidatorModel):
     settings: Settings
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_settings' function.
 class UpdateSettingsResponse(BaseValidatorModel):
     settings: Settings
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_evidence_by_evidence_folder' function.
 class GetEvidenceByEvidenceFolderResponse(BaseValidatorModel):
     evidence: List[Evidence]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_evidence' function.
 class GetEvidenceResponse(BaseValidatorModel):
     evidence: Evidence
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_assessment' function.
 class CreateAssessmentRequest(BaseValidatorModel):
     name: str
     assessmentReportsDestination: AssessmentReportsDestination
@@ -1007,6 +1089,7 @@ class CreateAssessmentRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_assessment' function.
 class UpdateAssessmentRequest(BaseValidatorModel):
     assessmentId: str
     scope: ScopeUnion
@@ -1023,6 +1106,7 @@ class AssessmentFramework(BaseValidatorModel):
     controlSets: Optional[List[AssessmentControlSet]] = None
 
 
+# This class is the output for the 'update_assessment_control_set_status' function.
 class UpdateAssessmentControlSetStatusResponse(BaseValidatorModel):
     controlSet: AssessmentControlSet
     ResponseMetadata: ResponseMetadata
@@ -1034,16 +1118,19 @@ class ControlSet(BaseValidatorModel):
     controls: Optional[List[Control]] = None
 
 
+# This class is the output for the 'create_control' function.
 class CreateControlResponse(BaseValidatorModel):
     control: Control
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_control' function.
 class GetControlResponse(BaseValidatorModel):
     control: Control
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_control' function.
 class UpdateControlResponse(BaseValidatorModel):
     control: Control
     ResponseMetadata: ResponseMetadata
@@ -1074,37 +1161,44 @@ class Framework(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_assessment' function.
 class CreateAssessmentResponse(BaseValidatorModel):
     assessment: Assessment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_assessment' function.
 class GetAssessmentResponse(BaseValidatorModel):
     assessment: Assessment
     userRole: Role
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_assessment' function.
 class UpdateAssessmentResponse(BaseValidatorModel):
     assessment: Assessment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_assessment_status' function.
 class UpdateAssessmentStatusResponse(BaseValidatorModel):
     assessment: Assessment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_assessment_framework' function.
 class CreateAssessmentFrameworkResponse(BaseValidatorModel):
     framework: Framework
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_assessment_framework' function.
 class GetAssessmentFrameworkResponse(BaseValidatorModel):
     framework: Framework
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_assessment_framework' function.
 class UpdateAssessmentFrameworkResponse(BaseValidatorModel):
     framework: Framework
     ResponseMetadata: ResponseMetadata

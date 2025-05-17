@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'add_policy_statement' function.
 class AddPolicyStatementInput(BaseValidatorModel):
     action: List[str]
     arn: str
@@ -25,6 +26,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'batch_delete_unique_id' function.
 class BatchDeleteUniqueIdInput(BaseValidatorModel):
     uniqueIds: List[str]
     workflowName: str
@@ -75,23 +77,28 @@ class SchemaInputAttribute(BaseValidatorModel):
     subType: Optional[str] = None
 
 
+# This class is the input for the 'delete_id_mapping_workflow' function.
 class DeleteIdMappingWorkflowInput(BaseValidatorModel):
     workflowName: str
 
 
+# This class is the input for the 'delete_id_namespace' function.
 class DeleteIdNamespaceInput(BaseValidatorModel):
     idNamespaceName: str
 
 
+# This class is the input for the 'delete_matching_workflow' function.
 class DeleteMatchingWorkflowInput(BaseValidatorModel):
     workflowName: str
 
 
+# This class is the input for the 'delete_policy_statement' function.
 class DeletePolicyStatementInput(BaseValidatorModel):
     arn: str
     statementId: str
 
 
+# This class is the input for the 'delete_schema_mapping' function.
 class DeleteSchemaMappingInput(BaseValidatorModel):
     schemaName: str
 
@@ -100,6 +107,7 @@ class ErrorDetails(BaseValidatorModel):
     errorMessage: Optional[str] = None
 
 
+# This class is the input for the 'get_id_mapping_job' function.
 class GetIdMappingJobInput(BaseValidatorModel):
     jobId: str
     workflowName: str
@@ -120,20 +128,24 @@ class IdMappingJobOutputSource(BaseValidatorModel):
     KMSArn: Optional[str] = None
 
 
+# This class is the input for the 'get_id_mapping_workflow' function.
 class GetIdMappingWorkflowInput(BaseValidatorModel):
     workflowName: str
 
 
+# This class is the input for the 'get_id_namespace' function.
 class GetIdNamespaceInput(BaseValidatorModel):
     idNamespaceName: str
 
 
+# This class is the input for the 'get_match_id' function.
 class GetMatchIdInput(BaseValidatorModel):
     record: Dict[str, str]
     workflowName: str
     applyNormalization: Optional[bool] = None
 
 
+# This class is the input for the 'get_matching_job' function.
 class GetMatchingJobInput(BaseValidatorModel):
     jobId: str
     workflowName: str
@@ -152,14 +164,17 @@ class JobOutputSource(BaseValidatorModel):
     KMSArn: Optional[str] = None
 
 
+# This class is the input for the 'get_matching_workflow' function.
 class GetMatchingWorkflowInput(BaseValidatorModel):
     workflowName: str
 
 
+# This class is the input for the 'get_policy' function.
 class GetPolicyInput(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'get_provider_service' function.
 class GetProviderServiceInput(BaseValidatorModel):
     providerName: str
     providerServiceName: str
@@ -176,6 +191,7 @@ class ProviderIntermediateDataAccessConfiguration(BaseValidatorModel):
     requiredBucketActions: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_schema_mapping' function.
 class GetSchemaMappingInput(BaseValidatorModel):
     schemaName: str
 
@@ -223,28 +239,33 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_id_mapping_jobs' function.
 class ListIdMappingJobsInput(BaseValidatorModel):
     workflowName: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_id_mapping_workflows' function.
 class ListIdMappingWorkflowsInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_id_namespaces' function.
 class ListIdNamespacesInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_matching_jobs' function.
 class ListMatchingJobsInput(BaseValidatorModel):
     workflowName: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_matching_workflows' function.
 class ListMatchingWorkflowsInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -258,6 +279,7 @@ class MatchingWorkflowSummary(BaseValidatorModel):
     workflowName: str
 
 
+# This class is the input for the 'list_provider_services' function.
 class ListProviderServicesInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -272,6 +294,7 @@ class ProviderServiceSummary(BaseValidatorModel):
     providerServiceType: ServiceTypeType
 
 
+# This class is the input for the 'list_schema_mappings' function.
 class ListSchemaMappingsInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -285,6 +308,7 @@ class SchemaMappingSummary(BaseValidatorModel):
     updatedAt: datetime
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInput(BaseValidatorModel):
     resourceArn: str
 
@@ -313,12 +337,14 @@ class ProviderMarketplaceConfiguration(BaseValidatorModel):
     revisionId: str
 
 
+# This class is the input for the 'put_policy' function.
 class PutPolicyInput(BaseValidatorModel):
     arn: str
     policy: str
     token: Optional[str] = None
 
 
+# This class is the input for the 'start_matching_job' function.
 class StartMatchingJobInput(BaseValidatorModel):
     workflowName: str
 
@@ -333,6 +359,7 @@ class UntagResourceInput(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the output for the 'add_policy_statement' function.
 class AddPolicyStatementOutput(BaseValidatorModel):
     arn: str
     policy: str
@@ -340,21 +367,25 @@ class AddPolicyStatementOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_id_mapping_workflow' function.
 class DeleteIdMappingWorkflowOutput(BaseValidatorModel):
     message: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_id_namespace' function.
 class DeleteIdNamespaceOutput(BaseValidatorModel):
     message: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_matching_workflow' function.
 class DeleteMatchingWorkflowOutput(BaseValidatorModel):
     message: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_policy_statement' function.
 class DeletePolicyStatementOutput(BaseValidatorModel):
     arn: str
     policy: str
@@ -362,17 +393,20 @@ class DeletePolicyStatementOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_schema_mapping' function.
 class DeleteSchemaMappingOutput(BaseValidatorModel):
     message: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_match_id' function.
 class GetMatchIdOutput(BaseValidatorModel):
     matchId: str
     matchRule: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_policy' function.
 class GetPolicyOutput(BaseValidatorModel):
     arn: str
     policy: str
@@ -380,11 +414,13 @@ class GetPolicyOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceOutput(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_policy' function.
 class PutPolicyOutput(BaseValidatorModel):
     arn: str
     policy: str
@@ -392,11 +428,13 @@ class PutPolicyOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_matching_job' function.
 class StartMatchingJobOutput(BaseValidatorModel):
     jobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_delete_unique_id' function.
 class BatchDeleteUniqueIdOutput(BaseValidatorModel):
     deleted: List[DeletedUniqueId]
     disconnectedUniqueIds: List[str]
@@ -405,6 +443,7 @@ class BatchDeleteUniqueIdOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_schema_mapping' function.
 class CreateSchemaMappingInput(BaseValidatorModel):
     mappedInputFields: List[SchemaInputAttribute]
     schemaName: str
@@ -412,6 +451,7 @@ class CreateSchemaMappingInput(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_schema_mapping' function.
 class CreateSchemaMappingOutput(BaseValidatorModel):
     description: str
     mappedInputFields: List[SchemaInputAttribute]
@@ -420,6 +460,7 @@ class CreateSchemaMappingOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_schema_mapping' function.
 class GetSchemaMappingOutput(BaseValidatorModel):
     createdAt: datetime
     description: str
@@ -432,12 +473,14 @@ class GetSchemaMappingOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_schema_mapping' function.
 class UpdateSchemaMappingInput(BaseValidatorModel):
     mappedInputFields: List[SchemaInputAttribute]
     schemaName: str
     description: Optional[str] = None
 
 
+# This class is the output for the 'update_schema_mapping' function.
 class UpdateSchemaMappingOutput(BaseValidatorModel):
     description: str
     mappedInputFields: List[SchemaInputAttribute]
@@ -446,6 +489,7 @@ class UpdateSchemaMappingOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_id_mapping_job' function.
 class GetIdMappingJobOutput(BaseValidatorModel):
     endTime: datetime
     errorDetails: ErrorDetails
@@ -457,17 +501,20 @@ class GetIdMappingJobOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_id_mapping_job' function.
 class StartIdMappingJobInput(BaseValidatorModel):
     workflowName: str
     outputSourceConfig: Optional[List[IdMappingJobOutputSource]] = None
 
 
+# This class is the output for the 'start_id_mapping_job' function.
 class StartIdMappingJobOutput(BaseValidatorModel):
     jobId: str
     outputSourceConfig: List[IdMappingJobOutputSource]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_matching_job' function.
 class GetMatchingJobOutput(BaseValidatorModel):
     endTime: datetime
     errorDetails: ErrorDetails
@@ -514,6 +561,7 @@ class RuleBasedProperties(BaseValidatorModel):
 RuleUnion = Union[Rule, RuleOutput]
 
 
+# This class is the output for the 'list_id_mapping_workflows' function.
 class ListIdMappingWorkflowsOutput(BaseValidatorModel):
     workflowSummaries: List[IdMappingWorkflowSummary]
     ResponseMetadata: ResponseMetadata
@@ -542,12 +590,14 @@ class ProviderProperties(BaseValidatorModel):
     providerConfiguration: Optional[Dict[str, Any]] = None
 
 
+# This class is the output for the 'list_id_mapping_jobs' function.
 class ListIdMappingJobsOutput(BaseValidatorModel):
     jobs: List[JobSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_matching_jobs' function.
 class ListMatchingJobsOutput(BaseValidatorModel):
     jobs: List[JobSummary]
     ResponseMetadata: ResponseMetadata
@@ -585,18 +635,21 @@ class ListSchemaMappingsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_matching_workflows' function.
 class ListMatchingWorkflowsOutput(BaseValidatorModel):
     workflowSummaries: List[MatchingWorkflowSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_provider_services' function.
 class ListProviderServicesOutput(BaseValidatorModel):
     providerServiceSummaries: List[ProviderServiceSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_schema_mappings' function.
 class ListSchemaMappingsOutput(BaseValidatorModel):
     schemaList: List[SchemaMappingSummary]
     ResponseMetadata: ResponseMetadata
@@ -641,6 +694,7 @@ class NamespaceRuleBasedProperties(BaseValidatorModel):
     rules: Optional[List[RuleUnion]] = None
 
 
+# This class is the output for the 'list_id_namespaces' function.
 class ListIdNamespacesOutput(BaseValidatorModel):
     idNamespaceSummaries: List[IdNamespaceSummary]
     ResponseMetadata: ResponseMetadata
@@ -673,6 +727,7 @@ class ResolutionTechniques(BaseValidatorModel):
 OutputSourceUnion = Union[OutputSource, OutputSourceOutput]
 
 
+# This class is the output for the 'get_provider_service' function.
 class GetProviderServiceOutput(BaseValidatorModel):
     anonymizedOutput: bool
     providerComponentSchema: ProviderComponentSchema
@@ -690,6 +745,7 @@ class GetProviderServiceOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_id_namespace' function.
 class CreateIdNamespaceOutput(BaseValidatorModel):
     createdAt: datetime
     description: str
@@ -704,6 +760,7 @@ class CreateIdNamespaceOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_id_namespace' function.
 class GetIdNamespaceOutput(BaseValidatorModel):
     createdAt: datetime
     description: str
@@ -718,6 +775,7 @@ class GetIdNamespaceOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_id_namespace' function.
 class UpdateIdNamespaceOutput(BaseValidatorModel):
     createdAt: datetime
     description: str
@@ -733,6 +791,7 @@ class UpdateIdNamespaceOutput(BaseValidatorModel):
 NamespaceRuleBasedPropertiesUnion = Union[NamespaceRuleBasedProperties, NamespaceRuleBasedPropertiesOutput]
 
 
+# This class is the output for the 'create_id_mapping_workflow' function.
 class CreateIdMappingWorkflowOutput(BaseValidatorModel):
     description: str
     idMappingTechniques: IdMappingTechniquesOutput
@@ -744,6 +803,7 @@ class CreateIdMappingWorkflowOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_id_mapping_workflow' function.
 class GetIdMappingWorkflowOutput(BaseValidatorModel):
     createdAt: datetime
     description: str
@@ -758,6 +818,7 @@ class GetIdMappingWorkflowOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_id_mapping_workflow' function.
 class UpdateIdMappingWorkflowOutput(BaseValidatorModel):
     description: str
     idMappingTechniques: IdMappingTechniquesOutput
@@ -769,6 +830,7 @@ class UpdateIdMappingWorkflowOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_matching_workflow' function.
 class CreateMatchingWorkflowOutput(BaseValidatorModel):
     description: str
     incrementalRunConfig: IncrementalRunConfig
@@ -781,6 +843,7 @@ class CreateMatchingWorkflowOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_matching_workflow' function.
 class GetMatchingWorkflowOutput(BaseValidatorModel):
     createdAt: datetime
     description: str
@@ -796,6 +859,7 @@ class GetMatchingWorkflowOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_matching_workflow' function.
 class UpdateMatchingWorkflowOutput(BaseValidatorModel):
     description: str
     incrementalRunConfig: IncrementalRunConfig
@@ -817,6 +881,7 @@ class IdNamespaceIdMappingWorkflowProperties(BaseValidatorModel):
     ruleBasedProperties: Optional[NamespaceRuleBasedPropertiesUnion] = None
 
 
+# This class is the input for the 'create_id_mapping_workflow' function.
 class CreateIdMappingWorkflowInput(BaseValidatorModel):
     idMappingTechniques: IdMappingTechniquesUnion
     inputSourceConfig: List[IdMappingWorkflowInputSource]
@@ -827,6 +892,7 @@ class CreateIdMappingWorkflowInput(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_id_mapping_workflow' function.
 class UpdateIdMappingWorkflowInput(BaseValidatorModel):
     idMappingTechniques: IdMappingTechniquesUnion
     inputSourceConfig: List[IdMappingWorkflowInputSource]
@@ -836,6 +902,7 @@ class UpdateIdMappingWorkflowInput(BaseValidatorModel):
     roleArn: Optional[str] = None
 
 
+# This class is the input for the 'create_matching_workflow' function.
 class CreateMatchingWorkflowInput(BaseValidatorModel):
     inputSourceConfig: List[InputSource]
     outputSourceConfig: List[OutputSourceUnion]
@@ -847,6 +914,7 @@ class CreateMatchingWorkflowInput(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_matching_workflow' function.
 class UpdateMatchingWorkflowInput(BaseValidatorModel):
     inputSourceConfig: List[InputSource]
     outputSourceConfig: List[OutputSourceUnion]
@@ -859,6 +927,7 @@ class UpdateMatchingWorkflowInput(BaseValidatorModel):
 IdNamespaceIdMappingWorkflowPropertiesUnion = Union[IdNamespaceIdMappingWorkflowProperties, IdNamespaceIdMappingWorkflowPropertiesOutput]
 
 
+# This class is the input for the 'create_id_namespace' function.
 class CreateIdNamespaceInput(BaseValidatorModel):
     idNamespaceName: str
     type: IdNamespaceTypeType
@@ -869,6 +938,7 @@ class CreateIdNamespaceInput(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_id_namespace' function.
 class UpdateIdNamespaceInput(BaseValidatorModel):
     idNamespaceName: str
     description: Optional[str] = None

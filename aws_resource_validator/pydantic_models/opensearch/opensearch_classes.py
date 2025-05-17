@@ -31,6 +31,7 @@ class AWSDomainInformation(BaseValidatorModel):
     Region: Optional[str] = None
 
 
+# This class is the input for the 'accept_inbound_connection' function.
 class AcceptInboundConnectionRequest(BaseValidatorModel):
     ConnectionId: str
 
@@ -88,6 +89,7 @@ class ApplicationSummary(BaseValidatorModel):
     lastUpdatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'authorize_vpc_endpoint_access' function.
 class AuthorizeVpcEndpointAccessRequest(BaseValidatorModel):
     DomainName: str
     Account: Optional[str] = None
@@ -137,6 +139,7 @@ class AvailabilityZoneInfo(BaseValidatorModel):
     TotalUnAssignedShards: Optional[str] = None
 
 
+# This class is the input for the 'cancel_domain_config_change' function.
 class CancelDomainConfigChangeRequest(BaseValidatorModel):
     DomainName: str
     DryRun: Optional[bool] = None
@@ -148,6 +151,7 @@ class CancelledChangeProperty(BaseValidatorModel):
     ActiveValue: Optional[str] = None
 
 
+# This class is the input for the 'cancel_service_software_update' function.
 class CancelServiceSoftwareUpdateRequest(BaseValidatorModel):
     DomainName: str
 
@@ -309,31 +313,38 @@ class DeleteApplicationRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'delete_data_source' function.
 class DeleteDataSourceRequest(BaseValidatorModel):
     DomainName: str
     Name: str
 
 
+# This class is the input for the 'delete_direct_query_data_source' function.
 class DeleteDirectQueryDataSourceRequest(BaseValidatorModel):
     DataSourceName: str
 
 
+# This class is the input for the 'delete_domain' function.
 class DeleteDomainRequest(BaseValidatorModel):
     DomainName: str
 
 
+# This class is the input for the 'delete_inbound_connection' function.
 class DeleteInboundConnectionRequest(BaseValidatorModel):
     ConnectionId: str
 
 
+# This class is the input for the 'delete_outbound_connection' function.
 class DeleteOutboundConnectionRequest(BaseValidatorModel):
     ConnectionId: str
 
 
+# This class is the input for the 'delete_package' function.
 class DeletePackageRequest(BaseValidatorModel):
     PackageID: str
 
 
+# This class is the input for the 'delete_vpc_endpoint' function.
 class DeleteVpcEndpointRequest(BaseValidatorModel):
     VpcEndpointId: str
 
@@ -345,25 +356,30 @@ class VpcEndpointSummary(BaseValidatorModel):
     Status: Optional[VpcEndpointStatusType] = None
 
 
+# This class is the input for the 'describe_domain_auto_tunes' function.
 class DescribeDomainAutoTunesRequest(BaseValidatorModel):
     DomainName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_domain_change_progress' function.
 class DescribeDomainChangeProgressRequest(BaseValidatorModel):
     DomainName: str
     ChangeId: Optional[str] = None
 
 
+# This class is the input for the 'describe_domain_config' function.
 class DescribeDomainConfigRequest(BaseValidatorModel):
     DomainName: str
 
 
+# This class is the input for the 'describe_domain_health' function.
 class DescribeDomainHealthRequest(BaseValidatorModel):
     DomainName: str
 
 
+# This class is the input for the 'describe_domain_nodes' function.
 class DescribeDomainNodesRequest(BaseValidatorModel):
     DomainName: str
 
@@ -379,14 +395,17 @@ class DomainNodesStatus(BaseValidatorModel):
     StorageSize: Optional[str] = None
 
 
+# This class is the input for the 'describe_domain' function.
 class DescribeDomainRequest(BaseValidatorModel):
     DomainName: str
 
 
+# This class is the input for the 'describe_domains' function.
 class DescribeDomainsRequest(BaseValidatorModel):
     DomainNames: List[str]
 
 
+# This class is the input for the 'describe_dry_run_progress' function.
 class DescribeDryRunProgressRequest(BaseValidatorModel):
     DomainName: str
     DryRunId: Optional[str] = None
@@ -403,6 +422,7 @@ class Filter(BaseValidatorModel):
     Values: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_instance_type_limits' function.
 class DescribeInstanceTypeLimitsRequest(BaseValidatorModel):
     InstanceType: OpenSearchPartitionInstanceTypeType
     EngineVersion: str
@@ -414,18 +434,21 @@ class DescribePackagesFilter(BaseValidatorModel):
     Value: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_reserved_instance_offerings' function.
 class DescribeReservedInstanceOfferingsRequest(BaseValidatorModel):
     ReservedInstanceOfferingId: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_reserved_instances' function.
 class DescribeReservedInstancesRequest(BaseValidatorModel):
     ReservedInstanceId: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_vpc_endpoints' function.
 class DescribeVpcEndpointsRequest(BaseValidatorModel):
     VpcEndpointIds: List[str]
 
@@ -440,11 +463,13 @@ class SecurityLakeDirectQueryDataSource(BaseValidatorModel):
     RoleArn: str
 
 
+# This class is the input for the 'dissociate_package' function.
 class DissociatePackageRequest(BaseValidatorModel):
     PackageID: str
     DomainName: str
 
 
+# This class is the input for the 'dissociate_packages' function.
 class DissociatePackagesRequest(BaseValidatorModel):
     PackageList: List[str]
     DomainName: str
@@ -499,40 +524,48 @@ class ValidationFailure(BaseValidatorModel):
     Message: Optional[str] = None
 
 
+# This class is the input for the 'get_application' function.
 class GetApplicationRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'get_compatible_versions' function.
 class GetCompatibleVersionsRequest(BaseValidatorModel):
     DomainName: Optional[str] = None
 
 
+# This class is the input for the 'get_data_source' function.
 class GetDataSourceRequest(BaseValidatorModel):
     DomainName: str
     Name: str
 
 
+# This class is the input for the 'get_direct_query_data_source' function.
 class GetDirectQueryDataSourceRequest(BaseValidatorModel):
     DataSourceName: str
 
 
+# This class is the input for the 'get_domain_maintenance_status' function.
 class GetDomainMaintenanceStatusRequest(BaseValidatorModel):
     DomainName: str
     MaintenanceId: str
 
 
+# This class is the input for the 'get_package_version_history' function.
 class GetPackageVersionHistoryRequest(BaseValidatorModel):
     PackageID: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_upgrade_history' function.
 class GetUpgradeHistoryRequest(BaseValidatorModel):
     DomainName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_upgrade_status' function.
 class GetUpgradeStatusRequest(BaseValidatorModel):
     DomainName: str
 
@@ -569,20 +602,24 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_applications' function.
 class ListApplicationsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     statuses: Optional[List[ApplicationStatusType]] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_data_sources' function.
 class ListDataSourcesRequest(BaseValidatorModel):
     DomainName: str
 
 
+# This class is the input for the 'list_direct_query_data_sources' function.
 class ListDirectQueryDataSourcesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_domain_maintenances' function.
 class ListDomainMaintenancesRequest(BaseValidatorModel):
     DomainName: str
     Action: Optional[MaintenanceTypeType] = None
@@ -591,16 +628,19 @@ class ListDomainMaintenancesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_domain_names' function.
 class ListDomainNamesRequest(BaseValidatorModel):
     EngineType: Optional[EngineTypeType] = None
 
 
+# This class is the input for the 'list_domains_for_package' function.
 class ListDomainsForPackageRequest(BaseValidatorModel):
     PackageID: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_instance_type_details' function.
 class ListInstanceTypeDetailsRequest(BaseValidatorModel):
     EngineVersion: str
     DomainName: Optional[str] = None
@@ -610,12 +650,14 @@ class ListInstanceTypeDetailsRequest(BaseValidatorModel):
     InstanceType: Optional[str] = None
 
 
+# This class is the input for the 'list_packages_for_domain' function.
 class ListPackagesForDomainRequest(BaseValidatorModel):
     DomainName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_scheduled_actions' function.
 class ListScheduledActionsRequest(BaseValidatorModel):
     DomainName: str
     MaxResults: Optional[int] = None
@@ -634,25 +676,30 @@ class ScheduledAction(BaseValidatorModel):
     Cancellable: Optional[bool] = None
 
 
+# This class is the input for the 'list_tags' function.
 class ListTagsRequest(BaseValidatorModel):
     ARN: str
 
 
+# This class is the input for the 'list_versions' function.
 class ListVersionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_vpc_endpoint_access' function.
 class ListVpcEndpointAccessRequest(BaseValidatorModel):
     DomainName: str
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_vpc_endpoints_for_domain' function.
 class ListVpcEndpointsForDomainRequest(BaseValidatorModel):
     DomainName: str
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_vpc_endpoints' function.
 class ListVpcEndpointsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
@@ -676,6 +723,7 @@ class PluginProperties(BaseValidatorModel):
     UncompressedSizeInBytes: Optional[int] = None
 
 
+# This class is the input for the 'purchase_reserved_instance_offering' function.
 class PurchaseReservedInstanceOfferingRequest(BaseValidatorModel):
     ReservedInstanceOfferingId: str
     ReservationName: str
@@ -687,10 +735,12 @@ class RecurringCharge(BaseValidatorModel):
     RecurringChargeFrequency: Optional[str] = None
 
 
+# This class is the input for the 'reject_inbound_connection' function.
 class RejectInboundConnectionRequest(BaseValidatorModel):
     ConnectionId: str
 
 
+# This class is the input for the 'remove_tags' function.
 class RemoveTagsRequest(BaseValidatorModel):
     ARN: str
     TagKeys: List[str]
@@ -707,12 +757,14 @@ class SAMLIdp(BaseValidatorModel):
     EntityId: str
 
 
+# This class is the input for the 'start_domain_maintenance' function.
 class StartDomainMaintenanceRequest(BaseValidatorModel):
     DomainName: str
     Action: MaintenanceTypeType
     NodeId: Optional[str] = None
 
 
+# This class is the input for the 'start_service_software_update' function.
 class StartServiceSoftwareUpdateRequest(BaseValidatorModel):
     DomainName: str
     ScheduleAt: Optional[ScheduleAtType] = None
@@ -724,12 +776,14 @@ class StorageTypeLimit(BaseValidatorModel):
     LimitValues: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_package_scope' function.
 class UpdatePackageScopeRequest(BaseValidatorModel):
     PackageID: str
     Operation: PackageScopeOperationEnumType
     PackageUserList: List[str]
 
 
+# This class is the input for the 'update_scheduled_action' function.
 class UpdateScheduledActionRequest(BaseValidatorModel):
     DomainName: str
     ActionID: str
@@ -738,6 +792,7 @@ class UpdateScheduledActionRequest(BaseValidatorModel):
     DesiredStartTime: Optional[int] = None
 
 
+# This class is the input for the 'upgrade_domain' function.
 class UpgradeDomainRequest(BaseValidatorModel):
     DomainName: str
     TargetVersion: str
@@ -784,25 +839,30 @@ class DomainInformationContainer(BaseValidatorModel):
     AWSDomainInformation: Optional[AWSDomainInformation] = None
 
 
+# This class is the output for the 'add_data_source' function.
 class AddDataSourceResponse(BaseValidatorModel):
     Message: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'add_direct_query_data_source' function.
 class AddDirectQueryDataSourceResponse(BaseValidatorModel):
     DataSourceArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_data_source' function.
 class DeleteDataSourceResponse(BaseValidatorModel):
     Message: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'remove_tags' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_domain_maintenance_status' function.
 class GetDomainMaintenanceStatusResponse(BaseValidatorModel):
     Status: MaintenanceStatusType
     StatusMessage: str
@@ -813,6 +873,7 @@ class GetDomainMaintenanceStatusResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_upgrade_status' function.
 class GetUpgradeStatusResponse(BaseValidatorModel):
     UpgradeStep: UpgradeStepType
     StepStatus: UpgradeStatusType
@@ -820,33 +881,39 @@ class GetUpgradeStatusResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_versions' function.
 class ListVersionsResponse(BaseValidatorModel):
     Versions: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'purchase_reserved_instance_offering' function.
 class PurchaseReservedInstanceOfferingResponse(BaseValidatorModel):
     ReservedInstanceId: str
     ReservationName: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_domain_maintenance' function.
 class StartDomainMaintenanceResponse(BaseValidatorModel):
     MaintenanceId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_data_source' function.
 class UpdateDataSourceResponse(BaseValidatorModel):
     Message: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_direct_query_data_source' function.
 class UpdateDirectQueryDataSourceResponse(BaseValidatorModel):
     DataSourceArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_package_scope' function.
 class UpdatePackageScopeResponse(BaseValidatorModel):
     PackageID: str
     Operation: PackageScopeOperationEnumType
@@ -854,27 +921,32 @@ class UpdatePackageScopeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'add_tags' function.
 class AddTagsRequest(BaseValidatorModel):
     ARN: str
     TagList: List[Tag]
 
 
+# This class is the output for the 'list_tags' function.
 class ListTagsResponse(BaseValidatorModel):
     TagList: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_applications' function.
 class ListApplicationsResponse(BaseValidatorModel):
     ApplicationSummaries: List[ApplicationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'authorize_vpc_endpoint_access' function.
 class AuthorizeVpcEndpointAccessResponse(BaseValidatorModel):
     AuthorizedPrincipal: AuthorizedPrincipal
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_vpc_endpoint_access' function.
 class ListVpcEndpointAccessResponse(BaseValidatorModel):
     AuthorizedPrincipalList: List[AuthorizedPrincipal]
     NextToken: str
@@ -901,6 +973,7 @@ class EnvironmentInfo(BaseValidatorModel):
     AvailabilityZoneInformation: Optional[List[AvailabilityZoneInfo]] = None
 
 
+# This class is the output for the 'cancel_domain_config_change' function.
 class CancelDomainConfigChangeResponse(BaseValidatorModel):
     CancelledChangeIds: List[str]
     CancelledChangeProperties: List[CancelledChangeProperty]
@@ -908,16 +981,19 @@ class CancelDomainConfigChangeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_service_software_update' function.
 class CancelServiceSoftwareUpdateResponse(BaseValidatorModel):
     ServiceSoftwareOptions: ServiceSoftwareOptions
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_service_software_update' function.
 class StartServiceSoftwareUpdateResponse(BaseValidatorModel):
     ServiceSoftwareOptions: ServiceSoftwareOptions
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'upgrade_domain' function.
 class UpgradeDomainResponse(BaseValidatorModel):
     UpgradeId: str
     DomainName: str
@@ -946,6 +1022,7 @@ class CognitoOptionsStatus(BaseValidatorModel):
     Status: OptionStatus
 
 
+# This class is the output for the 'get_compatible_versions' function.
 class GetCompatibleVersionsResponse(BaseValidatorModel):
     CompatibleVersions: List[CompatibleVersionsMap]
     ResponseMetadata: ResponseMetadata
@@ -956,12 +1033,14 @@ class ConnectionProperties(BaseValidatorModel):
     CrossClusterSearch: Optional[CrossClusterSearchConnectionProperties] = None
 
 
+# This class is the input for the 'update_application' function.
 class UpdateApplicationRequest(BaseValidatorModel):
     id: str
     dataSources: Optional[List[DataSource]] = None
     appConfigs: Optional[List[AppConfig]] = None
 
 
+# This class is the input for the 'create_application' function.
 class CreateApplicationRequest(BaseValidatorModel):
     name: str
     clientToken: Optional[str] = None
@@ -971,6 +1050,7 @@ class CreateApplicationRequest(BaseValidatorModel):
     tagList: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'create_application' function.
 class CreateApplicationResponse(BaseValidatorModel):
     id: str
     name: str
@@ -983,6 +1063,7 @@ class CreateApplicationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_application' function.
 class GetApplicationResponse(BaseValidatorModel):
     id: str
     arn: str
@@ -997,6 +1078,7 @@ class GetApplicationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_application' function.
 class UpdateApplicationResponse(BaseValidatorModel):
     id: str
     name: str
@@ -1044,17 +1126,20 @@ class SoftwareUpdateOptionsStatus(BaseValidatorModel):
     Status: Optional[OptionStatus] = None
 
 
+# This class is the input for the 'create_vpc_endpoint' function.
 class CreateVpcEndpointRequest(BaseValidatorModel):
     DomainArn: str
     VpcOptions: VPCOptions
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'update_vpc_endpoint' function.
 class UpdateVpcEndpointRequest(BaseValidatorModel):
     VpcEndpointId: str
     VpcOptions: VPCOptions
 
 
+# This class is the input for the 'update_package' function.
 class UpdatePackageRequest(BaseValidatorModel):
     PackageID: str
     PackageSource: PackageSource
@@ -1064,6 +1149,7 @@ class UpdatePackageRequest(BaseValidatorModel):
     PackageEncryptionOptions: Optional[PackageEncryptionOptions] = None
 
 
+# This class is the input for the 'create_package' function.
 class CreatePackageRequest(BaseValidatorModel):
     PackageName: str
     PackageType: PackageTypeType
@@ -1079,40 +1165,47 @@ class DataSourceType(BaseValidatorModel):
     S3GlueDataCatalog: Optional[S3GlueDataCatalog] = None
 
 
+# This class is the output for the 'delete_vpc_endpoint' function.
 class DeleteVpcEndpointResponse(BaseValidatorModel):
     VpcEndpointSummary: VpcEndpointSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_vpc_endpoints_for_domain' function.
 class ListVpcEndpointsForDomainResponse(BaseValidatorModel):
     VpcEndpointSummaryList: List[VpcEndpointSummary]
     NextToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_vpc_endpoints' function.
 class ListVpcEndpointsResponse(BaseValidatorModel):
     VpcEndpointSummaryList: List[VpcEndpointSummary]
     NextToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_domain_nodes' function.
 class DescribeDomainNodesResponse(BaseValidatorModel):
     DomainNodesStatusList: List[DomainNodesStatus]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'describe_inbound_connections' function.
 class DescribeInboundConnectionsRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_outbound_connections' function.
 class DescribeOutboundConnectionsRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_packages' function.
 class DescribePackagesRequest(BaseValidatorModel):
     Filters: Optional[List[DescribePackagesFilter]] = None
     MaxResults: Optional[int] = None
@@ -1124,11 +1217,13 @@ class DirectQueryDataSourceType(BaseValidatorModel):
     SecurityLake: Optional[SecurityLakeDirectQueryDataSource] = None
 
 
+# This class is the output for the 'list_domain_names' function.
 class ListDomainNamesResponse(BaseValidatorModel):
     DomainNames: List[DomainInfo]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_domain_maintenances' function.
 class ListDomainMaintenancesResponse(BaseValidatorModel):
     DomainMaintenances: List[DomainMaintenanceDetails]
     ResponseMetadata: ResponseMetadata
@@ -1166,6 +1261,7 @@ class InstanceLimits(BaseValidatorModel):
     InstanceCountLimits: Optional[InstanceCountLimits] = None
 
 
+# This class is the output for the 'list_instance_type_details' function.
 class ListInstanceTypeDetailsResponse(BaseValidatorModel):
     InstanceTypeDetails: List[InstanceTypeDetails]
     ResponseMetadata: ResponseMetadata
@@ -1181,12 +1277,14 @@ class ListApplicationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_scheduled_actions' function.
 class ListScheduledActionsResponse(BaseValidatorModel):
     ScheduledActions: List[ScheduledAction]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_scheduled_action' function.
 class UpdateScheduledActionResponse(BaseValidatorModel):
     ScheduledAction: ScheduledAction
     ResponseMetadata: ResponseMetadata
@@ -1321,6 +1419,7 @@ class AutoTuneOptions(BaseValidatorModel):
     UseOffPeakWindow: Optional[bool] = None
 
 
+# This class is the output for the 'describe_domain_health' function.
 class DescribeDomainHealthResponse(BaseValidatorModel):
     DomainState: DomainStateType
     AvailabilityZoneCount: str
@@ -1338,11 +1437,13 @@ class DescribeDomainHealthResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_domain_change_progress' function.
 class DescribeDomainChangeProgressResponse(BaseValidatorModel):
     ChangeProgressStatus: ChangeProgressStatusDetails
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_outbound_connection' function.
 class CreateOutboundConnectionRequest(BaseValidatorModel):
     LocalDomainInfo: DomainInformationContainer
     RemoteDomainInfo: DomainInformationContainer
@@ -1351,6 +1452,7 @@ class CreateOutboundConnectionRequest(BaseValidatorModel):
     ConnectionProperties: Optional[ConnectionProperties] = None
 
 
+# This class is the output for the 'create_outbound_connection' function.
 class CreateOutboundConnectionResponse(BaseValidatorModel):
     LocalDomainInfo: DomainInformationContainer
     RemoteDomainInfo: DomainInformationContainer
@@ -1372,6 +1474,7 @@ class OutboundConnection(BaseValidatorModel):
     ConnectionProperties: Optional[ConnectionProperties] = None
 
 
+# This class is the input for the 'add_data_source' function.
 class AddDataSourceRequest(BaseValidatorModel):
     DomainName: str
     Name: str
@@ -1386,6 +1489,7 @@ class DataSourceDetails(BaseValidatorModel):
     Status: Optional[DataSourceStatusType] = None
 
 
+# This class is the output for the 'get_data_source' function.
 class GetDataSourceResponse(BaseValidatorModel):
     DataSourceType: DataSourceType
     Name: str
@@ -1394,6 +1498,7 @@ class GetDataSourceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_data_source' function.
 class UpdateDataSourceRequest(BaseValidatorModel):
     DomainName: str
     Name: str
@@ -1402,6 +1507,7 @@ class UpdateDataSourceRequest(BaseValidatorModel):
     Status: Optional[DataSourceStatusType] = None
 
 
+# This class is the input for the 'add_direct_query_data_source' function.
 class AddDirectQueryDataSourceRequest(BaseValidatorModel):
     DataSourceName: str
     DataSourceType: DirectQueryDataSourceType
@@ -1419,6 +1525,7 @@ class DirectQueryDataSource(BaseValidatorModel):
     TagList: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'get_direct_query_data_source' function.
 class GetDirectQueryDataSourceResponse(BaseValidatorModel):
     DataSourceName: str
     DataSourceType: DirectQueryDataSourceType
@@ -1428,6 +1535,7 @@ class GetDirectQueryDataSourceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_direct_query_data_source' function.
 class UpdateDirectQueryDataSourceRequest(BaseValidatorModel):
     DataSourceName: str
     DataSourceType: DirectQueryDataSourceType
@@ -1435,22 +1543,26 @@ class UpdateDirectQueryDataSourceRequest(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the output for the 'create_vpc_endpoint' function.
 class CreateVpcEndpointResponse(BaseValidatorModel):
     VpcEndpoint: VpcEndpoint
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_vpc_endpoints' function.
 class DescribeVpcEndpointsResponse(BaseValidatorModel):
     VpcEndpoints: List[VpcEndpoint]
     VpcEndpointErrors: List[VpcEndpointError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_vpc_endpoint' function.
 class UpdateVpcEndpointResponse(BaseValidatorModel):
     VpcEndpoint: VpcEndpoint
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'associate_package' function.
 class AssociatePackageRequest(BaseValidatorModel):
     PackageID: str
     DomainName: str
@@ -1515,27 +1627,32 @@ class OffPeakWindowOptions(BaseValidatorModel):
     OffPeakWindow: Optional[OffPeakWindow] = None
 
 
+# This class is the output for the 'create_package' function.
 class CreatePackageResponse(BaseValidatorModel):
     PackageDetails: PackageDetails
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_package' function.
 class DeletePackageResponse(BaseValidatorModel):
     PackageDetails: PackageDetails
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_packages' function.
 class DescribePackagesResponse(BaseValidatorModel):
     PackageDetailsList: List[PackageDetails]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_package' function.
 class UpdatePackageResponse(BaseValidatorModel):
     PackageDetails: PackageDetails
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_package_version_history' function.
 class GetPackageVersionHistoryResponse(BaseValidatorModel):
     PackageID: str
     PackageVersionHistoryList: List[PackageVersionHistory]
@@ -1543,12 +1660,14 @@ class GetPackageVersionHistoryResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_reserved_instance_offerings' function.
 class DescribeReservedInstanceOfferingsResponse(BaseValidatorModel):
     ReservedInstanceOfferings: List[ReservedInstanceOffering]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_reserved_instances' function.
 class DescribeReservedInstancesResponse(BaseValidatorModel):
     ReservedInstances: List[ReservedInstance]
     ResponseMetadata: ResponseMetadata
@@ -1579,33 +1698,39 @@ class Limits(BaseValidatorModel):
     AdditionalLimits: Optional[List[AdditionalLimit]] = None
 
 
+# This class is the output for the 'get_upgrade_history' function.
 class GetUpgradeHistoryResponse(BaseValidatorModel):
     UpgradeHistories: List[UpgradeHistory]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'accept_inbound_connection' function.
 class AcceptInboundConnectionResponse(BaseValidatorModel):
     Connection: InboundConnection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_inbound_connection' function.
 class DeleteInboundConnectionResponse(BaseValidatorModel):
     Connection: InboundConnection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_inbound_connections' function.
 class DescribeInboundConnectionsResponse(BaseValidatorModel):
     Connections: List[InboundConnection]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'reject_inbound_connection' function.
 class RejectInboundConnectionResponse(BaseValidatorModel):
     Connection: InboundConnection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_domain_auto_tunes' function.
 class DescribeDomainAutoTunesResponse(BaseValidatorModel):
     AutoTunes: List[AutoTune]
     ResponseMetadata: ResponseMetadata
@@ -1625,60 +1750,71 @@ class AutoTuneOptionsInput(BaseValidatorModel):
 AutoTuneOptionsUnion = Union[AutoTuneOptions, AutoTuneOptionsExtra]
 
 
+# This class is the output for the 'delete_outbound_connection' function.
 class DeleteOutboundConnectionResponse(BaseValidatorModel):
     Connection: OutboundConnection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_outbound_connections' function.
 class DescribeOutboundConnectionsResponse(BaseValidatorModel):
     Connections: List[OutboundConnection]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_data_sources' function.
 class ListDataSourcesResponse(BaseValidatorModel):
     DataSources: List[DataSourceDetails]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_direct_query_data_sources' function.
 class ListDirectQueryDataSourcesResponse(BaseValidatorModel):
     DirectQueryDataSources: List[DirectQueryDataSource]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'associate_package' function.
 class AssociatePackageResponse(BaseValidatorModel):
     DomainPackageDetails: DomainPackageDetails
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_packages' function.
 class AssociatePackagesResponse(BaseValidatorModel):
     DomainPackageDetailsList: List[DomainPackageDetails]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'dissociate_package' function.
 class DissociatePackageResponse(BaseValidatorModel):
     DomainPackageDetails: DomainPackageDetails
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'dissociate_packages' function.
 class DissociatePackagesResponse(BaseValidatorModel):
     DomainPackageDetailsList: List[DomainPackageDetails]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_domains_for_package' function.
 class ListDomainsForPackageResponse(BaseValidatorModel):
     DomainPackageDetailsList: List[DomainPackageDetails]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_packages_for_domain' function.
 class ListPackagesForDomainResponse(BaseValidatorModel):
     DomainPackageDetailsList: List[DomainPackageDetails]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'associate_packages' function.
 class AssociatePackagesRequest(BaseValidatorModel):
     PackageList: List[PackageDetailsForAssociation]
     DomainName: str
@@ -1738,11 +1874,13 @@ class DomainStatus(BaseValidatorModel):
     AIMLOptions: Optional[AIMLOptionsOutput] = None
 
 
+# This class is the output for the 'describe_instance_type_limits' function.
 class DescribeInstanceTypeLimitsResponse(BaseValidatorModel):
     LimitsByRole: Dict[str, Limits]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_domain' function.
 class CreateDomainRequest(BaseValidatorModel):
     DomainName: str
     EngineVersion: Optional[str] = None
@@ -1767,6 +1905,7 @@ class CreateDomainRequest(BaseValidatorModel):
     AIMLOptions: Optional[AIMLOptionsInput] = None
 
 
+# This class is the input for the 'update_domain_config' function.
 class UpdateDomainConfigRequest(BaseValidatorModel):
     DomainName: str
     ClusterConfig: Optional[ClusterConfigUnion] = None
@@ -1815,26 +1954,31 @@ class DomainConfig(BaseValidatorModel):
     AIMLOptions: Optional[AIMLOptionsStatus] = None
 
 
+# This class is the output for the 'create_domain' function.
 class CreateDomainResponse(BaseValidatorModel):
     DomainStatus: DomainStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_domain' function.
 class DeleteDomainResponse(BaseValidatorModel):
     DomainStatus: DomainStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_domain' function.
 class DescribeDomainResponse(BaseValidatorModel):
     DomainStatus: DomainStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_domains' function.
 class DescribeDomainsResponse(BaseValidatorModel):
     DomainStatusList: List[DomainStatus]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_dry_run_progress' function.
 class DescribeDryRunProgressResponse(BaseValidatorModel):
     DryRunProgressStatus: DryRunProgressStatus
     DryRunConfig: DomainStatus
@@ -1842,11 +1986,13 @@ class DescribeDryRunProgressResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_domain_config' function.
 class DescribeDomainConfigResponse(BaseValidatorModel):
     DomainConfig: DomainConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_domain_config' function.
 class UpdateDomainConfigResponse(BaseValidatorModel):
     DomainConfig: DomainConfig
     DryRunResults: DryRunResults

@@ -42,6 +42,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'decode_authorization_message' function.
 class DecodeAuthorizationMessageRequest(BaseValidatorModel):
     EncodedMessage: str
 
@@ -51,16 +52,19 @@ class FederatedUser(BaseValidatorModel):
     Arn: str
 
 
+# This class is the input for the 'get_access_key_info' function.
 class GetAccessKeyInfoRequest(BaseValidatorModel):
     AccessKeyId: str
 
 
+# This class is the input for the 'get_session_token' function.
 class GetSessionTokenRequest(BaseValidatorModel):
     DurationSeconds: Optional[int] = None
     SerialNumber: Optional[str] = None
     TokenCode: Optional[str] = None
 
 
+# This class is the input for the 'assume_role_with_saml' function.
 class AssumeRoleWithSAMLRequest(BaseValidatorModel):
     RoleArn: str
     PrincipalArn: str
@@ -70,6 +74,7 @@ class AssumeRoleWithSAMLRequest(BaseValidatorModel):
     DurationSeconds: Optional[int] = None
 
 
+# This class is the input for the 'assume_role_with_web_identity' function.
 class AssumeRoleWithWebIdentityRequest(BaseValidatorModel):
     RoleArn: str
     RoleSessionName: str
@@ -80,12 +85,14 @@ class AssumeRoleWithWebIdentityRequest(BaseValidatorModel):
     DurationSeconds: Optional[int] = None
 
 
+# This class is the input for the 'assume_root' function.
 class AssumeRootRequest(BaseValidatorModel):
     TargetPrincipal: str
     TaskPolicyArn: PolicyDescriptorType
     DurationSeconds: Optional[int] = None
 
 
+# This class is the input for the 'assume_role' function.
 class AssumeRoleRequest(BaseValidatorModel):
     RoleArn: str
     RoleSessionName: str
@@ -101,6 +108,7 @@ class AssumeRoleRequest(BaseValidatorModel):
     ProvidedContexts: Optional[List[ProvidedContext]] = None
 
 
+# This class is the input for the 'get_federation_token' function.
 class GetFederationTokenRequest(BaseValidatorModel):
     Name: str
     Policy: Optional[str] = None
@@ -109,6 +117,7 @@ class GetFederationTokenRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'assume_role' function.
 class AssumeRoleResponse(BaseValidatorModel):
     Credentials: Credentials
     AssumedRoleUser: AssumedRoleUser
@@ -117,6 +126,7 @@ class AssumeRoleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'assume_role_with_saml' function.
 class AssumeRoleWithSAMLResponse(BaseValidatorModel):
     Credentials: Credentials
     AssumedRoleUser: AssumedRoleUser
@@ -130,6 +140,7 @@ class AssumeRoleWithSAMLResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'assume_role_with_web_identity' function.
 class AssumeRoleWithWebIdentityResponse(BaseValidatorModel):
     Credentials: Credentials
     SubjectFromWebIdentityToken: str
@@ -141,17 +152,20 @@ class AssumeRoleWithWebIdentityResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'assume_root' function.
 class AssumeRootResponse(BaseValidatorModel):
     Credentials: Credentials
     SourceIdentity: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'decode_authorization_message' function.
 class DecodeAuthorizationMessageResponse(BaseValidatorModel):
     DecodedMessage: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_access_key_info' function.
 class GetAccessKeyInfoResponse(BaseValidatorModel):
     Account: str
     ResponseMetadata: ResponseMetadata
@@ -164,11 +178,13 @@ class GetCallerIdentityResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_session_token' function.
 class GetSessionTokenResponse(BaseValidatorModel):
     Credentials: Credentials
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_federation_token' function.
 class GetFederationTokenResponse(BaseValidatorModel):
     Credentials: Credentials
     FederatedUser: FederatedUser

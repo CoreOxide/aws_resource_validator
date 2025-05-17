@@ -61,6 +61,7 @@ class BatchDeleteImportDataError(BaseValidatorModel):
     errorDescription: Optional[str] = None
 
 
+# This class is the input for the 'batch_delete_import_data' function.
 class BatchDeleteImportDataRequest(BaseValidatorModel):
     importTaskIds: List[str]
     deleteHistory: Optional[bool] = None
@@ -85,6 +86,7 @@ class ContinuousExportDescription(BaseValidatorModel):
     schemaStorageConfig: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_application' function.
 class CreateApplicationRequest(BaseValidatorModel):
     name: str
     description: Optional[str] = None
@@ -152,20 +154,24 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_batch_delete_configuration_task' function.
 class DescribeBatchDeleteConfigurationTaskRequest(BaseValidatorModel):
     taskId: str
 
 
+# This class is the input for the 'describe_configurations' function.
 class DescribeConfigurationsRequest(BaseValidatorModel):
     configurationIds: List[str]
 
 
+# This class is the input for the 'describe_continuous_exports' function.
 class DescribeContinuousExportsRequest(BaseValidatorModel):
     exportIds: Optional[List[str]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_export_configurations' function.
 class DescribeExportConfigurationsRequest(BaseValidatorModel):
     exportIds: Optional[List[str]] = None
     maxResults: Optional[int] = None
@@ -237,6 +243,7 @@ class OrderByElement(BaseValidatorModel):
     sortOrder: Optional[OrderStringType] = None
 
 
+# This class is the input for the 'list_server_neighbors' function.
 class ListServerNeighborsRequest(BaseValidatorModel):
     configurationId: str
     portInformationNeeded: Optional[bool] = None
@@ -253,27 +260,32 @@ class NeighborConnectionDetail(BaseValidatorModel):
     transportProtocol: Optional[str] = None
 
 
+# This class is the input for the 'start_batch_delete_configuration_task' function.
 class StartBatchDeleteConfigurationTaskRequest(BaseValidatorModel):
     configurationType: Literal['SERVER']
     configurationIds: List[str]
 
 
+# This class is the input for the 'start_data_collection_by_agent_ids' function.
 class StartDataCollectionByAgentIdsRequest(BaseValidatorModel):
     agentIds: List[str]
 
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'start_import_task' function.
 class StartImportTaskRequest(BaseValidatorModel):
     name: str
     importUrl: str
     clientRequestToken: Optional[str] = None
 
 
+# This class is the input for the 'stop_continuous_export' function.
 class StopContinuousExportRequest(BaseValidatorModel):
     exportId: str
 
 
+# This class is the input for the 'stop_data_collection_by_agent_ids' function.
 class StopDataCollectionByAgentIdsRequest(BaseValidatorModel):
     agentIds: List[str]
 
@@ -298,20 +310,24 @@ class AgentInfo(BaseValidatorModel):
     registeredTime: Optional[str] = None
 
 
+# This class is the input for the 'batch_delete_agents' function.
 class BatchDeleteAgentsRequest(BaseValidatorModel):
     deleteAgents: List[DeleteAgent]
 
 
+# This class is the output for the 'batch_delete_agents' function.
 class BatchDeleteAgentsResponse(BaseValidatorModel):
     errors: List[BatchDeleteAgentError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_application' function.
 class CreateApplicationResponse(BaseValidatorModel):
     configurationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_configurations' function.
 class DescribeConfigurationsResponse(BaseValidatorModel):
     configurations: List[Dict[str, str]]
     ResponseMetadata: ResponseMetadata
@@ -322,12 +338,14 @@ class ExportConfigurationsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_configurations' function.
 class ListConfigurationsResponse(BaseValidatorModel):
     configurations: List[Dict[str, str]]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_batch_delete_configuration_task' function.
 class StartBatchDeleteConfigurationTaskResponse(BaseValidatorModel):
     taskId: str
     ResponseMetadata: ResponseMetadata
@@ -342,22 +360,26 @@ class StartContinuousExportResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_data_collection_by_agent_ids' function.
 class StartDataCollectionByAgentIdsResponse(BaseValidatorModel):
     agentsConfigurationStatus: List[AgentConfigurationStatus]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_export_task' function.
 class StartExportTaskResponse(BaseValidatorModel):
     exportId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_continuous_export' function.
 class StopContinuousExportResponse(BaseValidatorModel):
     startTime: datetime
     stopTime: datetime
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_data_collection_by_agent_ids' function.
 class StopDataCollectionByAgentIdsResponse(BaseValidatorModel):
     agentsConfigurationStatus: List[AgentConfigurationStatus]
     ResponseMetadata: ResponseMetadata
@@ -375,17 +397,20 @@ class BatchDeleteConfigurationTask(BaseValidatorModel):
     deletionWarnings: Optional[List[DeletionWarning]] = None
 
 
+# This class is the output for the 'batch_delete_import_data' function.
 class BatchDeleteImportDataResponse(BaseValidatorModel):
     errors: List[BatchDeleteImportDataError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_tags' function.
 class DescribeTagsResponse(BaseValidatorModel):
     tags: List[ConfigurationTag]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_continuous_exports' function.
 class DescribeContinuousExportsResponse(BaseValidatorModel):
     descriptions: List[ContinuousExportDescription]
     ResponseMetadata: ResponseMetadata
@@ -414,6 +439,7 @@ class GetDiscoverySummaryResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'describe_agents' function.
 class DescribeAgentsRequest(BaseValidatorModel):
     agentIds: Optional[List[str]] = None
     filters: Optional[List[Filter]] = None
@@ -437,12 +463,14 @@ class DescribeExportConfigurationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'describe_export_configurations' function.
 class DescribeExportConfigurationsResponse(BaseValidatorModel):
     exportsInfo: List[ExportInfo]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_export_tasks' function.
 class DescribeExportTasksResponse(BaseValidatorModel):
     exportsInfo: List[ExportInfo]
     ResponseMetadata: ResponseMetadata
@@ -455,6 +483,7 @@ class DescribeExportTasksRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_export_tasks' function.
 class DescribeExportTasksRequest(BaseValidatorModel):
     exportIds: Optional[List[str]] = None
     filters: Optional[List[ExportFilter]] = None
@@ -467,18 +496,21 @@ class DescribeImportTasksRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_import_tasks' function.
 class DescribeImportTasksRequest(BaseValidatorModel):
     filters: Optional[List[ImportTaskFilter]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_import_tasks' function.
 class DescribeImportTasksResponse(BaseValidatorModel):
     tasks: List[ImportTask]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_import_task' function.
 class StartImportTaskResponse(BaseValidatorModel):
     task: ImportTask
     ResponseMetadata: ResponseMetadata
@@ -489,6 +521,7 @@ class DescribeTagsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_tags' function.
 class DescribeTagsRequest(BaseValidatorModel):
     filters: Optional[List[TagFilter]] = None
     maxResults: Optional[int] = None
@@ -512,6 +545,7 @@ class ListConfigurationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_configurations' function.
 class ListConfigurationsRequest(BaseValidatorModel):
     configurationType: ConfigurationItemTypeType
     filters: Optional[List[Filter]] = None
@@ -520,6 +554,7 @@ class ListConfigurationsRequest(BaseValidatorModel):
     orderBy: Optional[List[OrderByElement]] = None
 
 
+# This class is the output for the 'list_server_neighbors' function.
 class ListServerNeighborsResponse(BaseValidatorModel):
     neighbors: List[NeighborConnectionDetail]
     knownDependencyCount: int
@@ -527,12 +562,14 @@ class ListServerNeighborsResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_agents' function.
 class DescribeAgentsResponse(BaseValidatorModel):
     agentsInfo: List[AgentInfo]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_batch_delete_configuration_task' function.
 class DescribeBatchDeleteConfigurationTaskResponse(BaseValidatorModel):
     task: BatchDeleteConfigurationTask
     ResponseMetadata: ResponseMetadata
@@ -542,6 +579,7 @@ class ExportPreferences(BaseValidatorModel):
     ec2RecommendationsPreferences: Optional[Ec2RecommendationsExportPreferences] = None
 
 
+# This class is the input for the 'start_export_task' function.
 class StartExportTaskRequest(BaseValidatorModel):
     exportDataFormat: Optional[List[Literal['CSV']]] = None
     filters: Optional[List[ExportFilter]] = None

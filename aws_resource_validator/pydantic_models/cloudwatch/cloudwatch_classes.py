@@ -91,6 +91,7 @@ class Datapoint(BaseValidatorModel):
     ExtendedStatistics: Optional[Dict[str, float]] = None
 
 
+# This class is the input for the 'delete_alarms' function.
 class DeleteAlarmsInput(BaseValidatorModel):
     AlarmNames: List[str]
 
@@ -99,6 +100,7 @@ class DeleteDashboardsInput(BaseValidatorModel):
     DashboardNames: List[str]
 
 
+# This class is the input for the 'delete_insight_rules' function.
 class DeleteInsightRulesInput(BaseValidatorModel):
     RuleNames: List[str]
 
@@ -130,6 +132,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_alarms' function.
 class DescribeAlarmsInput(BaseValidatorModel):
     AlarmNames: Optional[List[str]] = None
     AlarmNamePrefix: Optional[str] = None
@@ -147,6 +150,7 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'describe_insight_rules' function.
 class DescribeInsightRulesInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -165,18 +169,22 @@ class DimensionFilter(BaseValidatorModel):
     Value: Optional[str] = None
 
 
+# This class is the input for the 'disable_alarm_actions' function.
 class DisableAlarmActionsInput(BaseValidatorModel):
     AlarmNames: List[str]
 
 
+# This class is the input for the 'disable_insight_rules' function.
 class DisableInsightRulesInput(BaseValidatorModel):
     RuleNames: List[str]
 
 
+# This class is the input for the 'enable_alarm_actions' function.
 class EnableAlarmActionsInput(BaseValidatorModel):
     AlarmNames: List[str]
 
 
+# This class is the input for the 'enable_insight_rules' function.
 class EnableInsightRulesInput(BaseValidatorModel):
     RuleNames: List[str]
 
@@ -186,6 +194,7 @@ class Entity(BaseValidatorModel):
     Attributes: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'get_dashboard' function.
 class GetDashboardInput(BaseValidatorModel):
     DashboardName: str
 
@@ -210,6 +219,7 @@ class MessageData(BaseValidatorModel):
     Value: Optional[str] = None
 
 
+# This class is the input for the 'get_metric_stream' function.
 class GetMetricStreamInput(BaseValidatorModel):
     Name: str
 
@@ -219,6 +229,7 @@ class MetricStreamFilterOutput(BaseValidatorModel):
     MetricNames: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_metric_widget_image' function.
 class GetMetricWidgetImageInput(BaseValidatorModel):
     MetricWidget: str
     OutputFormat: Optional[str] = None
@@ -229,17 +240,20 @@ class InsightRuleContributorDatapoint(BaseValidatorModel):
     ApproximateValue: float
 
 
+# This class is the input for the 'list_dashboards' function.
 class ListDashboardsInput(BaseValidatorModel):
     DashboardNamePrefix: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_managed_insight_rules' function.
 class ListManagedInsightRulesInput(BaseValidatorModel):
     ResourceARN: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_metric_streams' function.
 class ListMetricStreamsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -255,6 +269,7 @@ class MetricStreamEntry(BaseValidatorModel):
     OutputFormat: Optional[MetricStreamOutputFormatType] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInput(BaseValidatorModel):
     ResourceARN: str
 
@@ -286,6 +301,7 @@ class MetricStreamStatisticsMetric(BaseValidatorModel):
     MetricName: str
 
 
+# This class is the input for the 'put_dashboard' function.
 class PutDashboardInput(BaseValidatorModel):
     DashboardName: str
     DashboardBody: str
@@ -297,6 +313,7 @@ class SetAlarmStateInputAlarmSetState(BaseValidatorModel):
     StateReasonData: Optional[str] = None
 
 
+# This class is the input for the 'set_alarm_state' function.
 class SetAlarmStateInput(BaseValidatorModel):
     AlarmName: str
     StateValue: StateValueType
@@ -322,6 +339,7 @@ class AnomalyDetectorConfigurationOutput(BaseValidatorModel):
     MetricTimezone: Optional[str] = None
 
 
+# This class is the input for the 'describe_alarms_for_metric' function.
 class DescribeAlarmsForMetricInput(BaseValidatorModel):
     MetricName: str
     Namespace: str
@@ -332,6 +350,7 @@ class DescribeAlarmsForMetricInput(BaseValidatorModel):
     Unit: Optional[StandardUnitType] = None
 
 
+# This class is the input for the 'describe_anomaly_detectors' function.
 class DescribeAnomalyDetectorsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -375,31 +394,37 @@ class CloudwatchEventMetricStats(BaseValidatorModel):
     metric: Optional[CloudwatchEventMetricStatsMetric] = None
 
 
+# This class is the output for the 'delete_insight_rules' function.
 class DeleteInsightRulesOutput(BaseValidatorModel):
     Failures: List[PartialFailure]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_alarm_history' function.
 class DescribeAlarmHistoryOutput(BaseValidatorModel):
     AlarmHistoryItems: List[AlarmHistoryItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'disable_insight_rules' function.
 class DisableInsightRulesOutput(BaseValidatorModel):
     Failures: List[PartialFailure]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'set_alarm_state' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enable_insight_rules' function.
 class EnableInsightRulesOutput(BaseValidatorModel):
     Failures: List[PartialFailure]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_dashboard' function.
 class GetDashboardOutput(BaseValidatorModel):
     DashboardArn: str
     DashboardBody: str
@@ -407,33 +432,39 @@ class GetDashboardOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_metric_statistics' function.
 class GetMetricStatisticsOutput(BaseValidatorModel):
     Label: str
     Datapoints: List[Datapoint]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_metric_widget_image' function.
 class GetMetricWidgetImageOutput(BaseValidatorModel):
     MetricWidgetImage: bytes
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_dashboards' function.
 class ListDashboardsOutput(BaseValidatorModel):
     DashboardEntries: List[DashboardEntry]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'put_dashboard' function.
 class PutDashboardOutput(BaseValidatorModel):
     DashboardValidationMessages: List[DashboardValidationMessage]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_managed_insight_rules' function.
 class PutManagedInsightRulesOutput(BaseValidatorModel):
     Failures: List[PartialFailure]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_metric_stream' function.
 class PutMetricStreamOutput(BaseValidatorModel):
     Arn: str
     ResponseMetadata: ResponseMetadata
@@ -449,6 +480,7 @@ class DescribeAlarmHistoryInputAlarmDescribeHistory(BaseValidatorModel):
     ScanBy: Optional[ScanByType] = None
 
 
+# This class is the input for the 'describe_alarm_history' function.
 class DescribeAlarmHistoryInput(BaseValidatorModel):
     AlarmName: Optional[str] = None
     AlarmTypes: Optional[List[AlarmTypeType]] = None
@@ -460,6 +492,7 @@ class DescribeAlarmHistoryInput(BaseValidatorModel):
     ScanBy: Optional[ScanByType] = None
 
 
+# This class is the input for the 'get_insight_rule_report' function.
 class GetInsightRuleReportInput(BaseValidatorModel):
     RuleName: str
     StartTime: Timestamp
@@ -480,6 +513,7 @@ class GetMetricStatisticsInputMetricGetStatistics(BaseValidatorModel):
     Unit: Optional[StandardUnitType] = None
 
 
+# This class is the input for the 'get_metric_statistics' function.
 class GetMetricStatisticsInput(BaseValidatorModel):
     Namespace: str
     MetricName: str
@@ -557,6 +591,7 @@ class DescribeAlarmsInputWait(BaseValidatorModel):
     WaiterConfig: Optional[WaiterConfig] = None
 
 
+# This class is the output for the 'describe_insight_rules' function.
 class DescribeInsightRulesOutput(BaseValidatorModel):
     InsightRules: List[InsightRule]
     ResponseMetadata: ResponseMetadata
@@ -573,6 +608,7 @@ class ListMetricsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_metrics' function.
 class ListMetricsInput(BaseValidatorModel):
     Namespace: Optional[str] = None
     MetricName: Optional[str] = None
@@ -598,12 +634,14 @@ class InsightRuleContributor(BaseValidatorModel):
     Datapoints: List[InsightRuleContributorDatapoint]
 
 
+# This class is the output for the 'list_metric_streams' function.
 class ListMetricStreamsOutput(BaseValidatorModel):
     Entries: List[MetricStreamEntry]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceOutput(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -615,6 +653,7 @@ class ManagedRule(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'put_composite_alarm' function.
 class PutCompositeAlarmInput(BaseValidatorModel):
     AlarmName: str
     AlarmRule: str
@@ -671,6 +710,7 @@ class MetricStreamStatisticsConfiguration(BaseValidatorModel):
     AdditionalStatistics: List[str]
 
 
+# This class is the output for the 'list_metrics' function.
 class ListMetricsOutput(BaseValidatorModel):
     Metrics: List[MetricOutput]
     OwningAccounts: List[str]
@@ -703,6 +743,7 @@ class AnomalyDetectorConfiguration(BaseValidatorModel):
     MetricTimezone: Optional[str] = None
 
 
+# This class is the output for the 'get_metric_data' function.
 class GetMetricDataOutput(BaseValidatorModel):
     MetricDataResults: List[MetricDataResult]
     Messages: List[MessageData]
@@ -710,6 +751,7 @@ class GetMetricDataOutput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_insight_rule_report' function.
 class GetInsightRuleReportOutput(BaseValidatorModel):
     KeyLabels: List[str]
     AggregationStatistic: str
@@ -720,10 +762,12 @@ class GetInsightRuleReportOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_managed_insight_rules' function.
 class PutManagedInsightRulesInput(BaseValidatorModel):
     ManagedRules: List[ManagedRule]
 
 
+# This class is the output for the 'list_managed_insight_rules' function.
 class ListManagedInsightRulesOutput(BaseValidatorModel):
     ManagedRules: List[ManagedRuleDescription]
     ResponseMetadata: ResponseMetadata
@@ -735,6 +779,7 @@ class EntityMetricData(BaseValidatorModel):
     MetricData: Optional[List[MetricDatum]] = None
 
 
+# This class is the output for the 'get_metric_stream' function.
 class GetMetricStreamOutput(BaseValidatorModel):
     Arn: str
     Name: str
@@ -797,6 +842,7 @@ class PutMetricDataInputMetricPutData(BaseValidatorModel):
     StrictEntityValidation: Optional[bool] = None
 
 
+# This class is the input for the 'put_metric_data' function.
 class PutMetricDataInput(BaseValidatorModel):
     Namespace: str
     MetricData: Optional[List[MetricDatum]] = None
@@ -804,6 +850,7 @@ class PutMetricDataInput(BaseValidatorModel):
     StrictEntityValidation: Optional[bool] = None
 
 
+# This class is the input for the 'put_metric_stream' function.
 class PutMetricStreamInput(BaseValidatorModel):
     Name: str
     FirehoseArn: str
@@ -863,11 +910,13 @@ class CloudwatchEventDetail(BaseValidatorModel):
     previousState: Optional[CloudwatchEventState] = None
 
 
+# This class is the output for the 'describe_alarms_for_metric' function.
 class DescribeAlarmsForMetricOutput(BaseValidatorModel):
     MetricAlarms: List[MetricAlarm]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_alarms' function.
 class DescribeAlarmsOutput(BaseValidatorModel):
     CompositeAlarms: List[CompositeAlarm]
     MetricAlarms: List[MetricAlarm]
@@ -926,6 +975,7 @@ class MetricDataQueryAlarm(BaseValidatorModel):
     AccountId: Optional[str] = None
 
 
+# This class is the output for the 'describe_anomaly_detectors' function.
 class DescribeAnomalyDetectorsOutput(BaseValidatorModel):
     AnomalyDetectors: List[AnomalyDetector]
     ResponseMetadata: ResponseMetadata
@@ -947,6 +997,7 @@ class GetMetricDataInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_metric_data' function.
 class GetMetricDataInput(BaseValidatorModel):
     MetricDataQueries: List[MetricDataQueryUnion]
     StartTime: Timestamp
@@ -980,6 +1031,7 @@ class PutMetricAlarmInputMetricPutAlarm(BaseValidatorModel):
     ThresholdMetricId: Optional[str] = None
 
 
+# This class is the input for the 'put_metric_alarm' function.
 class PutMetricAlarmInput(BaseValidatorModel):
     AlarmName: str
     EvaluationPeriods: int

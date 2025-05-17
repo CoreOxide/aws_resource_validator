@@ -50,6 +50,7 @@ class ResourceId(BaseValidatorModel):
     codeArtifactId: Optional[str] = None
 
 
+# This class is the input for the 'create_upload_url' function.
 class CreateUploadUrlRequest(BaseValidatorModel):
     scanName: str
 
@@ -69,6 +70,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'get_findings' function.
 class GetFindingsRequest(BaseValidatorModel):
     scanName: str
     maxResults: Optional[int] = None
@@ -78,11 +80,13 @@ class GetFindingsRequest(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'get_scan' function.
 class GetScanRequest(BaseValidatorModel):
     scanName: str
     runId: Optional[str] = None
 
 
+# This class is the input for the 'list_scans' function.
 class ListScansRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -97,6 +101,7 @@ class ScanSummary(BaseValidatorModel):
     updatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -134,10 +139,12 @@ class AccountFindingsMetric(BaseValidatorModel):
     openFindings: Optional[FindingMetricsValuePerSeverity] = None
 
 
+# This class is the input for the 'batch_get_findings' function.
 class BatchGetFindingsRequest(BaseValidatorModel):
     findingIdentifiers: List[FindingIdentifier]
 
 
+# This class is the output for the 'create_upload_url' function.
 class CreateUploadUrlResponse(BaseValidatorModel):
     codeArtifactId: str
     requestHeaders: Dict[str, str]
@@ -145,6 +152,7 @@ class CreateUploadUrlResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_scan' function.
 class GetScanResponse(BaseValidatorModel):
     analysisType: AnalysisTypeType
     createdAt: datetime
@@ -158,6 +166,7 @@ class GetScanResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
@@ -171,6 +180,7 @@ class FilePath(BaseValidatorModel):
     startLine: Optional[int] = None
 
 
+# This class is the input for the 'create_scan' function.
 class CreateScanRequest(BaseValidatorModel):
     resourceId: ResourceId
     scanName: str
@@ -180,6 +190,7 @@ class CreateScanRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_scan' function.
 class CreateScanResponse(BaseValidatorModel):
     resourceId: ResourceId
     runId: str
@@ -194,10 +205,12 @@ class GetAccountConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_account_configuration' function.
 class UpdateAccountConfigurationRequest(BaseValidatorModel):
     encryptionConfig: EncryptionConfig
 
 
+# This class is the output for the 'update_account_configuration' function.
 class UpdateAccountConfigurationResponse(BaseValidatorModel):
     encryptionConfig: EncryptionConfig
     ResponseMetadata: ResponseMetadata
@@ -213,6 +226,7 @@ class ListScansRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_metrics_summary' function.
 class GetMetricsSummaryRequest(BaseValidatorModel):
     date: Timestamp
 
@@ -223,6 +237,7 @@ class ListFindingsMetricsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_findings_metrics' function.
 class ListFindingsMetricsRequest(BaseValidatorModel):
     endDate: Timestamp
     startDate: Timestamp
@@ -230,6 +245,7 @@ class ListFindingsMetricsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_scans' function.
 class ListScansResponse(BaseValidatorModel):
     summaries: List[ScanSummary]
     ResponseMetadata: ResponseMetadata
@@ -249,6 +265,7 @@ class Remediation(BaseValidatorModel):
     suggestedFixes: Optional[List[SuggestedFix]] = None
 
 
+# This class is the output for the 'list_findings_metrics' function.
 class ListFindingsMetricsResponse(BaseValidatorModel):
     findingsMetrics: List[AccountFindingsMetric]
     ResponseMetadata: ResponseMetadata
@@ -263,6 +280,7 @@ class Vulnerability(BaseValidatorModel):
     relatedVulnerabilities: Optional[List[str]] = None
 
 
+# This class is the output for the 'get_metrics_summary' function.
 class GetMetricsSummaryResponse(BaseValidatorModel):
     metricsSummary: MetricsSummary
     ResponseMetadata: ResponseMetadata
@@ -287,12 +305,14 @@ class Finding(BaseValidatorModel):
     vulnerability: Optional[Vulnerability] = None
 
 
+# This class is the output for the 'batch_get_findings' function.
 class BatchGetFindingsResponse(BaseValidatorModel):
     failedFindings: List[BatchGetFindingsError]
     findings: List[Finding]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_findings' function.
 class GetFindingsResponse(BaseValidatorModel):
     findings: List[Finding]
     ResponseMetadata: ResponseMetadata

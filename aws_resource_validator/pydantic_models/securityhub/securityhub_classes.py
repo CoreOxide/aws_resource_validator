@@ -2312,6 +2312,7 @@ class AwsXrayEncryptionConfigDetails(BaseValidatorModel):
     Type: Optional[str] = None
 
 
+# This class is the input for the 'batch_delete_automation_rules' function.
 class BatchDeleteAutomationRulesRequest(BaseValidatorModel):
     AutomationRulesArns: List[str]
 
@@ -2330,6 +2331,7 @@ class UnprocessedAutomationRule(BaseValidatorModel):
     ErrorMessage: Optional[str] = None
 
 
+# This class is the input for the 'batch_disable_standards' function.
 class BatchDisableStandardsRequest(BaseValidatorModel):
     StandardsSubscriptionArns: List[str]
 
@@ -2339,6 +2341,7 @@ class StandardsSubscriptionRequest(BaseValidatorModel):
     StandardsInput: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'batch_get_automation_rules' function.
 class BatchGetAutomationRulesRequest(BaseValidatorModel):
     AutomationRulesArns: List[str]
 
@@ -2353,6 +2356,7 @@ class ConfigurationPolicyAssociationSummary(BaseValidatorModel):
     AssociationStatusMessage: Optional[str] = None
 
 
+# This class is the input for the 'batch_get_security_controls' function.
 class BatchGetSecurityControlsRequest(BaseValidatorModel):
     SecurityControlIds: List[str]
 
@@ -2490,12 +2494,14 @@ class VolumeMount(BaseValidatorModel):
     MountPath: Optional[str] = None
 
 
+# This class is the input for the 'create_action_target' function.
 class CreateActionTargetRequest(BaseValidatorModel):
     Name: str
     Description: str
     Id: str
 
 
+# This class is the input for the 'create_finding_aggregator' function.
 class CreateFindingAggregatorRequest(BaseValidatorModel):
     RegionLinkingMode: str
     Regions: Optional[List[str]] = None
@@ -2511,10 +2517,12 @@ class DateRange(BaseValidatorModel):
     Unit: Optional[Literal['DAYS']] = None
 
 
+# This class is the input for the 'decline_invitations' function.
 class DeclineInvitationsRequest(BaseValidatorModel):
     AccountIds: List[str]
 
 
+# This class is the input for the 'delete_action_target' function.
 class DeleteActionTargetRequest(BaseValidatorModel):
     ActionTargetArn: str
 
@@ -2527,14 +2535,17 @@ class DeleteFindingAggregatorRequest(BaseValidatorModel):
     FindingAggregatorArn: str
 
 
+# This class is the input for the 'delete_insight' function.
 class DeleteInsightRequest(BaseValidatorModel):
     InsightArn: str
 
 
+# This class is the input for the 'delete_invitations' function.
 class DeleteInvitationsRequest(BaseValidatorModel):
     AccountIds: List[str]
 
 
+# This class is the input for the 'delete_members' function.
 class DeleteMembersRequest(BaseValidatorModel):
     AccountIds: List[str]
 
@@ -2545,12 +2556,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_action_targets' function.
 class DescribeActionTargetsRequest(BaseValidatorModel):
     ActionTargetArns: Optional[List[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_hub' function.
 class DescribeHubRequest(BaseValidatorModel):
     HubArn: Optional[str] = None
 
@@ -2561,6 +2574,7 @@ class OrganizationConfiguration(BaseValidatorModel):
     StatusMessage: Optional[str] = None
 
 
+# This class is the input for the 'describe_products' function.
 class DescribeProductsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -2579,6 +2593,7 @@ class Product(BaseValidatorModel):
     ProductSubscriptionResourcePolicy: Optional[str] = None
 
 
+# This class is the input for the 'describe_standards_controls' function.
 class DescribeStandardsControlsRequest(BaseValidatorModel):
     StandardsSubscriptionArn: str
     NextToken: Optional[str] = None
@@ -2598,6 +2613,7 @@ class StandardsControl(BaseValidatorModel):
     RelatedRequirements: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_standards' function.
 class DescribeStandardsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -2615,6 +2631,7 @@ class DisassociateMembersRequest(BaseValidatorModel):
     AccountIds: List[str]
 
 
+# This class is the input for the 'enable_import_findings_for_product' function.
 class EnableImportFindingsForProductRequest(BaseValidatorModel):
     ProductArn: str
 
@@ -2678,16 +2695,19 @@ class Invitation(BaseValidatorModel):
     MemberStatus: Optional[str] = None
 
 
+# This class is the input for the 'get_configuration_policy' function.
 class GetConfigurationPolicyRequest(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'get_enabled_standards' function.
 class GetEnabledStandardsRequest(BaseValidatorModel):
     StandardsSubscriptionArns: Optional[List[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_finding_aggregator' function.
 class GetFindingAggregatorRequest(BaseValidatorModel):
     FindingAggregatorArn: str
 
@@ -2699,16 +2719,19 @@ class SortCriterion(BaseValidatorModel):
     SortOrder: Optional[SortOrderType] = None
 
 
+# This class is the input for the 'get_insight_results' function.
 class GetInsightResultsRequest(BaseValidatorModel):
     InsightArn: str
 
 
+# This class is the input for the 'get_insights' function.
 class GetInsightsRequest(BaseValidatorModel):
     InsightArns: Optional[List[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_members' function.
 class GetMembersRequest(BaseValidatorModel):
     AccountIds: List[str]
 
@@ -2723,6 +2746,7 @@ class Member(BaseValidatorModel):
     UpdatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'get_security_control_definition' function.
 class GetSecurityControlDefinitionRequest(BaseValidatorModel):
     SecurityControlId: str
 
@@ -2746,52 +2770,62 @@ class InsightResultValue(BaseValidatorModel):
     Count: int
 
 
+# This class is the input for the 'invite_members' function.
 class InviteMembersRequest(BaseValidatorModel):
     AccountIds: List[str]
 
 
+# This class is the input for the 'list_automation_rules' function.
 class ListAutomationRulesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_configuration_policies' function.
 class ListConfigurationPoliciesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_enabled_products_for_import' function.
 class ListEnabledProductsForImportRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_finding_aggregators' function.
 class ListFindingAggregatorsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_invitations' function.
 class ListInvitationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_members' function.
 class ListMembersRequest(BaseValidatorModel):
     OnlyAssociated: Optional[bool] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_organization_admin_accounts' function.
 class ListOrganizationAdminAccountsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_security_control_definitions' function.
 class ListSecurityControlDefinitionsRequest(BaseValidatorModel):
     StandardsArn: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_standards_control_associations' function.
 class ListStandardsControlAssociationsRequest(BaseValidatorModel):
     SecurityControlId: str
     NextToken: Optional[str] = None
@@ -2810,6 +2844,7 @@ class StandardsControlAssociationSummary(BaseValidatorModel):
     StandardsControlDescription: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -2996,6 +3031,7 @@ class UpdateActionTargetRequest(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'update_finding_aggregator' function.
 class UpdateFindingAggregatorRequest(BaseValidatorModel):
     FindingAggregatorArn: str
     RegionLinkingMode: str
@@ -3021,6 +3057,7 @@ class VulnerabilityVendor(BaseValidatorModel):
     VendorUpdatedAt: Optional[str] = None
 
 
+# This class is the input for the 'create_members' function.
 class CreateMembersRequest(BaseValidatorModel):
     AccountDetails: List[AccountDetails]
 
@@ -3057,6 +3094,7 @@ class Cvss(BaseValidatorModel):
     Adjustments: Optional[List[Adjustment]] = None
 
 
+# This class is the input for the 'list_configuration_policy_associations' function.
 class ListConfigurationPolicyAssociationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -4566,6 +4604,7 @@ class AwsSecretsManagerSecretDetails(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'batch_update_findings' function.
 class BatchUpdateFindingsRequest(BaseValidatorModel):
     FindingIdentifiers: List[AwsSecurityFindingIdentifier]
     Note: Optional[NoteUpdate] = None
@@ -4749,16 +4788,19 @@ class AwsWafv2WebAclCaptchaConfigDetails(BaseValidatorModel):
     ImmunityTimeProperty: Optional[AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails] = None
 
 
+# This class is the output for the 'create_action_target' function.
 class CreateActionTargetResponse(BaseValidatorModel):
     ActionTargetArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_automation_rule' function.
 class CreateAutomationRuleResponse(BaseValidatorModel):
     RuleArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_finding_aggregator' function.
 class CreateFindingAggregatorResponse(BaseValidatorModel):
     FindingAggregatorArn: str
     FindingAggregationRegion: str
@@ -4767,27 +4809,32 @@ class CreateFindingAggregatorResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_insight' function.
 class CreateInsightResponse(BaseValidatorModel):
     InsightArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_action_target' function.
 class DeleteActionTargetResponse(BaseValidatorModel):
     ActionTargetArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_insight' function.
 class DeleteInsightResponse(BaseValidatorModel):
     InsightArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_action_targets' function.
 class DescribeActionTargetsResponse(BaseValidatorModel):
     ActionTargets: List[ActionTarget]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_hub' function.
 class DescribeHubResponse(BaseValidatorModel):
     HubArn: str
     SubscribedAt: str
@@ -4796,11 +4843,13 @@ class DescribeHubResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enable_import_findings_for_product' function.
 class EnableImportFindingsForProductResponse(BaseValidatorModel):
     ProductSubscriptionArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_configuration_policy_association' function.
 class GetConfigurationPolicyAssociationResponse(BaseValidatorModel):
     ConfigurationPolicyId: str
     TargetId: str
@@ -4812,6 +4861,7 @@ class GetConfigurationPolicyAssociationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_finding_aggregator' function.
 class GetFindingAggregatorResponse(BaseValidatorModel):
     FindingAggregatorArn: str
     FindingAggregationRegion: str
@@ -4825,29 +4875,34 @@ class GetInvitationsCountResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_automation_rules' function.
 class ListAutomationRulesResponse(BaseValidatorModel):
     AutomationRulesMetadata: List[AutomationRulesMetadata]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_enabled_products_for_import' function.
 class ListEnabledProductsForImportResponse(BaseValidatorModel):
     ProductSubscriptions: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_organization_admin_accounts' function.
 class ListOrganizationAdminAccountsResponse(BaseValidatorModel):
     AdminAccounts: List[AdminAccount]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_configuration_policy_association' function.
 class StartConfigurationPolicyAssociationResponse(BaseValidatorModel):
     ConfigurationPolicyId: str
     TargetId: str
@@ -4859,6 +4914,7 @@ class StartConfigurationPolicyAssociationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_finding_aggregator' function.
 class UpdateFindingAggregatorResponse(BaseValidatorModel):
     FindingAggregatorArn: str
     FindingAggregationRegion: str
@@ -4867,28 +4923,33 @@ class UpdateFindingAggregatorResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_delete_automation_rules' function.
 class BatchDeleteAutomationRulesResponse(BaseValidatorModel):
     ProcessedAutomationRules: List[str]
     UnprocessedAutomationRules: List[UnprocessedAutomationRule]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_update_automation_rules' function.
 class BatchUpdateAutomationRulesResponse(BaseValidatorModel):
     ProcessedAutomationRules: List[str]
     UnprocessedAutomationRules: List[UnprocessedAutomationRule]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'batch_enable_standards' function.
 class BatchEnableStandardsRequest(BaseValidatorModel):
     StandardsSubscriptionRequests: List[StandardsSubscriptionRequest]
 
 
+# This class is the output for the 'list_configuration_policy_associations' function.
 class ListConfigurationPolicyAssociationsResponse(BaseValidatorModel):
     ConfigurationPolicyAssociationSummaries: List[ConfigurationPolicyAssociationSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'batch_get_standards_control_associations' function.
 class BatchGetStandardsControlAssociationsRequest(BaseValidatorModel):
     StandardsControlAssociationIds: List[StandardsControlAssociationId]
 
@@ -4899,6 +4960,7 @@ class UnprocessedStandardsControlAssociation(BaseValidatorModel):
     ErrorReason: Optional[str] = None
 
 
+# This class is the output for the 'batch_import_findings' function.
 class BatchImportFindingsResponse(BaseValidatorModel):
     FailedCount: int
     SuccessCount: int
@@ -4906,6 +4968,7 @@ class BatchImportFindingsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'batch_update_standards_control_associations' function.
 class BatchUpdateStandardsControlAssociationsRequest(BaseValidatorModel):
     StandardsControlAssociationUpdates: List[StandardsControlAssociationUpdate]
 
@@ -4952,10 +5015,12 @@ class ConfigurationPolicyAssociation(BaseValidatorModel):
     Target: Optional[Target] = None
 
 
+# This class is the input for the 'get_configuration_policy_association' function.
 class GetConfigurationPolicyAssociationRequest(BaseValidatorModel):
     Target: Target
 
 
+# This class is the input for the 'start_configuration_policy_association' function.
 class StartConfigurationPolicyAssociationRequest(BaseValidatorModel):
     ConfigurationPolicyIdentifier: str
     Target: Target
@@ -4966,6 +5031,7 @@ class StartConfigurationPolicyDisassociationRequest(BaseValidatorModel):
     Target: Optional[Target] = None
 
 
+# This class is the output for the 'list_configuration_policies' function.
 class ListConfigurationPoliciesResponse(BaseValidatorModel):
     ConfigurationPolicySummaries: List[ConfigurationPolicySummary]
     ResponseMetadata: ResponseMetadata
@@ -4992,26 +5058,31 @@ class ContainerDetails(BaseValidatorModel):
     Privileged: Optional[bool] = None
 
 
+# This class is the output for the 'create_members' function.
 class CreateMembersResponse(BaseValidatorModel):
     UnprocessedAccounts: List[Result]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'decline_invitations' function.
 class DeclineInvitationsResponse(BaseValidatorModel):
     UnprocessedAccounts: List[Result]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_invitations' function.
 class DeleteInvitationsResponse(BaseValidatorModel):
     UnprocessedAccounts: List[Result]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_members' function.
 class DeleteMembersResponse(BaseValidatorModel):
     UnprocessedAccounts: List[Result]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'invite_members' function.
 class InviteMembersResponse(BaseValidatorModel):
     UnprocessedAccounts: List[Result]
     ResponseMetadata: ResponseMetadata
@@ -5106,12 +5177,14 @@ class UpdateOrganizationConfigurationRequest(BaseValidatorModel):
     OrganizationConfiguration: Optional[OrganizationConfiguration] = None
 
 
+# This class is the output for the 'describe_products' function.
 class DescribeProductsResponse(BaseValidatorModel):
     Products: List[Product]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_standards_controls' function.
 class DescribeStandardsControlsResponse(BaseValidatorModel):
     Controls: List[StandardsControl]
     ResponseMetadata: ResponseMetadata
@@ -5132,6 +5205,7 @@ class Threat(BaseValidatorModel):
     FilePaths: Optional[List[FilePaths]] = None
 
 
+# This class is the output for the 'list_finding_aggregators' function.
 class ListFindingAggregatorsResponse(BaseValidatorModel):
     FindingAggregators: List[FindingAggregator]
     ResponseMetadata: ResponseMetadata
@@ -5175,6 +5249,7 @@ class GetMasterAccountResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_invitations' function.
 class ListInvitationsResponse(BaseValidatorModel):
     Invitations: List[Invitation]
     ResponseMetadata: ResponseMetadata
@@ -5188,6 +5263,7 @@ class GetFindingHistoryRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_finding_history' function.
 class GetFindingHistoryRequest(BaseValidatorModel):
     FindingIdentifier: AwsSecurityFindingIdentifier
     StartTime: Optional[Timestamp] = None
@@ -5196,12 +5272,14 @@ class GetFindingHistoryRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the output for the 'get_members' function.
 class GetMembersResponse(BaseValidatorModel):
     Members: List[Member]
     UnprocessedAccounts: List[Result]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_members' function.
 class ListMembersResponse(BaseValidatorModel):
     Members: List[Member]
     ResponseMetadata: ResponseMetadata
@@ -5252,6 +5330,7 @@ class InsightResults(BaseValidatorModel):
     ResultValues: List[InsightResultValue]
 
 
+# This class is the output for the 'list_standards_control_associations' function.
 class ListStandardsControlAssociationsResponse(BaseValidatorModel):
     StandardsControlAssociationSummaries: List[StandardsControlAssociationSummary]
     ResponseMetadata: ResponseMetadata
@@ -6393,6 +6472,7 @@ class AwsS3BucketWebsiteConfiguration(BaseValidatorModel):
 AwsSageMakerNotebookInstanceDetailsUnion = Union[AwsSageMakerNotebookInstanceDetails, AwsSageMakerNotebookInstanceDetailsOutput]
 
 
+# This class is the output for the 'batch_update_findings' function.
 class BatchUpdateFindingsResponse(BaseValidatorModel):
     ProcessedFindings: List[AwsSecurityFindingIdentifier]
     UnprocessedFindings: List[BatchUpdateFindingsUnprocessedFinding]
@@ -6498,12 +6578,14 @@ class AwsWafv2ActionBlockDetailsOutput(BaseValidatorModel):
 AwsWafv2CustomResponseDetailsUnion = Union[AwsWafv2CustomResponseDetails, AwsWafv2CustomResponseDetailsOutput]
 
 
+# This class is the output for the 'batch_get_standards_control_associations' function.
 class BatchGetStandardsControlAssociationsResponse(BaseValidatorModel):
     StandardsControlAssociationDetails: List[StandardsControlAssociationDetail]
     UnprocessedAssociations: List[UnprocessedStandardsControlAssociation]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_update_standards_control_associations' function.
 class BatchUpdateStandardsControlAssociationsResponse(BaseValidatorModel):
     UnprocessedAssociationUpdates: List[UnprocessedStandardsControlAssociationUpdate]
     ResponseMetadata: ResponseMetadata
@@ -6530,6 +6612,7 @@ class ParameterDefinition(BaseValidatorModel):
     ConfigurationOptions: ConfigurationOptions
 
 
+# This class is the input for the 'batch_get_configuration_policy_associations' function.
 class BatchGetConfigurationPolicyAssociationsRequest(BaseValidatorModel):
     ConfigurationPolicyAssociationIdentifiers: List[ConfigurationPolicyAssociation]
 
@@ -6840,6 +6923,7 @@ class AwsSecurityFindingFilters(BaseValidatorModel):
 ThreatUnion = Union[Threat, ThreatOutput]
 
 
+# This class is the output for the 'get_finding_history' function.
 class GetFindingHistoryResponse(BaseValidatorModel):
     Records: List[FindingHistoryRecord]
     ResponseMetadata: ResponseMetadata
@@ -6850,6 +6934,7 @@ FindingProviderFieldsUnion = Union[FindingProviderFields, FindingProviderFieldsO
 SignalUnion = Union[Signal, SignalOutput]
 
 
+# This class is the output for the 'get_insight_results' function.
 class GetInsightResultsResponse(BaseValidatorModel):
     InsightResults: InsightResults
     ResponseMetadata: ResponseMetadata
@@ -6936,22 +7021,26 @@ class Compliance(BaseValidatorModel):
     SecurityControlParameters: Optional[List[SecurityControlParameterUnion]] = None
 
 
+# This class is the output for the 'describe_standards' function.
 class DescribeStandardsResponse(BaseValidatorModel):
     Standards: List[Standard]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'batch_disable_standards' function.
 class BatchDisableStandardsResponse(BaseValidatorModel):
     StandardsSubscriptions: List[StandardsSubscription]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_enable_standards' function.
 class BatchEnableStandardsResponse(BaseValidatorModel):
     StandardsSubscriptions: List[StandardsSubscription]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_enabled_standards' function.
 class GetEnabledStandardsResponse(BaseValidatorModel):
     StandardsSubscriptions: List[StandardsSubscription]
     ResponseMetadata: ResponseMetadata
@@ -7571,6 +7660,7 @@ class SecurityControlDefinition(BaseValidatorModel):
     ParameterDefinitions: Optional[Dict[str, ParameterDefinition]] = None
 
 
+# This class is the output for the 'batch_get_configuration_policy_associations' function.
 class BatchGetConfigurationPolicyAssociationsResponse(BaseValidatorModel):
     ConfigurationPolicyAssociations: List[ConfigurationPolicyAssociationSummary]
     UnprocessedConfigurationPolicyAssociations: List[UnprocessedConfigurationPolicyAssociation]
@@ -7644,6 +7734,7 @@ class SecurityControlsConfigurationOutput(BaseValidatorModel):
     SecurityControlCustomParameters: Optional[List[SecurityControlCustomParameterOutput]] = None
 
 
+# This class is the output for the 'batch_get_security_controls' function.
 class BatchGetSecurityControlsResponse(BaseValidatorModel):
     SecurityControls: List[SecurityControl]
     UnprocessedIds: List[UnprocessedSecurityControl]
@@ -8050,29 +8141,34 @@ AwsWafv2ActionBlockDetailsUnion = Union[AwsWafv2ActionBlockDetails, AwsWafv2Acti
 VulnerabilityUnion = Union[Vulnerability, VulnerabilityOutput]
 
 
+# This class is the output for the 'get_security_control_definition' function.
 class GetSecurityControlDefinitionResponse(BaseValidatorModel):
     SecurityControlDefinition: SecurityControlDefinition
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_security_control_definitions' function.
 class ListSecurityControlDefinitionsResponse(BaseValidatorModel):
     SecurityControlDefinitions: List[SecurityControlDefinition]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'batch_get_automation_rules' function.
 class BatchGetAutomationRulesResponse(BaseValidatorModel):
     Rules: List[AutomationRulesConfig]
     UnprocessedAutomationRules: List[UnprocessedAutomationRule]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_insights' function.
 class GetInsightsResponse(BaseValidatorModel):
     Insights: List[Insight]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_insight' function.
 class CreateInsightRequest(BaseValidatorModel):
     Name: str
     Filters: AwsSecurityFindingFiltersUnion
@@ -8085,6 +8181,7 @@ class GetFindingsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_findings' function.
 class GetFindingsRequest(BaseValidatorModel):
     Filters: Optional[AwsSecurityFindingFiltersUnion] = None
     SortCriteria: Optional[List[SortCriterion]] = None
@@ -8179,6 +8276,7 @@ class Action(BaseValidatorModel):
     PortProbeAction: Optional[PortProbeActionUnion] = None
 
 
+# This class is the input for the 'create_automation_rule' function.
 class CreateAutomationRuleRequest(BaseValidatorModel):
     RuleOrder: int
     RuleName: str
@@ -8359,6 +8457,7 @@ class RuleGroupSourceCustomActionsDetails(BaseValidatorModel):
 ActionUnion = Union[Action, ActionOutput]
 
 
+# This class is the input for the 'batch_update_automation_rules' function.
 class BatchUpdateAutomationRulesRequest(BaseValidatorModel):
     UpdateAutomationRulesRequestItems: List[UpdateAutomationRulesRequestItem]
 
@@ -8461,6 +8560,7 @@ class SensitiveDataResult(BaseValidatorModel):
     TotalCount: Optional[int] = None
 
 
+# This class is the output for the 'create_configuration_policy' function.
 class CreateConfigurationPolicyResponse(BaseValidatorModel):
     Arn: str
     Id: str
@@ -8472,6 +8572,7 @@ class CreateConfigurationPolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_configuration_policy' function.
 class GetConfigurationPolicyResponse(BaseValidatorModel):
     Arn: str
     Id: str
@@ -8483,6 +8584,7 @@ class GetConfigurationPolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_configuration_policy' function.
 class UpdateConfigurationPolicyResponse(BaseValidatorModel):
     Arn: str
     Id: str
@@ -8607,6 +8709,7 @@ class ClassificationResult(BaseValidatorModel):
     CustomDataIdentifiers: Optional[CustomDataIdentifiersResultUnion] = None
 
 
+# This class is the input for the 'create_configuration_policy' function.
 class CreateConfigurationPolicyRequest(BaseValidatorModel):
     Name: str
     ConfigurationPolicy: PolicyUnion
@@ -8614,6 +8717,7 @@ class CreateConfigurationPolicyRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_configuration_policy' function.
 class UpdateConfigurationPolicyRequest(BaseValidatorModel):
     Identifier: str
     Name: Optional[str] = None
@@ -8860,6 +8964,7 @@ DataClassificationDetailsUnion = Union[DataClassificationDetails, DataClassifica
 RuleGroupSourceUnion = Union[RuleGroupSource, RuleGroupSourceOutput]
 
 
+# This class is the output for the 'get_findings' function.
 class GetFindingsResponse(BaseValidatorModel):
     Findings: List[AwsSecurityFindingOutput]
     ResponseMetadata: ResponseMetadata
@@ -9054,5 +9159,6 @@ class AwsSecurityFinding(BaseValidatorModel):
 AwsSecurityFindingUnion = Union[AwsSecurityFinding, AwsSecurityFindingOutput]
 
 
+# This class is the input for the 'batch_import_findings' function.
 class BatchImportFindingsRequest(BaseValidatorModel):
     Findings: List[AwsSecurityFindingUnion]

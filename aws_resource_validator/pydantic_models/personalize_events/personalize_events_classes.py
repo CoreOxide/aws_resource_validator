@@ -49,11 +49,13 @@ class ActionInteraction(BaseValidatorModel):
     properties: Optional[str] = None
 
 
+# This class is the input for the 'put_actions' function.
 class PutActionsRequest(BaseValidatorModel):
     datasetArn: str
     actions: List[Action]
 
 
+# This class is the output for the 'put_users' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
@@ -70,21 +72,25 @@ class Event(BaseValidatorModel):
     metricAttribution: Optional[MetricAttribution] = None
 
 
+# This class is the input for the 'put_items' function.
 class PutItemsRequest(BaseValidatorModel):
     datasetArn: str
     items: List[Item]
 
 
+# This class is the input for the 'put_users' function.
 class PutUsersRequest(BaseValidatorModel):
     datasetArn: str
     users: List[User]
 
 
+# This class is the input for the 'put_action_interactions' function.
 class PutActionInteractionsRequest(BaseValidatorModel):
     trackingId: str
     actionInteractions: List[ActionInteraction]
 
 
+# This class is the input for the 'put_events' function.
 class PutEventsRequest(BaseValidatorModel):
     trackingId: str
     sessionId: str

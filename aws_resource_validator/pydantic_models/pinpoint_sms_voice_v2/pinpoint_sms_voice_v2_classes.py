@@ -19,6 +19,7 @@ class AccountLimit(BaseValidatorModel):
     Max: int
 
 
+# This class is the input for the 'associate_origination_identity' function.
 class AssociateOriginationIdentityRequest(BaseValidatorModel):
     PoolId: str
     OriginationIdentity: str
@@ -34,6 +35,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'associate_protect_configuration' function.
 class AssociateProtectConfigurationRequest(BaseValidatorModel):
     ProtectConfigurationId: str
     ConfigurationSetName: str
@@ -65,11 +67,13 @@ class SnsDestination(BaseValidatorModel):
     TopicArn: str
 
 
+# This class is the input for the 'create_registration_association' function.
 class CreateRegistrationAssociationRequest(BaseValidatorModel):
     RegistrationId: str
     ResourceId: str
 
 
+# This class is the input for the 'create_registration_version' function.
 class CreateRegistrationVersionRequest(BaseValidatorModel):
     RegistrationId: str
 
@@ -86,67 +90,82 @@ class RegistrationVersionStatusHistory(BaseValidatorModel):
     ArchivedTimestamp: Optional[datetime] = None
 
 
+# This class is the input for the 'delete_configuration_set' function.
 class DeleteConfigurationSetRequest(BaseValidatorModel):
     ConfigurationSetName: str
 
 
+# This class is the input for the 'delete_default_message_type' function.
 class DeleteDefaultMessageTypeRequest(BaseValidatorModel):
     ConfigurationSetName: str
 
 
+# This class is the input for the 'delete_default_sender_id' function.
 class DeleteDefaultSenderIdRequest(BaseValidatorModel):
     ConfigurationSetName: str
 
 
+# This class is the input for the 'delete_event_destination' function.
 class DeleteEventDestinationRequest(BaseValidatorModel):
     ConfigurationSetName: str
     EventDestinationName: str
 
 
+# This class is the input for the 'delete_keyword' function.
 class DeleteKeywordRequest(BaseValidatorModel):
     OriginationIdentity: str
     Keyword: str
 
 
+# This class is the input for the 'delete_opt_out_list' function.
 class DeleteOptOutListRequest(BaseValidatorModel):
     OptOutListName: str
 
 
+# This class is the input for the 'delete_opted_out_number' function.
 class DeleteOptedOutNumberRequest(BaseValidatorModel):
     OptOutListName: str
     OptedOutNumber: str
 
 
+# This class is the input for the 'delete_pool' function.
 class DeletePoolRequest(BaseValidatorModel):
     PoolId: str
 
 
+# This class is the input for the 'delete_protect_configuration' function.
 class DeleteProtectConfigurationRequest(BaseValidatorModel):
     ProtectConfigurationId: str
 
 
+# This class is the input for the 'delete_protect_configuration_rule_set_number_override' function.
 class DeleteProtectConfigurationRuleSetNumberOverrideRequest(BaseValidatorModel):
     ProtectConfigurationId: str
     DestinationPhoneNumber: str
 
 
+# This class is the input for the 'delete_registration_attachment' function.
 class DeleteRegistrationAttachmentRequest(BaseValidatorModel):
     RegistrationAttachmentId: str
 
 
+# This class is the input for the 'delete_registration_field_value' function.
 class DeleteRegistrationFieldValueRequest(BaseValidatorModel):
     RegistrationId: str
     FieldPath: str
 
 
+# This class is the input for the 'delete_registration' function.
 class DeleteRegistrationRequest(BaseValidatorModel):
     RegistrationId: str
 
 
+# This class is the input for the 'delete_resource_policy' function.
 class DeleteResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'delete_verified_destination_number' function.
 class DeleteVerifiedDestinationNumberRequest(BaseValidatorModel):
     VerifiedDestinationNumberId: str
 
@@ -157,11 +176,13 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_account_attributes' function.
 class DescribeAccountAttributesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_account_limits' function.
 class DescribeAccountLimitsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -178,6 +199,7 @@ class KeywordInformation(BaseValidatorModel):
     KeywordAction: KeywordActionType
 
 
+# This class is the input for the 'describe_opt_out_lists' function.
 class DescribeOptOutListsRequest(BaseValidatorModel):
     OptOutListNames: Optional[List[str]] = None
     NextToken: Optional[str] = None
@@ -274,6 +296,7 @@ class RegistrationAttachmentsInformation(BaseValidatorModel):
     AttachmentUploadErrorReason: Optional[Literal['INTERNAL_ERROR']] = None
 
 
+# This class is the input for the 'describe_registration_field_definitions' function.
 class DescribeRegistrationFieldDefinitionsRequest(BaseValidatorModel):
     RegistrationType: str
     SectionPath: Optional[str] = None
@@ -282,6 +305,7 @@ class DescribeRegistrationFieldDefinitionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_registration_field_values' function.
 class DescribeRegistrationFieldValuesRequest(BaseValidatorModel):
     RegistrationId: str
     VersionNumber: Optional[int] = None
@@ -299,6 +323,7 @@ class RegistrationFieldValueInformation(BaseValidatorModel):
     DeniedReason: Optional[str] = None
 
 
+# This class is the input for the 'describe_registration_section_definitions' function.
 class DescribeRegistrationSectionDefinitionsRequest(BaseValidatorModel):
     RegistrationType: str
     SectionPaths: Optional[List[str]] = None
@@ -354,6 +379,7 @@ class SenderIdInformation(BaseValidatorModel):
     RegistrationId: Optional[str] = None
 
 
+# This class is the input for the 'describe_spend_limits' function.
 class DescribeSpendLimitsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -379,6 +405,7 @@ class VerifiedDestinationNumberInformation(BaseValidatorModel):
     CreatedTimestamp: datetime
 
 
+# This class is the input for the 'disassociate_origination_identity' function.
 class DisassociateOriginationIdentityRequest(BaseValidatorModel):
     PoolId: str
     OriginationIdentity: str
@@ -386,15 +413,18 @@ class DisassociateOriginationIdentityRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'disassociate_protect_configuration' function.
 class DisassociateProtectConfigurationRequest(BaseValidatorModel):
     ProtectConfigurationId: str
     ConfigurationSetName: str
 
 
+# This class is the input for the 'discard_registration_version' function.
 class DiscardRegistrationVersionRequest(BaseValidatorModel):
     RegistrationId: str
 
 
+# This class is the input for the 'get_protect_configuration_country_rule_set' function.
 class GetProtectConfigurationCountryRuleSetRequest(BaseValidatorModel):
     ProtectConfigurationId: str
     NumberCapability: NumberCapabilityType
@@ -404,6 +434,7 @@ class ProtectConfigurationCountryRuleSetInformation(BaseValidatorModel):
     ProtectStatus: ProtectStatusType
 
 
+# This class is the input for the 'get_resource_policy' function.
 class GetResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -447,10 +478,12 @@ class RegistrationAssociationMetadata(BaseValidatorModel):
     PhoneNumber: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'put_keyword' function.
 class PutKeywordRequest(BaseValidatorModel):
     OriginationIdentity: str
     Keyword: str
@@ -458,11 +491,13 @@ class PutKeywordRequest(BaseValidatorModel):
     KeywordAction: Optional[KeywordActionType] = None
 
 
+# This class is the input for the 'put_message_feedback' function.
 class PutMessageFeedbackRequest(BaseValidatorModel):
     MessageId: str
     MessageFeedbackStatus: MessageFeedbackStatusType
 
 
+# This class is the input for the 'put_opted_out_number' function.
 class PutOptedOutNumberRequest(BaseValidatorModel):
     OptOutListName: str
     OptedOutNumber: str
@@ -470,6 +505,7 @@ class PutOptedOutNumberRequest(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'put_registration_field_value' function.
 class PutRegistrationFieldValueRequest(BaseValidatorModel):
     RegistrationId: str
     FieldPath: str
@@ -478,6 +514,7 @@ class PutRegistrationFieldValueRequest(BaseValidatorModel):
     RegistrationAttachmentId: Optional[str] = None
 
 
+# This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
     Policy: str
@@ -532,15 +569,18 @@ class SupportedAssociation(BaseValidatorModel):
     IsoCountryCode: Optional[str] = None
 
 
+# This class is the input for the 'release_phone_number' function.
 class ReleasePhoneNumberRequest(BaseValidatorModel):
     PhoneNumberId: str
 
 
+# This class is the input for the 'release_sender_id' function.
 class ReleaseSenderIdRequest(BaseValidatorModel):
     SenderId: str
     IsoCountryCode: str
 
 
+# This class is the input for the 'send_destination_number_verification_code' function.
 class SendDestinationNumberVerificationCodeRequest(BaseValidatorModel):
     VerifiedDestinationNumberId: str
     VerificationChannel: VerificationChannelType
@@ -551,6 +591,7 @@ class SendDestinationNumberVerificationCodeRequest(BaseValidatorModel):
     DestinationCountryParameters: Optional[Dict[DestinationCountryParameterKeyType, str]] = None
 
 
+# This class is the input for the 'send_media_message' function.
 class SendMediaMessageRequest(BaseValidatorModel):
     DestinationPhoneNumber: str
     OriginationIdentity: str
@@ -565,6 +606,7 @@ class SendMediaMessageRequest(BaseValidatorModel):
     MessageFeedbackEnabled: Optional[bool] = None
 
 
+# This class is the input for the 'send_text_message' function.
 class SendTextMessageRequest(BaseValidatorModel):
     DestinationPhoneNumber: str
     OriginationIdentity: Optional[str] = None
@@ -581,6 +623,7 @@ class SendTextMessageRequest(BaseValidatorModel):
     MessageFeedbackEnabled: Optional[bool] = None
 
 
+# This class is the input for the 'send_voice_message' function.
 class SendVoiceMessageRequest(BaseValidatorModel):
     DestinationPhoneNumber: str
     OriginationIdentity: str
@@ -596,37 +639,45 @@ class SendVoiceMessageRequest(BaseValidatorModel):
     MessageFeedbackEnabled: Optional[bool] = None
 
 
+# This class is the input for the 'set_account_default_protect_configuration' function.
 class SetAccountDefaultProtectConfigurationRequest(BaseValidatorModel):
     ProtectConfigurationId: str
 
 
+# This class is the input for the 'set_default_message_feedback_enabled' function.
 class SetDefaultMessageFeedbackEnabledRequest(BaseValidatorModel):
     ConfigurationSetName: str
     MessageFeedbackEnabled: bool
 
 
+# This class is the input for the 'set_default_message_type' function.
 class SetDefaultMessageTypeRequest(BaseValidatorModel):
     ConfigurationSetName: str
     MessageType: MessageTypeType
 
 
+# This class is the input for the 'set_default_sender_id' function.
 class SetDefaultSenderIdRequest(BaseValidatorModel):
     ConfigurationSetName: str
     SenderId: str
 
 
+# This class is the input for the 'set_media_message_spend_limit_override' function.
 class SetMediaMessageSpendLimitOverrideRequest(BaseValidatorModel):
     MonthlyLimit: int
 
 
+# This class is the input for the 'set_text_message_spend_limit_override' function.
 class SetTextMessageSpendLimitOverrideRequest(BaseValidatorModel):
     MonthlyLimit: int
 
 
+# This class is the input for the 'set_voice_message_spend_limit_override' function.
 class SetVoiceMessageSpendLimitOverrideRequest(BaseValidatorModel):
     MonthlyLimit: int
 
 
+# This class is the input for the 'submit_registration_version' function.
 class SubmitRegistrationVersionRequest(BaseValidatorModel):
     RegistrationId: str
 
@@ -636,6 +687,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_phone_number' function.
 class UpdatePhoneNumberRequest(BaseValidatorModel):
     PhoneNumberId: str
     TwoWayEnabled: Optional[bool] = None
@@ -646,6 +698,7 @@ class UpdatePhoneNumberRequest(BaseValidatorModel):
     DeletionProtectionEnabled: Optional[bool] = None
 
 
+# This class is the input for the 'update_pool' function.
 class UpdatePoolRequest(BaseValidatorModel):
     PoolId: str
     TwoWayEnabled: Optional[bool] = None
@@ -657,22 +710,26 @@ class UpdatePoolRequest(BaseValidatorModel):
     DeletionProtectionEnabled: Optional[bool] = None
 
 
+# This class is the input for the 'update_protect_configuration' function.
 class UpdateProtectConfigurationRequest(BaseValidatorModel):
     ProtectConfigurationId: str
     DeletionProtectionEnabled: Optional[bool] = None
 
 
+# This class is the input for the 'update_sender_id' function.
 class UpdateSenderIdRequest(BaseValidatorModel):
     SenderId: str
     IsoCountryCode: str
     DeletionProtectionEnabled: Optional[bool] = None
 
 
+# This class is the input for the 'verify_destination_number' function.
 class VerifyDestinationNumberRequest(BaseValidatorModel):
     VerifiedDestinationNumberId: str
     VerificationCode: str
 
 
+# This class is the output for the 'associate_origination_identity' function.
 class AssociateOriginationIdentityResult(BaseValidatorModel):
     PoolArn: str
     PoolId: str
@@ -682,6 +739,7 @@ class AssociateOriginationIdentityResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_protect_configuration' function.
 class AssociateProtectConfigurationResult(BaseValidatorModel):
     ConfigurationSetArn: str
     ConfigurationSetName: str
@@ -690,6 +748,7 @@ class AssociateProtectConfigurationResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_registration_association' function.
 class CreateRegistrationAssociationResult(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
@@ -708,6 +767,7 @@ class DeleteAccountDefaultProtectConfigurationResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_default_message_type' function.
 class DeleteDefaultMessageTypeResult(BaseValidatorModel):
     ConfigurationSetArn: str
     ConfigurationSetName: str
@@ -715,6 +775,7 @@ class DeleteDefaultMessageTypeResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_default_sender_id' function.
 class DeleteDefaultSenderIdResult(BaseValidatorModel):
     ConfigurationSetArn: str
     ConfigurationSetName: str
@@ -722,6 +783,7 @@ class DeleteDefaultSenderIdResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_keyword' function.
 class DeleteKeywordResult(BaseValidatorModel):
     OriginationIdentityArn: str
     OriginationIdentity: str
@@ -736,6 +798,7 @@ class DeleteMediaMessageSpendLimitOverrideResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_opt_out_list' function.
 class DeleteOptOutListResult(BaseValidatorModel):
     OptOutListArn: str
     OptOutListName: str
@@ -743,6 +806,7 @@ class DeleteOptOutListResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_opted_out_number' function.
 class DeleteOptedOutNumberResult(BaseValidatorModel):
     OptOutListArn: str
     OptOutListName: str
@@ -752,6 +816,7 @@ class DeleteOptedOutNumberResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_pool' function.
 class DeletePoolResult(BaseValidatorModel):
     PoolArn: str
     PoolId: str
@@ -767,6 +832,7 @@ class DeletePoolResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_protect_configuration' function.
 class DeleteProtectConfigurationResult(BaseValidatorModel):
     ProtectConfigurationArn: str
     ProtectConfigurationId: str
@@ -776,6 +842,7 @@ class DeleteProtectConfigurationResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_protect_configuration_rule_set_number_override' function.
 class DeleteProtectConfigurationRuleSetNumberOverrideResult(BaseValidatorModel):
     ProtectConfigurationArn: str
     ProtectConfigurationId: str
@@ -787,6 +854,7 @@ class DeleteProtectConfigurationRuleSetNumberOverrideResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_registration_attachment' function.
 class DeleteRegistrationAttachmentResult(BaseValidatorModel):
     RegistrationAttachmentArn: str
     RegistrationAttachmentId: str
@@ -796,6 +864,7 @@ class DeleteRegistrationAttachmentResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_registration_field_value' function.
 class DeleteRegistrationFieldValueResult(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
@@ -807,6 +876,7 @@ class DeleteRegistrationFieldValueResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_registration' function.
 class DeleteRegistrationResult(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
@@ -820,6 +890,7 @@ class DeleteRegistrationResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_resource_policy' function.
 class DeleteResourcePolicyResult(BaseValidatorModel):
     ResourceArn: str
     Policy: str
@@ -832,6 +903,7 @@ class DeleteTextMessageSpendLimitOverrideResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_verified_destination_number' function.
 class DeleteVerifiedDestinationNumberResult(BaseValidatorModel):
     VerifiedDestinationNumberArn: str
     VerifiedDestinationNumberId: str
@@ -845,18 +917,21 @@ class DeleteVoiceMessageSpendLimitOverrideResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_account_attributes' function.
 class DescribeAccountAttributesResult(BaseValidatorModel):
     AccountAttributes: List[AccountAttribute]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_account_limits' function.
 class DescribeAccountLimitsResult(BaseValidatorModel):
     AccountLimits: List[AccountLimit]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'disassociate_origination_identity' function.
 class DisassociateOriginationIdentityResult(BaseValidatorModel):
     PoolArn: str
     PoolId: str
@@ -866,6 +941,7 @@ class DisassociateOriginationIdentityResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_protect_configuration' function.
 class DisassociateProtectConfigurationResult(BaseValidatorModel):
     ConfigurationSetArn: str
     ConfigurationSetName: str
@@ -874,6 +950,7 @@ class DisassociateProtectConfigurationResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_policy' function.
 class GetResourcePolicyResult(BaseValidatorModel):
     ResourceArn: str
     Policy: str
@@ -881,6 +958,7 @@ class GetResourcePolicyResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_keyword' function.
 class PutKeywordResult(BaseValidatorModel):
     OriginationIdentityArn: str
     OriginationIdentity: str
@@ -890,12 +968,14 @@ class PutKeywordResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_message_feedback' function.
 class PutMessageFeedbackResult(BaseValidatorModel):
     MessageId: str
     MessageFeedbackStatus: MessageFeedbackStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_opted_out_number' function.
 class PutOptedOutNumberResult(BaseValidatorModel):
     OptOutListArn: str
     OptOutListName: str
@@ -905,6 +985,7 @@ class PutOptedOutNumberResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_protect_configuration_rule_set_number_override' function.
 class PutProtectConfigurationRuleSetNumberOverrideResult(BaseValidatorModel):
     ProtectConfigurationArn: str
     ProtectConfigurationId: str
@@ -916,6 +997,7 @@ class PutProtectConfigurationRuleSetNumberOverrideResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_registration_field_value' function.
 class PutRegistrationFieldValueResult(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
@@ -927,6 +1009,7 @@ class PutRegistrationFieldValueResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_resource_policy' function.
 class PutResourcePolicyResult(BaseValidatorModel):
     ResourceArn: str
     Policy: str
@@ -934,6 +1017,7 @@ class PutResourcePolicyResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'release_phone_number' function.
 class ReleasePhoneNumberResult(BaseValidatorModel):
     PhoneNumberArn: str
     PhoneNumberId: str
@@ -954,6 +1038,7 @@ class ReleasePhoneNumberResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'release_sender_id' function.
 class ReleaseSenderIdResult(BaseValidatorModel):
     SenderIdArn: str
     SenderId: str
@@ -965,32 +1050,38 @@ class ReleaseSenderIdResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'send_destination_number_verification_code' function.
 class SendDestinationNumberVerificationCodeResult(BaseValidatorModel):
     MessageId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'send_media_message' function.
 class SendMediaMessageResult(BaseValidatorModel):
     MessageId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'send_text_message' function.
 class SendTextMessageResult(BaseValidatorModel):
     MessageId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'send_voice_message' function.
 class SendVoiceMessageResult(BaseValidatorModel):
     MessageId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'set_account_default_protect_configuration' function.
 class SetAccountDefaultProtectConfigurationResult(BaseValidatorModel):
     DefaultProtectConfigurationArn: str
     DefaultProtectConfigurationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'set_default_message_feedback_enabled' function.
 class SetDefaultMessageFeedbackEnabledResult(BaseValidatorModel):
     ConfigurationSetArn: str
     ConfigurationSetName: str
@@ -998,6 +1089,7 @@ class SetDefaultMessageFeedbackEnabledResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'set_default_message_type' function.
 class SetDefaultMessageTypeResult(BaseValidatorModel):
     ConfigurationSetArn: str
     ConfigurationSetName: str
@@ -1005,6 +1097,7 @@ class SetDefaultMessageTypeResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'set_default_sender_id' function.
 class SetDefaultSenderIdResult(BaseValidatorModel):
     ConfigurationSetArn: str
     ConfigurationSetName: str
@@ -1012,21 +1105,25 @@ class SetDefaultSenderIdResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'set_media_message_spend_limit_override' function.
 class SetMediaMessageSpendLimitOverrideResult(BaseValidatorModel):
     MonthlyLimit: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'set_text_message_spend_limit_override' function.
 class SetTextMessageSpendLimitOverrideResult(BaseValidatorModel):
     MonthlyLimit: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'set_voice_message_spend_limit_override' function.
 class SetVoiceMessageSpendLimitOverrideResult(BaseValidatorModel):
     MonthlyLimit: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_phone_number' function.
 class UpdatePhoneNumberResult(BaseValidatorModel):
     PhoneNumberArn: str
     PhoneNumberId: str
@@ -1048,6 +1145,7 @@ class UpdatePhoneNumberResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_pool' function.
 class UpdatePoolResult(BaseValidatorModel):
     PoolArn: str
     PoolId: str
@@ -1064,6 +1162,7 @@ class UpdatePoolResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_protect_configuration' function.
 class UpdateProtectConfigurationResult(BaseValidatorModel):
     ProtectConfigurationArn: str
     ProtectConfigurationId: str
@@ -1073,6 +1172,7 @@ class UpdateProtectConfigurationResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_sender_id' function.
 class UpdateSenderIdResult(BaseValidatorModel):
     SenderIdArn: str
     SenderId: str
@@ -1085,6 +1185,7 @@ class UpdateSenderIdResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'verify_destination_number' function.
 class VerifyDestinationNumberResult(BaseValidatorModel):
     VerifiedDestinationNumberArn: str
     VerifiedDestinationNumberId: str
@@ -1094,6 +1195,7 @@ class VerifyDestinationNumberResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'describe_configuration_sets' function.
 class DescribeConfigurationSetsRequest(BaseValidatorModel):
     ConfigurationSetNames: Optional[List[str]] = None
     Filters: Optional[List[ConfigurationSetFilter]] = None
@@ -1101,12 +1203,14 @@ class DescribeConfigurationSetsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'create_configuration_set' function.
 class CreateConfigurationSetRequest(BaseValidatorModel):
     ConfigurationSetName: str
     Tags: Optional[List[Tag]] = None
     ClientToken: Optional[str] = None
 
 
+# This class is the output for the 'create_configuration_set' function.
 class CreateConfigurationSetResult(BaseValidatorModel):
     ConfigurationSetArn: str
     ConfigurationSetName: str
@@ -1115,12 +1219,14 @@ class CreateConfigurationSetResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_opt_out_list' function.
 class CreateOptOutListRequest(BaseValidatorModel):
     OptOutListName: str
     Tags: Optional[List[Tag]] = None
     ClientToken: Optional[str] = None
 
 
+# This class is the output for the 'create_opt_out_list' function.
 class CreateOptOutListResult(BaseValidatorModel):
     OptOutListArn: str
     OptOutListName: str
@@ -1129,6 +1235,7 @@ class CreateOptOutListResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_pool' function.
 class CreatePoolRequest(BaseValidatorModel):
     OriginationIdentity: str
     IsoCountryCode: str
@@ -1138,6 +1245,7 @@ class CreatePoolRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the output for the 'create_pool' function.
 class CreatePoolResult(BaseValidatorModel):
     PoolArn: str
     PoolId: str
@@ -1155,12 +1263,14 @@ class CreatePoolResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_protect_configuration' function.
 class CreateProtectConfigurationRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
     DeletionProtectionEnabled: Optional[bool] = None
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'create_protect_configuration' function.
 class CreateProtectConfigurationResult(BaseValidatorModel):
     ProtectConfigurationArn: str
     ProtectConfigurationId: str
@@ -1171,6 +1281,7 @@ class CreateProtectConfigurationResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_registration_attachment' function.
 class CreateRegistrationAttachmentRequest(BaseValidatorModel):
     AttachmentBody: Optional[Blob] = None
     AttachmentUrl: Optional[str] = None
@@ -1178,6 +1289,7 @@ class CreateRegistrationAttachmentRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the output for the 'create_registration_attachment' function.
 class CreateRegistrationAttachmentResult(BaseValidatorModel):
     RegistrationAttachmentArn: str
     RegistrationAttachmentId: str
@@ -1187,12 +1299,14 @@ class CreateRegistrationAttachmentResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_registration' function.
 class CreateRegistrationRequest(BaseValidatorModel):
     RegistrationType: str
     Tags: Optional[List[Tag]] = None
     ClientToken: Optional[str] = None
 
 
+# This class is the output for the 'create_registration' function.
 class CreateRegistrationResult(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
@@ -1205,12 +1319,14 @@ class CreateRegistrationResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_verified_destination_number' function.
 class CreateVerifiedDestinationNumberRequest(BaseValidatorModel):
     DestinationPhoneNumber: str
     Tags: Optional[List[Tag]] = None
     ClientToken: Optional[str] = None
 
 
+# This class is the output for the 'create_verified_destination_number' function.
 class CreateVerifiedDestinationNumberResult(BaseValidatorModel):
     VerifiedDestinationNumberArn: str
     VerifiedDestinationNumberId: str
@@ -1221,12 +1337,14 @@ class CreateVerifiedDestinationNumberResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResult(BaseValidatorModel):
     ResourceArn: str
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'request_phone_number' function.
 class RequestPhoneNumberRequest(BaseValidatorModel):
     IsoCountryCode: str
     MessageType: MessageTypeType
@@ -1240,6 +1358,7 @@ class RequestPhoneNumberRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the output for the 'request_phone_number' function.
 class RequestPhoneNumberResult(BaseValidatorModel):
     PhoneNumberArn: str
     PhoneNumberId: str
@@ -1263,6 +1382,7 @@ class RequestPhoneNumberResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'request_sender_id' function.
 class RequestSenderIdRequest(BaseValidatorModel):
     SenderId: str
     IsoCountryCode: str
@@ -1272,6 +1392,7 @@ class RequestSenderIdRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the output for the 'request_sender_id' function.
 class RequestSenderIdResult(BaseValidatorModel):
     SenderIdArn: str
     SenderId: str
@@ -1289,6 +1410,7 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the input for the 'create_event_destination' function.
 class CreateEventDestinationRequest(BaseValidatorModel):
     ConfigurationSetName: str
     EventDestinationName: str
@@ -1308,6 +1430,7 @@ class EventDestination(BaseValidatorModel):
     SnsDestination: Optional[SnsDestination] = None
 
 
+# This class is the input for the 'update_event_destination' function.
 class UpdateEventDestinationRequest(BaseValidatorModel):
     ConfigurationSetName: str
     EventDestinationName: str
@@ -1318,6 +1441,7 @@ class UpdateEventDestinationRequest(BaseValidatorModel):
     SnsDestination: Optional[SnsDestination] = None
 
 
+# This class is the output for the 'create_registration_version' function.
 class CreateRegistrationVersionResult(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
@@ -1327,6 +1451,7 @@ class CreateRegistrationVersionResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'discard_registration_version' function.
 class DiscardRegistrationVersionResult(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
@@ -1336,6 +1461,7 @@ class DiscardRegistrationVersionResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'submit_registration_version' function.
 class SubmitRegistrationVersionResult(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
@@ -1397,6 +1523,7 @@ class DescribeKeywordsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_keywords' function.
 class DescribeKeywordsRequest(BaseValidatorModel):
     OriginationIdentity: str
     Keywords: Optional[List[str]] = None
@@ -1405,6 +1532,7 @@ class DescribeKeywordsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the output for the 'describe_keywords' function.
 class DescribeKeywordsResult(BaseValidatorModel):
     OriginationIdentityArn: str
     OriginationIdentity: str
@@ -1413,6 +1541,7 @@ class DescribeKeywordsResult(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_opt_out_lists' function.
 class DescribeOptOutListsResult(BaseValidatorModel):
     OptOutLists: List[OptOutListInformation]
     ResponseMetadata: ResponseMetadata
@@ -1426,6 +1555,7 @@ class DescribeOptedOutNumbersRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_opted_out_numbers' function.
 class DescribeOptedOutNumbersRequest(BaseValidatorModel):
     OptOutListName: str
     OptedOutNumbers: Optional[List[str]] = None
@@ -1434,6 +1564,7 @@ class DescribeOptedOutNumbersRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the output for the 'describe_opted_out_numbers' function.
 class DescribeOptedOutNumbersResult(BaseValidatorModel):
     OptOutListArn: str
     OptOutListName: str
@@ -1449,6 +1580,7 @@ class DescribePhoneNumbersRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_phone_numbers' function.
 class DescribePhoneNumbersRequest(BaseValidatorModel):
     PhoneNumberIds: Optional[List[str]] = None
     Filters: Optional[List[PhoneNumberFilter]] = None
@@ -1457,6 +1589,7 @@ class DescribePhoneNumbersRequest(BaseValidatorModel):
     Owner: Optional[OwnerType] = None
 
 
+# This class is the output for the 'describe_phone_numbers' function.
 class DescribePhoneNumbersResult(BaseValidatorModel):
     PhoneNumbers: List[PhoneNumberInformation]
     ResponseMetadata: ResponseMetadata
@@ -1470,6 +1603,7 @@ class DescribePoolsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_pools' function.
 class DescribePoolsRequest(BaseValidatorModel):
     PoolIds: Optional[List[str]] = None
     Filters: Optional[List[PoolFilter]] = None
@@ -1478,6 +1612,7 @@ class DescribePoolsRequest(BaseValidatorModel):
     Owner: Optional[OwnerType] = None
 
 
+# This class is the output for the 'describe_pools' function.
 class DescribePoolsResult(BaseValidatorModel):
     Pools: List[PoolInformation]
     ResponseMetadata: ResponseMetadata
@@ -1490,6 +1625,7 @@ class DescribeProtectConfigurationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_protect_configurations' function.
 class DescribeProtectConfigurationsRequest(BaseValidatorModel):
     ProtectConfigurationIds: Optional[List[str]] = None
     Filters: Optional[List[ProtectConfigurationFilter]] = None
@@ -1497,6 +1633,7 @@ class DescribeProtectConfigurationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the output for the 'describe_protect_configurations' function.
 class DescribeProtectConfigurationsResult(BaseValidatorModel):
     ProtectConfigurations: List[ProtectConfigurationInformation]
     ResponseMetadata: ResponseMetadata
@@ -1509,6 +1646,7 @@ class DescribeRegistrationAttachmentsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_registration_attachments' function.
 class DescribeRegistrationAttachmentsRequest(BaseValidatorModel):
     RegistrationAttachmentIds: Optional[List[str]] = None
     Filters: Optional[List[RegistrationAttachmentFilter]] = None
@@ -1516,12 +1654,14 @@ class DescribeRegistrationAttachmentsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the output for the 'describe_registration_attachments' function.
 class DescribeRegistrationAttachmentsResult(BaseValidatorModel):
     RegistrationAttachments: List[RegistrationAttachmentsInformation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_registration_field_values' function.
 class DescribeRegistrationFieldValuesResult(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
@@ -1537,6 +1677,7 @@ class DescribeRegistrationinitionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_registration_type_definitions' function.
 class DescribeRegistrationinitionsRequest(BaseValidatorModel):
     RegistrationTypes: Optional[List[str]] = None
     Filters: Optional[List[RegistrationTypeFilter]] = None
@@ -1551,6 +1692,7 @@ class DescribeRegistrationVersionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_registration_versions' function.
 class DescribeRegistrationVersionsRequest(BaseValidatorModel):
     RegistrationId: str
     VersionNumbers: Optional[List[int]] = None
@@ -1565,6 +1707,7 @@ class DescribeRegistrationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_registrations' function.
 class DescribeRegistrationsRequest(BaseValidatorModel):
     RegistrationIds: Optional[List[str]] = None
     Filters: Optional[List[RegistrationFilter]] = None
@@ -1572,6 +1715,7 @@ class DescribeRegistrationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the output for the 'describe_registrations' function.
 class DescribeRegistrationsResult(BaseValidatorModel):
     Registrations: List[RegistrationInformation]
     ResponseMetadata: ResponseMetadata
@@ -1585,6 +1729,7 @@ class DescribeSenderIdsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_sender_ids' function.
 class DescribeSenderIdsRequest(BaseValidatorModel):
     SenderIds: Optional[List[SenderIdAndCountry]] = None
     Filters: Optional[List[SenderIdFilter]] = None
@@ -1593,12 +1738,14 @@ class DescribeSenderIdsRequest(BaseValidatorModel):
     Owner: Optional[OwnerType] = None
 
 
+# This class is the output for the 'describe_sender_ids' function.
 class DescribeSenderIdsResult(BaseValidatorModel):
     SenderIds: List[SenderIdInformation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_spend_limits' function.
 class DescribeSpendLimitsResult(BaseValidatorModel):
     SpendLimits: List[SpendLimit]
     ResponseMetadata: ResponseMetadata
@@ -1612,6 +1759,7 @@ class DescribeVerifiedDestinationNumbersRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_verified_destination_numbers' function.
 class DescribeVerifiedDestinationNumbersRequest(BaseValidatorModel):
     VerifiedDestinationNumberIds: Optional[List[str]] = None
     DestinationPhoneNumbers: Optional[List[str]] = None
@@ -1620,12 +1768,14 @@ class DescribeVerifiedDestinationNumbersRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the output for the 'describe_verified_destination_numbers' function.
 class DescribeVerifiedDestinationNumbersResult(BaseValidatorModel):
     VerifiedDestinationNumbers: List[VerifiedDestinationNumberInformation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_protect_configuration_country_rule_set' function.
 class GetProtectConfigurationCountryRuleSetResult(BaseValidatorModel):
     ProtectConfigurationArn: str
     ProtectConfigurationId: str
@@ -1634,12 +1784,14 @@ class GetProtectConfigurationCountryRuleSetResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_protect_configuration_country_rule_set' function.
 class UpdateProtectConfigurationCountryRuleSetRequest(BaseValidatorModel):
     ProtectConfigurationId: str
     NumberCapability: NumberCapabilityType
     CountryRuleSetUpdates: Dict[str, ProtectConfigurationCountryRuleSetInformation]
 
 
+# This class is the output for the 'update_protect_configuration_country_rule_set' function.
 class UpdateProtectConfigurationCountryRuleSetResult(BaseValidatorModel):
     ProtectConfigurationArn: str
     ProtectConfigurationId: str
@@ -1654,6 +1806,7 @@ class ListPoolOriginationIdentitiesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_pool_origination_identities' function.
 class ListPoolOriginationIdentitiesRequest(BaseValidatorModel):
     PoolId: str
     Filters: Optional[List[PoolOriginationIdentitiesFilter]] = None
@@ -1661,6 +1814,7 @@ class ListPoolOriginationIdentitiesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the output for the 'list_pool_origination_identities' function.
 class ListPoolOriginationIdentitiesResult(BaseValidatorModel):
     PoolArn: str
     PoolId: str
@@ -1675,6 +1829,7 @@ class ListProtectConfigurationRuleSetNumberOverridesRequestPaginate(BaseValidato
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_protect_configuration_rule_set_number_overrides' function.
 class ListProtectConfigurationRuleSetNumberOverridesRequest(BaseValidatorModel):
     ProtectConfigurationId: str
     Filters: Optional[List[ProtectConfigurationRuleSetNumberOverrideFilterItem]] = None
@@ -1682,6 +1837,7 @@ class ListProtectConfigurationRuleSetNumberOverridesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the output for the 'list_protect_configuration_rule_set_number_overrides' function.
 class ListProtectConfigurationRuleSetNumberOverridesResult(BaseValidatorModel):
     ProtectConfigurationArn: str
     ProtectConfigurationId: str
@@ -1696,6 +1852,7 @@ class ListRegistrationAssociationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_registration_associations' function.
 class ListRegistrationAssociationsRequest(BaseValidatorModel):
     RegistrationId: str
     Filters: Optional[List[RegistrationAssociationFilter]] = None
@@ -1703,6 +1860,7 @@ class ListRegistrationAssociationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the output for the 'list_registration_associations' function.
 class ListRegistrationAssociationsResult(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
@@ -1712,6 +1870,7 @@ class ListRegistrationAssociationsResult(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'put_protect_configuration_rule_set_number_override' function.
 class PutProtectConfigurationRuleSetNumberOverrideRequest(BaseValidatorModel):
     ProtectConfigurationId: str
     DestinationPhoneNumber: str
@@ -1760,6 +1919,7 @@ class ConfigurationSetInformation(BaseValidatorModel):
     ProtectConfigurationId: Optional[str] = None
 
 
+# This class is the output for the 'create_event_destination' function.
 class CreateEventDestinationResult(BaseValidatorModel):
     ConfigurationSetArn: str
     ConfigurationSetName: str
@@ -1767,6 +1927,7 @@ class CreateEventDestinationResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_configuration_set' function.
 class DeleteConfigurationSetResult(BaseValidatorModel):
     ConfigurationSetArn: str
     ConfigurationSetName: str
@@ -1778,6 +1939,7 @@ class DeleteConfigurationSetResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_event_destination' function.
 class DeleteEventDestinationResult(BaseValidatorModel):
     ConfigurationSetArn: str
     ConfigurationSetName: str
@@ -1785,6 +1947,7 @@ class DeleteEventDestinationResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_event_destination' function.
 class UpdateEventDestinationResult(BaseValidatorModel):
     ConfigurationSetArn: str
     ConfigurationSetName: str
@@ -1792,6 +1955,7 @@ class UpdateEventDestinationResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_registration_versions' function.
 class DescribeRegistrationVersionsResult(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
@@ -1810,6 +1974,7 @@ class RegistrationFieldDefinition(BaseValidatorModel):
     TextValidation: Optional[TextValidation] = None
 
 
+# This class is the output for the 'describe_registration_section_definitions' function.
 class DescribeRegistrationSectionDefinitionsResult(BaseValidatorModel):
     RegistrationType: str
     RegistrationSectionDefinitions: List[RegistrationSectionDefinition]
@@ -1817,18 +1982,21 @@ class DescribeRegistrationSectionDefinitionsResult(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_registration_type_definitions' function.
 class DescribeRegistrationinitionsResult(BaseValidatorModel):
     RegistrationTypeDefinitions: List[Registrationinition]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_configuration_sets' function.
 class DescribeConfigurationSetsResult(BaseValidatorModel):
     ConfigurationSets: List[ConfigurationSetInformation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_registration_field_definitions' function.
 class DescribeRegistrationFieldDefinitionsResult(BaseValidatorModel):
     RegistrationType: str
     RegistrationFieldDefinitions: List[RegistrationFieldDefinition]

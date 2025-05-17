@@ -33,12 +33,14 @@ class ResultErrorEntry(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'put_audit_events' function.
 class PutAuditEventsRequest(BaseValidatorModel):
     auditEvents: List[AuditEvent]
     channelArn: str
     externalId: Optional[str] = None
 
 
+# This class is the output for the 'put_audit_events' function.
 class PutAuditEventsResponse(BaseValidatorModel):
     failed: List[ResultErrorEntry]
     successful: List[AuditEventResultEntry]

@@ -38,6 +38,7 @@ class Image(BaseValidatorModel):
     ImageContent: Optional[str] = None
 
 
+# This class is the input for the 'get_media_for_fragment_list' function.
 class GetMediaForFragmentListInput(BaseValidatorModel):
     Fragments: List[str]
     StreamName: Optional[str] = None
@@ -54,6 +55,7 @@ class DASHTimestampRange(BaseValidatorModel):
     EndTimestamp: Optional[Timestamp] = None
 
 
+# This class is the input for the 'get_images' function.
 class GetImagesInput(BaseValidatorModel):
     ImageSelectorType: ImageSelectorTypeType
     StartTimestamp: Timestamp
@@ -79,28 +81,33 @@ class TimestampRange(BaseValidatorModel):
     EndTimestamp: Timestamp
 
 
+# This class is the output for the 'get_clip' function.
 class GetClipOutput(BaseValidatorModel):
     ContentType: str
     Payload: StreamingBody
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_dash_streaming_session_url' function.
 class GetDASHStreamingSessionURLOutput(BaseValidatorModel):
     DASHStreamingSessionURL: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_hls_streaming_session_url' function.
 class GetHLSStreamingSessionURLOutput(BaseValidatorModel):
     HLSStreamingSessionURL: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_media_for_fragment_list' function.
 class GetMediaForFragmentListOutput(BaseValidatorModel):
     ContentType: str
     Payload: StreamingBody
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_fragments' function.
 class ListFragmentsOutput(BaseValidatorModel):
     Fragments: List[Fragment]
     ResponseMetadata: ResponseMetadata
@@ -121,6 +128,7 @@ class GetImagesInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'get_images' function.
 class GetImagesOutput(BaseValidatorModel):
     Images: List[Image]
     ResponseMetadata: ResponseMetadata
@@ -147,12 +155,14 @@ class FragmentSelector(BaseValidatorModel):
     TimestampRange: TimestampRange
 
 
+# This class is the input for the 'get_clip' function.
 class GetClipInput(BaseValidatorModel):
     ClipFragmentSelector: ClipFragmentSelector
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
 
 
+# This class is the input for the 'get_dash_streaming_session_url' function.
 class GetDASHStreamingSessionURLInput(BaseValidatorModel):
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
@@ -164,6 +174,7 @@ class GetDASHStreamingSessionURLInput(BaseValidatorModel):
     MaxManifestFragmentResults: Optional[int] = None
 
 
+# This class is the input for the 'get_hls_streaming_session_url' function.
 class GetHLSStreamingSessionURLInput(BaseValidatorModel):
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
@@ -183,6 +194,7 @@ class ListFragmentsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_fragments' function.
 class ListFragmentsInput(BaseValidatorModel):
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None

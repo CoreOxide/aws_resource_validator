@@ -49,6 +49,7 @@ class AppliedOrchestrationConfiguration(BaseValidatorModel):
     control: OrchestrationControlType
 
 
+# This class is the input for the 'associate_permission' function.
 class AssociatePermissionRequest(BaseValidatorModel):
     applicationId: str
     statementId: str
@@ -136,6 +137,7 @@ class BrowserExtensionConfiguration(BaseValidatorModel):
     enabledBrowserExtensions: List[BrowserExtensionType]
 
 
+# This class is the input for the 'cancel_subscription' function.
 class CancelSubscriptionRequest(BaseValidatorModel):
     applicationId: str
     subscriptionId: str
@@ -372,6 +374,7 @@ class DocumentAttributeConfiguration(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'get_application' function.
 class GetApplicationRequest(BaseValidatorModel):
     applicationId: str
 
@@ -382,23 +385,27 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'get_chat_controls_configuration' function.
 class GetChatControlsConfigurationRequest(BaseValidatorModel):
     applicationId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_data_accessor' function.
 class GetDataAccessorRequest(BaseValidatorModel):
     applicationId: str
     dataAccessorId: str
 
 
+# This class is the input for the 'get_data_source' function.
 class GetDataSourceRequest(BaseValidatorModel):
     applicationId: str
     indexId: str
     dataSourceId: str
 
 
+# This class is the input for the 'get_group' function.
 class GetGroupRequest(BaseValidatorModel):
     applicationId: str
     indexId: str
@@ -406,11 +413,13 @@ class GetGroupRequest(BaseValidatorModel):
     dataSourceId: Optional[str] = None
 
 
+# This class is the input for the 'get_index' function.
 class GetIndexRequest(BaseValidatorModel):
     applicationId: str
     indexId: str
 
 
+# This class is the input for the 'get_media' function.
 class GetMediaRequest(BaseValidatorModel):
     applicationId: str
     conversationId: str
@@ -418,25 +427,30 @@ class GetMediaRequest(BaseValidatorModel):
     mediaId: str
 
 
+# This class is the input for the 'get_plugin' function.
 class GetPluginRequest(BaseValidatorModel):
     applicationId: str
     pluginId: str
 
 
+# This class is the input for the 'get_policy' function.
 class GetPolicyRequest(BaseValidatorModel):
     applicationId: str
 
 
+# This class is the input for the 'get_retriever' function.
 class GetRetrieverRequest(BaseValidatorModel):
     applicationId: str
     retrieverId: str
 
 
+# This class is the input for the 'get_user' function.
 class GetUserRequest(BaseValidatorModel):
     applicationId: str
     userId: str
 
 
+# This class is the input for the 'get_web_experience' function.
 class GetWebExperienceRequest(BaseValidatorModel):
     applicationId: str
     webExperienceId: str
@@ -496,11 +510,13 @@ class KendraIndexConfiguration(BaseValidatorModel):
     indexId: str
 
 
+# This class is the input for the 'list_applications' function.
 class ListApplicationsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_attachments' function.
 class ListAttachmentsRequest(BaseValidatorModel):
     applicationId: str
     conversationId: Optional[str] = None
@@ -509,6 +525,7 @@ class ListAttachmentsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_conversations' function.
 class ListConversationsRequest(BaseValidatorModel):
     applicationId: str
     userId: Optional[str] = None
@@ -516,12 +533,14 @@ class ListConversationsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_data_accessors' function.
 class ListDataAccessorsRequest(BaseValidatorModel):
     applicationId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_data_sources' function.
 class ListDataSourcesRequest(BaseValidatorModel):
     applicationId: str
     indexId: str
@@ -529,6 +548,7 @@ class ListDataSourcesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_documents' function.
 class ListDocumentsRequest(BaseValidatorModel):
     applicationId: str
     indexId: str
@@ -537,12 +557,14 @@ class ListDocumentsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_indices' function.
 class ListIndicesRequest(BaseValidatorModel):
     applicationId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_messages' function.
 class ListMessagesRequest(BaseValidatorModel):
     conversationId: str
     applicationId: str
@@ -551,6 +573,7 @@ class ListMessagesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_plugin_actions' function.
 class ListPluginActionsRequest(BaseValidatorModel):
     applicationId: str
     pluginId: str
@@ -558,12 +581,14 @@ class ListPluginActionsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_plugin_type_actions' function.
 class ListPluginTypeActionsRequest(BaseValidatorModel):
     pluginType: PluginTypeType
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_plugin_type_metadata' function.
 class ListPluginTypeMetadataRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -575,6 +600,7 @@ class PluginTypeMetadataSummary(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'list_plugins' function.
 class ListPluginsRequest(BaseValidatorModel):
     applicationId: str
     nextToken: Optional[str] = None
@@ -592,6 +618,7 @@ class Plugin(BaseValidatorModel):
     updatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'list_retrievers' function.
 class ListRetrieversRequest(BaseValidatorModel):
     applicationId: str
     nextToken: Optional[str] = None
@@ -606,16 +633,19 @@ class Retriever(BaseValidatorModel):
     displayName: Optional[str] = None
 
 
+# This class is the input for the 'list_subscriptions' function.
 class ListSubscriptionsRequest(BaseValidatorModel):
     applicationId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceARN: str
 
 
+# This class is the input for the 'list_web_experiences' function.
 class ListWebExperiencesRequest(BaseValidatorModel):
     applicationId: str
     nextToken: Optional[str] = None
@@ -685,6 +715,7 @@ class VideoSourceDetails(BaseValidatorModel):
     videoExtractionType: Optional[VideoExtractionTypeType] = None
 
 
+# This class is the input for the 'start_data_source_sync_job' function.
 class StartDataSourceSyncJobRequest(BaseValidatorModel):
     dataSourceId: str
     applicationId: str
@@ -702,6 +733,7 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_subscription' function.
 class UpdateSubscriptionRequest(BaseValidatorModel):
     applicationId: str
     subscriptionId: str
@@ -754,17 +786,20 @@ class Application(BaseValidatorModel):
     quickSightConfiguration: Optional[QuickSightConfiguration] = None
 
 
+# This class is the output for the 'associate_permission' function.
 class AssociatePermissionResponse(BaseValidatorModel):
     statement: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_application' function.
 class CreateApplicationResponse(BaseValidatorModel):
     applicationId: str
     applicationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_data_accessor' function.
 class CreateDataAccessorResponse(BaseValidatorModel):
     dataAccessorId: str
     idcApplicationArn: str
@@ -772,18 +807,21 @@ class CreateDataAccessorResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_data_source' function.
 class CreateDataSourceResponse(BaseValidatorModel):
     dataSourceId: str
     dataSourceArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_index' function.
 class CreateIndexResponse(BaseValidatorModel):
     indexId: str
     indexArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_plugin' function.
 class CreatePluginResponse(BaseValidatorModel):
     pluginId: str
     pluginArn: str
@@ -791,45 +829,53 @@ class CreatePluginResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_retriever' function.
 class CreateRetrieverResponse(BaseValidatorModel):
     retrieverId: str
     retrieverArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_web_experience' function.
 class CreateWebExperienceResponse(BaseValidatorModel):
     webExperienceId: str
     webExperienceArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_feedback' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_media' function.
 class GetMediaResponse(BaseValidatorModel):
     mediaBytes: bytes
     mediaMimeType: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_policy' function.
 class GetPolicyResponse(BaseValidatorModel):
     policy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_plugin_actions' function.
 class ListPluginActionsResponse(BaseValidatorModel):
     items: List[ActionSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_plugin_type_actions' function.
 class ListPluginTypeActionsResponse(BaseValidatorModel):
     items: List[ActionSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_data_source_sync_job' function.
 class StartDataSourceSyncJobResponse(BaseValidatorModel):
     executionId: str
     ResponseMetadata: ResponseMetadata
@@ -868,6 +914,7 @@ class GroupStatusDetail(BaseValidatorModel):
     errorDetail: Optional[ErrorDetail] = None
 
 
+# This class is the input for the 'batch_delete_document' function.
 class BatchDeleteDocumentRequest(BaseValidatorModel):
     applicationId: str
     indexId: str
@@ -877,6 +924,7 @@ class BatchDeleteDocumentRequest(BaseValidatorModel):
 BrowserExtensionConfigurationUnion = Union[BrowserExtensionConfiguration, BrowserExtensionConfigurationOutput]
 
 
+# This class is the output for the 'cancel_subscription' function.
 class CancelSubscriptionResponse(BaseValidatorModel):
     subscriptionArn: str
     currentSubscription: SubscriptionDetails
@@ -884,6 +932,7 @@ class CancelSubscriptionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_subscription' function.
 class CreateSubscriptionResponse(BaseValidatorModel):
     subscriptionId: str
     subscriptionArn: str
@@ -892,6 +941,7 @@ class CreateSubscriptionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_subscription' function.
 class UpdateSubscriptionResponse(BaseValidatorModel):
     subscriptionArn: str
     currentSubscription: SubscriptionDetails
@@ -919,12 +969,14 @@ class CopyFromSource(BaseValidatorModel):
     conversation: Optional[ConversationSource] = None
 
 
+# This class is the output for the 'list_conversations' function.
 class ListConversationsResponse(BaseValidatorModel):
     conversations: List[Conversation]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_application' function.
 class GetApplicationResponse(BaseValidatorModel):
     displayName: str
     applicationId: str
@@ -960,6 +1012,7 @@ class UpdateApplicationRequest(BaseValidatorModel):
     autoSubscriptionConfiguration: Optional[AutoSubscriptionConfiguration] = None
 
 
+# This class is the input for the 'create_application' function.
 class CreateApplicationRequest(BaseValidatorModel):
     displayName: str
     roleArn: Optional[str] = None
@@ -977,6 +1030,7 @@ class CreateApplicationRequest(BaseValidatorModel):
     quickSightConfiguration: Optional[QuickSightConfiguration] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -987,6 +1041,7 @@ class TagResourceRequest(BaseValidatorModel):
     tags: List[Tag]
 
 
+# This class is the input for the 'create_index' function.
 class CreateIndexRequest(BaseValidatorModel):
     applicationId: str
     displayName: str
@@ -997,6 +1052,7 @@ class CreateIndexRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'create_subscription' function.
 class CreateSubscriptionRequest(BaseValidatorModel):
     applicationId: str
     principal: SubscriptionPrincipal
@@ -1019,11 +1075,13 @@ class CreateUserRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the output for the 'get_user' function.
 class GetUserResponse(BaseValidatorModel):
     userAliases: List[UserAlias]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_user' function.
 class UpdateUserRequest(BaseValidatorModel):
     applicationId: str
     userId: str
@@ -1031,6 +1089,7 @@ class UpdateUserRequest(BaseValidatorModel):
     userAliasesToDelete: Optional[List[UserAlias]] = None
 
 
+# This class is the output for the 'update_user' function.
 class UpdateUserResponse(BaseValidatorModel):
     userAliasesAdded: List[UserAlias]
     userAliasesUpdated: List[UserAlias]
@@ -1038,6 +1097,7 @@ class UpdateUserResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_data_accessors' function.
 class ListDataAccessorsResponse(BaseValidatorModel):
     dataAccessors: List[DataAccessor]
     ResponseMetadata: ResponseMetadata
@@ -1054,6 +1114,7 @@ class DataSourceSyncJob(BaseValidatorModel):
     metrics: Optional[DataSourceSyncJobMetrics] = None
 
 
+# This class is the output for the 'list_data_sources' function.
 class ListDataSourcesResponse(BaseValidatorModel):
     dataSources: List[DataSource]
     ResponseMetadata: ResponseMetadata
@@ -1109,6 +1170,7 @@ class DocumentAttributeValue(BaseValidatorModel):
     dateValue: Optional[Timestamp] = None
 
 
+# This class is the input for the 'list_data_source_sync_jobs' function.
 class ListDataSourceSyncJobsRequest(BaseValidatorModel):
     dataSourceId: str
     applicationId: str
@@ -1120,6 +1182,7 @@ class ListDataSourceSyncJobsRequest(BaseValidatorModel):
     statusFilter: Optional[DataSourceSyncJobStatusType] = None
 
 
+# This class is the input for the 'list_groups' function.
 class ListGroupsRequest(BaseValidatorModel):
     applicationId: str
     indexId: str
@@ -1247,6 +1310,7 @@ class GroupMembers(BaseValidatorModel):
     s3PathForGroupMembers: Optional[S3] = None
 
 
+# This class is the output for the 'list_groups' function.
 class ListGroupsResponse(BaseValidatorModel):
     items: List[GroupSummary]
     ResponseMetadata: ResponseMetadata
@@ -1262,30 +1326,35 @@ class IndexStatistics(BaseValidatorModel):
     textDocumentStatistics: Optional[TextDocumentStatistics] = None
 
 
+# This class is the output for the 'list_indices' function.
 class ListIndicesResponse(BaseValidatorModel):
     indices: List[Index]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_plugin_type_metadata' function.
 class ListPluginTypeMetadataResponse(BaseValidatorModel):
     items: List[PluginTypeMetadataSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_plugins' function.
 class ListPluginsResponse(BaseValidatorModel):
     plugins: List[Plugin]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_retrievers' function.
 class ListRetrieversResponse(BaseValidatorModel):
     retrievers: List[Retriever]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_web_experiences' function.
 class ListWebExperiencesResponse(BaseValidatorModel):
     webExperiences: List[WebExperience]
     ResponseMetadata: ResponseMetadata
@@ -1360,6 +1429,7 @@ class ActionReview(BaseValidatorModel):
     payloadFieldNameSeparator: Optional[str] = None
 
 
+# This class is the output for the 'list_applications' function.
 class ListApplicationsResponse(BaseValidatorModel):
     applications: List[Application]
     ResponseMetadata: ResponseMetadata
@@ -1373,22 +1443,26 @@ class FailedAttachmentEvent(BaseValidatorModel):
     attachment: Optional[AttachmentOutput] = None
 
 
+# This class is the output for the 'list_documents' function.
 class ListDocumentsResponse(BaseValidatorModel):
     documentDetailList: List[DocumentDetails]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'batch_delete_document' function.
 class BatchDeleteDocumentResponse(BaseValidatorModel):
     failedDocuments: List[FailedDocument]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_put_document' function.
 class BatchPutDocumentResponse(BaseValidatorModel):
     failedDocuments: List[FailedDocument]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_group' function.
 class GetGroupResponse(BaseValidatorModel):
     status: GroupStatusDetail
     statusHistory: List[GroupStatusDetail]
@@ -1421,12 +1495,14 @@ class Attachment(BaseValidatorModel):
     error: Optional[ErrorDetail] = None
 
 
+# This class is the output for the 'list_subscriptions' function.
 class ListSubscriptionsResponse(BaseValidatorModel):
     subscriptions: List[Subscription]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_data_source_sync_jobs' function.
 class ListDataSourceSyncJobsResponse(BaseValidatorModel):
     history: List[DataSourceSyncJob]
     ResponseMetadata: ResponseMetadata
@@ -1480,6 +1556,7 @@ class InlineDocumentEnrichmentConfigurationOutput(BaseValidatorModel):
 DocumentAttributeValueUnion = Union[DocumentAttributeValue, DocumentAttributeValueOutput]
 
 
+# This class is the input for the 'put_feedback' function.
 class PutFeedbackRequest(BaseValidatorModel):
     applicationId: str
     conversationId: str
@@ -1499,6 +1576,7 @@ class PutGroupRequest(BaseValidatorModel):
     roleArn: Optional[str] = None
 
 
+# This class is the input for the 'create_web_experience' function.
 class CreateWebExperienceRequest(BaseValidatorModel):
     applicationId: str
     title: Optional[str] = None
@@ -1514,6 +1592,7 @@ class CreateWebExperienceRequest(BaseValidatorModel):
     customizationConfiguration: Optional[CustomizationConfiguration] = None
 
 
+# This class is the output for the 'get_index' function.
 class GetIndexResponse(BaseValidatorModel):
     applicationId: str
     indexId: str
@@ -1538,6 +1617,7 @@ class AccessControl(BaseValidatorModel):
     memberRelation: Optional[MemberRelationType] = None
 
 
+# This class is the output for the 'get_web_experience' function.
 class GetWebExperienceResponse(BaseValidatorModel):
     applicationId: str
     webExperienceId: str
@@ -1584,6 +1664,7 @@ class TextSegment(BaseValidatorModel):
     sourceDetails: Optional[SourceDetails] = None
 
 
+# This class is the output for the 'get_plugin' function.
 class GetPluginResponse(BaseValidatorModel):
     applicationId: str
     pluginId: str
@@ -1616,6 +1697,7 @@ class AttachmentInputEvent(BaseValidatorModel):
     attachment: Optional[AttachmentInput] = None
 
 
+# This class is the output for the 'list_attachments' function.
 class ListAttachmentsResponse(BaseValidatorModel):
     attachments: List[Attachment]
     ResponseMetadata: ResponseMetadata
@@ -1636,6 +1718,7 @@ class ActionFilterConfigurationOutput(BaseValidatorModel):
     documentAttributeFilter: AttributeFilterOutput
 
 
+# This class is the output for the 'search_relevant_content' function.
 class SearchRelevantContentResponse(BaseValidatorModel):
     relevantContent: List[RelevantContent]
     ResponseMetadata: ResponseMetadata
@@ -1665,6 +1748,7 @@ class DocumentAttribute(BaseValidatorModel):
     value: DocumentAttributeValueUnion
 
 
+# This class is the input for the 'create_plugin' function.
 class CreatePluginRequest(BaseValidatorModel):
     applicationId: str
     displayName: str
@@ -1709,6 +1793,7 @@ class TopicConfigurationOutput(BaseValidatorModel):
 RuleConfigurationUnion = Union[RuleConfiguration, RuleConfigurationOutput]
 
 
+# This class is the output for the 'get_retriever' function.
 class GetRetrieverResponse(BaseValidatorModel):
     applicationId: str
     retrieverId: str
@@ -1730,6 +1815,7 @@ class ActionConfigurationOutput(BaseValidatorModel):
     filterConfiguration: Optional[ActionFilterConfigurationOutput] = None
 
 
+# This class is the output for the 'get_data_source' function.
 class GetDataSourceResponse(BaseValidatorModel):
     applicationId: str
     indexId: str
@@ -1757,6 +1843,7 @@ DocumentAttributeTargetUnion = Union[DocumentAttributeTarget, DocumentAttributeT
 DocumentAttributeUnion = Union[DocumentAttribute, DocumentAttributeOutput]
 
 
+# This class is the output for the 'chat_sync' function.
 class ChatSyncOutput(BaseValidatorModel):
     conversationId: str
     systemMessage: str
@@ -1788,6 +1875,7 @@ class MetadataEvent(BaseValidatorModel):
     finalTextMessage: Optional[str] = None
 
 
+# This class is the output for the 'get_chat_controls_configuration' function.
 class GetChatControlsConfigurationResponse(BaseValidatorModel):
     responseScope: ResponseScopeType
     orchestrationConfiguration: AppliedOrchestrationConfiguration
@@ -1805,6 +1893,7 @@ class Rule(BaseValidatorModel):
     ruleConfiguration: Optional[RuleConfigurationUnion] = None
 
 
+# This class is the input for the 'create_retriever' function.
 class CreateRetrieverRequest(BaseValidatorModel):
     applicationId: str
     type: RetrieverTypeType
@@ -1823,6 +1912,7 @@ class UpdateRetrieverRequest(BaseValidatorModel):
     roleArn: Optional[str] = None
 
 
+# This class is the output for the 'get_data_accessor' function.
 class GetDataAccessorResponse(BaseValidatorModel):
     displayName: str
     dataAccessorId: str
@@ -1875,6 +1965,7 @@ class AttributeFilter(BaseValidatorModel):
     lessThanOrEquals: Optional[DocumentAttributeUnion] = None
 
 
+# This class is the output for the 'list_messages' function.
 class ListMessagesResponse(BaseValidatorModel):
     messages: List[Message]
     ResponseMetadata: ResponseMetadata
@@ -1905,6 +1996,7 @@ class SearchRelevantContentRequestPaginate(BaseValidatorModel):
 AttributeFilterUnion = Union[AttributeFilter, AttributeFilterOutput]
 
 
+# This class is the output for the 'chat' function.
 class ChatOutput(BaseValidatorModel):
     outputStream: EventStream[ChatOutputStream]
     ResponseMetadata: ResponseMetadata
@@ -1927,6 +2019,7 @@ class ActionFilterConfiguration(BaseValidatorModel):
     documentAttributeFilter: AttributeFilterUnion
 
 
+# This class is the input for the 'chat_sync' function.
 class ChatSyncInput(BaseValidatorModel):
     applicationId: str
     userId: Optional[str] = None
@@ -1949,6 +2042,7 @@ class ConfigurationEvent(BaseValidatorModel):
     attributeFilter: Optional[AttributeFilterUnion] = None
 
 
+# This class is the input for the 'search_relevant_content' function.
 class SearchRelevantContentRequest(BaseValidatorModel):
     applicationId: str
     queryText: str
@@ -1984,6 +2078,7 @@ class UpdateChatControlsConfigurationRequest(BaseValidatorModel):
     creatorModeConfiguration: Optional[CreatorModeConfiguration] = None
 
 
+# This class is the input for the 'create_data_source' function.
 class CreateDataSourceRequest(BaseValidatorModel):
     applicationId: str
     indexId: str
@@ -2029,6 +2124,7 @@ class ActionConfiguration(BaseValidatorModel):
     filterConfiguration: Optional[ActionFilterConfigurationUnion] = None
 
 
+# This class is the input for the 'chat' function.
 class ChatInput(BaseValidatorModel):
     applicationId: str
     userId: Optional[str] = None
@@ -2039,6 +2135,7 @@ class ChatInput(BaseValidatorModel):
     inputStream: Optional[EventStream[ChatInputStream]] = None
 
 
+# This class is the input for the 'batch_put_document' function.
 class BatchPutDocumentRequest(BaseValidatorModel):
     applicationId: str
     indexId: str
@@ -2049,6 +2146,7 @@ class BatchPutDocumentRequest(BaseValidatorModel):
 ActionConfigurationUnion = Union[ActionConfiguration, ActionConfigurationOutput]
 
 
+# This class is the input for the 'create_data_accessor' function.
 class CreateDataAccessorRequest(BaseValidatorModel):
     applicationId: str
     principal: str

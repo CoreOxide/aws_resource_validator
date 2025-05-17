@@ -73,6 +73,7 @@ class FeatureMetadata(BaseValidatorModel):
     Status: Optional[FeatureStatusType] = None
 
 
+# This class is the input for the 'get_dimension_key_details' function.
 class GetDimensionKeyDetailsRequest(BaseValidatorModel):
     ServiceType: ServiceTypeType
     Identifier: str
@@ -81,6 +82,7 @@ class GetDimensionKeyDetailsRequest(BaseValidatorModel):
     RequestedDimensions: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_performance_analysis_report' function.
 class GetPerformanceAnalysisReportRequest(BaseValidatorModel):
     ServiceType: ServiceTypeType
     Identifier: str
@@ -89,6 +91,7 @@ class GetPerformanceAnalysisReportRequest(BaseValidatorModel):
     AcceptLanguage: Optional[Literal['EN_US']] = None
 
 
+# This class is the input for the 'get_resource_metadata' function.
 class GetResourceMetadataRequest(BaseValidatorModel):
     ServiceType: ServiceTypeType
     Identifier: str
@@ -99,6 +102,7 @@ class Recommendation(BaseValidatorModel):
     RecommendationDescription: Optional[str] = None
 
 
+# This class is the input for the 'list_available_resource_dimensions' function.
 class ListAvailableResourceDimensionsRequest(BaseValidatorModel):
     ServiceType: ServiceTypeType
     Identifier: str
@@ -108,6 +112,7 @@ class ListAvailableResourceDimensionsRequest(BaseValidatorModel):
     AuthorizedActions: Optional[List[FineGrainedActionType]] = None
 
 
+# This class is the input for the 'list_available_resource_metrics' function.
 class ListAvailableResourceMetricsRequest(BaseValidatorModel):
     ServiceType: ServiceTypeType
     Identifier: str
@@ -122,6 +127,7 @@ class ResponseResourceMetric(BaseValidatorModel):
     Unit: Optional[str] = None
 
 
+# This class is the input for the 'list_performance_analysis_reports' function.
 class ListPerformanceAnalysisReportsRequest(BaseValidatorModel):
     ServiceType: ServiceTypeType
     Identifier: str
@@ -130,6 +136,7 @@ class ListPerformanceAnalysisReportsRequest(BaseValidatorModel):
     ListTags: Optional[bool] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ServiceType: ServiceTypeType
     ResourceARN: str
@@ -161,6 +168,7 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the input for the 'create_performance_analysis_report' function.
 class CreatePerformanceAnalysisReportRequest(BaseValidatorModel):
     ServiceType: ServiceTypeType
     Identifier: str
@@ -169,11 +177,13 @@ class CreatePerformanceAnalysisReportRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'create_performance_analysis_report' function.
 class CreatePerformanceAnalysisReportResponse(BaseValidatorModel):
     AnalysisReportId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -183,6 +193,7 @@ class Data(BaseValidatorModel):
     PerformanceInsightsMetric: Optional[PerformanceInsightsMetric] = None
 
 
+# This class is the input for the 'describe_dimension_keys' function.
 class DescribeDimensionKeysRequest(BaseValidatorModel):
     ServiceType: ServiceTypeType
     Identifier: str
@@ -204,6 +215,7 @@ class MetricQuery(BaseValidatorModel):
     Filter: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'describe_dimension_keys' function.
 class DescribeDimensionKeysResponse(BaseValidatorModel):
     AlignedStartTime: datetime
     AlignedEndTime: datetime
@@ -218,17 +230,20 @@ class DimensionGroupDetail(BaseValidatorModel):
     Dimensions: Optional[List[DimensionDetail]] = None
 
 
+# This class is the output for the 'get_dimension_key_details' function.
 class GetDimensionKeyDetailsResponse(BaseValidatorModel):
     Dimensions: List[DimensionKeyDetail]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_metadata' function.
 class GetResourceMetadataResponse(BaseValidatorModel):
     Identifier: str
     Features: Dict[str, FeatureMetadata]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_available_resource_metrics' function.
 class ListAvailableResourceMetricsResponse(BaseValidatorModel):
     Metrics: List[ResponseResourceMetric]
     ResponseMetadata: ResponseMetadata
@@ -240,6 +255,7 @@ class MetricKeyDataPoints(BaseValidatorModel):
     DataPoints: Optional[List[DataPoint]] = None
 
 
+# This class is the output for the 'list_performance_analysis_reports' function.
 class ListPerformanceAnalysisReportsResponse(BaseValidatorModel):
     AnalysisReports: List[AnalysisReportSummary]
     ResponseMetadata: ResponseMetadata
@@ -260,6 +276,7 @@ class Insight(BaseValidatorModel):
     BaselineData: Optional[List[Data]] = None
 
 
+# This class is the input for the 'get_resource_metrics' function.
 class GetResourceMetricsRequest(BaseValidatorModel):
     ServiceType: ServiceTypeType
     Identifier: str
@@ -277,6 +294,7 @@ class MetricDimensionGroups(BaseValidatorModel):
     Groups: Optional[List[DimensionGroupDetail]] = None
 
 
+# This class is the output for the 'get_resource_metrics' function.
 class GetResourceMetricsResponse(BaseValidatorModel):
     AlignedStartTime: datetime
     AlignedEndTime: datetime
@@ -297,12 +315,14 @@ class AnalysisReport(BaseValidatorModel):
     Insights: Optional[List[Insight]] = None
 
 
+# This class is the output for the 'list_available_resource_dimensions' function.
 class ListAvailableResourceDimensionsResponse(BaseValidatorModel):
     MetricDimensions: List[MetricDimensionGroups]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_performance_analysis_report' function.
 class GetPerformanceAnalysisReportResponse(BaseValidatorModel):
     AnalysisReport: AnalysisReport
     ResponseMetadata: ResponseMetadata

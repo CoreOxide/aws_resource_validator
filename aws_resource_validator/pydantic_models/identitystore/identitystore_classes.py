@@ -46,6 +46,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_group' function.
 class CreateGroupRequest(BaseValidatorModel):
     IdentityStoreId: str
     DisplayName: Optional[str] = None
@@ -88,16 +89,19 @@ class DeleteUserRequest(BaseValidatorModel):
     UserId: str
 
 
+# This class is the input for the 'describe_group_membership' function.
 class DescribeGroupMembershipRequest(BaseValidatorModel):
     IdentityStoreId: str
     MembershipId: str
 
 
+# This class is the input for the 'describe_group' function.
 class DescribeGroupRequest(BaseValidatorModel):
     IdentityStoreId: str
     GroupId: str
 
 
+# This class is the input for the 'describe_user' function.
 class DescribeUserRequest(BaseValidatorModel):
     IdentityStoreId: str
     UserId: str
@@ -114,6 +118,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_group_memberships' function.
 class ListGroupMembershipsRequest(BaseValidatorModel):
     IdentityStoreId: str
     GroupId: str
@@ -146,12 +151,14 @@ class UpdateUserRequest(BaseValidatorModel):
     Operations: List[AttributeOperation]
 
 
+# This class is the input for the 'create_group_membership' function.
 class CreateGroupMembershipRequest(BaseValidatorModel):
     IdentityStoreId: str
     GroupId: str
     MemberId: MemberId
 
 
+# This class is the input for the 'get_group_membership_id' function.
 class GetGroupMembershipIdRequest(BaseValidatorModel):
     IdentityStoreId: str
     GroupId: str
@@ -171,12 +178,14 @@ class GroupMembership(BaseValidatorModel):
     MemberId: Optional[MemberId] = None
 
 
+# This class is the input for the 'is_member_in_groups' function.
 class IsMemberInGroupsRequest(BaseValidatorModel):
     IdentityStoreId: str
     MemberId: MemberId
     GroupIds: List[str]
 
 
+# This class is the input for the 'list_group_memberships_for_member' function.
 class ListGroupMembershipsForMemberRequest(BaseValidatorModel):
     IdentityStoreId: str
     MemberId: MemberId
@@ -184,24 +193,28 @@ class ListGroupMembershipsForMemberRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_group_membership' function.
 class CreateGroupMembershipResponse(BaseValidatorModel):
     MembershipId: str
     IdentityStoreId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_group' function.
 class CreateGroupResponse(BaseValidatorModel):
     GroupId: str
     IdentityStoreId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_user' function.
 class CreateUserResponse(BaseValidatorModel):
     UserId: str
     IdentityStoreId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_group_membership' function.
 class DescribeGroupMembershipResponse(BaseValidatorModel):
     IdentityStoreId: str
     MembershipId: str
@@ -210,6 +223,7 @@ class DescribeGroupMembershipResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_group' function.
 class DescribeGroupResponse(BaseValidatorModel):
     GroupId: str
     DisplayName: str
@@ -219,24 +233,28 @@ class DescribeGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_group_id' function.
 class GetGroupIdResponse(BaseValidatorModel):
     GroupId: str
     IdentityStoreId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_group_membership_id' function.
 class GetGroupMembershipIdResponse(BaseValidatorModel):
     MembershipId: str
     IdentityStoreId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_user_id' function.
 class GetUserIdResponse(BaseValidatorModel):
     UserId: str
     IdentityStoreId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_user' function.
 class CreateUserRequest(BaseValidatorModel):
     IdentityStoreId: str
     UserName: Optional[str] = None
@@ -254,6 +272,7 @@ class CreateUserRequest(BaseValidatorModel):
     Timezone: Optional[str] = None
 
 
+# This class is the output for the 'describe_user' function.
 class DescribeUserResponse(BaseValidatorModel):
     UserName: str
     UserId: str
@@ -293,6 +312,7 @@ class User(BaseValidatorModel):
     Timezone: Optional[str] = None
 
 
+# This class is the input for the 'list_groups' function.
 class ListGroupsRequest(BaseValidatorModel):
     IdentityStoreId: str
     MaxResults: Optional[int] = None
@@ -300,6 +320,7 @@ class ListGroupsRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
 
 
+# This class is the input for the 'list_users' function.
 class ListUsersRequest(BaseValidatorModel):
     IdentityStoreId: str
     MaxResults: Optional[int] = None
@@ -331,39 +352,46 @@ class ListUsersRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_groups' function.
 class ListGroupsResponse(BaseValidatorModel):
     Groups: List[Group]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_group_id' function.
 class GetGroupIdRequest(BaseValidatorModel):
     IdentityStoreId: str
     AlternateIdentifier: AlternateIdentifier
 
 
+# This class is the input for the 'get_user_id' function.
 class GetUserIdRequest(BaseValidatorModel):
     IdentityStoreId: str
     AlternateIdentifier: AlternateIdentifier
 
 
+# This class is the output for the 'is_member_in_groups' function.
 class IsMemberInGroupsResponse(BaseValidatorModel):
     Results: List[GroupMembershipExistenceResult]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_group_memberships_for_member' function.
 class ListGroupMembershipsForMemberResponse(BaseValidatorModel):
     GroupMemberships: List[GroupMembership]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_group_memberships' function.
 class ListGroupMembershipsResponse(BaseValidatorModel):
     GroupMemberships: List[GroupMembership]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_users' function.
 class ListUsersResponse(BaseValidatorModel):
     Users: List[User]
     ResponseMetadata: ResponseMetadata

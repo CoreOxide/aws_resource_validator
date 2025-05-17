@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'delete_report_definition' function.
 class DeleteReportDefinitionRequest(BaseValidatorModel):
     ReportName: str
 
@@ -26,11 +27,13 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_report_definitions' function.
 class DescribeReportDefinitionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ReportName: str
 
@@ -50,6 +53,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the output for the 'delete_report_definition' function.
 class DeleteReportDefinitionResponse(BaseValidatorModel):
     ResponseMessage: str
     ResponseMetadata: ResponseMetadata
@@ -59,6 +63,7 @@ class DescribeReportDefinitionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -101,6 +106,7 @@ class ReportDefinition(BaseValidatorModel):
     ReportStatus: Optional[ReportStatus] = None
 
 
+# This class is the output for the 'describe_report_definitions' function.
 class DescribeReportDefinitionsResponse(BaseValidatorModel):
     ReportDefinitions: List[ReportDefinitionOutput]
     ResponseMetadata: ResponseMetadata

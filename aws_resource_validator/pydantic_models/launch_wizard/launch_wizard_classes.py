@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'create_deployment' function.
 class CreateDeploymentInput(BaseValidatorModel):
     deploymentPatternName: str
     name: str
@@ -25,6 +26,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'delete_deployment' function.
 class DeleteDeploymentInput(BaseValidatorModel):
     deploymentId: str
 
@@ -71,15 +73,18 @@ class DeploymentFilter(BaseValidatorModel):
     values: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_deployment' function.
 class GetDeploymentInput(BaseValidatorModel):
     deploymentId: str
 
 
+# This class is the input for the 'get_workload_deployment_pattern' function.
 class GetWorkloadDeploymentPatternInput(BaseValidatorModel):
     deploymentPatternName: str
     workloadName: str
 
 
+# This class is the input for the 'get_workload' function.
 class GetWorkloadInput(BaseValidatorModel):
     workloadName: str
 
@@ -100,16 +105,19 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_deployment_events' function.
 class ListDeploymentEventsInput(BaseValidatorModel):
     deploymentId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInput(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'list_workload_deployment_patterns' function.
 class ListWorkloadDeploymentPatternsInput(BaseValidatorModel):
     workloadName: str
     maxResults: Optional[int] = None
@@ -126,6 +134,7 @@ class WorkloadDeploymentPatternDataSummary(BaseValidatorModel):
     workloadVersionName: Optional[str] = None
 
 
+# This class is the input for the 'list_workloads' function.
 class ListWorkloadsInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -146,17 +155,20 @@ class UntagResourceInput(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the output for the 'create_deployment' function.
 class CreateDeploymentOutput(BaseValidatorModel):
     deploymentId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_deployment' function.
 class DeleteDeploymentOutput(BaseValidatorModel):
     status: DeploymentStatusType
     statusReason: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceOutput(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
@@ -170,29 +182,34 @@ class DeploymentSpecificationsField(BaseValidatorModel):
     required: Optional[str] = None
 
 
+# This class is the output for the 'list_deployments' function.
 class ListDeploymentsOutput(BaseValidatorModel):
     deployments: List[DeploymentDataSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_deployment' function.
 class GetDeploymentOutput(BaseValidatorModel):
     deployment: DeploymentData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_deployment_events' function.
 class ListDeploymentEventsOutput(BaseValidatorModel):
     deploymentEvents: List[DeploymentEventDataSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_deployments' function.
 class ListDeploymentsInput(BaseValidatorModel):
     filters: Optional[List[DeploymentFilter]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_workload' function.
 class GetWorkloadOutput(BaseValidatorModel):
     workload: WorkloadData
     ResponseMetadata: ResponseMetadata
@@ -217,12 +234,14 @@ class ListWorkloadsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_workload_deployment_patterns' function.
 class ListWorkloadDeploymentPatternsOutput(BaseValidatorModel):
     workloadDeploymentPatterns: List[WorkloadDeploymentPatternDataSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_workloads' function.
 class ListWorkloadsOutput(BaseValidatorModel):
     workloads: List[WorkloadDataSummary]
     ResponseMetadata: ResponseMetadata
@@ -240,6 +259,7 @@ class WorkloadDeploymentPatternData(BaseValidatorModel):
     workloadVersionName: Optional[str] = None
 
 
+# This class is the output for the 'get_workload_deployment_pattern' function.
 class GetWorkloadDeploymentPatternOutput(BaseValidatorModel):
     workloadDeploymentPattern: WorkloadDeploymentPatternData
     ResponseMetadata: ResponseMetadata

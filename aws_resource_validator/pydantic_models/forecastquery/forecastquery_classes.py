@@ -13,6 +13,7 @@ class DataPoint(BaseValidatorModel):
     Value: Optional[float] = None
 
 
+# This class is the input for the 'query_forecast' function.
 class QueryForecastRequest(BaseValidatorModel):
     ForecastArn: str
     Filters: Dict[str, str]
@@ -29,6 +30,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'query_what_if_forecast' function.
 class QueryWhatIfForecastRequest(BaseValidatorModel):
     WhatIfForecastArn: str
     Filters: Dict[str, str]
@@ -41,11 +43,13 @@ class Forecast(BaseValidatorModel):
     Predictions: Optional[Dict[str, List[DataPoint]]] = None
 
 
+# This class is the output for the 'query_forecast' function.
 class QueryForecastResponse(BaseValidatorModel):
     Forecast: Forecast
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'query_what_if_forecast' function.
 class QueryWhatIfForecastResponse(BaseValidatorModel):
     Forecast: Forecast
     ResponseMetadata: ResponseMetadata

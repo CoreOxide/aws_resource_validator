@@ -77,19 +77,23 @@ class DataSourceS3Configuration(BaseValidatorModel):
     ObjectKeyPrefix: Optional[str] = None
 
 
+# This class is the input for the 'delete_database' function.
 class DeleteDatabaseRequest(BaseValidatorModel):
     DatabaseName: str
 
 
+# This class is the input for the 'delete_table' function.
 class DeleteTableRequest(BaseValidatorModel):
     DatabaseName: str
     TableName: str
 
 
+# This class is the input for the 'describe_batch_load_task' function.
 class DescribeBatchLoadTaskRequest(BaseValidatorModel):
     TaskId: str
 
 
+# This class is the input for the 'describe_database' function.
 class DescribeDatabaseRequest(BaseValidatorModel):
     DatabaseName: str
 
@@ -99,6 +103,7 @@ class Endpoint(BaseValidatorModel):
     CachePeriodInMinutes: int
 
 
+# This class is the input for the 'describe_table' function.
 class DescribeTableRequest(BaseValidatorModel):
     DatabaseName: str
     TableName: str
@@ -110,23 +115,27 @@ class Dimension(BaseValidatorModel):
     DimensionValueType: Optional[Literal['VARCHAR']] = None
 
 
+# This class is the input for the 'list_batch_load_tasks' function.
 class ListBatchLoadTasksRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     TaskStatus: Optional[BatchLoadStatusType] = None
 
 
+# This class is the input for the 'list_databases' function.
 class ListDatabasesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tables' function.
 class ListTablesRequest(BaseValidatorModel):
     DatabaseName: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
@@ -178,32 +187,38 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_database' function.
 class UpdateDatabaseRequest(BaseValidatorModel):
     DatabaseName: str
     KmsKeyId: str
 
 
+# This class is the output for the 'create_batch_load_task' function.
 class CreateBatchLoadTaskResponse(BaseValidatorModel):
     TaskId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_table' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_batch_load_tasks' function.
 class ListBatchLoadTasksResponse(BaseValidatorModel):
     BatchLoadTasks: List[BatchLoadTask]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_database' function.
 class CreateDatabaseRequest(BaseValidatorModel):
     DatabaseName: str
     KmsKeyId: Optional[str] = None
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -214,22 +229,26 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the output for the 'create_database' function.
 class CreateDatabaseResponse(BaseValidatorModel):
     Database: Database
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_database' function.
 class DescribeDatabaseResponse(BaseValidatorModel):
     Database: Database
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_databases' function.
 class ListDatabasesResponse(BaseValidatorModel):
     Databases: List[Database]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_database' function.
 class UpdateDatabaseResponse(BaseValidatorModel):
     Database: Database
     ResponseMetadata: ResponseMetadata
@@ -295,6 +314,7 @@ class Schema(BaseValidatorModel):
     CompositePartitionKey: Optional[List[PartitionKey]] = None
 
 
+# This class is the output for the 'write_records' function.
 class WriteRecordsResponse(BaseValidatorModel):
     RecordsIngested: RecordsIngested
     ResponseMetadata: ResponseMetadata
@@ -309,6 +329,7 @@ class MagneticStoreWriteProperties(BaseValidatorModel):
     MagneticStoreRejectedDataLocation: Optional[MagneticStoreRejectedDataLocation] = None
 
 
+# This class is the input for the 'write_records' function.
 class WriteRecordsRequest(BaseValidatorModel):
     DatabaseName: str
     TableName: str
@@ -358,6 +379,7 @@ class DataModelConfiguration(BaseValidatorModel):
     DataModelS3Configuration: Optional[DataModelS3Configuration] = None
 
 
+# This class is the input for the 'create_table' function.
 class CreateTableRequest(BaseValidatorModel):
     DatabaseName: str
     TableName: str
@@ -367,6 +389,7 @@ class CreateTableRequest(BaseValidatorModel):
     Schema: Optional[SchemaUnion] = None
 
 
+# This class is the input for the 'update_table' function.
 class UpdateTableRequest(BaseValidatorModel):
     DatabaseName: str
     TableName: str
@@ -375,22 +398,26 @@ class UpdateTableRequest(BaseValidatorModel):
     Schema: Optional[SchemaUnion] = None
 
 
+# This class is the output for the 'create_table' function.
 class CreateTableResponse(BaseValidatorModel):
     Table: Table
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_table' function.
 class DescribeTableResponse(BaseValidatorModel):
     Table: Table
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tables' function.
 class ListTablesResponse(BaseValidatorModel):
     Tables: List[Table]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_table' function.
 class UpdateTableResponse(BaseValidatorModel):
     Table: Table
     ResponseMetadata: ResponseMetadata
@@ -414,11 +441,13 @@ class BatchLoadTaskDescription(BaseValidatorModel):
 DataModelConfigurationUnion = Union[DataModelConfiguration, DataModelConfigurationOutput]
 
 
+# This class is the output for the 'describe_batch_load_task' function.
 class DescribeBatchLoadTaskResponse(BaseValidatorModel):
     BatchLoadTaskDescription: BatchLoadTaskDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_batch_load_task' function.
 class CreateBatchLoadTaskRequest(BaseValidatorModel):
     DataSourceConfiguration: DataSourceConfiguration
     ReportConfiguration: ReportConfiguration

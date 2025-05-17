@@ -56,6 +56,7 @@ class BackendStoragePermissions(BaseValidatorModel):
     UnAuthenticated: Optional[List[UnAuthenticatedElementType]] = None
 
 
+# This class is the input for the 'clone_backend' function.
 class CloneBackendRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -104,11 +105,13 @@ class CreateBackendAuthPasswordPolicyConfig(BaseValidatorModel):
     AdditionalConstraints: Optional[List[AdditionalConstraintsElementType]] = None
 
 
+# This class is the input for the 'create_backend_config' function.
 class CreateBackendConfigRequest(BaseValidatorModel):
     AppId: str
     BackendManagerAppId: Optional[str] = None
 
 
+# This class is the input for the 'create_backend' function.
 class CreateBackendRequest(BaseValidatorModel):
     AppId: str
     AppName: str
@@ -117,21 +120,25 @@ class CreateBackendRequest(BaseValidatorModel):
     ResourceName: Optional[str] = None
 
 
+# This class is the input for the 'create_token' function.
 class CreateTokenRequest(BaseValidatorModel):
     AppId: str
 
 
+# This class is the input for the 'delete_backend_auth' function.
 class DeleteBackendAuthRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     ResourceName: str
 
 
+# This class is the input for the 'delete_backend' function.
 class DeleteBackendRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
 
 
+# This class is the input for the 'delete_backend_storage' function.
 class DeleteBackendStorageRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -139,51 +146,60 @@ class DeleteBackendStorageRequest(BaseValidatorModel):
     ServiceName: Literal['S3']
 
 
+# This class is the input for the 'delete_token' function.
 class DeleteTokenRequest(BaseValidatorModel):
     AppId: str
     SessionId: str
 
 
+# This class is the input for the 'generate_backend_api_models' function.
 class GenerateBackendAPIModelsRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     ResourceName: str
 
 
+# This class is the input for the 'get_backend_api_models' function.
 class GetBackendAPIModelsRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     ResourceName: str
 
 
+# This class is the input for the 'get_backend_auth' function.
 class GetBackendAuthRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     ResourceName: str
 
 
+# This class is the input for the 'get_backend_job' function.
 class GetBackendJobRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     JobId: str
 
 
+# This class is the input for the 'get_backend' function.
 class GetBackendRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: Optional[str] = None
 
 
+# This class is the input for the 'get_backend_storage' function.
 class GetBackendStorageRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
     ResourceName: str
 
 
+# This class is the input for the 'get_token' function.
 class GetTokenRequest(BaseValidatorModel):
     AppId: str
     SessionId: str
 
 
+# This class is the input for the 'import_backend_auth' function.
 class ImportBackendAuthRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -193,6 +209,7 @@ class ImportBackendAuthRequest(BaseValidatorModel):
     IdentityPoolId: Optional[str] = None
 
 
+# This class is the input for the 'import_backend_storage' function.
 class ImportBackendStorageRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -206,6 +223,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_backend_jobs' function.
 class ListBackendJobsRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -216,6 +234,7 @@ class ListBackendJobsRequest(BaseValidatorModel):
     Status: Optional[str] = None
 
 
+# This class is the input for the 'list_s3_buckets' function.
 class ListS3BucketsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
@@ -232,11 +251,13 @@ class LoginAuthConfigReqObj(BaseValidatorModel):
     AwsUserPoolsWebClientId: Optional[str] = None
 
 
+# This class is the input for the 'remove_all_backends' function.
 class RemoveAllBackendsRequest(BaseValidatorModel):
     AppId: str
     CleanAmplifyApp: Optional[bool] = None
 
 
+# This class is the input for the 'remove_backend_config' function.
 class RemoveBackendConfigRequest(BaseValidatorModel):
     AppId: str
 
@@ -250,6 +271,7 @@ class UpdateBackendAuthPasswordPolicyConfig(BaseValidatorModel):
     MinimumLength: Optional[float] = None
 
 
+# This class is the input for the 'update_backend_job' function.
 class UpdateBackendJobRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -279,6 +301,7 @@ class GetBackendStorageResourceConfig(BaseValidatorModel):
 BackendStoragePermissionsUnion = Union[BackendStoragePermissions, BackendStoragePermissionsOutput]
 
 
+# This class is the output for the 'clone_backend' function.
 class CloneBackendResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -289,6 +312,7 @@ class CloneBackendResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_backend_api' function.
 class CreateBackendAPIResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -299,6 +323,7 @@ class CreateBackendAPIResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_backend_auth' function.
 class CreateBackendAuthResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -309,6 +334,7 @@ class CreateBackendAuthResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_backend_config' function.
 class CreateBackendConfigResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -317,6 +343,7 @@ class CreateBackendConfigResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_backend' function.
 class CreateBackendResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -327,6 +354,7 @@ class CreateBackendResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_backend_storage' function.
 class CreateBackendStorageResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -335,6 +363,7 @@ class CreateBackendStorageResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_token' function.
 class CreateTokenResponse(BaseValidatorModel):
     AppId: str
     ChallengeCode: str
@@ -343,6 +372,7 @@ class CreateTokenResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_backend_api' function.
 class DeleteBackendAPIResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -353,6 +383,7 @@ class DeleteBackendAPIResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_backend_auth' function.
 class DeleteBackendAuthResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -363,6 +394,7 @@ class DeleteBackendAuthResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_backend' function.
 class DeleteBackendResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -373,6 +405,7 @@ class DeleteBackendResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_backend_storage' function.
 class DeleteBackendStorageResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -381,11 +414,13 @@ class DeleteBackendStorageResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_token' function.
 class DeleteTokenResponse(BaseValidatorModel):
     IsSuccess: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'generate_backend_api_models' function.
 class GenerateBackendAPIModelsResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -396,6 +431,7 @@ class GenerateBackendAPIModelsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_backend_api_models' function.
 class GetBackendAPIModelsResponse(BaseValidatorModel):
     Models: str
     Status: StatusType
@@ -403,6 +439,7 @@ class GetBackendAPIModelsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_backend_job' function.
 class GetBackendJobResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -415,6 +452,7 @@ class GetBackendJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_backend' function.
 class GetBackendResponse(BaseValidatorModel):
     AmplifyFeatureFlags: str
     AmplifyMetaConfig: str
@@ -426,6 +464,7 @@ class GetBackendResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_token' function.
 class GetTokenResponse(BaseValidatorModel):
     AppId: str
     ChallengeCode: str
@@ -434,6 +473,7 @@ class GetTokenResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_backend_auth' function.
 class ImportBackendAuthResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -444,6 +484,7 @@ class ImportBackendAuthResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_backend_storage' function.
 class ImportBackendStorageResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -452,12 +493,14 @@ class ImportBackendStorageResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_backend_jobs' function.
 class ListBackendJobsResponse(BaseValidatorModel):
     Jobs: List[BackendJobRespObj]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'remove_all_backends' function.
 class RemoveAllBackendsResponse(BaseValidatorModel):
     AppId: str
     Error: str
@@ -467,11 +510,13 @@ class RemoveAllBackendsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'remove_backend_config' function.
 class RemoveBackendConfigResponse(BaseValidatorModel):
     Error: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_backend_api' function.
 class UpdateBackendAPIResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -482,6 +527,7 @@ class UpdateBackendAPIResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_backend_auth' function.
 class UpdateBackendAuthResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -492,6 +538,7 @@ class UpdateBackendAuthResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_backend_job' function.
 class UpdateBackendJobResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -504,6 +551,7 @@ class UpdateBackendJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_backend_storage' function.
 class UpdateBackendStorageResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -557,17 +605,20 @@ class ListBackendJobsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_s3_buckets' function.
 class ListS3BucketsResponse(BaseValidatorModel):
     Buckets: List[S3BucketInfo]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'update_backend_config' function.
 class UpdateBackendConfigRequest(BaseValidatorModel):
     AppId: str
     LoginAuthConfig: Optional[LoginAuthConfigReqObj] = None
 
 
+# This class is the output for the 'update_backend_config' function.
 class UpdateBackendConfigResponse(BaseValidatorModel):
     AppId: str
     BackendManagerAppId: str
@@ -621,6 +672,7 @@ class UpdateBackendAuthOAuthConfig(BaseValidatorModel):
     SocialProviderSettings: Optional[SocialProviderSettings] = None
 
 
+# This class is the output for the 'get_backend_storage' function.
 class GetBackendStorageResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -645,6 +697,7 @@ class UpdateBackendAuthMFAConfig(BaseValidatorModel):
     Settings: Optional[SettingsUnion] = None
 
 
+# This class is the output for the 'get_backend_api' function.
 class GetBackendAPIResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -678,6 +731,7 @@ class CreateBackendAuthUserPoolConfig(BaseValidatorModel):
     VerificationMessage: Optional[CreateBackendAuthVerificationMessageConfig] = None
 
 
+# This class is the input for the 'create_backend_storage' function.
 class CreateBackendStorageRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -685,6 +739,7 @@ class CreateBackendStorageRequest(BaseValidatorModel):
     ResourceName: str
 
 
+# This class is the input for the 'update_backend_storage' function.
 class UpdateBackendStorageRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -700,6 +755,7 @@ class UpdateBackendAuthUserPoolConfig(BaseValidatorModel):
     VerificationMessage: Optional[UpdateBackendAuthVerificationMessageConfig] = None
 
 
+# This class is the input for the 'create_backend_api' function.
 class CreateBackendAPIRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -707,6 +763,7 @@ class CreateBackendAPIRequest(BaseValidatorModel):
     ResourceName: str
 
 
+# This class is the input for the 'delete_backend_api' function.
 class DeleteBackendAPIRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -714,6 +771,7 @@ class DeleteBackendAPIRequest(BaseValidatorModel):
     ResourceConfig: Optional[BackendAPIResourceConfigUnion] = None
 
 
+# This class is the input for the 'get_backend_api' function.
 class GetBackendAPIRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -721,6 +779,7 @@ class GetBackendAPIRequest(BaseValidatorModel):
     ResourceConfig: Optional[BackendAPIResourceConfigUnion] = None
 
 
+# This class is the input for the 'update_backend_api' function.
 class UpdateBackendAPIRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -749,6 +808,7 @@ class UpdateBackendAuthResourceConfig(BaseValidatorModel):
     IdentityPoolConfigs: Optional[UpdateBackendAuthIdentityPoolConfig] = None
 
 
+# This class is the output for the 'get_backend_auth' function.
 class GetBackendAuthResponse(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -760,6 +820,7 @@ class GetBackendAuthResponse(BaseValidatorModel):
 CreateBackendAuthResourceConfigUnion = Union[CreateBackendAuthResourceConfig, CreateBackendAuthResourceConfigOutput]
 
 
+# This class is the input for the 'update_backend_auth' function.
 class UpdateBackendAuthRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str
@@ -767,6 +828,7 @@ class UpdateBackendAuthRequest(BaseValidatorModel):
     ResourceName: str
 
 
+# This class is the input for the 'create_backend_auth' function.
 class CreateBackendAuthRequest(BaseValidatorModel):
     AppId: str
     BackendEnvironmentName: str

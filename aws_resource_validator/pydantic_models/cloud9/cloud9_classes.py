@@ -21,6 +21,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_environment_membership' function.
 class CreateEnvironmentMembershipRequest(BaseValidatorModel):
     environmentId: str
     userArn: str
@@ -50,6 +51,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_environment_memberships' function.
 class DescribeEnvironmentMembershipsRequest(BaseValidatorModel):
     userArn: Optional[str] = None
     environmentId: Optional[str] = None
@@ -58,10 +60,12 @@ class DescribeEnvironmentMembershipsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_environment_status' function.
 class DescribeEnvironmentStatusRequest(BaseValidatorModel):
     environmentId: str
 
 
+# This class is the input for the 'describe_environments' function.
 class DescribeEnvironmentsRequest(BaseValidatorModel):
     environmentIds: List[str]
 
@@ -72,11 +76,13 @@ class EnvironmentLifecycle(BaseValidatorModel):
     failureResource: Optional[str] = None
 
 
+# This class is the input for the 'list_environments' function.
 class ListEnvironmentsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
@@ -86,6 +92,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_environment_membership' function.
 class UpdateEnvironmentMembershipRequest(BaseValidatorModel):
     environmentId: str
     userArn: str
@@ -99,6 +106,7 @@ class UpdateEnvironmentRequest(BaseValidatorModel):
     managedCredentialsAction: Optional[ManagedCredentialsActionType] = None
 
 
+# This class is the input for the 'create_environment_ec2' function.
 class CreateEnvironmentEC2Request(BaseValidatorModel):
     name: str
     instanceType: str
@@ -118,39 +126,46 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the output for the 'create_environment_ec2' function.
 class CreateEnvironmentEC2Result(BaseValidatorModel):
     environmentId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_environment_status' function.
 class DescribeEnvironmentStatusResult(BaseValidatorModel):
     status: EnvironmentStatusType
     message: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_environments' function.
 class ListEnvironmentsResult(BaseValidatorModel):
     environmentIds: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_environment_membership' function.
 class CreateEnvironmentMembershipResult(BaseValidatorModel):
     membership: EnvironmentMember
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_environment_memberships' function.
 class DescribeEnvironmentMembershipsResult(BaseValidatorModel):
     memberships: List[EnvironmentMember]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_environment_membership' function.
 class UpdateEnvironmentMembershipResult(BaseValidatorModel):
     membership: EnvironmentMember
     ResponseMetadata: ResponseMetadata
@@ -179,6 +194,7 @@ class Environment(BaseValidatorModel):
     managedCredentialsStatus: Optional[ManagedCredentialsStatusType] = None
 
 
+# This class is the output for the 'describe_environments' function.
 class DescribeEnvironmentsResult(BaseValidatorModel):
     environments: List[Environment]
     ResponseMetadata: ResponseMetadata

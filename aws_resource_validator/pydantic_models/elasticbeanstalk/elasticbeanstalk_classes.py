@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'abort_environment_update' function.
 class AbortEnvironmentUpdateMessage(BaseValidatorModel):
     EnvironmentId: Optional[str] = None
     EnvironmentName: Optional[str] = None
@@ -62,12 +63,14 @@ class MaxCountRule(BaseValidatorModel):
     DeleteSourceFromS3: Optional[bool] = None
 
 
+# This class is the input for the 'apply_environment_managed_action' function.
 class ApplyEnvironmentManagedActionRequest(BaseValidatorModel):
     ActionId: str
     EnvironmentName: Optional[str] = None
     EnvironmentId: Optional[str] = None
 
 
+# This class is the input for the 'associate_environment_operations_role' function.
 class AssociateEnvironmentOperationsRoleMessage(BaseValidatorModel):
     EnvironmentName: str
     OperationsRole: str
@@ -100,10 +103,12 @@ class CPUUtilization(BaseValidatorModel):
     Privileged: Optional[float] = None
 
 
+# This class is the input for the 'check_dns_availability' function.
 class CheckDNSAvailabilityMessage(BaseValidatorModel):
     CNAMEPrefix: str
 
 
+# This class is the input for the 'compose_environments' function.
 class ComposeEnvironmentsMessage(BaseValidatorModel):
     ApplicationName: Optional[str] = None
     GroupName: Optional[str] = None
@@ -171,27 +176,32 @@ class CustomAmi(BaseValidatorModel):
     ImageId: Optional[str] = None
 
 
+# This class is the input for the 'delete_application' function.
 class DeleteApplicationMessage(BaseValidatorModel):
     ApplicationName: str
     TerminateEnvByForce: Optional[bool] = None
 
 
+# This class is the input for the 'delete_application_version' function.
 class DeleteApplicationVersionMessage(BaseValidatorModel):
     ApplicationName: str
     VersionLabel: str
     DeleteSourceBundle: Optional[bool] = None
 
 
+# This class is the input for the 'delete_configuration_template' function.
 class DeleteConfigurationTemplateMessage(BaseValidatorModel):
     ApplicationName: str
     TemplateName: str
 
 
+# This class is the input for the 'delete_environment_configuration' function.
 class DeleteEnvironmentConfigurationMessage(BaseValidatorModel):
     ApplicationName: str
     EnvironmentName: str
 
 
+# This class is the input for the 'delete_platform_version' function.
 class DeletePlatformVersionRequest(BaseValidatorModel):
     PlatformArn: Optional[str] = None
 
@@ -209,6 +219,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_application_versions' function.
 class DescribeApplicationVersionsMessage(BaseValidatorModel):
     ApplicationName: Optional[str] = None
     VersionLabels: Optional[List[str]] = None
@@ -216,16 +227,19 @@ class DescribeApplicationVersionsMessage(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_applications' function.
 class DescribeApplicationsMessage(BaseValidatorModel):
     ApplicationNames: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_configuration_settings' function.
 class DescribeConfigurationSettingsMessage(BaseValidatorModel):
     ApplicationName: str
     TemplateName: Optional[str] = None
     EnvironmentName: Optional[str] = None
 
 
+# This class is the input for the 'describe_environment_health' function.
 class DescribeEnvironmentHealthRequest(BaseValidatorModel):
     EnvironmentName: Optional[str] = None
     EnvironmentId: Optional[str] = None
@@ -243,6 +257,7 @@ class InstanceHealthSummary(BaseValidatorModel):
     Severe: Optional[int] = None
 
 
+# This class is the input for the 'describe_environment_managed_action_history' function.
 class DescribeEnvironmentManagedActionHistoryRequest(BaseValidatorModel):
     EnvironmentId: Optional[str] = None
     EnvironmentName: Optional[str] = None
@@ -261,6 +276,7 @@ class ManagedActionHistoryItem(BaseValidatorModel):
     FinishedTime: Optional[datetime] = None
 
 
+# This class is the input for the 'describe_environment_managed_actions' function.
 class DescribeEnvironmentManagedActionsRequest(BaseValidatorModel):
     EnvironmentName: Optional[str] = None
     EnvironmentId: Optional[str] = None
@@ -275,6 +291,7 @@ class ManagedAction(BaseValidatorModel):
     WindowStartTime: Optional[datetime] = None
 
 
+# This class is the input for the 'describe_environment_resources' function.
 class DescribeEnvironmentResourcesMessage(BaseValidatorModel):
     EnvironmentId: Optional[str] = None
     EnvironmentName: Optional[str] = None
@@ -287,6 +304,7 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'describe_instances_health' function.
 class DescribeInstancesHealthRequest(BaseValidatorModel):
     EnvironmentName: Optional[str] = None
     EnvironmentId: Optional[str] = None
@@ -294,10 +312,12 @@ class DescribeInstancesHealthRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_platform_version' function.
 class DescribePlatformVersionRequest(BaseValidatorModel):
     PlatformArn: Optional[str] = None
 
 
+# This class is the input for the 'disassociate_environment_operations_role' function.
 class DisassociateEnvironmentOperationsRoleMessage(BaseValidatorModel):
     EnvironmentName: str
 
@@ -376,6 +396,7 @@ class PlatformFilter(BaseValidatorModel):
     Values: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceMessage(BaseValidatorModel):
     ResourceArn: str
 
@@ -395,11 +416,13 @@ class PlatformProgrammingLanguage(BaseValidatorModel):
     Version: Optional[str] = None
 
 
+# This class is the input for the 'rebuild_environment' function.
 class RebuildEnvironmentMessage(BaseValidatorModel):
     EnvironmentId: Optional[str] = None
     EnvironmentName: Optional[str] = None
 
 
+# This class is the input for the 'request_environment_info' function.
 class RequestEnvironmentInfoMessage(BaseValidatorModel):
     InfoType: EnvironmentInfoTypeType
     EnvironmentId: Optional[str] = None
@@ -410,17 +433,20 @@ class ResourceQuota(BaseValidatorModel):
     Maximum: Optional[int] = None
 
 
+# This class is the input for the 'restart_app_server' function.
 class RestartAppServerMessage(BaseValidatorModel):
     EnvironmentId: Optional[str] = None
     EnvironmentName: Optional[str] = None
 
 
+# This class is the input for the 'retrieve_environment_info' function.
 class RetrieveEnvironmentInfoMessage(BaseValidatorModel):
     InfoType: EnvironmentInfoTypeType
     EnvironmentId: Optional[str] = None
     EnvironmentName: Optional[str] = None
 
 
+# This class is the input for the 'swap_environment_cnames' function.
 class SwapEnvironmentCNAMEsMessage(BaseValidatorModel):
     SourceEnvironmentId: Optional[str] = None
     SourceEnvironmentName: Optional[str] = None
@@ -428,6 +454,7 @@ class SwapEnvironmentCNAMEsMessage(BaseValidatorModel):
     DestinationEnvironmentName: Optional[str] = None
 
 
+# This class is the input for the 'terminate_environment' function.
 class TerminateEnvironmentMessage(BaseValidatorModel):
     EnvironmentId: Optional[str] = None
     EnvironmentName: Optional[str] = None
@@ -435,17 +462,20 @@ class TerminateEnvironmentMessage(BaseValidatorModel):
     ForceTerminate: Optional[bool] = None
 
 
+# This class is the input for the 'update_application' function.
 class UpdateApplicationMessage(BaseValidatorModel):
     ApplicationName: str
     Description: Optional[str] = None
 
 
+# This class is the input for the 'update_application_version' function.
 class UpdateApplicationVersionMessage(BaseValidatorModel):
     ApplicationName: str
     VersionLabel: str
     Description: Optional[str] = None
 
 
+# This class is the output for the 'apply_environment_managed_action' function.
 class ApplyEnvironmentManagedActionResult(BaseValidatorModel):
     ActionId: str
     ActionDescription: str
@@ -454,6 +484,7 @@ class ApplyEnvironmentManagedActionResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'check_dns_availability' function.
 class CheckDNSAvailabilityResultMessage(BaseValidatorModel):
     Available: bool
     FullyQualifiedCNAME: str
@@ -465,6 +496,7 @@ class CreateStorageLocationResultMessage(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_tags_for_resource' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
@@ -513,6 +545,7 @@ class ConfigurationOptionDescription(BaseValidatorModel):
     Regex: Optional[OptionRestrictionRegex] = None
 
 
+# This class is the output for the 'update_configuration_template' function.
 class ConfigurationSettingsDescriptionResponse(BaseValidatorModel):
     SolutionStackName: str
     PlatformArn: str
@@ -540,6 +573,7 @@ class ConfigurationSettingsDescription(BaseValidatorModel):
     OptionSettings: Optional[List[ConfigurationOptionSetting]] = None
 
 
+# This class is the input for the 'validate_configuration_settings' function.
 class ValidateConfigurationSettingsMessage(BaseValidatorModel):
     ApplicationName: str
     OptionSettings: List[ConfigurationOptionSetting]
@@ -547,11 +581,13 @@ class ValidateConfigurationSettingsMessage(BaseValidatorModel):
     EnvironmentName: Optional[str] = None
 
 
+# This class is the output for the 'validate_configuration_settings' function.
 class ConfigurationSettingsValidationMessages(BaseValidatorModel):
     Messages: List[ValidationMessage]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_application_version' function.
 class CreateApplicationVersionMessage(BaseValidatorModel):
     ApplicationName: str
     VersionLabel: str
@@ -564,6 +600,7 @@ class CreateApplicationVersionMessage(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_platform_version' function.
 class CreatePlatformVersionRequest(BaseValidatorModel):
     PlatformName: str
     PlatformVersion: str
@@ -573,18 +610,21 @@ class CreatePlatformVersionRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ResourceTagsDescriptionMessage(BaseValidatorModel):
     ResourceArn: str
     ResourceTags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_tags_for_resource' function.
 class UpdateTagsForResourceMessage(BaseValidatorModel):
     ResourceArn: str
     TagsToAdd: Optional[List[Tag]] = None
     TagsToRemove: Optional[List[str]] = None
 
 
+# This class is the input for the 'create_configuration_template' function.
 class CreateConfigurationTemplateMessage(BaseValidatorModel):
     ApplicationName: str
     TemplateName: str
@@ -597,6 +637,7 @@ class CreateConfigurationTemplateMessage(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_environment' function.
 class CreateEnvironmentMessage(BaseValidatorModel):
     ApplicationName: str
     EnvironmentName: Optional[str] = None
@@ -614,6 +655,7 @@ class CreateEnvironmentMessage(BaseValidatorModel):
     OperationsRole: Optional[str] = None
 
 
+# This class is the input for the 'describe_configuration_options' function.
 class DescribeConfigurationOptionsMessage(BaseValidatorModel):
     ApplicationName: Optional[str] = None
     TemplateName: Optional[str] = None
@@ -623,6 +665,7 @@ class DescribeConfigurationOptionsMessage(BaseValidatorModel):
     Options: Optional[List[OptionSpecification]] = None
 
 
+# This class is the input for the 'update_configuration_template' function.
 class UpdateConfigurationTemplateMessage(BaseValidatorModel):
     ApplicationName: str
     TemplateName: str
@@ -631,6 +674,7 @@ class UpdateConfigurationTemplateMessage(BaseValidatorModel):
     OptionsToRemove: Optional[List[OptionSpecification]] = None
 
 
+# This class is the input for the 'update_environment' function.
 class UpdateEnvironmentMessage(BaseValidatorModel):
     ApplicationName: Optional[str] = None
     EnvironmentId: Optional[str] = None
@@ -646,17 +690,20 @@ class UpdateEnvironmentMessage(BaseValidatorModel):
     OptionsToRemove: Optional[List[OptionSpecification]] = None
 
 
+# This class is the output for the 'create_platform_version' function.
 class CreatePlatformVersionResult(BaseValidatorModel):
     PlatformSummary: PlatformSummary
     Builder: Builder
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_platform_version' function.
 class DeletePlatformVersionResult(BaseValidatorModel):
     PlatformSummary: PlatformSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_platform_versions' function.
 class ListPlatformVersionsResult(BaseValidatorModel):
     PlatformSummaryList: List[PlatformSummary]
     ResponseMetadata: ResponseMetadata
@@ -675,12 +722,14 @@ class DescribeEnvironmentManagedActionHistoryRequestPaginate(BaseValidatorModel)
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'describe_environment_managed_action_history' function.
 class DescribeEnvironmentManagedActionHistoryResult(BaseValidatorModel):
     ManagedActionHistoryItems: List[ManagedActionHistoryItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_environment_managed_actions' function.
 class DescribeEnvironmentManagedActionsResult(BaseValidatorModel):
     ManagedActions: List[ManagedAction]
     ResponseMetadata: ResponseMetadata
@@ -696,6 +745,7 @@ class DescribeEnvironmentsMessagePaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_environments' function.
 class DescribeEnvironmentsMessage(BaseValidatorModel):
     ApplicationName: Optional[str] = None
     VersionLabel: Optional[str] = None
@@ -721,6 +771,7 @@ class DescribeEventsMessagePaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_events' function.
 class DescribeEventsMessage(BaseValidatorModel):
     ApplicationName: Optional[str] = None
     VersionLabel: Optional[str] = None
@@ -772,6 +823,7 @@ class DescribeEnvironmentsMessageWait(BaseValidatorModel):
     WaiterConfig: Optional[WaiterConfig] = None
 
 
+# This class is the output for the 'retrieve_environment_info' function.
 class RetrieveEnvironmentInfoResultMessage(BaseValidatorModel):
     EnvironmentInfo: List[EnvironmentInfoDescription]
     ResponseMetadata: ResponseMetadata
@@ -788,6 +840,7 @@ class EnvironmentResourceDescription(BaseValidatorModel):
     Queues: Optional[List[Queue]] = None
 
 
+# This class is the output for the 'describe_events' function.
 class EventDescriptionsMessage(BaseValidatorModel):
     Events: List[EventDescription]
     ResponseMetadata: ResponseMetadata
@@ -800,12 +853,14 @@ class ListAvailableSolutionStacksResultMessage(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'list_platform_branches' function.
 class ListPlatformBranchesRequest(BaseValidatorModel):
     Filters: Optional[List[SearchFilter]] = None
     MaxRecords: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_platform_branches' function.
 class ListPlatformBranchesResult(BaseValidatorModel):
     PlatformBranchSummaryList: List[PlatformBranchSummary]
     ResponseMetadata: ResponseMetadata
@@ -817,6 +872,7 @@ class ListPlatformVersionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_platform_versions' function.
 class ListPlatformVersionsRequest(BaseValidatorModel):
     Filters: Optional[List[PlatformFilter]] = None
     MaxRecords: Optional[int] = None
@@ -861,6 +917,7 @@ class ResourceQuotas(BaseValidatorModel):
     CustomPlatformQuota: Optional[ResourceQuota] = None
 
 
+# This class is the output for the 'describe_environment_health' function.
 class DescribeEnvironmentHealthResult(BaseValidatorModel):
     EnvironmentName: str
     HealthStatus: str
@@ -873,11 +930,13 @@ class DescribeEnvironmentHealthResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_application_version' function.
 class ApplicationVersionDescriptionMessage(BaseValidatorModel):
     ApplicationVersion: ApplicationVersionDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_application_versions' function.
 class ApplicationVersionDescriptionsMessage(BaseValidatorModel):
     ApplicationVersions: List[ApplicationVersionDescription]
     ResponseMetadata: ResponseMetadata
@@ -902,6 +961,7 @@ class SingleInstanceHealth(BaseValidatorModel):
     InstanceType: Optional[str] = None
 
 
+# This class is the output for the 'describe_configuration_options' function.
 class ConfigurationOptionsDescription(BaseValidatorModel):
     SolutionStackName: str
     PlatformArn: str
@@ -909,11 +969,13 @@ class ConfigurationOptionsDescription(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_configuration_settings' function.
 class ConfigurationSettingsDescriptions(BaseValidatorModel):
     ConfigurationSettings: List[ConfigurationSettingsDescription]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_environment_resources' function.
 class EnvironmentResourceDescriptionsMessage(BaseValidatorModel):
     EnvironmentResources: EnvironmentResourceDescription
     ResponseMetadata: ResponseMetadata
@@ -923,6 +985,7 @@ class EnvironmentResourcesDescription(BaseValidatorModel):
     LoadBalancer: Optional[LoadBalancerDescription] = None
 
 
+# This class is the output for the 'describe_platform_version' function.
 class DescribePlatformVersionResult(BaseValidatorModel):
     PlatformDescription: PlatformDescription
     ResponseMetadata: ResponseMetadata
@@ -944,12 +1007,14 @@ class ApplicationDescription(BaseValidatorModel):
     ResourceLifecycleConfig: Optional[ApplicationResourceLifecycleConfig] = None
 
 
+# This class is the output for the 'update_application_resource_lifecycle' function.
 class ApplicationResourceLifecycleDescriptionMessage(BaseValidatorModel):
     ApplicationName: str
     ResourceLifecycleConfig: ApplicationResourceLifecycleConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_application' function.
 class CreateApplicationMessage(BaseValidatorModel):
     ApplicationName: str
     Description: Optional[str] = None
@@ -957,11 +1022,13 @@ class CreateApplicationMessage(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_application_resource_lifecycle' function.
 class UpdateApplicationResourceLifecycleMessage(BaseValidatorModel):
     ApplicationName: str
     ResourceLifecycleConfig: ApplicationResourceLifecycleConfig
 
 
+# This class is the output for the 'describe_instances_health' function.
 class DescribeInstancesHealthResult(BaseValidatorModel):
     InstanceHealthList: List[SingleInstanceHealth]
     RefreshedAt: datetime
@@ -969,6 +1036,7 @@ class DescribeInstancesHealthResult(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_environment' function.
 class EnvironmentDescriptionResponse(BaseValidatorModel):
     EnvironmentName: str
     EnvironmentId: str
@@ -1018,16 +1086,19 @@ class EnvironmentDescription(BaseValidatorModel):
     OperationsRole: Optional[str] = None
 
 
+# This class is the output for the 'update_application' function.
 class ApplicationDescriptionMessage(BaseValidatorModel):
     Application: ApplicationDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_applications' function.
 class ApplicationDescriptionsMessage(BaseValidatorModel):
     Applications: List[ApplicationDescription]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_environments' function.
 class EnvironmentDescriptionsMessage(BaseValidatorModel):
     Environments: List[EnvironmentDescription]
     ResponseMetadata: ResponseMetadata

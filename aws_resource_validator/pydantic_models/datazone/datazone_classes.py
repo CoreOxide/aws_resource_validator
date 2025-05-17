@@ -180,6 +180,7 @@ class CancelMetadataGenerationRunInput(BaseValidatorModel):
     identifier: str
 
 
+# This class is the input for the 'cancel_subscription' function.
 class CancelSubscriptionInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
@@ -292,6 +293,7 @@ class SingleSignOn(BaseValidatorModel):
     userAssignment: Optional[UserAssignmentType] = None
 
 
+# This class is the input for the 'create_domain_unit' function.
 class CreateDomainUnitInput(BaseValidatorModel):
     domainIdentifier: str
     name: str
@@ -342,6 +344,7 @@ class CreateFormTypePolicyGrantDetail(BaseValidatorModel):
     includeChildDomainUnits: Optional[bool] = None
 
 
+# This class is the input for the 'create_glossary' function.
 class CreateGlossaryInput(BaseValidatorModel):
     domainIdentifier: str
     name: str
@@ -360,12 +363,14 @@ class TermRelationsOutput(BaseValidatorModel):
     isA: Optional[List[str]] = None
 
 
+# This class is the input for the 'create_group_profile' function.
 class CreateGroupProfileInput(BaseValidatorModel):
     domainIdentifier: str
     groupIdentifier: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'create_listing_change_set' function.
 class CreateListingChangeSetInput(BaseValidatorModel):
     action: ChangeActionType
     domainIdentifier: str
@@ -408,6 +413,7 @@ class SubscriptionTargetForm(BaseValidatorModel):
     formName: str
 
 
+# This class is the input for the 'create_user_profile' function.
 class CreateUserProfileInput(BaseValidatorModel):
     domainIdentifier: str
     userIdentifier: str
@@ -475,6 +481,7 @@ class RunStatisticsForAssets(BaseValidatorModel):
     updated: Optional[int] = None
 
 
+# This class is the input for the 'delete_asset_filter' function.
 class DeleteAssetFilterInput(BaseValidatorModel):
     assetIdentifier: str
     domainIdentifier: str
@@ -491,6 +498,7 @@ class DeleteAssetTypeInput(BaseValidatorModel):
     identifier: str
 
 
+# This class is the input for the 'delete_connection' function.
 class DeleteConnectionInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
@@ -501,6 +509,7 @@ class DeleteDataProductInput(BaseValidatorModel):
     identifier: str
 
 
+# This class is the input for the 'delete_data_source' function.
 class DeleteDataSourceInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
@@ -508,6 +517,7 @@ class DeleteDataSourceInput(BaseValidatorModel):
     retainPermissionsOnRevokeFailure: Optional[bool] = None
 
 
+# This class is the input for the 'delete_domain' function.
 class DeleteDomainInput(BaseValidatorModel):
     identifier: str
     clientToken: Optional[str] = None
@@ -519,6 +529,7 @@ class DeleteDomainUnitInput(BaseValidatorModel):
     identifier: str
 
 
+# This class is the input for the 'delete_environment_action' function.
 class DeleteEnvironmentActionInput(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
@@ -530,11 +541,13 @@ class DeleteEnvironmentBlueprintConfigurationInput(BaseValidatorModel):
     environmentBlueprintIdentifier: str
 
 
+# This class is the input for the 'delete_environment' function.
 class DeleteEnvironmentInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
+# This class is the input for the 'delete_environment_profile' function.
 class DeleteEnvironmentProfileInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
@@ -576,16 +589,19 @@ class DeleteRuleInput(BaseValidatorModel):
     identifier: str
 
 
+# This class is the input for the 'delete_subscription_grant' function.
 class DeleteSubscriptionGrantInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
+# This class is the input for the 'delete_subscription_request' function.
 class DeleteSubscriptionRequestInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
+# This class is the input for the 'delete_subscription_target' function.
 class DeleteSubscriptionTargetInput(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
@@ -720,111 +736,132 @@ class Import(BaseValidatorModel):
     revision: str
 
 
+# This class is the input for the 'get_asset_filter' function.
 class GetAssetFilterInput(BaseValidatorModel):
     assetIdentifier: str
     domainIdentifier: str
     identifier: str
 
 
+# This class is the input for the 'get_asset' function.
 class GetAssetInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     revision: Optional[str] = None
 
 
+# This class is the input for the 'get_asset_type' function.
 class GetAssetTypeInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     revision: Optional[str] = None
 
 
+# This class is the input for the 'get_connection' function.
 class GetConnectionInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     withSecret: Optional[bool] = None
 
 
+# This class is the input for the 'get_data_product' function.
 class GetDataProductInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     revision: Optional[str] = None
 
 
+# This class is the input for the 'get_data_source' function.
 class GetDataSourceInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
+# This class is the input for the 'get_data_source_run' function.
 class GetDataSourceRunInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
+# This class is the input for the 'get_domain' function.
 class GetDomainInput(BaseValidatorModel):
     identifier: str
 
 
+# This class is the input for the 'get_domain_unit' function.
 class GetDomainUnitInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
+# This class is the input for the 'get_environment_action' function.
 class GetEnvironmentActionInput(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     identifier: str
 
 
+# This class is the input for the 'get_environment_blueprint_configuration' function.
 class GetEnvironmentBlueprintConfigurationInput(BaseValidatorModel):
     domainIdentifier: str
     environmentBlueprintIdentifier: str
 
 
+# This class is the input for the 'get_environment_blueprint' function.
 class GetEnvironmentBlueprintInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
+# This class is the input for the 'get_environment_credentials' function.
 class GetEnvironmentCredentialsInput(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
 
 
+# This class is the input for the 'get_environment' function.
 class GetEnvironmentInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
+# This class is the input for the 'get_environment_profile' function.
 class GetEnvironmentProfileInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
+# This class is the input for the 'get_form_type' function.
 class GetFormTypeInput(BaseValidatorModel):
     domainIdentifier: str
     formTypeIdentifier: str
     revision: Optional[str] = None
 
 
+# This class is the input for the 'get_glossary' function.
 class GetGlossaryInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
+# This class is the input for the 'get_glossary_term' function.
 class GetGlossaryTermInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
+# This class is the input for the 'get_group_profile' function.
 class GetGroupProfileInput(BaseValidatorModel):
     domainIdentifier: str
     groupIdentifier: str
 
 
+# This class is the input for the 'get_iam_portal_login_url' function.
 class GetIamPortalLoginUrlInput(BaseValidatorModel):
     domainIdentifier: str
 
 
+# This class is the input for the 'get_job_run' function.
 class GetJobRunInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
@@ -834,6 +871,7 @@ class JobRunError(BaseValidatorModel):
     message: str
 
 
+# This class is the input for the 'get_lineage_event' function.
 class GetLineageEventInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
@@ -846,12 +884,14 @@ class LineageNodeReference(BaseValidatorModel):
     id: Optional[str] = None
 
 
+# This class is the input for the 'get_listing' function.
 class GetListingInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     listingRevision: Optional[str] = None
 
 
+# This class is the input for the 'get_metadata_generation_run' function.
 class GetMetadataGenerationRunInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
@@ -863,43 +903,51 @@ class MetadataGenerationRunTarget(BaseValidatorModel):
     revision: Optional[str] = None
 
 
+# This class is the input for the 'get_project' function.
 class GetProjectInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
+# This class is the input for the 'get_project_profile' function.
 class GetProjectProfileInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
+# This class is the input for the 'get_rule' function.
 class GetRuleInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     revision: Optional[str] = None
 
 
+# This class is the input for the 'get_subscription_grant' function.
 class GetSubscriptionGrantInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
+# This class is the input for the 'get_subscription' function.
 class GetSubscriptionInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
+# This class is the input for the 'get_subscription_request_details' function.
 class GetSubscriptionRequestDetailsInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
+# This class is the input for the 'get_subscription_target' function.
 class GetSubscriptionTargetInput(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     identifier: str
 
 
+# This class is the input for the 'get_time_series_data_point' function.
 class GetTimeSeriesDataPointInput(BaseValidatorModel):
     domainIdentifier: str
     entityIdentifier: str
@@ -917,6 +965,7 @@ class TimeSeriesDataPointFormOutput(BaseValidatorModel):
     typeRevision: Optional[str] = None
 
 
+# This class is the input for the 'get_user_profile' function.
 class GetUserProfileInput(BaseValidatorModel):
     domainIdentifier: str
     userIdentifier: str
@@ -1072,6 +1121,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_asset_filters' function.
 class ListAssetFiltersInput(BaseValidatorModel):
     assetIdentifier: str
     domainIdentifier: str
@@ -1080,6 +1130,7 @@ class ListAssetFiltersInput(BaseValidatorModel):
     status: Optional[FilterStatusType] = None
 
 
+# This class is the input for the 'list_asset_revisions' function.
 class ListAssetRevisionsInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
@@ -1087,6 +1138,7 @@ class ListAssetRevisionsInput(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_connections' function.
 class ListConnectionsInput(BaseValidatorModel):
     domainIdentifier: str
     projectIdentifier: str
@@ -1099,6 +1151,7 @@ class ListConnectionsInput(BaseValidatorModel):
     type: Optional[ConnectionTypeType] = None
 
 
+# This class is the input for the 'list_data_product_revisions' function.
 class ListDataProductRevisionsInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
@@ -1106,6 +1159,7 @@ class ListDataProductRevisionsInput(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_data_source_run_activities' function.
 class ListDataSourceRunActivitiesInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
@@ -1114,6 +1168,7 @@ class ListDataSourceRunActivitiesInput(BaseValidatorModel):
     status: Optional[DataAssetActivityStatusType] = None
 
 
+# This class is the input for the 'list_data_source_runs' function.
 class ListDataSourceRunsInput(BaseValidatorModel):
     dataSourceIdentifier: str
     domainIdentifier: str
@@ -1122,6 +1177,7 @@ class ListDataSourceRunsInput(BaseValidatorModel):
     status: Optional[DataSourceRunStatusType] = None
 
 
+# This class is the input for the 'list_data_sources' function.
 class ListDataSourcesInput(BaseValidatorModel):
     domainIdentifier: str
     projectIdentifier: str
@@ -1134,6 +1190,7 @@ class ListDataSourcesInput(BaseValidatorModel):
     type: Optional[str] = None
 
 
+# This class is the input for the 'list_domain_units_for_parent' function.
 class ListDomainUnitsForParentInput(BaseValidatorModel):
     domainIdentifier: str
     parentDomainUnitIdentifier: str
@@ -1141,12 +1198,14 @@ class ListDomainUnitsForParentInput(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_domains' function.
 class ListDomainsInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     status: Optional[DomainStatusType] = None
 
 
+# This class is the input for the 'list_entity_owners' function.
 class ListEntityOwnersInput(BaseValidatorModel):
     domainIdentifier: str
     entityIdentifier: str
@@ -1155,6 +1214,7 @@ class ListEntityOwnersInput(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_environment_actions' function.
 class ListEnvironmentActionsInput(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
@@ -1162,12 +1222,14 @@ class ListEnvironmentActionsInput(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_environment_blueprint_configurations' function.
 class ListEnvironmentBlueprintConfigurationsInput(BaseValidatorModel):
     domainIdentifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_environment_blueprints' function.
 class ListEnvironmentBlueprintsInput(BaseValidatorModel):
     domainIdentifier: str
     managed: Optional[bool] = None
@@ -1176,6 +1238,7 @@ class ListEnvironmentBlueprintsInput(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_environment_profiles' function.
 class ListEnvironmentProfilesInput(BaseValidatorModel):
     domainIdentifier: str
     awsAccountId: Optional[str] = None
@@ -1187,6 +1250,7 @@ class ListEnvironmentProfilesInput(BaseValidatorModel):
     projectIdentifier: Optional[str] = None
 
 
+# This class is the input for the 'list_environments' function.
 class ListEnvironmentsInput(BaseValidatorModel):
     domainIdentifier: str
     projectIdentifier: str
@@ -1201,6 +1265,7 @@ class ListEnvironmentsInput(BaseValidatorModel):
     status: Optional[EnvironmentStatusType] = None
 
 
+# This class is the input for the 'list_job_runs' function.
 class ListJobRunsInput(BaseValidatorModel):
     domainIdentifier: str
     jobIdentifier: str
@@ -1210,6 +1275,7 @@ class ListJobRunsInput(BaseValidatorModel):
     status: Optional[JobRunStatusType] = None
 
 
+# This class is the input for the 'list_metadata_generation_runs' function.
 class ListMetadataGenerationRunsInput(BaseValidatorModel):
     domainIdentifier: str
     maxResults: Optional[int] = None
@@ -1218,6 +1284,7 @@ class ListMetadataGenerationRunsInput(BaseValidatorModel):
     type: Optional[Literal['BUSINESS_DESCRIPTIONS']] = None
 
 
+# This class is the input for the 'list_policy_grants' function.
 class ListPolicyGrantsInput(BaseValidatorModel):
     domainIdentifier: str
     entityIdentifier: str
@@ -1227,6 +1294,7 @@ class ListPolicyGrantsInput(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_project_memberships' function.
 class ListProjectMembershipsInput(BaseValidatorModel):
     domainIdentifier: str
     projectIdentifier: str
@@ -1236,6 +1304,7 @@ class ListProjectMembershipsInput(BaseValidatorModel):
     sortOrder: Optional[SortOrderType] = None
 
 
+# This class is the input for the 'list_project_profiles' function.
 class ListProjectProfilesInput(BaseValidatorModel):
     domainIdentifier: str
     maxResults: Optional[int] = None
@@ -1257,6 +1326,7 @@ class ProjectProfileSummary(BaseValidatorModel):
     status: Optional[StatusType] = None
 
 
+# This class is the input for the 'list_projects' function.
 class ListProjectsInput(BaseValidatorModel):
     domainIdentifier: str
     groupIdentifier: Optional[str] = None
@@ -1266,6 +1336,7 @@ class ListProjectsInput(BaseValidatorModel):
     userIdentifier: Optional[str] = None
 
 
+# This class is the input for the 'list_rules' function.
 class ListRulesInput(BaseValidatorModel):
     domainIdentifier: str
     targetIdentifier: str
@@ -1280,6 +1351,7 @@ class ListRulesInput(BaseValidatorModel):
     ruleType: Optional[Literal['METADATA_FORM_ENFORCEMENT']] = None
 
 
+# This class is the input for the 'list_subscription_grants' function.
 class ListSubscriptionGrantsInput(BaseValidatorModel):
     domainIdentifier: str
     environmentId: Optional[str] = None
@@ -1293,6 +1365,7 @@ class ListSubscriptionGrantsInput(BaseValidatorModel):
     subscriptionTargetId: Optional[str] = None
 
 
+# This class is the input for the 'list_subscription_requests' function.
 class ListSubscriptionRequestsInput(BaseValidatorModel):
     domainIdentifier: str
     approverProjectId: Optional[str] = None
@@ -1305,6 +1378,7 @@ class ListSubscriptionRequestsInput(BaseValidatorModel):
     subscribedListingId: Optional[str] = None
 
 
+# This class is the input for the 'list_subscription_targets' function.
 class ListSubscriptionTargetsInput(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
@@ -1314,6 +1388,7 @@ class ListSubscriptionTargetsInput(BaseValidatorModel):
     sortOrder: Optional[SortOrderType] = None
 
 
+# This class is the input for the 'list_subscriptions' function.
 class ListSubscriptionsInput(BaseValidatorModel):
     domainIdentifier: str
     approverProjectId: Optional[str] = None
@@ -1327,6 +1402,7 @@ class ListSubscriptionsInput(BaseValidatorModel):
     subscriptionRequestIdentifier: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -1465,18 +1541,21 @@ class RejectRule(BaseValidatorModel):
     threshold: Optional[float] = None
 
 
+# This class is the input for the 'reject_subscription_request' function.
 class RejectSubscriptionRequestInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     decisionComment: Optional[str] = None
 
 
+# This class is the input for the 'revoke_subscription' function.
 class RevokeSubscriptionInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     retainPermissions: Optional[bool] = None
 
 
+# This class is the input for the 'search_group_profiles' function.
 class SearchGroupProfilesInput(BaseValidatorModel):
     domainIdentifier: str
     groupType: GroupSearchTypeType
@@ -1494,6 +1573,7 @@ class SearchSort(BaseValidatorModel):
     order: Optional[SortOrderType] = None
 
 
+# This class is the input for the 'search_user_profiles' function.
 class SearchUserProfilesInput(BaseValidatorModel):
     domainIdentifier: str
     userType: UserSearchTypeType
@@ -1512,6 +1592,7 @@ class SsoUserProfileDetails(BaseValidatorModel):
     username: Optional[str] = None
 
 
+# This class is the input for the 'start_data_source_run' function.
 class StartDataSourceRunInput(BaseValidatorModel):
     dataSourceIdentifier: str
     domainIdentifier: str
@@ -1542,6 +1623,7 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_domain_unit' function.
 class UpdateDomainUnitInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
@@ -1549,6 +1631,7 @@ class UpdateDomainUnitInput(BaseValidatorModel):
     name: Optional[str] = None
 
 
+# This class is the input for the 'update_environment' function.
 class UpdateEnvironmentInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
@@ -1557,6 +1640,7 @@ class UpdateEnvironmentInput(BaseValidatorModel):
     name: Optional[str] = None
 
 
+# This class is the input for the 'update_glossary' function.
 class UpdateGlossaryInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
@@ -1566,18 +1650,21 @@ class UpdateGlossaryInput(BaseValidatorModel):
     status: Optional[GlossaryStatusType] = None
 
 
+# This class is the input for the 'update_group_profile' function.
 class UpdateGroupProfileInput(BaseValidatorModel):
     domainIdentifier: str
     groupIdentifier: str
     status: GroupProfileStatusType
 
 
+# This class is the input for the 'update_subscription_request' function.
 class UpdateSubscriptionRequestInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     requestReason: str
 
 
+# This class is the input for the 'update_user_profile' function.
 class UpdateUserProfileInput(BaseValidatorModel):
     domainIdentifier: str
     status: UserProfileStatusType
@@ -1585,6 +1672,7 @@ class UpdateUserProfileInput(BaseValidatorModel):
     type: Optional[UserProfileTypeType] = None
 
 
+# This class is the input for the 'accept_predictions' function.
 class AcceptPredictionsInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
@@ -1594,6 +1682,7 @@ class AcceptPredictionsInput(BaseValidatorModel):
     revision: Optional[str] = None
 
 
+# This class is the output for the 'accept_predictions' function.
 class AcceptPredictionsOutput(BaseValidatorModel):
     assetId: str
     domainId: str
@@ -1601,6 +1690,7 @@ class AcceptPredictionsOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_form_type' function.
 class CreateFormTypeOutput(BaseValidatorModel):
     description: str
     domainId: str
@@ -1612,6 +1702,7 @@ class CreateFormTypeOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_glossary' function.
 class CreateGlossaryOutput(BaseValidatorModel):
     description: str
     domainId: str
@@ -1622,6 +1713,7 @@ class CreateGlossaryOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_group_profile' function.
 class CreateGroupProfileOutput(BaseValidatorModel):
     domainId: str
     groupName: str
@@ -1630,6 +1722,7 @@ class CreateGroupProfileOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_listing_change_set' function.
 class CreateListingChangeSetOutput(BaseValidatorModel):
     listingId: str
     listingRevision: str
@@ -1637,20 +1730,24 @@ class CreateListingChangeSetOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_connection' function.
 class DeleteConnectionOutput(BaseValidatorModel):
     status: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_domain' function.
 class DeleteDomainOutput(BaseValidatorModel):
     status: DomainStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_subscription_target' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_environment_credentials' function.
 class GetEnvironmentCredentialsOutput(BaseValidatorModel):
     accessKeyId: str
     expiration: datetime
@@ -1659,6 +1756,7 @@ class GetEnvironmentCredentialsOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_glossary' function.
 class GetGlossaryOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -1673,6 +1771,7 @@ class GetGlossaryOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_group_profile' function.
 class GetGroupProfileOutput(BaseValidatorModel):
     domainId: str
     groupName: str
@@ -1681,12 +1780,14 @@ class GetGroupProfileOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_iam_portal_login_url' function.
 class GetIamPortalLoginUrlOutput(BaseValidatorModel):
     authCodeUrl: str
     userProfileId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_lineage_event' function.
 class GetLineageEventOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -1698,17 +1799,20 @@ class GetLineageEventOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'post_lineage_event' function.
 class PostLineageEventOutput(BaseValidatorModel):
     domainId: str
     id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reject_predictions' function.
 class RejectPredictionsOutput(BaseValidatorModel):
     assetId: str
     assetRevision: str
@@ -1716,6 +1820,7 @@ class RejectPredictionsOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_metadata_generation_run' function.
 class StartMetadataGenerationRunOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -1727,6 +1832,7 @@ class StartMetadataGenerationRunOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_glossary' function.
 class UpdateGlossaryOutput(BaseValidatorModel):
     description: str
     domainId: str
@@ -1737,6 +1843,7 @@ class UpdateGlossaryOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_group_profile' function.
 class UpdateGroupProfileOutput(BaseValidatorModel):
     domainId: str
     groupName: str
@@ -1745,6 +1852,7 @@ class UpdateGroupProfileOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'accept_subscription_request' function.
 class AcceptSubscriptionRequestInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
@@ -1756,6 +1864,7 @@ class ActionParameters(BaseValidatorModel):
     awsConsoleLink: Optional[AwsConsoleLinkParameters] = None
 
 
+# This class is the output for the 'list_asset_filters' function.
 class ListAssetFiltersOutput(BaseValidatorModel):
     items: List[AssetFilterSummary]
     ResponseMetadata: ResponseMetadata
@@ -1773,12 +1882,14 @@ class AssetListingItemAdditionalAttributes(BaseValidatorModel):
     latestTimeSeriesDataPointForms: Optional[List[TimeSeriesDataPointSummaryFormOutput]] = None
 
 
+# This class is the output for the 'list_time_series_data_points' function.
 class ListTimeSeriesDataPointsOutput(BaseValidatorModel):
     items: List[TimeSeriesDataPointSummaryFormOutput]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_asset' function.
 class GetAssetOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -1833,6 +1944,7 @@ class SubscribedProductListing(BaseValidatorModel):
     name: Optional[str] = None
 
 
+# This class is the output for the 'list_asset_revisions' function.
 class ListAssetRevisionsOutput(BaseValidatorModel):
     items: List[AssetRevision]
     ResponseMetadata: ResponseMetadata
@@ -1863,6 +1975,7 @@ class AssetTypeItem(BaseValidatorModel):
     updatedBy: Optional[str] = None
 
 
+# This class is the output for the 'create_asset_type' function.
 class CreateAssetTypeOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -1879,6 +1992,7 @@ class CreateAssetTypeOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_asset_type' function.
 class GetAssetTypeOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -1912,6 +2026,7 @@ class AuthenticationConfigurationPatch(BaseValidatorModel):
     secretArn: Optional[str] = None
 
 
+# This class is the input for the 'post_lineage_event' function.
 class PostLineageEventInput(BaseValidatorModel):
     domainIdentifier: str
     event: Blob
@@ -1932,6 +2047,7 @@ class ConfigurableEnvironmentAction(BaseValidatorModel):
     auth: Optional[ConfigurableActionTypeAuthorizationType] = None
 
 
+# This class is the input for the 'create_asset_type' function.
 class CreateAssetTypeInput(BaseValidatorModel):
     domainIdentifier: str
     formsInput: Dict[str, FormEntryInput]
@@ -1940,6 +2056,7 @@ class CreateAssetTypeInput(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the output for the 'create_data_product' function.
 class CreateDataProductOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -1958,6 +2075,7 @@ class CreateDataProductOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_data_product_revision' function.
 class CreateDataProductRevisionOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -1976,6 +2094,7 @@ class CreateDataProductRevisionOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_data_product' function.
 class GetDataProductOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -2013,6 +2132,7 @@ class DataSourceSummary(BaseValidatorModel):
     updatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'create_domain' function.
 class CreateDomainInput(BaseValidatorModel):
     domainExecutionRole: str
     name: str
@@ -2025,6 +2145,7 @@ class CreateDomainInput(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_domain' function.
 class CreateDomainOutput(BaseValidatorModel):
     arn: str
     description: str
@@ -2042,6 +2163,7 @@ class CreateDomainOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_domain' function.
 class GetDomainOutput(BaseValidatorModel):
     arn: str
     createdAt: datetime
@@ -2061,6 +2183,7 @@ class GetDomainOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_domain' function.
 class UpdateDomainInput(BaseValidatorModel):
     identifier: str
     clientToken: Optional[str] = None
@@ -2071,6 +2194,7 @@ class UpdateDomainInput(BaseValidatorModel):
     singleSignOn: Optional[SingleSignOn] = None
 
 
+# This class is the output for the 'update_domain' function.
 class UpdateDomainOutput(BaseValidatorModel):
     description: str
     domainExecutionRole: str
@@ -2083,6 +2207,7 @@ class UpdateDomainOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_environment' function.
 class CreateEnvironmentInput(BaseValidatorModel):
     domainIdentifier: str
     environmentProfileIdentifier: str
@@ -2098,6 +2223,7 @@ class CreateEnvironmentInput(BaseValidatorModel):
     userParameters: Optional[List[EnvironmentParameter]] = None
 
 
+# This class is the input for the 'create_environment_profile' function.
 class CreateEnvironmentProfileInput(BaseValidatorModel):
     domainIdentifier: str
     environmentBlueprintIdentifier: str
@@ -2119,6 +2245,7 @@ class EnvironmentConfigurationUserParameter(BaseValidatorModel):
     environmentParameters: Optional[List[EnvironmentParameter]] = None
 
 
+# This class is the input for the 'update_environment_profile' function.
 class UpdateEnvironmentProfileInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
@@ -2129,6 +2256,7 @@ class UpdateEnvironmentProfileInput(BaseValidatorModel):
     userParameters: Optional[List[EnvironmentParameter]] = None
 
 
+# This class is the output for the 'create_environment_profile' function.
 class CreateEnvironmentProfileOutput(BaseValidatorModel):
     awsAccountId: str
     awsAccountRegion: str
@@ -2145,6 +2273,7 @@ class CreateEnvironmentProfileOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_environment_profile' function.
 class GetEnvironmentProfileOutput(BaseValidatorModel):
     awsAccountId: str
     awsAccountRegion: str
@@ -2161,6 +2290,7 @@ class GetEnvironmentProfileOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_environment_profile' function.
 class UpdateEnvironmentProfileOutput(BaseValidatorModel):
     awsAccountId: str
     awsAccountRegion: str
@@ -2177,6 +2307,7 @@ class UpdateEnvironmentProfileOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_form_type' function.
 class CreateFormTypeInput(BaseValidatorModel):
     domainIdentifier: str
     model: Model
@@ -2186,6 +2317,7 @@ class CreateFormTypeInput(BaseValidatorModel):
     status: Optional[FormTypeStatusType] = None
 
 
+# This class is the output for the 'create_glossary_term' function.
 class CreateGlossaryTermOutput(BaseValidatorModel):
     domainId: str
     glossaryId: str
@@ -2198,6 +2330,7 @@ class CreateGlossaryTermOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_glossary_term' function.
 class GetGlossaryTermOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -2229,6 +2362,7 @@ class GlossaryTermItem(BaseValidatorModel):
     updatedBy: Optional[str] = None
 
 
+# This class is the output for the 'update_glossary_term' function.
 class UpdateGlossaryTermOutput(BaseValidatorModel):
     domainId: str
     glossaryId: str
@@ -2267,6 +2401,7 @@ class ProjectSummary(BaseValidatorModel):
     updatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'create_subscription_target' function.
 class CreateSubscriptionTargetInput(BaseValidatorModel):
     applicableAssetTypes: List[str]
     authorizedPrincipals: List[str]
@@ -2280,6 +2415,7 @@ class CreateSubscriptionTargetInput(BaseValidatorModel):
     provider: Optional[str] = None
 
 
+# This class is the output for the 'create_subscription_target' function.
 class CreateSubscriptionTargetOutput(BaseValidatorModel):
     applicableAssetTypes: List[str]
     authorizedPrincipals: List[str]
@@ -2299,6 +2435,7 @@ class CreateSubscriptionTargetOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_subscription_target' function.
 class GetSubscriptionTargetOutput(BaseValidatorModel):
     applicableAssetTypes: List[str]
     authorizedPrincipals: List[str]
@@ -2336,6 +2473,7 @@ class SubscriptionTargetSummary(BaseValidatorModel):
     updatedBy: Optional[str] = None
 
 
+# This class is the input for the 'update_subscription_target' function.
 class UpdateSubscriptionTargetInput(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
@@ -2348,6 +2486,7 @@ class UpdateSubscriptionTargetInput(BaseValidatorModel):
     subscriptionTargetConfig: Optional[List[SubscriptionTargetForm]] = None
 
 
+# This class is the output for the 'update_subscription_target' function.
 class UpdateSubscriptionTargetOutput(BaseValidatorModel):
     applicableAssetTypes: List[str]
     authorizedPrincipals: List[str]
@@ -2369,6 +2508,7 @@ class UpdateSubscriptionTargetOutput(BaseValidatorModel):
 DataProductItemUnion = Union[DataProductItem, DataProductItemOutput]
 
 
+# This class is the output for the 'list_data_product_revisions' function.
 class ListDataProductRevisionsOutput(BaseValidatorModel):
     items: List[DataProductRevision]
     ResponseMetadata: ResponseMetadata
@@ -2404,6 +2544,7 @@ class DataSourceRunSummary(BaseValidatorModel):
     stoppedAt: Optional[datetime] = None
 
 
+# This class is the output for the 'get_data_source_run' function.
 class GetDataSourceRunOutput(BaseValidatorModel):
     createdAt: datetime
     dataSourceConfigurationSnapshot: str
@@ -2422,6 +2563,7 @@ class GetDataSourceRunOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_data_source_run' function.
 class StartDataSourceRunOutput(BaseValidatorModel):
     createdAt: datetime
     dataSourceConfigurationSnapshot: str
@@ -2458,6 +2600,7 @@ class EnvironmentDeploymentDetails(BaseValidatorModel):
     overallDeploymentStatus: Optional[OverallDeploymentStatusType] = None
 
 
+# This class is the output for the 'list_domains' function.
 class ListDomainsOutput(BaseValidatorModel):
     items: List[DomainSummary]
     ResponseMetadata: ResponseMetadata
@@ -2485,6 +2628,7 @@ class DomainUnitOwnerProperties(BaseValidatorModel):
     user: Optional[DomainUnitUserProperties] = None
 
 
+# This class is the output for the 'list_domain_units_for_parent' function.
 class ListDomainUnitsForParentOutput(BaseValidatorModel):
     items: List[DomainUnitSummary]
     ResponseMetadata: ResponseMetadata
@@ -2507,12 +2651,14 @@ class EnvironmentConfigurationParametersDetails(BaseValidatorModel):
     ssmPath: Optional[str] = None
 
 
+# This class is the output for the 'list_environment_profiles' function.
 class ListEnvironmentProfilesOutput(BaseValidatorModel):
     items: List[EnvironmentProfileSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_environments' function.
 class ListEnvironmentsOutput(BaseValidatorModel):
     items: List[EnvironmentSummary]
     ResponseMetadata: ResponseMetadata
@@ -2530,6 +2676,7 @@ class SubscribedAsset(BaseValidatorModel):
     targetName: Optional[str] = None
 
 
+# This class is the input for the 'update_subscription_grant_status' function.
 class UpdateSubscriptionGrantStatusInput(BaseValidatorModel):
     assetIdentifier: str
     domainIdentifier: str
@@ -2578,6 +2725,7 @@ class FormTypeData(BaseValidatorModel):
     status: Optional[FormTypeStatusType] = None
 
 
+# This class is the output for the 'get_form_type' function.
 class GetFormTypeOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -2608,12 +2756,14 @@ class JobRunSummary(BaseValidatorModel):
     status: Optional[JobRunStatusType] = None
 
 
+# This class is the input for the 'get_lineage_node' function.
 class GetLineageNodeInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     eventTimestamp: Optional[Timestamp] = None
 
 
+# This class is the input for the 'list_lineage_events' function.
 class ListLineageEventsInput(BaseValidatorModel):
     domainIdentifier: str
     maxResults: Optional[int] = None
@@ -2624,6 +2774,7 @@ class ListLineageEventsInput(BaseValidatorModel):
     timestampBefore: Optional[Timestamp] = None
 
 
+# This class is the input for the 'list_lineage_node_history' function.
 class ListLineageNodeHistoryInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
@@ -2635,6 +2786,7 @@ class ListLineageNodeHistoryInput(BaseValidatorModel):
     sortOrder: Optional[SortOrderType] = None
 
 
+# This class is the input for the 'list_notifications' function.
 class ListNotificationsInput(BaseValidatorModel):
     domainIdentifier: str
     type: NotificationTypeType
@@ -2646,6 +2798,7 @@ class ListNotificationsInput(BaseValidatorModel):
     taskStatus: Optional[TaskStatusType] = None
 
 
+# This class is the input for the 'list_time_series_data_points' function.
 class ListTimeSeriesDataPointsInput(BaseValidatorModel):
     domainIdentifier: str
     entityIdentifier: str
@@ -2665,6 +2818,7 @@ class TimeSeriesDataPointFormInput(BaseValidatorModel):
     typeRevision: Optional[str] = None
 
 
+# This class is the output for the 'get_lineage_node' function.
 class GetLineageNodeOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -2684,6 +2838,7 @@ class GetLineageNodeOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_metadata_generation_run' function.
 class GetMetadataGenerationRunOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -2707,6 +2862,7 @@ class MetadataGenerationRunItem(BaseValidatorModel):
     type: Optional[Literal['BUSINESS_DESCRIPTIONS']] = None
 
 
+# This class is the input for the 'start_metadata_generation_run' function.
 class StartMetadataGenerationRunInput(BaseValidatorModel):
     domainIdentifier: str
     owningProjectIdentifier: str
@@ -2715,6 +2871,7 @@ class StartMetadataGenerationRunInput(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the output for the 'get_time_series_data_point' function.
 class GetTimeSeriesDataPointOutput(BaseValidatorModel):
     domainId: str
     entityId: str
@@ -2724,6 +2881,7 @@ class GetTimeSeriesDataPointOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'post_time_series_data_points' function.
 class PostTimeSeriesDataPointsOutput(BaseValidatorModel):
     domainId: str
     entityId: str
@@ -2748,6 +2906,7 @@ class GrantedEntity(BaseValidatorModel):
     listing: Optional[ListingRevision] = None
 
 
+# This class is the output for the 'search_group_profiles' function.
 class SearchGroupProfilesOutput(BaseValidatorModel):
     items: List[GroupProfileSummary]
     ResponseMetadata: ResponseMetadata
@@ -2760,6 +2919,7 @@ class ProvisioningConfigurationOutput(BaseValidatorModel):
 LakeFormationConfigurationUnion = Union[LakeFormationConfiguration, LakeFormationConfigurationOutput]
 
 
+# This class is the output for the 'list_lineage_node_history' function.
 class ListLineageNodeHistoryOutput(BaseValidatorModel):
     nodes: List[LineageNodeSummary]
     ResponseMetadata: ResponseMetadata
@@ -3051,6 +3211,7 @@ class SearchUserProfilesInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_project_profiles' function.
 class ListProjectProfilesOutput(BaseValidatorModel):
     items: List[ProjectProfileSummary]
     ResponseMetadata: ResponseMetadata
@@ -3212,6 +3373,7 @@ class RedshiftStorage(BaseValidatorModel):
     redshiftServerlessSource: Optional[RedshiftServerlessStorage] = None
 
 
+# This class is the input for the 'reject_predictions' function.
 class RejectPredictionsInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
@@ -3258,6 +3420,7 @@ class SubscribedPrincipal(BaseValidatorModel):
 TermRelationsUnion = Union[TermRelations, TermRelationsOutput]
 
 
+# This class is the input for the 'create_environment_action' function.
 class CreateEnvironmentActionInput(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
@@ -3266,6 +3429,7 @@ class CreateEnvironmentActionInput(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the output for the 'create_environment_action' function.
 class CreateEnvironmentActionOutput(BaseValidatorModel):
     description: str
     domainId: str
@@ -3285,6 +3449,7 @@ class EnvironmentActionSummary(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the output for the 'get_environment_action' function.
 class GetEnvironmentActionOutput(BaseValidatorModel):
     description: str
     domainId: str
@@ -3295,6 +3460,7 @@ class GetEnvironmentActionOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_environment_action' function.
 class UpdateEnvironmentActionInput(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
@@ -3304,6 +3470,7 @@ class UpdateEnvironmentActionInput(BaseValidatorModel):
     parameters: Optional[ActionParameters] = None
 
 
+# This class is the output for the 'update_environment_action' function.
 class UpdateEnvironmentActionOutput(BaseValidatorModel):
     description: str
     domainId: str
@@ -3384,6 +3551,7 @@ class GlueConnectionPatch(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'create_asset' function.
 class CreateAssetInput(BaseValidatorModel):
     domainIdentifier: str
     name: str
@@ -3398,6 +3566,7 @@ class CreateAssetInput(BaseValidatorModel):
     typeRevision: Optional[str] = None
 
 
+# This class is the output for the 'create_asset' function.
 class CreateAssetOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -3421,6 +3590,7 @@ class CreateAssetOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_asset_revision' function.
 class CreateAssetRevisionInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
@@ -3433,6 +3603,7 @@ class CreateAssetRevisionInput(BaseValidatorModel):
     typeRevision: Optional[str] = None
 
 
+# This class is the output for the 'create_asset_revision' function.
 class CreateAssetRevisionOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -3466,6 +3637,7 @@ class EnvironmentBlueprintSummary(BaseValidatorModel):
     updatedAt: Optional[datetime] = None
 
 
+# This class is the output for the 'get_environment_blueprint' function.
 class GetEnvironmentBlueprintOutput(BaseValidatorModel):
     createdAt: datetime
     deploymentProperties: DeploymentProperties
@@ -3480,6 +3652,7 @@ class GetEnvironmentBlueprintOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_data_sources' function.
 class ListDataSourcesOutput(BaseValidatorModel):
     items: List[DataSourceSummary]
     ResponseMetadata: ResponseMetadata
@@ -3488,18 +3661,21 @@ class ListDataSourcesOutput(BaseValidatorModel):
 EnvironmentConfigurationUserParameterUnion = Union[EnvironmentConfigurationUserParameter, EnvironmentConfigurationUserParameterOutput]
 
 
+# This class is the output for the 'list_projects' function.
 class ListProjectsOutput(BaseValidatorModel):
     items: List[ProjectSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_subscription_targets' function.
 class ListSubscriptionTargetsOutput(BaseValidatorModel):
     items: List[SubscriptionTargetSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_data_product' function.
 class CreateDataProductInput(BaseValidatorModel):
     domainIdentifier: str
     name: str
@@ -3511,6 +3687,7 @@ class CreateDataProductInput(BaseValidatorModel):
     items: Optional[List[DataProductItemUnion]] = None
 
 
+# This class is the input for the 'create_data_product_revision' function.
 class CreateDataProductRevisionInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
@@ -3522,18 +3699,21 @@ class CreateDataProductRevisionInput(BaseValidatorModel):
     items: Optional[List[DataProductItemUnion]] = None
 
 
+# This class is the output for the 'list_data_source_run_activities' function.
 class ListDataSourceRunActivitiesOutput(BaseValidatorModel):
     items: List[DataSourceRunActivity]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_data_source_runs' function.
 class ListDataSourceRunsOutput(BaseValidatorModel):
     items: List[DataSourceRunSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_environment' function.
 class CreateEnvironmentOutput(BaseValidatorModel):
     awsAccountId: str
     awsAccountRegion: str
@@ -3559,6 +3739,7 @@ class CreateEnvironmentOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_environment' function.
 class GetEnvironmentOutput(BaseValidatorModel):
     awsAccountId: str
     awsAccountRegion: str
@@ -3584,6 +3765,7 @@ class GetEnvironmentOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_environment' function.
 class UpdateEnvironmentOutput(BaseValidatorModel):
     awsAccountId: str
     awsAccountRegion: str
@@ -3609,6 +3791,7 @@ class UpdateEnvironmentOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_project' function.
 class CreateProjectOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -3627,6 +3810,7 @@ class CreateProjectOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_project' function.
 class GetProjectOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -3645,6 +3829,7 @@ class GetProjectOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_project' function.
 class UpdateProjectOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -3671,6 +3856,7 @@ class ProjectPolicyGrantPrincipal(BaseValidatorModel):
     projectIdentifier: Optional[str] = None
 
 
+# This class is the output for the 'create_domain_unit' function.
 class CreateDomainUnitOutput(BaseValidatorModel):
     ancestorDomainUnitIds: List[str]
     createdAt: datetime
@@ -3684,6 +3870,7 @@ class CreateDomainUnitOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_domain_unit' function.
 class GetDomainUnitOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -3698,6 +3885,7 @@ class GetDomainUnitOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_domain_unit' function.
 class UpdateDomainUnitOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -3759,6 +3947,7 @@ class SearchTypesInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search' function.
 class SearchInput(BaseValidatorModel):
     domainIdentifier: str
     searchScope: InventorySearchScopeType
@@ -3772,6 +3961,7 @@ class SearchInput(BaseValidatorModel):
     sort: Optional[SearchSort] = None
 
 
+# This class is the input for the 'search_listings' function.
 class SearchListingsInput(BaseValidatorModel):
     domainIdentifier: str
     additionalAttributes: Optional[List[SearchOutputAdditionalAttributeType]] = None
@@ -3783,6 +3973,7 @@ class SearchListingsInput(BaseValidatorModel):
     sort: Optional[SearchSort] = None
 
 
+# This class is the input for the 'search_types' function.
 class SearchTypesInput(BaseValidatorModel):
     domainIdentifier: str
     managed: bool
@@ -3812,12 +4003,14 @@ class SearchTypesResultItem(BaseValidatorModel):
     lineageNodeTypeItem: Optional[LineageNodeTypeItem] = None
 
 
+# This class is the output for the 'list_job_runs' function.
 class ListJobRunsOutput(BaseValidatorModel):
     items: List[JobRunSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'post_time_series_data_points' function.
 class PostTimeSeriesDataPointsInput(BaseValidatorModel):
     domainIdentifier: str
     entityIdentifier: str
@@ -3826,6 +4019,7 @@ class PostTimeSeriesDataPointsInput(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the output for the 'list_metadata_generation_runs' function.
 class ListMetadataGenerationRunsOutput(BaseValidatorModel):
     items: List[MetadataGenerationRunItem]
     ResponseMetadata: ResponseMetadata
@@ -3837,6 +4031,7 @@ class SelfGrantStatusOutput(BaseValidatorModel):
     redshiftSelfGrantStatus: Optional[RedshiftSelfGrantStatusOutput] = None
 
 
+# This class is the input for the 'create_subscription_grant' function.
 class CreateSubscriptionGrantInput(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
@@ -3846,6 +4041,7 @@ class CreateSubscriptionGrantInput(BaseValidatorModel):
     subscriptionTargetIdentifier: Optional[str] = None
 
 
+# This class is the output for the 'create_subscription_grant' function.
 class CreateSubscriptionGrantOutput(BaseValidatorModel):
     assets: List[SubscribedAsset]
     createdAt: datetime
@@ -3861,6 +4057,7 @@ class CreateSubscriptionGrantOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_subscription_grant' function.
 class DeleteSubscriptionGrantOutput(BaseValidatorModel):
     assets: List[SubscribedAsset]
     createdAt: datetime
@@ -3876,6 +4073,7 @@ class DeleteSubscriptionGrantOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_subscription_grant' function.
 class GetSubscriptionGrantOutput(BaseValidatorModel):
     assets: List[SubscribedAsset]
     createdAt: datetime
@@ -3905,6 +4103,7 @@ class SubscriptionGrantSummary(BaseValidatorModel):
     updatedBy: Optional[str] = None
 
 
+# This class is the output for the 'update_subscription_grant_status' function.
 class UpdateSubscriptionGrantStatusOutput(BaseValidatorModel):
     assets: List[SubscribedAsset]
     createdAt: datetime
@@ -3933,6 +4132,7 @@ class EnvironmentBlueprintConfigurationItem(BaseValidatorModel):
     updatedAt: Optional[datetime] = None
 
 
+# This class is the output for the 'get_environment_blueprint_configuration' function.
 class GetEnvironmentBlueprintConfigurationOutput(BaseValidatorModel):
     createdAt: datetime
     domainId: str
@@ -3947,6 +4147,7 @@ class GetEnvironmentBlueprintConfigurationOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_environment_blueprint_configuration' function.
 class PutEnvironmentBlueprintConfigurationOutput(BaseValidatorModel):
     createdAt: datetime
     domainId: str
@@ -4022,6 +4223,7 @@ OAuth2PropertiesUnion = Union[OAuth2Properties, OAuth2PropertiesOutput]
 PolicyGrantDetailUnion = Union[PolicyGrantDetail, PolicyGrantDetailOutput]
 
 
+# This class is the output for the 'list_entity_owners' function.
 class ListEntityOwnersOutput(BaseValidatorModel):
     owners: List[OwnerPropertiesOutput]
     ResponseMetadata: ResponseMetadata
@@ -4098,6 +4300,7 @@ class RedshiftRunConfigurationOutput(BaseValidatorModel):
     region: Optional[str] = None
 
 
+# This class is the output for the 'create_user_profile' function.
 class CreateUserProfileOutput(BaseValidatorModel):
     details: UserProfileDetails
     domainId: str
@@ -4107,6 +4310,7 @@ class CreateUserProfileOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_user_profile' function.
 class GetUserProfileOutput(BaseValidatorModel):
     details: UserProfileDetails
     domainId: str
@@ -4116,6 +4320,7 @@ class GetUserProfileOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_user_profile' function.
 class UpdateUserProfileOutput(BaseValidatorModel):
     details: UserProfileDetails
     domainId: str
@@ -4133,6 +4338,7 @@ class UserProfileSummary(BaseValidatorModel):
     type: Optional[UserProfileTypeType] = None
 
 
+# This class is the input for the 'create_subscription_request' function.
 class CreateSubscriptionRequestInput(BaseValidatorModel):
     domainIdentifier: str
     requestReason: str
@@ -4142,6 +4348,7 @@ class CreateSubscriptionRequestInput(BaseValidatorModel):
     metadataForms: Optional[List[FormInput]] = None
 
 
+# This class is the input for the 'create_glossary_term' function.
 class CreateGlossaryTermInput(BaseValidatorModel):
     domainIdentifier: str
     glossaryIdentifier: str
@@ -4153,6 +4360,7 @@ class CreateGlossaryTermInput(BaseValidatorModel):
     termRelations: Optional[TermRelationsUnion] = None
 
 
+# This class is the input for the 'update_glossary_term' function.
 class UpdateGlossaryTermInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
@@ -4164,6 +4372,7 @@ class UpdateGlossaryTermInput(BaseValidatorModel):
     termRelations: Optional[TermRelationsUnion] = None
 
 
+# This class is the output for the 'list_environment_actions' function.
 class ListEnvironmentActionsOutput(BaseValidatorModel):
     items: List[EnvironmentActionSummary]
     ResponseMetadata: ResponseMetadata
@@ -4201,12 +4410,14 @@ class GluePropertiesPatch(BaseValidatorModel):
     glueConnectionInput: Optional[GlueConnectionPatch] = None
 
 
+# This class is the output for the 'list_environment_blueprints' function.
 class ListEnvironmentBlueprintsOutput(BaseValidatorModel):
     items: List[EnvironmentBlueprintSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_project' function.
 class CreateProjectInput(BaseValidatorModel):
     domainIdentifier: str
     name: str
@@ -4217,6 +4428,7 @@ class CreateProjectInput(BaseValidatorModel):
     userParameters: Optional[List[EnvironmentConfigurationUserParameterUnion]] = None
 
 
+# This class is the input for the 'update_project' function.
 class UpdateProjectInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
@@ -4240,6 +4452,7 @@ class PolicyGrantPrincipal(BaseValidatorModel):
     user: Optional[UserPolicyGrantPrincipal] = None
 
 
+# This class is the output for the 'create_project_profile' function.
 class CreateProjectProfileOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -4254,6 +4467,7 @@ class CreateProjectProfileOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_project_profile' function.
 class GetProjectProfileOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -4268,6 +4482,7 @@ class GetProjectProfileOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_project_profile' function.
 class UpdateProjectProfileOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -4308,6 +4523,7 @@ class RedshiftRunConfigurationInput(BaseValidatorModel):
     redshiftStorage: Optional[RedshiftStorage] = None
 
 
+# This class is the output for the 'search_types' function.
 class SearchTypesOutput(BaseValidatorModel):
     items: List[SearchTypesResultItem]
     totalMatchCount: int
@@ -4315,12 +4531,14 @@ class SearchTypesOutput(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_subscription_grants' function.
 class ListSubscriptionGrantsOutput(BaseValidatorModel):
     items: List[SubscriptionGrantSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_environment_blueprint_configurations' function.
 class ListEnvironmentBlueprintConfigurationsOutput(BaseValidatorModel):
     items: List[EnvironmentBlueprintConfigurationItem]
     ResponseMetadata: ResponseMetadata
@@ -4329,6 +4547,7 @@ class ListEnvironmentBlueprintConfigurationsOutput(BaseValidatorModel):
 ProvisioningConfigurationUnion = Union[ProvisioningConfiguration, ProvisioningConfigurationOutput]
 
 
+# This class is the output for the 'get_job_run' function.
 class GetJobRunOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -4345,12 +4564,14 @@ class GetJobRunOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_project_memberships' function.
 class ListProjectMembershipsOutput(BaseValidatorModel):
     members: List[ProjectMember]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_rule' function.
 class CreateRuleOutput(BaseValidatorModel):
     action: Literal['CREATE_SUBSCRIPTION_REQUEST']
     createdAt: datetime
@@ -4366,6 +4587,7 @@ class CreateRuleOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_rule' function.
 class GetRuleOutput(BaseValidatorModel):
     action: Literal['CREATE_SUBSCRIPTION_REQUEST']
     createdAt: datetime
@@ -4384,6 +4606,7 @@ class GetRuleOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_rule' function.
 class UpdateRuleOutput(BaseValidatorModel):
     action: Literal['CREATE_SUBSCRIPTION_REQUEST']
     createdAt: datetime
@@ -4423,6 +4646,7 @@ class RowFilterConfiguration(BaseValidatorModel):
     sensitive: Optional[bool] = None
 
 
+# This class is the output for the 'list_notifications' function.
 class ListNotificationsOutput(BaseValidatorModel):
     notifications: List[NotificationOutput]
     ResponseMetadata: ResponseMetadata
@@ -4459,6 +4683,7 @@ class AuthenticationConfigurationInput(BaseValidatorModel):
     secretArn: Optional[str] = None
 
 
+# This class is the output for the 'list_rules' function.
 class ListRulesOutput(BaseValidatorModel):
     items: List[RuleSummary]
     ResponseMetadata: ResponseMetadata
@@ -4481,12 +4706,14 @@ class DataSourceConfigurationOutput(BaseValidatorModel):
     sageMakerRunConfiguration: Optional[SageMakerRunConfigurationOutput] = None
 
 
+# This class is the output for the 'search_user_profiles' function.
 class SearchUserProfilesOutput(BaseValidatorModel):
     items: List[UserProfileSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'search' function.
 class SearchOutput(BaseValidatorModel):
     items: List[SearchInventoryResultItem]
     totalMatchCount: int
@@ -4494,6 +4721,7 @@ class SearchOutput(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'search_listings' function.
 class SearchListingsOutput(BaseValidatorModel):
     items: List[SearchResultItem]
     totalMatchCount: int
@@ -4501,6 +4729,7 @@ class SearchListingsOutput(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_listing' function.
 class GetListingOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -4516,6 +4745,7 @@ class GetListingOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'accept_subscription_request' function.
 class AcceptSubscriptionRequestOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -4534,6 +4764,7 @@ class AcceptSubscriptionRequestOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_subscription' function.
 class CancelSubscriptionOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -4549,6 +4780,7 @@ class CancelSubscriptionOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_subscription_request' function.
 class CreateSubscriptionRequestOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -4567,6 +4799,7 @@ class CreateSubscriptionRequestOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_subscription' function.
 class GetSubscriptionOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -4582,6 +4815,7 @@ class GetSubscriptionOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_subscription_request_details' function.
 class GetSubscriptionRequestDetailsOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -4600,6 +4834,7 @@ class GetSubscriptionRequestDetailsOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reject_subscription_request' function.
 class RejectSubscriptionRequestOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -4618,6 +4853,7 @@ class RejectSubscriptionRequestOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'revoke_subscription' function.
 class RevokeSubscriptionOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -4664,6 +4900,7 @@ class SubscriptionSummary(BaseValidatorModel):
     updatedBy: Optional[str] = None
 
 
+# This class is the output for the 'update_subscription_request' function.
 class UpdateSubscriptionRequestOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -4707,6 +4944,7 @@ class DataSourceConfigurationInput(BaseValidatorModel):
     sageMakerRunConfiguration: Optional[SageMakerRunConfigurationInput] = None
 
 
+# This class is the input for the 'put_environment_blueprint_configuration' function.
 class PutEnvironmentBlueprintConfigurationInput(BaseValidatorModel):
     domainIdentifier: str
     enabledRegions: List[str]
@@ -4718,6 +4956,7 @@ class PutEnvironmentBlueprintConfigurationInput(BaseValidatorModel):
     regionalParameters: Optional[Dict[str, Dict[str, str]]] = None
 
 
+# This class is the input for the 'create_rule' function.
 class CreateRuleInput(BaseValidatorModel):
     action: Literal['CREATE_SUBSCRIPTION_REQUEST']
     detail: RuleDetailUnion
@@ -4729,6 +4968,7 @@ class CreateRuleInput(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'update_rule' function.
 class UpdateRuleInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
@@ -4739,6 +4979,7 @@ class UpdateRuleInput(BaseValidatorModel):
     scope: Optional[RuleScopeUnion] = None
 
 
+# This class is the output for the 'list_lineage_events' function.
 class ListLineageEventsOutput(BaseValidatorModel):
     items: List[LineageEventSummary]
     ResponseMetadata: ResponseMetadata
@@ -4780,6 +5021,7 @@ class GlueConnectionInput(BaseValidatorModel):
     validateForComputeEnvironments: Optional[List[ComputeEnvironmentsType]] = None
 
 
+# This class is the output for the 'create_data_source' function.
 class CreateDataSourceOutput(BaseValidatorModel):
     assetFormsOutput: List[FormOutput]
     configuration: DataSourceConfigurationOutput
@@ -4805,6 +5047,7 @@ class CreateDataSourceOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_data_source' function.
 class DeleteDataSourceOutput(BaseValidatorModel):
     assetFormsOutput: List[FormOutput]
     configuration: DataSourceConfigurationOutput
@@ -4831,6 +5074,7 @@ class DeleteDataSourceOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_data_source' function.
 class GetDataSourceOutput(BaseValidatorModel):
     assetFormsOutput: List[FormOutput]
     configuration: DataSourceConfigurationOutput
@@ -4858,6 +5102,7 @@ class GetDataSourceOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_data_source' function.
 class UpdateDataSourceOutput(BaseValidatorModel):
     assetFormsOutput: List[FormOutput]
     configuration: DataSourceConfigurationOutput
@@ -4885,18 +5130,21 @@ class UpdateDataSourceOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_subscription_requests' function.
 class ListSubscriptionRequestsOutput(BaseValidatorModel):
     items: List[SubscriptionRequestSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_subscriptions' function.
 class ListSubscriptionsOutput(BaseValidatorModel):
     items: List[SubscriptionSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'update_connection' function.
 class UpdateConnectionInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
@@ -4905,6 +5153,7 @@ class UpdateConnectionInput(BaseValidatorModel):
     props: Optional[ConnectionPropertiesPatch] = None
 
 
+# This class is the output for the 'list_policy_grants' function.
 class ListPolicyGrantsOutput(BaseValidatorModel):
     grantList: List[PolicyGrantMember]
     ResponseMetadata: ResponseMetadata
@@ -4930,6 +5179,7 @@ class RemovePolicyGrantInput(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'create_project_profile' function.
 class CreateProjectProfileInput(BaseValidatorModel):
     domainIdentifier: str
     name: str
@@ -4939,6 +5189,7 @@ class CreateProjectProfileInput(BaseValidatorModel):
     status: Optional[StatusType] = None
 
 
+# This class is the input for the 'update_project_profile' function.
 class UpdateProjectProfileInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
@@ -4949,6 +5200,7 @@ class UpdateProjectProfileInput(BaseValidatorModel):
     status: Optional[StatusType] = None
 
 
+# This class is the input for the 'create_data_source' function.
 class CreateDataSourceInput(BaseValidatorModel):
     domainIdentifier: str
     name: str
@@ -4966,6 +5218,7 @@ class CreateDataSourceInput(BaseValidatorModel):
     schedule: Optional[ScheduleConfiguration] = None
 
 
+# This class is the input for the 'update_data_source' function.
 class UpdateDataSourceInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
@@ -4980,6 +5233,7 @@ class UpdateDataSourceInput(BaseValidatorModel):
     schedule: Optional[ScheduleConfiguration] = None
 
 
+# This class is the output for the 'create_asset_filter' function.
 class CreateAssetFilterOutput(BaseValidatorModel):
     assetId: str
     configuration: AssetFilterConfigurationOutput
@@ -4995,6 +5249,7 @@ class CreateAssetFilterOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_asset_filter' function.
 class GetAssetFilterOutput(BaseValidatorModel):
     assetId: str
     configuration: AssetFilterConfigurationOutput
@@ -5010,6 +5265,7 @@ class GetAssetFilterOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_asset_filter' function.
 class UpdateAssetFilterOutput(BaseValidatorModel):
     assetId: str
     configuration: AssetFilterConfigurationOutput
@@ -5039,6 +5295,7 @@ class ConnectionSummary(BaseValidatorModel):
     props: Optional[ConnectionPropertiesOutput] = None
 
 
+# This class is the output for the 'create_connection' function.
 class CreateConnectionOutput(BaseValidatorModel):
     connectionId: str
     description: str
@@ -5053,6 +5310,7 @@ class CreateConnectionOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_connection' function.
 class GetConnectionOutput(BaseValidatorModel):
     connectionCredentials: ConnectionCredentials
     connectionId: str
@@ -5069,6 +5327,7 @@ class GetConnectionOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_connection' function.
 class UpdateConnectionOutput(BaseValidatorModel):
     connectionId: str
     description: str
@@ -5087,6 +5346,7 @@ class GluePropertiesInput(BaseValidatorModel):
     glueConnectionInput: Optional[GlueConnectionInput] = None
 
 
+# This class is the input for the 'create_asset_filter' function.
 class CreateAssetFilterInput(BaseValidatorModel):
     assetIdentifier: str
     configuration: AssetFilterConfigurationUnion
@@ -5096,6 +5356,7 @@ class CreateAssetFilterInput(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'update_asset_filter' function.
 class UpdateAssetFilterInput(BaseValidatorModel):
     assetIdentifier: str
     domainIdentifier: str
@@ -5105,6 +5366,7 @@ class UpdateAssetFilterInput(BaseValidatorModel):
     name: Optional[str] = None
 
 
+# This class is the output for the 'list_connections' function.
 class ListConnectionsOutput(BaseValidatorModel):
     items: List[ConnectionSummary]
     ResponseMetadata: ResponseMetadata
@@ -5121,6 +5383,7 @@ class ConnectionPropertiesInput(BaseValidatorModel):
     sparkGlueProperties: Optional[SparkGluePropertiesInput] = None
 
 
+# This class is the input for the 'create_connection' function.
 class CreateConnectionInput(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str

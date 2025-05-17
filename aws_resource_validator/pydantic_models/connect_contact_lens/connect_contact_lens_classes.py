@@ -18,6 +18,7 @@ class CharacterOffsets(BaseValidatorModel):
     EndOffsetChar: int
 
 
+# This class is the input for the 'list_realtime_contact_analysis_segments' function.
 class ListRealtimeContactAnalysisSegmentsRequest(BaseValidatorModel):
     InstanceId: str
     ContactId: str
@@ -69,6 +70,7 @@ class RealtimeContactAnalysisSegment(BaseValidatorModel):
     PostContactSummary: Optional[PostContactSummary] = None
 
 
+# This class is the output for the 'list_realtime_contact_analysis_segments' function.
 class ListRealtimeContactAnalysisSegmentsResponse(BaseValidatorModel):
     Segments: List[RealtimeContactAnalysisSegment]
     ResponseMetadata: ResponseMetadata

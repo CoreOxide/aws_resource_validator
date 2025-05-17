@@ -12,6 +12,7 @@ class Account(BaseValidatorModel):
     accountID: Optional[str] = None
 
 
+# This class is the input for the 'associate_source_network_stack' function.
 class AssociateSourceNetworkStackRequest(BaseValidatorModel):
     cfnStackName: str
     sourceNetworkID: str
@@ -35,6 +36,7 @@ class ProductCode(BaseValidatorModel):
     productCodeMode: Optional[ProductCodeModeType] = None
 
 
+# This class is the input for the 'create_extended_source_server' function.
 class CreateExtendedSourceServerRequest(BaseValidatorModel):
     sourceServerArn: str
     tags: Optional[Dict[str, str]] = None
@@ -52,6 +54,7 @@ class PITPolicyRule(BaseValidatorModel):
     ruleID: Optional[int] = None
 
 
+# This class is the input for the 'create_source_network' function.
 class CreateSourceNetworkRequest(BaseValidatorModel):
     originAccountID: str
     originRegion: str
@@ -91,6 +94,7 @@ class DeleteLaunchConfigurationTemplateRequest(BaseValidatorModel):
     launchConfigurationTemplateID: str
 
 
+# This class is the input for the 'delete_recovery_instance' function.
 class DeleteRecoveryInstanceRequest(BaseValidatorModel):
     recoveryInstanceID: str
 
@@ -113,6 +117,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_job_log_items' function.
 class DescribeJobLogItemsRequest(BaseValidatorModel):
     jobID: str
     maxResults: Optional[int] = None
@@ -125,6 +130,7 @@ class DescribeJobsRequestFilters(BaseValidatorModel):
     toDate: Optional[str] = None
 
 
+# This class is the input for the 'describe_launch_configuration_templates' function.
 class DescribeLaunchConfigurationTemplatesRequest(BaseValidatorModel):
     launchConfigurationTemplateIDs: Optional[List[str]] = None
     maxResults: Optional[int] = None
@@ -149,6 +155,7 @@ class RecoverySnapshot(BaseValidatorModel):
     timestamp: Optional[str] = None
 
 
+# This class is the input for the 'describe_replication_configuration_templates' function.
 class DescribeReplicationConfigurationTemplatesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -167,10 +174,12 @@ class DescribeSourceServersRequestFilters(BaseValidatorModel):
     stagingAccountIDs: Optional[List[str]] = None
 
 
+# This class is the input for the 'disconnect_recovery_instance' function.
 class DisconnectRecoveryInstanceRequest(BaseValidatorModel):
     recoveryInstanceID: str
 
 
+# This class is the input for the 'disconnect_source_server' function.
 class DisconnectSourceServerRequest(BaseValidatorModel):
     sourceServerID: str
 
@@ -187,18 +196,22 @@ class SourceNetworkData(BaseValidatorModel):
     targetVpc: Optional[str] = None
 
 
+# This class is the input for the 'export_source_network_cfn_template' function.
 class ExportSourceNetworkCfnTemplateRequest(BaseValidatorModel):
     sourceNetworkID: str
 
 
+# This class is the input for the 'get_failback_replication_configuration' function.
 class GetFailbackReplicationConfigurationRequest(BaseValidatorModel):
     recoveryInstanceID: str
 
 
+# This class is the input for the 'get_launch_configuration' function.
 class GetLaunchConfigurationRequest(BaseValidatorModel):
     sourceServerID: str
 
 
+# This class is the input for the 'get_replication_configuration' function.
 class GetReplicationConfigurationRequest(BaseValidatorModel):
     sourceServerID: str
 
@@ -229,6 +242,7 @@ class LifeCycleLastLaunchInitiated(BaseValidatorModel):
     type: Optional[LastLaunchTypeType] = None
 
 
+# This class is the input for the 'list_extensible_source_servers' function.
 class ListExtensibleSourceServersRequest(BaseValidatorModel):
     stagingAccountID: str
     maxResults: Optional[int] = None
@@ -241,11 +255,13 @@ class StagingSourceServer(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_staging_accounts' function.
 class ListStagingAccountsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -316,10 +332,12 @@ class ReplicationConfigurationReplicatedDisk(BaseValidatorModel):
     throughput: Optional[int] = None
 
 
+# This class is the input for the 'retry_data_replication' function.
 class RetryDataReplicationRequest(BaseValidatorModel):
     sourceServerID: str
 
 
+# This class is the input for the 'reverse_replication' function.
 class ReverseReplicationRequest(BaseValidatorModel):
     recoveryInstanceID: str
 
@@ -338,6 +356,7 @@ class StagingArea(BaseValidatorModel):
     status: Optional[ExtensionStatusType] = None
 
 
+# This class is the input for the 'start_failback_launch' function.
 class StartFailbackLaunchRequest(BaseValidatorModel):
     recoveryInstanceIDs: List[str]
     tags: Optional[Dict[str, str]] = None
@@ -348,6 +367,7 @@ class StartRecoveryRequestSourceServer(BaseValidatorModel):
     recoverySnapshotID: Optional[str] = None
 
 
+# This class is the input for the 'start_replication' function.
 class StartReplicationRequest(BaseValidatorModel):
     sourceServerID: str
 
@@ -357,36 +377,44 @@ class StartSourceNetworkRecoveryRequestNetworkEntry(BaseValidatorModel):
     cfnStackName: Optional[str] = None
 
 
+# This class is the input for the 'start_source_network_replication' function.
 class StartSourceNetworkReplicationRequest(BaseValidatorModel):
     sourceNetworkID: str
 
 
+# This class is the input for the 'stop_failback' function.
 class StopFailbackRequest(BaseValidatorModel):
     recoveryInstanceID: str
 
 
+# This class is the input for the 'stop_replication' function.
 class StopReplicationRequest(BaseValidatorModel):
     sourceServerID: str
 
 
+# This class is the input for the 'stop_source_network_replication' function.
 class StopSourceNetworkReplicationRequest(BaseValidatorModel):
     sourceNetworkID: str
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Dict[str, str]
 
 
+# This class is the input for the 'terminate_recovery_instances' function.
 class TerminateRecoveryInstancesRequest(BaseValidatorModel):
     recoveryInstanceIDs: List[str]
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_failback_replication_configuration' function.
 class UpdateFailbackReplicationConfigurationRequest(BaseValidatorModel):
     recoveryInstanceID: str
     bandwidthThrottling: Optional[int] = None
@@ -394,20 +422,24 @@ class UpdateFailbackReplicationConfigurationRequest(BaseValidatorModel):
     usePrivateIP: Optional[bool] = None
 
 
+# This class is the output for the 'create_source_network' function.
 class CreateSourceNetworkResponse(BaseValidatorModel):
     sourceNetworkID: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_failback_replication_configuration' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'export_source_network_cfn_template' function.
 class ExportSourceNetworkCfnTemplateResponse(BaseValidatorModel):
     s3DestinationUrl: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_failback_replication_configuration' function.
 class GetFailbackReplicationConfigurationResponse(BaseValidatorModel):
     bandwidthThrottling: int
     name: str
@@ -416,17 +448,20 @@ class GetFailbackReplicationConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_staging_accounts' function.
 class ListStagingAccountsResponse(BaseValidatorModel):
     accounts: List[Account]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reverse_replication' function.
 class ReverseReplicationResponse(BaseValidatorModel):
     reversedDirectionSourceServerArn: str
     ResponseMetadata: ResponseMetadata
@@ -441,6 +476,7 @@ class ConversionProperties(BaseValidatorModel):
     volumeToVolumeSize: Optional[Dict[str, int]] = None
 
 
+# This class is the input for the 'create_launch_configuration_template' function.
 class CreateLaunchConfigurationTemplateRequest(BaseValidatorModel):
     copyPrivateIp: Optional[bool] = None
     copyTags: Optional[bool] = None
@@ -467,6 +503,7 @@ class LaunchConfigurationTemplate(BaseValidatorModel):
     targetInstanceTypeRightSizingMethod: Optional[TargetInstanceTypeRightSizingMethodType] = None
 
 
+# This class is the input for the 'update_launch_configuration_template' function.
 class UpdateLaunchConfigurationTemplateRequest(BaseValidatorModel):
     launchConfigurationTemplateID: str
     copyPrivateIp: Optional[bool] = None
@@ -479,6 +516,7 @@ class UpdateLaunchConfigurationTemplateRequest(BaseValidatorModel):
     targetInstanceTypeRightSizingMethod: Optional[TargetInstanceTypeRightSizingMethodType] = None
 
 
+# This class is the input for the 'create_replication_configuration_template' function.
 class CreateReplicationConfigurationTemplateRequest(BaseValidatorModel):
     associateDefaultSecurityGroup: bool
     bandwidthThrottling: int
@@ -497,6 +535,7 @@ class CreateReplicationConfigurationTemplateRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'update_replication_configuration_template' function.
 class ReplicationConfigurationTemplateResponse(BaseValidatorModel):
     arn: str
     associateDefaultSecurityGroup: bool
@@ -538,6 +577,7 @@ class ReplicationConfigurationTemplate(BaseValidatorModel):
     useDedicatedReplicationServer: Optional[bool] = None
 
 
+# This class is the input for the 'update_replication_configuration_template' function.
 class UpdateReplicationConfigurationTemplateRequest(BaseValidatorModel):
     replicationConfigurationTemplateID: str
     arn: Optional[str] = None
@@ -592,6 +632,7 @@ class DescribeJobsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_jobs' function.
 class DescribeJobsRequest(BaseValidatorModel):
     filters: Optional[DescribeJobsRequestFilters] = None
     maxResults: Optional[int] = None
@@ -603,6 +644,7 @@ class DescribeRecoveryInstancesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_recovery_instances' function.
 class DescribeRecoveryInstancesRequest(BaseValidatorModel):
     filters: Optional[DescribeRecoveryInstancesRequestFilters] = None
     maxResults: Optional[int] = None
@@ -616,6 +658,7 @@ class DescribeRecoverySnapshotsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_recovery_snapshots' function.
 class DescribeRecoverySnapshotsRequest(BaseValidatorModel):
     sourceServerID: str
     filters: Optional[DescribeRecoverySnapshotsRequestFilters] = None
@@ -624,6 +667,7 @@ class DescribeRecoverySnapshotsRequest(BaseValidatorModel):
     order: Optional[RecoverySnapshotsOrderType] = None
 
 
+# This class is the output for the 'describe_recovery_snapshots' function.
 class DescribeRecoverySnapshotsResponse(BaseValidatorModel):
     items: List[RecoverySnapshot]
     ResponseMetadata: ResponseMetadata
@@ -635,6 +679,7 @@ class DescribeSourceNetworksRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_source_networks' function.
 class DescribeSourceNetworksRequest(BaseValidatorModel):
     filters: Optional[DescribeSourceNetworksRequestFilters] = None
     maxResults: Optional[int] = None
@@ -646,6 +691,7 @@ class DescribeSourceServersRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_source_servers' function.
 class DescribeSourceServersRequest(BaseValidatorModel):
     filters: Optional[DescribeSourceServersRequestFilters] = None
     maxResults: Optional[int] = None
@@ -670,6 +716,7 @@ class LaunchAction(BaseValidatorModel):
     type: Optional[LaunchActionTypeType] = None
 
 
+# This class is the input for the 'put_launch_action' function.
 class PutLaunchActionRequest(BaseValidatorModel):
     actionCode: str
     actionId: str
@@ -684,6 +731,7 @@ class PutLaunchActionRequest(BaseValidatorModel):
     parameters: Optional[Dict[str, LaunchActionParameter]] = None
 
 
+# This class is the output for the 'put_launch_action' function.
 class PutLaunchActionResponse(BaseValidatorModel):
     actionCode: str
     actionId: str
@@ -706,6 +754,7 @@ class ListLaunchActionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_launch_actions' function.
 class ListLaunchActionsRequest(BaseValidatorModel):
     resourceId: str
     filters: Optional[LaunchActionsRequestFilters] = None
@@ -713,6 +762,7 @@ class ListLaunchActionsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_launch_configuration' function.
 class LaunchConfiguration(BaseValidatorModel):
     copyPrivateIp: bool
     copyTags: bool
@@ -727,6 +777,7 @@ class LaunchConfiguration(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_launch_configuration' function.
 class UpdateLaunchConfigurationRequest(BaseValidatorModel):
     sourceServerID: str
     copyPrivateIp: Optional[bool] = None
@@ -744,6 +795,7 @@ class LifeCycleLastLaunch(BaseValidatorModel):
     status: Optional[LaunchStatusType] = None
 
 
+# This class is the output for the 'list_extensible_source_servers' function.
 class ListExtensibleSourceServersResponse(BaseValidatorModel):
     items: List[StagingSourceServer]
     ResponseMetadata: ResponseMetadata
@@ -796,6 +848,7 @@ class SourceNetwork(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'update_replication_configuration' function.
 class ReplicationConfiguration(BaseValidatorModel):
     associateDefaultSecurityGroup: bool
     autoReplicateNewDisks: bool
@@ -817,6 +870,7 @@ class ReplicationConfiguration(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_replication_configuration' function.
 class UpdateReplicationConfigurationRequest(BaseValidatorModel):
     sourceServerID: str
     associateDefaultSecurityGroup: Optional[bool] = None
@@ -837,34 +891,40 @@ class UpdateReplicationConfigurationRequest(BaseValidatorModel):
     useDedicatedReplicationServer: Optional[bool] = None
 
 
+# This class is the input for the 'start_recovery' function.
 class StartRecoveryRequest(BaseValidatorModel):
     sourceServers: List[StartRecoveryRequestSourceServer]
     isDrill: Optional[bool] = None
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'start_source_network_recovery' function.
 class StartSourceNetworkRecoveryRequest(BaseValidatorModel):
     sourceNetworks: List[StartSourceNetworkRecoveryRequestNetworkEntry]
     deployAsNew: Optional[bool] = None
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_launch_configuration_template' function.
 class CreateLaunchConfigurationTemplateResponse(BaseValidatorModel):
     launchConfigurationTemplate: LaunchConfigurationTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_launch_configuration_templates' function.
 class DescribeLaunchConfigurationTemplatesResponse(BaseValidatorModel):
     items: List[LaunchConfigurationTemplate]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_launch_configuration_template' function.
 class UpdateLaunchConfigurationTemplateResponse(BaseValidatorModel):
     launchConfigurationTemplate: LaunchConfigurationTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_replication_configuration_templates' function.
 class DescribeReplicationConfigurationTemplatesResponse(BaseValidatorModel):
     items: List[ReplicationConfigurationTemplate]
     ResponseMetadata: ResponseMetadata
@@ -898,6 +958,7 @@ class LaunchActionRun(BaseValidatorModel):
     status: Optional[LaunchActionRunStatusType] = None
 
 
+# This class is the output for the 'list_launch_actions' function.
 class ListLaunchActionsResponse(BaseValidatorModel):
     items: List[LaunchAction]
     ResponseMetadata: ResponseMetadata
@@ -923,17 +984,20 @@ class RecoveryInstanceDataReplicationInfo(BaseValidatorModel):
     stagingOutpostArn: Optional[str] = None
 
 
+# This class is the output for the 'describe_source_networks' function.
 class DescribeSourceNetworksResponse(BaseValidatorModel):
     items: List[SourceNetwork]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_source_network_replication' function.
 class StartSourceNetworkReplicationResponse(BaseValidatorModel):
     sourceNetwork: SourceNetwork
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_source_network_replication' function.
 class StopSourceNetworkReplicationResponse(BaseValidatorModel):
     sourceNetwork: SourceNetwork
     ResponseMetadata: ResponseMetadata
@@ -950,6 +1014,7 @@ class LaunchActionsStatus(BaseValidatorModel):
     ssmAgentDiscoveryDatetime: Optional[str] = None
 
 
+# This class is the output for the 'retry_data_replication' function.
 class SourceServerResponse(BaseValidatorModel):
     agentVersion: str
     arn: str
@@ -1004,6 +1069,7 @@ class RecoveryInstance(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'describe_job_log_items' function.
 class DescribeJobLogItemsResponse(BaseValidatorModel):
     items: List[JobLog]
     ResponseMetadata: ResponseMetadata
@@ -1017,27 +1083,32 @@ class ParticipatingServer(BaseValidatorModel):
     sourceServerID: Optional[str] = None
 
 
+# This class is the output for the 'create_extended_source_server' function.
 class CreateExtendedSourceServerResponse(BaseValidatorModel):
     sourceServer: SourceServer
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_source_servers' function.
 class DescribeSourceServersResponse(BaseValidatorModel):
     items: List[SourceServer]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_replication' function.
 class StartReplicationResponse(BaseValidatorModel):
     sourceServer: SourceServer
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_replication' function.
 class StopReplicationResponse(BaseValidatorModel):
     sourceServer: SourceServer
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_recovery_instances' function.
 class DescribeRecoveryInstancesResponse(BaseValidatorModel):
     items: List[RecoveryInstance]
     ResponseMetadata: ResponseMetadata
@@ -1057,32 +1128,38 @@ class Job(BaseValidatorModel):
     type: Optional[JobTypeType] = None
 
 
+# This class is the output for the 'associate_source_network_stack' function.
 class AssociateSourceNetworkStackResponse(BaseValidatorModel):
     job: Job
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_jobs' function.
 class DescribeJobsResponse(BaseValidatorModel):
     items: List[Job]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_failback_launch' function.
 class StartFailbackLaunchResponse(BaseValidatorModel):
     job: Job
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_recovery' function.
 class StartRecoveryResponse(BaseValidatorModel):
     job: Job
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_source_network_recovery' function.
 class StartSourceNetworkRecoveryResponse(BaseValidatorModel):
     job: Job
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'terminate_recovery_instances' function.
 class TerminateRecoveryInstancesResponse(BaseValidatorModel):
     job: Job
     ResponseMetadata: ResponseMetadata

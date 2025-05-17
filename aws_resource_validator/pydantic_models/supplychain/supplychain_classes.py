@@ -16,6 +16,7 @@ class BillOfMaterialsImportJob(BaseValidatorModel):
     message: Optional[str] = None
 
 
+# This class is the input for the 'create_bill_of_materials_import_job' function.
 class CreateBillOfMaterialsImportJobRequest(BaseValidatorModel):
     instanceId: str
     s3uri: str
@@ -30,6 +31,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_instance' function.
 class CreateInstanceRequest(BaseValidatorModel):
     instanceName: Optional[str] = None
     instanceDescription: Optional[str] = None
@@ -72,37 +74,44 @@ class DataLakeDatasetSchemaField(BaseValidatorModel):
     isRequired: bool
 
 
+# This class is the input for the 'delete_data_integration_flow' function.
 class DeleteDataIntegrationFlowRequest(BaseValidatorModel):
     instanceId: str
     name: str
 
 
+# This class is the input for the 'delete_data_lake_dataset' function.
 class DeleteDataLakeDatasetRequest(BaseValidatorModel):
     instanceId: str
     namespace: str
     name: str
 
 
+# This class is the input for the 'delete_instance' function.
 class DeleteInstanceRequest(BaseValidatorModel):
     instanceId: str
 
 
+# This class is the input for the 'get_bill_of_materials_import_job' function.
 class GetBillOfMaterialsImportJobRequest(BaseValidatorModel):
     instanceId: str
     jobId: str
 
 
+# This class is the input for the 'get_data_integration_flow' function.
 class GetDataIntegrationFlowRequest(BaseValidatorModel):
     instanceId: str
     name: str
 
 
+# This class is the input for the 'get_data_lake_dataset' function.
 class GetDataLakeDatasetRequest(BaseValidatorModel):
     instanceId: str
     namespace: str
     name: str
 
 
+# This class is the input for the 'get_instance' function.
 class GetInstanceRequest(BaseValidatorModel):
     instanceId: str
 
@@ -113,12 +122,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_data_integration_flows' function.
 class ListDataIntegrationFlowsRequest(BaseValidatorModel):
     instanceId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_data_lake_datasets' function.
 class ListDataLakeDatasetsRequest(BaseValidatorModel):
     instanceId: str
     namespace: str
@@ -126,6 +137,7 @@ class ListDataLakeDatasetsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_instances' function.
 class ListInstancesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -133,6 +145,7 @@ class ListInstancesRequest(BaseValidatorModel):
     instanceStateFilter: Optional[List[InstanceStateType]] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -149,6 +162,7 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_data_lake_dataset' function.
 class UpdateDataLakeDatasetRequest(BaseValidatorModel):
     instanceId: str
     namespace: str
@@ -156,29 +170,34 @@ class UpdateDataLakeDatasetRequest(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'update_instance' function.
 class UpdateInstanceRequest(BaseValidatorModel):
     instanceId: str
     instanceName: Optional[str] = None
     instanceDescription: Optional[str] = None
 
 
+# This class is the output for the 'create_bill_of_materials_import_job' function.
 class CreateBillOfMaterialsImportJobResponse(BaseValidatorModel):
     jobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_data_integration_flow' function.
 class CreateDataIntegrationFlowResponse(BaseValidatorModel):
     instanceId: str
     name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_data_integration_flow' function.
 class DeleteDataIntegrationFlowResponse(BaseValidatorModel):
     instanceId: str
     name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_data_lake_dataset' function.
 class DeleteDataLakeDatasetResponse(BaseValidatorModel):
     instanceId: str
     namespace: str
@@ -186,42 +205,50 @@ class DeleteDataLakeDatasetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_bill_of_materials_import_job' function.
 class GetBillOfMaterialsImportJobResponse(BaseValidatorModel):
     job: BillOfMaterialsImportJob
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'send_data_integration_event' function.
 class SendDataIntegrationEventResponse(BaseValidatorModel):
     eventId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_instance' function.
 class CreateInstanceResponse(BaseValidatorModel):
     instance: Instance
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_instance' function.
 class DeleteInstanceResponse(BaseValidatorModel):
     instance: Instance
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_instance' function.
 class GetInstanceResponse(BaseValidatorModel):
     instance: Instance
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_instances' function.
 class ListInstancesResponse(BaseValidatorModel):
     instances: List[Instance]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_instance' function.
 class UpdateInstanceResponse(BaseValidatorModel):
     instance: Instance
     ResponseMetadata: ResponseMetadata
@@ -281,6 +308,7 @@ class ListInstancesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'send_data_integration_event' function.
 class SendDataIntegrationEventRequest(BaseValidatorModel):
     instanceId: str
     eventType: DataIntegrationEventTypeType
@@ -316,6 +344,7 @@ class DataLakeDataset(BaseValidatorModel):
 DataLakeDatasetSchemaUnion = Union[DataLakeDatasetSchema, DataLakeDatasetSchemaOutput]
 
 
+# This class is the input for the 'create_data_integration_flow' function.
 class CreateDataIntegrationFlowRequest(BaseValidatorModel):
     instanceId: str
     name: str
@@ -335,6 +364,7 @@ class DataIntegrationFlow(BaseValidatorModel):
     lastModifiedTime: datetime
 
 
+# This class is the input for the 'update_data_integration_flow' function.
 class UpdateDataIntegrationFlowRequest(BaseValidatorModel):
     instanceId: str
     name: str
@@ -343,27 +373,32 @@ class UpdateDataIntegrationFlowRequest(BaseValidatorModel):
     target: Optional[DataIntegrationFlowTarget] = None
 
 
+# This class is the output for the 'create_data_lake_dataset' function.
 class CreateDataLakeDatasetResponse(BaseValidatorModel):
     dataset: DataLakeDataset
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_data_lake_dataset' function.
 class GetDataLakeDatasetResponse(BaseValidatorModel):
     dataset: DataLakeDataset
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_data_lake_datasets' function.
 class ListDataLakeDatasetsResponse(BaseValidatorModel):
     datasets: List[DataLakeDataset]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_data_lake_dataset' function.
 class UpdateDataLakeDatasetResponse(BaseValidatorModel):
     dataset: DataLakeDataset
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_data_lake_dataset' function.
 class CreateDataLakeDatasetRequest(BaseValidatorModel):
     instanceId: str
     namespace: str
@@ -373,17 +408,20 @@ class CreateDataLakeDatasetRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'get_data_integration_flow' function.
 class GetDataIntegrationFlowResponse(BaseValidatorModel):
     flow: DataIntegrationFlow
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_data_integration_flows' function.
 class ListDataIntegrationFlowsResponse(BaseValidatorModel):
     flows: List[DataIntegrationFlow]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_data_integration_flow' function.
 class UpdateDataIntegrationFlowResponse(BaseValidatorModel):
     flow: DataIntegrationFlow
     ResponseMetadata: ResponseMetadata

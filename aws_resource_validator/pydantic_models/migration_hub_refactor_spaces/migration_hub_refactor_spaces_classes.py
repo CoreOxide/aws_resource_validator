@@ -50,6 +50,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_environment' function.
 class CreateEnvironmentRequest(BaseValidatorModel):
     Name: str
     NetworkFabricType: NetworkFabricTypeType
@@ -79,11 +80,13 @@ class UrlEndpointInput(BaseValidatorModel):
     HealthUrl: Optional[str] = None
 
 
+# This class is the input for the 'delete_application' function.
 class DeleteApplicationRequest(BaseValidatorModel):
     ApplicationIdentifier: str
     EnvironmentIdentifier: str
 
 
+# This class is the input for the 'delete_environment' function.
 class DeleteEnvironmentRequest(BaseValidatorModel):
     EnvironmentIdentifier: str
 
@@ -92,12 +95,14 @@ class DeleteResourcePolicyRequest(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'delete_route' function.
 class DeleteRouteRequest(BaseValidatorModel):
     ApplicationIdentifier: str
     EnvironmentIdentifier: str
     RouteIdentifier: str
 
 
+# This class is the input for the 'delete_service' function.
 class DeleteServiceRequest(BaseValidatorModel):
     ApplicationIdentifier: str
     EnvironmentIdentifier: str
@@ -114,25 +119,30 @@ class EnvironmentVpc(BaseValidatorModel):
     VpcName: Optional[str] = None
 
 
+# This class is the input for the 'get_application' function.
 class GetApplicationRequest(BaseValidatorModel):
     ApplicationIdentifier: str
     EnvironmentIdentifier: str
 
 
+# This class is the input for the 'get_environment' function.
 class GetEnvironmentRequest(BaseValidatorModel):
     EnvironmentIdentifier: str
 
 
+# This class is the input for the 'get_resource_policy' function.
 class GetResourcePolicyRequest(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'get_route' function.
 class GetRouteRequest(BaseValidatorModel):
     ApplicationIdentifier: str
     EnvironmentIdentifier: str
     RouteIdentifier: str
 
 
+# This class is the input for the 'get_service' function.
 class GetServiceRequest(BaseValidatorModel):
     ApplicationIdentifier: str
     EnvironmentIdentifier: str
@@ -158,23 +168,27 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_applications' function.
 class ListApplicationsRequest(BaseValidatorModel):
     EnvironmentIdentifier: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_environment_vpcs' function.
 class ListEnvironmentVpcsRequest(BaseValidatorModel):
     EnvironmentIdentifier: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_environments' function.
 class ListEnvironmentsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_routes' function.
 class ListRoutesRequest(BaseValidatorModel):
     ApplicationIdentifier: str
     EnvironmentIdentifier: str
@@ -182,6 +196,7 @@ class ListRoutesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_services' function.
 class ListServicesRequest(BaseValidatorModel):
     ApplicationIdentifier: str
     EnvironmentIdentifier: str
@@ -189,6 +204,7 @@ class ListServicesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -213,6 +229,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_route' function.
 class UpdateRouteRequest(BaseValidatorModel):
     ActivationState: RouteActivationStateType
     ApplicationIdentifier: str
@@ -228,6 +245,7 @@ class UriPathRouteInput(BaseValidatorModel):
     Methods: Optional[List[HttpMethodType]] = None
 
 
+# This class is the input for the 'create_application' function.
 class CreateApplicationRequest(BaseValidatorModel):
     EnvironmentIdentifier: str
     Name: str
@@ -291,6 +309,7 @@ class RouteSummary(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_application' function.
 class CreateApplicationResponse(BaseValidatorModel):
     ApiGatewayProxy: ApiGatewayProxyInput
     ApplicationId: str
@@ -308,6 +327,7 @@ class CreateApplicationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_environment' function.
 class CreateEnvironmentResponse(BaseValidatorModel):
     Arn: str
     CreatedTime: datetime
@@ -322,6 +342,7 @@ class CreateEnvironmentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_application' function.
 class DeleteApplicationResponse(BaseValidatorModel):
     ApplicationId: str
     Arn: str
@@ -332,6 +353,7 @@ class DeleteApplicationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_environment' function.
 class DeleteEnvironmentResponse(BaseValidatorModel):
     Arn: str
     EnvironmentId: str
@@ -341,6 +363,7 @@ class DeleteEnvironmentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_route' function.
 class DeleteRouteResponse(BaseValidatorModel):
     ApplicationId: str
     Arn: str
@@ -351,6 +374,7 @@ class DeleteRouteResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_service' function.
 class DeleteServiceResponse(BaseValidatorModel):
     ApplicationId: str
     Arn: str
@@ -362,6 +386,7 @@ class DeleteServiceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_application' function.
 class GetApplicationResponse(BaseValidatorModel):
     ApiGatewayProxy: ApiGatewayProxyConfig
     ApplicationId: str
@@ -380,6 +405,7 @@ class GetApplicationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_environment' function.
 class GetEnvironmentResponse(BaseValidatorModel):
     Arn: str
     CreatedTime: datetime
@@ -396,11 +422,13 @@ class GetEnvironmentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_policy' function.
 class GetResourcePolicyResponse(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_route' function.
 class GetRouteResponse(BaseValidatorModel):
     AppendSourcePath: bool
     ApplicationId: str
@@ -423,11 +451,13 @@ class GetRouteResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_route' function.
 class UpdateRouteResponse(BaseValidatorModel):
     ApplicationId: str
     Arn: str
@@ -438,6 +468,7 @@ class UpdateRouteResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_route' function.
 class CreateRouteResponse(BaseValidatorModel):
     ApplicationId: str
     Arn: str
@@ -454,6 +485,7 @@ class CreateRouteResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_service' function.
 class CreateServiceRequest(BaseValidatorModel):
     ApplicationIdentifier: str
     EndpointType: ServiceEndpointTypeType
@@ -467,6 +499,7 @@ class CreateServiceRequest(BaseValidatorModel):
     VpcId: Optional[str] = None
 
 
+# This class is the output for the 'create_service' function.
 class CreateServiceResponse(BaseValidatorModel):
     ApplicationId: str
     Arn: str
@@ -487,12 +520,14 @@ class CreateServiceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_environment_vpcs' function.
 class ListEnvironmentVpcsResponse(BaseValidatorModel):
     EnvironmentVpcList: List[EnvironmentVpc]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_service' function.
 class GetServiceResponse(BaseValidatorModel):
     ApplicationId: str
     Arn: str
@@ -562,30 +597,35 @@ class ServiceSummary(BaseValidatorModel):
 UriPathRouteInputUnion = Union[UriPathRouteInput, UriPathRouteInputOutput]
 
 
+# This class is the output for the 'list_applications' function.
 class ListApplicationsResponse(BaseValidatorModel):
     ApplicationSummaryList: List[ApplicationSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_environments' function.
 class ListEnvironmentsResponse(BaseValidatorModel):
     EnvironmentSummaryList: List[EnvironmentSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_routes' function.
 class ListRoutesResponse(BaseValidatorModel):
     RouteSummaryList: List[RouteSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_services' function.
 class ListServicesResponse(BaseValidatorModel):
     ServiceSummaryList: List[ServiceSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_route' function.
 class CreateRouteRequest(BaseValidatorModel):
     ApplicationIdentifier: str
     EnvironmentIdentifier: str

@@ -44,6 +44,7 @@ class DomainSummary(BaseValidatorModel):
     LastUpdateTime: datetime
 
 
+# This class is the input for the 'get_control' function.
 class GetControlRequest(BaseValidatorModel):
     ControlArn: str
 
@@ -71,11 +72,13 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_controls' function.
 class ListControlsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_domains' function.
 class ListDomainsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -108,6 +111,7 @@ class ObjectiveFilter(BaseValidatorModel):
     Domains: Optional[List[DomainResourceFilter]] = None
 
 
+# This class is the output for the 'get_control' function.
 class GetControlResponse(BaseValidatorModel):
     Arn: str
     Name: str
@@ -119,12 +123,14 @@ class GetControlResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_controls' function.
 class ListControlsResponse(BaseValidatorModel):
     Controls: List[ControlSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_domains' function.
 class ListDomainsResponse(BaseValidatorModel):
     Domains: List[DomainSummary]
     ResponseMetadata: ResponseMetadata
@@ -139,12 +145,14 @@ class ListDomainsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_objectives' function.
 class ListObjectivesResponse(BaseValidatorModel):
     Objectives: List[ObjectiveSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_common_controls' function.
 class ListCommonControlsResponse(BaseValidatorModel):
     CommonControls: List[CommonControlSummary]
     ResponseMetadata: ResponseMetadata
@@ -156,6 +164,7 @@ class ListCommonControlsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_common_controls' function.
 class ListCommonControlsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -167,6 +176,7 @@ class ListObjectivesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_objectives' function.
 class ListObjectivesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None

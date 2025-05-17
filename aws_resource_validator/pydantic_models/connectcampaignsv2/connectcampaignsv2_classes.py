@@ -76,34 +76,41 @@ class CustomerProfilesIntegrationSummary(BaseValidatorModel):
     objectTypeNames: Dict[EventTypeType, str]
 
 
+# This class is the input for the 'delete_campaign_channel_subtype_config' function.
 class DeleteCampaignChannelSubtypeConfigRequest(BaseValidatorModel):
     id: str
     channelSubtype: ChannelSubtypeType
 
 
+# This class is the input for the 'delete_campaign_communication_limits' function.
 class DeleteCampaignCommunicationLimitsRequest(BaseValidatorModel):
     id: str
     config: Literal['ALL_CHANNEL_SUBTYPES']
 
 
+# This class is the input for the 'delete_campaign_communication_time' function.
 class DeleteCampaignCommunicationTimeRequest(BaseValidatorModel):
     id: str
     config: CommunicationTimeConfigTypeType
 
 
+# This class is the input for the 'delete_campaign' function.
 class DeleteCampaignRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'delete_connect_instance_config' function.
 class DeleteConnectInstanceConfigRequest(BaseValidatorModel):
     connectInstanceId: str
     campaignDeletionPolicy: Optional[CampaignDeletionPolicyType] = None
 
 
+# This class is the input for the 'delete_instance_onboarding_job' function.
 class DeleteInstanceOnboardingJobRequest(BaseValidatorModel):
     connectInstanceId: str
 
 
+# This class is the input for the 'describe_campaign' function.
 class DescribeCampaignRequest(BaseValidatorModel):
     id: str
 
@@ -149,6 +156,7 @@ class FailedRequest(BaseValidatorModel):
     failureCode: Optional[FailureCodeType] = None
 
 
+# This class is the input for the 'get_campaign_state_batch' function.
 class GetCampaignStateBatchRequest(BaseValidatorModel):
     campaignIds: List[str]
 
@@ -158,14 +166,17 @@ class SuccessfulCampaignStateResponse(BaseValidatorModel):
     state: Optional[CampaignStateType] = None
 
 
+# This class is the input for the 'get_campaign_state' function.
 class GetCampaignStateRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'get_connect_instance_config' function.
 class GetConnectInstanceConfigRequest(BaseValidatorModel):
     connectInstanceId: str
 
 
+# This class is the input for the 'get_instance_onboarding_job_status' function.
 class GetInstanceOnboardingJobStatusRequest(BaseValidatorModel):
     connectInstanceId: str
 
@@ -194,12 +205,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_connect_instance_integrations' function.
 class ListConnectInstanceIntegrationsRequest(BaseValidatorModel):
     connectInstanceId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     arn: str
 
@@ -211,6 +224,7 @@ class TimeRange(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'pause_campaign' function.
 class PauseCampaignRequest(BaseValidatorModel):
     id: str
 
@@ -239,6 +253,7 @@ class RestrictedPeriod(BaseValidatorModel):
     name: Optional[str] = None
 
 
+# This class is the input for the 'resume_campaign' function.
 class ResumeCampaignRequest(BaseValidatorModel):
     id: str
 
@@ -256,29 +271,35 @@ class SmsOutboundMode(BaseValidatorModel):
     agentless: Optional[Dict[str, Any]] = None
 
 
+# This class is the input for the 'start_campaign' function.
 class StartCampaignRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'stop_campaign' function.
 class StopCampaignRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     arn: str
     tags: Dict[str, str]
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     arn: str
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_campaign_flow_association' function.
 class UpdateCampaignFlowAssociationRequest(BaseValidatorModel):
     id: str
     connectCampaignFlowArn: str
 
 
+# This class is the input for the 'update_campaign_name' function.
 class UpdateCampaignNameRequest(BaseValidatorModel):
     id: str
     name: str
@@ -319,6 +340,7 @@ class CommunicationLimits(BaseValidatorModel):
     communicationLimitsList: Optional[List[CommunicationLimit]] = None
 
 
+# This class is the output for the 'create_campaign' function.
 class CreateCampaignResponse(BaseValidatorModel):
     id: str
     arn: str
@@ -326,15 +348,18 @@ class CreateCampaignResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_campaign_source' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_campaign_state' function.
 class GetCampaignStateResponse(BaseValidatorModel):
     state: CampaignStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
@@ -358,6 +383,7 @@ class InstanceConfig(BaseValidatorModel):
     encryptionConfig: EncryptionConfig
 
 
+# This class is the input for the 'start_instance_onboarding_job' function.
 class StartInstanceOnboardingJobRequest(BaseValidatorModel):
     connectInstanceId: str
     encryptionConfig: EncryptionConfig
@@ -368,17 +394,20 @@ class Source(BaseValidatorModel):
     eventTrigger: Optional[EventTrigger] = None
 
 
+# This class is the output for the 'get_campaign_state_batch' function.
 class GetCampaignStateBatchResponse(BaseValidatorModel):
     successfulRequests: List[SuccessfulCampaignStateResponse]
     failedRequests: List[FailedCampaignStateResponse]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_instance_onboarding_job_status' function.
 class GetInstanceOnboardingJobStatusResponse(BaseValidatorModel):
     connectInstanceOnboardingJobStatus: InstanceOnboardingJobStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_instance_onboarding_job' function.
 class StartInstanceOnboardingJobResponse(BaseValidatorModel):
     connectInstanceOnboardingJobStatus: InstanceOnboardingJobStatus
     ResponseMetadata: ResponseMetadata
@@ -436,12 +465,14 @@ class TelephonyOutboundMode(BaseValidatorModel):
     agentless: Optional[Dict[str, Any]] = None
 
 
+# This class is the output for the 'put_outbound_request_batch' function.
 class PutOutboundRequestBatchResponse(BaseValidatorModel):
     successfulRequests: List[SuccessfulRequest]
     failedRequests: List[FailedRequest]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_profile_outbound_request_batch' function.
 class PutProfileOutboundRequestBatchResponse(BaseValidatorModel):
     successfulRequests: List[SuccessfulProfileOutboundRequest]
     failedRequests: List[FailedProfileOutboundRequest]
@@ -479,12 +510,14 @@ class ListCampaignsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_campaigns' function.
 class ListCampaignsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     filters: Optional[CampaignFilters] = None
 
 
+# This class is the output for the 'list_campaigns' function.
 class ListCampaignsResponse(BaseValidatorModel):
     campaignSummaryList: List[CampaignSummary]
     ResponseMetadata: ResponseMetadata
@@ -499,32 +532,38 @@ class CommunicationLimitsConfig(BaseValidatorModel):
     allChannelSubtypes: Optional[CommunicationLimits] = None
 
 
+# This class is the output for the 'get_connect_instance_config' function.
 class GetConnectInstanceConfigResponse(BaseValidatorModel):
     connectInstanceConfig: InstanceConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_campaign_source' function.
 class UpdateCampaignSourceRequest(BaseValidatorModel):
     id: str
     source: Source
 
 
+# This class is the input for the 'put_connect_instance_integration' function.
 class PutConnectInstanceIntegrationRequest(BaseValidatorModel):
     connectInstanceId: str
     integrationConfig: IntegrationConfig
 
 
+# This class is the input for the 'delete_connect_instance_integration' function.
 class DeleteConnectInstanceIntegrationRequest(BaseValidatorModel):
     connectInstanceId: str
     integrationIdentifier: IntegrationIdentifier
 
 
+# This class is the output for the 'list_connect_instance_integrations' function.
 class ListConnectInstanceIntegrationsResponse(BaseValidatorModel):
     integrationSummaryList: List[IntegrationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'put_profile_outbound_request_batch' function.
 class PutProfileOutboundRequestBatchRequest(BaseValidatorModel):
     id: str
     profileOutboundRequests: List[ProfileOutboundRequest]
@@ -564,6 +603,7 @@ class OutboundRequest(BaseValidatorModel):
 CommunicationLimitsConfigUnion = Union[CommunicationLimitsConfig, CommunicationLimitsConfigOutput]
 
 
+# This class is the input for the 'update_campaign_schedule' function.
 class UpdateCampaignScheduleRequest(BaseValidatorModel):
     id: str
     schedule: ScheduleUnion
@@ -595,11 +635,13 @@ class CommunicationTimeConfig(BaseValidatorModel):
     email: Optional[TimeWindow] = None
 
 
+# This class is the input for the 'put_outbound_request_batch' function.
 class PutOutboundRequestBatchRequest(BaseValidatorModel):
     id: str
     outboundRequests: List[OutboundRequest]
 
 
+# This class is the input for the 'update_campaign_communication_limits' function.
 class UpdateCampaignCommunicationLimitsRequest(BaseValidatorModel):
     id: str
     communicationLimitsOverride: CommunicationLimitsConfigUnion
@@ -623,16 +665,19 @@ class Campaign(BaseValidatorModel):
 CommunicationTimeConfigUnion = Union[CommunicationTimeConfig, CommunicationTimeConfigOutput]
 
 
+# This class is the input for the 'update_campaign_channel_subtype_config' function.
 class UpdateCampaignChannelSubtypeConfigRequest(BaseValidatorModel):
     id: str
     channelSubtypeConfig: ChannelSubtypeConfigUnion
 
 
+# This class is the output for the 'describe_campaign' function.
 class DescribeCampaignResponse(BaseValidatorModel):
     campaign: Campaign
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_campaign' function.
 class CreateCampaignRequest(BaseValidatorModel):
     name: str
     connectInstanceId: str
@@ -645,6 +690,7 @@ class CreateCampaignRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_campaign_communication_time' function.
 class UpdateCampaignCommunicationTimeRequest(BaseValidatorModel):
     id: str
     communicationTimeConfig: CommunicationTimeConfigUnion

@@ -12,6 +12,7 @@ class ActionSummary(BaseValidatorModel):
     ActionType: ActionTypeType
 
 
+# This class is the input for the 'activate_evaluation_form' function.
 class ActivateEvaluationFormRequest(BaseValidatorModel):
     InstanceId: str
     EvaluationFormId: str
@@ -139,12 +140,14 @@ class Application(BaseValidatorModel):
     ApplicationPermissions: Optional[List[str]] = None
 
 
+# This class is the input for the 'associate_analytics_data_set' function.
 class AssociateAnalyticsDataSetRequest(BaseValidatorModel):
     InstanceId: str
     DataSetId: str
     TargetAccountId: Optional[str] = None
 
 
+# This class is the input for the 'associate_approved_origin' function.
 class AssociateApprovedOriginRequest(BaseValidatorModel):
     InstanceId: str
     Origin: str
@@ -173,24 +176,28 @@ class AssociateFlowRequest(BaseValidatorModel):
     ResourceType: FlowAssociationResourceTypeType
 
 
+# This class is the input for the 'associate_lambda_function' function.
 class AssociateLambdaFunctionRequest(BaseValidatorModel):
     InstanceId: str
     FunctionArn: str
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'associate_phone_number_contact_flow' function.
 class AssociatePhoneNumberContactFlowRequest(BaseValidatorModel):
     PhoneNumberId: str
     InstanceId: str
     ContactFlowId: str
 
 
+# This class is the input for the 'associate_queue_quick_connects' function.
 class AssociateQueueQuickConnectsRequest(BaseValidatorModel):
     InstanceId: str
     QueueId: str
     QuickConnectIds: List[str]
 
 
+# This class is the input for the 'associate_security_key' function.
 class AssociateSecurityKeyRequest(BaseValidatorModel):
     InstanceId: str
     Key: str
@@ -298,6 +305,7 @@ class AvailableNumberSummary(BaseValidatorModel):
     PhoneNumberType: Optional[PhoneNumberTypeType] = None
 
 
+# This class is the input for the 'batch_associate_analytics_data_set' function.
 class BatchAssociateAnalyticsDataSetRequest(BaseValidatorModel):
     InstanceId: str
     DataSetIds: List[str]
@@ -309,18 +317,21 @@ class ErrorResult(BaseValidatorModel):
     ErrorMessage: Optional[str] = None
 
 
+# This class is the input for the 'batch_disassociate_analytics_data_set' function.
 class BatchDisassociateAnalyticsDataSetRequest(BaseValidatorModel):
     InstanceId: str
     DataSetIds: List[str]
     TargetAccountId: Optional[str] = None
 
 
+# This class is the input for the 'batch_get_attached_file_metadata' function.
 class BatchGetAttachedFileMetadataRequest(BaseValidatorModel):
     FileIds: List[str]
     InstanceId: str
     AssociatedResourceArn: str
 
 
+# This class is the input for the 'batch_get_flow_association' function.
 class BatchGetFlowAssociationRequest(BaseValidatorModel):
     InstanceId: str
     ResourceIds: List[str]
@@ -363,6 +374,7 @@ class ChatStreamingConfiguration(BaseValidatorModel):
     StreamingEndpointArn: str
 
 
+# This class is the input for the 'claim_phone_number' function.
 class ClaimPhoneNumberRequest(BaseValidatorModel):
     PhoneNumber: str
     TargetArn: Optional[str] = None
@@ -499,6 +511,7 @@ class WisdomInfo(BaseValidatorModel):
     SessionArn: Optional[str] = None
 
 
+# This class is the input for the 'create_agent_status' function.
 class CreateAgentStatusRequest(BaseValidatorModel):
     InstanceId: str
     Name: str
@@ -508,6 +521,7 @@ class CreateAgentStatusRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_contact_flow_module' function.
 class CreateContactFlowModuleRequest(BaseValidatorModel):
     InstanceId: str
     Name: str
@@ -517,6 +531,7 @@ class CreateContactFlowModuleRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'create_contact_flow' function.
 class CreateContactFlowRequest(BaseValidatorModel):
     InstanceId: str
     Name: str
@@ -541,6 +556,7 @@ class UserInfo(BaseValidatorModel):
     UserId: Optional[str] = None
 
 
+# This class is the input for the 'create_email_address' function.
 class CreateEmailAddressRequest(BaseValidatorModel):
     InstanceId: str
     EmailAddress: str
@@ -555,6 +571,7 @@ class EvaluationFormScoringStrategy(BaseValidatorModel):
     Status: EvaluationFormScoringStatusType
 
 
+# This class is the input for the 'create_instance' function.
 class CreateInstanceRequest(BaseValidatorModel):
     IdentityManagementType: DirectoryTypeType
     InboundCallsEnabled: bool
@@ -565,6 +582,7 @@ class CreateInstanceRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_integration_association' function.
 class CreateIntegrationAssociationRequest(BaseValidatorModel):
     InstanceId: str
     IntegrationType: IntegrationTypeType
@@ -585,6 +603,7 @@ class ParticipantTokenCredentials(BaseValidatorModel):
     Expiry: Optional[str] = None
 
 
+# This class is the input for the 'create_persistent_contact_association' function.
 class CreatePersistentContactAssociationRequest(BaseValidatorModel):
     InstanceId: str
     InitialContactId: str
@@ -593,6 +612,7 @@ class CreatePersistentContactAssociationRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'create_prompt' function.
 class CreatePromptRequest(BaseValidatorModel):
     InstanceId: str
     Name: str
@@ -616,6 +636,7 @@ class RuleTriggerEventSource(BaseValidatorModel):
     IntegrationAssociationId: Optional[str] = None
 
 
+# This class is the input for the 'create_traffic_distribution_group' function.
 class CreateTrafficDistributionGroupRequest(BaseValidatorModel):
     Name: str
     InstanceId: str
@@ -624,6 +645,7 @@ class CreateTrafficDistributionGroupRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_use_case' function.
 class CreateUseCaseRequest(BaseValidatorModel):
     InstanceId: str
     IntegrationAssociationId: str
@@ -631,6 +653,7 @@ class CreateUseCaseRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_user_hierarchy_group' function.
 class CreateUserHierarchyGroupRequest(BaseValidatorModel):
     Name: str
     InstanceId: str
@@ -658,6 +681,7 @@ class ViewInputContent(BaseValidatorModel):
     Actions: Optional[List[str]] = None
 
 
+# This class is the input for the 'create_view_version' function.
 class CreateViewVersionRequest(BaseValidatorModel):
     InstanceId: str
     ViewId: str
@@ -665,6 +689,7 @@ class CreateViewVersionRequest(BaseValidatorModel):
     ViewContentSha256: Optional[str] = None
 
 
+# This class is the input for the 'create_vocabulary' function.
 class CreateVocabularyRequest(BaseValidatorModel):
     InstanceId: str
     VocabularyName: str
@@ -706,6 +731,7 @@ class DateReference(BaseValidatorModel):
     Value: Optional[str] = None
 
 
+# This class is the input for the 'deactivate_evaluation_form' function.
 class DeactivateEvaluationFormRequest(BaseValidatorModel):
     InstanceId: str
     EvaluationFormId: str
@@ -725,6 +751,7 @@ class DeleteAttachedFileRequest(BaseValidatorModel):
     AssociatedResourceArn: str
 
 
+# This class is the input for the 'delete_contact_evaluation' function.
 class DeleteContactEvaluationRequest(BaseValidatorModel):
     InstanceId: str
     EvaluationId: str
@@ -751,38 +778,45 @@ class DeleteEmailAddressRequest(BaseValidatorModel):
     EmailAddressId: str
 
 
+# This class is the input for the 'delete_evaluation_form' function.
 class DeleteEvaluationFormRequest(BaseValidatorModel):
     InstanceId: str
     EvaluationFormId: str
     EvaluationFormVersion: Optional[int] = None
 
 
+# This class is the input for the 'delete_hours_of_operation_override' function.
 class DeleteHoursOfOperationOverrideRequest(BaseValidatorModel):
     InstanceId: str
     HoursOfOperationId: str
     HoursOfOperationOverrideId: str
 
 
+# This class is the input for the 'delete_hours_of_operation' function.
 class DeleteHoursOfOperationRequest(BaseValidatorModel):
     InstanceId: str
     HoursOfOperationId: str
 
 
+# This class is the input for the 'delete_instance' function.
 class DeleteInstanceRequest(BaseValidatorModel):
     InstanceId: str
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_integration_association' function.
 class DeleteIntegrationAssociationRequest(BaseValidatorModel):
     InstanceId: str
     IntegrationAssociationId: str
 
 
+# This class is the input for the 'delete_predefined_attribute' function.
 class DeletePredefinedAttributeRequest(BaseValidatorModel):
     InstanceId: str
     Name: str
 
 
+# This class is the input for the 'delete_prompt' function.
 class DeletePromptRequest(BaseValidatorModel):
     InstanceId: str
     PromptId: str
@@ -794,26 +828,31 @@ class DeletePushNotificationRegistrationRequest(BaseValidatorModel):
     ContactId: str
 
 
+# This class is the input for the 'delete_queue' function.
 class DeleteQueueRequest(BaseValidatorModel):
     InstanceId: str
     QueueId: str
 
 
+# This class is the input for the 'delete_quick_connect' function.
 class DeleteQuickConnectRequest(BaseValidatorModel):
     InstanceId: str
     QuickConnectId: str
 
 
+# This class is the input for the 'delete_routing_profile' function.
 class DeleteRoutingProfileRequest(BaseValidatorModel):
     InstanceId: str
     RoutingProfileId: str
 
 
+# This class is the input for the 'delete_rule' function.
 class DeleteRuleRequest(BaseValidatorModel):
     InstanceId: str
     RuleId: str
 
 
+# This class is the input for the 'delete_security_profile' function.
 class DeleteSecurityProfileRequest(BaseValidatorModel):
     InstanceId: str
     SecurityProfileId: str
@@ -828,17 +867,20 @@ class DeleteTrafficDistributionGroupRequest(BaseValidatorModel):
     TrafficDistributionGroupId: str
 
 
+# This class is the input for the 'delete_use_case' function.
 class DeleteUseCaseRequest(BaseValidatorModel):
     InstanceId: str
     IntegrationAssociationId: str
     UseCaseId: str
 
 
+# This class is the input for the 'delete_user_hierarchy_group' function.
 class DeleteUserHierarchyGroupRequest(BaseValidatorModel):
     HierarchyGroupId: str
     InstanceId: str
 
 
+# This class is the input for the 'delete_user' function.
 class DeleteUserRequest(BaseValidatorModel):
     InstanceId: str
     UserId: str
@@ -855,87 +897,104 @@ class DeleteViewVersionRequest(BaseValidatorModel):
     ViewVersion: int
 
 
+# This class is the input for the 'delete_vocabulary' function.
 class DeleteVocabularyRequest(BaseValidatorModel):
     InstanceId: str
     VocabularyId: str
 
 
+# This class is the input for the 'describe_agent_status' function.
 class DescribeAgentStatusRequest(BaseValidatorModel):
     InstanceId: str
     AgentStatusId: str
 
 
+# This class is the input for the 'describe_authentication_profile' function.
 class DescribeAuthenticationProfileRequest(BaseValidatorModel):
     AuthenticationProfileId: str
     InstanceId: str
 
 
+# This class is the input for the 'describe_contact_evaluation' function.
 class DescribeContactEvaluationRequest(BaseValidatorModel):
     InstanceId: str
     EvaluationId: str
 
 
+# This class is the input for the 'describe_contact_flow_module' function.
 class DescribeContactFlowModuleRequest(BaseValidatorModel):
     InstanceId: str
     ContactFlowModuleId: str
 
 
+# This class is the input for the 'describe_contact_flow' function.
 class DescribeContactFlowRequest(BaseValidatorModel):
     InstanceId: str
     ContactFlowId: str
 
 
+# This class is the input for the 'describe_contact' function.
 class DescribeContactRequest(BaseValidatorModel):
     InstanceId: str
     ContactId: str
 
 
+# This class is the input for the 'describe_email_address' function.
 class DescribeEmailAddressRequest(BaseValidatorModel):
     InstanceId: str
     EmailAddressId: str
 
 
+# This class is the input for the 'describe_evaluation_form' function.
 class DescribeEvaluationFormRequest(BaseValidatorModel):
     InstanceId: str
     EvaluationFormId: str
     EvaluationFormVersion: Optional[int] = None
 
 
+# This class is the input for the 'describe_hours_of_operation_override' function.
 class DescribeHoursOfOperationOverrideRequest(BaseValidatorModel):
     InstanceId: str
     HoursOfOperationId: str
     HoursOfOperationOverrideId: str
 
 
+# This class is the input for the 'describe_hours_of_operation' function.
 class DescribeHoursOfOperationRequest(BaseValidatorModel):
     InstanceId: str
     HoursOfOperationId: str
 
 
+# This class is the input for the 'describe_instance_attribute' function.
 class DescribeInstanceAttributeRequest(BaseValidatorModel):
     InstanceId: str
     AttributeType: InstanceAttributeTypeType
 
 
+# This class is the input for the 'describe_instance' function.
 class DescribeInstanceRequest(BaseValidatorModel):
     InstanceId: str
 
 
+# This class is the input for the 'describe_instance_storage_config' function.
 class DescribeInstanceStorageConfigRequest(BaseValidatorModel):
     InstanceId: str
     AssociationId: str
     ResourceType: InstanceStorageResourceTypeType
 
 
+# This class is the input for the 'describe_phone_number' function.
 class DescribePhoneNumberRequest(BaseValidatorModel):
     PhoneNumberId: str
 
 
+# This class is the input for the 'describe_predefined_attribute' function.
 class DescribePredefinedAttributeRequest(BaseValidatorModel):
     InstanceId: str
     Name: str
 
 
+# This class is the input for the 'describe_prompt' function.
 class DescribePromptRequest(BaseValidatorModel):
     InstanceId: str
     PromptId: str
@@ -951,26 +1010,31 @@ class Prompt(BaseValidatorModel):
     LastModifiedRegion: Optional[str] = None
 
 
+# This class is the input for the 'describe_queue' function.
 class DescribeQueueRequest(BaseValidatorModel):
     InstanceId: str
     QueueId: str
 
 
+# This class is the input for the 'describe_quick_connect' function.
 class DescribeQuickConnectRequest(BaseValidatorModel):
     InstanceId: str
     QuickConnectId: str
 
 
+# This class is the input for the 'describe_routing_profile' function.
 class DescribeRoutingProfileRequest(BaseValidatorModel):
     InstanceId: str
     RoutingProfileId: str
 
 
+# This class is the input for the 'describe_rule' function.
 class DescribeRuleRequest(BaseValidatorModel):
     InstanceId: str
     RuleId: str
 
 
+# This class is the input for the 'describe_security_profile' function.
 class DescribeSecurityProfileRequest(BaseValidatorModel):
     SecurityProfileId: str
     InstanceId: str
@@ -991,6 +1055,7 @@ class SecurityProfile(BaseValidatorModel):
     AllowedAccessControlHierarchyGroupId: Optional[str] = None
 
 
+# This class is the input for the 'describe_traffic_distribution_group' function.
 class DescribeTrafficDistributionGroupRequest(BaseValidatorModel):
     TrafficDistributionGroupId: str
 
@@ -1006,25 +1071,30 @@ class TrafficDistributionGroup(BaseValidatorModel):
     IsDefault: Optional[bool] = None
 
 
+# This class is the input for the 'describe_user_hierarchy_group' function.
 class DescribeUserHierarchyGroupRequest(BaseValidatorModel):
     HierarchyGroupId: str
     InstanceId: str
 
 
+# This class is the input for the 'describe_user_hierarchy_structure' function.
 class DescribeUserHierarchyStructureRequest(BaseValidatorModel):
     InstanceId: str
 
 
+# This class is the input for the 'describe_user' function.
 class DescribeUserRequest(BaseValidatorModel):
     UserId: str
     InstanceId: str
 
 
+# This class is the input for the 'describe_view' function.
 class DescribeViewRequest(BaseValidatorModel):
     InstanceId: str
     ViewId: str
 
 
+# This class is the input for the 'describe_vocabulary' function.
 class DescribeVocabularyRequest(BaseValidatorModel):
     InstanceId: str
     VocabularyId: str
@@ -1047,12 +1117,14 @@ class RoutingProfileReference(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
+# This class is the input for the 'disassociate_analytics_data_set' function.
 class DisassociateAnalyticsDataSetRequest(BaseValidatorModel):
     InstanceId: str
     DataSetId: str
     TargetAccountId: Optional[str] = None
 
 
+# This class is the input for the 'disassociate_approved_origin' function.
 class DisassociateApprovedOriginRequest(BaseValidatorModel):
     InstanceId: str
     Origin: str
@@ -1065,6 +1137,7 @@ class DisassociateFlowRequest(BaseValidatorModel):
     ResourceType: FlowAssociationResourceTypeType
 
 
+# This class is the input for the 'disassociate_instance_storage_config' function.
 class DisassociateInstanceStorageConfigRequest(BaseValidatorModel):
     InstanceId: str
     AssociationId: str
@@ -1072,12 +1145,14 @@ class DisassociateInstanceStorageConfigRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'disassociate_lambda_function' function.
 class DisassociateLambdaFunctionRequest(BaseValidatorModel):
     InstanceId: str
     FunctionArn: str
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'disassociate_lex_bot' function.
 class DisassociateLexBotRequest(BaseValidatorModel):
     InstanceId: str
     BotName: str
@@ -1085,11 +1160,13 @@ class DisassociateLexBotRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'disassociate_phone_number_contact_flow' function.
 class DisassociatePhoneNumberContactFlowRequest(BaseValidatorModel):
     PhoneNumberId: str
     InstanceId: str
 
 
+# This class is the input for the 'disassociate_queue_quick_connects' function.
 class DisassociateQueueQuickConnectsRequest(BaseValidatorModel):
     InstanceId: str
     QueueId: str
@@ -1101,6 +1178,7 @@ class RoutingProfileQueueReference(BaseValidatorModel):
     Channel: ChannelType
 
 
+# This class is the input for the 'disassociate_security_key' function.
 class DisassociateSecurityKeyRequest(BaseValidatorModel):
     InstanceId: str
     AssociationId: str
@@ -1283,6 +1361,7 @@ class Filters(BaseValidatorModel):
     RoutingStepExpressions: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_attached_file' function.
 class GetAttachedFileRequest(BaseValidatorModel):
     InstanceId: str
     FileId: str
@@ -1290,11 +1369,13 @@ class GetAttachedFileRequest(BaseValidatorModel):
     UrlExpiryInSeconds: Optional[int] = None
 
 
+# This class is the input for the 'get_contact_attributes' function.
 class GetContactAttributesRequest(BaseValidatorModel):
     InstanceId: str
     InitialContactId: str
 
 
+# This class is the input for the 'get_effective_hours_of_operations' function.
 class GetEffectiveHoursOfOperationsRequest(BaseValidatorModel):
     InstanceId: str
     HoursOfOperationId: str
@@ -1302,10 +1383,12 @@ class GetEffectiveHoursOfOperationsRequest(BaseValidatorModel):
     ToDate: str
 
 
+# This class is the input for the 'get_federation_token' function.
 class GetFederationTokenRequest(BaseValidatorModel):
     InstanceId: str
 
 
+# This class is the input for the 'get_flow_association' function.
 class GetFlowAssociationRequest(BaseValidatorModel):
     InstanceId: str
     ResourceId: str
@@ -1323,17 +1406,20 @@ class IntervalDetails(BaseValidatorModel):
     IntervalPeriod: Optional[IntervalPeriodType] = None
 
 
+# This class is the input for the 'get_prompt_file' function.
 class GetPromptFileRequest(BaseValidatorModel):
     InstanceId: str
     PromptId: str
 
 
+# This class is the input for the 'get_task_template' function.
 class GetTaskTemplateRequest(BaseValidatorModel):
     InstanceId: str
     TaskTemplateId: str
     SnapshotVersion: Optional[str] = None
 
 
+# This class is the input for the 'get_traffic_distribution' function.
 class GetTrafficDistributionRequest(BaseValidatorModel):
     Id: str
 
@@ -1386,6 +1472,7 @@ class HoursOfOperationSummary(BaseValidatorModel):
     LastModifiedRegion: Optional[str] = None
 
 
+# This class is the input for the 'import_phone_number' function.
 class ImportPhoneNumberRequest(BaseValidatorModel):
     InstanceId: str
     SourcePhoneNumberArn: str
@@ -1441,6 +1528,7 @@ class TaskTemplateFieldIdentifier(BaseValidatorModel):
     Name: Optional[str] = None
 
 
+# This class is the input for the 'list_agent_statuses' function.
 class ListAgentStatusRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
@@ -1448,6 +1536,7 @@ class ListAgentStatusRequest(BaseValidatorModel):
     AgentStatusTypes: Optional[List[AgentStatusTypeType]] = None
 
 
+# This class is the input for the 'list_analytics_data_associations' function.
 class ListAnalyticsDataAssociationsRequest(BaseValidatorModel):
     InstanceId: str
     DataSetId: Optional[str] = None
@@ -1455,18 +1544,21 @@ class ListAnalyticsDataAssociationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_analytics_data_lake_data_sets' function.
 class ListAnalyticsDataLakeDataSetsRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_approved_origins' function.
 class ListApprovedOriginsRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_associated_contacts' function.
 class ListAssociatedContactsRequest(BaseValidatorModel):
     InstanceId: str
     ContactId: str
@@ -1474,12 +1566,14 @@ class ListAssociatedContactsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_authentication_profiles' function.
 class ListAuthenticationProfilesRequest(BaseValidatorModel):
     InstanceId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_bots' function.
 class ListBotsRequest(BaseValidatorModel):
     InstanceId: str
     LexVersion: LexVersionType
@@ -1487,12 +1581,14 @@ class ListBotsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_contact_evaluations' function.
 class ListContactEvaluationsRequest(BaseValidatorModel):
     InstanceId: str
     ContactId: str
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_contact_flow_modules' function.
 class ListContactFlowModulesRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
@@ -1500,6 +1596,7 @@ class ListContactFlowModulesRequest(BaseValidatorModel):
     ContactFlowModuleState: Optional[ContactFlowModuleStateType] = None
 
 
+# This class is the input for the 'list_contact_flow_versions' function.
 class ListContactFlowVersionsRequest(BaseValidatorModel):
     InstanceId: str
     ContactFlowId: str
@@ -1507,6 +1604,7 @@ class ListContactFlowVersionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_contact_flows' function.
 class ListContactFlowsRequest(BaseValidatorModel):
     InstanceId: str
     ContactFlowTypes: Optional[List[ContactFlowTypeType]] = None
@@ -1514,6 +1612,7 @@ class ListContactFlowsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_contact_references' function.
 class ListContactReferencesRequest(BaseValidatorModel):
     InstanceId: str
     ContactId: str
@@ -1521,6 +1620,7 @@ class ListContactReferencesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_default_vocabularies' function.
 class ListDefaultVocabulariesRequest(BaseValidatorModel):
     InstanceId: str
     LanguageCode: Optional[VocabularyLanguageCodeType] = None
@@ -1528,6 +1628,7 @@ class ListDefaultVocabulariesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_evaluation_form_versions' function.
 class ListEvaluationFormVersionsRequest(BaseValidatorModel):
     InstanceId: str
     EvaluationFormId: str
@@ -1535,12 +1636,14 @@ class ListEvaluationFormVersionsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_evaluation_forms' function.
 class ListEvaluationFormsRequest(BaseValidatorModel):
     InstanceId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_flow_associations' function.
 class ListFlowAssociationsRequest(BaseValidatorModel):
     InstanceId: str
     ResourceType: Optional[ListFlowAssociationResourceTypeType] = None
@@ -1548,6 +1651,7 @@ class ListFlowAssociationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_hours_of_operation_overrides' function.
 class ListHoursOfOperationOverridesRequest(BaseValidatorModel):
     InstanceId: str
     HoursOfOperationId: str
@@ -1555,18 +1659,21 @@ class ListHoursOfOperationOverridesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_hours_of_operations' function.
 class ListHoursOfOperationsRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_instance_attributes' function.
 class ListInstanceAttributesRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_instance_storage_configs' function.
 class ListInstanceStorageConfigsRequest(BaseValidatorModel):
     InstanceId: str
     ResourceType: InstanceStorageResourceTypeType
@@ -1574,11 +1681,13 @@ class ListInstanceStorageConfigsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_instances' function.
 class ListInstancesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_integration_associations' function.
 class ListIntegrationAssociationsRequest(BaseValidatorModel):
     InstanceId: str
     IntegrationType: Optional[IntegrationTypeType] = None
@@ -1587,18 +1696,21 @@ class ListIntegrationAssociationsRequest(BaseValidatorModel):
     IntegrationArn: Optional[str] = None
 
 
+# This class is the input for the 'list_lambda_functions' function.
 class ListLambdaFunctionsRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_lex_bots' function.
 class ListLexBotsRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_phone_numbers' function.
 class ListPhoneNumbersRequest(BaseValidatorModel):
     InstanceId: str
     PhoneNumberTypes: Optional[List[PhoneNumberTypeType]] = None
@@ -1627,6 +1739,7 @@ class ListPhoneNumbersSummary(BaseValidatorModel):
     SourcePhoneNumberArn: Optional[str] = None
 
 
+# This class is the input for the 'list_phone_numbers_v2' function.
 class ListPhoneNumbersV2Request(BaseValidatorModel):
     TargetArn: Optional[str] = None
     InstanceId: Optional[str] = None
@@ -1637,6 +1750,7 @@ class ListPhoneNumbersV2Request(BaseValidatorModel):
     PhoneNumberPrefix: Optional[str] = None
 
 
+# This class is the input for the 'list_predefined_attributes' function.
 class ListPredefinedAttributesRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
@@ -1649,6 +1763,7 @@ class PredefinedAttributeSummary(BaseValidatorModel):
     LastModifiedRegion: Optional[str] = None
 
 
+# This class is the input for the 'list_prompts' function.
 class ListPromptsRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
@@ -1663,6 +1778,7 @@ class PromptSummary(BaseValidatorModel):
     LastModifiedRegion: Optional[str] = None
 
 
+# This class is the input for the 'list_queue_quick_connects' function.
 class ListQueueQuickConnectsRequest(BaseValidatorModel):
     InstanceId: str
     QueueId: str
@@ -1679,6 +1795,7 @@ class QuickConnectSummary(BaseValidatorModel):
     LastModifiedRegion: Optional[str] = None
 
 
+# This class is the input for the 'list_queues' function.
 class ListQueuesRequest(BaseValidatorModel):
     InstanceId: str
     QueueTypes: Optional[List[QueueTypeType]] = None
@@ -1695,6 +1812,7 @@ class QueueSummary(BaseValidatorModel):
     LastModifiedRegion: Optional[str] = None
 
 
+# This class is the input for the 'list_quick_connects' function.
 class ListQuickConnectsRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
@@ -1702,6 +1820,7 @@ class ListQuickConnectsRequest(BaseValidatorModel):
     QuickConnectTypes: Optional[List[QuickConnectTypeType]] = None
 
 
+# This class is the input for the 'list_realtime_contact_analysis_segments_v2' function.
 class ListRealtimeContactAnalysisSegmentsV2Request(BaseValidatorModel):
     InstanceId: str
     ContactId: str
@@ -1711,6 +1830,7 @@ class ListRealtimeContactAnalysisSegmentsV2Request(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_routing_profile_queues' function.
 class ListRoutingProfileQueuesRequest(BaseValidatorModel):
     InstanceId: str
     RoutingProfileId: str
@@ -1727,6 +1847,7 @@ class RoutingProfileQueueConfigSummary(BaseValidatorModel):
     Channel: ChannelType
 
 
+# This class is the input for the 'list_routing_profiles' function.
 class ListRoutingProfilesRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
@@ -1741,6 +1862,7 @@ class RoutingProfileSummary(BaseValidatorModel):
     LastModifiedRegion: Optional[str] = None
 
 
+# This class is the input for the 'list_rules' function.
 class ListRulesRequest(BaseValidatorModel):
     InstanceId: str
     PublishStatus: Optional[RulePublishStatusType] = None
@@ -1749,6 +1871,7 @@ class ListRulesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_security_keys' function.
 class ListSecurityKeysRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
@@ -1761,6 +1884,7 @@ class SecurityKey(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_security_profile_applications' function.
 class ListSecurityProfileApplicationsRequest(BaseValidatorModel):
     SecurityProfileId: str
     InstanceId: str
@@ -1768,6 +1892,7 @@ class ListSecurityProfileApplicationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_security_profile_permissions' function.
 class ListSecurityProfilePermissionsRequest(BaseValidatorModel):
     SecurityProfileId: str
     InstanceId: str
@@ -1775,6 +1900,7 @@ class ListSecurityProfilePermissionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_security_profiles' function.
 class ListSecurityProfilesRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
@@ -1789,10 +1915,12 @@ class SecurityProfileSummary(BaseValidatorModel):
     LastModifiedRegion: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'list_task_templates' function.
 class ListTaskTemplatesRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
@@ -1811,6 +1939,7 @@ class TaskTemplateMetadata(BaseValidatorModel):
     CreatedTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_traffic_distribution_group_users' function.
 class ListTrafficDistributionGroupUsersRequest(BaseValidatorModel):
     TrafficDistributionGroupId: str
     MaxResults: Optional[int] = None
@@ -1821,6 +1950,7 @@ class TrafficDistributionGroupUserSummary(BaseValidatorModel):
     UserId: Optional[str] = None
 
 
+# This class is the input for the 'list_traffic_distribution_groups' function.
 class ListTrafficDistributionGroupsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -1836,6 +1966,7 @@ class TrafficDistributionGroupSummary(BaseValidatorModel):
     IsDefault: Optional[bool] = None
 
 
+# This class is the input for the 'list_use_cases' function.
 class ListUseCasesRequest(BaseValidatorModel):
     InstanceId: str
     IntegrationAssociationId: str
@@ -1849,12 +1980,14 @@ class UseCase(BaseValidatorModel):
     UseCaseType: Optional[UseCaseTypeType] = None
 
 
+# This class is the input for the 'list_user_hierarchy_groups' function.
 class ListUserHierarchyGroupsRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_user_proficiencies' function.
 class ListUserProficienciesRequest(BaseValidatorModel):
     InstanceId: str
     UserId: str
@@ -1862,6 +1995,7 @@ class ListUserProficienciesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_users' function.
 class ListUsersRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
@@ -1876,6 +2010,7 @@ class UserSummary(BaseValidatorModel):
     LastModifiedRegion: Optional[str] = None
 
 
+# This class is the input for the 'list_view_versions' function.
 class ListViewVersionsRequest(BaseValidatorModel):
     InstanceId: str
     ViewId: str
@@ -1893,6 +2028,7 @@ class ViewVersionSummary(BaseValidatorModel):
     VersionDescription: Optional[str] = None
 
 
+# This class is the input for the 'list_views' function.
 class ListViewsRequest(BaseValidatorModel):
     InstanceId: str
     Type: Optional[ViewTypeType] = None
@@ -1940,6 +2076,7 @@ class ThresholdV2(BaseValidatorModel):
     ThresholdValue: Optional[float] = None
 
 
+# This class is the input for the 'monitor_contact' function.
 class MonitorContactRequest(BaseValidatorModel):
     InstanceId: str
     ContactId: str
@@ -2053,11 +2190,13 @@ class UrlReference(BaseValidatorModel):
     Value: Optional[str] = None
 
 
+# This class is the input for the 'release_phone_number' function.
 class ReleasePhoneNumberRequest(BaseValidatorModel):
     PhoneNumberId: str
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'replicate_instance' function.
 class ReplicateInstanceRequest(BaseValidatorModel):
     InstanceId: str
     ReplicaRegion: str
@@ -2099,6 +2238,7 @@ class SubmitAutoEvaluationActionDefinition(BaseValidatorModel):
     EvaluationFormId: str
 
 
+# This class is the input for the 'search_available_phone_numbers' function.
 class SearchAvailablePhoneNumbersRequest(BaseValidatorModel):
     PhoneNumberCountryCode: PhoneNumberCountryCodeType
     PhoneNumberType: PhoneNumberTypeType
@@ -2128,6 +2268,7 @@ class SecurityProfileSearchSummary(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'search_vocabularies' function.
 class SearchVocabulariesRequest(BaseValidatorModel):
     InstanceId: str
     MaxResults: Optional[int] = None
@@ -2179,6 +2320,7 @@ class UploadUrlMetadata(BaseValidatorModel):
     HeadersToInclude: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'start_contact_evaluation' function.
 class StartContactEvaluationRequest(BaseValidatorModel):
     InstanceId: str
     ContactId: str
@@ -2223,6 +2365,7 @@ class TagContactRequest(BaseValidatorModel):
     Tags: Dict[str, str]
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Dict[str, str]
@@ -2239,6 +2382,7 @@ class TranscriptCriteria(BaseValidatorModel):
     MatchType: SearchContactsMatchTypeType
 
 
+# This class is the input for the 'transfer_contact' function.
 class TransferContactRequest(BaseValidatorModel):
     InstanceId: str
     ContactId: str
@@ -2254,11 +2398,13 @@ class UntagContactRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_agent_status' function.
 class UpdateAgentStatusRequest(BaseValidatorModel):
     InstanceId: str
     AgentStatusId: str
@@ -2269,6 +2415,7 @@ class UpdateAgentStatusRequest(BaseValidatorModel):
     ResetOrderNumber: Optional[bool] = None
 
 
+# This class is the input for the 'update_authentication_profile' function.
 class UpdateAuthenticationProfileRequest(BaseValidatorModel):
     AuthenticationProfileId: str
     InstanceId: str
@@ -2320,6 +2467,7 @@ class UpdateContactFlowNameRequest(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'update_email_address_metadata' function.
 class UpdateEmailAddressMetadataRequest(BaseValidatorModel):
     InstanceId: str
     EmailAddressId: str
@@ -2328,6 +2476,7 @@ class UpdateEmailAddressMetadataRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'update_instance_attribute' function.
 class UpdateInstanceAttributeRequest(BaseValidatorModel):
     InstanceId: str
     AttributeType: InstanceAttributeTypeType
@@ -2343,12 +2492,14 @@ class UpdateParticipantAuthenticationRequest(BaseValidatorModel):
     ErrorDescription: Optional[str] = None
 
 
+# This class is the input for the 'update_phone_number_metadata' function.
 class UpdatePhoneNumberMetadataRequest(BaseValidatorModel):
     PhoneNumberId: str
     PhoneNumberDescription: Optional[str] = None
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'update_phone_number' function.
 class UpdatePhoneNumberRequest(BaseValidatorModel):
     PhoneNumberId: str
     TargetArn: Optional[str] = None
@@ -2356,6 +2507,7 @@ class UpdatePhoneNumberRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'update_prompt' function.
 class UpdatePromptRequest(BaseValidatorModel):
     InstanceId: str
     PromptId: str
@@ -2364,18 +2516,21 @@ class UpdatePromptRequest(BaseValidatorModel):
     S3Uri: Optional[str] = None
 
 
+# This class is the input for the 'update_queue_hours_of_operation' function.
 class UpdateQueueHoursOfOperationRequest(BaseValidatorModel):
     InstanceId: str
     QueueId: str
     HoursOfOperationId: str
 
 
+# This class is the input for the 'update_queue_max_contacts' function.
 class UpdateQueueMaxContactsRequest(BaseValidatorModel):
     InstanceId: str
     QueueId: str
     MaxContacts: Optional[int] = None
 
 
+# This class is the input for the 'update_queue_name' function.
 class UpdateQueueNameRequest(BaseValidatorModel):
     InstanceId: str
     QueueId: str
@@ -2383,12 +2538,14 @@ class UpdateQueueNameRequest(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'update_queue_status' function.
 class UpdateQueueStatusRequest(BaseValidatorModel):
     InstanceId: str
     QueueId: str
     Status: QueueStatusType
 
 
+# This class is the input for the 'update_quick_connect_name' function.
 class UpdateQuickConnectNameRequest(BaseValidatorModel):
     InstanceId: str
     QuickConnectId: str
@@ -2396,18 +2553,21 @@ class UpdateQuickConnectNameRequest(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'update_routing_profile_agent_availability_timer' function.
 class UpdateRoutingProfileAgentAvailabilityTimerRequest(BaseValidatorModel):
     InstanceId: str
     RoutingProfileId: str
     AgentAvailabilityTimer: AgentAvailabilityTimerType
 
 
+# This class is the input for the 'update_routing_profile_default_outbound_queue' function.
 class UpdateRoutingProfileDefaultOutboundQueueRequest(BaseValidatorModel):
     InstanceId: str
     RoutingProfileId: str
     DefaultOutboundQueueId: str
 
 
+# This class is the input for the 'update_routing_profile_name' function.
 class UpdateRoutingProfileNameRequest(BaseValidatorModel):
     InstanceId: str
     RoutingProfileId: str
@@ -2415,24 +2575,28 @@ class UpdateRoutingProfileNameRequest(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'update_user_hierarchy_group_name' function.
 class UpdateUserHierarchyGroupNameRequest(BaseValidatorModel):
     Name: str
     HierarchyGroupId: str
     InstanceId: str
 
 
+# This class is the input for the 'update_user_hierarchy' function.
 class UpdateUserHierarchyRequest(BaseValidatorModel):
     UserId: str
     InstanceId: str
     HierarchyGroupId: Optional[str] = None
 
 
+# This class is the input for the 'update_user_routing_profile' function.
 class UpdateUserRoutingProfileRequest(BaseValidatorModel):
     RoutingProfileId: str
     UserId: str
     InstanceId: str
 
 
+# This class is the input for the 'update_user_security_profiles' function.
 class UpdateUserSecurityProfilesRequest(BaseValidatorModel):
     SecurityProfileIds: List[str]
     UserId: str
@@ -2473,6 +2637,7 @@ class RuleSummary(BaseValidatorModel):
     LastUpdatedTime: datetime
 
 
+# This class is the output for the 'activate_evaluation_form' function.
 class ActivateEvaluationFormResponse(BaseValidatorModel):
     EvaluationFormId: str
     EvaluationFormArn: str
@@ -2480,6 +2645,7 @@ class ActivateEvaluationFormResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_analytics_data_set' function.
 class AssociateAnalyticsDataSetResponse(BaseValidatorModel):
     DataSetId: str
     TargetAccountId: str
@@ -2488,34 +2654,40 @@ class AssociateAnalyticsDataSetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_instance_storage_config' function.
 class AssociateInstanceStorageConfigResponse(BaseValidatorModel):
     AssociationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_security_key' function.
 class AssociateSecurityKeyResponse(BaseValidatorModel):
     AssociationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'claim_phone_number' function.
 class ClaimPhoneNumberResponse(BaseValidatorModel):
     PhoneNumberId: str
     PhoneNumberArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_agent_status' function.
 class CreateAgentStatusResponse(BaseValidatorModel):
     AgentStatusARN: str
     AgentStatusId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_contact_flow_module' function.
 class CreateContactFlowModuleResponse(BaseValidatorModel):
     Id: str
     Arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_contact_flow' function.
 class CreateContactFlowResponse(BaseValidatorModel):
     ContactFlowId: str
     ContactFlowArn: str
@@ -2523,129 +2695,151 @@ class CreateContactFlowResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_contact_flow_version' function.
 class CreateContactFlowVersionResponse(BaseValidatorModel):
     ContactFlowArn: str
     Version: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_contact' function.
 class CreateContactResponse(BaseValidatorModel):
     ContactId: str
     ContactArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_email_address' function.
 class CreateEmailAddressResponse(BaseValidatorModel):
     EmailAddressId: str
     EmailAddressArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_evaluation_form' function.
 class CreateEvaluationFormResponse(BaseValidatorModel):
     EvaluationFormId: str
     EvaluationFormArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_hours_of_operation_override' function.
 class CreateHoursOfOperationOverrideResponse(BaseValidatorModel):
     HoursOfOperationOverrideId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_hours_of_operation' function.
 class CreateHoursOfOperationResponse(BaseValidatorModel):
     HoursOfOperationId: str
     HoursOfOperationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_instance' function.
 class CreateInstanceResponse(BaseValidatorModel):
     Id: str
     Arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_integration_association' function.
 class CreateIntegrationAssociationResponse(BaseValidatorModel):
     IntegrationAssociationId: str
     IntegrationAssociationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_persistent_contact_association' function.
 class CreatePersistentContactAssociationResponse(BaseValidatorModel):
     ContinuedFromContactId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_prompt' function.
 class CreatePromptResponse(BaseValidatorModel):
     PromptARN: str
     PromptId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_push_notification_registration' function.
 class CreatePushNotificationRegistrationResponse(BaseValidatorModel):
     RegistrationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_queue' function.
 class CreateQueueResponse(BaseValidatorModel):
     QueueArn: str
     QueueId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_quick_connect' function.
 class CreateQuickConnectResponse(BaseValidatorModel):
     QuickConnectARN: str
     QuickConnectId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_routing_profile' function.
 class CreateRoutingProfileResponse(BaseValidatorModel):
     RoutingProfileArn: str
     RoutingProfileId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_rule' function.
 class CreateRuleResponse(BaseValidatorModel):
     RuleArn: str
     RuleId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_security_profile' function.
 class CreateSecurityProfileResponse(BaseValidatorModel):
     SecurityProfileId: str
     SecurityProfileArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_task_template' function.
 class CreateTaskTemplateResponse(BaseValidatorModel):
     Id: str
     Arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_traffic_distribution_group' function.
 class CreateTrafficDistributionGroupResponse(BaseValidatorModel):
     Id: str
     Arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_use_case' function.
 class CreateUseCaseResponse(BaseValidatorModel):
     UseCaseId: str
     UseCaseArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_user_hierarchy_group' function.
 class CreateUserHierarchyGroupResponse(BaseValidatorModel):
     HierarchyGroupId: str
     HierarchyGroupArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_user' function.
 class CreateUserResponse(BaseValidatorModel):
     UserId: str
     UserArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_vocabulary' function.
 class CreateVocabularyResponse(BaseValidatorModel):
     VocabularyArn: str
     VocabularyId: str
@@ -2653,6 +2847,7 @@ class CreateVocabularyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'deactivate_evaluation_form' function.
 class DeactivateEvaluationFormResponse(BaseValidatorModel):
     EvaluationFormId: str
     EvaluationFormArn: str
@@ -2660,6 +2855,7 @@ class DeactivateEvaluationFormResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_vocabulary' function.
 class DeleteVocabularyResponse(BaseValidatorModel):
     VocabularyArn: str
     VocabularyId: str
@@ -2667,6 +2863,7 @@ class DeleteVocabularyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_email_address' function.
 class DescribeEmailAddressResponse(BaseValidatorModel):
     EmailAddressId: str
     EmailAddressArn: str
@@ -2679,15 +2876,18 @@ class DescribeEmailAddressResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_user_security_profiles' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_contact_attributes' function.
 class GetContactAttributesResponse(BaseValidatorModel):
     Attributes: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_flow_association' function.
 class GetFlowAssociationResponse(BaseValidatorModel):
     ResourceId: str
     FlowId: str
@@ -2695,6 +2895,7 @@ class GetFlowAssociationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_prompt_file' function.
 class GetPromptFileResponse(BaseValidatorModel):
     PromptPresignedUrl: str
     LastModifiedTime: datetime
@@ -2702,24 +2903,28 @@ class GetPromptFileResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_phone_number' function.
 class ImportPhoneNumberResponse(BaseValidatorModel):
     PhoneNumberId: str
     PhoneNumberArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_approved_origins' function.
 class ListApprovedOriginsResponse(BaseValidatorModel):
     Origins: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_lambda_functions' function.
 class ListLambdaFunctionsResponse(BaseValidatorModel):
     LambdaFunctions: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_security_profile_permissions' function.
 class ListSecurityProfilePermissionsResponse(BaseValidatorModel):
     Permissions: List[str]
     LastModifiedTime: datetime
@@ -2728,29 +2933,34 @@ class ListSecurityProfilePermissionsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'monitor_contact' function.
 class MonitorContactResponse(BaseValidatorModel):
     ContactId: str
     ContactArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'replicate_instance' function.
 class ReplicateInstanceResponse(BaseValidatorModel):
     Id: str
     Arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'send_chat_integration_event' function.
 class SendChatIntegrationEventResponse(BaseValidatorModel):
     InitialContactId: str
     NewChatCreated: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_chat_contact' function.
 class StartChatContactResponse(BaseValidatorModel):
     ContactId: str
     ParticipantId: str
@@ -2759,66 +2969,78 @@ class StartChatContactResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_contact_evaluation' function.
 class StartContactEvaluationResponse(BaseValidatorModel):
     EvaluationId: str
     EvaluationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_contact_streaming' function.
 class StartContactStreamingResponse(BaseValidatorModel):
     StreamingId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_email_contact' function.
 class StartEmailContactResponse(BaseValidatorModel):
     ContactId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_outbound_chat_contact' function.
 class StartOutboundChatContactResponse(BaseValidatorModel):
     ContactId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_outbound_email_contact' function.
 class StartOutboundEmailContactResponse(BaseValidatorModel):
     ContactId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_outbound_voice_contact' function.
 class StartOutboundVoiceContactResponse(BaseValidatorModel):
     ContactId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_task_contact' function.
 class StartTaskContactResponse(BaseValidatorModel):
     ContactId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'submit_contact_evaluation' function.
 class SubmitContactEvaluationResponse(BaseValidatorModel):
     EvaluationId: str
     EvaluationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'transfer_contact' function.
 class TransferContactResponse(BaseValidatorModel):
     ContactId: str
     ContactArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_contact_evaluation' function.
 class UpdateContactEvaluationResponse(BaseValidatorModel):
     EvaluationId: str
     EvaluationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_email_address_metadata' function.
 class UpdateEmailAddressMetadataResponse(BaseValidatorModel):
     EmailAddressId: str
     EmailAddressArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_evaluation_form' function.
 class UpdateEvaluationFormResponse(BaseValidatorModel):
     EvaluationFormId: str
     EvaluationFormArn: str
@@ -2826,12 +3048,14 @@ class UpdateEvaluationFormResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_phone_number' function.
 class UpdatePhoneNumberResponse(BaseValidatorModel):
     PhoneNumberId: str
     PhoneNumberArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_prompt' function.
 class UpdatePromptResponse(BaseValidatorModel):
     PromptARN: str
     PromptId: str
@@ -3045,17 +3269,20 @@ class UserHierarchyGroupSearchCriteria(BaseValidatorModel):
     StringCondition: Optional[StringCondition] = None
 
 
+# This class is the output for the 'list_agent_statuses' function.
 class ListAgentStatusResponse(BaseValidatorModel):
     AgentStatusSummaryList: List[AgentStatusSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_agent_status' function.
 class DescribeAgentStatusResponse(BaseValidatorModel):
     AgentStatus: AgentStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_agent_statuses' function.
 class SearchAgentStatusesResponse(BaseValidatorModel):
     AgentStatuses: List[AgentStatus]
     ApproximateTotalCount: int
@@ -3069,18 +3296,21 @@ class MatchCriteriaOutput(BaseValidatorModel):
 AgentsCriteriaUnion = Union[AgentsCriteria, AgentsCriteriaOutput]
 
 
+# This class is the output for the 'list_analytics_data_associations' function.
 class ListAnalyticsDataAssociationsResponse(BaseValidatorModel):
     Results: List[AnalyticsDataAssociationResult]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_analytics_data_lake_data_sets' function.
 class ListAnalyticsDataLakeDataSetsResponse(BaseValidatorModel):
     Results: List[AnalyticsDataSetsResult]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_security_profile_applications' function.
 class ListSecurityProfileApplicationsResponse(BaseValidatorModel):
     Applications: List[ApplicationOutput]
     LastModifiedTime: datetime
@@ -3091,18 +3321,21 @@ class ListSecurityProfileApplicationsResponse(BaseValidatorModel):
 ApplicationUnion = Union[Application, ApplicationOutput]
 
 
+# This class is the input for the 'associate_lex_bot' function.
 class AssociateLexBotRequest(BaseValidatorModel):
     InstanceId: str
     LexBot: LexBot
     ClientToken: Optional[str] = None
 
 
+# This class is the output for the 'list_lex_bots' function.
 class ListLexBotsResponse(BaseValidatorModel):
     LexBots: List[LexBot]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'associate_bot' function.
 class AssociateBotRequest(BaseValidatorModel):
     InstanceId: str
     LexBot: Optional[LexBot] = None
@@ -3110,6 +3343,7 @@ class AssociateBotRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'disassociate_bot' function.
 class DisassociateBotRequest(BaseValidatorModel):
     InstanceId: str
     LexBot: Optional[LexBot] = None
@@ -3122,12 +3356,14 @@ class LexBotConfig(BaseValidatorModel):
     LexV2Bot: Optional[LexV2Bot] = None
 
 
+# This class is the input for the 'associate_user_proficiencies' function.
 class AssociateUserProficienciesRequest(BaseValidatorModel):
     InstanceId: str
     UserId: str
     UserProficiencies: List[UserProficiency]
 
 
+# This class is the output for the 'list_user_proficiencies' function.
 class ListUserProficienciesResponse(BaseValidatorModel):
     UserProficiencyList: List[UserProficiency]
     LastModifiedTime: datetime
@@ -3136,12 +3372,14 @@ class ListUserProficienciesResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'update_user_proficiencies' function.
 class UpdateUserProficienciesRequest(BaseValidatorModel):
     InstanceId: str
     UserId: str
     UserProficiencies: List[UserProficiency]
 
 
+# This class is the output for the 'list_associated_contacts' function.
 class ListAssociatedContactsResponse(BaseValidatorModel):
     ContactSummaryList: List[AssociatedContactSummary]
     ResponseMetadata: ResponseMetadata
@@ -3161,6 +3399,7 @@ class AttachedFile(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'start_attached_file_upload' function.
 class StartAttachedFileUploadRequest(BaseValidatorModel):
     InstanceId: str
     FileName: str
@@ -3188,11 +3427,13 @@ class ControlPlaneTagFilter(BaseValidatorModel):
     TagCondition: Optional[TagCondition] = None
 
 
+# This class is the output for the 'describe_instance_attribute' function.
 class DescribeInstanceAttributeResponse(BaseValidatorModel):
     Attribute: Attribute
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_instance_attributes' function.
 class ListInstanceAttributesResponse(BaseValidatorModel):
     Attributes: List[Attribute]
     ResponseMetadata: ResponseMetadata
@@ -3203,52 +3444,61 @@ class MeetingFeaturesConfiguration(BaseValidatorModel):
     Audio: Optional[AudioFeatures] = None
 
 
+# This class is the output for the 'list_authentication_profiles' function.
 class ListAuthenticationProfilesResponse(BaseValidatorModel):
     AuthenticationProfileSummaryList: List[AuthenticationProfileSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_authentication_profile' function.
 class DescribeAuthenticationProfileResponse(BaseValidatorModel):
     AuthenticationProfile: AuthenticationProfile
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_available_phone_numbers' function.
 class SearchAvailablePhoneNumbersResponse(BaseValidatorModel):
     AvailableNumbersList: List[AvailableNumberSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'batch_associate_analytics_data_set' function.
 class BatchAssociateAnalyticsDataSetResponse(BaseValidatorModel):
     Created: List[AnalyticsDataAssociationResult]
     Errors: List[ErrorResult]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_disassociate_analytics_data_set' function.
 class BatchDisassociateAnalyticsDataSetResponse(BaseValidatorModel):
     Deleted: List[str]
     Errors: List[ErrorResult]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_get_flow_association' function.
 class BatchGetFlowAssociationResponse(BaseValidatorModel):
     FlowAssociationSummaryList: List[FlowAssociationSummary]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_flow_associations' function.
 class ListFlowAssociationsResponse(BaseValidatorModel):
     FlowAssociationSummaryList: List[FlowAssociationSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'batch_put_contact' function.
 class BatchPutContactResponse(BaseValidatorModel):
     SuccessfulRequestList: List[SuccessfulRequest]
     FailedRequestList: List[FailedRequest]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_contact_streaming' function.
 class StartContactStreamingRequest(BaseValidatorModel):
     InstanceId: str
     ContactId: str
@@ -3275,6 +3525,7 @@ class Condition(BaseValidatorModel):
     NumberCondition: Optional[NumberCondition] = None
 
 
+# This class is the input for the 'create_push_notification_registration' function.
 class CreatePushNotificationRegistrationRequest(BaseValidatorModel):
     InstanceId: str
     PinpointAppArn: str
@@ -3301,17 +3552,20 @@ class UserDataFilters(BaseValidatorModel):
     UserHierarchyGroups: Optional[List[str]] = None
 
 
+# This class is the output for the 'list_contact_flow_modules' function.
 class ListContactFlowModulesResponse(BaseValidatorModel):
     ContactFlowModulesSummaryList: List[ContactFlowModuleSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_contact_flow_module' function.
 class DescribeContactFlowModuleResponse(BaseValidatorModel):
     ContactFlowModule: ContactFlowModule
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_contact_flow_modules' function.
 class SearchContactFlowModulesResponse(BaseValidatorModel):
     ContactFlowModules: List[ContactFlowModule]
     ApproximateTotalCount: int
@@ -3319,17 +3573,20 @@ class SearchContactFlowModulesResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_contact_flows' function.
 class ListContactFlowsResponse(BaseValidatorModel):
     ContactFlowSummaryList: List[ContactFlowSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_contact_flow' function.
 class DescribeContactFlowResponse(BaseValidatorModel):
     ContactFlow: ContactFlow
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_contact_flows' function.
 class SearchContactFlowsResponse(BaseValidatorModel):
     ContactFlows: List[ContactFlow]
     ApproximateTotalCount: int
@@ -3337,6 +3594,7 @@ class SearchContactFlowsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_contact_flow_versions' function.
 class ListContactFlowVersionsResponse(BaseValidatorModel):
     ContactFlowVersionSummaryList: List[ContactFlowVersionSummary]
     ResponseMetadata: ResponseMetadata
@@ -3358,6 +3616,7 @@ class ContactSearchSummary(BaseValidatorModel):
     SegmentAttributes: Optional[Dict[str, ContactSearchSummarySegmentAttributeValue]] = None
 
 
+# This class is the input for the 'create_contact_flow_version' function.
 class CreateContactFlowVersionRequest(BaseValidatorModel):
     InstanceId: str
     ContactFlowId: str
@@ -3380,6 +3639,7 @@ class UpdateContactScheduleRequest(BaseValidatorModel):
     ScheduledTime: Timestamp
 
 
+# This class is the input for the 'start_outbound_voice_contact' function.
 class StartOutboundVoiceContactRequest(BaseValidatorModel):
     DestinationPhoneNumber: str
     ContactFlowId: str
@@ -3411,6 +3671,7 @@ class TaskActionDefinition(BaseValidatorModel):
     References: Optional[Dict[str, Reference]] = None
 
 
+# This class is the input for the 'create_participant' function.
 class CreateParticipantRequest(BaseValidatorModel):
     InstanceId: str
     ContactId: str
@@ -3418,18 +3679,21 @@ class CreateParticipantRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the output for the 'create_participant' function.
 class CreateParticipantResponse(BaseValidatorModel):
     ParticipantCredentials: ParticipantTokenCredentials
     ParticipantId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_queue_outbound_caller_config' function.
 class UpdateQueueOutboundCallerConfigRequest(BaseValidatorModel):
     InstanceId: str
     QueueId: str
     OutboundCallerConfig: OutboundCallerConfig
 
 
+# This class is the input for the 'create_queue' function.
 class CreateQueueRequest(BaseValidatorModel):
     InstanceId: str
     Name: str
@@ -3457,18 +3721,21 @@ class Queue(BaseValidatorModel):
     LastModifiedRegion: Optional[str] = None
 
 
+# This class is the input for the 'update_queue_outbound_email_config' function.
 class UpdateQueueOutboundEmailConfigRequest(BaseValidatorModel):
     InstanceId: str
     QueueId: str
     OutboundEmailConfig: OutboundEmailConfig
 
 
+# This class is the input for the 'update_user_identity_info' function.
 class UpdateUserIdentityInfoRequest(BaseValidatorModel):
     IdentityInfo: UserIdentityInfo
     UserId: str
     InstanceId: str
 
 
+# This class is the input for the 'create_user' function.
 class CreateUserRequest(BaseValidatorModel):
     Username: str
     PhoneConfig: UserPhoneConfig
@@ -3482,6 +3749,7 @@ class CreateUserRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_user_phone_config' function.
 class UpdateUserPhoneConfigRequest(BaseValidatorModel):
     PhoneConfig: UserPhoneConfig
     UserId: str
@@ -3503,6 +3771,7 @@ class User(BaseValidatorModel):
     LastModifiedRegion: Optional[str] = None
 
 
+# This class is the input for the 'create_view' function.
 class CreateViewRequest(BaseValidatorModel):
     InstanceId: str
     Status: ViewStatusType
@@ -3513,6 +3782,7 @@ class CreateViewRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_view_content' function.
 class UpdateViewContentRequest(BaseValidatorModel):
     InstanceId: str
     ViewId: str
@@ -3520,6 +3790,7 @@ class UpdateViewContentRequest(BaseValidatorModel):
     Content: ViewInputContent
 
 
+# This class is the output for the 'get_federation_token' function.
 class GetFederationTokenResponse(BaseValidatorModel):
     Credentials: Credentials
     SignInUrl: str
@@ -3553,17 +3824,20 @@ class HoursOfOperationOverrideSearchCriteria(BaseValidatorModel):
     DateCondition: Optional[DateCondition] = None
 
 
+# This class is the output for the 'list_default_vocabularies' function.
 class ListDefaultVocabulariesResponse(BaseValidatorModel):
     DefaultVocabularyList: List[DefaultVocabulary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_prompt' function.
 class DescribePromptResponse(BaseValidatorModel):
     Prompt: Prompt
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_prompts' function.
 class SearchPromptsResponse(BaseValidatorModel):
     Prompts: List[Prompt]
     ApproximateTotalCount: int
@@ -3571,16 +3845,19 @@ class SearchPromptsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_security_profile' function.
 class DescribeSecurityProfileResponse(BaseValidatorModel):
     SecurityProfile: SecurityProfile
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_traffic_distribution_group' function.
 class DescribeTrafficDistributionGroupResponse(BaseValidatorModel):
     TrafficDistributionGroup: TrafficDistributionGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_vocabulary' function.
 class DescribeVocabularyResponse(BaseValidatorModel):
     Vocabulary: Vocabulary
     ResponseMetadata: ResponseMetadata
@@ -3593,6 +3870,7 @@ class Dimensions(BaseValidatorModel):
     RoutingStepExpression: Optional[str] = None
 
 
+# This class is the input for the 'disassociate_routing_profile_queues' function.
 class DisassociateRoutingProfileQueuesRequest(BaseValidatorModel):
     InstanceId: str
     RoutingProfileId: str
@@ -3605,6 +3883,7 @@ class RoutingProfileQueueConfig(BaseValidatorModel):
     Delay: int
 
 
+# This class is the input for the 'disassociate_user_proficiencies' function.
 class DisassociateUserProficienciesRequest(BaseValidatorModel):
     InstanceId: str
     UserId: str
@@ -3617,6 +3896,7 @@ class StopContactRequest(BaseValidatorModel):
     DisconnectReason: Optional[DisconnectReason] = None
 
 
+# This class is the output for the 'get_attached_file' function.
 class GetAttachedFileResponse(BaseValidatorModel):
     FileArn: str
     FileId: str
@@ -3641,6 +3921,7 @@ class OutboundAdditionalRecipients(BaseValidatorModel):
     CcEmailAddresses: Optional[List[EmailAddressInfo]] = None
 
 
+# This class is the output for the 'search_email_addresses' function.
 class SearchEmailAddressesResponse(BaseValidatorModel):
     EmailAddresses: List[EmailAddressMetadata]
     ApproximateTotalCount: int
@@ -3679,12 +3960,14 @@ class EvaluationFormSingleSelectQuestionAutomationOption(BaseValidatorModel):
     RuleCategory: Optional[SingleSelectQuestionRuleCategoryAutomation] = None
 
 
+# This class is the output for the 'list_evaluation_forms' function.
 class ListEvaluationFormsResponse(BaseValidatorModel):
     EvaluationFormSummaryList: List[EvaluationFormSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_evaluation_form_versions' function.
 class ListEvaluationFormVersionsResponse(BaseValidatorModel):
     EvaluationFormVersionSummaryList: List[EvaluationFormVersionSummary]
     ResponseMetadata: ResponseMetadata
@@ -3717,6 +4000,7 @@ class FieldValueOutput(BaseValidatorModel):
 FieldValueUnionUnion = Union[FieldValueUnion, FieldValueUnionOutput]
 
 
+# This class is the input for the 'get_current_metric_data' function.
 class GetCurrentMetricDataRequest(BaseValidatorModel):
     InstanceId: str
     Filters: Filters
@@ -4014,6 +4298,7 @@ class HierarchyPath(BaseValidatorModel):
     LevelFive: Optional[HierarchyGroupSummary] = None
 
 
+# This class is the output for the 'list_user_hierarchy_groups' function.
 class ListUserHierarchyGroupsResponse(BaseValidatorModel):
     UserHierarchyGroupSummaryList: List[HierarchyGroupSummary]
     ResponseMetadata: ResponseMetadata
@@ -4060,6 +4345,7 @@ class OperationalHour(BaseValidatorModel):
     End: Optional[OverrideTimeSlice] = None
 
 
+# This class is the output for the 'list_hours_of_operations' function.
 class ListHoursOfOperationsResponse(BaseValidatorModel):
     HoursOfOperationSummaryList: List[HoursOfOperationSummary]
     ResponseMetadata: ResponseMetadata
@@ -4086,12 +4372,14 @@ class Instance(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'list_instances' function.
 class ListInstancesResponse(BaseValidatorModel):
     InstanceSummaryList: List[InstanceSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_integration_associations' function.
 class ListIntegrationAssociationsResponse(BaseValidatorModel):
     IntegrationAssociationSummaryList: List[IntegrationAssociationSummary]
     ResponseMetadata: ResponseMetadata
@@ -4129,30 +4417,35 @@ class TaskTemplateField(BaseValidatorModel):
     SingleSelectOptions: Optional[List[str]] = None
 
 
+# This class is the output for the 'list_phone_numbers' function.
 class ListPhoneNumbersResponse(BaseValidatorModel):
     PhoneNumberSummaryList: List[PhoneNumberSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_phone_numbers_v2' function.
 class ListPhoneNumbersV2Response(BaseValidatorModel):
     ListPhoneNumbersSummaryList: List[ListPhoneNumbersSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_predefined_attributes' function.
 class ListPredefinedAttributesResponse(BaseValidatorModel):
     PredefinedAttributeSummaryList: List[PredefinedAttributeSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_prompts' function.
 class ListPromptsResponse(BaseValidatorModel):
     PromptSummaryList: List[PromptSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_queue_quick_connects' function.
 class ListQueueQuickConnectsResponse(BaseValidatorModel):
     QuickConnectSummaryList: List[QuickConnectSummary]
     LastModifiedTime: datetime
@@ -4161,18 +4454,21 @@ class ListQueueQuickConnectsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_quick_connects' function.
 class ListQuickConnectsResponse(BaseValidatorModel):
     QuickConnectSummaryList: List[QuickConnectSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_queues' function.
 class ListQueuesResponse(BaseValidatorModel):
     QueueSummaryList: List[QueueSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_routing_profile_queues' function.
 class ListRoutingProfileQueuesResponse(BaseValidatorModel):
     RoutingProfileQueueConfigSummaryList: List[RoutingProfileQueueConfigSummary]
     LastModifiedTime: datetime
@@ -4181,60 +4477,70 @@ class ListRoutingProfileQueuesResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_routing_profiles' function.
 class ListRoutingProfilesResponse(BaseValidatorModel):
     RoutingProfileSummaryList: List[RoutingProfileSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_security_keys' function.
 class ListSecurityKeysResponse(BaseValidatorModel):
     SecurityKeys: List[SecurityKey]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_security_profiles' function.
 class ListSecurityProfilesResponse(BaseValidatorModel):
     SecurityProfileSummaryList: List[SecurityProfileSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_task_templates' function.
 class ListTaskTemplatesResponse(BaseValidatorModel):
     TaskTemplates: List[TaskTemplateMetadata]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_traffic_distribution_group_users' function.
 class ListTrafficDistributionGroupUsersResponse(BaseValidatorModel):
     TrafficDistributionGroupUserSummaryList: List[TrafficDistributionGroupUserSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_traffic_distribution_groups' function.
 class ListTrafficDistributionGroupsResponse(BaseValidatorModel):
     TrafficDistributionGroupSummaryList: List[TrafficDistributionGroupSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_use_cases' function.
 class ListUseCasesResponse(BaseValidatorModel):
     UseCaseSummaryList: List[UseCase]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_users' function.
 class ListUsersResponse(BaseValidatorModel):
     UserSummaryList: List[UserSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_view_versions' function.
 class ListViewVersionsResponse(BaseValidatorModel):
     ViewVersionSummaryList: List[ViewVersionSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_views' function.
 class ListViewsResponse(BaseValidatorModel):
     ViewsSummaryList: List[ViewSummary]
     ResponseMetadata: ResponseMetadata
@@ -4341,12 +4647,14 @@ class ResourceTagsSearchCriteria(BaseValidatorModel):
     TagSearchCondition: Optional[TagSearchCondition] = None
 
 
+# This class is the output for the 'search_resource_tags' function.
 class SearchResourceTagsResponse(BaseValidatorModel):
     Tags: List[TagSet]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'search_security_profiles' function.
 class SearchSecurityProfilesResponse(BaseValidatorModel):
     SecurityProfiles: List[SecurityProfileSearchSummary]
     ApproximateTotalCount: int
@@ -4354,6 +4662,7 @@ class SearchSecurityProfilesResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'search_vocabularies' function.
 class SearchVocabulariesResponse(BaseValidatorModel):
     VocabularySummaryList: List[VocabularySummary]
     ResponseMetadata: ResponseMetadata
@@ -4380,6 +4689,7 @@ class SignInConfig(BaseValidatorModel):
     Distributions: List[SignInDistribution]
 
 
+# This class is the output for the 'start_attached_file_upload' function.
 class StartAttachedFileUploadResponse(BaseValidatorModel):
     FileArn: str
     FileId: str
@@ -4437,6 +4747,7 @@ class View(BaseValidatorModel):
     ViewContentSha256: Optional[str] = None
 
 
+# This class is the output for the 'list_rules' function.
 class ListRulesResponse(BaseValidatorModel):
     RuleSummaryList: List[RuleSummary]
     ResponseMetadata: ResponseMetadata
@@ -4456,6 +4767,7 @@ class AgentInfo(BaseValidatorModel):
     Capabilities: Optional[ParticipantCapabilities] = None
 
 
+# This class is the input for the 'start_web_rtc_contact' function.
 class StartWebRTCContactRequest(BaseValidatorModel):
     ContactFlowId: str
     InstanceId: str
@@ -4479,6 +4791,7 @@ class SearchPredefinedAttributesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_predefined_attributes' function.
 class SearchPredefinedAttributesRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
@@ -4499,6 +4812,7 @@ class MatchCriteria(BaseValidatorModel):
     AgentsCriteria: Optional[AgentsCriteriaUnion] = None
 
 
+# This class is the input for the 'create_security_profile' function.
 class CreateSecurityProfileRequest(BaseValidatorModel):
     SecurityProfileName: str
     InstanceId: str
@@ -4512,6 +4826,7 @@ class CreateSecurityProfileRequest(BaseValidatorModel):
     AllowedAccessControlHierarchyGroupId: Optional[str] = None
 
 
+# This class is the input for the 'update_security_profile' function.
 class UpdateSecurityProfileRequest(BaseValidatorModel):
     SecurityProfileId: str
     InstanceId: str
@@ -4524,12 +4839,14 @@ class UpdateSecurityProfileRequest(BaseValidatorModel):
     AllowedAccessControlHierarchyGroupId: Optional[str] = None
 
 
+# This class is the output for the 'list_bots' function.
 class ListBotsResponse(BaseValidatorModel):
     LexBots: List[LexBotConfig]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'batch_get_attached_file_metadata' function.
 class BatchGetAttachedFileMetadataResponse(BaseValidatorModel):
     Files: List[AttachedFile]
     Errors: List[AttachedFileError]
@@ -4592,6 +4909,7 @@ class Meeting(BaseValidatorModel):
     MeetingId: Optional[str] = None
 
 
+# This class is the output for the 'describe_phone_number' function.
 class DescribePhoneNumberResponse(BaseValidatorModel):
     ClaimedPhoneNumberSummary: ClaimedPhoneNumberSummary
     ResponseMetadata: ResponseMetadata
@@ -4602,12 +4920,14 @@ class ListCondition(BaseValidatorModel):
     Conditions: Optional[List[Condition]] = None
 
 
+# This class is the input for the 'batch_put_contact' function.
 class BatchPutContactRequest(BaseValidatorModel):
     InstanceId: str
     ContactDataRequestList: List[ContactDataRequest]
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'get_current_user_data' function.
 class GetCurrentUserDataRequest(BaseValidatorModel):
     InstanceId: str
     Filters: UserDataFilters
@@ -4615,6 +4935,7 @@ class GetCurrentUserDataRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the output for the 'search_contacts' function.
 class SearchContactsResponse(BaseValidatorModel):
     Contacts: List[ContactSearchSummary]
     TotalCount: int
@@ -4624,11 +4945,13 @@ class SearchContactsResponse(BaseValidatorModel):
 TaskActionDefinitionUnion = Union[TaskActionDefinition, TaskActionDefinitionOutput]
 
 
+# This class is the output for the 'describe_queue' function.
 class DescribeQueueResponse(BaseValidatorModel):
     Queue: Queue
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_queues' function.
 class SearchQueuesResponse(BaseValidatorModel):
     Queues: List[Queue]
     ApproximateTotalCount: int
@@ -4636,6 +4959,7 @@ class SearchQueuesResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_user' function.
 class DescribeUserResponse(BaseValidatorModel):
     User: User
     ResponseMetadata: ResponseMetadata
@@ -4659,6 +4983,7 @@ class RoutingProfile(BaseValidatorModel):
     AssociatedQueueIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_routing_profile_concurrency' function.
 class UpdateRoutingProfileConcurrencyRequest(BaseValidatorModel):
     InstanceId: str
     RoutingProfileId: str
@@ -4670,12 +4995,14 @@ class CurrentMetricResult(BaseValidatorModel):
     Collections: Optional[List[CurrentMetricData]] = None
 
 
+# This class is the input for the 'associate_routing_profile_queues' function.
 class AssociateRoutingProfileQueuesRequest(BaseValidatorModel):
     InstanceId: str
     RoutingProfileId: str
     QueueConfigs: List[RoutingProfileQueueConfig]
 
 
+# This class is the input for the 'create_routing_profile' function.
 class CreateRoutingProfileRequest(BaseValidatorModel):
     InstanceId: str
     Name: str
@@ -4687,6 +5014,7 @@ class CreateRoutingProfileRequest(BaseValidatorModel):
     AgentAvailabilityTimer: Optional[AgentAvailabilityTimerType] = None
 
 
+# This class is the input for the 'update_routing_profile_queues' function.
 class UpdateRoutingProfileQueuesRequest(BaseValidatorModel):
     InstanceId: str
     RoutingProfileId: str
@@ -4702,6 +5030,7 @@ class InstanceStorageConfig(BaseValidatorModel):
     KinesisFirehoseConfig: Optional[KinesisFirehoseConfig] = None
 
 
+# This class is the input for the 'submit_contact_evaluation' function.
 class SubmitContactEvaluationRequest(BaseValidatorModel):
     InstanceId: str
     EvaluationId: str
@@ -4709,6 +5038,7 @@ class SubmitContactEvaluationRequest(BaseValidatorModel):
     Notes: Optional[Dict[str, EvaluationNote]] = None
 
 
+# This class is the input for the 'update_contact_evaluation' function.
 class UpdateContactEvaluationRequest(BaseValidatorModel):
     InstanceId: str
     EvaluationId: str
@@ -4753,6 +5083,7 @@ class Evaluation(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'list_contact_evaluations' function.
 class ListContactEvaluationsResponse(BaseValidatorModel):
     EvaluationSummaryList: List[EvaluationSummary]
     ResponseMetadata: ResponseMetadata
@@ -4796,11 +5127,13 @@ class HierarchyGroup(BaseValidatorModel):
     LastModifiedRegion: Optional[str] = None
 
 
+# This class is the output for the 'describe_user_hierarchy_structure' function.
 class DescribeUserHierarchyStructureResponse(BaseValidatorModel):
     HierarchyStructure: HierarchyStructure
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_user_hierarchy_structure' function.
 class UpdateUserHierarchyStructureRequest(BaseValidatorModel):
     HierarchyStructure: HierarchyStructureUpdate
     InstanceId: str
@@ -4816,6 +5149,7 @@ class GetMetricDataRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_metric_data' function.
 class GetMetricDataRequest(BaseValidatorModel):
     InstanceId: str
     StartTime: Timestamp
@@ -4832,6 +5166,7 @@ class HistoricalMetricData(BaseValidatorModel):
     Value: Optional[float] = None
 
 
+# This class is the input for the 'create_hours_of_operation' function.
 class CreateHoursOfOperationRequest(BaseValidatorModel):
     InstanceId: str
     Name: str
@@ -4853,6 +5188,7 @@ class HoursOfOperation(BaseValidatorModel):
     LastModifiedRegion: Optional[str] = None
 
 
+# This class is the input for the 'update_hours_of_operation' function.
 class UpdateHoursOfOperationRequest(BaseValidatorModel):
     InstanceId: str
     HoursOfOperationId: str
@@ -4862,6 +5198,7 @@ class UpdateHoursOfOperationRequest(BaseValidatorModel):
     Config: Optional[List[HoursOfOperationConfig]] = None
 
 
+# This class is the input for the 'create_hours_of_operation_override' function.
 class CreateHoursOfOperationOverrideRequest(BaseValidatorModel):
     InstanceId: str
     HoursOfOperationId: str
@@ -4883,6 +5220,7 @@ class HoursOfOperationOverride(BaseValidatorModel):
     EffectiveTill: Optional[str] = None
 
 
+# This class is the input for the 'update_hours_of_operation_override' function.
 class UpdateHoursOfOperationOverrideRequest(BaseValidatorModel):
     InstanceId: str
     HoursOfOperationId: str
@@ -4932,6 +5270,7 @@ class MetricDataV2(BaseValidatorModel):
     Value: Optional[float] = None
 
 
+# This class is the input for the 'send_chat_integration_event' function.
 class SendChatIntegrationEventRequest(BaseValidatorModel):
     SourceId: str
     DestinationId: str
@@ -4952,11 +5291,13 @@ class ChatParticipantRoleConfig(BaseValidatorModel):
     ParticipantTimerConfigList: List[ParticipantTimerConfiguration]
 
 
+# This class is the output for the 'describe_predefined_attribute' function.
 class DescribePredefinedAttributeResponse(BaseValidatorModel):
     PredefinedAttribute: PredefinedAttribute
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_predefined_attributes' function.
 class SearchPredefinedAttributesResponse(BaseValidatorModel):
     PredefinedAttributes: List[PredefinedAttribute]
     ApproximateTotalCount: int
@@ -4964,18 +5305,21 @@ class SearchPredefinedAttributesResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_predefined_attribute' function.
 class CreatePredefinedAttributeRequest(BaseValidatorModel):
     InstanceId: str
     Name: str
     Values: PredefinedAttributeValuesUnion
 
 
+# This class is the input for the 'update_predefined_attribute' function.
 class UpdatePredefinedAttributeRequest(BaseValidatorModel):
     InstanceId: str
     Name: str
     Values: Optional[PredefinedAttributeValuesUnion] = None
 
 
+# This class is the input for the 'create_quick_connect' function.
 class CreateQuickConnectRequest(BaseValidatorModel):
     InstanceId: str
     Name: str
@@ -4995,6 +5339,7 @@ class QuickConnect(BaseValidatorModel):
     LastModifiedRegion: Optional[str] = None
 
 
+# This class is the input for the 'update_quick_connect_config' function.
 class UpdateQuickConnectConfigRequest(BaseValidatorModel):
     InstanceId: str
     QuickConnectId: str
@@ -5021,12 +5366,14 @@ class RealTimeContactAnalysisIssueDetected(BaseValidatorModel):
     TranscriptItems: List[RealTimeContactAnalysisTranscriptItemWithContent]
 
 
+# This class is the output for the 'list_contact_references' function.
 class ListContactReferencesResponse(BaseValidatorModel):
     ReferenceSummaryList: List[ReferenceSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_instance' function.
 class DescribeInstanceResponse(BaseValidatorModel):
     Instance: Instance
     ReplicationConfiguration: ReplicationConfiguration
@@ -5040,6 +5387,7 @@ class SearchResourceTagsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_resource_tags' function.
 class SearchResourceTagsRequest(BaseValidatorModel):
     InstanceId: str
     ResourceTypes: Optional[List[str]] = None
@@ -5048,6 +5396,7 @@ class SearchResourceTagsRequest(BaseValidatorModel):
     SearchCriteria: Optional[ResourceTagsSearchCriteria] = None
 
 
+# This class is the input for the 'create_contact' function.
 class CreateContactRequest(BaseValidatorModel):
     InstanceId: str
     Channel: ChannelType
@@ -5065,6 +5414,7 @@ class CreateContactRequest(BaseValidatorModel):
     PreviousContactId: Optional[str] = None
 
 
+# This class is the input for the 'start_chat_contact' function.
 class StartChatContactRequest(BaseValidatorModel):
     InstanceId: str
     ContactFlowId: str
@@ -5080,6 +5430,7 @@ class StartChatContactRequest(BaseValidatorModel):
     CustomerId: Optional[str] = None
 
 
+# This class is the input for the 'start_email_contact' function.
 class StartEmailContactRequest(BaseValidatorModel):
     InstanceId: str
     FromEmailAddress: EmailAddressInfo
@@ -5097,6 +5448,7 @@ class StartEmailContactRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'start_outbound_chat_contact' function.
 class StartOutboundChatContactRequest(BaseValidatorModel):
     SourceEndpoint: Endpoint
     DestinationEndpoint: Endpoint
@@ -5112,6 +5464,7 @@ class StartOutboundChatContactRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'start_task_contact' function.
 class StartTaskContactRequest(BaseValidatorModel):
     InstanceId: str
     Name: str
@@ -5141,6 +5494,7 @@ class UpdateContactRequest(BaseValidatorModel):
     SystemEndpoint: Optional[Endpoint] = None
 
 
+# This class is the output for the 'get_traffic_distribution' function.
 class GetTrafficDistributionResponse(BaseValidatorModel):
     TelephonyConfig: TelephonyConfigOutput
     Id: str
@@ -5162,6 +5516,7 @@ class ContactAnalysis(BaseValidatorModel):
     Transcript: Optional[Transcript] = None
 
 
+# This class is the output for the 'search_users' function.
 class SearchUsersResponse(BaseValidatorModel):
     Users: List[UserSearchSummary]
     ApproximateTotalCount: int
@@ -5169,21 +5524,25 @@ class SearchUsersResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_view' function.
 class CreateViewResponse(BaseValidatorModel):
     View: View
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_view_version' function.
 class CreateViewVersionResponse(BaseValidatorModel):
     View: View
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_view' function.
 class DescribeViewResponse(BaseValidatorModel):
     View: View
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_view_content' function.
 class UpdateViewContentResponse(BaseValidatorModel):
     View: View
     ResponseMetadata: ResponseMetadata
@@ -5218,6 +5577,7 @@ class SearchContactFlowModulesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_contact_flow_modules' function.
 class SearchContactFlowModulesRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
@@ -5233,6 +5593,7 @@ class SearchContactFlowsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_contact_flows' function.
 class SearchContactFlowsRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
@@ -5241,6 +5602,7 @@ class SearchContactFlowsRequest(BaseValidatorModel):
     SearchCriteria: Optional[ContactFlowSearchCriteria] = None
 
 
+# This class is the input for the 'search_email_addresses' function.
 class SearchEmailAddressesRequest(BaseValidatorModel):
     InstanceId: str
     MaxResults: Optional[int] = None
@@ -5256,6 +5618,7 @@ class SearchHoursOfOperationOverridesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_hours_of_operation_overrides' function.
 class SearchHoursOfOperationOverridesRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
@@ -5271,6 +5634,7 @@ class SearchHoursOfOperationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_hours_of_operations' function.
 class SearchHoursOfOperationsRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
@@ -5286,6 +5650,7 @@ class SearchPromptsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_prompts' function.
 class SearchPromptsRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
@@ -5301,6 +5666,7 @@ class SearchQueuesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_queues' function.
 class SearchQueuesRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
@@ -5316,6 +5682,7 @@ class SearchQuickConnectsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_quick_connects' function.
 class SearchQuickConnectsRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
@@ -5331,6 +5698,7 @@ class SearchRoutingProfilesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_routing_profiles' function.
 class SearchRoutingProfilesRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
@@ -5346,6 +5714,7 @@ class SearchSecurityProfilesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_security_profiles' function.
 class SearchSecurityProfilesRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
@@ -5375,11 +5744,13 @@ class UserSearchCriteria(BaseValidatorModel):
     HierarchyGroupCondition: Optional[HierarchyGroupCondition] = None
 
 
+# This class is the output for the 'describe_routing_profile' function.
 class DescribeRoutingProfileResponse(BaseValidatorModel):
     RoutingProfile: RoutingProfile
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_routing_profiles' function.
 class SearchRoutingProfilesResponse(BaseValidatorModel):
     RoutingProfiles: List[RoutingProfile]
     ApproximateTotalCount: int
@@ -5387,6 +5758,7 @@ class SearchRoutingProfilesResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_current_metric_data' function.
 class GetCurrentMetricDataResponse(BaseValidatorModel):
     MetricResults: List[CurrentMetricResult]
     DataSnapshotTime: datetime
@@ -5395,6 +5767,7 @@ class GetCurrentMetricDataResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'associate_instance_storage_config' function.
 class AssociateInstanceStorageConfigRequest(BaseValidatorModel):
     InstanceId: str
     ResourceType: InstanceStorageResourceTypeType
@@ -5402,17 +5775,20 @@ class AssociateInstanceStorageConfigRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_instance_storage_config' function.
 class DescribeInstanceStorageConfigResponse(BaseValidatorModel):
     StorageConfig: InstanceStorageConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_instance_storage_configs' function.
 class ListInstanceStorageConfigsResponse(BaseValidatorModel):
     StorageConfigs: List[InstanceStorageConfig]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'update_instance_storage_config' function.
 class UpdateInstanceStorageConfigRequest(BaseValidatorModel):
     InstanceId: str
     AssociationId: str
@@ -5445,6 +5821,7 @@ class RuleActionOutput(BaseValidatorModel):
 FieldValueUnionExtra = Union[FieldValue, FieldValueOutput]
 
 
+# This class is the output for the 'get_current_user_data' function.
 class GetCurrentUserDataResponse(BaseValidatorModel):
     UserDataList: List[UserData]
     ApproximateTotalCount: int
@@ -5452,11 +5829,13 @@ class GetCurrentUserDataResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_user_hierarchy_group' function.
 class DescribeUserHierarchyGroupResponse(BaseValidatorModel):
     HierarchyGroup: HierarchyGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_user_hierarchy_groups' function.
 class SearchUserHierarchyGroupsResponse(BaseValidatorModel):
     UserHierarchyGroups: List[HierarchyGroup]
     ApproximateTotalCount: int
@@ -5469,11 +5848,13 @@ class HistoricalMetricResult(BaseValidatorModel):
     Collections: Optional[List[HistoricalMetricData]] = None
 
 
+# This class is the output for the 'describe_hours_of_operation' function.
 class DescribeHoursOfOperationResponse(BaseValidatorModel):
     HoursOfOperation: HoursOfOperation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_hours_of_operations' function.
 class SearchHoursOfOperationsResponse(BaseValidatorModel):
     HoursOfOperations: List[HoursOfOperation]
     ApproximateTotalCount: int
@@ -5481,11 +5862,13 @@ class SearchHoursOfOperationsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_hours_of_operation_override' function.
 class DescribeHoursOfOperationOverrideResponse(BaseValidatorModel):
     HoursOfOperationOverride: HoursOfOperationOverride
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_hours_of_operation_overrides' function.
 class ListHoursOfOperationOverridesResponse(BaseValidatorModel):
     HoursOfOperationOverrideList: List[HoursOfOperationOverride]
     LastModifiedRegion: str
@@ -5494,6 +5877,7 @@ class ListHoursOfOperationOverridesResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'search_hours_of_operation_overrides' function.
 class SearchHoursOfOperationOverridesResponse(BaseValidatorModel):
     HoursOfOperationOverrides: List[HoursOfOperationOverride]
     ApproximateTotalCount: int
@@ -5501,6 +5885,7 @@ class SearchHoursOfOperationOverridesResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_effective_hours_of_operations' function.
 class GetEffectiveHoursOfOperationsResponse(BaseValidatorModel):
     EffectiveHoursOfOperationList: List[EffectiveHoursOfOperations]
     TimeZone: str
@@ -5509,6 +5894,7 @@ class GetEffectiveHoursOfOperationsResponse(BaseValidatorModel):
 TaskTemplateConstraintsUnion = Union[TaskTemplateConstraints, TaskTemplateConstraintsOutput]
 
 
+# This class is the output for the 'get_task_template' function.
 class GetTaskTemplateResponse(BaseValidatorModel):
     InstanceId: str
     Id: str
@@ -5527,6 +5913,7 @@ class GetTaskTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_task_template' function.
 class UpdateTaskTemplateResponse(BaseValidatorModel):
     InstanceId: str
     Id: str
@@ -5560,11 +5947,13 @@ class UpdateParticipantRoleConfigChannelInfo(BaseValidatorModel):
     Chat: Optional[ChatParticipantRoleConfig] = None
 
 
+# This class is the output for the 'describe_quick_connect' function.
 class DescribeQuickConnectResponse(BaseValidatorModel):
     QuickConnect: QuickConnect
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_quick_connects' function.
 class SearchQuickConnectsResponse(BaseValidatorModel):
     QuickConnects: List[QuickConnect]
     ApproximateTotalCount: int
@@ -5598,6 +5987,7 @@ class SendOutboundEmailRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'start_outbound_email_contact' function.
 class StartOutboundEmailContactRequest(BaseValidatorModel):
     InstanceId: str
     ContactId: str
@@ -5641,6 +6031,7 @@ class SearchAgentStatusesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_agent_statuses' function.
 class SearchAgentStatusesRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
@@ -5656,6 +6047,7 @@ class SearchUserHierarchyGroupsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_user_hierarchy_groups' function.
 class SearchUserHierarchyGroupsRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
@@ -5664,6 +6056,7 @@ class SearchUserHierarchyGroupsRequest(BaseValidatorModel):
     SearchCriteria: Optional[UserHierarchyGroupSearchCriteria] = None
 
 
+# This class is the output for the 'start_web_rtc_contact' function.
 class StartWebRTCContactResponse(BaseValidatorModel):
     ConnectionData: ConnectionData
     ContactId: str
@@ -5679,6 +6072,7 @@ class SearchUsersRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_users' function.
 class SearchUsersRequest(BaseValidatorModel):
     InstanceId: str
     NextToken: Optional[str] = None
@@ -5721,12 +6115,14 @@ class UpdateCaseActionDefinition(BaseValidatorModel):
     Fields: List[FieldValueUnionExtra]
 
 
+# This class is the output for the 'get_metric_data' function.
 class GetMetricDataResponse(BaseValidatorModel):
     MetricResults: List[HistoricalMetricResult]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_task_template' function.
 class CreateTaskTemplateRequest(BaseValidatorModel):
     InstanceId: str
     Name: str
@@ -5740,6 +6136,7 @@ class CreateTaskTemplateRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'update_task_template' function.
 class UpdateTaskTemplateRequest(BaseValidatorModel):
     TaskTemplateId: str
     InstanceId: str
@@ -5753,6 +6150,7 @@ class UpdateTaskTemplateRequest(BaseValidatorModel):
     Fields: Optional[List[TaskTemplateFieldUnion]] = None
 
 
+# This class is the input for the 'get_metric_data_v2' function.
 class GetMetricDataV2Request(BaseValidatorModel):
     ResourceArn: str
     StartTime: Timestamp
@@ -5765,6 +6163,7 @@ class GetMetricDataV2Request(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the output for the 'get_metric_data_v2' function.
 class GetMetricDataV2Response(BaseValidatorModel):
     MetricResults: List[MetricResultV2]
     ResponseMetadata: ResponseMetadata
@@ -5789,6 +6188,7 @@ class SearchContactsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_contacts' function.
 class SearchContactsRequest(BaseValidatorModel):
     InstanceId: str
     TimeRange: SearchContactsTimeRange
@@ -5818,6 +6218,7 @@ class EvaluationFormQuestionOutput(BaseValidatorModel):
 EvaluationFormSingleSelectQuestionPropertiesUnion = Union[EvaluationFormSingleSelectQuestionProperties, EvaluationFormSingleSelectQuestionPropertiesOutput]
 
 
+# This class is the output for the 'describe_rule' function.
 class DescribeRuleResponse(BaseValidatorModel):
     Rule: Rule
     ResponseMetadata: ResponseMetadata
@@ -5905,6 +6306,7 @@ class RuleAction(BaseValidatorModel):
     SubmitAutoEvaluationAction: Optional[SubmitAutoEvaluationActionDefinition] = None
 
 
+# This class is the output for the 'list_realtime_contact_analysis_segments_v2' function.
 class ListRealtimeContactAnalysisSegmentsV2Response(BaseValidatorModel):
     Channel: RealTimeContactAnalysisSupportedChannelType
     Status: RealTimeContactAnalysisStatusType
@@ -5913,6 +6315,7 @@ class ListRealtimeContactAnalysisSegmentsV2Response(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_contact' function.
 class DescribeContactResponse(BaseValidatorModel):
     Contact: Contact
     ResponseMetadata: ResponseMetadata
@@ -5956,12 +6359,14 @@ class RoutingCriteriaInputStep(BaseValidatorModel):
     Expression: Optional[ExpressionUnion] = None
 
 
+# This class is the output for the 'describe_contact_evaluation' function.
 class DescribeContactEvaluationResponse(BaseValidatorModel):
     Evaluation: Evaluation
     EvaluationForm: EvaluationFormContent
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_evaluation_form' function.
 class DescribeEvaluationFormResponse(BaseValidatorModel):
     EvaluationForm: EvaluationForm
     ResponseMetadata: ResponseMetadata
@@ -5977,6 +6382,7 @@ class EvaluationFormQuestion(BaseValidatorModel):
     Weight: Optional[float] = None
 
 
+# This class is the input for the 'create_rule' function.
 class CreateRuleRequest(BaseValidatorModel):
     InstanceId: str
     Name: str
@@ -5987,6 +6393,7 @@ class CreateRuleRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'update_rule' function.
 class UpdateRuleRequest(BaseValidatorModel):
     RuleId: str
     InstanceId: str
@@ -6017,6 +6424,7 @@ class EvaluationFormItem(BaseValidatorModel):
 EvaluationFormItemUnion = Union[EvaluationFormItem, EvaluationFormItemOutput]
 
 
+# This class is the input for the 'create_evaluation_form' function.
 class CreateEvaluationFormRequest(BaseValidatorModel):
     InstanceId: str
     Title: str
@@ -6026,6 +6434,7 @@ class CreateEvaluationFormRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'update_evaluation_form' function.
 class UpdateEvaluationFormRequest(BaseValidatorModel):
     InstanceId: str
     EvaluationFormId: str

@@ -92,6 +92,7 @@ class TextFullAIPromptEditTemplateConfiguration(BaseValidatorModel):
     text: str
 
 
+# This class is the input for the 'activate_message_template' function.
 class ActivateMessageTemplateRequest(BaseValidatorModel):
     knowledgeBaseId: str
     messageTemplateId: str
@@ -232,6 +233,7 @@ class ConversationState(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'create_content' function.
 class CreateContentRequest(BaseValidatorModel):
     knowledgeBaseId: str
     name: str
@@ -247,6 +249,7 @@ class RenderingConfiguration(BaseValidatorModel):
     templateUri: Optional[str] = None
 
 
+# This class is the input for the 'create_message_template_attachment' function.
 class CreateMessageTemplateAttachmentRequest(BaseValidatorModel):
     body: str
     contentDisposition: Literal['ATTACHMENT']
@@ -265,6 +268,7 @@ class MessageTemplateAttachment(BaseValidatorModel):
     urlExpiry: datetime
 
 
+# This class is the input for the 'create_message_template_version' function.
 class CreateMessageTemplateVersionRequest(BaseValidatorModel):
     knowledgeBaseId: str
     messageTemplateId: str
@@ -407,6 +411,7 @@ class GenerativeReference(BaseValidatorModel):
     modelId: Optional[str] = None
 
 
+# This class is the input for the 'deactivate_message_template' function.
 class DeactivateMessageTemplateRequest(BaseValidatorModel):
     knowledgeBaseId: str
     messageTemplateId: str
@@ -516,71 +521,85 @@ class Filter(BaseValidatorModel):
     value: str
 
 
+# This class is the input for the 'get_ai_agent' function.
 class GetAIAgentRequest(BaseValidatorModel):
     aiAgentId: str
     assistantId: str
 
 
+# This class is the input for the 'get_ai_guardrail' function.
 class GetAIGuardrailRequest(BaseValidatorModel):
     aiGuardrailId: str
     assistantId: str
 
 
+# This class is the input for the 'get_ai_prompt' function.
 class GetAIPromptRequest(BaseValidatorModel):
     aiPromptId: str
     assistantId: str
 
 
+# This class is the input for the 'get_assistant_association' function.
 class GetAssistantAssociationRequest(BaseValidatorModel):
     assistantAssociationId: str
     assistantId: str
 
 
+# This class is the input for the 'get_assistant' function.
 class GetAssistantRequest(BaseValidatorModel):
     assistantId: str
 
 
+# This class is the input for the 'get_content_association' function.
 class GetContentAssociationRequest(BaseValidatorModel):
     contentAssociationId: str
     contentId: str
     knowledgeBaseId: str
 
 
+# This class is the input for the 'get_content' function.
 class GetContentRequest(BaseValidatorModel):
     contentId: str
     knowledgeBaseId: str
 
 
+# This class is the input for the 'get_content_summary' function.
 class GetContentSummaryRequest(BaseValidatorModel):
     contentId: str
     knowledgeBaseId: str
 
 
+# This class is the input for the 'get_import_job' function.
 class GetImportJobRequest(BaseValidatorModel):
     importJobId: str
     knowledgeBaseId: str
 
 
+# This class is the input for the 'get_knowledge_base' function.
 class GetKnowledgeBaseRequest(BaseValidatorModel):
     knowledgeBaseId: str
 
 
+# This class is the input for the 'get_message_template' function.
 class GetMessageTemplateRequest(BaseValidatorModel):
     knowledgeBaseId: str
     messageTemplateId: str
 
 
+# This class is the input for the 'get_next_message' function.
 class GetNextMessageRequest(BaseValidatorModel):
     assistantId: str
     nextMessageToken: str
     sessionId: str
 
 
+# This class is the input for the 'get_quick_response' function.
 class GetQuickResponseRequest(BaseValidatorModel):
     knowledgeBaseId: str
     quickResponseId: str
 
 
+# This class is the input for the 'get_recommendations' function.
 class GetRecommendationsRequest(BaseValidatorModel):
     assistantId: str
     sessionId: str
@@ -588,6 +607,7 @@ class GetRecommendationsRequest(BaseValidatorModel):
     waitTimeSeconds: Optional[int] = None
 
 
+# This class is the input for the 'get_session' function.
 class GetSessionRequest(BaseValidatorModel):
     assistantId: str
     sessionId: str
@@ -612,6 +632,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_ai_agent_versions' function.
 class ListAIAgentVersionsRequest(BaseValidatorModel):
     aiAgentId: str
     assistantId: str
@@ -620,6 +641,7 @@ class ListAIAgentVersionsRequest(BaseValidatorModel):
     origin: Optional[OriginType] = None
 
 
+# This class is the input for the 'list_ai_agents' function.
 class ListAIAgentsRequest(BaseValidatorModel):
     assistantId: str
     maxResults: Optional[int] = None
@@ -627,6 +649,7 @@ class ListAIAgentsRequest(BaseValidatorModel):
     origin: Optional[OriginType] = None
 
 
+# This class is the input for the 'list_ai_guardrail_versions' function.
 class ListAIGuardrailVersionsRequest(BaseValidatorModel):
     aiGuardrailId: str
     assistantId: str
@@ -634,12 +657,14 @@ class ListAIGuardrailVersionsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_ai_guardrails' function.
 class ListAIGuardrailsRequest(BaseValidatorModel):
     assistantId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_ai_prompt_versions' function.
 class ListAIPromptVersionsRequest(BaseValidatorModel):
     aiPromptId: str
     assistantId: str
@@ -648,6 +673,7 @@ class ListAIPromptVersionsRequest(BaseValidatorModel):
     origin: Optional[OriginType] = None
 
 
+# This class is the input for the 'list_ai_prompts' function.
 class ListAIPromptsRequest(BaseValidatorModel):
     assistantId: str
     maxResults: Optional[int] = None
@@ -655,17 +681,20 @@ class ListAIPromptsRequest(BaseValidatorModel):
     origin: Optional[OriginType] = None
 
 
+# This class is the input for the 'list_assistant_associations' function.
 class ListAssistantAssociationsRequest(BaseValidatorModel):
     assistantId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_assistants' function.
 class ListAssistantsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_content_associations' function.
 class ListContentAssociationsRequest(BaseValidatorModel):
     contentId: str
     knowledgeBaseId: str
@@ -673,23 +702,27 @@ class ListContentAssociationsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_contents' function.
 class ListContentsRequest(BaseValidatorModel):
     knowledgeBaseId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_import_jobs' function.
 class ListImportJobsRequest(BaseValidatorModel):
     knowledgeBaseId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_knowledge_bases' function.
 class ListKnowledgeBasesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_message_template_versions' function.
 class ListMessageTemplateVersionsRequest(BaseValidatorModel):
     knowledgeBaseId: str
     messageTemplateId: str
@@ -708,6 +741,7 @@ class MessageTemplateVersionSummary(BaseValidatorModel):
     versionNumber: int
 
 
+# This class is the input for the 'list_message_templates' function.
 class ListMessageTemplatesRequest(BaseValidatorModel):
     knowledgeBaseId: str
     maxResults: Optional[int] = None
@@ -729,6 +763,7 @@ class MessageTemplateSummary(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_messages' function.
 class ListMessagesRequest(BaseValidatorModel):
     assistantId: str
     sessionId: str
@@ -736,6 +771,7 @@ class ListMessagesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_quick_responses' function.
 class ListQuickResponsesRequest(BaseValidatorModel):
     knowledgeBaseId: str
     maxResults: Optional[int] = None
@@ -759,6 +795,7 @@ class QuickResponseSummary(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -792,6 +829,7 @@ class NotifyRecommendationsReceivedError(BaseValidatorModel):
     recommendationId: Optional[str] = None
 
 
+# This class is the input for the 'notify_recommendations_received' function.
 class NotifyRecommendationsReceivedRequest(BaseValidatorModel):
     assistantId: str
     recommendationIds: List[str]
@@ -869,6 +907,7 @@ class SessionIntegrationConfiguration(BaseValidatorModel):
     topicIntegrationArn: Optional[str] = None
 
 
+# This class is the input for the 'start_content_upload' function.
 class StartContentUploadRequest(BaseValidatorModel):
     contentType: str
     knowledgeBaseId: str
@@ -889,6 +928,7 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_content' function.
 class UpdateContentRequest(BaseValidatorModel):
     contentId: str
     knowledgeBaseId: str
@@ -900,6 +940,7 @@ class UpdateContentRequest(BaseValidatorModel):
     uploadId: Optional[str] = None
 
 
+# This class is the input for the 'update_knowledge_base_template_uri' function.
 class UpdateKnowledgeBaseTemplateUriRequest(BaseValidatorModel):
     knowledgeBaseId: str
     templateUri: str
@@ -909,6 +950,7 @@ class WebCrawlerLimits(BaseValidatorModel):
     rateLimit: Optional[int] = None
 
 
+# This class is the input for the 'update_assistant_ai_agent' function.
 class UpdateAssistantAIAgentRequest(BaseValidatorModel):
     aiAgentType: AIAgentTypeType
     assistantId: str
@@ -973,6 +1015,7 @@ class AIPromptTemplateConfiguration(BaseValidatorModel):
     textFullAIPromptEditTemplateConfiguration: Optional[TextFullAIPromptEditTemplateConfiguration] = None
 
 
+# This class is the output for the 'activate_message_template' function.
 class ActivateMessageTemplateResponse(BaseValidatorModel):
     messageTemplateArn: str
     messageTemplateId: str
@@ -980,6 +1023,7 @@ class ActivateMessageTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'deactivate_message_template' function.
 class DeactivateMessageTemplateResponse(BaseValidatorModel):
     messageTemplateArn: str
     messageTemplateId: str
@@ -987,29 +1031,34 @@ class DeactivateMessageTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_ai_guardrails' function.
 class ListAIGuardrailsResponse(BaseValidatorModel):
     aiGuardrailSummaries: List[AIGuardrailSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_ai_prompts' function.
 class ListAIPromptsResponse(BaseValidatorModel):
     aiPromptSummaries: List[AIPromptSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'send_message' function.
 class SendMessageResponse(BaseValidatorModel):
     nextMessageToken: str
     requestMessageId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_content_upload' function.
 class StartContentUploadResponse(BaseValidatorModel):
     headersToInclude: Dict[str, str]
     uploadId: str
@@ -1022,6 +1071,7 @@ class ContentAssociationContents(BaseValidatorModel):
     amazonConnectGuideAssociation: Optional[AmazonConnectGuideAssociationData] = None
 
 
+# This class is the input for the 'create_assistant_association' function.
 class CreateAssistantAssociationRequest(BaseValidatorModel):
     assistantId: str
     association: AssistantAssociationInputData
@@ -1062,6 +1112,7 @@ class AssistantSummary(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_assistant' function.
 class CreateAssistantRequest(BaseValidatorModel):
     name: str
     type: Literal['AGENT']
@@ -1092,16 +1143,19 @@ class GenerativeDataDetails(BaseValidatorModel):
     references: List[Dict[str, Any]]
 
 
+# This class is the output for the 'create_content' function.
 class CreateContentResponse(BaseValidatorModel):
     content: ContentData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_content' function.
 class GetContentResponse(BaseValidatorModel):
     content: ContentData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_content' function.
 class UpdateContentResponse(BaseValidatorModel):
     content: ContentData
     ResponseMetadata: ResponseMetadata
@@ -1111,17 +1165,20 @@ class ContentFeedbackData(BaseValidatorModel):
     generativeContentFeedbackData: Optional[GenerativeContentFeedbackData] = None
 
 
+# This class is the output for the 'get_content_summary' function.
 class GetContentSummaryResponse(BaseValidatorModel):
     contentSummary: ContentSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_contents' function.
 class ListContentsResponse(BaseValidatorModel):
     contentSummaries: List[ContentSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'search_content' function.
 class SearchContentResponse(BaseValidatorModel):
     contentSummaries: List[ContentSummary]
     ResponseMetadata: ResponseMetadata
@@ -1132,6 +1189,7 @@ class ConversationContext(BaseValidatorModel):
     selfServiceConversationHistory: List[SelfServiceConversationHistory]
 
 
+# This class is the input for the 'create_ai_agent_version' function.
 class CreateAIAgentVersionRequest(BaseValidatorModel):
     aiAgentId: str
     assistantId: str
@@ -1139,6 +1197,7 @@ class CreateAIAgentVersionRequest(BaseValidatorModel):
     modifiedTime: Optional[Timestamp] = None
 
 
+# This class is the input for the 'create_ai_guardrail_version' function.
 class CreateAIGuardrailVersionRequest(BaseValidatorModel):
     aiGuardrailId: str
     assistantId: str
@@ -1146,6 +1205,7 @@ class CreateAIGuardrailVersionRequest(BaseValidatorModel):
     modifiedTime: Optional[Timestamp] = None
 
 
+# This class is the input for the 'create_ai_prompt_version' function.
 class CreateAIPromptVersionRequest(BaseValidatorModel):
     aiPromptId: str
     assistantId: str
@@ -1153,6 +1213,7 @@ class CreateAIPromptVersionRequest(BaseValidatorModel):
     modifiedTime: Optional[Timestamp] = None
 
 
+# This class is the output for the 'create_message_template_attachment' function.
 class CreateMessageTemplateAttachmentResponse(BaseValidatorModel):
     attachment: MessageTemplateAttachment
     ResponseMetadata: ResponseMetadata
@@ -1299,18 +1360,21 @@ class ListQuickResponsesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_message_template_versions' function.
 class ListMessageTemplateVersionsResponse(BaseValidatorModel):
     messageTemplateVersionSummaries: List[MessageTemplateVersionSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_message_templates' function.
 class ListMessageTemplatesResponse(BaseValidatorModel):
     messageTemplateSummaries: List[MessageTemplateSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_quick_responses' function.
 class ListQuickResponsesResponse(BaseValidatorModel):
     quickResponseSummaries: List[QuickResponseSummary]
     ResponseMetadata: ResponseMetadata
@@ -1327,6 +1391,7 @@ class MessageTemplateSearchExpression(BaseValidatorModel):
     queries: Optional[List[MessageTemplateQueryField]] = None
 
 
+# This class is the output for the 'notify_recommendations_received' function.
 class NotifyRecommendationsReceivedResponse(BaseValidatorModel):
     errors: List[NotifyRecommendationsReceivedError]
     recommendationIds: List[str]
@@ -1372,6 +1437,7 @@ class RuntimeSessionData(BaseValidatorModel):
     value: RuntimeSessionDataValue
 
 
+# This class is the output for the 'search_sessions' function.
 class SearchSessionsResponse(BaseValidatorModel):
     sessionSummaries: List[SessionSummary]
     ResponseMetadata: ResponseMetadata
@@ -1398,6 +1464,7 @@ AIGuardrailContextualGroundingPolicyConfigUnion = Union[AIGuardrailContextualGro
 AIGuardrailSensitiveInformationPolicyConfigUnion = Union[AIGuardrailSensitiveInformationPolicyConfig, AIGuardrailSensitiveInformationPolicyConfigOutput]
 
 
+# This class is the output for the 'list_ai_guardrail_versions' function.
 class ListAIGuardrailVersionsResponse(BaseValidatorModel):
     aiGuardrailVersionSummaries: List[AIGuardrailVersionSummary]
     ResponseMetadata: ResponseMetadata
@@ -1428,6 +1495,7 @@ class AIGuardrailData(BaseValidatorModel):
 AIGuardrailWordPolicyConfigUnion = Union[AIGuardrailWordPolicyConfig, AIGuardrailWordPolicyConfigOutput]
 
 
+# This class is the output for the 'list_ai_prompt_versions' function.
 class ListAIPromptVersionsResponse(BaseValidatorModel):
     aiPromptVersionSummaries: List[AIPromptVersionSummary]
     ResponseMetadata: ResponseMetadata
@@ -1453,6 +1521,7 @@ class AIPromptData(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_ai_prompt' function.
 class CreateAIPromptRequest(BaseValidatorModel):
     apiFormat: AIPromptAPIFormatType
     assistantId: str
@@ -1467,6 +1536,7 @@ class CreateAIPromptRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_ai_prompt' function.
 class UpdateAIPromptRequest(BaseValidatorModel):
     aiPromptId: str
     assistantId: str
@@ -1500,6 +1570,7 @@ class ContentAssociationSummary(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_content_association' function.
 class CreateContentAssociationRequest(BaseValidatorModel):
     association: ContentAssociationContents
     associationType: Literal['AMAZON_CONNECT_GUIDE']
@@ -1529,21 +1600,25 @@ class AssistantAssociationSummary(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_assistant' function.
 class CreateAssistantResponse(BaseValidatorModel):
     assistant: AssistantData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_assistant' function.
 class GetAssistantResponse(BaseValidatorModel):
     assistant: AssistantData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_assistant_ai_agent' function.
 class UpdateAssistantAIAgentResponse(BaseValidatorModel):
     assistant: AssistantData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_assistants' function.
 class ListAssistantsResponse(BaseValidatorModel):
     assistantSummaries: List[AssistantSummary]
     ResponseMetadata: ResponseMetadata
@@ -1560,6 +1635,7 @@ class ExternalSourceConfiguration(BaseValidatorModel):
     source: Literal['AMAZON_CONNECT']
 
 
+# This class is the input for the 'put_feedback' function.
 class PutFeedbackRequest(BaseValidatorModel):
     assistantId: str
     contentFeedback: ContentFeedbackData
@@ -1567,6 +1643,7 @@ class PutFeedbackRequest(BaseValidatorModel):
     targetType: TargetTypeType
 
 
+# This class is the output for the 'put_feedback' function.
 class PutFeedbackResponse(BaseValidatorModel):
     assistantArn: str
     assistantId: str
@@ -1603,6 +1680,7 @@ class SMSMessageTemplateContent(BaseValidatorModel):
     body: Optional[SMSMessageTemplateContentBody] = None
 
 
+# This class is the output for the 'search_message_templates' function.
 class SearchMessageTemplatesResponse(BaseValidatorModel):
     results: List[MessageTemplateSearchResultData]
     ResponseMetadata: ResponseMetadata
@@ -1615,6 +1693,7 @@ class SearchContentRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_content' function.
 class SearchContentRequest(BaseValidatorModel):
     knowledgeBaseId: str
     searchExpression: SearchExpression
@@ -1628,6 +1707,7 @@ class SearchSessionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_sessions' function.
 class SearchSessionsRequest(BaseValidatorModel):
     assistantId: str
     searchExpression: SearchExpression
@@ -1635,6 +1715,7 @@ class SearchSessionsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_quick_response' function.
 class CreateQuickResponseRequest(BaseValidatorModel):
     content: QuickResponseDataProvider
     knowledgeBaseId: str
@@ -1650,6 +1731,7 @@ class CreateQuickResponseRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_message_template_metadata' function.
 class UpdateMessageTemplateMetadataRequest(BaseValidatorModel):
     knowledgeBaseId: str
     messageTemplateId: str
@@ -1658,6 +1740,7 @@ class UpdateMessageTemplateMetadataRequest(BaseValidatorModel):
     name: Optional[str] = None
 
 
+# This class is the input for the 'update_quick_response' function.
 class UpdateQuickResponseRequest(BaseValidatorModel):
     knowledgeBaseId: str
     quickResponseId: str
@@ -1706,6 +1789,7 @@ class SearchMessageTemplatesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_message_templates' function.
 class SearchMessageTemplatesRequest(BaseValidatorModel):
     knowledgeBaseId: str
     searchExpression: MessageTemplateSearchExpression
@@ -1735,6 +1819,7 @@ class QueryAssistantRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'query_assistant' function.
 class QueryAssistantRequest(BaseValidatorModel):
     assistantId: str
     maxResults: Optional[int] = None
@@ -1805,6 +1890,7 @@ class SearchQuickResponsesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_quick_responses' function.
 class SearchQuickResponsesRequest(BaseValidatorModel):
     knowledgeBaseId: str
     searchExpression: QuickResponseSearchExpression
@@ -1813,6 +1899,7 @@ class SearchQuickResponsesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'update_session_data' function.
 class UpdateSessionDataRequest(BaseValidatorModel):
     assistantId: str
     data: List[RuntimeSessionData]
@@ -1820,6 +1907,7 @@ class UpdateSessionDataRequest(BaseValidatorModel):
     namespace: Optional[Literal['Custom']] = None
 
 
+# This class is the output for the 'update_session_data' function.
 class UpdateSessionDataResponse(BaseValidatorModel):
     data: List[RuntimeSessionData]
     namespace: Literal['Custom']
@@ -1858,28 +1946,33 @@ class MessageTemplateAttributes(BaseValidatorModel):
     systemAttributes: Optional[SystemAttributes] = None
 
 
+# This class is the output for the 'create_ai_guardrail' function.
 class CreateAIGuardrailResponse(BaseValidatorModel):
     aiGuardrail: AIGuardrailData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_ai_guardrail_version' function.
 class CreateAIGuardrailVersionResponse(BaseValidatorModel):
     aiGuardrail: AIGuardrailData
     versionNumber: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_ai_guardrail' function.
 class GetAIGuardrailResponse(BaseValidatorModel):
     aiGuardrail: AIGuardrailData
     versionNumber: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_ai_guardrail' function.
 class UpdateAIGuardrailResponse(BaseValidatorModel):
     aiGuardrail: AIGuardrailData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_ai_guardrail' function.
 class CreateAIGuardrailRequest(BaseValidatorModel):
     assistantId: str
     blockedInputMessaging: str
@@ -1896,6 +1989,7 @@ class CreateAIGuardrailRequest(BaseValidatorModel):
     wordPolicyConfig: Optional[AIGuardrailWordPolicyConfigUnion] = None
 
 
+# This class is the input for the 'update_ai_guardrail' function.
 class UpdateAIGuardrailRequest(BaseValidatorModel):
     aiGuardrailId: str
     assistantId: str
@@ -1911,54 +2005,64 @@ class UpdateAIGuardrailRequest(BaseValidatorModel):
     wordPolicyConfig: Optional[AIGuardrailWordPolicyConfigUnion] = None
 
 
+# This class is the output for the 'create_ai_prompt' function.
 class CreateAIPromptResponse(BaseValidatorModel):
     aiPrompt: AIPromptData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_ai_prompt_version' function.
 class CreateAIPromptVersionResponse(BaseValidatorModel):
     aiPrompt: AIPromptData
     versionNumber: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_ai_prompt' function.
 class GetAIPromptResponse(BaseValidatorModel):
     aiPrompt: AIPromptData
     versionNumber: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_ai_prompt' function.
 class UpdateAIPromptResponse(BaseValidatorModel):
     aiPrompt: AIPromptData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_content_association' function.
 class CreateContentAssociationResponse(BaseValidatorModel):
     contentAssociation: ContentAssociationData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_content_association' function.
 class GetContentAssociationResponse(BaseValidatorModel):
     contentAssociation: ContentAssociationData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_content_associations' function.
 class ListContentAssociationsResponse(BaseValidatorModel):
     contentAssociationSummaries: List[ContentAssociationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_assistant_association' function.
 class CreateAssistantAssociationResponse(BaseValidatorModel):
     assistantAssociation: AssistantAssociationData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_assistant_association' function.
 class GetAssistantAssociationResponse(BaseValidatorModel):
     assistantAssociation: AssistantAssociationData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_assistant_associations' function.
 class ListAssistantAssociationsResponse(BaseValidatorModel):
     assistantAssociationSummaries: List[AssistantAssociationSummary]
     ResponseMetadata: ResponseMetadata
@@ -1994,6 +2098,7 @@ class ImportJobSummary(BaseValidatorModel):
     metadata: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'start_import_job' function.
 class StartImportJobRequest(BaseValidatorModel):
     importJobType: Literal['QUICK_RESPONSES']
     knowledgeBaseId: str
@@ -2036,6 +2141,7 @@ class VectorIngestionConfiguration(BaseValidatorModel):
     parsingConfiguration: Optional[ParsingConfiguration] = None
 
 
+# This class is the input for the 'send_message' function.
 class SendMessageRequest(BaseValidatorModel):
     assistantId: str
     message: MessageInput
@@ -2045,6 +2151,7 @@ class SendMessageRequest(BaseValidatorModel):
     conversationContext: Optional[ConversationContext] = None
 
 
+# This class is the output for the 'get_next_message' function.
 class GetNextMessageResponse(BaseValidatorModel):
     conversationSessionData: List[RuntimeSessionData]
     conversationState: ConversationState
@@ -2055,6 +2162,7 @@ class GetNextMessageResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_messages' function.
 class ListMessagesResponse(BaseValidatorModel):
     messages: List[MessageOutput]
     ResponseMetadata: ResponseMetadata
@@ -2086,21 +2194,25 @@ class KnowledgeBaseAssociationConfigurationData(BaseValidatorModel):
 TagFilterUnion = Union[TagFilter, TagFilterOutput]
 
 
+# This class is the output for the 'create_quick_response' function.
 class CreateQuickResponseResponse(BaseValidatorModel):
     quickResponse: QuickResponseData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_quick_response' function.
 class GetQuickResponseResponse(BaseValidatorModel):
     quickResponse: QuickResponseData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_quick_response' function.
 class UpdateQuickResponseResponse(BaseValidatorModel):
     quickResponse: QuickResponseData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_quick_responses' function.
 class SearchQuickResponsesResponse(BaseValidatorModel):
     results: List[QuickResponseSearchResultData]
     ResponseMetadata: ResponseMetadata
@@ -2117,16 +2229,19 @@ class ManagedSourceConfiguration(BaseValidatorModel):
 MessageTemplateAttributesUnion = Union[MessageTemplateAttributes, MessageTemplateAttributesOutput]
 
 
+# This class is the output for the 'get_import_job' function.
 class GetImportJobResponse(BaseValidatorModel):
     importJob: ImportJobData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_import_job' function.
 class StartImportJobResponse(BaseValidatorModel):
     importJob: ImportJobData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_import_jobs' function.
 class ListImportJobsResponse(BaseValidatorModel):
     importJobSummaries: List[ImportJobSummary]
     ResponseMetadata: ResponseMetadata
@@ -2190,6 +2305,7 @@ class MessageTemplateData(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'render_message_template' function.
 class RenderMessageTemplateResponse(BaseValidatorModel):
     attachments: List[MessageTemplateAttachment]
     attributesNotInterpolated: List[str]
@@ -2205,16 +2321,19 @@ class AssociationConfigurationDataOutput(BaseValidatorModel):
     knowledgeBaseAssociationConfigurationData: Optional[KnowledgeBaseAssociationConfigurationDataOutput] = None
 
 
+# This class is the output for the 'create_session' function.
 class CreateSessionResponse(BaseValidatorModel):
     session: SessionData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_session' function.
 class GetSessionResponse(BaseValidatorModel):
     session: SessionData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_session' function.
 class UpdateSessionResponse(BaseValidatorModel):
     session: SessionData
     ResponseMetadata: ResponseMetadata
@@ -2224,6 +2343,7 @@ class AssociationConfigurationData(BaseValidatorModel):
     knowledgeBaseAssociationConfigurationData: Optional[KnowledgeBaseAssociationConfigurationData] = None
 
 
+# This class is the input for the 'create_session' function.
 class CreateSessionRequest(BaseValidatorModel):
     assistantId: str
     name: str
@@ -2234,6 +2354,7 @@ class CreateSessionRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_session' function.
 class UpdateSessionRequest(BaseValidatorModel):
     assistantId: str
     sessionId: str
@@ -2252,6 +2373,7 @@ class SourceConfiguration(BaseValidatorModel):
     managedSourceConfiguration: Optional[ManagedSourceConfiguration] = None
 
 
+# This class is the input for the 'render_message_template' function.
 class RenderMessageTemplateRequest(BaseValidatorModel):
     attributes: MessageTemplateAttributesUnion
     knowledgeBaseId: str
@@ -2268,31 +2390,37 @@ class DataSummary(BaseValidatorModel):
     reference: DataReference
 
 
+# This class is the output for the 'create_message_template_version' function.
 class CreateMessageTemplateVersionResponse(BaseValidatorModel):
     messageTemplate: ExtendedMessageTemplateData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_message_template' function.
 class GetMessageTemplateResponse(BaseValidatorModel):
     messageTemplate: ExtendedMessageTemplateData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_message_template' function.
 class CreateMessageTemplateResponse(BaseValidatorModel):
     messageTemplate: MessageTemplateData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_message_template_metadata' function.
 class UpdateMessageTemplateMetadataResponse(BaseValidatorModel):
     messageTemplate: MessageTemplateData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_message_template' function.
 class UpdateMessageTemplateResponse(BaseValidatorModel):
     messageTemplate: MessageTemplateData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_message_template' function.
 class CreateMessageTemplateRequest(BaseValidatorModel):
     channelSubtype: ChannelSubtypeType
     content: MessageTemplateContentProviderUnion
@@ -2306,6 +2434,7 @@ class CreateMessageTemplateRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_message_template' function.
 class UpdateMessageTemplateRequest(BaseValidatorModel):
     knowledgeBaseId: str
     messageTemplateId: str
@@ -2430,27 +2559,32 @@ class SelfServiceAIAgentConfiguration(BaseValidatorModel):
     selfServicePreProcessingAIPromptId: Optional[str] = None
 
 
+# This class is the output for the 'create_knowledge_base' function.
 class CreateKnowledgeBaseResponse(BaseValidatorModel):
     knowledgeBase: KnowledgeBaseData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_knowledge_base' function.
 class GetKnowledgeBaseResponse(BaseValidatorModel):
     knowledgeBase: KnowledgeBaseData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_knowledge_base_template_uri' function.
 class UpdateKnowledgeBaseTemplateUriResponse(BaseValidatorModel):
     knowledgeBase: KnowledgeBaseData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_knowledge_bases' function.
 class ListKnowledgeBasesResponse(BaseValidatorModel):
     knowledgeBaseSummaries: List[KnowledgeBaseSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_knowledge_base' function.
 class CreateKnowledgeBaseRequest(BaseValidatorModel):
     knowledgeBaseType: KnowledgeBaseTypeType
     name: str
@@ -2469,12 +2603,14 @@ class QueryAssistantResponsePaginator(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_recommendations' function.
 class GetRecommendationsResponse(BaseValidatorModel):
     recommendations: List[RecommendationData]
     triggers: List[RecommendationTrigger]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'query_assistant' function.
 class QueryAssistantResponse(BaseValidatorModel):
     results: List[ResultData]
     ResponseMetadata: ResponseMetadata
@@ -2527,23 +2663,27 @@ class AIAgentSummary(BaseValidatorModel):
 AIAgentConfigurationUnion = Union[AIAgentConfiguration, AIAgentConfigurationOutput]
 
 
+# This class is the output for the 'create_ai_agent' function.
 class CreateAIAgentResponse(BaseValidatorModel):
     aiAgent: AIAgentData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_ai_agent_version' function.
 class CreateAIAgentVersionResponse(BaseValidatorModel):
     aiAgent: AIAgentData
     versionNumber: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_ai_agent' function.
 class GetAIAgentResponse(BaseValidatorModel):
     aiAgent: AIAgentData
     versionNumber: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_ai_agent' function.
 class UpdateAIAgentResponse(BaseValidatorModel):
     aiAgent: AIAgentData
     ResponseMetadata: ResponseMetadata
@@ -2554,12 +2694,14 @@ class AIAgentVersionSummary(BaseValidatorModel):
     versionNumber: Optional[int] = None
 
 
+# This class is the output for the 'list_ai_agents' function.
 class ListAIAgentsResponse(BaseValidatorModel):
     aiAgentSummaries: List[AIAgentSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_ai_agent' function.
 class CreateAIAgentRequest(BaseValidatorModel):
     assistantId: str
     configuration: AIAgentConfigurationUnion
@@ -2571,6 +2713,7 @@ class CreateAIAgentRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_ai_agent' function.
 class UpdateAIAgentRequest(BaseValidatorModel):
     aiAgentId: str
     assistantId: str
@@ -2580,6 +2723,7 @@ class UpdateAIAgentRequest(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the output for the 'list_ai_agent_versions' function.
 class ListAIAgentVersionsResponse(BaseValidatorModel):
     aiAgentVersionSummaries: List[AIAgentVersionSummary]
     ResponseMetadata: ResponseMetadata

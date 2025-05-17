@@ -31,6 +31,7 @@ class ImageState(BaseValidatorModel):
     reason: Optional[str] = None
 
 
+# This class is the input for the 'cancel_image_creation' function.
 class CancelImageCreationRequest(BaseValidatorModel):
     imageBuildVersionArn: str
     clientToken: str
@@ -44,6 +45,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'cancel_lifecycle_execution' function.
 class CancelLifecycleExecutionRequest(BaseValidatorModel):
     lifecycleExecutionId: str
     clientToken: str
@@ -97,6 +99,7 @@ class Container(BaseValidatorModel):
     imageUris: Optional[List[str]] = None
 
 
+# This class is the input for the 'create_component' function.
 class CreateComponentRequest(BaseValidatorModel):
     name: str
     semanticVersion: str
@@ -134,6 +137,7 @@ class Placement(BaseValidatorModel):
     hostResourceGroupArn: Optional[str] = None
 
 
+# This class is the input for the 'create_workflow' function.
 class CreateWorkflowRequest(BaseValidatorModel):
     name: str
     semanticVersion: str
@@ -159,38 +163,47 @@ class CvssScore(BaseValidatorModel):
     source: Optional[str] = None
 
 
+# This class is the input for the 'delete_component' function.
 class DeleteComponentRequest(BaseValidatorModel):
     componentBuildVersionArn: str
 
 
+# This class is the input for the 'delete_container_recipe' function.
 class DeleteContainerRecipeRequest(BaseValidatorModel):
     containerRecipeArn: str
 
 
+# This class is the input for the 'delete_distribution_configuration' function.
 class DeleteDistributionConfigurationRequest(BaseValidatorModel):
     distributionConfigurationArn: str
 
 
+# This class is the input for the 'delete_image_pipeline' function.
 class DeleteImagePipelineRequest(BaseValidatorModel):
     imagePipelineArn: str
 
 
+# This class is the input for the 'delete_image_recipe' function.
 class DeleteImageRecipeRequest(BaseValidatorModel):
     imageRecipeArn: str
 
 
+# This class is the input for the 'delete_image' function.
 class DeleteImageRequest(BaseValidatorModel):
     imageBuildVersionArn: str
 
 
+# This class is the input for the 'delete_infrastructure_configuration' function.
 class DeleteInfrastructureConfigurationRequest(BaseValidatorModel):
     infrastructureConfigurationArn: str
 
 
+# This class is the input for the 'delete_lifecycle_policy' function.
 class DeleteLifecyclePolicyRequest(BaseValidatorModel):
     lifecyclePolicyArn: str
 
 
+# This class is the input for the 'delete_workflow' function.
 class DeleteWorkflowRequest(BaseValidatorModel):
     workflowBuildVersionArn: str
 
@@ -254,72 +267,89 @@ class Filter(BaseValidatorModel):
     values: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_component_policy' function.
 class GetComponentPolicyRequest(BaseValidatorModel):
     componentArn: str
 
 
+# This class is the input for the 'get_component' function.
 class GetComponentRequest(BaseValidatorModel):
     componentBuildVersionArn: str
 
 
+# This class is the input for the 'get_container_recipe_policy' function.
 class GetContainerRecipePolicyRequest(BaseValidatorModel):
     containerRecipeArn: str
 
 
+# This class is the input for the 'get_container_recipe' function.
 class GetContainerRecipeRequest(BaseValidatorModel):
     containerRecipeArn: str
 
 
+# This class is the input for the 'get_distribution_configuration' function.
 class GetDistributionConfigurationRequest(BaseValidatorModel):
     distributionConfigurationArn: str
 
 
+# This class is the input for the 'get_image_pipeline' function.
 class GetImagePipelineRequest(BaseValidatorModel):
     imagePipelineArn: str
 
 
+# This class is the input for the 'get_image_policy' function.
 class GetImagePolicyRequest(BaseValidatorModel):
     imageArn: str
 
 
+# This class is the input for the 'get_image_recipe_policy' function.
 class GetImageRecipePolicyRequest(BaseValidatorModel):
     imageRecipeArn: str
 
 
+# This class is the input for the 'get_image_recipe' function.
 class GetImageRecipeRequest(BaseValidatorModel):
     imageRecipeArn: str
 
 
+# This class is the input for the 'get_image' function.
 class GetImageRequest(BaseValidatorModel):
     imageBuildVersionArn: str
 
 
+# This class is the input for the 'get_infrastructure_configuration' function.
 class GetInfrastructureConfigurationRequest(BaseValidatorModel):
     infrastructureConfigurationArn: str
 
 
+# This class is the input for the 'get_lifecycle_execution' function.
 class GetLifecycleExecutionRequest(BaseValidatorModel):
     lifecycleExecutionId: str
 
 
+# This class is the input for the 'get_lifecycle_policy' function.
 class GetLifecyclePolicyRequest(BaseValidatorModel):
     lifecyclePolicyArn: str
 
 
+# This class is the input for the 'get_marketplace_resource' function.
 class GetMarketplaceResourceRequest(BaseValidatorModel):
     resourceType: MarketplaceResourceTypeType
     resourceArn: str
     resourceLocation: Optional[str] = None
 
 
+# This class is the input for the 'get_workflow_execution' function.
 class GetWorkflowExecutionRequest(BaseValidatorModel):
     workflowExecutionId: str
 
 
+# This class is the input for the 'get_workflow' function.
 class GetWorkflowRequest(BaseValidatorModel):
     workflowBuildVersionArn: str
 
 
+# This class is the input for the 'get_workflow_step_execution' function.
 class GetWorkflowStepExecutionRequest(BaseValidatorModel):
     stepExecutionId: str
 
@@ -362,6 +392,7 @@ class ImageVersion(BaseValidatorModel):
     imageSource: Optional[ImageSourceType] = None
 
 
+# This class is the input for the 'import_component' function.
 class ImportComponentRequest(BaseValidatorModel):
     name: str
     semanticVersion: str
@@ -377,6 +408,7 @@ class ImportComponentRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'import_disk_image' function.
 class ImportDiskImageRequest(BaseValidatorModel):
     name: str
     semanticVersion: str
@@ -390,6 +422,7 @@ class ImportDiskImageRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'import_vm_image' function.
 class ImportVmImageRequest(BaseValidatorModel):
     name: str
     semanticVersion: str
@@ -463,18 +496,21 @@ class LifecyclePolicySummary(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_component_build_versions' function.
 class ListComponentBuildVersionsRequest(BaseValidatorModel):
     componentVersionArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_image_packages' function.
 class ListImagePackagesRequest(BaseValidatorModel):
     imageBuildVersionArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_lifecycle_execution_resources' function.
 class ListLifecycleExecutionResourcesRequest(BaseValidatorModel):
     lifecycleExecutionId: str
     parentResourceId: Optional[str] = None
@@ -482,16 +518,19 @@ class ListLifecycleExecutionResourcesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_lifecycle_executions' function.
 class ListLifecycleExecutionsRequest(BaseValidatorModel):
     resourceArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'list_waiting_workflow_steps' function.
 class ListWaitingWorkflowStepsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -507,12 +546,14 @@ class WorkflowStepExecution(BaseValidatorModel):
     startTime: Optional[str] = None
 
 
+# This class is the input for the 'list_workflow_build_versions' function.
 class ListWorkflowBuildVersionsRequest(BaseValidatorModel):
     workflowVersionArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_workflow_executions' function.
 class ListWorkflowExecutionsRequest(BaseValidatorModel):
     imageBuildVersionArn: str
     maxResults: Optional[int] = None
@@ -534,6 +575,7 @@ class WorkflowExecutionMetadata(BaseValidatorModel):
     parallelGroup: Optional[str] = None
 
 
+# This class is the input for the 'list_workflow_step_executions' function.
 class ListWorkflowStepExecutionsRequest(BaseValidatorModel):
     workflowExecutionId: str
     maxResults: Optional[int] = None
@@ -582,21 +624,25 @@ class VulnerablePackage(BaseValidatorModel):
     remediation: Optional[str] = None
 
 
+# This class is the input for the 'put_component_policy' function.
 class PutComponentPolicyRequest(BaseValidatorModel):
     componentArn: str
     policy: str
 
 
+# This class is the input for the 'put_container_recipe_policy' function.
 class PutContainerRecipePolicyRequest(BaseValidatorModel):
     containerRecipeArn: str
     policy: str
 
 
+# This class is the input for the 'put_image_policy' function.
 class PutImagePolicyRequest(BaseValidatorModel):
     imageArn: str
     policy: str
 
 
+# This class is the input for the 'put_image_recipe_policy' function.
 class PutImageRecipePolicyRequest(BaseValidatorModel):
     imageRecipeArn: str
     policy: str
@@ -617,6 +663,7 @@ class ResourceStateUpdateIncludeResources(BaseValidatorModel):
     containers: Optional[bool] = None
 
 
+# This class is the input for the 'send_workflow_step_action' function.
 class SendWorkflowStepActionRequest(BaseValidatorModel):
     stepExecutionId: str
     imageBuildVersionArn: str
@@ -625,6 +672,7 @@ class SendWorkflowStepActionRequest(BaseValidatorModel):
     reason: Optional[str] = None
 
 
+# This class is the input for the 'start_image_pipeline_execution' function.
 class StartImagePipelineExecutionRequest(BaseValidatorModel):
     imagePipelineArn: str
     clientToken: str
@@ -707,6 +755,7 @@ class Ami(BaseValidatorModel):
     accountId: Optional[str] = None
 
 
+# This class is the output for the 'cancel_image_creation' function.
 class CancelImageCreationResponse(BaseValidatorModel):
     requestId: str
     clientToken: str
@@ -714,11 +763,13 @@ class CancelImageCreationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_lifecycle_execution' function.
 class CancelLifecycleExecutionResponse(BaseValidatorModel):
     lifecycleExecutionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_component' function.
 class CreateComponentResponse(BaseValidatorModel):
     requestId: str
     clientToken: str
@@ -726,6 +777,7 @@ class CreateComponentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_container_recipe' function.
 class CreateContainerRecipeResponse(BaseValidatorModel):
     requestId: str
     clientToken: str
@@ -733,6 +785,7 @@ class CreateContainerRecipeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_distribution_configuration' function.
 class CreateDistributionConfigurationResponse(BaseValidatorModel):
     requestId: str
     clientToken: str
@@ -740,6 +793,7 @@ class CreateDistributionConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_image_pipeline' function.
 class CreateImagePipelineResponse(BaseValidatorModel):
     requestId: str
     clientToken: str
@@ -747,6 +801,7 @@ class CreateImagePipelineResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_image_recipe' function.
 class CreateImageRecipeResponse(BaseValidatorModel):
     requestId: str
     clientToken: str
@@ -754,6 +809,7 @@ class CreateImageRecipeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_image' function.
 class CreateImageResponse(BaseValidatorModel):
     requestId: str
     clientToken: str
@@ -761,6 +817,7 @@ class CreateImageResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_infrastructure_configuration' function.
 class CreateInfrastructureConfigurationResponse(BaseValidatorModel):
     requestId: str
     clientToken: str
@@ -768,94 +825,110 @@ class CreateInfrastructureConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_lifecycle_policy' function.
 class CreateLifecyclePolicyResponse(BaseValidatorModel):
     clientToken: str
     lifecyclePolicyArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_workflow' function.
 class CreateWorkflowResponse(BaseValidatorModel):
     clientToken: str
     workflowBuildVersionArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_component' function.
 class DeleteComponentResponse(BaseValidatorModel):
     requestId: str
     componentBuildVersionArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_container_recipe' function.
 class DeleteContainerRecipeResponse(BaseValidatorModel):
     requestId: str
     containerRecipeArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_distribution_configuration' function.
 class DeleteDistributionConfigurationResponse(BaseValidatorModel):
     requestId: str
     distributionConfigurationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_image_pipeline' function.
 class DeleteImagePipelineResponse(BaseValidatorModel):
     requestId: str
     imagePipelineArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_image_recipe' function.
 class DeleteImageRecipeResponse(BaseValidatorModel):
     requestId: str
     imageRecipeArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_image' function.
 class DeleteImageResponse(BaseValidatorModel):
     requestId: str
     imageBuildVersionArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_infrastructure_configuration' function.
 class DeleteInfrastructureConfigurationResponse(BaseValidatorModel):
     requestId: str
     infrastructureConfigurationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_lifecycle_policy' function.
 class DeleteLifecyclePolicyResponse(BaseValidatorModel):
     lifecyclePolicyArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_workflow' function.
 class DeleteWorkflowResponse(BaseValidatorModel):
     workflowBuildVersionArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_component_policy' function.
 class GetComponentPolicyResponse(BaseValidatorModel):
     requestId: str
     policy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_container_recipe_policy' function.
 class GetContainerRecipePolicyResponse(BaseValidatorModel):
     requestId: str
     policy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_image_policy' function.
 class GetImagePolicyResponse(BaseValidatorModel):
     requestId: str
     policy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_image_recipe_policy' function.
 class GetImageRecipePolicyResponse(BaseValidatorModel):
     requestId: str
     policy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_marketplace_resource' function.
 class GetMarketplaceResourceResponse(BaseValidatorModel):
     resourceArn: str
     url: str
@@ -863,6 +936,7 @@ class GetMarketplaceResourceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_workflow_execution' function.
 class GetWorkflowExecutionResponse(BaseValidatorModel):
     requestId: str
     workflowBuildVersionArn: str
@@ -881,6 +955,7 @@ class GetWorkflowExecutionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_workflow_step_execution' function.
 class GetWorkflowStepExecutionResponse(BaseValidatorModel):
     requestId: str
     stepExecutionId: str
@@ -902,6 +977,7 @@ class GetWorkflowStepExecutionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_component' function.
 class ImportComponentResponse(BaseValidatorModel):
     requestId: str
     clientToken: str
@@ -909,12 +985,14 @@ class ImportComponentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_disk_image' function.
 class ImportDiskImageResponse(BaseValidatorModel):
     clientToken: str
     imageBuildVersionArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_vm_image' function.
 class ImportVmImageResponse(BaseValidatorModel):
     requestId: str
     imageArn: str
@@ -922,35 +1000,41 @@ class ImportVmImageResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_component_policy' function.
 class PutComponentPolicyResponse(BaseValidatorModel):
     requestId: str
     componentArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_container_recipe_policy' function.
 class PutContainerRecipePolicyResponse(BaseValidatorModel):
     requestId: str
     containerRecipeArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_image_policy' function.
 class PutImagePolicyResponse(BaseValidatorModel):
     requestId: str
     imageArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_image_recipe_policy' function.
 class PutImageRecipePolicyResponse(BaseValidatorModel):
     requestId: str
     imageRecipeArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'send_workflow_step_action' function.
 class SendWorkflowStepActionResponse(BaseValidatorModel):
     stepExecutionId: str
     imageBuildVersionArn: str
@@ -958,6 +1042,7 @@ class SendWorkflowStepActionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_image_pipeline_execution' function.
 class StartImagePipelineExecutionResponse(BaseValidatorModel):
     requestId: str
     clientToken: str
@@ -965,12 +1050,14 @@ class StartImagePipelineExecutionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_resource_state_update' function.
 class StartResourceStateUpdateResponse(BaseValidatorModel):
     lifecycleExecutionId: str
     resourceArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_distribution_configuration' function.
 class UpdateDistributionConfigurationResponse(BaseValidatorModel):
     requestId: str
     clientToken: str
@@ -978,6 +1065,7 @@ class UpdateDistributionConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_image_pipeline' function.
 class UpdateImagePipelineResponse(BaseValidatorModel):
     requestId: str
     clientToken: str
@@ -985,6 +1073,7 @@ class UpdateImagePipelineResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_infrastructure_configuration' function.
 class UpdateInfrastructureConfigurationResponse(BaseValidatorModel):
     requestId: str
     clientToken: str
@@ -992,6 +1081,7 @@ class UpdateInfrastructureConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_lifecycle_policy' function.
 class UpdateLifecyclePolicyResponse(BaseValidatorModel):
     lifecyclePolicyArn: str
     ResponseMetadata: ResponseMetadata
@@ -1069,6 +1159,7 @@ class ContainerDistributionConfiguration(BaseValidatorModel):
     containerTags: Optional[List[str]] = None
 
 
+# This class is the output for the 'list_container_recipes' function.
 class ListContainerRecipesResponse(BaseValidatorModel):
     requestId: str
     containerRecipeSummaryList: List[ContainerRecipeSummary]
@@ -1098,6 +1189,7 @@ class CvssScoreDetails(BaseValidatorModel):
     adjustments: Optional[List[CvssScoreAdjustment]] = None
 
 
+# This class is the output for the 'list_distribution_configurations' function.
 class ListDistributionConfigurationsResponse(BaseValidatorModel):
     requestId: str
     distributionConfigurationSummaryList: List[DistributionConfigurationSummary]
@@ -1130,6 +1222,7 @@ class FastLaunchConfiguration(BaseValidatorModel):
     accountId: Optional[str] = None
 
 
+# This class is the input for the 'list_components' function.
 class ListComponentsRequest(BaseValidatorModel):
     owner: Optional[OwnershipType] = None
     filters: Optional[List[Filter]] = None
@@ -1138,6 +1231,7 @@ class ListComponentsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_container_recipes' function.
 class ListContainerRecipesRequest(BaseValidatorModel):
     owner: Optional[OwnershipType] = None
     filters: Optional[List[Filter]] = None
@@ -1145,12 +1239,14 @@ class ListContainerRecipesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_distribution_configurations' function.
 class ListDistributionConfigurationsRequest(BaseValidatorModel):
     filters: Optional[List[Filter]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_image_build_versions' function.
 class ListImageBuildVersionsRequest(BaseValidatorModel):
     imageVersionArn: str
     filters: Optional[List[Filter]] = None
@@ -1158,6 +1254,7 @@ class ListImageBuildVersionsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_image_pipeline_images' function.
 class ListImagePipelineImagesRequest(BaseValidatorModel):
     imagePipelineArn: str
     filters: Optional[List[Filter]] = None
@@ -1165,12 +1262,14 @@ class ListImagePipelineImagesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_image_pipelines' function.
 class ListImagePipelinesRequest(BaseValidatorModel):
     filters: Optional[List[Filter]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_image_recipes' function.
 class ListImageRecipesRequest(BaseValidatorModel):
     owner: Optional[OwnershipType] = None
     filters: Optional[List[Filter]] = None
@@ -1178,11 +1277,13 @@ class ListImageRecipesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_image_scan_finding_aggregations' function.
 class ListImageScanFindingAggregationsRequest(BaseValidatorModel):
     filter: Optional[Filter] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_images' function.
 class ListImagesRequest(BaseValidatorModel):
     owner: Optional[OwnershipType] = None
     filters: Optional[List[Filter]] = None
@@ -1192,18 +1293,21 @@ class ListImagesRequest(BaseValidatorModel):
     includeDeprecated: Optional[bool] = None
 
 
+# This class is the input for the 'list_infrastructure_configurations' function.
 class ListInfrastructureConfigurationsRequest(BaseValidatorModel):
     filters: Optional[List[Filter]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_lifecycle_policies' function.
 class ListLifecyclePoliciesRequest(BaseValidatorModel):
     filters: Optional[List[Filter]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_workflows' function.
 class ListWorkflowsRequest(BaseValidatorModel):
     owner: Optional[OwnershipType] = None
     filters: Optional[List[Filter]] = None
@@ -1212,6 +1316,7 @@ class ListWorkflowsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_image_packages' function.
 class ListImagePackagesResponse(BaseValidatorModel):
     requestId: str
     imagePackageList: List[ImagePackage]
@@ -1219,6 +1324,7 @@ class ListImagePackagesResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_image_recipes' function.
 class ListImageRecipesResponse(BaseValidatorModel):
     requestId: str
     imageRecipeSummaryList: List[ImageRecipeSummary]
@@ -1226,12 +1332,14 @@ class ListImageRecipesResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_image_scan_findings' function.
 class ListImageScanFindingsRequest(BaseValidatorModel):
     filters: Optional[List[ImageScanFindingsFilter]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_images' function.
 class ListImagesResponse(BaseValidatorModel):
     requestId: str
     imageVersionList: List[ImageVersion]
@@ -1286,18 +1394,21 @@ class LifecyclePolicyResourceSelection(BaseValidatorModel):
     tagMap: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'list_lifecycle_policies' function.
 class ListLifecyclePoliciesResponse(BaseValidatorModel):
     lifecyclePolicySummaryList: List[LifecyclePolicySummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_waiting_workflow_steps' function.
 class ListWaitingWorkflowStepsResponse(BaseValidatorModel):
     steps: List[WorkflowStepExecution]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_workflow_executions' function.
 class ListWorkflowExecutionsResponse(BaseValidatorModel):
     requestId: str
     workflowExecutions: List[WorkflowExecutionMetadata]
@@ -1307,6 +1418,7 @@ class ListWorkflowExecutionsResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_workflow_step_executions' function.
 class ListWorkflowStepExecutionsResponse(BaseValidatorModel):
     requestId: str
     steps: List[WorkflowStepMetadata]
@@ -1318,6 +1430,7 @@ class ListWorkflowStepExecutionsResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_workflows' function.
 class ListWorkflowsResponse(BaseValidatorModel):
     workflowVersionList: List[WorkflowVersion]
     ResponseMetadata: ResponseMetadata
@@ -1400,6 +1513,7 @@ class ComponentConfiguration(BaseValidatorModel):
     parameters: Optional[List[ComponentParameterUnion]] = None
 
 
+# This class is the output for the 'list_component_build_versions' function.
 class ListComponentBuildVersionsResponse(BaseValidatorModel):
     requestId: str
     componentSummaryList: List[ComponentSummary]
@@ -1407,12 +1521,14 @@ class ListComponentBuildVersionsResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_component' function.
 class GetComponentResponse(BaseValidatorModel):
     requestId: str
     component: Component
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_components' function.
 class ListComponentsResponse(BaseValidatorModel):
     requestId: str
     componentVersionList: List[ComponentVersion]
@@ -1422,6 +1538,7 @@ class ListComponentsResponse(BaseValidatorModel):
 ContainerDistributionConfigurationUnion = Union[ContainerDistributionConfiguration, ContainerDistributionConfigurationOutput]
 
 
+# This class is the output for the 'list_infrastructure_configurations' function.
 class ListInfrastructureConfigurationsResponse(BaseValidatorModel):
     requestId: str
     infrastructureConfigurationSummaryList: List[InfrastructureConfigurationSummary]
@@ -1493,11 +1610,13 @@ class LifecycleExecutionResource(BaseValidatorModel):
     endTime: Optional[datetime] = None
 
 
+# This class is the output for the 'get_lifecycle_execution' function.
 class GetLifecycleExecutionResponse(BaseValidatorModel):
     lifecycleExecution: LifecycleExecution
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_lifecycle_executions' function.
 class ListLifecycleExecutionsResponse(BaseValidatorModel):
     lifecycleExecutions: List[LifecycleExecution]
     ResponseMetadata: ResponseMetadata
@@ -1513,6 +1632,7 @@ LifecyclePolicyDetailExclusionRulesAmisUnion = Union[LifecyclePolicyDetailExclus
 LifecyclePolicyResourceSelectionUnion = Union[LifecyclePolicyResourceSelection, LifecyclePolicyResourceSelectionOutput]
 
 
+# This class is the input for the 'create_infrastructure_configuration' function.
 class CreateInfrastructureConfigurationRequest(BaseValidatorModel):
     name: str
     instanceProfileName: str
@@ -1551,6 +1671,7 @@ class InfrastructureConfiguration(BaseValidatorModel):
     placement: Optional[Placement] = None
 
 
+# This class is the input for the 'update_infrastructure_configuration' function.
 class UpdateInfrastructureConfigurationRequest(BaseValidatorModel):
     infrastructureConfigurationArn: str
     instanceProfileName: str
@@ -1598,17 +1719,20 @@ class WorkflowConfiguration(BaseValidatorModel):
     onFailure: Optional[OnWorkflowFailureType] = None
 
 
+# This class is the output for the 'list_workflow_build_versions' function.
 class ListWorkflowBuildVersionsResponse(BaseValidatorModel):
     workflowSummaryList: List[WorkflowSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_workflow' function.
 class GetWorkflowResponse(BaseValidatorModel):
     workflow: Workflow
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_image_scan_finding_aggregations' function.
 class ListImageScanFindingAggregationsResponse(BaseValidatorModel):
     requestId: str
     aggregationType: str
@@ -1654,6 +1778,7 @@ class ImageScanFinding(BaseValidatorModel):
     fixAvailable: Optional[str] = None
 
 
+# This class is the output for the 'get_image_recipe' function.
 class GetImageRecipeResponse(BaseValidatorModel):
     requestId: str
     imageRecipe: ImageRecipe
@@ -1695,6 +1820,7 @@ class DistributionConfiguration(BaseValidatorModel):
 AmiDistributionConfigurationUnion = Union[AmiDistributionConfiguration, AmiDistributionConfigurationOutput]
 
 
+# This class is the output for the 'list_lifecycle_execution_resources' function.
 class ListLifecycleExecutionResourcesResponse(BaseValidatorModel):
     lifecycleExecutionId: str
     lifecycleExecutionState: LifecycleExecutionState
@@ -1718,18 +1844,21 @@ class ResourceStateUpdateExclusionRules(BaseValidatorModel):
     amis: Optional[LifecyclePolicyDetailExclusionRulesAmisUnion] = None
 
 
+# This class is the output for the 'get_infrastructure_configuration' function.
 class GetInfrastructureConfigurationResponse(BaseValidatorModel):
     requestId: str
     infrastructureConfiguration: InfrastructureConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_image_pipeline' function.
 class GetImagePipelineResponse(BaseValidatorModel):
     requestId: str
     imagePipeline: ImagePipeline
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_image_pipelines' function.
 class ListImagePipelinesResponse(BaseValidatorModel):
     requestId: str
     imagePipelineList: List[ImagePipeline]
@@ -1739,6 +1868,7 @@ class ListImagePipelinesResponse(BaseValidatorModel):
 WorkflowConfigurationUnion = Union[WorkflowConfiguration, WorkflowConfigurationOutput]
 
 
+# This class is the output for the 'list_image_build_versions' function.
 class ListImageBuildVersionsResponse(BaseValidatorModel):
     requestId: str
     imageSummaryList: List[ImageSummary]
@@ -1746,6 +1876,7 @@ class ListImageBuildVersionsResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_image_pipeline_images' function.
 class ListImagePipelineImagesResponse(BaseValidatorModel):
     requestId: str
     imageSummaryList: List[ImageSummary]
@@ -1753,6 +1884,7 @@ class ListImagePipelineImagesResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_image_recipe' function.
 class CreateImageRecipeRequest(BaseValidatorModel):
     name: str
     semanticVersion: str
@@ -1766,6 +1898,7 @@ class CreateImageRecipeRequest(BaseValidatorModel):
     additionalInstanceConfiguration: Optional[AdditionalInstanceConfiguration] = None
 
 
+# This class is the output for the 'list_image_scan_findings' function.
 class ListImageScanFindingsResponse(BaseValidatorModel):
     requestId: str
     findings: List[ImageScanFinding]
@@ -1773,12 +1906,14 @@ class ListImageScanFindingsResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_container_recipe' function.
 class GetContainerRecipeResponse(BaseValidatorModel):
     requestId: str
     containerRecipe: ContainerRecipe
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_container_recipe' function.
 class CreateContainerRecipeRequest(BaseValidatorModel):
     containerType: Literal['DOCKER']
     name: str
@@ -1798,6 +1933,7 @@ class CreateContainerRecipeRequest(BaseValidatorModel):
     kmsKeyId: Optional[str] = None
 
 
+# This class is the output for the 'get_distribution_configuration' function.
 class GetDistributionConfigurationResponse(BaseValidatorModel):
     requestId: str
     distributionConfiguration: DistributionConfiguration
@@ -1860,6 +1996,7 @@ class LifecyclePolicy(BaseValidatorModel):
 LifecyclePolicyDetailExclusionRulesUnion = Union[LifecyclePolicyDetailExclusionRules, LifecyclePolicyDetailExclusionRulesOutput]
 
 
+# This class is the input for the 'start_resource_state_update' function.
 class StartResourceStateUpdateRequest(BaseValidatorModel):
     resourceArn: str
     state: ResourceState
@@ -1870,6 +2007,7 @@ class StartResourceStateUpdateRequest(BaseValidatorModel):
     updateAt: Optional[Timestamp] = None
 
 
+# This class is the input for the 'create_image_pipeline' function.
 class CreateImagePipelineRequest(BaseValidatorModel):
     name: str
     infrastructureConfigurationArn: str
@@ -1888,6 +2026,7 @@ class CreateImagePipelineRequest(BaseValidatorModel):
     executionRole: Optional[str] = None
 
 
+# This class is the input for the 'create_image' function.
 class CreateImageRequest(BaseValidatorModel):
     infrastructureConfigurationArn: str
     clientToken: str
@@ -1902,6 +2041,7 @@ class CreateImageRequest(BaseValidatorModel):
     executionRole: Optional[str] = None
 
 
+# This class is the input for the 'update_image_pipeline' function.
 class UpdateImagePipelineRequest(BaseValidatorModel):
     imagePipelineArn: str
     infrastructureConfigurationArn: str
@@ -1919,6 +2059,7 @@ class UpdateImagePipelineRequest(BaseValidatorModel):
     executionRole: Optional[str] = None
 
 
+# This class is the output for the 'get_image' function.
 class GetImageResponse(BaseValidatorModel):
     requestId: str
     image: Image
@@ -1927,6 +2068,7 @@ class GetImageResponse(BaseValidatorModel):
 DistributionUnion = Union[Distribution, DistributionOutput]
 
 
+# This class is the output for the 'get_lifecycle_policy' function.
 class GetLifecyclePolicyResponse(BaseValidatorModel):
     lifecyclePolicy: LifecyclePolicy
     ResponseMetadata: ResponseMetadata
@@ -1938,6 +2080,7 @@ class LifecyclePolicyDetail(BaseValidatorModel):
     exclusionRules: Optional[LifecyclePolicyDetailExclusionRulesUnion] = None
 
 
+# This class is the input for the 'create_distribution_configuration' function.
 class CreateDistributionConfigurationRequest(BaseValidatorModel):
     name: str
     distributions: List[DistributionUnion]
@@ -1946,6 +2089,7 @@ class CreateDistributionConfigurationRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_distribution_configuration' function.
 class UpdateDistributionConfigurationRequest(BaseValidatorModel):
     distributionConfigurationArn: str
     distributions: List[DistributionUnion]
@@ -1955,6 +2099,7 @@ class UpdateDistributionConfigurationRequest(BaseValidatorModel):
 LifecyclePolicyDetailUnion = Union[LifecyclePolicyDetail, LifecyclePolicyDetailOutput]
 
 
+# This class is the input for the 'create_lifecycle_policy' function.
 class CreateLifecyclePolicyRequest(BaseValidatorModel):
     name: str
     executionRole: str
@@ -1967,6 +2112,7 @@ class CreateLifecyclePolicyRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_lifecycle_policy' function.
 class UpdateLifecyclePolicyRequest(BaseValidatorModel):
     lifecyclePolicyArn: str
     executionRole: str

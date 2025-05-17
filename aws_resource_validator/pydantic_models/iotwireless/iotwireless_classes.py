@@ -69,6 +69,7 @@ class AssociateWirelessDeviceWithThingRequest(BaseValidatorModel):
     ThingArn: str
 
 
+# This class is the input for the 'associate_wireless_gateway_with_certificate' function.
 class AssociateWirelessGatewayWithCertificateRequest(BaseValidatorModel):
     Id: str
     IotCertificateId: str
@@ -142,6 +143,7 @@ class SidewalkCreateWirelessDevice(BaseValidatorModel):
     DeviceProfileId: Optional[str] = None
 
 
+# This class is the input for the 'create_wireless_gateway_task' function.
 class CreateWirelessGatewayTaskRequest(BaseValidatorModel):
     Id: str
     WirelessGatewayTaskDefinitionId: str
@@ -292,10 +294,12 @@ class GatewayListItem(BaseValidatorModel):
     DownlinkFrequency: int
 
 
+# This class is the input for the 'get_destination' function.
 class GetDestinationRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'get_device_profile' function.
 class GetDeviceProfileRequest(BaseValidatorModel):
     Id: str
 
@@ -322,6 +326,7 @@ class LoRaWANDeviceProfileOutput(BaseValidatorModel):
     Supports32BitFCnt: Optional[bool] = None
 
 
+# This class is the input for the 'get_fuota_task' function.
 class GetFuotaTaskRequest(BaseValidatorModel):
     Id: str
 
@@ -335,10 +340,12 @@ class SummaryMetricConfiguration(BaseValidatorModel):
     Status: Optional[SummaryMetricConfigurationStatusType] = None
 
 
+# This class is the input for the 'get_multicast_group' function.
 class GetMulticastGroupRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_multicast_group_session' function.
 class GetMulticastGroupSessionRequest(BaseValidatorModel):
     Id: str
 
@@ -351,10 +358,12 @@ class LoRaWANMulticastSessionOutput(BaseValidatorModel):
     PingSlotPeriod: Optional[int] = None
 
 
+# This class is the input for the 'get_network_analyzer_configuration' function.
 class GetNetworkAnalyzerConfigurationRequest(BaseValidatorModel):
     ConfigurationName: str
 
 
+# This class is the input for the 'get_partner_account' function.
 class GetPartnerAccountRequest(BaseValidatorModel):
     PartnerAccountId: str
     PartnerType: Literal['Sidewalk']
@@ -366,6 +375,7 @@ class SidewalkAccountInfoWithFingerprint(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
+# This class is the input for the 'get_position_configuration' function.
 class GetPositionConfigurationRequest(BaseValidatorModel):
     ResourceIdentifier: str
     ResourceType: PositionResourceTypeType
@@ -391,31 +401,37 @@ class WiFiAccessPoint(BaseValidatorModel):
     Rss: int
 
 
+# This class is the input for the 'get_position' function.
 class GetPositionRequest(BaseValidatorModel):
     ResourceIdentifier: str
     ResourceType: PositionResourceTypeType
 
 
+# This class is the input for the 'get_resource_event_configuration' function.
 class GetResourceEventConfigurationRequest(BaseValidatorModel):
     Identifier: str
     IdentifierType: IdentifierTypeType
     PartnerType: Optional[Literal['Sidewalk']] = None
 
 
+# This class is the input for the 'get_resource_log_level' function.
 class GetResourceLogLevelRequest(BaseValidatorModel):
     ResourceIdentifier: str
     ResourceType: str
 
 
+# This class is the input for the 'get_resource_position' function.
 class GetResourcePositionRequest(BaseValidatorModel):
     ResourceIdentifier: str
     ResourceType: PositionResourceTypeType
 
 
+# This class is the input for the 'get_service_endpoint' function.
 class GetServiceEndpointRequest(BaseValidatorModel):
     ServiceType: Optional[WirelessGatewayServiceTypeType] = None
 
 
+# This class is the input for the 'get_service_profile' function.
 class GetServiceProfileRequest(BaseValidatorModel):
     Id: str
 
@@ -442,6 +458,7 @@ class LoRaWANGetServiceProfileInfo(BaseValidatorModel):
     MinGwDiversity: Optional[int] = None
 
 
+# This class is the input for the 'get_wireless_device_import_task' function.
 class GetWirelessDeviceImportTaskRequest(BaseValidatorModel):
     Id: str
 
@@ -451,11 +468,13 @@ class SidewalkGetStartImportInfo(BaseValidatorModel):
     Role: Optional[str] = None
 
 
+# This class is the input for the 'get_wireless_device' function.
 class GetWirelessDeviceRequest(BaseValidatorModel):
     Identifier: str
     IdentifierType: WirelessDeviceIdTypeType
 
 
+# This class is the input for the 'get_wireless_device_statistics' function.
 class GetWirelessDeviceStatisticsRequest(BaseValidatorModel):
     WirelessDeviceId: str
 
@@ -467,27 +486,33 @@ class SidewalkDeviceMetadata(BaseValidatorModel):
     DeviceState: Optional[DeviceStateType] = None
 
 
+# This class is the input for the 'get_wireless_gateway_certificate' function.
 class GetWirelessGatewayCertificateRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_wireless_gateway_firmware_information' function.
 class GetWirelessGatewayFirmwareInformationRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_wireless_gateway' function.
 class GetWirelessGatewayRequest(BaseValidatorModel):
     Identifier: str
     IdentifierType: WirelessGatewayIdTypeType
 
 
+# This class is the input for the 'get_wireless_gateway_statistics' function.
 class GetWirelessGatewayStatisticsRequest(BaseValidatorModel):
     WirelessGatewayId: str
 
 
+# This class is the input for the 'get_wireless_gateway_task_definition' function.
 class GetWirelessGatewayTaskDefinitionRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_wireless_gateway_task' function.
 class GetWirelessGatewayTaskRequest(BaseValidatorModel):
     Id: str
 
@@ -517,17 +542,20 @@ class LoRaWANJoinResourceTypeEventConfiguration(BaseValidatorModel):
     WirelessDeviceEventTopic: Optional[EventNotificationTopicStatusType] = None
 
 
+# This class is the input for the 'list_destinations' function.
 class ListDestinationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_device_profiles' function.
 class ListDeviceProfilesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     DeviceProfileType: Optional[DeviceProfileTypeType] = None
 
 
+# This class is the input for the 'list_devices_for_wireless_device_import_task' function.
 class ListDevicesForWirelessDeviceImportTaskRequest(BaseValidatorModel):
     Id: str
     MaxResults: Optional[int] = None
@@ -535,17 +563,20 @@ class ListDevicesForWirelessDeviceImportTaskRequest(BaseValidatorModel):
     Status: Optional[OnboardStatusType] = None
 
 
+# This class is the input for the 'list_event_configurations' function.
 class ListEventConfigurationsRequest(BaseValidatorModel):
     ResourceType: EventNotificationResourceTypeType
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_fuota_tasks' function.
 class ListFuotaTasksRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_multicast_groups_by_fuota_task' function.
 class ListMulticastGroupsByFuotaTaskRequest(BaseValidatorModel):
     Id: str
     NextToken: Optional[str] = None
@@ -556,6 +587,7 @@ class MulticastGroupByFuotaTask(BaseValidatorModel):
     Id: Optional[str] = None
 
 
+# This class is the input for the 'list_multicast_groups' function.
 class ListMulticastGroupsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -567,6 +599,7 @@ class MulticastGroup(BaseValidatorModel):
     Name: Optional[str] = None
 
 
+# This class is the input for the 'list_network_analyzer_configurations' function.
 class ListNetworkAnalyzerConfigurationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -577,17 +610,20 @@ class NetworkAnalyzerConfigurations(BaseValidatorModel):
     Name: Optional[str] = None
 
 
+# This class is the input for the 'list_partner_accounts' function.
 class ListPartnerAccountsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_position_configurations' function.
 class ListPositionConfigurationsRequest(BaseValidatorModel):
     ResourceType: Optional[PositionResourceTypeType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_queued_messages' function.
 class ListQueuedMessagesRequest(BaseValidatorModel):
     Id: str
     NextToken: Optional[str] = None
@@ -595,6 +631,7 @@ class ListQueuedMessagesRequest(BaseValidatorModel):
     WirelessDeviceType: Optional[WirelessDeviceTypeType] = None
 
 
+# This class is the input for the 'list_service_profiles' function.
 class ListServiceProfilesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -606,15 +643,18 @@ class ServiceProfile(BaseValidatorModel):
     Id: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'list_wireless_device_import_tasks' function.
 class ListWirelessDeviceImportTasksRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_wireless_devices' function.
 class ListWirelessDevicesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -626,12 +666,14 @@ class ListWirelessDevicesRequest(BaseValidatorModel):
     MulticastGroupId: Optional[str] = None
 
 
+# This class is the input for the 'list_wireless_gateway_task_definitions' function.
 class ListWirelessGatewayTaskDefinitionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     TaskDefinitionType: Optional[Literal['UPDATE']] = None
 
 
+# This class is the input for the 'list_wireless_gateways' function.
 class ListWirelessGatewaysRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -800,6 +842,7 @@ class TdscdmaNmrObj(BaseValidatorModel):
     PathLoss: Optional[int] = None
 
 
+# This class is the input for the 'test_wireless_device' function.
 class TestWirelessDeviceRequest(BaseValidatorModel):
     Id: str
 
@@ -867,12 +910,14 @@ class AbpV11(BaseValidatorModel):
     FCntStart: Optional[int] = None
 
 
+# This class is the input for the 'associate_aws_account_with_partner_account' function.
 class AssociateAwsAccountWithPartnerAccountRequest(BaseValidatorModel):
     Sidewalk: SidewalkAccountInfo
     ClientRequestToken: Optional[str] = None
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_destination' function.
 class CreateDestinationRequest(BaseValidatorModel):
     Name: str
     ExpressionType: ExpressionTypeType
@@ -900,77 +945,90 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the output for the 'associate_aws_account_with_partner_account' function.
 class AssociateAwsAccountWithPartnerAccountResponse(BaseValidatorModel):
     Sidewalk: SidewalkAccountInfo
     Arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_wireless_gateway_with_certificate' function.
 class AssociateWirelessGatewayWithCertificateResponse(BaseValidatorModel):
     IotCertificateId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_destination' function.
 class CreateDestinationResponse(BaseValidatorModel):
     Arn: str
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_device_profile' function.
 class CreateDeviceProfileResponse(BaseValidatorModel):
     Arn: str
     Id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_fuota_task' function.
 class CreateFuotaTaskResponse(BaseValidatorModel):
     Arn: str
     Id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_multicast_group' function.
 class CreateMulticastGroupResponse(BaseValidatorModel):
     Arn: str
     Id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_network_analyzer_configuration' function.
 class CreateNetworkAnalyzerConfigurationResponse(BaseValidatorModel):
     Arn: str
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_service_profile' function.
 class CreateServiceProfileResponse(BaseValidatorModel):
     Arn: str
     Id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_wireless_device' function.
 class CreateWirelessDeviceResponse(BaseValidatorModel):
     Arn: str
     Id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_wireless_gateway' function.
 class CreateWirelessGatewayResponse(BaseValidatorModel):
     Arn: str
     Id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_wireless_gateway_task_definition' function.
 class CreateWirelessGatewayTaskDefinitionResponse(BaseValidatorModel):
     Id: str
     Arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_wireless_gateway_task' function.
 class CreateWirelessGatewayTaskResponse(BaseValidatorModel):
     WirelessGatewayTaskDefinitionId: str
     Status: WirelessGatewayTaskStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_destination' function.
 class GetDestinationResponse(BaseValidatorModel):
     Arn: str
     Name: str
@@ -981,11 +1039,13 @@ class GetDestinationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_position_estimate' function.
 class GetPositionEstimateResponse(BaseValidatorModel):
     GeoJsonPayload: StreamingBody
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_position' function.
 class GetPositionResponse(BaseValidatorModel):
     Position: List[float]
     Accuracy: Accuracy
@@ -996,16 +1056,19 @@ class GetPositionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_log_level' function.
 class GetResourceLogLevelResponse(BaseValidatorModel):
     LogLevel: LogLevelType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_position' function.
 class GetResourcePositionResponse(BaseValidatorModel):
     GeoJsonPayload: StreamingBody
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_service_endpoint' function.
 class GetServiceEndpointResponse(BaseValidatorModel):
     ServiceType: WirelessGatewayServiceTypeType
     ServiceEndpoint: str
@@ -1013,12 +1076,14 @@ class GetServiceEndpointResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_wireless_gateway_certificate' function.
 class GetWirelessGatewayCertificateResponse(BaseValidatorModel):
     IotCertificateId: str
     LoRaWANNetworkServerCertificateId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_wireless_gateway_statistics' function.
 class GetWirelessGatewayStatisticsResponse(BaseValidatorModel):
     WirelessGatewayId: str
     LastUplinkReceivedAt: str
@@ -1026,6 +1091,7 @@ class GetWirelessGatewayStatisticsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_wireless_gateway_task' function.
 class GetWirelessGatewayTaskResponse(BaseValidatorModel):
     WirelessGatewayId: str
     WirelessGatewayTaskDefinitionId: str
@@ -1035,33 +1101,39 @@ class GetWirelessGatewayTaskResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'send_data_to_multicast_group' function.
 class SendDataToMulticastGroupResponse(BaseValidatorModel):
     MessageId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'send_data_to_wireless_device' function.
 class SendDataToWirelessDeviceResponse(BaseValidatorModel):
     MessageId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_single_wireless_device_import_task' function.
 class StartSingleWirelessDeviceImportTaskResponse(BaseValidatorModel):
     Id: str
     Arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_wireless_device_import_task' function.
 class StartWirelessDeviceImportTaskResponse(BaseValidatorModel):
     Id: str
     Arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'test_wireless_device' function.
 class TestWirelessDeviceResponse(BaseValidatorModel):
     Result: str
     ResponseMetadata: ResponseMetadata
@@ -1134,6 +1206,7 @@ class ConnectionStatusResourceTypeEventConfiguration(BaseValidatorModel):
     LoRaWAN: Optional[LoRaWANConnectionStatusResourceTypeEventConfiguration] = None
 
 
+# This class is the input for the 'create_fuota_task' function.
 class CreateFuotaTaskRequest(BaseValidatorModel):
     FirmwareUpdateImage: str
     FirmwareUpdateRole: str
@@ -1161,6 +1234,7 @@ class UpdateFuotaTaskRequest(BaseValidatorModel):
     Descriptor: Optional[str] = None
 
 
+# This class is the input for the 'create_network_analyzer_configuration' function.
 class CreateNetworkAnalyzerConfigurationRequest(BaseValidatorModel):
     Name: str
     TraceContent: Optional[TraceContent] = None
@@ -1172,6 +1246,7 @@ class CreateNetworkAnalyzerConfigurationRequest(BaseValidatorModel):
     MulticastGroups: Optional[List[str]] = None
 
 
+# This class is the output for the 'get_network_analyzer_configuration' function.
 class GetNetworkAnalyzerConfigurationResponse(BaseValidatorModel):
     TraceContent: TraceContent
     WirelessDevices: List[str]
@@ -1195,6 +1270,7 @@ class UpdateNetworkAnalyzerConfigurationRequest(BaseValidatorModel):
     MulticastGroupsToRemove: Optional[List[str]] = None
 
 
+# This class is the input for the 'create_service_profile' function.
 class CreateServiceProfileRequest(BaseValidatorModel):
     Name: Optional[str] = None
     LoRaWAN: Optional[LoRaWANServiceProfile] = None
@@ -1208,12 +1284,14 @@ class SidewalkGetDeviceProfile(BaseValidatorModel):
     DakCertificateMetadata: Optional[List[DakCertificateMetadata]] = None
 
 
+# This class is the output for the 'list_destinations' function.
 class ListDestinationsResponse(BaseValidatorModel):
     DestinationList: List[Destinations]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_device_profiles' function.
 class ListDeviceProfilesResponse(BaseValidatorModel):
     DeviceProfileList: List[DeviceProfile]
     ResponseMetadata: ResponseMetadata
@@ -1280,6 +1358,7 @@ class FuotaTaskLogOption(BaseValidatorModel):
     Events: Optional[List[FuotaTaskEventLogOption]] = None
 
 
+# This class is the output for the 'list_fuota_tasks' function.
 class ListFuotaTasksResponse(BaseValidatorModel):
     FuotaTaskList: List[FuotaTask]
     ResponseMetadata: ResponseMetadata
@@ -1298,6 +1377,7 @@ class ParticipatingGateways(BaseValidatorModel):
     TransmissionInterval: int
 
 
+# This class is the output for the 'get_fuota_task' function.
 class GetFuotaTaskResponse(BaseValidatorModel):
     Arn: str
     Id: str
@@ -1324,17 +1404,20 @@ class UpdateMetricConfigurationRequest(BaseValidatorModel):
     SummaryMetric: Optional[SummaryMetricConfiguration] = None
 
 
+# This class is the output for the 'get_multicast_group_session' function.
 class GetMulticastGroupSessionResponse(BaseValidatorModel):
     LoRaWAN: LoRaWANMulticastSessionOutput
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_partner_account' function.
 class GetPartnerAccountResponse(BaseValidatorModel):
     Sidewalk: SidewalkAccountInfoWithFingerprint
     AccountLinked: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_partner_accounts' function.
 class ListPartnerAccountsResponse(BaseValidatorModel):
     Sidewalk: List[SidewalkAccountInfoWithFingerprint]
     ResponseMetadata: ResponseMetadata
@@ -1362,6 +1445,7 @@ class SummaryMetricQuery(BaseValidatorModel):
     EndTimestamp: Optional[Timestamp] = None
 
 
+# This class is the output for the 'get_service_profile' function.
 class GetServiceProfileResponse(BaseValidatorModel):
     Arn: str
     Name: str
@@ -1370,6 +1454,7 @@ class GetServiceProfileResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_wireless_device_import_task' function.
 class GetWirelessDeviceImportTaskResponse(BaseValidatorModel):
     Id: str
     Arn: str
@@ -1419,24 +1504,28 @@ class JoinResourceTypeEventConfiguration(BaseValidatorModel):
     LoRaWAN: Optional[LoRaWANJoinResourceTypeEventConfiguration] = None
 
 
+# This class is the output for the 'list_multicast_groups_by_fuota_task' function.
 class ListMulticastGroupsByFuotaTaskResponse(BaseValidatorModel):
     MulticastGroupList: List[MulticastGroupByFuotaTask]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_multicast_groups' function.
 class ListMulticastGroupsResponse(BaseValidatorModel):
     MulticastGroupList: List[MulticastGroup]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_network_analyzer_configurations' function.
 class ListNetworkAnalyzerConfigurationsResponse(BaseValidatorModel):
     NetworkAnalyzerConfigurationList: List[NetworkAnalyzerConfigurations]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_service_profiles' function.
 class ListServiceProfilesResponse(BaseValidatorModel):
     ServiceProfileList: List[ServiceProfile]
     ResponseMetadata: ResponseMetadata
@@ -1520,6 +1609,7 @@ class PositionSolverDetails(BaseValidatorModel):
     SemtechGnss: Optional[SemtechGnssDetail] = None
 
 
+# This class is the input for the 'start_single_wireless_device_import_task' function.
 class StartSingleWirelessDeviceImportTaskRequest(BaseValidatorModel):
     DestinationName: str
     Sidewalk: SidewalkSingleStartImportInfo
@@ -1528,6 +1618,7 @@ class StartSingleWirelessDeviceImportTaskRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'start_wireless_device_import_task' function.
 class StartWirelessDeviceImportTaskRequest(BaseValidatorModel):
     DestinationName: str
     Sidewalk: SidewalkStartImportInfo
@@ -1593,6 +1684,7 @@ class WirelessGatewayLogOption(BaseValidatorModel):
     Events: Optional[List[WirelessGatewayEventLogOption]] = None
 
 
+# This class is the output for the 'get_wireless_gateway' function.
 class GetWirelessGatewayResponse(BaseValidatorModel):
     Name: str
     Id: str
@@ -1629,6 +1721,7 @@ class WirelessDeviceStatistics(BaseValidatorModel):
     McGroupId: Optional[int] = None
 
 
+# This class is the output for the 'get_device_profile' function.
 class GetDeviceProfileResponse(BaseValidatorModel):
     Arn: str
     Name: str
@@ -1684,10 +1777,12 @@ class StartFuotaTaskRequest(BaseValidatorModel):
     LoRaWAN: Optional[LoRaWANStartFuotaTask] = None
 
 
+# This class is the input for the 'get_metrics' function.
 class GetMetricsRequest(BaseValidatorModel):
     SummaryMetricQueries: Optional[List[SummaryMetricQuery]] = None
 
 
+# This class is the output for the 'list_wireless_device_import_tasks' function.
 class ListWirelessDeviceImportTasksResponse(BaseValidatorModel):
     WirelessDeviceImportTaskList: List[WirelessDeviceImportTask]
     ResponseMetadata: ResponseMetadata
@@ -1705,6 +1800,7 @@ class GsmObj(BaseValidatorModel):
     GsmNmr: Optional[List[GsmNmrObj]] = None
 
 
+# This class is the output for the 'list_devices_for_wireless_device_import_task' function.
 class ListDevicesForWirelessDeviceImportTaskResponse(BaseValidatorModel):
     DestinationName: str
     ImportedWirelessDeviceList: List[ImportedWirelessDevice]
@@ -1720,6 +1816,7 @@ class EventNotificationItemConfigurations(BaseValidatorModel):
     MessageDeliveryStatus: Optional[MessageDeliveryStatusEventConfiguration] = None
 
 
+# This class is the output for the 'get_resource_event_configuration' function.
 class GetResourceEventConfigurationResponse(BaseValidatorModel):
     DeviceRegistrationState: DeviceRegistrationStateEventConfiguration
     Proximity: ProximityEventConfiguration
@@ -1757,6 +1854,7 @@ class UpdateEventConfigurationByResourceTypesRequest(BaseValidatorModel):
     MessageDeliveryStatus: Optional[MessageDeliveryStatusResourceTypeEventConfiguration] = None
 
 
+# This class is the output for the 'get_wireless_device_statistics' function.
 class GetWirelessDeviceStatisticsResponse(BaseValidatorModel):
     WirelessDeviceId: str
     LastUplinkReceivedAt: str
@@ -1765,6 +1863,7 @@ class GetWirelessDeviceStatisticsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_device_profile' function.
 class CreateDeviceProfileRequest(BaseValidatorModel):
     Name: Optional[str] = None
     LoRaWAN: Optional[LoRaWANDeviceProfileUnion] = None
@@ -1773,6 +1872,7 @@ class CreateDeviceProfileRequest(BaseValidatorModel):
     Sidewalk: Optional[Dict[str, Any]] = None
 
 
+# This class is the output for the 'get_wireless_gateway_firmware_information' function.
 class GetWirelessGatewayFirmwareInformationResponse(BaseValidatorModel):
     LoRaWAN: LoRaWANGatewayCurrentVersion
     ResponseMetadata: ResponseMetadata
@@ -1790,6 +1890,7 @@ class UpdateWirelessGatewayTaskEntry(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
+# This class is the output for the 'get_multicast_group' function.
 class GetMulticastGroupResponse(BaseValidatorModel):
     Arn: str
     Id: str
@@ -1801,12 +1902,14 @@ class GetMulticastGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'send_data_to_multicast_group' function.
 class SendDataToMulticastGroupRequest(BaseValidatorModel):
     Id: str
     PayloadData: str
     WirelessMetadata: MulticastWirelessMetadata
 
 
+# This class is the output for the 'get_metrics' function.
 class GetMetricsResponse(BaseValidatorModel):
     SummaryMetricQueryResults: List[SummaryMetricQueryResult]
     ResponseMetadata: ResponseMetadata
@@ -1825,6 +1928,7 @@ class PutPositionConfigurationRequest(BaseValidatorModel):
     Destination: Optional[str] = None
 
 
+# This class is the output for the 'get_position_configuration' function.
 class GetPositionConfigurationResponse(BaseValidatorModel):
     Solvers: PositionSolverDetails
     Destination: str
@@ -1850,12 +1954,14 @@ class GetLogLevelsByResourceTypesResponse(BaseValidatorModel):
 WirelessGatewayLogOptionUnion = Union[WirelessGatewayLogOption, WirelessGatewayLogOptionOutput]
 
 
+# This class is the output for the 'list_wireless_gateways' function.
 class ListWirelessGatewaysResponse(BaseValidatorModel):
     WirelessGatewayList: List[WirelessGatewayStatistics]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_wireless_gateway' function.
 class CreateWirelessGatewayRequest(BaseValidatorModel):
     LoRaWAN: LoRaWANGatewayUnion
     Name: Optional[str] = None
@@ -1864,12 +1970,14 @@ class CreateWirelessGatewayRequest(BaseValidatorModel):
     ClientRequestToken: Optional[str] = None
 
 
+# This class is the output for the 'list_wireless_devices' function.
 class ListWirelessDevicesResponse(BaseValidatorModel):
     WirelessDeviceList: List[WirelessDeviceStatistics]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_wireless_device' function.
 class GetWirelessDeviceResponse(BaseValidatorModel):
     Type: WirelessDeviceTypeType
     Name: str
@@ -1928,6 +2036,7 @@ class EventConfigurationItem(BaseValidatorModel):
     Events: Optional[EventNotificationItemConfigurations] = None
 
 
+# This class is the input for the 'create_wireless_gateway_task_definition' function.
 class CreateWirelessGatewayTaskDefinitionRequest(BaseValidatorModel):
     AutoCreateTasks: bool
     Name: Optional[str] = None
@@ -1936,6 +2045,7 @@ class CreateWirelessGatewayTaskDefinitionRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'get_wireless_gateway_task_definition' function.
 class GetWirelessGatewayTaskDefinitionResponse(BaseValidatorModel):
     AutoCreateTasks: bool
     Name: str
@@ -1944,12 +2054,14 @@ class GetWirelessGatewayTaskDefinitionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_wireless_gateway_task_definitions' function.
 class ListWirelessGatewayTaskDefinitionsResponse(BaseValidatorModel):
     TaskDefinitions: List[UpdateWirelessGatewayTaskEntry]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_multicast_group' function.
 class CreateMulticastGroupRequest(BaseValidatorModel):
     LoRaWAN: LoRaWANMulticast
     Name: Optional[str] = None
@@ -1965,6 +2077,7 @@ class UpdateMulticastGroupRequest(BaseValidatorModel):
     LoRaWAN: Optional[LoRaWANMulticast] = None
 
 
+# This class is the output for the 'list_position_configurations' function.
 class ListPositionConfigurationsResponse(BaseValidatorModel):
     PositionConfigurationList: List[PositionConfigurationItem]
     ResponseMetadata: ResponseMetadata
@@ -1978,6 +2091,7 @@ class UpdateLogLevelsByResourceTypesRequest(BaseValidatorModel):
     WirelessGatewayLogOptions: Optional[List[WirelessGatewayLogOptionUnion]] = None
 
 
+# This class is the input for the 'create_wireless_device' function.
 class CreateWirelessDeviceRequest(BaseValidatorModel):
     Type: WirelessDeviceTypeType
     DestinationName: str
@@ -1990,6 +2104,7 @@ class CreateWirelessDeviceRequest(BaseValidatorModel):
     Sidewalk: Optional[SidewalkCreateWirelessDevice] = None
 
 
+# This class is the output for the 'list_queued_messages' function.
 class ListQueuedMessagesResponse(BaseValidatorModel):
     DownlinkQueueMessagesList: List[DownlinkQueueMessage]
     ResponseMetadata: ResponseMetadata
@@ -1998,6 +2113,7 @@ class ListQueuedMessagesResponse(BaseValidatorModel):
 LoRaWANSendDataToDeviceUnion = Union[LoRaWANSendDataToDevice, LoRaWANSendDataToDeviceOutput]
 
 
+# This class is the input for the 'get_position_estimate' function.
 class GetPositionEstimateRequest(BaseValidatorModel):
     WiFiAccessPoints: Optional[List[WiFiAccessPoint]] = None
     CellTowers: Optional[CellTowers] = None
@@ -2006,6 +2122,7 @@ class GetPositionEstimateRequest(BaseValidatorModel):
     Timestamp: Optional[Timestamp] = None
 
 
+# This class is the output for the 'list_event_configurations' function.
 class ListEventConfigurationsResponse(BaseValidatorModel):
     EventConfigurationsList: List[EventConfigurationItem]
     ResponseMetadata: ResponseMetadata
@@ -2017,6 +2134,7 @@ class WirelessMetadata(BaseValidatorModel):
     Sidewalk: Optional[SidewalkSendDataToDevice] = None
 
 
+# This class is the input for the 'send_data_to_wireless_device' function.
 class SendDataToWirelessDeviceRequest(BaseValidatorModel):
     Id: str
     TransmitMode: int

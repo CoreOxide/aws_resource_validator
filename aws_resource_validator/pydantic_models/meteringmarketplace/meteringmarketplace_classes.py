@@ -18,12 +18,14 @@ class ResponseMetadata(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'register_usage' function.
 class RegisterUsageRequest(BaseValidatorModel):
     ProductCode: str
     PublicKeyVersion: int
     Nonce: Optional[str] = None
 
 
+# This class is the input for the 'resolve_customer' function.
 class ResolveCustomerRequest(BaseValidatorModel):
     RegistrationToken: str
 
@@ -33,17 +35,20 @@ class Tag(BaseValidatorModel):
     Value: str
 
 
+# This class is the output for the 'meter_usage' function.
 class MeterUsageResult(BaseValidatorModel):
     MeteringRecordId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_usage' function.
 class RegisterUsageResult(BaseValidatorModel):
     PublicKeyRotationTimestamp: datetime
     Signature: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'resolve_customer' function.
 class ResolveCustomerResult(BaseValidatorModel):
     CustomerIdentifier: str
     ProductCode: str
@@ -77,6 +82,7 @@ class UsageRecordResult(BaseValidatorModel):
     Status: Optional[UsageRecordResultStatusType] = None
 
 
+# This class is the input for the 'meter_usage' function.
 class MeterUsageRequest(BaseValidatorModel):
     ProductCode: str
     Timestamp: Timestamp
@@ -94,6 +100,7 @@ class UsageRecord(BaseValidatorModel):
     UsageAllocations: Optional[List[UsageAllocationUnion]] = None
 
 
+# This class is the output for the 'batch_meter_usage' function.
 class BatchMeterUsageResult(BaseValidatorModel):
     Results: List[UsageRecordResult]
     UnprocessedRecords: List[UsageRecordOutput]
@@ -102,6 +109,7 @@ class BatchMeterUsageResult(BaseValidatorModel):
 UsageRecordUnion = Union[UsageRecord, UsageRecordOutput]
 
 
+# This class is the input for the 'batch_meter_usage' function.
 class BatchMeterUsageRequest(BaseValidatorModel):
     UsageRecords: List[UsageRecordUnion]
     ProductCode: str

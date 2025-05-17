@@ -18,6 +18,7 @@ class AccountTakeoverActionType(BaseValidatorModel):
     EventAction: AccountTakeoverEventActionTypeType
 
 
+# This class is the input for the 'admin_add_user_to_group' function.
 class AdminAddUserToGroupRequest(BaseValidatorModel):
     UserPoolId: str
     Username: str
@@ -55,6 +56,7 @@ class AdminDeleteUserAttributesRequest(BaseValidatorModel):
     UserAttributeNames: List[str]
 
 
+# This class is the input for the 'admin_delete_user' function.
 class AdminDeleteUserRequest(BaseValidatorModel):
     UserPoolId: str
     Username: str
@@ -76,18 +78,21 @@ class AdminEnableUserRequest(BaseValidatorModel):
     Username: str
 
 
+# This class is the input for the 'admin_forget_device' function.
 class AdminForgetDeviceRequest(BaseValidatorModel):
     UserPoolId: str
     Username: str
     DeviceKey: str
 
 
+# This class is the input for the 'admin_get_device' function.
 class AdminGetDeviceRequest(BaseValidatorModel):
     DeviceKey: str
     UserPoolId: str
     Username: str
 
 
+# This class is the input for the 'admin_get_user' function.
 class AdminGetUserRequest(BaseValidatorModel):
     UserPoolId: str
     Username: str
@@ -102,6 +107,7 @@ class AnalyticsMetadataType(BaseValidatorModel):
     AnalyticsEndpointId: Optional[str] = None
 
 
+# This class is the input for the 'admin_list_devices' function.
 class AdminListDevicesRequest(BaseValidatorModel):
     UserPoolId: str
     Username: str
@@ -115,6 +121,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'admin_list_groups_for_user' function.
 class AdminListGroupsForUserRequest(BaseValidatorModel):
     Username: str
     UserPoolId: str
@@ -132,6 +139,7 @@ class GroupType(BaseValidatorModel):
     CreationDate: Optional[datetime] = None
 
 
+# This class is the input for the 'admin_list_user_auth_events' function.
 class AdminListUserAuthEventsRequest(BaseValidatorModel):
     UserPoolId: str
     Username: str
@@ -139,6 +147,7 @@ class AdminListUserAuthEventsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'admin_remove_user_from_group' function.
 class AdminRemoveUserFromGroupRequest(BaseValidatorModel):
     UserPoolId: str
     Username: str
@@ -214,6 +223,7 @@ class AssetTypeOutput(BaseValidatorModel):
 Blob = Union[str, bytes, IO[Any], StreamingBody]
 
 
+# This class is the input for the 'associate_software_token' function.
 class AssociateSoftwareTokenRequest(BaseValidatorModel):
     AccessToken: Optional[str] = None
     Session: Optional[str] = None
@@ -289,6 +299,7 @@ class HttpHeader(BaseValidatorModel):
     headerValue: Optional[str] = None
 
 
+# This class is the input for the 'create_group' function.
 class CreateGroupRequest(BaseValidatorModel):
     GroupName: str
     UserPoolId: str
@@ -297,6 +308,7 @@ class CreateGroupRequest(BaseValidatorModel):
     Precedence: Optional[int] = None
 
 
+# This class is the input for the 'create_identity_provider' function.
 class CreateIdentityProviderRequest(BaseValidatorModel):
     UserPoolId: str
     ProviderName: str
@@ -322,6 +334,7 @@ class ResourceServerScopeType(BaseValidatorModel):
     ScopeDescription: str
 
 
+# This class is the input for the 'create_user_import_job' function.
 class CreateUserImportJobRequest(BaseValidatorModel):
     JobName: str
     UserPoolId: str
@@ -396,21 +409,25 @@ class CustomSMSLambdaVersionConfigType(BaseValidatorModel):
     LambdaArn: str
 
 
+# This class is the input for the 'delete_group' function.
 class DeleteGroupRequest(BaseValidatorModel):
     GroupName: str
     UserPoolId: str
 
 
+# This class is the input for the 'delete_identity_provider' function.
 class DeleteIdentityProviderRequest(BaseValidatorModel):
     UserPoolId: str
     ProviderName: str
 
 
+# This class is the input for the 'delete_managed_login_branding' function.
 class DeleteManagedLoginBrandingRequest(BaseValidatorModel):
     ManagedLoginBrandingId: str
     UserPoolId: str
 
 
+# This class is the input for the 'delete_resource_server' function.
 class DeleteResourceServerRequest(BaseValidatorModel):
     UserPoolId: str
     Identifier: str
@@ -421,6 +438,7 @@ class DeleteUserAttributesRequest(BaseValidatorModel):
     AccessToken: str
 
 
+# This class is the input for the 'delete_user_pool_client' function.
 class DeleteUserPoolClientRequest(BaseValidatorModel):
     UserPoolId: str
     ClientId: str
@@ -431,10 +449,12 @@ class DeleteUserPoolDomainRequest(BaseValidatorModel):
     UserPoolId: str
 
 
+# This class is the input for the 'delete_user_pool' function.
 class DeleteUserPoolRequest(BaseValidatorModel):
     UserPoolId: str
 
 
+# This class is the input for the 'delete_user' function.
 class DeleteUserRequest(BaseValidatorModel):
     AccessToken: str
 
@@ -444,47 +464,56 @@ class DeleteWebAuthnCredentialRequest(BaseValidatorModel):
     CredentialId: str
 
 
+# This class is the input for the 'describe_identity_provider' function.
 class DescribeIdentityProviderRequest(BaseValidatorModel):
     UserPoolId: str
     ProviderName: str
 
 
+# This class is the input for the 'describe_managed_login_branding_by_client' function.
 class DescribeManagedLoginBrandingByClientRequest(BaseValidatorModel):
     UserPoolId: str
     ClientId: str
     ReturnMergedResources: Optional[bool] = None
 
 
+# This class is the input for the 'describe_managed_login_branding' function.
 class DescribeManagedLoginBrandingRequest(BaseValidatorModel):
     UserPoolId: str
     ManagedLoginBrandingId: str
     ReturnMergedResources: Optional[bool] = None
 
 
+# This class is the input for the 'describe_resource_server' function.
 class DescribeResourceServerRequest(BaseValidatorModel):
     UserPoolId: str
     Identifier: str
 
 
+# This class is the input for the 'describe_risk_configuration' function.
 class DescribeRiskConfigurationRequest(BaseValidatorModel):
     UserPoolId: str
     ClientId: Optional[str] = None
 
 
+# This class is the input for the 'describe_user_import_job' function.
 class DescribeUserImportJobRequest(BaseValidatorModel):
     UserPoolId: str
     JobId: str
 
 
+# This class is the input for the 'describe_user_pool_client' function.
 class DescribeUserPoolClientRequest(BaseValidatorModel):
     UserPoolId: str
     ClientId: str
 
 
+# This class is the input for the 'describe_user_pool_domain' function.
 class DescribeUserPoolDomainRequest(BaseValidatorModel):
     Domain: str
 
 
+# This class is the input for the 'describe_user_pool' function.
 class DescribeUserPoolRequest(BaseValidatorModel):
     UserPoolId: str
 
@@ -498,38 +527,46 @@ class FirehoseConfigurationType(BaseValidatorModel):
     StreamArn: Optional[str] = None
 
 
+# This class is the input for the 'forget_device' function.
 class ForgetDeviceRequest(BaseValidatorModel):
     DeviceKey: str
     AccessToken: Optional[str] = None
 
 
+# This class is the input for the 'get_csv_header' function.
 class GetCSVHeaderRequest(BaseValidatorModel):
     UserPoolId: str
 
 
+# This class is the input for the 'get_device' function.
 class GetDeviceRequest(BaseValidatorModel):
     DeviceKey: str
     AccessToken: Optional[str] = None
 
 
+# This class is the input for the 'get_group' function.
 class GetGroupRequest(BaseValidatorModel):
     GroupName: str
     UserPoolId: str
 
 
+# This class is the input for the 'get_identity_provider_by_identifier' function.
 class GetIdentityProviderByIdentifierRequest(BaseValidatorModel):
     UserPoolId: str
     IdpIdentifier: str
 
 
+# This class is the input for the 'get_log_delivery_configuration' function.
 class GetLogDeliveryConfigurationRequest(BaseValidatorModel):
     UserPoolId: str
 
 
+# This class is the input for the 'get_signing_certificate' function.
 class GetSigningCertificateRequest(BaseValidatorModel):
     UserPoolId: str
 
 
+# This class is the input for the 'get_ui_customization' function.
 class GetUICustomizationRequest(BaseValidatorModel):
     UserPoolId: str
     ClientId: Optional[str] = None
@@ -545,16 +582,19 @@ class UICustomizationType(BaseValidatorModel):
     CreationDate: Optional[datetime] = None
 
 
+# This class is the input for the 'get_user_attribute_verification_code' function.
 class GetUserAttributeVerificationCodeRequest(BaseValidatorModel):
     AccessToken: str
     AttributeName: str
     ClientMetadata: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'get_user_auth_factors' function.
 class GetUserAuthFactorsRequest(BaseValidatorModel):
     AccessToken: str
 
 
+# This class is the input for the 'get_user_pool_mfa_config' function.
 class GetUserPoolMfaConfigRequest(BaseValidatorModel):
     UserPoolId: str
 
@@ -568,6 +608,7 @@ class WebAuthnConfigurationType(BaseValidatorModel):
     UserVerification: Optional[UserVerificationTypeType] = None
 
 
+# This class is the input for the 'get_user' function.
 class GetUserRequest(BaseValidatorModel):
     AccessToken: str
 
@@ -581,18 +622,21 @@ class PreTokenGenerationVersionConfigType(BaseValidatorModel):
     LambdaArn: str
 
 
+# This class is the input for the 'list_devices' function.
 class ListDevicesRequest(BaseValidatorModel):
     AccessToken: str
     Limit: Optional[int] = None
     PaginationToken: Optional[str] = None
 
 
+# This class is the input for the 'list_groups' function.
 class ListGroupsRequest(BaseValidatorModel):
     UserPoolId: str
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_identity_providers' function.
 class ListIdentityProvidersRequest(BaseValidatorModel):
     UserPoolId: str
     MaxResults: Optional[int] = None
@@ -606,22 +650,26 @@ class ProviderDescription(BaseValidatorModel):
     CreationDate: Optional[datetime] = None
 
 
+# This class is the input for the 'list_resource_servers' function.
 class ListResourceServersRequest(BaseValidatorModel):
     UserPoolId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'list_user_import_jobs' function.
 class ListUserImportJobsRequest(BaseValidatorModel):
     UserPoolId: str
     MaxResults: int
     PaginationToken: Optional[str] = None
 
 
+# This class is the input for the 'list_user_pool_clients' function.
 class ListUserPoolClientsRequest(BaseValidatorModel):
     UserPoolId: str
     MaxResults: Optional[int] = None
@@ -634,11 +682,13 @@ class UserPoolClientDescription(BaseValidatorModel):
     ClientName: Optional[str] = None
 
 
+# This class is the input for the 'list_user_pools' function.
 class ListUserPoolsRequest(BaseValidatorModel):
     MaxResults: int
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_users_in_group' function.
 class ListUsersInGroupRequest(BaseValidatorModel):
     UserPoolId: str
     GroupName: str
@@ -646,6 +696,7 @@ class ListUsersInGroupRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_users' function.
 class ListUsersRequest(BaseValidatorModel):
     UserPoolId: str
     AttributesToGet: Optional[List[str]] = None
@@ -654,6 +705,7 @@ class ListUsersRequest(BaseValidatorModel):
     Filter: Optional[str] = None
 
 
+# This class is the input for the 'list_web_authn_credentials' function.
 class ListWebAuthnCredentialsRequest(BaseValidatorModel):
     AccessToken: str
     NextToken: Optional[str] = None
@@ -723,15 +775,18 @@ class SignInPolicyType(BaseValidatorModel):
     AllowedFirstAuthFactors: Optional[List[AuthFactorTypeType]] = None
 
 
+# This class is the input for the 'start_user_import_job' function.
 class StartUserImportJobRequest(BaseValidatorModel):
     UserPoolId: str
     JobId: str
 
 
+# This class is the input for the 'start_web_authn_registration' function.
 class StartWebAuthnRegistrationRequest(BaseValidatorModel):
     AccessToken: str
 
 
+# This class is the input for the 'stop_user_import_job' function.
 class StopUserImportJobRequest(BaseValidatorModel):
     UserPoolId: str
     JobId: str
@@ -761,6 +816,7 @@ class UpdateDeviceStatusRequest(BaseValidatorModel):
     DeviceRememberedStatus: Optional[DeviceRememberedStatusTypeType] = None
 
 
+# This class is the input for the 'update_group' function.
 class UpdateGroupRequest(BaseValidatorModel):
     GroupName: str
     UserPoolId: str
@@ -769,6 +825,7 @@ class UpdateGroupRequest(BaseValidatorModel):
     Precedence: Optional[int] = None
 
 
+# This class is the input for the 'update_identity_provider' function.
 class UpdateIdentityProviderRequest(BaseValidatorModel):
     UserPoolId: str
     ProviderName: str
@@ -785,6 +842,7 @@ class UserAttributeUpdateSettingsType(BaseValidatorModel):
     AttributesRequireVerificationBeforeUpdate: Optional[List[VerifiedAttributeTypeType]] = None
 
 
+# This class is the input for the 'verify_software_token' function.
 class VerifySoftwareTokenRequest(BaseValidatorModel):
     UserCode: str
     AccessToken: Optional[str] = None
@@ -818,6 +876,7 @@ class AdminCreateUserConfigType(BaseValidatorModel):
     InviteMessageTemplate: Optional[MessageTemplateType] = None
 
 
+# This class is the input for the 'admin_create_user' function.
 class AdminCreateUserRequest(BaseValidatorModel):
     UserPoolId: str
     Username: str
@@ -845,49 +904,58 @@ class DeviceType(BaseValidatorModel):
     DeviceLastAuthenticatedDate: Optional[datetime] = None
 
 
+# This class is the input for the 'update_user_attributes' function.
 class UpdateUserAttributesRequest(BaseValidatorModel):
     UserAttributes: List[AttributeType]
     AccessToken: str
     ClientMetadata: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'associate_software_token' function.
 class AssociateSoftwareTokenResponse(BaseValidatorModel):
     SecretCode: str
     Session: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'confirm_device' function.
 class ConfirmDeviceResponse(BaseValidatorModel):
     UserConfirmationNecessary: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'confirm_sign_up' function.
 class ConfirmSignUpResponse(BaseValidatorModel):
     Session: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_user_pool_domain' function.
 class CreateUserPoolDomainResponse(BaseValidatorModel):
     ManagedLoginVersion: int
     CloudFrontDomain: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'forget_device' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_csv_header' function.
 class GetCSVHeaderResponse(BaseValidatorModel):
     UserPoolId: str
     CSVHeader: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_signing_certificate' function.
 class GetSigningCertificateResponse(BaseValidatorModel):
     Certificate: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_user_auth_factors' function.
 class GetUserAuthFactorsResponse(BaseValidatorModel):
     Username: str
     PreferredMfaSetting: str
@@ -896,22 +964,26 @@ class GetUserAuthFactorsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_web_authn_registration' function.
 class StartWebAuthnRegistrationResponse(BaseValidatorModel):
     CredentialCreationOptions: Dict[str, Any]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_user_pool_domain' function.
 class UpdateUserPoolDomainResponse(BaseValidatorModel):
     ManagedLoginVersion: int
     CloudFrontDomain: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'verify_software_token' function.
 class VerifySoftwareTokenResponse(BaseValidatorModel):
     Status: VerifySoftwareTokenResponseTypeType
     Session: str
@@ -929,6 +1001,7 @@ class AdminLinkProviderForUserRequest(BaseValidatorModel):
     SourceUser: ProviderUserIdentifierType
 
 
+# This class is the output for the 'admin_get_user' function.
 class AdminGetUserResponse(BaseValidatorModel):
     Username: str
     UserAttributes: List[AttributeType]
@@ -948,6 +1021,7 @@ class AdminSetUserSettingsRequest(BaseValidatorModel):
     MFAOptions: List[MFAOptionType]
 
 
+# This class is the output for the 'get_user' function.
 class GetUserResponse(BaseValidatorModel):
     Username: str
     UserAttributes: List[AttributeType]
@@ -1021,28 +1095,33 @@ class ListUsersRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'admin_list_groups_for_user' function.
 class AdminListGroupsForUserResponse(BaseValidatorModel):
     Groups: List[GroupType]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_group' function.
 class CreateGroupResponse(BaseValidatorModel):
     Group: GroupType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_group' function.
 class GetGroupResponse(BaseValidatorModel):
     Group: GroupType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_groups' function.
 class ListGroupsResponse(BaseValidatorModel):
     Groups: List[GroupType]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_group' function.
 class UpdateGroupResponse(BaseValidatorModel):
     Group: GroupType
     ResponseMetadata: ResponseMetadata
@@ -1086,6 +1165,7 @@ class AssetType(BaseValidatorModel):
     ResourceId: Optional[str] = None
 
 
+# This class is the input for the 'set_ui_customization' function.
 class SetUICustomizationRequest(BaseValidatorModel):
     UserPoolId: str
     ClientId: Optional[str] = None
@@ -1113,21 +1193,25 @@ class AuthenticationResultType(BaseValidatorModel):
     NewDeviceMetadata: Optional[NewDeviceMetadataType] = None
 
 
+# This class is the output for the 'forgot_password' function.
 class ForgotPasswordResponse(BaseValidatorModel):
     CodeDeliveryDetails: CodeDeliveryDetailsType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_user_attribute_verification_code' function.
 class GetUserAttributeVerificationCodeResponse(BaseValidatorModel):
     CodeDeliveryDetails: CodeDeliveryDetailsType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'resend_confirmation_code' function.
 class ResendConfirmationCodeResponse(BaseValidatorModel):
     CodeDeliveryDetails: CodeDeliveryDetailsType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'sign_up' function.
 class SignUpResponse(BaseValidatorModel):
     UserConfirmed: bool
     CodeDeliveryDetails: CodeDeliveryDetailsType
@@ -1136,6 +1220,7 @@ class SignUpResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_user_attributes' function.
 class UpdateUserAttributesResponse(BaseValidatorModel):
     CodeDeliveryDetailsList: List[CodeDeliveryDetailsType]
     ResponseMetadata: ResponseMetadata
@@ -1151,6 +1236,7 @@ class CompromisedCredentialsRiskConfigurationType(BaseValidatorModel):
     EventFilter: Optional[List[EventFilterTypeType]] = None
 
 
+# This class is the input for the 'confirm_device' function.
 class ConfirmDeviceRequest(BaseValidatorModel):
     AccessToken: str
     DeviceKey: str
@@ -1169,6 +1255,7 @@ class ConfirmForgotPasswordRequest(BaseValidatorModel):
     ClientMetadata: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'confirm_sign_up' function.
 class ConfirmSignUpRequest(BaseValidatorModel):
     ClientId: str
     Username: str
@@ -1181,6 +1268,7 @@ class ConfirmSignUpRequest(BaseValidatorModel):
     Session: Optional[str] = None
 
 
+# This class is the input for the 'forgot_password' function.
 class ForgotPasswordRequest(BaseValidatorModel):
     ClientId: str
     Username: str
@@ -1190,6 +1278,7 @@ class ForgotPasswordRequest(BaseValidatorModel):
     ClientMetadata: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'initiate_auth' function.
 class InitiateAuthRequest(BaseValidatorModel):
     AuthFlow: AuthFlowTypeType
     ClientId: str
@@ -1200,6 +1289,7 @@ class InitiateAuthRequest(BaseValidatorModel):
     Session: Optional[str] = None
 
 
+# This class is the input for the 'resend_confirmation_code' function.
 class ResendConfirmationCodeRequest(BaseValidatorModel):
     ClientId: str
     Username: str
@@ -1209,6 +1299,7 @@ class ResendConfirmationCodeRequest(BaseValidatorModel):
     ClientMetadata: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'respond_to_auth_challenge' function.
 class RespondToAuthChallengeRequest(BaseValidatorModel):
     ClientId: str
     ChallengeName: ChallengeNameTypeType
@@ -1219,6 +1310,7 @@ class RespondToAuthChallengeRequest(BaseValidatorModel):
     ClientMetadata: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'sign_up' function.
 class SignUpRequest(BaseValidatorModel):
     ClientId: str
     Username: str
@@ -1239,26 +1331,31 @@ class ContextDataType(BaseValidatorModel):
     EncodedData: Optional[str] = None
 
 
+# This class is the output for the 'create_identity_provider' function.
 class CreateIdentityProviderResponse(BaseValidatorModel):
     IdentityProvider: IdentityProviderType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_identity_provider' function.
 class DescribeIdentityProviderResponse(BaseValidatorModel):
     IdentityProvider: IdentityProviderType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_identity_provider_by_identifier' function.
 class GetIdentityProviderByIdentifierResponse(BaseValidatorModel):
     IdentityProvider: IdentityProviderType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_identity_provider' function.
 class UpdateIdentityProviderResponse(BaseValidatorModel):
     IdentityProvider: IdentityProviderType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_resource_server' function.
 class CreateResourceServerRequest(BaseValidatorModel):
     UserPoolId: str
     Identifier: str
@@ -1273,6 +1370,7 @@ class ResourceServerType(BaseValidatorModel):
     Scopes: Optional[List[ResourceServerScopeType]] = None
 
 
+# This class is the input for the 'update_resource_server' function.
 class UpdateResourceServerRequest(BaseValidatorModel):
     UserPoolId: str
     Identifier: str
@@ -1280,32 +1378,38 @@ class UpdateResourceServerRequest(BaseValidatorModel):
     Scopes: Optional[List[ResourceServerScopeType]] = None
 
 
+# This class is the output for the 'create_user_import_job' function.
 class CreateUserImportJobResponse(BaseValidatorModel):
     UserImportJob: UserImportJobType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_user_import_job' function.
 class DescribeUserImportJobResponse(BaseValidatorModel):
     UserImportJob: UserImportJobType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_user_import_jobs' function.
 class ListUserImportJobsResponse(BaseValidatorModel):
     UserImportJobs: List[UserImportJobType]
     PaginationToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_user_import_job' function.
 class StartUserImportJobResponse(BaseValidatorModel):
     UserImportJob: UserImportJobType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_user_import_job' function.
 class StopUserImportJobResponse(BaseValidatorModel):
     UserImportJob: UserImportJobType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_user_pool_client' function.
 class CreateUserPoolClientRequest(BaseValidatorModel):
     UserPoolId: str
     ClientName: str
@@ -1331,6 +1435,7 @@ class CreateUserPoolClientRequest(BaseValidatorModel):
     AuthSessionValidity: Optional[int] = None
 
 
+# This class is the input for the 'update_user_pool_client' function.
 class UpdateUserPoolClientRequest(BaseValidatorModel):
     UserPoolId: str
     ClientId: str
@@ -1384,6 +1489,7 @@ class UserPoolClientType(BaseValidatorModel):
     AuthSessionValidity: Optional[int] = None
 
 
+# This class is the input for the 'create_user_pool_domain' function.
 class CreateUserPoolDomainRequest(BaseValidatorModel):
     Domain: str
     UserPoolId: str
@@ -1403,6 +1509,7 @@ class DomainDescriptionType(BaseValidatorModel):
     ManagedLoginVersion: Optional[int] = None
 
 
+# This class is the input for the 'update_user_pool_domain' function.
 class UpdateUserPoolDomainRequest(BaseValidatorModel):
     Domain: str
     UserPoolId: str
@@ -1415,11 +1522,13 @@ class SmsMfaConfigType(BaseValidatorModel):
     SmsConfiguration: Optional[SmsConfigurationType] = None
 
 
+# This class is the output for the 'get_ui_customization' function.
 class GetUICustomizationResponse(BaseValidatorModel):
     UICustomization: UICustomizationType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'set_ui_customization' function.
 class SetUICustomizationResponse(BaseValidatorModel):
     UICustomization: UICustomizationType
     ResponseMetadata: ResponseMetadata
@@ -1442,18 +1551,21 @@ class LambdaConfigType(BaseValidatorModel):
     KMSKeyID: Optional[str] = None
 
 
+# This class is the output for the 'list_identity_providers' function.
 class ListIdentityProvidersResponse(BaseValidatorModel):
     Providers: List[ProviderDescription]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_user_pool_clients' function.
 class ListUserPoolClientsResponse(BaseValidatorModel):
     UserPoolClients: List[UserPoolClientDescription]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_web_authn_credentials' function.
 class ListWebAuthnCredentialsResponse(BaseValidatorModel):
     Credentials: List[WebAuthnCredentialDescription]
     ResponseMetadata: ResponseMetadata
@@ -1503,60 +1615,71 @@ UserAttributeUpdateSettingsTypeUnion = Union[UserAttributeUpdateSettingsType, Us
 AccountRecoverySettingTypeUnion = Union[AccountRecoverySettingType, AccountRecoverySettingTypeOutput]
 
 
+# This class is the output for the 'admin_get_device' function.
 class AdminGetDeviceResponse(BaseValidatorModel):
     Device: DeviceType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'admin_list_devices' function.
 class AdminListDevicesResponse(BaseValidatorModel):
     Devices: List[DeviceType]
     PaginationToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_device' function.
 class GetDeviceResponse(BaseValidatorModel):
     Device: DeviceType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_devices' function.
 class ListDevicesResponse(BaseValidatorModel):
     Devices: List[DeviceType]
     PaginationToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'admin_create_user' function.
 class AdminCreateUserResponse(BaseValidatorModel):
     User: UserType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_users_in_group' function.
 class ListUsersInGroupResponse(BaseValidatorModel):
     Users: List[UserType]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_users' function.
 class ListUsersResponse(BaseValidatorModel):
     Users: List[UserType]
     PaginationToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_managed_login_branding' function.
 class CreateManagedLoginBrandingResponse(BaseValidatorModel):
     ManagedLoginBranding: ManagedLoginBrandingType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_managed_login_branding_by_client' function.
 class DescribeManagedLoginBrandingByClientResponse(BaseValidatorModel):
     ManagedLoginBranding: ManagedLoginBrandingType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_managed_login_branding' function.
 class DescribeManagedLoginBrandingResponse(BaseValidatorModel):
     ManagedLoginBranding: ManagedLoginBrandingType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_managed_login_branding' function.
 class UpdateManagedLoginBrandingResponse(BaseValidatorModel):
     ManagedLoginBranding: ManagedLoginBrandingType
     ResponseMetadata: ResponseMetadata
@@ -1564,12 +1687,14 @@ class UpdateManagedLoginBrandingResponse(BaseValidatorModel):
 AssetTypeUnion = Union[AssetType, AssetTypeOutput]
 
 
+# This class is the output for the 'admin_list_user_auth_events' function.
 class AdminListUserAuthEventsResponse(BaseValidatorModel):
     AuthEvents: List[AuthEventType]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'admin_initiate_auth' function.
 class AdminInitiateAuthResponse(BaseValidatorModel):
     ChallengeName: ChallengeNameTypeType
     Session: str
@@ -1579,6 +1704,7 @@ class AdminInitiateAuthResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'admin_respond_to_auth_challenge' function.
 class AdminRespondToAuthChallengeResponse(BaseValidatorModel):
     ChallengeName: ChallengeNameTypeType
     Session: str
@@ -1587,6 +1713,7 @@ class AdminRespondToAuthChallengeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'initiate_auth' function.
 class InitiateAuthResponse(BaseValidatorModel):
     ChallengeName: ChallengeNameTypeType
     Session: str
@@ -1596,6 +1723,7 @@ class InitiateAuthResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'respond_to_auth_challenge' function.
 class RespondToAuthChallengeResponse(BaseValidatorModel):
     ChallengeName: ChallengeNameTypeType
     Session: str
@@ -1606,6 +1734,7 @@ class RespondToAuthChallengeResponse(BaseValidatorModel):
 CompromisedCredentialsRiskConfigurationTypeUnion = Union[CompromisedCredentialsRiskConfigurationType, CompromisedCredentialsRiskConfigurationTypeOutput]
 
 
+# This class is the input for the 'admin_initiate_auth' function.
 class AdminInitiateAuthRequest(BaseValidatorModel):
     UserPoolId: str
     ClientId: str
@@ -1617,6 +1746,7 @@ class AdminInitiateAuthRequest(BaseValidatorModel):
     Session: Optional[str] = None
 
 
+# This class is the input for the 'admin_respond_to_auth_challenge' function.
 class AdminRespondToAuthChallengeRequest(BaseValidatorModel):
     UserPoolId: str
     ClientId: str
@@ -1628,47 +1758,56 @@ class AdminRespondToAuthChallengeRequest(BaseValidatorModel):
     ClientMetadata: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_resource_server' function.
 class CreateResourceServerResponse(BaseValidatorModel):
     ResourceServer: ResourceServerType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_resource_server' function.
 class DescribeResourceServerResponse(BaseValidatorModel):
     ResourceServer: ResourceServerType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_resource_servers' function.
 class ListResourceServersResponse(BaseValidatorModel):
     ResourceServers: List[ResourceServerType]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_resource_server' function.
 class UpdateResourceServerResponse(BaseValidatorModel):
     ResourceServer: ResourceServerType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_user_pool_client' function.
 class CreateUserPoolClientResponse(BaseValidatorModel):
     UserPoolClient: UserPoolClientType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_user_pool_client' function.
 class DescribeUserPoolClientResponse(BaseValidatorModel):
     UserPoolClient: UserPoolClientType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_user_pool_client' function.
 class UpdateUserPoolClientResponse(BaseValidatorModel):
     UserPoolClient: UserPoolClientType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_user_pool_domain' function.
 class DescribeUserPoolDomainResponse(BaseValidatorModel):
     DomainDescription: DomainDescriptionType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_user_pool_mfa_config' function.
 class GetUserPoolMfaConfigResponse(BaseValidatorModel):
     SmsMfaConfiguration: SmsMfaConfigType
     SoftwareTokenMfaConfiguration: SoftwareTokenMfaConfigType
@@ -1678,6 +1817,7 @@ class GetUserPoolMfaConfigResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'set_user_pool_mfa_config' function.
 class SetUserPoolMfaConfigRequest(BaseValidatorModel):
     UserPoolId: str
     SmsMfaConfiguration: Optional[SmsMfaConfigType] = None
@@ -1687,6 +1827,7 @@ class SetUserPoolMfaConfigRequest(BaseValidatorModel):
     WebAuthnConfiguration: Optional[WebAuthnConfigurationType] = None
 
 
+# This class is the output for the 'set_user_pool_mfa_config' function.
 class SetUserPoolMfaConfigResponse(BaseValidatorModel):
     SmsMfaConfiguration: SmsMfaConfigType
     SoftwareTokenMfaConfiguration: SoftwareTokenMfaConfigType
@@ -1710,6 +1851,7 @@ class LogDeliveryConfigurationType(BaseValidatorModel):
     LogConfigurations: List[LogConfigurationType]
 
 
+# This class is the input for the 'set_log_delivery_configuration' function.
 class SetLogDeliveryConfigurationRequest(BaseValidatorModel):
     UserPoolId: str
     LogConfigurations: List[LogConfigurationType]
@@ -1764,6 +1906,7 @@ class UserPoolType(BaseValidatorModel):
 UserPoolPolicyTypeUnion = Union[UserPoolPolicyType, UserPoolPolicyTypeOutput]
 
 
+# This class is the input for the 'create_managed_login_branding' function.
 class CreateManagedLoginBrandingRequest(BaseValidatorModel):
     UserPoolId: str
     ClientId: str
@@ -1772,6 +1915,7 @@ class CreateManagedLoginBrandingRequest(BaseValidatorModel):
     Assets: Optional[List[AssetTypeUnion]] = None
 
 
+# This class is the input for the 'update_managed_login_branding' function.
 class UpdateManagedLoginBrandingRequest(BaseValidatorModel):
     UserPoolId: Optional[str] = None
     ManagedLoginBrandingId: Optional[str] = None
@@ -1780,17 +1924,20 @@ class UpdateManagedLoginBrandingRequest(BaseValidatorModel):
     Assets: Optional[List[AssetTypeUnion]] = None
 
 
+# This class is the output for the 'list_user_pools' function.
 class ListUserPoolsResponse(BaseValidatorModel):
     UserPools: List[UserPoolDescriptionType]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_log_delivery_configuration' function.
 class GetLogDeliveryConfigurationResponse(BaseValidatorModel):
     LogDeliveryConfiguration: LogDeliveryConfigurationType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'set_log_delivery_configuration' function.
 class SetLogDeliveryConfigurationResponse(BaseValidatorModel):
     LogDeliveryConfiguration: LogDeliveryConfigurationType
     ResponseMetadata: ResponseMetadata
@@ -1805,6 +1952,7 @@ class RiskConfigurationType(BaseValidatorModel):
     LastModifiedDate: Optional[datetime] = None
 
 
+# This class is the input for the 'set_risk_configuration' function.
 class SetRiskConfigurationRequest(BaseValidatorModel):
     UserPoolId: str
     ClientId: Optional[str] = None
@@ -1813,16 +1961,19 @@ class SetRiskConfigurationRequest(BaseValidatorModel):
     RiskExceptionConfiguration: Optional[RiskExceptionConfigurationTypeUnion] = None
 
 
+# This class is the output for the 'create_user_pool' function.
 class CreateUserPoolResponse(BaseValidatorModel):
     UserPool: UserPoolType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_user_pool' function.
 class DescribeUserPoolResponse(BaseValidatorModel):
     UserPool: UserPoolType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_user_pool' function.
 class CreateUserPoolRequest(BaseValidatorModel):
     PoolName: str
     Policies: Optional[UserPoolPolicyTypeUnion] = None
@@ -1874,11 +2025,13 @@ class UpdateUserPoolRequest(BaseValidatorModel):
     UserPoolTier: Optional[UserPoolTierTypeType] = None
 
 
+# This class is the output for the 'describe_risk_configuration' function.
 class DescribeRiskConfigurationResponse(BaseValidatorModel):
     RiskConfiguration: RiskConfigurationType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'set_risk_configuration' function.
 class SetRiskConfigurationResponse(BaseValidatorModel):
     RiskConfiguration: RiskConfigurationType
     ResponseMetadata: ResponseMetadata

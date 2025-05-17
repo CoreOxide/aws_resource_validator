@@ -68,6 +68,7 @@ class DisassociateConnectorRequest(BaseValidatorModel):
     connectorId: str
 
 
+# This class is the input for the 'generate_change_set' function.
 class GenerateChangeSetRequest(BaseValidatorModel):
     appId: Optional[str] = None
     changesetFormat: Optional[OutputFormatType] = None
@@ -78,27 +79,33 @@ class S3Location(BaseValidatorModel):
     key: Optional[str] = None
 
 
+# This class is the input for the 'generate_template' function.
 class GenerateTemplateRequest(BaseValidatorModel):
     appId: Optional[str] = None
     templateFormat: Optional[OutputFormatType] = None
 
 
+# This class is the input for the 'get_app_launch_configuration' function.
 class GetAppLaunchConfigurationRequest(BaseValidatorModel):
     appId: Optional[str] = None
 
 
+# This class is the input for the 'get_app_replication_configuration' function.
 class GetAppReplicationConfigurationRequest(BaseValidatorModel):
     appId: Optional[str] = None
 
 
+# This class is the input for the 'get_app' function.
 class GetAppRequest(BaseValidatorModel):
     appId: Optional[str] = None
 
 
+# This class is the input for the 'get_app_validation_configuration' function.
 class GetAppValidationConfigurationRequest(BaseValidatorModel):
     appId: str
 
 
+# This class is the input for the 'get_app_validation_output' function.
 class GetAppValidationOutputRequest(BaseValidatorModel):
     appId: str
 
@@ -109,17 +116,20 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'get_connectors' function.
 class GetConnectorsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_replication_jobs' function.
 class GetReplicationJobsRequest(BaseValidatorModel):
     replicationJobId: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_replication_runs' function.
 class GetReplicationRunsRequest(BaseValidatorModel):
     replicationJobId: str
     nextToken: Optional[str] = None
@@ -139,6 +149,7 @@ class LaunchAppRequest(BaseValidatorModel):
     appId: Optional[str] = None
 
 
+# This class is the input for the 'list_apps' function.
 class ListAppsRequest(BaseValidatorModel):
     appIds: Optional[List[str]] = None
     nextToken: Optional[str] = None
@@ -175,6 +186,7 @@ class StartOnDemandAppReplicationRequest(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'start_on_demand_replication_run' function.
 class StartOnDemandReplicationRunRequest(BaseValidatorModel):
     replicationJobId: str
     description: Optional[str] = None
@@ -210,22 +222,26 @@ class AppSummary(BaseValidatorModel):
     totalServers: Optional[int] = None
 
 
+# This class is the output for the 'create_replication_job' function.
 class CreateReplicationJobResponse(BaseValidatorModel):
     replicationJobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_connectors' function.
 class GetConnectorsResponse(BaseValidatorModel):
     connectorList: List[Connector]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_on_demand_replication_run' function.
 class StartOnDemandReplicationRunResponse(BaseValidatorModel):
     replicationRunId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_replication_job' function.
 class CreateReplicationJobRequest(BaseValidatorModel):
     serverId: str
     seedReplicationTime: Timestamp
@@ -261,11 +277,13 @@ class UpdateReplicationJobRequest(BaseValidatorModel):
     kmsKeyId: Optional[str] = None
 
 
+# This class is the output for the 'generate_change_set' function.
 class GenerateChangeSetResponse(BaseValidatorModel):
     s3Location: S3Location
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'generate_template' function.
 class GenerateTemplateResponse(BaseValidatorModel):
     s3Location: S3Location
     ResponseMetadata: ResponseMetadata
@@ -307,6 +325,7 @@ class GetServersRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_servers' function.
 class GetServersRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -340,6 +359,7 @@ class ReplicationRun(BaseValidatorModel):
     kmsKeyId: Optional[str] = None
 
 
+# This class is the output for the 'list_apps' function.
 class ListAppsResponse(BaseValidatorModel):
     apps: List[AppSummary]
     ResponseMetadata: ResponseMetadata
@@ -402,6 +422,7 @@ class AppValidationConfiguration(BaseValidatorModel):
     ssmValidationParameters: Optional[SSMValidationParameters] = None
 
 
+# This class is the output for the 'get_servers' function.
 class GetServersResponse(BaseValidatorModel):
     lastModifiedOn: datetime
     serverCatalogStatus: ServerCatalogStatusType
@@ -459,12 +480,14 @@ class ServerValidationOutput(BaseValidatorModel):
     server: Optional[Server] = None
 
 
+# This class is the output for the 'get_replication_jobs' function.
 class GetReplicationJobsResponse(BaseValidatorModel):
     replicationJobList: List[ReplicationJob]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_replication_runs' function.
 class GetReplicationRunsResponse(BaseValidatorModel):
     replicationJob: ReplicationJob
     replicationRunList: List[ReplicationRun]
@@ -472,6 +495,7 @@ class GetReplicationRunsResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_app' function.
 class CreateAppResponse(BaseValidatorModel):
     appSummary: AppSummary
     serverGroups: List[ServerGroupOutput]
@@ -479,6 +503,7 @@ class CreateAppResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_app' function.
 class GetAppResponse(BaseValidatorModel):
     appSummary: AppSummary
     serverGroups: List[ServerGroupOutput]
@@ -486,6 +511,7 @@ class GetAppResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_app' function.
 class UpdateAppResponse(BaseValidatorModel):
     appSummary: AppSummary
     serverGroups: List[ServerGroupOutput]
@@ -534,6 +560,7 @@ class ValidationOutput(BaseValidatorModel):
     serverValidationOutput: Optional[ServerValidationOutput] = None
 
 
+# This class is the input for the 'create_app' function.
 class CreateAppRequest(BaseValidatorModel):
     name: Optional[str] = None
     description: Optional[str] = None
@@ -543,6 +570,7 @@ class CreateAppRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_app' function.
 class UpdateAppRequest(BaseValidatorModel):
     appId: Optional[str] = None
     name: Optional[str] = None
@@ -552,6 +580,7 @@ class UpdateAppRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'get_app_launch_configuration' function.
 class GetAppLaunchConfigurationResponse(BaseValidatorModel):
     appId: str
     roleName: str
@@ -562,6 +591,7 @@ class GetAppLaunchConfigurationResponse(BaseValidatorModel):
 ServerGroupLaunchConfigurationUnion = Union[ServerGroupLaunchConfiguration, ServerGroupLaunchConfigurationOutput]
 
 
+# This class is the output for the 'get_app_replication_configuration' function.
 class GetAppReplicationConfigurationResponse(BaseValidatorModel):
     serverGroupReplicationConfigurations: List[ServerGroupReplicationConfigurationOutput]
     ResponseMetadata: ResponseMetadata
@@ -572,6 +602,7 @@ class ServerGroupReplicationConfiguration(BaseValidatorModel):
     serverReplicationConfigurations: Optional[List[ServerReplicationConfigurationUnion]] = None
 
 
+# This class is the output for the 'get_app_validation_configuration' function.
 class GetAppValidationConfigurationResponse(BaseValidatorModel):
     appValidationConfigurations: List[AppValidationConfiguration]
     serverGroupValidationConfigurations: List[ServerGroupValidationConfigurationOutput]
@@ -580,6 +611,7 @@ class GetAppValidationConfigurationResponse(BaseValidatorModel):
 ServerGroupValidationConfigurationUnion = Union[ServerGroupValidationConfiguration, ServerGroupValidationConfigurationOutput]
 
 
+# This class is the output for the 'get_app_validation_output' function.
 class GetAppValidationOutputResponse(BaseValidatorModel):
     validationOutputList: List[ValidationOutput]
     ResponseMetadata: ResponseMetadata

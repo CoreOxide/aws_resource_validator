@@ -21,6 +21,7 @@ class Credentials(BaseValidatorModel):
     Expiration: Optional[datetime] = None
 
 
+# This class is the input for the 'delete_identities' function.
 class DeleteIdentitiesInput(BaseValidatorModel):
     IdentityIdsToDelete: List[str]
 
@@ -38,34 +39,41 @@ class UnprocessedIdentityId(BaseValidatorModel):
     ErrorCode: Optional[ErrorCodeType] = None
 
 
+# This class is the input for the 'delete_identity_pool' function.
 class DeleteIdentityPoolInput(BaseValidatorModel):
     IdentityPoolId: str
 
 
+# This class is the input for the 'describe_identity' function.
 class DescribeIdentityInput(BaseValidatorModel):
     IdentityId: str
 
 
+# This class is the input for the 'describe_identity_pool' function.
 class DescribeIdentityPoolInput(BaseValidatorModel):
     IdentityPoolId: str
 
 
+# This class is the input for the 'get_credentials_for_identity' function.
 class GetCredentialsForIdentityInput(BaseValidatorModel):
     IdentityId: str
     Logins: Optional[Dict[str, str]] = None
     CustomRoleArn: Optional[str] = None
 
 
+# This class is the input for the 'get_id' function.
 class GetIdInput(BaseValidatorModel):
     IdentityPoolId: str
     AccountId: Optional[str] = None
     Logins: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'get_identity_pool_roles' function.
 class GetIdentityPoolRolesInput(BaseValidatorModel):
     IdentityPoolId: str
 
 
+# This class is the input for the 'get_open_id_token_for_developer_identity' function.
 class GetOpenIdTokenForDeveloperIdentityInput(BaseValidatorModel):
     IdentityPoolId: str
     Logins: Dict[str, str]
@@ -74,11 +82,13 @@ class GetOpenIdTokenForDeveloperIdentityInput(BaseValidatorModel):
     TokenDuration: Optional[int] = None
 
 
+# This class is the input for the 'get_open_id_token' function.
 class GetOpenIdTokenInput(BaseValidatorModel):
     IdentityId: str
     Logins: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'get_principal_tag_attribute_map' function.
 class GetPrincipalTagAttributeMapInput(BaseValidatorModel):
     IdentityPoolId: str
     IdentityProviderName: str
@@ -96,6 +106,7 @@ class IdentityPoolShortDescription(BaseValidatorModel):
     IdentityPoolName: Optional[str] = None
 
 
+# This class is the input for the 'list_identities' function.
 class ListIdentitiesInput(BaseValidatorModel):
     IdentityPoolId: str
     MaxResults: int
@@ -109,15 +120,18 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_identity_pools' function.
 class ListIdentityPoolsInput(BaseValidatorModel):
     MaxResults: int
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInput(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'lookup_developer_identity' function.
 class LookupDeveloperIdentityInput(BaseValidatorModel):
     IdentityPoolId: str
     IdentityId: Optional[str] = None
@@ -133,6 +147,7 @@ class MappingRule(BaseValidatorModel):
     RoleARN: str
 
 
+# This class is the input for the 'merge_developer_identities' function.
 class MergeDeveloperIdentitiesInput(BaseValidatorModel):
     SourceUserIdentifier: str
     DestinationUserIdentifier: str
@@ -140,6 +155,7 @@ class MergeDeveloperIdentitiesInput(BaseValidatorModel):
     IdentityPoolId: str
 
 
+# This class is the input for the 'set_principal_tag_attribute_map' function.
 class SetPrincipalTagAttributeMapInput(BaseValidatorModel):
     IdentityPoolId: str
     IdentityProviderName: str
@@ -152,6 +168,7 @@ class TagResourceInput(BaseValidatorModel):
     Tags: Dict[str, str]
 
 
+# This class is the input for the 'unlink_developer_identity' function.
 class UnlinkDeveloperIdentityInput(BaseValidatorModel):
     IdentityId: str
     IdentityPoolId: str
@@ -159,6 +176,7 @@ class UnlinkDeveloperIdentityInput(BaseValidatorModel):
     DeveloperUserIdentifier: str
 
 
+# This class is the input for the 'unlink_identity' function.
 class UnlinkIdentityInput(BaseValidatorModel):
     IdentityId: str
     Logins: Dict[str, str]
@@ -170,6 +188,7 @@ class UntagResourceInput(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'create_identity_pool' function.
 class CreateIdentityPoolInput(BaseValidatorModel):
     IdentityPoolName: str
     AllowUnauthenticatedIdentities: bool
@@ -182,6 +201,7 @@ class CreateIdentityPoolInput(BaseValidatorModel):
     IdentityPoolTags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_identity_pool' function.
 class IdentityPoolRequest(BaseValidatorModel):
     IdentityPoolId: str
     IdentityPoolName: str
@@ -195,33 +215,39 @@ class IdentityPoolRequest(BaseValidatorModel):
     IdentityPoolTags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'unlink_identity' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_credentials_for_identity' function.
 class GetCredentialsForIdentityResponse(BaseValidatorModel):
     IdentityId: str
     Credentials: Credentials
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_id' function.
 class GetIdResponse(BaseValidatorModel):
     IdentityId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_open_id_token_for_developer_identity' function.
 class GetOpenIdTokenForDeveloperIdentityResponse(BaseValidatorModel):
     IdentityId: str
     Token: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_open_id_token' function.
 class GetOpenIdTokenResponse(BaseValidatorModel):
     IdentityId: str
     Token: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_principal_tag_attribute_map' function.
 class GetPrincipalTagAttributeMapResponse(BaseValidatorModel):
     IdentityPoolId: str
     IdentityProviderName: str
@@ -230,6 +256,7 @@ class GetPrincipalTagAttributeMapResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_identity' function.
 class IdentityDescriptionResponse(BaseValidatorModel):
     IdentityId: str
     Logins: List[str]
@@ -238,6 +265,7 @@ class IdentityDescriptionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_identity_pool' function.
 class IdentityPool(BaseValidatorModel):
     IdentityPoolId: str
     IdentityPoolName: str
@@ -252,11 +280,13 @@ class IdentityPool(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'lookup_developer_identity' function.
 class LookupDeveloperIdentityResponse(BaseValidatorModel):
     IdentityId: str
     DeveloperUserIdentifierList: List[str]
@@ -264,11 +294,13 @@ class LookupDeveloperIdentityResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'merge_developer_identities' function.
 class MergeDeveloperIdentitiesResponse(BaseValidatorModel):
     IdentityId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'set_principal_tag_attribute_map' function.
 class SetPrincipalTagAttributeMapResponse(BaseValidatorModel):
     IdentityPoolId: str
     IdentityProviderName: str
@@ -277,11 +309,13 @@ class SetPrincipalTagAttributeMapResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_identities' function.
 class DeleteIdentitiesResponse(BaseValidatorModel):
     UnprocessedIdentityIds: List[UnprocessedIdentityId]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_identities' function.
 class ListIdentitiesResponse(BaseValidatorModel):
     IdentityPoolId: str
     Identities: List[IdentityDescription]
@@ -289,6 +323,7 @@ class ListIdentitiesResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_identity_pools' function.
 class ListIdentityPoolsResponse(BaseValidatorModel):
     IdentityPools: List[IdentityPoolShortDescription]
     ResponseMetadata: ResponseMetadata
@@ -315,6 +350,7 @@ class RoleMappingOutput(BaseValidatorModel):
 RulesConfigurationTypeUnion = Union[RulesConfigurationType, RulesConfigurationTypeOutput]
 
 
+# This class is the output for the 'get_identity_pool_roles' function.
 class GetIdentityPoolRolesResponse(BaseValidatorModel):
     IdentityPoolId: str
     Roles: Dict[str, str]
@@ -330,6 +366,7 @@ class RoleMapping(BaseValidatorModel):
 RoleMappingUnion = Union[RoleMapping, RoleMappingOutput]
 
 
+# This class is the input for the 'set_identity_pool_roles' function.
 class SetIdentityPoolRolesInput(BaseValidatorModel):
     IdentityPoolId: str
     Roles: Dict[str, str]

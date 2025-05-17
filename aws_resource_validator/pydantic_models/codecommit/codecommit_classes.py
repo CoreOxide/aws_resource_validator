@@ -45,6 +45,7 @@ class Approval(BaseValidatorModel):
     approvalState: Optional[ApprovalStateType] = None
 
 
+# This class is the input for the 'associate_approval_rule_template_with_repository' function.
 class AssociateApprovalRuleTemplateWithRepositoryInput(BaseValidatorModel):
     approvalRuleTemplateName: str
     repositoryName: str
@@ -56,6 +57,7 @@ class BatchAssociateApprovalRuleTemplateWithRepositoriesError(BaseValidatorModel
     errorMessage: Optional[str] = None
 
 
+# This class is the input for the 'batch_associate_approval_rule_template_with_repositories' function.
 class BatchAssociateApprovalRuleTemplateWithRepositoriesInput(BaseValidatorModel):
     approvalRuleTemplateName: str
     repositoryNames: List[str]
@@ -75,6 +77,7 @@ class BatchDescribeMergeConflictsError(BaseValidatorModel):
     message: str
 
 
+# This class is the input for the 'batch_describe_merge_conflicts' function.
 class BatchDescribeMergeConflictsInput(BaseValidatorModel):
     repositoryName: str
     destinationCommitSpecifier: str
@@ -94,6 +97,7 @@ class BatchDisassociateApprovalRuleTemplateFromRepositoriesError(BaseValidatorMo
     errorMessage: Optional[str] = None
 
 
+# This class is the input for the 'batch_disassociate_approval_rule_template_from_repositories' function.
 class BatchDisassociateApprovalRuleTemplateFromRepositoriesInput(BaseValidatorModel):
     approvalRuleTemplateName: str
     repositoryNames: List[str]
@@ -105,6 +109,7 @@ class BatchGetCommitsError(BaseValidatorModel):
     errorMessage: Optional[str] = None
 
 
+# This class is the input for the 'batch_get_commits' function.
 class BatchGetCommitsInput(BaseValidatorModel):
     commitIds: List[str]
     repositoryName: str
@@ -117,6 +122,7 @@ class BatchGetRepositoriesError(BaseValidatorModel):
     errorMessage: Optional[str] = None
 
 
+# This class is the input for the 'batch_get_repositories' function.
 class BatchGetRepositoriesInput(BaseValidatorModel):
     repositoryNames: List[str]
 
@@ -211,12 +217,14 @@ class SetFileModeEntry(BaseValidatorModel):
     fileMode: FileModeTypeEnumType
 
 
+# This class is the input for the 'create_approval_rule_template' function.
 class CreateApprovalRuleTemplateInput(BaseValidatorModel):
     approvalRuleTemplateName: str
     approvalRuleTemplateContent: str
     approvalRuleTemplateDescription: Optional[str] = None
 
 
+# This class is the input for the 'create_branch' function.
 class CreateBranchInput(BaseValidatorModel):
     repositoryName: str
     branchName: str
@@ -229,6 +237,7 @@ class FileMetadata(BaseValidatorModel):
     fileMode: Optional[FileModeTypeEnumType] = None
 
 
+# This class is the input for the 'create_pull_request_approval_rule' function.
 class CreatePullRequestApprovalRuleInput(BaseValidatorModel):
     pullRequestId: str
     approvalRuleName: str
@@ -241,6 +250,7 @@ class Target(BaseValidatorModel):
     destinationReference: Optional[str] = None
 
 
+# This class is the input for the 'create_repository' function.
 class CreateRepositoryInput(BaseValidatorModel):
     repositoryName: str
     repositoryDescription: Optional[str] = None
@@ -248,19 +258,23 @@ class CreateRepositoryInput(BaseValidatorModel):
     kmsKeyId: Optional[str] = None
 
 
+# This class is the input for the 'delete_approval_rule_template' function.
 class DeleteApprovalRuleTemplateInput(BaseValidatorModel):
     approvalRuleTemplateName: str
 
 
+# This class is the input for the 'delete_branch' function.
 class DeleteBranchInput(BaseValidatorModel):
     repositoryName: str
     branchName: str
 
 
+# This class is the input for the 'delete_comment_content' function.
 class DeleteCommentContentInput(BaseValidatorModel):
     commentId: str
 
 
+# This class is the input for the 'delete_file' function.
 class DeleteFileInput(BaseValidatorModel):
     repositoryName: str
     branchName: str
@@ -272,15 +286,18 @@ class DeleteFileInput(BaseValidatorModel):
     email: Optional[str] = None
 
 
+# This class is the input for the 'delete_pull_request_approval_rule' function.
 class DeletePullRequestApprovalRuleInput(BaseValidatorModel):
     pullRequestId: str
     approvalRuleName: str
 
 
+# This class is the input for the 'delete_repository' function.
 class DeleteRepositoryInput(BaseValidatorModel):
     repositoryName: str
 
 
+# This class is the input for the 'describe_merge_conflicts' function.
 class DescribeMergeConflictsInput(BaseValidatorModel):
     repositoryName: str
     destinationCommitSpecifier: str
@@ -299,6 +316,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_pull_request_events' function.
 class DescribePullRequestEventsInput(BaseValidatorModel):
     pullRequestId: str
     pullRequestEventType: Optional[PullRequestEventTypeType] = None
@@ -307,11 +325,13 @@ class DescribePullRequestEventsInput(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'disassociate_approval_rule_template_from_repository' function.
 class DisassociateApprovalRuleTemplateFromRepositoryInput(BaseValidatorModel):
     approvalRuleTemplateName: str
     repositoryName: str
 
 
+# This class is the input for the 'evaluate_pull_request_approval_rules' function.
 class EvaluatePullRequestApprovalRulesInput(BaseValidatorModel):
     pullRequestId: str
     revisionId: str
@@ -337,24 +357,29 @@ class Folder(BaseValidatorModel):
     relativePath: Optional[str] = None
 
 
+# This class is the input for the 'get_approval_rule_template' function.
 class GetApprovalRuleTemplateInput(BaseValidatorModel):
     approvalRuleTemplateName: str
 
 
+# This class is the input for the 'get_blob' function.
 class GetBlobInput(BaseValidatorModel):
     repositoryName: str
     blobId: str
 
 
+# This class is the input for the 'get_branch' function.
 class GetBranchInput(BaseValidatorModel):
     repositoryName: Optional[str] = None
     branchName: Optional[str] = None
 
 
+# This class is the input for the 'get_comment' function.
 class GetCommentInput(BaseValidatorModel):
     commentId: str
 
 
+# This class is the input for the 'get_comment_reactions' function.
 class GetCommentReactionsInput(BaseValidatorModel):
     commentId: str
     reactionUserArn: Optional[str] = None
@@ -362,6 +387,7 @@ class GetCommentReactionsInput(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_comments_for_compared_commit' function.
 class GetCommentsForComparedCommitInput(BaseValidatorModel):
     repositoryName: str
     afterCommitId: str
@@ -370,6 +396,7 @@ class GetCommentsForComparedCommitInput(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_comments_for_pull_request' function.
 class GetCommentsForPullRequestInput(BaseValidatorModel):
     pullRequestId: str
     repositoryName: Optional[str] = None
@@ -379,11 +406,13 @@ class GetCommentsForPullRequestInput(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_commit' function.
 class GetCommitInput(BaseValidatorModel):
     repositoryName: str
     commitId: str
 
 
+# This class is the input for the 'get_differences' function.
 class GetDifferencesInput(BaseValidatorModel):
     repositoryName: str
     afterCommitSpecifier: str
@@ -394,12 +423,14 @@ class GetDifferencesInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_file' function.
 class GetFileInput(BaseValidatorModel):
     repositoryName: str
     filePath: str
     commitSpecifier: Optional[str] = None
 
 
+# This class is the input for the 'get_folder' function.
 class GetFolderInput(BaseValidatorModel):
     repositoryName: str
     folderPath: str
@@ -419,6 +450,7 @@ class SymbolicLink(BaseValidatorModel):
     fileMode: Optional[FileModeTypeEnumType] = None
 
 
+# This class is the input for the 'get_merge_commit' function.
 class GetMergeCommitInput(BaseValidatorModel):
     repositoryName: str
     sourceCommitSpecifier: str
@@ -427,6 +459,7 @@ class GetMergeCommitInput(BaseValidatorModel):
     conflictResolutionStrategy: Optional[ConflictResolutionStrategyTypeEnumType] = None
 
 
+# This class is the input for the 'get_merge_conflicts' function.
 class GetMergeConflictsInput(BaseValidatorModel):
     repositoryName: str
     destinationCommitSpecifier: str
@@ -438,6 +471,7 @@ class GetMergeConflictsInput(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_merge_options' function.
 class GetMergeOptionsInput(BaseValidatorModel):
     repositoryName: str
     sourceCommitSpecifier: str
@@ -446,24 +480,29 @@ class GetMergeOptionsInput(BaseValidatorModel):
     conflictResolutionStrategy: Optional[ConflictResolutionStrategyTypeEnumType] = None
 
 
+# This class is the input for the 'get_pull_request_approval_states' function.
 class GetPullRequestApprovalStatesInput(BaseValidatorModel):
     pullRequestId: str
     revisionId: str
 
 
+# This class is the input for the 'get_pull_request' function.
 class GetPullRequestInput(BaseValidatorModel):
     pullRequestId: str
 
 
+# This class is the input for the 'get_pull_request_override_state' function.
 class GetPullRequestOverrideStateInput(BaseValidatorModel):
     pullRequestId: str
     revisionId: str
 
 
+# This class is the input for the 'get_repository' function.
 class GetRepositoryInput(BaseValidatorModel):
     repositoryName: str
 
 
+# This class is the input for the 'get_repository_triggers' function.
 class GetRepositoryTriggersInput(BaseValidatorModel):
     repositoryName: str
 
@@ -476,22 +515,26 @@ class RepositoryTriggerOutput(BaseValidatorModel):
     branches: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_approval_rule_templates' function.
 class ListApprovalRuleTemplatesInput(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_associated_approval_rule_templates_for_repository' function.
 class ListAssociatedApprovalRuleTemplatesForRepositoryInput(BaseValidatorModel):
     repositoryName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_branches' function.
 class ListBranchesInput(BaseValidatorModel):
     repositoryName: str
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_file_commit_history' function.
 class ListFileCommitHistoryRequest(BaseValidatorModel):
     repositoryName: str
     filePath: str
@@ -500,6 +543,7 @@ class ListFileCommitHistoryRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_pull_requests' function.
 class ListPullRequestsInput(BaseValidatorModel):
     repositoryName: str
     authorArn: Optional[str] = None
@@ -508,12 +552,14 @@ class ListPullRequestsInput(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_repositories_for_approval_rule_template' function.
 class ListRepositoriesForApprovalRuleTemplateInput(BaseValidatorModel):
     approvalRuleTemplateName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_repositories' function.
 class ListRepositoriesInput(BaseValidatorModel):
     nextToken: Optional[str] = None
     sortBy: Optional[SortByEnumType] = None
@@ -525,11 +571,13 @@ class RepositoryNameIdPair(BaseValidatorModel):
     repositoryId: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInput(BaseValidatorModel):
     resourceArn: str
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'merge_branches_by_fast_forward' function.
 class MergeBranchesByFastForwardInput(BaseValidatorModel):
     repositoryName: str
     sourceCommitSpecifier: str
@@ -550,18 +598,21 @@ class MergeMetadata(BaseValidatorModel):
     mergeOption: Optional[MergeOptionTypeEnumType] = None
 
 
+# This class is the input for the 'merge_pull_request_by_fast_forward' function.
 class MergePullRequestByFastForwardInput(BaseValidatorModel):
     pullRequestId: str
     repositoryName: str
     sourceCommitId: Optional[str] = None
 
 
+# This class is the input for the 'override_pull_request_approval_rules' function.
 class OverridePullRequestApprovalRulesInput(BaseValidatorModel):
     pullRequestId: str
     revisionId: str
     overrideStatus: OverrideStatusType
 
 
+# This class is the input for the 'post_comment_reply' function.
 class PostCommentReplyInput(BaseValidatorModel):
     inReplyTo: str
     content: str
@@ -586,6 +637,7 @@ class PullRequestStatusChangedEventMetadata(BaseValidatorModel):
     pullRequestStatus: Optional[PullRequestStatusEnumType] = None
 
 
+# This class is the input for the 'put_comment_reaction' function.
 class PutCommentReactionInput(BaseValidatorModel):
     commentId: str
     reactionValue: str
@@ -615,42 +667,50 @@ class RepositoryTrigger(BaseValidatorModel):
     branches: Optional[List[str]] = None
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceInput(BaseValidatorModel):
     resourceArn: str
     tags: Dict[str, str]
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceInput(BaseValidatorModel):
     resourceArn: str
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_approval_rule_template_content' function.
 class UpdateApprovalRuleTemplateContentInput(BaseValidatorModel):
     approvalRuleTemplateName: str
     newRuleContent: str
     existingRuleContentSha256: Optional[str] = None
 
 
+# This class is the input for the 'update_approval_rule_template_description' function.
 class UpdateApprovalRuleTemplateDescriptionInput(BaseValidatorModel):
     approvalRuleTemplateName: str
     approvalRuleTemplateDescription: str
 
 
+# This class is the input for the 'update_approval_rule_template_name' function.
 class UpdateApprovalRuleTemplateNameInput(BaseValidatorModel):
     oldApprovalRuleTemplateName: str
     newApprovalRuleTemplateName: str
 
 
+# This class is the input for the 'update_comment' function.
 class UpdateCommentInput(BaseValidatorModel):
     commentId: str
     content: str
 
 
+# This class is the input for the 'update_default_branch' function.
 class UpdateDefaultBranchInput(BaseValidatorModel):
     repositoryName: str
     defaultBranchName: str
 
 
+# This class is the input for the 'update_pull_request_approval_rule_content' function.
 class UpdatePullRequestApprovalRuleContentInput(BaseValidatorModel):
     pullRequestId: str
     approvalRuleName: str
@@ -658,37 +718,44 @@ class UpdatePullRequestApprovalRuleContentInput(BaseValidatorModel):
     existingRuleContentSha256: Optional[str] = None
 
 
+# This class is the input for the 'update_pull_request_approval_state' function.
 class UpdatePullRequestApprovalStateInput(BaseValidatorModel):
     pullRequestId: str
     revisionId: str
     approvalState: ApprovalStateType
 
 
+# This class is the input for the 'update_pull_request_description' function.
 class UpdatePullRequestDescriptionInput(BaseValidatorModel):
     pullRequestId: str
     description: str
 
 
+# This class is the input for the 'update_pull_request_status' function.
 class UpdatePullRequestStatusInput(BaseValidatorModel):
     pullRequestId: str
     pullRequestStatus: PullRequestStatusEnumType
 
 
+# This class is the input for the 'update_pull_request_title' function.
 class UpdatePullRequestTitleInput(BaseValidatorModel):
     pullRequestId: str
     title: str
 
 
+# This class is the input for the 'update_repository_description' function.
 class UpdateRepositoryDescriptionInput(BaseValidatorModel):
     repositoryName: str
     repositoryDescription: Optional[str] = None
 
 
+# This class is the input for the 'update_repository_encryption_key' function.
 class UpdateRepositoryEncryptionKeyInput(BaseValidatorModel):
     repositoryName: str
     kmsKeyId: str
 
 
+# This class is the input for the 'update_repository_name' function.
 class UpdateRepositoryNameInput(BaseValidatorModel):
     oldName: str
     newName: str
@@ -705,28 +772,33 @@ class ApprovalRule(BaseValidatorModel):
     originApprovalRuleTemplate: Optional[OriginApprovalRuleTemplate] = None
 
 
+# This class is the output for the 'batch_associate_approval_rule_template_with_repositories' function.
 class BatchAssociateApprovalRuleTemplateWithRepositoriesOutput(BaseValidatorModel):
     associatedRepositoryNames: List[str]
     errors: List[BatchAssociateApprovalRuleTemplateWithRepositoriesError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_approval_rule_template' function.
 class CreateApprovalRuleTemplateOutput(BaseValidatorModel):
     approvalRuleTemplate: ApprovalRuleTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_unreferenced_merge_commit' function.
 class CreateUnreferencedMergeCommitOutput(BaseValidatorModel):
     commitId: str
     treeId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_approval_rule_template' function.
 class DeleteApprovalRuleTemplateOutput(BaseValidatorModel):
     approvalRuleTemplateId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_file' function.
 class DeleteFileOutput(BaseValidatorModel):
     commitId: str
     blobId: str
@@ -735,30 +807,36 @@ class DeleteFileOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_pull_request_approval_rule' function.
 class DeletePullRequestApprovalRuleOutput(BaseValidatorModel):
     approvalRuleId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_repository' function.
 class DeleteRepositoryOutput(BaseValidatorModel):
     repositoryId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_repository_name' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_approval_rule_template' function.
 class GetApprovalRuleTemplateOutput(BaseValidatorModel):
     approvalRuleTemplate: ApprovalRuleTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_blob' function.
 class GetBlobOutput(BaseValidatorModel):
     content: bytes
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_file' function.
 class GetFileOutput(BaseValidatorModel):
     commitId: str
     blobId: str
@@ -769,6 +847,7 @@ class GetFileOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_merge_commit' function.
 class GetMergeCommitOutput(BaseValidatorModel):
     sourceCommitId: str
     destinationCommitId: str
@@ -777,6 +856,7 @@ class GetMergeCommitOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_merge_options' function.
 class GetMergeOptionsOutput(BaseValidatorModel):
     mergeOptions: List[MergeOptionTypeEnumType]
     sourceCommitId: str
@@ -785,71 +865,83 @@ class GetMergeOptionsOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_pull_request_approval_states' function.
 class GetPullRequestApprovalStatesOutput(BaseValidatorModel):
     approvals: List[Approval]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_pull_request_override_state' function.
 class GetPullRequestOverrideStateOutput(BaseValidatorModel):
     overridden: bool
     overrider: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_approval_rule_templates' function.
 class ListApprovalRuleTemplatesOutput(BaseValidatorModel):
     approvalRuleTemplateNames: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_associated_approval_rule_templates_for_repository' function.
 class ListAssociatedApprovalRuleTemplatesForRepositoryOutput(BaseValidatorModel):
     approvalRuleTemplateNames: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_branches' function.
 class ListBranchesOutput(BaseValidatorModel):
     branches: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_pull_requests' function.
 class ListPullRequestsOutput(BaseValidatorModel):
     pullRequestIds: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_repositories_for_approval_rule_template' function.
 class ListRepositoriesForApprovalRuleTemplateOutput(BaseValidatorModel):
     repositoryNames: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceOutput(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'merge_branches_by_fast_forward' function.
 class MergeBranchesByFastForwardOutput(BaseValidatorModel):
     commitId: str
     treeId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'merge_branches_by_squash' function.
 class MergeBranchesBySquashOutput(BaseValidatorModel):
     commitId: str
     treeId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'merge_branches_by_three_way' function.
 class MergeBranchesByThreeWayOutput(BaseValidatorModel):
     commitId: str
     treeId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_file' function.
 class PutFileOutput(BaseValidatorModel):
     commitId: str
     blobId: str
@@ -857,26 +949,31 @@ class PutFileOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_repository_triggers' function.
 class PutRepositoryTriggersOutput(BaseValidatorModel):
     configurationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_approval_rule_template_content' function.
 class UpdateApprovalRuleTemplateContentOutput(BaseValidatorModel):
     approvalRuleTemplate: ApprovalRuleTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_approval_rule_template_description' function.
 class UpdateApprovalRuleTemplateDescriptionOutput(BaseValidatorModel):
     approvalRuleTemplate: ApprovalRuleTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_approval_rule_template_name' function.
 class UpdateApprovalRuleTemplateNameOutput(BaseValidatorModel):
     approvalRuleTemplate: ApprovalRuleTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_repository_encryption_key' function.
 class UpdateRepositoryEncryptionKeyOutput(BaseValidatorModel):
     repositoryId: str
     kmsKeyId: str
@@ -884,12 +981,14 @@ class UpdateRepositoryEncryptionKeyOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_disassociate_approval_rule_template_from_repositories' function.
 class BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput(BaseValidatorModel):
     disassociatedRepositoryNames: List[str]
     errors: List[BatchDisassociateApprovalRuleTemplateFromRepositoriesError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_get_repositories' function.
 class BatchGetRepositoriesOutput(BaseValidatorModel):
     repositories: List[RepositoryMetadata]
     repositoriesNotFound: List[str]
@@ -897,11 +996,13 @@ class BatchGetRepositoriesOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_repository' function.
 class CreateRepositoryOutput(BaseValidatorModel):
     repositoryMetadata: RepositoryMetadata
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_repository' function.
 class GetRepositoryOutput(BaseValidatorModel):
     repositoryMetadata: RepositoryMetadata
     ResponseMetadata: ResponseMetadata
@@ -913,6 +1014,7 @@ class Difference(BaseValidatorModel):
     changeType: Optional[ChangeTypeEnumType] = None
 
 
+# This class is the input for the 'put_file' function.
 class PutFileInput(BaseValidatorModel):
     repositoryName: str
     branchName: str
@@ -932,31 +1034,37 @@ class ReplaceContentEntry(BaseValidatorModel):
     fileMode: Optional[FileModeTypeEnumType] = None
 
 
+# This class is the output for the 'delete_branch' function.
 class DeleteBranchOutput(BaseValidatorModel):
     deletedBranch: BranchInfo
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_branch' function.
 class GetBranchOutput(BaseValidatorModel):
     branch: BranchInfo
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_comment_content' function.
 class DeleteCommentContentOutput(BaseValidatorModel):
     comment: Comment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_comment' function.
 class GetCommentOutput(BaseValidatorModel):
     comment: Comment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'post_comment_reply' function.
 class PostCommentReplyOutput(BaseValidatorModel):
     comment: Comment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_comment' function.
 class UpdateCommentOutput(BaseValidatorModel):
     comment: Comment
     ResponseMetadata: ResponseMetadata
@@ -983,6 +1091,7 @@ class CommentsForPullRequest(BaseValidatorModel):
     comments: Optional[List[Comment]] = None
 
 
+# This class is the input for the 'post_comment_for_compared_commit' function.
 class PostCommentForComparedCommitInput(BaseValidatorModel):
     repositoryName: str
     afterCommitId: str
@@ -992,6 +1101,7 @@ class PostCommentForComparedCommitInput(BaseValidatorModel):
     clientRequestToken: Optional[str] = None
 
 
+# This class is the output for the 'post_comment_for_compared_commit' function.
 class PostCommentForComparedCommitOutput(BaseValidatorModel):
     repositoryName: str
     beforeCommitId: str
@@ -1003,6 +1113,7 @@ class PostCommentForComparedCommitOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'post_comment_for_pull_request' function.
 class PostCommentForPullRequestInput(BaseValidatorModel):
     pullRequestId: str
     repositoryName: str
@@ -1013,6 +1124,7 @@ class PostCommentForPullRequestInput(BaseValidatorModel):
     clientRequestToken: Optional[str] = None
 
 
+# This class is the output for the 'post_comment_for_pull_request' function.
 class PostCommentForPullRequestOutput(BaseValidatorModel):
     repositoryName: str
     pullRequestId: str
@@ -1048,6 +1160,7 @@ class ConflictMetadata(BaseValidatorModel):
     mergeOperations: Optional[MergeOperations] = None
 
 
+# This class is the output for the 'create_commit' function.
 class CreateCommitOutput(BaseValidatorModel):
     commitId: str
     treeId: str
@@ -1057,6 +1170,7 @@ class CreateCommitOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_pull_request' function.
 class CreatePullRequestInput(BaseValidatorModel):
     title: str
     targets: List[Target]
@@ -1113,11 +1227,13 @@ class ListRepositoriesInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'evaluate_pull_request_approval_rules' function.
 class EvaluatePullRequestApprovalRulesOutput(BaseValidatorModel):
     evaluation: Evaluation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_folder' function.
 class GetFolderOutput(BaseValidatorModel):
     commitId: str
     folderPath: str
@@ -1129,12 +1245,14 @@ class GetFolderOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_repository_triggers' function.
 class GetRepositoryTriggersOutput(BaseValidatorModel):
     configurationId: str
     triggers: List[RepositoryTriggerOutput]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_repositories' function.
 class ListRepositoriesOutput(BaseValidatorModel):
     repositories: List[RepositoryNameIdPair]
     ResponseMetadata: ResponseMetadata
@@ -1177,6 +1295,7 @@ class ReactionForComment(BaseValidatorModel):
     reactionsFromDeletedUsersCount: Optional[int] = None
 
 
+# This class is the output for the 'test_repository_triggers' function.
 class TestRepositoryTriggersOutput(BaseValidatorModel):
     successfulExecutions: List[str]
     failedExecutions: List[RepositoryTriggerExecutionFailure]
@@ -1185,16 +1304,19 @@ class TestRepositoryTriggersOutput(BaseValidatorModel):
 RepositoryTriggerUnion = Union[RepositoryTrigger, RepositoryTriggerOutput]
 
 
+# This class is the output for the 'create_pull_request_approval_rule' function.
 class CreatePullRequestApprovalRuleOutput(BaseValidatorModel):
     approvalRule: ApprovalRule
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_pull_request_approval_rule_content' function.
 class UpdatePullRequestApprovalRuleContentOutput(BaseValidatorModel):
     approvalRule: ApprovalRule
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_differences' function.
 class GetDifferencesOutput(BaseValidatorModel):
     differences: List[Difference]
     ResponseMetadata: ResponseMetadata
@@ -1207,18 +1329,21 @@ class ConflictResolution(BaseValidatorModel):
     setFileModes: Optional[List[SetFileModeEntry]] = None
 
 
+# This class is the output for the 'get_comments_for_compared_commit' function.
 class GetCommentsForComparedCommitOutput(BaseValidatorModel):
     commentsForComparedCommitData: List[CommentsForComparedCommit]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_comments_for_pull_request' function.
 class GetCommentsForPullRequestOutput(BaseValidatorModel):
     commentsForPullRequestData: List[CommentsForPullRequest]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'batch_get_commits' function.
 class BatchGetCommitsOutput(BaseValidatorModel):
     commits: List[Commit]
     errors: List[BatchGetCommitsError]
@@ -1232,11 +1357,13 @@ class FileVersion(BaseValidatorModel):
     revisionChildren: Optional[List[str]] = None
 
 
+# This class is the output for the 'get_commit' function.
 class GetCommitOutput(BaseValidatorModel):
     commit: Commit
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_merge_conflicts' function.
 class GetMergeConflictsOutput(BaseValidatorModel):
     mergeable: bool
     destinationCommitId: str
@@ -1252,6 +1379,7 @@ class Conflict(BaseValidatorModel):
     mergeHunks: Optional[List[MergeHunk]] = None
 
 
+# This class is the output for the 'describe_merge_conflicts' function.
 class DescribeMergeConflictsOutput(BaseValidatorModel):
     conflictMetadata: ConflictMetadata
     mergeHunks: List[MergeHunk]
@@ -1290,6 +1418,7 @@ class PullRequest(BaseValidatorModel):
     approvalRules: Optional[List[ApprovalRule]] = None
 
 
+# This class is the input for the 'create_commit' function.
 class CreateCommitInput(BaseValidatorModel):
     repositoryName: str
     branchName: str
@@ -1303,22 +1432,26 @@ class CreateCommitInput(BaseValidatorModel):
     setFileModes: Optional[List[SetFileModeEntry]] = None
 
 
+# This class is the output for the 'get_comment_reactions' function.
 class GetCommentReactionsOutput(BaseValidatorModel):
     reactionsForComment: List[ReactionForComment]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'put_repository_triggers' function.
 class PutRepositoryTriggersInput(BaseValidatorModel):
     repositoryName: str
     triggers: List[RepositoryTriggerUnion]
 
 
+# This class is the input for the 'test_repository_triggers' function.
 class TestRepositoryTriggersInput(BaseValidatorModel):
     repositoryName: str
     triggers: List[RepositoryTriggerUnion]
 
 
+# This class is the input for the 'create_unreferenced_merge_commit' function.
 class CreateUnreferencedMergeCommitInput(BaseValidatorModel):
     repositoryName: str
     sourceCommitSpecifier: str
@@ -1333,6 +1466,7 @@ class CreateUnreferencedMergeCommitInput(BaseValidatorModel):
     conflictResolution: Optional[ConflictResolution] = None
 
 
+# This class is the input for the 'merge_branches_by_squash' function.
 class MergeBranchesBySquashInput(BaseValidatorModel):
     repositoryName: str
     sourceCommitSpecifier: str
@@ -1347,6 +1481,7 @@ class MergeBranchesBySquashInput(BaseValidatorModel):
     conflictResolution: Optional[ConflictResolution] = None
 
 
+# This class is the input for the 'merge_branches_by_three_way' function.
 class MergeBranchesByThreeWayInput(BaseValidatorModel):
     repositoryName: str
     sourceCommitSpecifier: str
@@ -1361,6 +1496,7 @@ class MergeBranchesByThreeWayInput(BaseValidatorModel):
     conflictResolution: Optional[ConflictResolution] = None
 
 
+# This class is the input for the 'merge_pull_request_by_squash' function.
 class MergePullRequestBySquashInput(BaseValidatorModel):
     pullRequestId: str
     repositoryName: str
@@ -1374,6 +1510,7 @@ class MergePullRequestBySquashInput(BaseValidatorModel):
     conflictResolution: Optional[ConflictResolution] = None
 
 
+# This class is the input for the 'merge_pull_request_by_three_way' function.
 class MergePullRequestByThreeWayInput(BaseValidatorModel):
     pullRequestId: str
     repositoryName: str
@@ -1387,12 +1524,14 @@ class MergePullRequestByThreeWayInput(BaseValidatorModel):
     conflictResolution: Optional[ConflictResolution] = None
 
 
+# This class is the output for the 'list_file_commit_history' function.
 class ListFileCommitHistoryResponse(BaseValidatorModel):
     revisionDag: List[FileVersion]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'batch_describe_merge_conflicts' function.
 class BatchDescribeMergeConflictsOutput(BaseValidatorModel):
     conflicts: List[Conflict]
     errors: List[BatchDescribeMergeConflictsError]
@@ -1403,47 +1542,56 @@ class BatchDescribeMergeConflictsOutput(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_pull_request_events' function.
 class DescribePullRequestEventsOutput(BaseValidatorModel):
     pullRequestEvents: List[PullRequestEvent]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_pull_request' function.
 class CreatePullRequestOutput(BaseValidatorModel):
     pullRequest: PullRequest
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_pull_request' function.
 class GetPullRequestOutput(BaseValidatorModel):
     pullRequest: PullRequest
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'merge_pull_request_by_fast_forward' function.
 class MergePullRequestByFastForwardOutput(BaseValidatorModel):
     pullRequest: PullRequest
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'merge_pull_request_by_squash' function.
 class MergePullRequestBySquashOutput(BaseValidatorModel):
     pullRequest: PullRequest
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'merge_pull_request_by_three_way' function.
 class MergePullRequestByThreeWayOutput(BaseValidatorModel):
     pullRequest: PullRequest
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_pull_request_description' function.
 class UpdatePullRequestDescriptionOutput(BaseValidatorModel):
     pullRequest: PullRequest
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_pull_request_status' function.
 class UpdatePullRequestStatusOutput(BaseValidatorModel):
     pullRequest: PullRequest
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_pull_request_title' function.
 class UpdatePullRequestTitleOutput(BaseValidatorModel):
     pullRequest: PullRequest
     ResponseMetadata: ResponseMetadata

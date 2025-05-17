@@ -57,6 +57,7 @@ class ContractMetadata(BaseValidatorModel):
     decimals: Optional[int] = None
 
 
+# This class is the input for the 'get_transaction' function.
 class GetTransactionInput(BaseValidatorModel):
     network: QueryNetworkType
     transactionHash: Optional[str] = None
@@ -111,6 +112,7 @@ class TokenFilter(BaseValidatorModel):
     tokenId: Optional[str] = None
 
 
+# This class is the input for the 'list_transaction_events' function.
 class ListTransactionEventsInput(BaseValidatorModel):
     network: QueryNetworkType
     transactionHash: Optional[str] = None
@@ -138,6 +140,7 @@ class AssetContract(BaseValidatorModel):
     deployerAddress: str
 
 
+# This class is the input for the 'get_asset_contract' function.
 class GetAssetContractInput(BaseValidatorModel):
     contractIdentifier: ContractIdentifier
 
@@ -186,6 +189,7 @@ class TokenBalance(BaseValidatorModel):
     lastUpdatedTime: Optional[BlockchainInstantOutput] = None
 
 
+# This class is the output for the 'get_token_balance' function.
 class GetTokenBalanceOutput(BaseValidatorModel):
     ownerIdentifier: OwnerIdentifier
     tokenIdentifier: TokenIdentifier
@@ -199,12 +203,14 @@ class BlockchainInstant(BaseValidatorModel):
     time: Optional[Timestamp] = None
 
 
+# This class is the input for the 'list_asset_contracts' function.
 class ListAssetContractsInput(BaseValidatorModel):
     contractFilter: ContractFilter
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the output for the 'get_asset_contract' function.
 class GetAssetContractOutput(BaseValidatorModel):
     contractIdentifier: ContractIdentifier
     tokenStandard: QueryTokenStandardType
@@ -213,6 +219,7 @@ class GetAssetContractOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_transaction' function.
 class GetTransactionOutput(BaseValidatorModel):
     transaction: Transaction
     ResponseMetadata: ResponseMetadata
@@ -236,6 +243,7 @@ class ListTokenBalancesInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_token_balances' function.
 class ListTokenBalancesInput(BaseValidatorModel):
     tokenFilter: TokenFilter
     ownerFilter: Optional[OwnerFilter] = None
@@ -243,36 +251,42 @@ class ListTokenBalancesInput(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the output for the 'list_transactions' function.
 class ListTransactionsOutput(BaseValidatorModel):
     transactions: List[TransactionOutputItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_asset_contracts' function.
 class ListAssetContractsOutput(BaseValidatorModel):
     contracts: List[AssetContract]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_filtered_transaction_events' function.
 class ListFilteredTransactionEventsOutput(BaseValidatorModel):
     events: List[TransactionEvent]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_transaction_events' function.
 class ListTransactionEventsOutput(BaseValidatorModel):
     events: List[TransactionEvent]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'batch_get_token_balance' function.
 class BatchGetTokenBalanceOutput(BaseValidatorModel):
     tokenBalances: List[BatchGetTokenBalanceOutputItem]
     errors: List[BatchGetTokenBalanceErrorItem]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_token_balances' function.
 class ListTokenBalancesOutput(BaseValidatorModel):
     tokenBalances: List[TokenBalance]
     ResponseMetadata: ResponseMetadata
@@ -287,6 +301,7 @@ class BatchGetTokenBalanceInputItem(BaseValidatorModel):
     atBlockchainInstant: Optional[BlockchainInstantUnion] = None
 
 
+# This class is the input for the 'get_token_balance' function.
 class GetTokenBalanceInput(BaseValidatorModel):
     tokenIdentifier: TokenIdentifier
     ownerIdentifier: OwnerIdentifier
@@ -303,6 +318,7 @@ class ListTransactionsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_transactions' function.
 class ListTransactionsInput(BaseValidatorModel):
     address: str
     network: QueryNetworkType
@@ -319,6 +335,7 @@ class TimeFilter(BaseValidatorModel):
     to: Optional[BlockchainInstantUnion] = None
 
 
+# This class is the input for the 'batch_get_token_balance' function.
 class BatchGetTokenBalanceInput(BaseValidatorModel):
     getTokenBalanceInputs: Optional[List[BatchGetTokenBalanceInputItem]] = None
 
@@ -333,6 +350,7 @@ class ListFilteredTransactionEventsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_filtered_transaction_events' function.
 class ListFilteredTransactionEventsInput(BaseValidatorModel):
     network: str
     addressIdentifierFilter: AddressIdentifierFilter

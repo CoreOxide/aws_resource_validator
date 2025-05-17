@@ -33,6 +33,7 @@ class DeactivatePipelineInput(BaseValidatorModel):
     cancelActive: Optional[bool] = None
 
 
+# This class is the input for the 'delete_pipeline' function.
 class DeletePipelineInput(BaseValidatorModel):
     pipelineId: str
 
@@ -43,6 +44,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_objects' function.
 class DescribeObjectsInput(BaseValidatorModel):
     pipelineId: str
     objectIds: List[str]
@@ -50,10 +52,12 @@ class DescribeObjectsInput(BaseValidatorModel):
     marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_pipelines' function.
 class DescribePipelinesInput(BaseValidatorModel):
     pipelineIds: List[str]
 
 
+# This class is the input for the 'evaluate_expression' function.
 class EvaluateExpressionInput(BaseValidatorModel):
     pipelineId: str
     objectId: str
@@ -66,6 +70,7 @@ class Field(BaseValidatorModel):
     refValue: Optional[str] = None
 
 
+# This class is the input for the 'get_pipeline_definition' function.
 class GetPipelineDefinitionInput(BaseValidatorModel):
     pipelineId: str
     version: Optional[str] = None
@@ -76,6 +81,7 @@ class InstanceIdentity(BaseValidatorModel):
     signature: Optional[str] = None
 
 
+# This class is the input for the 'list_pipelines' function.
 class ListPipelinesInput(BaseValidatorModel):
     marker: Optional[str] = None
 
@@ -110,12 +116,14 @@ class RemoveTagsInput(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'report_task_runner_heartbeat' function.
 class ReportTaskRunnerHeartbeatInput(BaseValidatorModel):
     taskrunnerId: str
     workerGroup: Optional[str] = None
     hostname: Optional[str] = None
 
 
+# This class is the input for the 'set_status' function.
 class SetStatusInput(BaseValidatorModel):
     pipelineId: str
     objectIds: List[str]
@@ -141,6 +149,7 @@ class AddTagsInput(BaseValidatorModel):
     tags: List[Tag]
 
 
+# This class is the input for the 'create_pipeline' function.
 class CreatePipelineInput(BaseValidatorModel):
     name: str
     uniqueId: str
@@ -148,20 +157,24 @@ class CreatePipelineInput(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'create_pipeline' function.
 class CreatePipelineOutput(BaseValidatorModel):
     pipelineId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'set_status' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'evaluate_expression' function.
 class EvaluateExpressionOutput(BaseValidatorModel):
     evaluatedExpression: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'query_objects' function.
 class QueryObjectsOutput(BaseValidatorModel):
     ids: List[str]
     marker: str
@@ -169,11 +182,13 @@ class QueryObjectsOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'report_task_progress' function.
 class ReportTaskProgressOutput(BaseValidatorModel):
     canceled: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'report_task_runner_heartbeat' function.
 class ReportTaskRunnerHeartbeatOutput(BaseValidatorModel):
     terminate: bool
     ResponseMetadata: ResponseMetadata
@@ -210,17 +225,20 @@ class PipelineObject(BaseValidatorModel):
     fields: List[Field]
 
 
+# This class is the input for the 'report_task_progress' function.
 class ReportTaskProgressInput(BaseValidatorModel):
     taskId: str
     fields: Optional[List[Field]] = None
 
 
+# This class is the input for the 'poll_for_task' function.
 class PollForTaskInput(BaseValidatorModel):
     workerGroup: str
     hostname: Optional[str] = None
     instanceIdentity: Optional[InstanceIdentity] = None
 
 
+# This class is the output for the 'list_pipelines' function.
 class ListPipelinesOutput(BaseValidatorModel):
     pipelineIdList: List[PipelineIdName]
     marker: str
@@ -243,6 +261,7 @@ class ParameterObject(BaseValidatorModel):
     attributes: List[ParameterAttribute]
 
 
+# This class is the output for the 'put_pipeline_definition' function.
 class PutPipelineDefinitionOutput(BaseValidatorModel):
     validationErrors: List[ValidationError]
     validationWarnings: List[ValidationWarning]
@@ -250,6 +269,7 @@ class PutPipelineDefinitionOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'validate_pipeline_definition' function.
 class ValidatePipelineDefinitionOutput(BaseValidatorModel):
     validationErrors: List[ValidationError]
     validationWarnings: List[ValidationWarning]
@@ -257,11 +277,13 @@ class ValidatePipelineDefinitionOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_pipelines' function.
 class DescribePipelinesOutput(BaseValidatorModel):
     pipelineDescriptionList: List[PipelineDescription]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_objects' function.
 class DescribeObjectsOutput(BaseValidatorModel):
     pipelineObjects: List[PipelineObjectOutput]
     marker: str
@@ -282,6 +304,7 @@ class Query(BaseValidatorModel):
     selectors: Optional[List[Selector]] = None
 
 
+# This class is the output for the 'get_pipeline_definition' function.
 class GetPipelineDefinitionOutput(BaseValidatorModel):
     pipelineObjects: List[PipelineObjectOutput]
     parameterObjects: List[ParameterObjectOutput]
@@ -291,6 +314,7 @@ class GetPipelineDefinitionOutput(BaseValidatorModel):
 ParameterObjectUnion = Union[ParameterObject, ParameterObjectOutput]
 
 
+# This class is the output for the 'poll_for_task' function.
 class PollForTaskOutput(BaseValidatorModel):
     taskObject: TaskObject
     ResponseMetadata: ResponseMetadata
@@ -303,6 +327,7 @@ class QueryObjectsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'query_objects' function.
 class QueryObjectsInput(BaseValidatorModel):
     pipelineId: str
     sphere: str
@@ -311,6 +336,7 @@ class QueryObjectsInput(BaseValidatorModel):
     limit: Optional[int] = None
 
 
+# This class is the input for the 'put_pipeline_definition' function.
 class PutPipelineDefinitionInput(BaseValidatorModel):
     pipelineId: str
     pipelineObjects: List[PipelineObjectUnion]
@@ -318,6 +344,7 @@ class PutPipelineDefinitionInput(BaseValidatorModel):
     parameterValues: Optional[List[ParameterValue]] = None
 
 
+# This class is the input for the 'validate_pipeline_definition' function.
 class ValidatePipelineDefinitionInput(BaseValidatorModel):
     pipelineId: str
     pipelineObjects: List[PipelineObjectUnion]

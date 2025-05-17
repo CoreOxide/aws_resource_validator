@@ -22,6 +22,7 @@ class ResponseMetadata(BaseValidatorModel):
 Blob = Union[str, bytes, IO[Any], StreamingBody]
 
 
+# This class is the input for the 'delete_whatsapp_media_message' function.
 class DeleteWhatsAppMessageMediaInput(BaseValidatorModel):
     mediaId: str
     originationPhoneNumberId: str
@@ -31,10 +32,12 @@ class DisassociateWhatsAppBusinessAccountInput(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'get_linked_whatsapp_business_account' function.
 class GetLinkedWhatsAppBusinessAccountInput(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'get_linked_whatsapp_business_account_phone_number' function.
 class GetLinkedWhatsAppBusinessAccountPhoneNumberInput(BaseValidatorModel):
     id: str
 
@@ -80,11 +83,13 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_linked_whatsapp_business_accounts' function.
 class ListLinkedWhatsAppBusinessAccountsInput(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInput(BaseValidatorModel):
     resourceArn: str
 
@@ -94,48 +99,57 @@ class Tag(BaseValidatorModel):
     value: Optional[str] = None
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceInput(BaseValidatorModel):
     resourceArn: str
     tagKeys: List[str]
 
 
+# This class is the output for the 'delete_whatsapp_media_message' function.
 class DeleteWhatsAppMessageMediaOutput(BaseValidatorModel):
     success: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_whatsapp_message_media' function.
 class GetWhatsAppMessageMediaOutput(BaseValidatorModel):
     mimeType: str
     fileSize: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'post_whatsapp_message_media' function.
 class PostWhatsAppMessageMediaOutput(BaseValidatorModel):
     mediaId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'send_whatsapp_message' function.
 class SendWhatsAppMessageOutput(BaseValidatorModel):
     messageId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'tag_resource' function.
 class TagResourceOutput(BaseValidatorModel):
     statusCode: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'untag_resource' function.
 class UntagResourceOutput(BaseValidatorModel):
     statusCode: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'send_whatsapp_message' function.
 class SendWhatsAppMessageInput(BaseValidatorModel):
     originationPhoneNumberId: str
     message: Blob
     metaApiVersion: str
 
 
+# This class is the output for the 'get_linked_whatsapp_business_account_phone_number' function.
 class GetLinkedWhatsAppBusinessAccountPhoneNumberOutput(BaseValidatorModel):
     phoneNumber: WhatsAppPhoneNumberDetail
     linkedWhatsAppBusinessAccountId: str
@@ -149,6 +163,7 @@ class LinkedWhatsAppBusinessAccountIdMetaData(BaseValidatorModel):
     wabaId: Optional[str] = None
 
 
+# This class is the input for the 'get_whatsapp_message_media' function.
 class GetWhatsAppMessageMediaInput(BaseValidatorModel):
     mediaId: str
     originationPhoneNumberId: str
@@ -157,6 +172,7 @@ class GetWhatsAppMessageMediaInput(BaseValidatorModel):
     destinationS3File: Optional[S3File] = None
 
 
+# This class is the input for the 'post_whatsapp_message_media' function.
 class PostWhatsAppMessageMediaInput(BaseValidatorModel):
     originationPhoneNumberId: str
     sourceS3PresignedUrl: Optional[S3PresignedUrl] = None
@@ -193,12 +209,14 @@ class ListLinkedWhatsAppBusinessAccountsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceOutput(BaseValidatorModel):
     statusCode: int
     tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceInput(BaseValidatorModel):
     resourceArn: str
     tags: List[Tag]
@@ -222,12 +240,14 @@ class WhatsAppSignupCallbackResult(BaseValidatorModel):
     linkedAccountsWithIncompleteSetup: Optional[Dict[str, LinkedWhatsAppBusinessAccountIdMetaData]] = None
 
 
+# This class is the output for the 'list_linked_whatsapp_business_accounts' function.
 class ListLinkedWhatsAppBusinessAccountsOutput(BaseValidatorModel):
     linkedAccounts: List[LinkedWhatsAppBusinessAccountSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_linked_whatsapp_business_account' function.
 class GetLinkedWhatsAppBusinessAccountOutput(BaseValidatorModel):
     account: LinkedWhatsAppBusinessAccount
     ResponseMetadata: ResponseMetadata
@@ -240,12 +260,14 @@ class WhatsAppSetupFinalization(BaseValidatorModel):
     waba: Optional[WabaSetupFinalization] = None
 
 
+# This class is the output for the 'associate_whatsapp_business_account' function.
 class AssociateWhatsAppBusinessAccountOutput(BaseValidatorModel):
     signupCallbackResult: WhatsAppSignupCallbackResult
     statusCode: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'associate_whatsapp_business_account' function.
 class AssociateWhatsAppBusinessAccountInput(BaseValidatorModel):
     signupCallback: Optional[WhatsAppSignupCallback] = None
     setupFinalization: Optional[WhatsAppSetupFinalization] = None

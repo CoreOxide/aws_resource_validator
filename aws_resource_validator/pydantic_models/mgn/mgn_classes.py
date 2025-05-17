@@ -23,11 +23,13 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'archive_application' function.
 class ArchiveApplicationRequest(BaseValidatorModel):
     applicationID: str
     accountID: Optional[str] = None
 
 
+# This class is the input for the 'archive_wave' function.
 class ArchiveWaveRequest(BaseValidatorModel):
     waveID: str
     accountID: Optional[str] = None
@@ -61,6 +63,7 @@ class ConnectorSsmCommandConfig(BaseValidatorModel):
     outputS3BucketName: Optional[str] = None
 
 
+# This class is the input for the 'create_application' function.
 class CreateApplicationRequest(BaseValidatorModel):
     name: str
     accountID: Optional[str] = None
@@ -78,6 +81,7 @@ class Licensing(BaseValidatorModel):
     osByol: Optional[bool] = None
 
 
+# This class is the input for the 'create_replication_configuration_template' function.
 class CreateReplicationConfigurationTemplateRequest(BaseValidatorModel):
     associateDefaultSecurityGroup: bool
     bandwidthThrottling: int
@@ -95,6 +99,7 @@ class CreateReplicationConfigurationTemplateRequest(BaseValidatorModel):
     useFipsEndpoint: Optional[bool] = None
 
 
+# This class is the input for the 'create_wave' function.
 class CreateWaveRequest(BaseValidatorModel):
     name: str
     accountID: Optional[str] = None
@@ -125,6 +130,7 @@ class DeleteApplicationRequest(BaseValidatorModel):
     accountID: Optional[str] = None
 
 
+# This class is the input for the 'delete_connector' function.
 class DeleteConnectorRequest(BaseValidatorModel):
     connectorID: str
 
@@ -147,6 +153,7 @@ class DeleteSourceServerRequest(BaseValidatorModel):
     accountID: Optional[str] = None
 
 
+# This class is the input for the 'delete_vcenter_client' function.
 class DeleteVcenterClientRequest(BaseValidatorModel):
     vcenterClientID: str
 
@@ -162,6 +169,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_job_log_items' function.
 class DescribeJobLogItemsRequest(BaseValidatorModel):
     jobID: str
     accountID: Optional[str] = None
@@ -175,12 +183,14 @@ class DescribeJobsRequestFilters(BaseValidatorModel):
     toDate: Optional[str] = None
 
 
+# This class is the input for the 'describe_launch_configuration_templates' function.
 class DescribeLaunchConfigurationTemplatesRequest(BaseValidatorModel):
     launchConfigurationTemplateIDs: Optional[List[str]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_replication_configuration_templates' function.
 class DescribeReplicationConfigurationTemplatesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -214,6 +224,7 @@ class DescribeSourceServersRequestFilters(BaseValidatorModel):
     sourceServerIDs: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_vcenter_clients' function.
 class DescribeVcenterClientsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -242,6 +253,7 @@ class DisassociateSourceServersRequest(BaseValidatorModel):
     accountID: Optional[str] = None
 
 
+# This class is the input for the 'disconnect_from_service' function.
 class DisconnectFromServiceRequest(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
@@ -262,16 +274,19 @@ class ExportTaskSummary(BaseValidatorModel):
     wavesCount: Optional[int] = None
 
 
+# This class is the input for the 'finalize_cutover' function.
 class FinalizeCutoverRequest(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
 
 
+# This class is the input for the 'get_launch_configuration' function.
 class GetLaunchConfigurationRequest(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
 
 
+# This class is the input for the 'get_replication_configuration' function.
 class GetReplicationConfigurationRequest(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
@@ -365,6 +380,7 @@ class ListConnectorsRequestFilters(BaseValidatorModel):
     connectorIDs: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_export_errors' function.
 class ListExportErrorsRequest(BaseValidatorModel):
     exportID: str
     maxResults: Optional[int] = None
@@ -375,6 +391,7 @@ class ListExportsRequestFilters(BaseValidatorModel):
     exportIDs: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_import_errors' function.
 class ListImportErrorsRequest(BaseValidatorModel):
     importID: str
     maxResults: Optional[int] = None
@@ -385,6 +402,7 @@ class ListImportsRequestFilters(BaseValidatorModel):
     importIDs: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_managed_accounts' function.
 class ListManagedAccountsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -398,6 +416,7 @@ class SourceServerActionsRequestFilters(BaseValidatorModel):
     actionIDs: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -411,6 +430,7 @@ class ListWavesRequestFilters(BaseValidatorModel):
     waveIDs: Optional[List[str]] = None
 
 
+# This class is the input for the 'mark_as_archived' function.
 class MarkAsArchivedRequest(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
@@ -426,6 +446,7 @@ class OS(BaseValidatorModel):
     fullString: Optional[str] = None
 
 
+# This class is the input for the 'pause_replication' function.
 class PauseReplicationRequest(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
@@ -459,11 +480,13 @@ class ReplicationConfigurationReplicatedDisk(BaseValidatorModel):
     throughput: Optional[int] = None
 
 
+# This class is the input for the 'resume_replication' function.
 class ResumeReplicationRequest(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
 
 
+# This class is the input for the 'retry_data_replication' function.
 class RetryDataReplicationRequest(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
@@ -474,60 +497,71 @@ class SourceServerConnectorAction(BaseValidatorModel):
     credentialsSecretArn: Optional[str] = None
 
 
+# This class is the input for the 'start_cutover' function.
 class StartCutoverRequest(BaseValidatorModel):
     sourceServerIDs: List[str]
     accountID: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'start_export' function.
 class StartExportRequest(BaseValidatorModel):
     s3Bucket: str
     s3Key: str
     s3BucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'start_replication' function.
 class StartReplicationRequest(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
 
 
+# This class is the input for the 'start_test' function.
 class StartTestRequest(BaseValidatorModel):
     sourceServerIDs: List[str]
     accountID: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'stop_replication' function.
 class StopReplicationRequest(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Dict[str, str]
 
 
+# This class is the input for the 'terminate_target_instances' function.
 class TerminateTargetInstancesRequest(BaseValidatorModel):
     sourceServerIDs: List[str]
     accountID: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'unarchive_application' function.
 class UnarchiveApplicationRequest(BaseValidatorModel):
     applicationID: str
     accountID: Optional[str] = None
 
 
+# This class is the input for the 'unarchive_wave' function.
 class UnarchiveWaveRequest(BaseValidatorModel):
     waveID: str
     accountID: Optional[str] = None
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_application' function.
 class UpdateApplicationRequest(BaseValidatorModel):
     applicationID: str
     accountID: Optional[str] = None
@@ -535,6 +569,7 @@ class UpdateApplicationRequest(BaseValidatorModel):
     name: Optional[str] = None
 
 
+# This class is the input for the 'update_replication_configuration_template' function.
 class UpdateReplicationConfigurationTemplateRequest(BaseValidatorModel):
     replicationConfigurationTemplateID: str
     arn: Optional[str] = None
@@ -553,12 +588,14 @@ class UpdateReplicationConfigurationTemplateRequest(BaseValidatorModel):
     useFipsEndpoint: Optional[bool] = None
 
 
+# This class is the input for the 'update_source_server_replication_type' function.
 class UpdateSourceServerReplicationTypeRequest(BaseValidatorModel):
     replicationType: ReplicationTypeType
     sourceServerID: str
     accountID: Optional[str] = None
 
 
+# This class is the input for the 'update_wave' function.
 class UpdateWaveRequest(BaseValidatorModel):
     waveID: str
     accountID: Optional[str] = None
@@ -587,6 +624,7 @@ class Application(BaseValidatorModel):
     waveID: Optional[str] = None
 
 
+# This class is the output for the 'update_application' function.
 class ApplicationResponse(BaseValidatorModel):
     applicationAggregatedStatus: ApplicationAggregatedStatus
     applicationID: str
@@ -601,15 +639,18 @@ class ApplicationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'untag_resource' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_replication_configuration_template' function.
 class ReplicationConfigurationTemplateResponse(BaseValidatorModel):
     arn: str
     associateDefaultSecurityGroup: bool
@@ -630,12 +671,14 @@ class ReplicationConfigurationTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'change_server_life_cycle_state' function.
 class ChangeServerLifeCycleStateRequest(BaseValidatorModel):
     lifeCycle: ChangeServerLifeCycleStateSourceServerLifecycle
     sourceServerID: str
     accountID: Optional[str] = None
 
 
+# This class is the output for the 'update_connector' function.
 class ConnectorResponse(BaseValidatorModel):
     arn: str
     connectorID: str
@@ -655,6 +698,7 @@ class Connector(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_connector' function.
 class CreateConnectorRequest(BaseValidatorModel):
     name: str
     ssmInstanceID: str
@@ -662,6 +706,7 @@ class CreateConnectorRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_connector' function.
 class UpdateConnectorRequest(BaseValidatorModel):
     connectorID: str
     name: Optional[str] = None
@@ -714,6 +759,7 @@ class DescribeJobsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_jobs' function.
 class DescribeJobsRequest(BaseValidatorModel):
     accountID: Optional[str] = None
     filters: Optional[DescribeJobsRequestFilters] = None
@@ -721,6 +767,7 @@ class DescribeJobsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_replication_configuration_templates' function.
 class DescribeReplicationConfigurationTemplatesResponse(BaseValidatorModel):
     items: List[ReplicationConfigurationTemplate]
     ResponseMetadata: ResponseMetadata
@@ -733,6 +780,7 @@ class DescribeSourceServersRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_source_servers' function.
 class DescribeSourceServersRequest(BaseValidatorModel):
     accountID: Optional[str] = None
     filters: Optional[DescribeSourceServersRequestFilters] = None
@@ -740,6 +788,7 @@ class DescribeSourceServersRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_vcenter_clients' function.
 class DescribeVcenterClientsResponse(BaseValidatorModel):
     items: List[VcenterClient]
     ResponseMetadata: ResponseMetadata
@@ -775,6 +824,7 @@ class ImportTaskSummary(BaseValidatorModel):
     waves: Optional[ImportTaskSummaryWaves] = None
 
 
+# This class is the input for the 'start_import' function.
 class StartImportRequest(BaseValidatorModel):
     s3BucketSource: S3BucketSource
     clientToken: Optional[str] = None
@@ -804,6 +854,7 @@ class ListApplicationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_applications' function.
 class ListApplicationsRequest(BaseValidatorModel):
     accountID: Optional[str] = None
     filters: Optional[ListApplicationsRequestFilters] = None
@@ -816,6 +867,7 @@ class ListConnectorsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_connectors' function.
 class ListConnectorsRequest(BaseValidatorModel):
     filters: Optional[ListConnectorsRequestFilters] = None
     maxResults: Optional[int] = None
@@ -827,6 +879,7 @@ class ListExportsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_exports' function.
 class ListExportsRequest(BaseValidatorModel):
     filters: Optional[ListExportsRequestFilters] = None
     maxResults: Optional[int] = None
@@ -838,12 +891,14 @@ class ListImportsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_imports' function.
 class ListImportsRequest(BaseValidatorModel):
     filters: Optional[ListImportsRequestFilters] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_managed_accounts' function.
 class ListManagedAccountsResponse(BaseValidatorModel):
     items: List[ManagedAccount]
     ResponseMetadata: ResponseMetadata
@@ -857,6 +912,7 @@ class ListSourceServerActionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_source_server_actions' function.
 class ListSourceServerActionsRequest(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
@@ -871,6 +927,7 @@ class ListTemplateActionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_template_actions' function.
 class ListTemplateActionsRequest(BaseValidatorModel):
     launchConfigurationTemplateID: str
     filters: Optional[TemplateActionsRequestFilters] = None
@@ -884,6 +941,7 @@ class ListWavesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_waves' function.
 class ListWavesRequest(BaseValidatorModel):
     accountID: Optional[str] = None
     filters: Optional[ListWavesRequestFilters] = None
@@ -902,6 +960,7 @@ class SourceProperties(BaseValidatorModel):
     recommendedInstanceType: Optional[str] = None
 
 
+# This class is the input for the 'put_source_server_action' function.
 class PutSourceServerActionRequest(BaseValidatorModel):
     actionID: str
     actionName: str
@@ -919,6 +978,7 @@ class PutSourceServerActionRequest(BaseValidatorModel):
     timeoutSeconds: Optional[int] = None
 
 
+# This class is the input for the 'put_template_action' function.
 class PutTemplateActionRequest(BaseValidatorModel):
     actionID: str
     actionName: str
@@ -936,6 +996,7 @@ class PutTemplateActionRequest(BaseValidatorModel):
     timeoutSeconds: Optional[int] = None
 
 
+# This class is the output for the 'put_source_server_action' function.
 class SourceServerActionDocumentResponse(BaseValidatorModel):
     actionID: str
     actionName: str
@@ -985,6 +1046,7 @@ class SsmDocument(BaseValidatorModel):
     timeoutSeconds: Optional[int] = None
 
 
+# This class is the output for the 'put_template_action' function.
 class TemplateActionDocumentResponse(BaseValidatorModel):
     actionID: str
     actionName: str
@@ -1018,6 +1080,7 @@ class TemplateActionDocument(BaseValidatorModel):
     timeoutSeconds: Optional[int] = None
 
 
+# This class is the output for the 'update_replication_configuration' function.
 class ReplicationConfiguration(BaseValidatorModel):
     associateDefaultSecurityGroup: bool
     bandwidthThrottling: int
@@ -1038,6 +1101,7 @@ class ReplicationConfiguration(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_replication_configuration' function.
 class UpdateReplicationConfigurationRequest(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
@@ -1058,12 +1122,14 @@ class UpdateReplicationConfigurationRequest(BaseValidatorModel):
     useFipsEndpoint: Optional[bool] = None
 
 
+# This class is the input for the 'update_source_server' function.
 class UpdateSourceServerRequest(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
     connectorAction: Optional[SourceServerConnectorAction] = None
 
 
+# This class is the output for the 'update_wave' function.
 class WaveResponse(BaseValidatorModel):
     arn: str
     creationDateTime: str
@@ -1089,12 +1155,14 @@ class Wave(BaseValidatorModel):
     waveID: Optional[str] = None
 
 
+# This class is the output for the 'list_applications' function.
 class ListApplicationsResponse(BaseValidatorModel):
     items: List[Application]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_connectors' function.
 class ListConnectorsResponse(BaseValidatorModel):
     items: List[Connector]
     ResponseMetadata: ResponseMetadata
@@ -1111,23 +1179,27 @@ class DataReplicationInfo(BaseValidatorModel):
     replicatedDisks: Optional[List[DataReplicationInfoReplicatedDisk]] = None
 
 
+# This class is the output for the 'list_export_errors' function.
 class ListExportErrorsResponse(BaseValidatorModel):
     items: List[ExportTaskError]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_exports' function.
 class ListExportsResponse(BaseValidatorModel):
     items: List[ExportTask]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_export' function.
 class StartExportResponse(BaseValidatorModel):
     exportTask: ExportTask
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_import_errors' function.
 class ListImportErrorsResponse(BaseValidatorModel):
     items: List[ImportTaskError]
     ResponseMetadata: ResponseMetadata
@@ -1144,6 +1216,7 @@ class ImportTask(BaseValidatorModel):
     summary: Optional[ImportTaskSummary] = None
 
 
+# This class is the output for the 'describe_job_log_items' function.
 class DescribeJobLogItemsResponse(BaseValidatorModel):
     items: List[JobLog]
     ResponseMetadata: ResponseMetadata
@@ -1160,6 +1233,7 @@ class LifeCycle(BaseValidatorModel):
     state: Optional[LifeCycleStateType] = None
 
 
+# This class is the output for the 'list_source_server_actions' function.
 class ListSourceServerActionsResponse(BaseValidatorModel):
     items: List[SourceServerActionDocument]
     ResponseMetadata: ResponseMetadata
@@ -1190,29 +1264,34 @@ class PostLaunchActions(BaseValidatorModel):
     ssmDocuments: Optional[List[SsmDocument]] = None
 
 
+# This class is the output for the 'list_template_actions' function.
 class ListTemplateActionsResponse(BaseValidatorModel):
     items: List[TemplateActionDocument]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_waves' function.
 class ListWavesResponse(BaseValidatorModel):
     items: List[Wave]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_imports' function.
 class ListImportsResponse(BaseValidatorModel):
     items: List[ImportTask]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_import' function.
 class StartImportResponse(BaseValidatorModel):
     importTask: ImportTask
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_source_server_replication_type' function.
 class SourceServerResponse(BaseValidatorModel):
     applicationID: str
     arn: str
@@ -1253,6 +1332,7 @@ class PostLaunchActionsStatus(BaseValidatorModel):
     ssmAgentDiscoveryDatetime: Optional[str] = None
 
 
+# This class is the output for the 'update_launch_configuration_template' function.
 class LaunchConfigurationTemplateResponse(BaseValidatorModel):
     arn: str
     associatePublicIpAddress: bool
@@ -1294,6 +1374,7 @@ class LaunchConfigurationTemplate(BaseValidatorModel):
     targetInstanceTypeRightSizingMethod: Optional[TargetInstanceTypeRightSizingMethodType] = None
 
 
+# This class is the output for the 'update_launch_configuration' function.
 class LaunchConfiguration(BaseValidatorModel):
     bootMode: BootModeType
     copyPrivateIp: bool
@@ -1312,6 +1393,7 @@ class LaunchConfiguration(BaseValidatorModel):
 PostLaunchActionsUnion = Union[PostLaunchActions, PostLaunchActionsOutput]
 
 
+# This class is the output for the 'describe_source_servers' function.
 class DescribeSourceServersResponse(BaseValidatorModel):
     items: List[SourceServer]
     ResponseMetadata: ResponseMetadata
@@ -1325,12 +1407,14 @@ class ParticipatingServer(BaseValidatorModel):
     postLaunchActionsStatus: Optional[PostLaunchActionsStatus] = None
 
 
+# This class is the output for the 'describe_launch_configuration_templates' function.
 class DescribeLaunchConfigurationTemplatesResponse(BaseValidatorModel):
     items: List[LaunchConfigurationTemplate]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_launch_configuration_template' function.
 class CreateLaunchConfigurationTemplateRequest(BaseValidatorModel):
     associatePublicIpAddress: Optional[bool] = None
     bootMode: Optional[BootModeType] = None
@@ -1348,6 +1432,7 @@ class CreateLaunchConfigurationTemplateRequest(BaseValidatorModel):
     targetInstanceTypeRightSizingMethod: Optional[TargetInstanceTypeRightSizingMethodType] = None
 
 
+# This class is the input for the 'update_launch_configuration' function.
 class UpdateLaunchConfigurationRequest(BaseValidatorModel):
     sourceServerID: str
     accountID: Optional[str] = None
@@ -1363,6 +1448,7 @@ class UpdateLaunchConfigurationRequest(BaseValidatorModel):
     targetInstanceTypeRightSizingMethod: Optional[TargetInstanceTypeRightSizingMethodType] = None
 
 
+# This class is the input for the 'update_launch_configuration_template' function.
 class UpdateLaunchConfigurationTemplateRequest(BaseValidatorModel):
     launchConfigurationTemplateID: str
     associatePublicIpAddress: Optional[bool] = None
@@ -1392,22 +1478,26 @@ class Job(BaseValidatorModel):
     type: Optional[JobTypeType] = None
 
 
+# This class is the output for the 'describe_jobs' function.
 class DescribeJobsResponse(BaseValidatorModel):
     items: List[Job]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_cutover' function.
 class StartCutoverResponse(BaseValidatorModel):
     job: Job
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_test' function.
 class StartTestResponse(BaseValidatorModel):
     job: Job
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'terminate_target_instances' function.
 class TerminateTargetInstancesResponse(BaseValidatorModel):
     job: Job
     ResponseMetadata: ResponseMetadata

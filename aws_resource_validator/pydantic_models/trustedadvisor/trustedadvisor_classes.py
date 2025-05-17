@@ -49,10 +49,12 @@ class CheckSummary(BaseValidatorModel):
     source: RecommendationSourceType
 
 
+# This class is the input for the 'get_organization_recommendation' function.
 class GetOrganizationRecommendationRequest(BaseValidatorModel):
     organizationRecommendationIdentifier: str
 
 
+# This class is the input for the 'get_recommendation' function.
 class GetRecommendationRequest(BaseValidatorModel):
     recommendationIdentifier: str
 
@@ -63,6 +65,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_checks' function.
 class ListChecksRequest(BaseValidatorModel):
     awsService: Optional[str] = None
     language: Optional[RecommendationLanguageType] = None
@@ -72,6 +75,7 @@ class ListChecksRequest(BaseValidatorModel):
     source: Optional[RecommendationSourceType] = None
 
 
+# This class is the input for the 'list_organization_recommendation_accounts' function.
 class ListOrganizationRecommendationAccountsRequest(BaseValidatorModel):
     organizationRecommendationIdentifier: str
     affectedAccountId: Optional[str] = None
@@ -79,6 +83,7 @@ class ListOrganizationRecommendationAccountsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_organization_recommendation_resources' function.
 class ListOrganizationRecommendationResourcesRequest(BaseValidatorModel):
     organizationRecommendationIdentifier: str
     affectedAccountId: Optional[str] = None
@@ -104,6 +109,7 @@ class OrganizationRecommendationResourceSummary(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'list_recommendation_resources' function.
 class ListRecommendationResourcesRequest(BaseValidatorModel):
     recommendationIdentifier: str
     exclusionStatus: Optional[ExclusionStatusType] = None
@@ -136,6 +142,7 @@ class RecommendationCostOptimizingAggregates(BaseValidatorModel):
     estimatedPercentMonthlySavings: float
 
 
+# This class is the input for the 'update_organization_recommendation_lifecycle' function.
 class UpdateOrganizationRecommendationLifecycleRequest(BaseValidatorModel):
     lifecycleStage: UpdateRecommendationLifecycleStageType
     organizationRecommendationIdentifier: str
@@ -143,6 +150,7 @@ class UpdateOrganizationRecommendationLifecycleRequest(BaseValidatorModel):
     updateReasonCode: Optional[UpdateRecommendationLifecycleStageReasonCodeType] = None
 
 
+# This class is the input for the 'update_recommendation_lifecycle' function.
 class UpdateRecommendationLifecycleRequest(BaseValidatorModel):
     lifecycleStage: UpdateRecommendationLifecycleStageType
     recommendationIdentifier: str
@@ -150,25 +158,30 @@ class UpdateRecommendationLifecycleRequest(BaseValidatorModel):
     updateReasonCode: Optional[UpdateRecommendationLifecycleStageReasonCodeType] = None
 
 
+# This class is the input for the 'batch_update_recommendation_resource_exclusion' function.
 class BatchUpdateRecommendationResourceExclusionRequest(BaseValidatorModel):
     recommendationResourceExclusions: List[RecommendationResourceExclusion]
 
 
+# This class is the output for the 'update_recommendation_lifecycle' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_organization_recommendation_accounts' function.
 class ListOrganizationRecommendationAccountsResponse(BaseValidatorModel):
     accountRecommendationLifecycleSummaries: List[AccountRecommendationLifecycleSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'batch_update_recommendation_resource_exclusion' function.
 class BatchUpdateRecommendationResourceExclusionResponse(BaseValidatorModel):
     batchUpdateRecommendationResourceExclusionErrors: List[UpdateRecommendationResourceExclusionError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_checks' function.
 class ListChecksResponse(BaseValidatorModel):
     checkSummaries: List[CheckSummary]
     ResponseMetadata: ResponseMetadata
@@ -206,6 +219,7 @@ class ListRecommendationResourcesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_organization_recommendation_resources' function.
 class ListOrganizationRecommendationResourcesResponse(BaseValidatorModel):
     organizationRecommendationResourceSummaries: List[OrganizationRecommendationResourceSummary]
     ResponseMetadata: ResponseMetadata
@@ -224,6 +238,7 @@ class ListOrganizationRecommendationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_organization_recommendations' function.
 class ListOrganizationRecommendationsRequest(BaseValidatorModel):
     afterLastUpdatedAt: Optional[Timestamp] = None
     awsService: Optional[str] = None
@@ -249,6 +264,7 @@ class ListRecommendationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_recommendations' function.
 class ListRecommendationsRequest(BaseValidatorModel):
     afterLastUpdatedAt: Optional[Timestamp] = None
     awsService: Optional[str] = None
@@ -262,6 +278,7 @@ class ListRecommendationsRequest(BaseValidatorModel):
     type: Optional[RecommendationTypeType] = None
 
 
+# This class is the output for the 'list_recommendation_resources' function.
 class ListRecommendationResourcesResponse(BaseValidatorModel):
     recommendationResourceSummaries: List[RecommendationResourceSummary]
     ResponseMetadata: ResponseMetadata
@@ -354,23 +371,27 @@ class Recommendation(BaseValidatorModel):
     updatedOnBehalfOfJobTitle: Optional[str] = None
 
 
+# This class is the output for the 'list_organization_recommendations' function.
 class ListOrganizationRecommendationsResponse(BaseValidatorModel):
     organizationRecommendationSummaries: List[OrganizationRecommendationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_organization_recommendation' function.
 class GetOrganizationRecommendationResponse(BaseValidatorModel):
     organizationRecommendation: OrganizationRecommendation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_recommendations' function.
 class ListRecommendationsResponse(BaseValidatorModel):
     recommendationSummaries: List[RecommendationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_recommendation' function.
 class GetRecommendationResponse(BaseValidatorModel):
     recommendation: Recommendation
     ResponseMetadata: ResponseMetadata

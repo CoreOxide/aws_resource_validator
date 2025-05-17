@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'cancel_export_task' function.
 class CancelExportTaskInput(BaseValidatorModel):
     taskIdentifier: str
 
@@ -20,10 +21,12 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'cancel_import_task' function.
 class CancelImportTaskInput(BaseValidatorModel):
     taskIdentifier: str
 
 
+# This class is the input for the 'cancel_query' function.
 class CancelQueryInput(BaseValidatorModel):
     graphIdentifier: str
     queryId: str
@@ -33,12 +36,14 @@ class VectorSearchConfiguration(BaseValidatorModel):
     dimension: int
 
 
+# This class is the input for the 'create_graph_snapshot' function.
 class CreateGraphSnapshotInput(BaseValidatorModel):
     graphIdentifier: str
     snapshotName: str
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_private_graph_endpoint' function.
 class CreatePrivateGraphEndpointInput(BaseValidatorModel):
     graphIdentifier: str
     vpcId: Optional[str] = None
@@ -46,15 +51,18 @@ class CreatePrivateGraphEndpointInput(BaseValidatorModel):
     vpcSecurityGroupIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'delete_graph' function.
 class DeleteGraphInput(BaseValidatorModel):
     graphIdentifier: str
     skipSnapshot: bool
 
 
+# This class is the input for the 'delete_graph_snapshot' function.
 class DeleteGraphSnapshotInput(BaseValidatorModel):
     snapshotIdentifier: str
 
 
+# This class is the input for the 'delete_private_graph_endpoint' function.
 class DeletePrivateGraphEndpointInput(BaseValidatorModel):
     graphIdentifier: str
     vpcId: str
@@ -65,6 +73,7 @@ class EdgeStructure(BaseValidatorModel):
     edgeProperties: Optional[List[str]] = None
 
 
+# This class is the input for the 'execute_query' function.
 class ExecuteQueryInput(BaseValidatorModel):
     graphIdentifier: str
     queryString: str
@@ -101,6 +110,7 @@ class ExportTaskSummary(BaseValidatorModel):
     statusReason: Optional[str] = None
 
 
+# This class is the input for the 'get_export_task' function.
 class GetExportTaskInput(BaseValidatorModel):
     taskIdentifier: str
 
@@ -110,19 +120,23 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'get_graph' function.
 class GetGraphInput(BaseValidatorModel):
     graphIdentifier: str
 
 
+# This class is the input for the 'get_graph_snapshot' function.
 class GetGraphSnapshotInput(BaseValidatorModel):
     snapshotIdentifier: str
 
 
+# This class is the input for the 'get_graph_summary' function.
 class GetGraphSummaryInput(BaseValidatorModel):
     graphIdentifier: str
     mode: Optional[GraphSummaryModeType] = None
 
 
+# This class is the input for the 'get_import_task' function.
 class GetImportTaskInput(BaseValidatorModel):
     taskIdentifier: str
 
@@ -138,11 +152,13 @@ class ImportTaskDetails(BaseValidatorModel):
     errorDetails: Optional[str] = None
 
 
+# This class is the input for the 'get_private_graph_endpoint' function.
 class GetPrivateGraphEndpointInput(BaseValidatorModel):
     graphIdentifier: str
     vpcId: str
 
 
+# This class is the input for the 'get_query' function.
 class GetQueryInput(BaseValidatorModel):
     graphIdentifier: str
     queryId: str
@@ -200,28 +216,33 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_export_tasks' function.
 class ListExportTasksInput(BaseValidatorModel):
     graphIdentifier: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_graph_snapshots' function.
 class ListGraphSnapshotsInput(BaseValidatorModel):
     graphIdentifier: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_graphs' function.
 class ListGraphsInput(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_import_tasks' function.
 class ListImportTasksInput(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_private_graph_endpoints' function.
 class ListPrivateGraphEndpointsInput(BaseValidatorModel):
     graphIdentifier: str
     nextToken: Optional[str] = None
@@ -235,6 +256,7 @@ class PrivateGraphEndpointSummary(BaseValidatorModel):
     vpcEndpointId: Optional[str] = None
 
 
+# This class is the input for the 'list_queries' function.
 class ListQueriesInput(BaseValidatorModel):
     graphIdentifier: str
     maxResults: int
@@ -249,15 +271,18 @@ class QuerySummary(BaseValidatorModel):
     state: Optional[QueryStateType] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInput(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'reset_graph' function.
 class ResetGraphInput(BaseValidatorModel):
     graphIdentifier: str
     skipSnapshot: bool
 
 
+# This class is the input for the 'restore_graph_from_snapshot' function.
 class RestoreGraphFromSnapshotInput(BaseValidatorModel):
     snapshotIdentifier: str
     graphName: str
@@ -278,6 +303,7 @@ class UntagResourceInput(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_graph' function.
 class UpdateGraphInput(BaseValidatorModel):
     graphIdentifier: str
     publicConnectivity: Optional[bool] = None
@@ -285,6 +311,7 @@ class UpdateGraphInput(BaseValidatorModel):
     deletionProtection: Optional[bool] = None
 
 
+# This class is the output for the 'cancel_export_task' function.
 class CancelExportTaskOutput(BaseValidatorModel):
     graphId: str
     roleArn: str
@@ -298,6 +325,7 @@ class CancelExportTaskOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_import_task' function.
 class CancelImportTaskOutput(BaseValidatorModel):
     graphId: str
     taskId: str
@@ -309,6 +337,7 @@ class CancelImportTaskOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_graph_snapshot' function.
 class CreateGraphSnapshotOutput(BaseValidatorModel):
     id: str
     name: str
@@ -320,6 +349,7 @@ class CreateGraphSnapshotOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_private_graph_endpoint' function.
 class CreatePrivateGraphEndpointOutput(BaseValidatorModel):
     vpcId: str
     subnetIds: List[str]
@@ -328,6 +358,7 @@ class CreatePrivateGraphEndpointOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_graph_snapshot' function.
 class DeleteGraphSnapshotOutput(BaseValidatorModel):
     id: str
     name: str
@@ -339,6 +370,7 @@ class DeleteGraphSnapshotOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_private_graph_endpoint' function.
 class DeletePrivateGraphEndpointOutput(BaseValidatorModel):
     vpcId: str
     subnetIds: List[str]
@@ -347,15 +379,18 @@ class DeletePrivateGraphEndpointOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_query' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'execute_query' function.
 class ExecuteQueryOutput(BaseValidatorModel):
     payload: StreamingBody
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_graph_snapshot' function.
 class GetGraphSnapshotOutput(BaseValidatorModel):
     id: str
     name: str
@@ -367,6 +402,7 @@ class GetGraphSnapshotOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_private_graph_endpoint' function.
 class GetPrivateGraphEndpointOutput(BaseValidatorModel):
     vpcId: str
     subnetIds: List[str]
@@ -375,6 +411,7 @@ class GetPrivateGraphEndpointOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_query' function.
 class GetQueryOutput(BaseValidatorModel):
     id: str
     queryString: str
@@ -384,11 +421,13 @@ class GetQueryOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceOutput(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_graph' function.
 class CreateGraphInput(BaseValidatorModel):
     graphName: str
     provisionedMemory: int
@@ -400,6 +439,7 @@ class CreateGraphInput(BaseValidatorModel):
     deletionProtection: Optional[bool] = None
 
 
+# This class is the output for the 'create_graph' function.
 class CreateGraphOutput(BaseValidatorModel):
     id: str
     name: str
@@ -419,6 +459,7 @@ class CreateGraphOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_graph' function.
 class DeleteGraphOutput(BaseValidatorModel):
     id: str
     name: str
@@ -438,6 +479,7 @@ class DeleteGraphOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_graph' function.
 class GetGraphOutput(BaseValidatorModel):
     id: str
     name: str
@@ -457,6 +499,7 @@ class GetGraphOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reset_graph' function.
 class ResetGraphOutput(BaseValidatorModel):
     id: str
     name: str
@@ -476,6 +519,7 @@ class ResetGraphOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'restore_graph_from_snapshot' function.
 class RestoreGraphFromSnapshotOutput(BaseValidatorModel):
     id: str
     name: str
@@ -495,6 +539,7 @@ class RestoreGraphFromSnapshotOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_graph' function.
 class UpdateGraphOutput(BaseValidatorModel):
     id: str
     name: str
@@ -522,6 +567,7 @@ class ExportFilterElement(BaseValidatorModel):
     properties: Optional[Dict[str, ExportFilterPropertyAttributes]] = None
 
 
+# This class is the output for the 'list_export_tasks' function.
 class ListExportTasksOutput(BaseValidatorModel):
     tasks: List[ExportTaskSummary]
     ResponseMetadata: ResponseMetadata
@@ -597,12 +643,14 @@ class GraphDataSummary(BaseValidatorModel):
     edgeStructures: Optional[List[EdgeStructure]] = None
 
 
+# This class is the output for the 'list_graph_snapshots' function.
 class ListGraphSnapshotsOutput(BaseValidatorModel):
     graphSnapshots: List[GraphSnapshotSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_graphs' function.
 class ListGraphsOutput(BaseValidatorModel):
     graphs: List[GraphSummary]
     ResponseMetadata: ResponseMetadata
@@ -613,6 +661,7 @@ class ImportOptions(BaseValidatorModel):
     neptune: Optional[NeptuneImportOptions] = None
 
 
+# This class is the output for the 'list_import_tasks' function.
 class ListImportTasksOutput(BaseValidatorModel):
     tasks: List[ImportTaskSummary]
     ResponseMetadata: ResponseMetadata
@@ -642,12 +691,14 @@ class ListPrivateGraphEndpointsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_private_graph_endpoints' function.
 class ListPrivateGraphEndpointsOutput(BaseValidatorModel):
     privateGraphEndpoints: List[PrivateGraphEndpointSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_queries' function.
 class ListQueriesOutput(BaseValidatorModel):
     queries: List[QuerySummary]
     ResponseMetadata: ResponseMetadata
@@ -663,6 +714,7 @@ class ExportFilter(BaseValidatorModel):
     edgeFilter: Optional[Dict[str, ExportFilterElement]] = None
 
 
+# This class is the output for the 'get_graph_summary' function.
 class GetGraphSummaryOutput(BaseValidatorModel):
     version: str
     lastStatisticsComputationTime: datetime
@@ -670,6 +722,7 @@ class GetGraphSummaryOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_graph_using_import_task' function.
 class CreateGraphUsingImportTaskInput(BaseValidatorModel):
     graphName: str
     source: str
@@ -689,6 +742,7 @@ class CreateGraphUsingImportTaskInput(BaseValidatorModel):
     blankNodeHandling: Optional[Literal['convertToIri']] = None
 
 
+# This class is the output for the 'create_graph_using_import_task' function.
 class CreateGraphUsingImportTaskOutput(BaseValidatorModel):
     graphId: str
     taskId: str
@@ -701,6 +755,7 @@ class CreateGraphUsingImportTaskOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_import_task' function.
 class GetImportTaskOutput(BaseValidatorModel):
     graphId: str
     taskId: str
@@ -716,6 +771,7 @@ class GetImportTaskOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_import_task' function.
 class StartImportTaskInput(BaseValidatorModel):
     source: str
     graphIdentifier: str
@@ -727,6 +783,7 @@ class StartImportTaskInput(BaseValidatorModel):
     blankNodeHandling: Optional[Literal['convertToIri']] = None
 
 
+# This class is the output for the 'start_import_task' function.
 class StartImportTaskOutput(BaseValidatorModel):
     graphId: str
     taskId: str
@@ -739,6 +796,7 @@ class StartImportTaskOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_export_task' function.
 class GetExportTaskOutput(BaseValidatorModel):
     graphId: str
     roleArn: str
@@ -754,6 +812,7 @@ class GetExportTaskOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_export_task' function.
 class StartExportTaskOutput(BaseValidatorModel):
     graphId: str
     roleArn: str
@@ -770,6 +829,7 @@ class StartExportTaskOutput(BaseValidatorModel):
 ExportFilterUnion = Union[ExportFilter, ExportFilterOutput]
 
 
+# This class is the input for the 'start_export_task' function.
 class StartExportTaskInput(BaseValidatorModel):
     graphIdentifier: str
     roleArn: str

@@ -122,12 +122,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'get_data_lake_sources' function.
 class GetDataLakeSourcesRequest(BaseValidatorModel):
     accounts: Optional[List[str]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_subscriber' function.
 class GetSubscriberRequest(BaseValidatorModel):
     subscriberId: str
 
@@ -140,21 +142,25 @@ class HttpsNotificationConfiguration(BaseValidatorModel):
     httpMethod: Optional[HttpMethodType] = None
 
 
+# This class is the input for the 'list_data_lake_exceptions' function.
 class ListDataLakeExceptionsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     regions: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_data_lakes' function.
 class ListDataLakesRequest(BaseValidatorModel):
     regions: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_subscribers' function.
 class ListSubscribersRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -174,10 +180,12 @@ class UpdateDataLakeExceptionSubscriptionRequest(BaseValidatorModel):
     exceptionTimeToLive: Optional[int] = None
 
 
+# This class is the input for the 'create_aws_log_source' function.
 class CreateAwsLogSourceRequest(BaseValidatorModel):
     sources: List[AwsLogSourceConfiguration]
 
 
+# This class is the input for the 'delete_aws_log_source' function.
 class DeleteAwsLogSourceRequest(BaseValidatorModel):
     sources: List[AwsLogSourceConfiguration]
 
@@ -192,16 +200,19 @@ class DataLakeAutoEnableNewAccountConfiguration(BaseValidatorModel):
     sources: List[AwsLogSourceResource]
 
 
+# This class is the output for the 'create_aws_log_source' function.
 class CreateAwsLogSourceResponse(BaseValidatorModel):
     failed: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_subscriber_notification' function.
 class CreateSubscriberNotificationResponse(BaseValidatorModel):
     subscriberEndpoint: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_aws_log_source' function.
 class DeleteAwsLogSourceResponse(BaseValidatorModel):
     failed: List[str]
     ResponseMetadata: ResponseMetadata
@@ -214,11 +225,13 @@ class GetDataLakeExceptionSubscriptionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_subscriber_notification' function.
 class UpdateSubscriberNotificationResponse(BaseValidatorModel):
     subscriberEndpoint: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -241,6 +254,7 @@ class CustomLogSourceResource(BaseValidatorModel):
     sourceVersion: Optional[str] = None
 
 
+# This class is the output for the 'list_data_lake_exceptions' function.
 class ListDataLakeExceptionsResponse(BaseValidatorModel):
     exceptions: List[DataLakeException]
     ResponseMetadata: ResponseMetadata
@@ -298,6 +312,7 @@ class GetDataLakeOrganizationConfigurationResponse(BaseValidatorModel):
 DataLakeAutoEnableNewAccountConfigurationUnion = Union[DataLakeAutoEnableNewAccountConfiguration, DataLakeAutoEnableNewAccountConfigurationOutput]
 
 
+# This class is the input for the 'create_custom_log_source' function.
 class CreateCustomLogSourceRequest(BaseValidatorModel):
     configuration: CustomLogSourceConfiguration
     sourceName: str
@@ -305,6 +320,7 @@ class CreateCustomLogSourceRequest(BaseValidatorModel):
     sourceVersion: Optional[str] = None
 
 
+# This class is the output for the 'create_custom_log_source' function.
 class CreateCustomLogSourceResponse(BaseValidatorModel):
     source: CustomLogSourceResource
     ResponseMetadata: ResponseMetadata
@@ -317,6 +333,7 @@ class LogSourceResource(BaseValidatorModel):
 DataLakeLifecycleConfigurationUnion = Union[DataLakeLifecycleConfiguration, DataLakeLifecycleConfigurationOutput]
 
 
+# This class is the output for the 'get_data_lake_sources' function.
 class GetDataLakeSourcesResponse(BaseValidatorModel):
     dataLakeArn: str
     dataLakeSources: List[DataLakeSource]
@@ -335,11 +352,13 @@ class DataLakeResource(BaseValidatorModel):
     updateStatus: Optional[DataLakeUpdateStatus] = None
 
 
+# This class is the input for the 'create_subscriber_notification' function.
 class CreateSubscriberNotificationRequest(BaseValidatorModel):
     configuration: NotificationConfiguration
     subscriberId: str
 
 
+# This class is the input for the 'update_subscriber_notification' function.
 class UpdateSubscriberNotificationRequest(BaseValidatorModel):
     configuration: NotificationConfiguration
     subscriberId: str
@@ -353,6 +372,7 @@ class DeleteDataLakeOrganizationConfigurationRequest(BaseValidatorModel):
     autoEnableNewAccount: Optional[List[DataLakeAutoEnableNewAccountConfigurationUnion]] = None
 
 
+# This class is the input for the 'create_subscriber' function.
 class CreateSubscriberRequest(BaseValidatorModel):
     sources: List[LogSourceResource]
     subscriberIdentity: AwsIdentity
@@ -369,6 +389,7 @@ class ListLogSourcesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_log_sources' function.
 class ListLogSourcesRequest(BaseValidatorModel):
     accounts: Optional[List[str]] = None
     maxResults: Optional[int] = None
@@ -401,6 +422,7 @@ class SubscriberResource(BaseValidatorModel):
     updatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'update_subscriber' function.
 class UpdateSubscriberRequest(BaseValidatorModel):
     subscriberId: str
     sources: Optional[List[LogSourceResource]] = None
@@ -416,54 +438,64 @@ class DataLakeConfiguration(BaseValidatorModel):
     replicationConfiguration: Optional[DataLakeReplicationConfigurationUnion] = None
 
 
+# This class is the output for the 'create_data_lake' function.
 class CreateDataLakeResponse(BaseValidatorModel):
     dataLakes: List[DataLakeResource]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_data_lakes' function.
 class ListDataLakesResponse(BaseValidatorModel):
     dataLakes: List[DataLakeResource]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_data_lake' function.
 class UpdateDataLakeResponse(BaseValidatorModel):
     dataLakes: List[DataLakeResource]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_log_sources' function.
 class ListLogSourcesResponse(BaseValidatorModel):
     sources: List[LogSource]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_subscriber' function.
 class CreateSubscriberResponse(BaseValidatorModel):
     subscriber: SubscriberResource
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_subscriber' function.
 class GetSubscriberResponse(BaseValidatorModel):
     subscriber: SubscriberResource
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_subscribers' function.
 class ListSubscribersResponse(BaseValidatorModel):
     subscribers: List[SubscriberResource]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_subscriber' function.
 class UpdateSubscriberResponse(BaseValidatorModel):
     subscriber: SubscriberResource
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_data_lake' function.
 class CreateDataLakeRequest(BaseValidatorModel):
     configurations: List[DataLakeConfiguration]
     metaStoreManagerRoleArn: str
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_data_lake' function.
 class UpdateDataLakeRequest(BaseValidatorModel):
     configurations: List[DataLakeConfiguration]
     metaStoreManagerRoleArn: Optional[str] = None

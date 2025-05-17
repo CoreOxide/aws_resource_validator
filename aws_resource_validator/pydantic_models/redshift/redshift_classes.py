@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'accept_reserved_node_exchange' function.
 class AcceptReservedNodeExchangeInputMessage(BaseValidatorModel):
     ReservedNodeId: str
     TargetReservedNodeOfferingId: str
@@ -35,6 +36,7 @@ class AquaConfiguration(BaseValidatorModel):
     AquaConfigurationStatus: Optional[AquaConfigurationStatusType] = None
 
 
+# This class is the input for the 'associate_data_share_consumer' function.
 class AssociateDataShareConsumerMessage(BaseValidatorModel):
     DataShareArn: str
     AssociateEntireAccount: Optional[bool] = None
@@ -53,6 +55,7 @@ class AuthenticationProfile(BaseValidatorModel):
     AuthenticationProfileContent: Optional[str] = None
 
 
+# This class is the input for the 'authorize_cluster_security_group_ingress' function.
 class AuthorizeClusterSecurityGroupIngressMessage(BaseValidatorModel):
     ClusterSecurityGroupName: str
     CIDRIP: Optional[str] = None
@@ -60,18 +63,21 @@ class AuthorizeClusterSecurityGroupIngressMessage(BaseValidatorModel):
     EC2SecurityGroupOwnerId: Optional[str] = None
 
 
+# This class is the input for the 'authorize_data_share' function.
 class AuthorizeDataShareMessage(BaseValidatorModel):
     DataShareArn: str
     ConsumerIdentifier: str
     AllowWrites: Optional[bool] = None
 
 
+# This class is the input for the 'authorize_endpoint_access' function.
 class AuthorizeEndpointAccessMessage(BaseValidatorModel):
     Account: str
     ClusterIdentifier: Optional[str] = None
     VpcIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'authorize_snapshot_access' function.
 class AuthorizeSnapshotAccessMessage(BaseValidatorModel):
     AccountWithRestoreAccess: str
     SnapshotIdentifier: Optional[str] = None
@@ -105,12 +111,14 @@ class SnapshotErrorMessage(BaseValidatorModel):
     FailureReason: Optional[str] = None
 
 
+# This class is the input for the 'batch_modify_cluster_snapshots' function.
 class BatchModifyClusterSnapshotsMessage(BaseValidatorModel):
     SnapshotIdentifierList: List[str]
     ManualSnapshotRetentionPeriod: Optional[int] = None
     Force: Optional[bool] = None
 
 
+# This class is the input for the 'cancel_resize' function.
 class CancelResizeMessage(BaseValidatorModel):
     ClusterIdentifier: str
 
@@ -249,6 +257,7 @@ class ClusterVersion(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'copy_cluster_snapshot' function.
 class CopyClusterSnapshotMessage(BaseValidatorModel):
     SourceSnapshotIdentifier: str
     TargetSnapshotIdentifier: str
@@ -256,17 +265,20 @@ class CopyClusterSnapshotMessage(BaseValidatorModel):
     ManualSnapshotRetentionPeriod: Optional[int] = None
 
 
+# This class is the input for the 'create_authentication_profile' function.
 class CreateAuthenticationProfileMessage(BaseValidatorModel):
     AuthenticationProfileName: str
     AuthenticationProfileContent: str
 
 
+# This class is the input for the 'create_custom_domain_association' function.
 class CreateCustomDomainAssociationMessage(BaseValidatorModel):
     CustomDomainName: str
     CustomDomainCertificateArn: str
     ClusterIdentifier: str
 
 
+# This class is the input for the 'create_endpoint_access' function.
 class CreateEndpointAccessMessage(BaseValidatorModel):
     EndpointName: str
     SubnetGroupName: str
@@ -287,15 +299,18 @@ class DataShareAssociation(BaseValidatorModel):
     ConsumerAcceptedWrites: Optional[bool] = None
 
 
+# This class is the input for the 'deauthorize_data_share' function.
 class DeauthorizeDataShareMessage(BaseValidatorModel):
     DataShareArn: str
     ConsumerIdentifier: str
 
 
+# This class is the input for the 'delete_authentication_profile' function.
 class DeleteAuthenticationProfileMessage(BaseValidatorModel):
     AuthenticationProfileName: str
 
 
+# This class is the input for the 'delete_cluster' function.
 class DeleteClusterMessage(BaseValidatorModel):
     ClusterIdentifier: str
     SkipFinalClusterSnapshot: Optional[bool] = None
@@ -303,81 +318,100 @@ class DeleteClusterMessage(BaseValidatorModel):
     FinalClusterSnapshotRetentionPeriod: Optional[int] = None
 
 
+# This class is the input for the 'delete_cluster_parameter_group' function.
 class DeleteClusterParameterGroupMessage(BaseValidatorModel):
     ParameterGroupName: str
 
 
+# This class is the input for the 'delete_cluster_security_group' function.
 class DeleteClusterSecurityGroupMessage(BaseValidatorModel):
     ClusterSecurityGroupName: str
 
 
+# This class is the input for the 'delete_cluster_snapshot' function.
 class DeleteClusterSnapshotMessageRequest(BaseValidatorModel):
     SnapshotIdentifier: str
     SnapshotClusterIdentifier: Optional[str] = None
 
 
+# This class is the input for the 'delete_cluster_subnet_group' function.
 class DeleteClusterSubnetGroupMessage(BaseValidatorModel):
     ClusterSubnetGroupName: str
 
 
+# This class is the input for the 'delete_custom_domain_association' function.
 class DeleteCustomDomainAssociationMessage(BaseValidatorModel):
     ClusterIdentifier: str
     CustomDomainName: str
 
 
+# This class is the input for the 'delete_endpoint_access' function.
 class DeleteEndpointAccessMessage(BaseValidatorModel):
     EndpointName: str
 
 
+# This class is the input for the 'delete_event_subscription' function.
 class DeleteEventSubscriptionMessage(BaseValidatorModel):
     SubscriptionName: str
 
 
+# This class is the input for the 'delete_hsm_client_certificate' function.
 class DeleteHsmClientCertificateMessage(BaseValidatorModel):
     HsmClientCertificateIdentifier: str
 
 
+# This class is the input for the 'delete_hsm_configuration' function.
 class DeleteHsmConfigurationMessage(BaseValidatorModel):
     HsmConfigurationIdentifier: str
 
 
+# This class is the input for the 'delete_integration' function.
 class DeleteIntegrationMessage(BaseValidatorModel):
     IntegrationArn: str
 
 
+# This class is the input for the 'delete_redshift_idc_application' function.
 class DeleteRedshiftIdcApplicationMessage(BaseValidatorModel):
     RedshiftIdcApplicationArn: str
 
 
+# This class is the input for the 'delete_resource_policy' function.
 class DeleteResourcePolicyMessage(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'delete_scheduled_action' function.
 class DeleteScheduledActionMessage(BaseValidatorModel):
     ScheduledActionName: str
 
 
+# This class is the input for the 'delete_snapshot_copy_grant' function.
 class DeleteSnapshotCopyGrantMessage(BaseValidatorModel):
     SnapshotCopyGrantName: str
 
 
+# This class is the input for the 'delete_snapshot_schedule' function.
 class DeleteSnapshotScheduleMessage(BaseValidatorModel):
     ScheduleIdentifier: str
 
 
+# This class is the input for the 'delete_tags' function.
 class DeleteTagsMessage(BaseValidatorModel):
     ResourceName: str
     TagKeys: List[str]
 
 
+# This class is the input for the 'delete_usage_limit' function.
 class DeleteUsageLimitMessage(BaseValidatorModel):
     UsageLimitId: str
 
 
+# This class is the input for the 'describe_account_attributes' function.
 class DescribeAccountAttributesMessage(BaseValidatorModel):
     AttributeNames: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_authentication_profiles' function.
 class DescribeAuthenticationProfilesMessage(BaseValidatorModel):
     AuthenticationProfileName: Optional[str] = None
 
@@ -388,12 +422,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_cluster_db_revisions' function.
 class DescribeClusterDbRevisionsMessage(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_cluster_parameter_groups' function.
 class DescribeClusterParameterGroupsMessage(BaseValidatorModel):
     ParameterGroupName: Optional[str] = None
     MaxRecords: Optional[int] = None
@@ -402,6 +438,7 @@ class DescribeClusterParameterGroupsMessage(BaseValidatorModel):
     TagValues: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_cluster_parameters' function.
 class DescribeClusterParametersMessage(BaseValidatorModel):
     ParameterGroupName: str
     Source: Optional[str] = None
@@ -409,6 +446,7 @@ class DescribeClusterParametersMessage(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_cluster_security_groups' function.
 class DescribeClusterSecurityGroupsMessage(BaseValidatorModel):
     ClusterSecurityGroupName: Optional[str] = None
     MaxRecords: Optional[int] = None
@@ -427,6 +465,7 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'describe_cluster_subnet_groups' function.
 class DescribeClusterSubnetGroupsMessage(BaseValidatorModel):
     ClusterSubnetGroupName: Optional[str] = None
     MaxRecords: Optional[int] = None
@@ -435,12 +474,14 @@ class DescribeClusterSubnetGroupsMessage(BaseValidatorModel):
     TagValues: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_cluster_tracks' function.
 class DescribeClusterTracksMessage(BaseValidatorModel):
     MaintenanceTrackName: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_cluster_versions' function.
 class DescribeClusterVersionsMessage(BaseValidatorModel):
     ClusterVersion: Optional[str] = None
     ClusterParameterGroupFamily: Optional[str] = None
@@ -448,6 +489,7 @@ class DescribeClusterVersionsMessage(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_clusters' function.
 class DescribeClustersMessage(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     MaxRecords: Optional[int] = None
@@ -456,6 +498,7 @@ class DescribeClustersMessage(BaseValidatorModel):
     TagValues: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_custom_domain_associations' function.
 class DescribeCustomDomainAssociationsMessage(BaseValidatorModel):
     CustomDomainName: Optional[str] = None
     CustomDomainCertificateArn: Optional[str] = None
@@ -463,6 +506,7 @@ class DescribeCustomDomainAssociationsMessage(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_data_shares_for_consumer' function.
 class DescribeDataSharesForConsumerMessage(BaseValidatorModel):
     ConsumerArn: Optional[str] = None
     Status: Optional[DataShareStatusForConsumerType] = None
@@ -470,6 +514,7 @@ class DescribeDataSharesForConsumerMessage(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_data_shares_for_producer' function.
 class DescribeDataSharesForProducerMessage(BaseValidatorModel):
     ProducerArn: Optional[str] = None
     Status: Optional[DataShareStatusForProducerType] = None
@@ -477,18 +522,21 @@ class DescribeDataSharesForProducerMessage(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_data_shares' function.
 class DescribeDataSharesMessage(BaseValidatorModel):
     DataShareArn: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_default_cluster_parameters' function.
 class DescribeDefaultClusterParametersMessage(BaseValidatorModel):
     ParameterGroupFamily: str
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_endpoint_access' function.
 class DescribeEndpointAccessMessage(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     ResourceOwner: Optional[str] = None
@@ -498,6 +546,7 @@ class DescribeEndpointAccessMessage(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_endpoint_authorization' function.
 class DescribeEndpointAuthorizationMessage(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     Account: Optional[str] = None
@@ -506,10 +555,12 @@ class DescribeEndpointAuthorizationMessage(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_event_categories' function.
 class DescribeEventCategoriesMessage(BaseValidatorModel):
     SourceType: Optional[str] = None
 
 
+# This class is the input for the 'describe_event_subscriptions' function.
 class DescribeEventSubscriptionsMessage(BaseValidatorModel):
     SubscriptionName: Optional[str] = None
     MaxRecords: Optional[int] = None
@@ -518,6 +569,7 @@ class DescribeEventSubscriptionsMessage(BaseValidatorModel):
     TagValues: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_hsm_client_certificates' function.
 class DescribeHsmClientCertificatesMessage(BaseValidatorModel):
     HsmClientCertificateIdentifier: Optional[str] = None
     MaxRecords: Optional[int] = None
@@ -526,6 +578,7 @@ class DescribeHsmClientCertificatesMessage(BaseValidatorModel):
     TagValues: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_hsm_configurations' function.
 class DescribeHsmConfigurationsMessage(BaseValidatorModel):
     HsmConfigurationIdentifier: Optional[str] = None
     MaxRecords: Optional[int] = None
@@ -534,6 +587,7 @@ class DescribeHsmConfigurationsMessage(BaseValidatorModel):
     TagValues: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_inbound_integrations' function.
 class DescribeInboundIntegrationsMessage(BaseValidatorModel):
     IntegrationArn: Optional[str] = None
     TargetArn: Optional[str] = None
@@ -546,6 +600,7 @@ class DescribeIntegrationsFilter(BaseValidatorModel):
     Values: List[str]
 
 
+# This class is the input for the 'describe_logging_status' function.
 class DescribeLoggingStatusMessage(BaseValidatorModel):
     ClusterIdentifier: str
 
@@ -556,6 +611,7 @@ class NodeConfigurationOptionsFilter(BaseValidatorModel):
     Values: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_orderable_cluster_options' function.
 class DescribeOrderableClusterOptionsMessage(BaseValidatorModel):
     ClusterVersion: Optional[str] = None
     NodeType: Optional[str] = None
@@ -563,6 +619,7 @@ class DescribeOrderableClusterOptionsMessage(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_partners' function.
 class DescribePartnersInputMessage(BaseValidatorModel):
     AccountId: str
     ClusterIdentifier: str
@@ -579,12 +636,14 @@ class PartnerIntegrationInfo(BaseValidatorModel):
     UpdatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'describe_redshift_idc_applications' function.
 class DescribeRedshiftIdcApplicationsMessage(BaseValidatorModel):
     RedshiftIdcApplicationArn: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_reserved_node_exchange_status' function.
 class DescribeReservedNodeExchangeStatusInputMessage(BaseValidatorModel):
     ReservedNodeId: Optional[str] = None
     ReservedNodeExchangeRequestId: Optional[str] = None
@@ -592,18 +651,21 @@ class DescribeReservedNodeExchangeStatusInputMessage(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_reserved_node_offerings' function.
 class DescribeReservedNodeOfferingsMessage(BaseValidatorModel):
     ReservedNodeOfferingId: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_reserved_nodes' function.
 class DescribeReservedNodesMessage(BaseValidatorModel):
     ReservedNodeId: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_resize' function.
 class DescribeResizeMessage(BaseValidatorModel):
     ClusterIdentifier: str
 
@@ -613,6 +675,7 @@ class ScheduledActionFilter(BaseValidatorModel):
     Values: List[str]
 
 
+# This class is the input for the 'describe_snapshot_copy_grants' function.
 class DescribeSnapshotCopyGrantsMessage(BaseValidatorModel):
     SnapshotCopyGrantName: Optional[str] = None
     MaxRecords: Optional[int] = None
@@ -621,6 +684,7 @@ class DescribeSnapshotCopyGrantsMessage(BaseValidatorModel):
     TagValues: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_snapshot_schedules' function.
 class DescribeSnapshotSchedulesMessage(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     ScheduleIdentifier: Optional[str] = None
@@ -630,6 +694,7 @@ class DescribeSnapshotSchedulesMessage(BaseValidatorModel):
     MaxRecords: Optional[int] = None
 
 
+# This class is the input for the 'describe_table_restore_status' function.
 class DescribeTableRestoreStatusMessage(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     TableRestoreRequestId: Optional[str] = None
@@ -637,6 +702,7 @@ class DescribeTableRestoreStatusMessage(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_tags' function.
 class DescribeTagsMessage(BaseValidatorModel):
     ResourceName: Optional[str] = None
     ResourceType: Optional[str] = None
@@ -646,6 +712,7 @@ class DescribeTagsMessage(BaseValidatorModel):
     TagValues: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_usage_limits' function.
 class DescribeUsageLimitsMessage(BaseValidatorModel):
     UsageLimitId: Optional[str] = None
     ClusterIdentifier: Optional[str] = None
@@ -656,14 +723,17 @@ class DescribeUsageLimitsMessage(BaseValidatorModel):
     TagValues: Optional[List[str]] = None
 
 
+# This class is the input for the 'disable_logging' function.
 class DisableLoggingMessage(BaseValidatorModel):
     ClusterIdentifier: str
 
 
+# This class is the input for the 'disable_snapshot_copy' function.
 class DisableSnapshotCopyMessage(BaseValidatorModel):
     ClusterIdentifier: str
 
 
+# This class is the input for the 'disassociate_data_share_consumer' function.
 class DisassociateDataShareConsumerMessage(BaseValidatorModel):
     DataShareArn: str
     DisassociateEntireAccount: Optional[bool] = None
@@ -671,6 +741,7 @@ class DisassociateDataShareConsumerMessage(BaseValidatorModel):
     ConsumerRegion: Optional[str] = None
 
 
+# This class is the input for the 'enable_logging' function.
 class EnableLoggingMessage(BaseValidatorModel):
     ClusterIdentifier: str
     BucketName: Optional[str] = None
@@ -679,6 +750,7 @@ class EnableLoggingMessage(BaseValidatorModel):
     LogExports: Optional[List[str]] = None
 
 
+# This class is the input for the 'enable_snapshot_copy' function.
 class EnableSnapshotCopyMessage(BaseValidatorModel):
     ClusterIdentifier: str
     DestinationRegion: str
@@ -716,10 +788,12 @@ class Event(BaseValidatorModel):
     EventId: Optional[str] = None
 
 
+# This class is the input for the 'failover_primary_compute' function.
 class FailoverPrimaryComputeInputMessage(BaseValidatorModel):
     ClusterIdentifier: str
 
 
+# This class is the input for the 'get_cluster_credentials' function.
 class GetClusterCredentialsMessage(BaseValidatorModel):
     DbUser: str
     DbName: Optional[str] = None
@@ -730,6 +804,7 @@ class GetClusterCredentialsMessage(BaseValidatorModel):
     CustomDomainName: Optional[str] = None
 
 
+# This class is the input for the 'get_cluster_credentials_with_iam' function.
 class GetClusterCredentialsWithIAMMessage(BaseValidatorModel):
     DbName: Optional[str] = None
     ClusterIdentifier: Optional[str] = None
@@ -737,6 +812,7 @@ class GetClusterCredentialsWithIAMMessage(BaseValidatorModel):
     CustomDomainName: Optional[str] = None
 
 
+# This class is the input for the 'get_reserved_node_exchange_configuration_options' function.
 class GetReservedNodeExchangeConfigurationOptionsInputMessage(BaseValidatorModel):
     ActionType: ReservedNodeExchangeActionTypeType
     ClusterIdentifier: Optional[str] = None
@@ -745,12 +821,14 @@ class GetReservedNodeExchangeConfigurationOptionsInputMessage(BaseValidatorModel
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'get_reserved_node_exchange_offerings' function.
 class GetReservedNodeExchangeOfferingsInputMessage(BaseValidatorModel):
     ReservedNodeId: str
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'get_resource_policy' function.
 class GetResourcePolicyMessage(BaseValidatorModel):
     ResourceArn: str
 
@@ -769,6 +847,7 @@ class LakeFormationQuery(BaseValidatorModel):
     Authorization: ServiceAuthorizationType
 
 
+# This class is the input for the 'list_recommendations' function.
 class ListRecommendationsMessage(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     NamespaceArn: Optional[str] = None
@@ -776,21 +855,25 @@ class ListRecommendationsMessage(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'modify_aqua_configuration' function.
 class ModifyAquaInputMessage(BaseValidatorModel):
     ClusterIdentifier: str
     AquaConfigurationStatus: Optional[AquaConfigurationStatusType] = None
 
 
+# This class is the input for the 'modify_authentication_profile' function.
 class ModifyAuthenticationProfileMessage(BaseValidatorModel):
     AuthenticationProfileName: str
     AuthenticationProfileContent: str
 
 
+# This class is the input for the 'modify_cluster_db_revision' function.
 class ModifyClusterDbRevisionMessage(BaseValidatorModel):
     ClusterIdentifier: str
     RevisionTarget: str
 
 
+# This class is the input for the 'modify_cluster_iam_roles' function.
 class ModifyClusterIamRolesMessage(BaseValidatorModel):
     ClusterIdentifier: str
     AddIamRoles: Optional[List[str]] = None
@@ -798,6 +881,7 @@ class ModifyClusterIamRolesMessage(BaseValidatorModel):
     DefaultIamRoleArn: Optional[str] = None
 
 
+# This class is the input for the 'modify_cluster' function.
 class ModifyClusterMessage(BaseValidatorModel):
     ClusterIdentifier: str
     ClusterType: Optional[str] = None
@@ -830,35 +914,41 @@ class ModifyClusterMessage(BaseValidatorModel):
     MultiAZ: Optional[bool] = None
 
 
+# This class is the input for the 'modify_cluster_snapshot' function.
 class ModifyClusterSnapshotMessage(BaseValidatorModel):
     SnapshotIdentifier: str
     ManualSnapshotRetentionPeriod: Optional[int] = None
     Force: Optional[bool] = None
 
 
+# This class is the input for the 'modify_cluster_snapshot_schedule' function.
 class ModifyClusterSnapshotScheduleMessage(BaseValidatorModel):
     ClusterIdentifier: str
     ScheduleIdentifier: Optional[str] = None
     DisassociateSchedule: Optional[bool] = None
 
 
+# This class is the input for the 'modify_cluster_subnet_group' function.
 class ModifyClusterSubnetGroupMessage(BaseValidatorModel):
     ClusterSubnetGroupName: str
     SubnetIds: List[str]
     Description: Optional[str] = None
 
 
+# This class is the input for the 'modify_custom_domain_association' function.
 class ModifyCustomDomainAssociationMessage(BaseValidatorModel):
     CustomDomainName: str
     CustomDomainCertificateArn: str
     ClusterIdentifier: str
 
 
+# This class is the input for the 'modify_endpoint_access' function.
 class ModifyEndpointAccessMessage(BaseValidatorModel):
     EndpointName: str
     VpcSecurityGroupIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'modify_event_subscription' function.
 class ModifyEventSubscriptionMessage(BaseValidatorModel):
     SubscriptionName: str
     SnsTopicArn: Optional[str] = None
@@ -869,23 +959,27 @@ class ModifyEventSubscriptionMessage(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
+# This class is the input for the 'modify_integration' function.
 class ModifyIntegrationMessage(BaseValidatorModel):
     IntegrationArn: str
     Description: Optional[str] = None
     IntegrationName: Optional[str] = None
 
 
+# This class is the input for the 'modify_snapshot_copy_retention_period' function.
 class ModifySnapshotCopyRetentionPeriodMessage(BaseValidatorModel):
     ClusterIdentifier: str
     RetentionPeriod: int
     Manual: Optional[bool] = None
 
 
+# This class is the input for the 'modify_snapshot_schedule' function.
 class ModifySnapshotScheduleMessage(BaseValidatorModel):
     ScheduleIdentifier: str
     ScheduleDefinitions: List[str]
 
 
+# This class is the input for the 'modify_usage_limit' function.
 class ModifyUsageLimitMessage(BaseValidatorModel):
     UsageLimitId: str
     Amount: Optional[int] = None
@@ -916,6 +1010,7 @@ class NodeConfigurationOption(BaseValidatorModel):
     Mode: Optional[ModeType] = None
 
 
+# This class is the input for the 'delete_partner' function.
 class PartnerIntegrationInputMessageRequest(BaseValidatorModel):
     AccountId: str
     ClusterIdentifier: str
@@ -923,6 +1018,7 @@ class PartnerIntegrationInputMessageRequest(BaseValidatorModel):
     PartnerName: str
 
 
+# This class is the input for the 'add_partner' function.
 class PartnerIntegrationInputMessage(BaseValidatorModel):
     AccountId: str
     ClusterIdentifier: str
@@ -930,6 +1026,7 @@ class PartnerIntegrationInputMessage(BaseValidatorModel):
     PartnerName: str
 
 
+# This class is the input for the 'pause_cluster' function.
 class PauseClusterMessageRequest(BaseValidatorModel):
     ClusterIdentifier: str
 
@@ -938,11 +1035,13 @@ class PauseClusterMessage(BaseValidatorModel):
     ClusterIdentifier: str
 
 
+# This class is the input for the 'purchase_reserved_node_offering' function.
 class PurchaseReservedNodeOfferingMessage(BaseValidatorModel):
     ReservedNodeOfferingId: str
     NodeCount: Optional[int] = None
 
 
+# This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyMessage(BaseValidatorModel):
     ResourceArn: str
     Policy: str
@@ -952,6 +1051,7 @@ class ReadWriteAccess(BaseValidatorModel):
     Authorization: ServiceAuthorizationType
 
 
+# This class is the input for the 'reboot_cluster' function.
 class RebootClusterMessage(BaseValidatorModel):
     ClusterIdentifier: str
 
@@ -973,10 +1073,12 @@ class RecurringCharge(BaseValidatorModel):
     RecurringChargeFrequency: Optional[str] = None
 
 
+# This class is the input for the 'reject_data_share' function.
 class RejectDataShareMessage(BaseValidatorModel):
     DataShareArn: str
 
 
+# This class is the input for the 'resize_cluster' function.
 class ResizeClusterMessageRequest(BaseValidatorModel):
     ClusterIdentifier: str
     ClusterType: Optional[str] = None
@@ -997,6 +1099,7 @@ class ResizeClusterMessage(BaseValidatorModel):
     TargetReservedNodeOfferingId: Optional[str] = None
 
 
+# This class is the input for the 'restore_from_cluster_snapshot' function.
 class RestoreFromClusterSnapshotMessage(BaseValidatorModel):
     ClusterIdentifier: str
     SnapshotIdentifier: Optional[str] = None
@@ -1037,6 +1140,7 @@ class RestoreFromClusterSnapshotMessage(BaseValidatorModel):
     MultiAZ: Optional[bool] = None
 
 
+# This class is the input for the 'restore_table_from_cluster_snapshot' function.
 class RestoreTableFromClusterSnapshotMessage(BaseValidatorModel):
     ClusterIdentifier: str
     SnapshotIdentifier: str
@@ -1066,6 +1170,7 @@ class TableRestoreStatus(BaseValidatorModel):
     NewTableName: Optional[str] = None
 
 
+# This class is the input for the 'resume_cluster' function.
 class ResumeClusterMessageRequest(BaseValidatorModel):
     ClusterIdentifier: str
 
@@ -1074,6 +1179,7 @@ class ResumeClusterMessage(BaseValidatorModel):
     ClusterIdentifier: str
 
 
+# This class is the input for the 'revoke_cluster_security_group_ingress' function.
 class RevokeClusterSecurityGroupIngressMessage(BaseValidatorModel):
     ClusterSecurityGroupName: str
     CIDRIP: Optional[str] = None
@@ -1081,6 +1187,7 @@ class RevokeClusterSecurityGroupIngressMessage(BaseValidatorModel):
     EC2SecurityGroupOwnerId: Optional[str] = None
 
 
+# This class is the input for the 'revoke_endpoint_access' function.
 class RevokeEndpointAccessMessage(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     Account: Optional[str] = None
@@ -1088,6 +1195,7 @@ class RevokeEndpointAccessMessage(BaseValidatorModel):
     Force: Optional[bool] = None
 
 
+# This class is the input for the 'revoke_snapshot_access' function.
 class RevokeSnapshotAccessMessage(BaseValidatorModel):
     AccountWithRestoreAccess: str
     SnapshotIdentifier: Optional[str] = None
@@ -1095,6 +1203,7 @@ class RevokeSnapshotAccessMessage(BaseValidatorModel):
     SnapshotClusterIdentifier: Optional[str] = None
 
 
+# This class is the input for the 'rotate_encryption_key' function.
 class RotateEncryptionKeyMessage(BaseValidatorModel):
     ClusterIdentifier: str
 
@@ -1103,6 +1212,7 @@ class SupportedOperation(BaseValidatorModel):
     OperationName: Optional[str] = None
 
 
+# This class is the input for the 'update_partner_status' function.
 class UpdatePartnerStatusInputMessage(BaseValidatorModel):
     AccountId: str
     ClusterIdentifier: str
@@ -1112,6 +1222,7 @@ class UpdatePartnerStatusInputMessage(BaseValidatorModel):
     StatusMessage: Optional[str] = None
 
 
+# This class is the output for the 'get_cluster_credentials' function.
 class ClusterCredentials(BaseValidatorModel):
     DbUser: str
     DbPassword: str
@@ -1119,6 +1230,7 @@ class ClusterCredentials(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_cluster_credentials_with_iam' function.
 class ClusterExtendedCredentials(BaseValidatorModel):
     DbUser: str
     DbPassword: str
@@ -1127,18 +1239,21 @@ class ClusterExtendedCredentials(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reset_cluster_parameter_group' function.
 class ClusterParameterGroupNameMessage(BaseValidatorModel):
     ParameterGroupName: str
     ParameterGroupStatus: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_authentication_profile' function.
 class CreateAuthenticationProfileResult(BaseValidatorModel):
     AuthenticationProfileName: str
     AuthenticationProfileContent: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_custom_domain_association' function.
 class CreateCustomDomainAssociationResult(BaseValidatorModel):
     CustomDomainName: str
     CustomDomainCertificateArn: str
@@ -1153,20 +1268,24 @@ class CustomerStorageMessage(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_authentication_profile' function.
 class DeleteAuthenticationProfileResult(BaseValidatorModel):
     AuthenticationProfileName: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'deregister_namespace' function.
 class DeregisterNamespaceOutputMessage(BaseValidatorModel):
     Status: NamespaceRegistrationStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_cluster_snapshot_schedule' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'revoke_endpoint_access' function.
 class EndpointAuthorizationResponse(BaseValidatorModel):
     Grantor: str
     Grantee: str
@@ -1180,6 +1299,7 @@ class EndpointAuthorizationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enable_logging' function.
 class LoggingStatus(BaseValidatorModel):
     LoggingEnabled: bool
     BucketName: str
@@ -1192,12 +1312,14 @@ class LoggingStatus(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_authentication_profile' function.
 class ModifyAuthenticationProfileResult(BaseValidatorModel):
     AuthenticationProfileName: str
     AuthenticationProfileContent: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_custom_domain_association' function.
 class ModifyCustomDomainAssociationResult(BaseValidatorModel):
     CustomDomainName: str
     CustomDomainCertificateArn: str
@@ -1206,17 +1328,20 @@ class ModifyCustomDomainAssociationResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_partner_status' function.
 class PartnerIntegrationOutputMessage(BaseValidatorModel):
     DatabaseName: str
     PartnerName: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_namespace' function.
 class RegisterNamespaceOutputMessage(BaseValidatorModel):
     Status: NamespaceRegistrationStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_resize' function.
 class ResizeProgressMessage(BaseValidatorModel):
     TargetNodeType: str
     TargetNumberOfNodes: int
@@ -1242,6 +1367,7 @@ class AccountAttribute(BaseValidatorModel):
     AttributeValues: Optional[List[AttributeValueTarget]] = None
 
 
+# This class is the output for the 'modify_aqua_configuration' function.
 class ModifyAquaOutputMessage(BaseValidatorModel):
     AquaConfiguration: AquaConfiguration
     ResponseMetadata: ResponseMetadata
@@ -1253,6 +1379,7 @@ class Association(BaseValidatorModel):
     CertificateAssociations: Optional[List[CertificateAssociation]] = None
 
 
+# This class is the output for the 'describe_authentication_profiles' function.
 class DescribeAuthenticationProfilesResult(BaseValidatorModel):
     AuthenticationProfiles: List[AuthenticationProfile]
     ResponseMetadata: ResponseMetadata
@@ -1265,16 +1392,19 @@ class AvailabilityZone(BaseValidatorModel):
     SupportedPlatforms: Optional[List[SupportedPlatform]] = None
 
 
+# This class is the input for the 'batch_delete_cluster_snapshots' function.
 class BatchDeleteClusterSnapshotsRequest(BaseValidatorModel):
     Identifiers: List[DeleteClusterSnapshotMessage]
 
 
+# This class is the output for the 'batch_delete_cluster_snapshots' function.
 class BatchDeleteClusterSnapshotsResult(BaseValidatorModel):
     Resources: List[str]
     Errors: List[SnapshotErrorMessage]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_modify_cluster_snapshots' function.
 class BatchModifyClusterSnapshotsOutputMessage(BaseValidatorModel):
     Resources: List[str]
     Errors: List[SnapshotErrorMessage]
@@ -1293,6 +1423,7 @@ class SecondaryClusterInfo(BaseValidatorModel):
     ClusterNodes: Optional[List[ClusterNode]] = None
 
 
+# This class is the output for the 'describe_cluster_parameters' function.
 class ClusterParameterGroupDetails(BaseValidatorModel):
     Parameters: List[Parameter]
     Marker: str
@@ -1305,11 +1436,13 @@ class DefaultClusterParameters(BaseValidatorModel):
     Parameters: Optional[List[Parameter]] = None
 
 
+# This class is the input for the 'modify_cluster_parameter_group' function.
 class ModifyClusterParameterGroupMessage(BaseValidatorModel):
     ParameterGroupName: str
     Parameters: List[Parameter]
 
 
+# This class is the input for the 'reset_cluster_parameter_group' function.
 class ResetClusterParameterGroupMessage(BaseValidatorModel):
     ParameterGroupName: str
     ResetAllParameters: Optional[bool] = None
@@ -1329,6 +1462,7 @@ class ClusterParameterGroup(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_cluster' function.
 class CreateClusterMessage(BaseValidatorModel):
     ClusterIdentifier: str
     NodeType: str
@@ -1371,6 +1505,7 @@ class CreateClusterMessage(BaseValidatorModel):
     RedshiftIdcApplicationArn: Optional[str] = None
 
 
+# This class is the input for the 'create_cluster_parameter_group' function.
 class CreateClusterParameterGroupMessage(BaseValidatorModel):
     ParameterGroupName: str
     ParameterGroupFamily: str
@@ -1378,12 +1513,14 @@ class CreateClusterParameterGroupMessage(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_cluster_security_group' function.
 class CreateClusterSecurityGroupMessage(BaseValidatorModel):
     ClusterSecurityGroupName: str
     Description: str
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_cluster_snapshot' function.
 class CreateClusterSnapshotMessage(BaseValidatorModel):
     SnapshotIdentifier: str
     ClusterIdentifier: str
@@ -1391,6 +1528,7 @@ class CreateClusterSnapshotMessage(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_cluster_subnet_group' function.
 class CreateClusterSubnetGroupMessage(BaseValidatorModel):
     ClusterSubnetGroupName: str
     Description: str
@@ -1398,6 +1536,7 @@ class CreateClusterSubnetGroupMessage(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_event_subscription' function.
 class CreateEventSubscriptionMessage(BaseValidatorModel):
     SubscriptionName: str
     SnsTopicArn: str
@@ -1409,11 +1548,13 @@ class CreateEventSubscriptionMessage(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_hsm_client_certificate' function.
 class CreateHsmClientCertificateMessage(BaseValidatorModel):
     HsmClientCertificateIdentifier: str
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_hsm_configuration' function.
 class CreateHsmConfigurationMessage(BaseValidatorModel):
     HsmConfigurationIdentifier: str
     Description: str
@@ -1424,6 +1565,7 @@ class CreateHsmConfigurationMessage(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_integration' function.
 class CreateIntegrationMessage(BaseValidatorModel):
     SourceArn: str
     TargetArn: str
@@ -1434,12 +1576,14 @@ class CreateIntegrationMessage(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'create_snapshot_copy_grant' function.
 class CreateSnapshotCopyGrantMessage(BaseValidatorModel):
     SnapshotCopyGrantName: str
     KmsKeyId: Optional[str] = None
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_snapshot_schedule' function.
 class CreateSnapshotScheduleMessage(BaseValidatorModel):
     ScheduleDefinitions: Optional[List[str]] = None
     ScheduleIdentifier: Optional[str] = None
@@ -1449,11 +1593,13 @@ class CreateSnapshotScheduleMessage(BaseValidatorModel):
     NextInvocations: Optional[int] = None
 
 
+# This class is the input for the 'create_tags' function.
 class CreateTagsMessage(BaseValidatorModel):
     ResourceName: str
     Tags: List[Tag]
 
 
+# This class is the input for the 'create_usage_limit' function.
 class CreateUsageLimitMessage(BaseValidatorModel):
     ClusterIdentifier: str
     FeatureType: UsageLimitFeatureTypeType
@@ -1511,6 +1657,7 @@ class SnapshotCopyGrant(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'modify_snapshot_schedule' function.
 class SnapshotScheduleResponse(BaseValidatorModel):
     ScheduleDefinitions: List[str]
     ScheduleIdentifier: str
@@ -1578,6 +1725,7 @@ class TaggedResource(BaseValidatorModel):
     ResourceType: Optional[str] = None
 
 
+# This class is the output for the 'modify_usage_limit' function.
 class UsageLimitResponse(BaseValidatorModel):
     UsageLimitId: str
     ClusterIdentifier: str
@@ -1601,18 +1749,21 @@ class UsageLimit(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'describe_reserved_node_exchange_status' function.
 class DescribeReservedNodeExchangeStatusOutputMessage(BaseValidatorModel):
     ReservedNodeExchangeStatusDetails: List[ReservedNodeExchangeStatus]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_cluster_versions' function.
 class ClusterVersionsMessage(BaseValidatorModel):
     Marker: str
     ClusterVersions: List[ClusterVersion]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'describe_events' function.
 class DescribeEventsMessage(BaseValidatorModel):
     SourceIdentifier: Optional[str] = None
     SourceType: Optional[SourceTypeType] = None
@@ -1623,6 +1774,7 @@ class DescribeEventsMessage(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'modify_cluster_maintenance' function.
 class ModifyClusterMaintenanceMessage(BaseValidatorModel):
     ClusterIdentifier: str
     DeferMaintenance: Optional[bool] = None
@@ -1632,6 +1784,7 @@ class ModifyClusterMaintenanceMessage(BaseValidatorModel):
     DeferMaintenanceDuration: Optional[int] = None
 
 
+# This class is the output for the 'reject_data_share' function.
 class DataShareResponse(BaseValidatorModel):
     DataShareArn: str
     ProducerArn: str
@@ -1878,6 +2031,7 @@ class DescribeClusterSnapshotsMessagePaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_cluster_snapshots' function.
 class DescribeClusterSnapshotsMessage(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     SnapshotIdentifier: Optional[str] = None
@@ -1944,6 +2098,7 @@ class DescribeIntegrationsMessagePaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_integrations' function.
 class DescribeIntegrationsMessage(BaseValidatorModel):
     IntegrationArn: Optional[str] = None
     MaxRecords: Optional[int] = None
@@ -1961,6 +2116,7 @@ class DescribeNodeConfigurationOptionsMessagePaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_node_configuration_options' function.
 class DescribeNodeConfigurationOptionsMessage(BaseValidatorModel):
     ActionType: ActionTypeType
     ClusterIdentifier: Optional[str] = None
@@ -1972,6 +2128,7 @@ class DescribeNodeConfigurationOptionsMessage(BaseValidatorModel):
     MaxRecords: Optional[int] = None
 
 
+# This class is the output for the 'describe_partners' function.
 class DescribePartnersOutputMessage(BaseValidatorModel):
     PartnerIntegrationInfoList: List[PartnerIntegrationInfo]
     ResponseMetadata: ResponseMetadata
@@ -1987,6 +2144,7 @@ class DescribeScheduledActionsMessagePaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_scheduled_actions' function.
 class DescribeScheduledActionsMessage(BaseValidatorModel):
     ScheduledActionName: Optional[str] = None
     TargetActionType: Optional[ScheduledActionTypeValuesType] = None
@@ -1998,6 +2156,7 @@ class DescribeScheduledActionsMessage(BaseValidatorModel):
     MaxRecords: Optional[int] = None
 
 
+# This class is the output for the 'describe_endpoint_authorization' function.
 class EndpointAuthorizationList(BaseValidatorModel):
     EndpointAuthorizationList: List[EndpointAuthorization]
     Marker: str
@@ -2009,17 +2168,20 @@ class EventCategoriesMap(BaseValidatorModel):
     Events: Optional[List[EventInfoMap]] = None
 
 
+# This class is the output for the 'describe_events' function.
 class EventsMessage(BaseValidatorModel):
     Marker: str
     Events: List[Event]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_policy' function.
 class GetResourcePolicyResult(BaseValidatorModel):
     ResourcePolicy: ResourcePolicy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_resource_policy' function.
 class PutResourcePolicyResult(BaseValidatorModel):
     ResourcePolicy: ResourcePolicy
     ResponseMetadata: ResponseMetadata
@@ -2034,6 +2196,7 @@ class InboundIntegration(BaseValidatorModel):
     CreateTime: Optional[datetime] = None
 
 
+# This class is the output for the 'modify_integration' function.
 class IntegrationResponse(BaseValidatorModel):
     IntegrationArn: str
     IntegrationName: str
@@ -2078,6 +2241,7 @@ class VpcEndpoint(BaseValidatorModel):
     NetworkInterfaces: Optional[List[NetworkInterface]] = None
 
 
+# This class is the output for the 'describe_node_configuration_options' function.
 class NodeConfigurationOptionsMessage(BaseValidatorModel):
     NodeConfigurationOptionList: List[NodeConfigurationOption]
     Marker: str
@@ -2131,11 +2295,13 @@ class ReservedNode(BaseValidatorModel):
     ReservedNodeOfferingType: Optional[ReservedNodeOfferingTypeType] = None
 
 
+# This class is the output for the 'restore_table_from_cluster_snapshot' function.
 class RestoreTableFromClusterSnapshotResult(BaseValidatorModel):
     TableRestoreStatus: TableRestoreStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_table_restore_status' function.
 class TableRestoreStatusMessage(BaseValidatorModel):
     TableRestoreStatusDetails: List[TableRestoreStatus]
     Marker: str
@@ -2154,11 +2320,13 @@ class UpdateTarget(BaseValidatorModel):
     SupportedOperations: Optional[List[SupportedOperation]] = None
 
 
+# This class is the output for the 'describe_account_attributes' function.
 class AccountAttributeList(BaseValidatorModel):
     AccountAttributes: List[AccountAttribute]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_custom_domain_associations' function.
 class CustomDomainAssociationsMessage(BaseValidatorModel):
     Marker: str
     Associations: List[Association]
@@ -2178,60 +2346,71 @@ class Subnet(BaseValidatorModel):
     SubnetStatus: Optional[str] = None
 
 
+# This class is the output for the 'describe_cluster_db_revisions' function.
 class ClusterDbRevisionsMessage(BaseValidatorModel):
     Marker: str
     ClusterDbRevisions: List[ClusterDbRevision]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_default_cluster_parameters' function.
 class DescribeDefaultClusterParametersResult(BaseValidatorModel):
     DefaultClusterParameters: DefaultClusterParameters
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_cluster_parameter_groups' function.
 class ClusterParameterGroupsMessage(BaseValidatorModel):
     Marker: str
     ParameterGroups: List[ClusterParameterGroup]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_cluster_parameter_group' function.
 class CreateClusterParameterGroupResult(BaseValidatorModel):
     ClusterParameterGroup: ClusterParameterGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_event_subscription' function.
 class CreateEventSubscriptionResult(BaseValidatorModel):
     EventSubscription: EventSubscription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_event_subscriptions' function.
 class EventSubscriptionsMessage(BaseValidatorModel):
     Marker: str
     EventSubscriptionsList: List[EventSubscription]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_event_subscription' function.
 class ModifyEventSubscriptionResult(BaseValidatorModel):
     EventSubscription: EventSubscription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_hsm_client_certificate' function.
 class CreateHsmClientCertificateResult(BaseValidatorModel):
     HsmClientCertificate: HsmClientCertificate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_hsm_client_certificates' function.
 class HsmClientCertificateMessage(BaseValidatorModel):
     Marker: str
     HsmClientCertificates: List[HsmClientCertificate]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_hsm_configuration' function.
 class CreateHsmConfigurationResult(BaseValidatorModel):
     HsmConfiguration: HsmConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_hsm_configurations' function.
 class HsmConfigurationMessage(BaseValidatorModel):
     Marker: str
     HsmConfigurations: List[HsmConfiguration]
@@ -2246,116 +2425,137 @@ class ClusterSecurityGroup(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'create_snapshot_copy_grant' function.
 class CreateSnapshotCopyGrantResult(BaseValidatorModel):
     SnapshotCopyGrant: SnapshotCopyGrant
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_snapshot_copy_grants' function.
 class SnapshotCopyGrantMessage(BaseValidatorModel):
     Marker: str
     SnapshotCopyGrants: List[SnapshotCopyGrant]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_snapshot_schedules' function.
 class DescribeSnapshotSchedulesOutputMessage(BaseValidatorModel):
     SnapshotSchedules: List[SnapshotSchedule]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'authorize_snapshot_access' function.
 class AuthorizeSnapshotAccessResult(BaseValidatorModel):
     Snapshot: Snapshot
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'copy_cluster_snapshot' function.
 class CopyClusterSnapshotResult(BaseValidatorModel):
     Snapshot: Snapshot
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_cluster_snapshot' function.
 class CreateClusterSnapshotResult(BaseValidatorModel):
     Snapshot: Snapshot
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_cluster_snapshot' function.
 class DeleteClusterSnapshotResult(BaseValidatorModel):
     Snapshot: Snapshot
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_cluster_snapshot' function.
 class ModifyClusterSnapshotResult(BaseValidatorModel):
     Snapshot: Snapshot
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'revoke_snapshot_access' function.
 class RevokeSnapshotAccessResult(BaseValidatorModel):
     Snapshot: Snapshot
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_cluster_snapshots' function.
 class SnapshotMessage(BaseValidatorModel):
     Marker: str
     Snapshots: List[Snapshot]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_tags' function.
 class TaggedResourceListMessage(BaseValidatorModel):
     TaggedResources: List[TaggedResource]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_usage_limits' function.
 class UsageLimitList(BaseValidatorModel):
     UsageLimits: List[UsageLimit]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_data_shares_for_consumer' function.
 class DescribeDataSharesForConsumerResult(BaseValidatorModel):
     DataShares: List[DataShare]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_data_shares_for_producer' function.
 class DescribeDataSharesForProducerResult(BaseValidatorModel):
     DataShares: List[DataShare]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_data_shares' function.
 class DescribeDataSharesResult(BaseValidatorModel):
     DataShares: List[DataShare]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_event_categories' function.
 class EventCategoriesMessage(BaseValidatorModel):
     EventCategoriesMapList: List[EventCategoriesMap]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_inbound_integrations' function.
 class InboundIntegrationsMessage(BaseValidatorModel):
     Marker: str
     InboundIntegrations: List[InboundIntegration]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_integrations' function.
 class IntegrationsMessage(BaseValidatorModel):
     Marker: str
     Integrations: List[Integration]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'deregister_namespace' function.
 class DeregisterNamespaceInputMessage(BaseValidatorModel):
     NamespaceIdentifier: NamespaceIdentifierUnion
     ConsumerIdentifiers: List[str]
 
 
+# This class is the input for the 'register_namespace' function.
 class RegisterNamespaceInputMessage(BaseValidatorModel):
     NamespaceIdentifier: NamespaceIdentifierUnion
     ConsumerIdentifiers: List[str]
 
 
+# This class is the output for the 'modify_endpoint_access' function.
 class EndpointAccessResponse(BaseValidatorModel):
     ClusterIdentifier: str
     ResourceOwner: str
@@ -2399,29 +2599,34 @@ class ServiceIntegrationsUnion(BaseValidatorModel):
     S3AccessGrants: Optional[List[S3AccessGrantsScopeUnion]] = None
 
 
+# This class is the output for the 'list_recommendations' function.
 class ListRecommendationsResult(BaseValidatorModel):
     Recommendations: List[Recommendation]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_reserved_node_exchange_offerings' function.
 class GetReservedNodeExchangeOfferingsOutputMessage(BaseValidatorModel):
     Marker: str
     ReservedNodeOfferings: List[ReservedNodeOffering]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_reserved_node_offerings' function.
 class ReservedNodeOfferingsMessage(BaseValidatorModel):
     Marker: str
     ReservedNodeOfferings: List[ReservedNodeOffering]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'accept_reserved_node_exchange' function.
 class AcceptReservedNodeExchangeOutputMessage(BaseValidatorModel):
     ExchangedReservedNode: ReservedNode
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'purchase_reserved_node_offering' function.
 class PurchaseReservedNodeOfferingResult(BaseValidatorModel):
     ReservedNode: ReservedNode
     ResponseMetadata: ResponseMetadata
@@ -2433,12 +2638,14 @@ class ReservedNodeConfigurationOption(BaseValidatorModel):
     TargetReservedNodeOffering: Optional[ReservedNodeOffering] = None
 
 
+# This class is the output for the 'describe_reserved_nodes' function.
 class ReservedNodesMessage(BaseValidatorModel):
     Marker: str
     ReservedNodes: List[ReservedNode]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_scheduled_action' function.
 class CreateScheduledActionMessage(BaseValidatorModel):
     ScheduledActionName: str
     TargetAction: ScheduledActionType
@@ -2450,6 +2657,7 @@ class CreateScheduledActionMessage(BaseValidatorModel):
     Enable: Optional[bool] = None
 
 
+# This class is the input for the 'modify_scheduled_action' function.
 class ModifyScheduledActionMessage(BaseValidatorModel):
     ScheduledActionName: str
     TargetAction: Optional[ScheduledActionType] = None
@@ -2461,6 +2669,7 @@ class ModifyScheduledActionMessage(BaseValidatorModel):
     Enable: Optional[bool] = None
 
 
+# This class is the output for the 'modify_scheduled_action' function.
 class ScheduledActionResponse(BaseValidatorModel):
     ScheduledActionName: str
     TargetAction: ScheduledActionType
@@ -2492,6 +2701,7 @@ class MaintenanceTrack(BaseValidatorModel):
     UpdateTargets: Optional[List[UpdateTarget]] = None
 
 
+# This class is the output for the 'describe_orderable_cluster_options' function.
 class OrderableClusterOptionsMessage(BaseValidatorModel):
     OrderableClusterOptions: List[OrderableClusterOption]
     Marker: str
@@ -2508,27 +2718,32 @@ class ClusterSubnetGroup(BaseValidatorModel):
     SupportedClusterIpAddressTypes: Optional[List[str]] = None
 
 
+# This class is the output for the 'authorize_cluster_security_group_ingress' function.
 class AuthorizeClusterSecurityGroupIngressResult(BaseValidatorModel):
     ClusterSecurityGroup: ClusterSecurityGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_cluster_security_groups' function.
 class ClusterSecurityGroupMessage(BaseValidatorModel):
     Marker: str
     ClusterSecurityGroups: List[ClusterSecurityGroup]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_cluster_security_group' function.
 class CreateClusterSecurityGroupResult(BaseValidatorModel):
     ClusterSecurityGroup: ClusterSecurityGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'revoke_cluster_security_group_ingress' function.
 class RevokeClusterSecurityGroupIngressResult(BaseValidatorModel):
     ClusterSecurityGroup: ClusterSecurityGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_endpoint_access' function.
 class EndpointAccessList(BaseValidatorModel):
     EndpointAccessList: List[EndpointAccess]
     Marker: str
@@ -2613,142 +2828,169 @@ class RedshiftIdcApplication(BaseValidatorModel):
 ServiceIntegrationsUnionUnion = Union[ServiceIntegrationsUnion, ServiceIntegrationsUnionOutput]
 
 
+# This class is the output for the 'get_reserved_node_exchange_configuration_options' function.
 class GetReservedNodeExchangeConfigurationOptionsOutputMessage(BaseValidatorModel):
     Marker: str
     ReservedNodeConfigurationOptionList: List[ReservedNodeConfigurationOption]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_scheduled_actions' function.
 class ScheduledActionsMessage(BaseValidatorModel):
     Marker: str
     ScheduledActions: List[ScheduledAction]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_cluster_tracks' function.
 class TrackListMessage(BaseValidatorModel):
     MaintenanceTracks: List[MaintenanceTrack]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_cluster_subnet_groups' function.
 class ClusterSubnetGroupMessage(BaseValidatorModel):
     Marker: str
     ClusterSubnetGroups: List[ClusterSubnetGroup]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_cluster_subnet_group' function.
 class CreateClusterSubnetGroupResult(BaseValidatorModel):
     ClusterSubnetGroup: ClusterSubnetGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_cluster_subnet_group' function.
 class ModifyClusterSubnetGroupResult(BaseValidatorModel):
     ClusterSubnetGroup: ClusterSubnetGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_clusters' function.
 class ClustersMessage(BaseValidatorModel):
     Marker: str
     Clusters: List[Cluster]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_cluster' function.
 class CreateClusterResult(BaseValidatorModel):
     Cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_cluster' function.
 class DeleteClusterResult(BaseValidatorModel):
     Cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disable_snapshot_copy' function.
 class DisableSnapshotCopyResult(BaseValidatorModel):
     Cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enable_snapshot_copy' function.
 class EnableSnapshotCopyResult(BaseValidatorModel):
     Cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'failover_primary_compute' function.
 class FailoverPrimaryComputeResult(BaseValidatorModel):
     Cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_cluster_db_revision' function.
 class ModifyClusterDbRevisionResult(BaseValidatorModel):
     Cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_cluster_iam_roles' function.
 class ModifyClusterIamRolesResult(BaseValidatorModel):
     Cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_cluster_maintenance' function.
 class ModifyClusterMaintenanceResult(BaseValidatorModel):
     Cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_cluster' function.
 class ModifyClusterResult(BaseValidatorModel):
     Cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_snapshot_copy_retention_period' function.
 class ModifySnapshotCopyRetentionPeriodResult(BaseValidatorModel):
     Cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'pause_cluster' function.
 class PauseClusterResult(BaseValidatorModel):
     Cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reboot_cluster' function.
 class RebootClusterResult(BaseValidatorModel):
     Cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'resize_cluster' function.
 class ResizeClusterResult(BaseValidatorModel):
     Cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'restore_from_cluster_snapshot' function.
 class RestoreFromClusterSnapshotResult(BaseValidatorModel):
     Cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'resume_cluster' function.
 class ResumeClusterResult(BaseValidatorModel):
     Cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'rotate_encryption_key' function.
 class RotateEncryptionKeyResult(BaseValidatorModel):
     Cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_redshift_idc_application' function.
 class CreateRedshiftIdcApplicationResult(BaseValidatorModel):
     RedshiftIdcApplication: RedshiftIdcApplication
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_redshift_idc_applications' function.
 class DescribeRedshiftIdcApplicationsResult(BaseValidatorModel):
     RedshiftIdcApplications: List[RedshiftIdcApplication]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_redshift_idc_application' function.
 class ModifyRedshiftIdcApplicationResult(BaseValidatorModel):
     RedshiftIdcApplication: RedshiftIdcApplication
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_redshift_idc_application' function.
 class CreateRedshiftIdcApplicationMessage(BaseValidatorModel):
     IdcInstanceArn: str
     RedshiftIdcApplicationName: str
@@ -2759,6 +3001,7 @@ class CreateRedshiftIdcApplicationMessage(BaseValidatorModel):
     ServiceIntegrations: Optional[List[ServiceIntegrationsUnionUnion]] = None
 
 
+# This class is the input for the 'modify_redshift_idc_application' function.
 class ModifyRedshiftIdcApplicationMessage(BaseValidatorModel):
     RedshiftIdcApplicationArn: str
     IdentityNamespace: Optional[str] = None

@@ -48,6 +48,7 @@ class DTMFInputEvent(BaseValidatorModel):
     clientTimestampMillis: Optional[int] = None
 
 
+# This class is the input for the 'delete_session' function.
 class DeleteSessionRequest(BaseValidatorModel):
     botId: str
     botAliasId: str
@@ -82,6 +83,7 @@ class ElicitSubSlot(BaseValidatorModel):
     subSlotToElicit: Optional[Dict[str, Any]] = None
 
 
+# This class is the input for the 'get_session' function.
 class GetSessionRequest(BaseValidatorModel):
     botId: str
     botAliasId: str
@@ -178,6 +180,7 @@ class AudioInputEvent(BaseValidatorModel):
     clientTimestampMillis: Optional[int] = None
 
 
+# This class is the input for the 'recognize_utterance' function.
 class RecognizeUtteranceRequest(BaseValidatorModel):
     botId: str
     botAliasId: str
@@ -204,6 +207,7 @@ class ImageResponseCard(BaseValidatorModel):
     buttons: Optional[List[Button]] = None
 
 
+# This class is the output for the 'delete_session' function.
 class DeleteSessionResponse(BaseValidatorModel):
     botId: str
     botAliasId: str
@@ -212,6 +216,7 @@ class DeleteSessionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_session' function.
 class PutSessionResponse(BaseValidatorModel):
     contentType: str
     messages: str
@@ -222,6 +227,7 @@ class PutSessionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'recognize_utterance' function.
 class RecognizeUtteranceResponse(BaseValidatorModel):
     inputMode: str
     contentType: str
@@ -345,6 +351,7 @@ MessageUnion = Union[Message, MessageOutput]
 RuntimeHintsUnion = Union[RuntimeHints, RuntimeHintsOutput]
 
 
+# This class is the output for the 'get_session' function.
 class GetSessionResponse(BaseValidatorModel):
     sessionId: str
     messages: List[MessageOutput]
@@ -363,6 +370,7 @@ class IntentResultEvent(BaseValidatorModel):
     recognizedBotMember: Optional[RecognizedBotMember] = None
 
 
+# This class is the output for the 'recognize_text' function.
 class RecognizeTextResponse(BaseValidatorModel):
     messages: List[MessageOutput]
     sessionState: SessionStateOutput
@@ -399,6 +407,7 @@ class StartConversationResponseEventStream(BaseValidatorModel):
 IntentUnion = Union[Intent, IntentOutput]
 
 
+# This class is the output for the 'start_conversation' function.
 class StartConversationResponse(BaseValidatorModel):
     responseEventStream: EventStream[StartConversationResponseEventStream]
     ResponseMetadata: ResponseMetadata
@@ -425,6 +434,7 @@ class ConfigurationEvent(BaseValidatorModel):
     clientTimestampMillis: Optional[int] = None
 
 
+# This class is the input for the 'put_session' function.
 class PutSessionRequest(BaseValidatorModel):
     botId: str
     botAliasId: str
@@ -436,6 +446,7 @@ class PutSessionRequest(BaseValidatorModel):
     responseContentType: Optional[str] = None
 
 
+# This class is the input for the 'recognize_text' function.
 class RecognizeTextRequest(BaseValidatorModel):
     botId: str
     botAliasId: str
@@ -455,6 +466,7 @@ class StartConversationRequestEventStream(BaseValidatorModel):
     DisconnectionEvent: Optional[DisconnectionEvent] = None
 
 
+# This class is the input for the 'start_conversation' function.
 class StartConversationRequest(BaseValidatorModel):
     botId: str
     botAliasId: str

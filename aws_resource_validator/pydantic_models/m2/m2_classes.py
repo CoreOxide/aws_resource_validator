@@ -75,6 +75,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_deployment' function.
 class CreateDeploymentRequest(BaseValidatorModel):
     applicationId: str
     applicationVersion: int
@@ -199,6 +200,7 @@ class FsxStorageConfiguration(BaseValidatorModel):
     mountPoint: str
 
 
+# This class is the input for the 'get_application' function.
 class GetApplicationRequest(BaseValidatorModel):
     applicationId: str
 
@@ -208,11 +210,13 @@ class LogGroupSummary(BaseValidatorModel):
     logType: str
 
 
+# This class is the input for the 'get_application_version' function.
 class GetApplicationVersionRequest(BaseValidatorModel):
     applicationId: str
     applicationVersion: int
 
 
+# This class is the input for the 'get_batch_job_execution' function.
 class GetBatchJobExecutionRequest(BaseValidatorModel):
     applicationId: str
     executionId: str
@@ -225,21 +229,25 @@ class JobStepRestartMarker(BaseValidatorModel):
     toStep: Optional[str] = None
 
 
+# This class is the input for the 'get_data_set_details' function.
 class GetDataSetDetailsRequest(BaseValidatorModel):
     applicationId: str
     dataSetName: str
 
 
+# This class is the input for the 'get_data_set_import_task' function.
 class GetDataSetImportTaskRequest(BaseValidatorModel):
     applicationId: str
     taskId: str
 
 
+# This class is the input for the 'get_deployment' function.
 class GetDeploymentRequest(BaseValidatorModel):
     applicationId: str
     deploymentId: str
 
 
+# This class is the input for the 'get_environment' function.
 class GetEnvironmentRequest(BaseValidatorModel):
     environmentId: str
 
@@ -264,12 +272,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_application_versions' function.
 class ListApplicationVersionsRequest(BaseValidatorModel):
     applicationId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_applications' function.
 class ListApplicationsRequest(BaseValidatorModel):
     environmentId: Optional[str] = None
     maxResults: Optional[int] = None
@@ -277,6 +287,7 @@ class ListApplicationsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_batch_job_definitions' function.
 class ListBatchJobDefinitionsRequest(BaseValidatorModel):
     applicationId: str
     maxResults: Optional[int] = None
@@ -286,18 +297,21 @@ class ListBatchJobDefinitionsRequest(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'list_batch_job_restart_points' function.
 class ListBatchJobRestartPointsRequest(BaseValidatorModel):
     applicationId: str
     executionId: str
     authSecretsManagerArn: Optional[str] = None
 
 
+# This class is the input for the 'list_data_set_import_history' function.
 class ListDataSetImportHistoryRequest(BaseValidatorModel):
     applicationId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_data_sets' function.
 class ListDataSetsRequest(BaseValidatorModel):
     applicationId: str
     maxResults: Optional[int] = None
@@ -306,18 +320,21 @@ class ListDataSetsRequest(BaseValidatorModel):
     prefix: Optional[str] = None
 
 
+# This class is the input for the 'list_deployments' function.
 class ListDeploymentsRequest(BaseValidatorModel):
     applicationId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_engine_versions' function.
 class ListEngineVersionsRequest(BaseValidatorModel):
     engineType: Optional[EngineTypeType] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_environments' function.
 class ListEnvironmentsRequest(BaseValidatorModel):
     engineType: Optional[EngineTypeType] = None
     maxResults: Optional[int] = None
@@ -325,6 +342,7 @@ class ListEnvironmentsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -359,6 +377,7 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_environment' function.
 class UpdateEnvironmentRequest(BaseValidatorModel):
     environmentId: str
     applyDuringMaintenanceWindow: Optional[bool] = None
@@ -374,6 +393,7 @@ class BatchJobDefinition(BaseValidatorModel):
     scriptBatchJobDefinition: Optional[ScriptBatchJobDefinition] = None
 
 
+# This class is the input for the 'create_application' function.
 class CreateApplicationRequest(BaseValidatorModel):
     definition: Definition
     engineType: EngineTypeType
@@ -385,6 +405,7 @@ class CreateApplicationRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_application' function.
 class UpdateApplicationRequest(BaseValidatorModel):
     applicationId: str
     currentApplicationVersion: int
@@ -392,6 +413,7 @@ class UpdateApplicationRequest(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the output for the 'create_application' function.
 class CreateApplicationResponse(BaseValidatorModel):
     applicationArn: str
     applicationId: str
@@ -399,21 +421,25 @@ class CreateApplicationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_data_set_import_task' function.
 class CreateDataSetImportTaskResponse(BaseValidatorModel):
     taskId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_deployment' function.
 class CreateDeploymentResponse(BaseValidatorModel):
     deploymentId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_environment' function.
 class CreateEnvironmentResponse(BaseValidatorModel):
     environmentId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_application_version' function.
 class GetApplicationVersionResponse(BaseValidatorModel):
     applicationVersion: int
     creationTime: datetime
@@ -425,6 +451,7 @@ class GetApplicationVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_deployment' function.
 class GetDeploymentResponse(BaseValidatorModel):
     applicationId: str
     applicationVersion: int
@@ -441,33 +468,39 @@ class GetSignedBluinsightsUrlResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_application_versions' function.
 class ListApplicationVersionsResponse(BaseValidatorModel):
     applicationVersions: List[ApplicationVersionSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_applications' function.
 class ListApplicationsResponse(BaseValidatorModel):
     applications: List[ApplicationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_batch_job' function.
 class StartBatchJobResponse(BaseValidatorModel):
     executionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_application' function.
 class UpdateApplicationResponse(BaseValidatorModel):
     applicationVersion: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_environment' function.
 class UpdateEnvironmentResponse(BaseValidatorModel):
     environmentId: str
     ResponseMetadata: ResponseMetadata
@@ -480,6 +513,7 @@ class DataSetImportTask(BaseValidatorModel):
     statusReason: Optional[str] = None
 
 
+# This class is the output for the 'get_data_set_import_task' function.
 class GetDataSetImportTaskResponse(BaseValidatorModel):
     status: DataSetTaskLifecycleType
     summary: DataSetImportSummary
@@ -487,24 +521,28 @@ class GetDataSetImportTaskResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_data_sets' function.
 class ListDataSetsResponse(BaseValidatorModel):
     dataSets: List[DataSetSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_deployments' function.
 class ListDeploymentsResponse(BaseValidatorModel):
     deployments: List[DeploymentSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_engine_versions' function.
 class ListEngineVersionsResponse(BaseValidatorModel):
     engineVersions: List[EngineVersionsSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_environments' function.
 class ListEnvironmentsResponse(BaseValidatorModel):
     environments: List[EnvironmentSummary]
     ResponseMetadata: ResponseMetadata
@@ -516,6 +554,7 @@ class StorageConfiguration(BaseValidatorModel):
     fsx: Optional[FsxStorageConfiguration] = None
 
 
+# This class is the output for the 'get_application' function.
 class GetApplicationResponse(BaseValidatorModel):
     applicationArn: str
     applicationId: str
@@ -551,6 +590,7 @@ class S3BatchJobIdentifier(BaseValidatorModel):
     keyPrefix: Optional[str] = None
 
 
+# This class is the output for the 'list_batch_job_restart_points' function.
 class ListBatchJobRestartPointsResponse(BaseValidatorModel):
     batchJobSteps: List[JobStep]
     ResponseMetadata: ResponseMetadata
@@ -611,6 +651,7 @@ class ListBatchJobExecutionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_batch_job_executions' function.
 class ListBatchJobExecutionsRequest(BaseValidatorModel):
     applicationId: str
     executionIds: Optional[List[str]] = None
@@ -644,18 +685,21 @@ class VsamDetailAttributes(BaseValidatorModel):
     recordFormat: Optional[str] = None
 
 
+# This class is the output for the 'list_batch_job_definitions' function.
 class ListBatchJobDefinitionsResponse(BaseValidatorModel):
     batchJobDefinitions: List[BatchJobDefinition]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_data_set_import_history' function.
 class ListDataSetImportHistoryResponse(BaseValidatorModel):
     dataSetImportTasks: List[DataSetImportTask]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_environment' function.
 class CreateEnvironmentRequest(BaseValidatorModel):
     engineType: EngineTypeType
     instanceType: str
@@ -681,6 +725,7 @@ class BatchJobIdentifier(BaseValidatorModel):
     scriptBatchJobIdentifier: Optional[ScriptBatchJobIdentifier] = None
 
 
+# This class is the output for the 'get_environment' function.
 class GetEnvironmentResponse(BaseValidatorModel):
     actualCapacity: int
     creationTime: datetime
@@ -735,6 +780,7 @@ class BatchJobExecutionSummary(BaseValidatorModel):
     returnCode: Optional[str] = None
 
 
+# This class is the output for the 'get_batch_job_execution' function.
 class GetBatchJobExecutionResponse(BaseValidatorModel):
     applicationId: str
     batchJobIdentifier: BatchJobIdentifier
@@ -752,6 +798,7 @@ class GetBatchJobExecutionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_batch_job' function.
 class StartBatchJobRequest(BaseValidatorModel):
     applicationId: str
     batchJobIdentifier: BatchJobIdentifier
@@ -767,6 +814,7 @@ class DataSet(BaseValidatorModel):
     storageType: Optional[str] = None
 
 
+# This class is the output for the 'get_data_set_details' function.
 class GetDataSetDetailsResponse(BaseValidatorModel):
     blocksize: int
     creationTime: datetime
@@ -780,6 +828,7 @@ class GetDataSetDetailsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_batch_job_executions' function.
 class ListBatchJobExecutionsResponse(BaseValidatorModel):
     batchJobExecutions: List[BatchJobExecutionSummary]
     ResponseMetadata: ResponseMetadata
@@ -796,6 +845,7 @@ class DataSetImportConfig(BaseValidatorModel):
     s3Location: Optional[str] = None
 
 
+# This class is the input for the 'create_data_set_import_task' function.
 class CreateDataSetImportTaskRequest(BaseValidatorModel):
     applicationId: str
     importConfig: DataSetImportConfig

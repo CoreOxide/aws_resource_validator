@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'batch_add_role' function.
 class BatchAddRoleInput(BaseValidatorModel):
     accessorIds: List[str]
     role: RoleType
@@ -28,12 +29,14 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'batch_remove_role' function.
 class BatchRemoveRoleInput(BaseValidatorModel):
     accessorIds: List[str]
     role: RoleType
     spaceId: str
 
 
+# This class is the input for the 'create_space' function.
 class CreateSpaceInput(BaseValidatorModel):
     name: str
     subdomain: str
@@ -44,15 +47,18 @@ class CreateSpaceInput(BaseValidatorModel):
     userKMSKey: Optional[str] = None
 
 
+# This class is the input for the 'delete_space' function.
 class DeleteSpaceInput(BaseValidatorModel):
     spaceId: str
 
 
+# This class is the input for the 'deregister_admin' function.
 class DeregisterAdminInput(BaseValidatorModel):
     adminId: str
     spaceId: str
 
 
+# This class is the input for the 'get_space' function.
 class GetSpaceInput(BaseValidatorModel):
     spaceId: str
 
@@ -63,6 +69,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_spaces' function.
 class ListSpacesInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -87,15 +94,18 @@ class SpaceData(BaseValidatorModel):
     userKMSKey: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'register_admin' function.
 class RegisterAdminInput(BaseValidatorModel):
     adminId: str
     spaceId: str
 
 
+# This class is the input for the 'send_invites' function.
 class SendInvitesInput(BaseValidatorModel):
     accessorIds: List[str]
     body: str
@@ -113,6 +123,7 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_space' function.
 class UpdateSpaceInput(BaseValidatorModel):
     spaceId: str
     description: Optional[str] = None
@@ -120,27 +131,32 @@ class UpdateSpaceInput(BaseValidatorModel):
     tier: Optional[TierLevelType] = None
 
 
+# This class is the output for the 'batch_add_role' function.
 class BatchAddRoleOutput(BaseValidatorModel):
     addedAccessorIds: List[str]
     errors: List[BatchError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_remove_role' function.
 class BatchRemoveRoleOutput(BaseValidatorModel):
     errors: List[BatchError]
     removedAccessorIds: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_space' function.
 class CreateSpaceOutput(BaseValidatorModel):
     spaceId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_space' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_space' function.
 class GetSpaceOutput(BaseValidatorModel):
     arn: str
     clientId: str
@@ -166,6 +182,7 @@ class GetSpaceOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
@@ -175,6 +192,7 @@ class ListSpacesInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_spaces' function.
 class ListSpacesOutput(BaseValidatorModel):
     spaces: List[SpaceData]
     ResponseMetadata: ResponseMetadata

@@ -14,6 +14,7 @@ class AssetSummary(BaseValidatorModel):
     hashes: Optional[Dict[HashAlgorithmType, str]] = None
 
 
+# This class is the input for the 'associate_external_connection' function.
 class AssociateExternalConnectionRequest(BaseValidatorModel):
     domain: str
     repository: str
@@ -38,6 +39,7 @@ class AssociatedPackage(BaseValidatorModel):
 Blob = Union[str, bytes, IO[Any], StreamingBody]
 
 
+# This class is the input for the 'copy_package_versions' function.
 class CopyPackageVersionsRequest(BaseValidatorModel):
     domain: str
     sourceRepository: str
@@ -83,6 +85,7 @@ class UpstreamRepository(BaseValidatorModel):
     repositoryName: str
 
 
+# This class is the input for the 'delete_domain_permissions_policy' function.
 class DeleteDomainPermissionsPolicyRequest(BaseValidatorModel):
     domain: str
     domainOwner: Optional[str] = None
@@ -95,17 +98,20 @@ class ResourcePolicy(BaseValidatorModel):
     document: Optional[str] = None
 
 
+# This class is the input for the 'delete_domain' function.
 class DeleteDomainRequest(BaseValidatorModel):
     domain: str
     domainOwner: Optional[str] = None
 
 
+# This class is the input for the 'delete_package_group' function.
 class DeletePackageGroupRequest(BaseValidatorModel):
     domain: str
     packageGroup: str
     domainOwner: Optional[str] = None
 
 
+# This class is the input for the 'delete_package' function.
 class DeletePackageRequest(BaseValidatorModel):
     domain: str
     repository: str
@@ -115,6 +121,7 @@ class DeletePackageRequest(BaseValidatorModel):
     namespace: Optional[str] = None
 
 
+# This class is the input for the 'delete_package_versions' function.
 class DeletePackageVersionsRequest(BaseValidatorModel):
     domain: str
     repository: str
@@ -126,6 +133,7 @@ class DeletePackageVersionsRequest(BaseValidatorModel):
     expectedStatus: Optional[PackageVersionStatusType] = None
 
 
+# This class is the input for the 'delete_repository_permissions_policy' function.
 class DeleteRepositoryPermissionsPolicyRequest(BaseValidatorModel):
     domain: str
     repository: str
@@ -133,23 +141,27 @@ class DeleteRepositoryPermissionsPolicyRequest(BaseValidatorModel):
     policyRevision: Optional[str] = None
 
 
+# This class is the input for the 'delete_repository' function.
 class DeleteRepositoryRequest(BaseValidatorModel):
     domain: str
     repository: str
     domainOwner: Optional[str] = None
 
 
+# This class is the input for the 'describe_domain' function.
 class DescribeDomainRequest(BaseValidatorModel):
     domain: str
     domainOwner: Optional[str] = None
 
 
+# This class is the input for the 'describe_package_group' function.
 class DescribePackageGroupRequest(BaseValidatorModel):
     domain: str
     packageGroup: str
     domainOwner: Optional[str] = None
 
 
+# This class is the input for the 'describe_package' function.
 class DescribePackageRequest(BaseValidatorModel):
     domain: str
     repository: str
@@ -159,6 +171,7 @@ class DescribePackageRequest(BaseValidatorModel):
     namespace: Optional[str] = None
 
 
+# This class is the input for the 'describe_package_version' function.
 class DescribePackageVersionRequest(BaseValidatorModel):
     domain: str
     repository: str
@@ -169,12 +182,14 @@ class DescribePackageVersionRequest(BaseValidatorModel):
     namespace: Optional[str] = None
 
 
+# This class is the input for the 'describe_repository' function.
 class DescribeRepositoryRequest(BaseValidatorModel):
     domain: str
     repository: str
     domainOwner: Optional[str] = None
 
 
+# This class is the input for the 'disassociate_external_connection' function.
 class DisassociateExternalConnectionRequest(BaseValidatorModel):
     domain: str
     repository: str
@@ -182,6 +197,7 @@ class DisassociateExternalConnectionRequest(BaseValidatorModel):
     domainOwner: Optional[str] = None
 
 
+# This class is the input for the 'dispose_package_versions' function.
 class DisposePackageVersionsRequest(BaseValidatorModel):
     domain: str
     repository: str
@@ -208,6 +224,7 @@ class DomainSummary(BaseValidatorModel):
     encryptionKey: Optional[str] = None
 
 
+# This class is the input for the 'get_associated_package_group' function.
 class GetAssociatedPackageGroupRequest(BaseValidatorModel):
     domain: str
     format: PackageFormatType
@@ -216,17 +233,20 @@ class GetAssociatedPackageGroupRequest(BaseValidatorModel):
     namespace: Optional[str] = None
 
 
+# This class is the input for the 'get_authorization_token' function.
 class GetAuthorizationTokenRequest(BaseValidatorModel):
     domain: str
     domainOwner: Optional[str] = None
     durationSeconds: Optional[int] = None
 
 
+# This class is the input for the 'get_domain_permissions_policy' function.
 class GetDomainPermissionsPolicyRequest(BaseValidatorModel):
     domain: str
     domainOwner: Optional[str] = None
 
 
+# This class is the input for the 'get_package_version_asset' function.
 class GetPackageVersionAssetRequest(BaseValidatorModel):
     domain: str
     repository: str
@@ -239,6 +259,7 @@ class GetPackageVersionAssetRequest(BaseValidatorModel):
     packageVersionRevision: Optional[str] = None
 
 
+# This class is the input for the 'get_package_version_readme' function.
 class GetPackageVersionReadmeRequest(BaseValidatorModel):
     domain: str
     repository: str
@@ -249,6 +270,7 @@ class GetPackageVersionReadmeRequest(BaseValidatorModel):
     namespace: Optional[str] = None
 
 
+# This class is the input for the 'get_repository_endpoint' function.
 class GetRepositoryEndpointRequest(BaseValidatorModel):
     domain: str
     repository: str
@@ -257,6 +279,7 @@ class GetRepositoryEndpointRequest(BaseValidatorModel):
     endpointType: Optional[EndpointTypeType] = None
 
 
+# This class is the input for the 'get_repository_permissions_policy' function.
 class GetRepositoryPermissionsPolicyRequest(BaseValidatorModel):
     domain: str
     repository: str
@@ -274,6 +297,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_allowed_repositories_for_group' function.
 class ListAllowedRepositoriesForGroupRequest(BaseValidatorModel):
     domain: str
     packageGroup: str
@@ -283,6 +307,7 @@ class ListAllowedRepositoriesForGroupRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_associated_packages' function.
 class ListAssociatedPackagesRequest(BaseValidatorModel):
     domain: str
     packageGroup: str
@@ -292,11 +317,13 @@ class ListAssociatedPackagesRequest(BaseValidatorModel):
     preview: Optional[bool] = None
 
 
+# This class is the input for the 'list_domains' function.
 class ListDomainsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_package_groups' function.
 class ListPackageGroupsRequest(BaseValidatorModel):
     domain: str
     domainOwner: Optional[str] = None
@@ -305,6 +332,7 @@ class ListPackageGroupsRequest(BaseValidatorModel):
     prefix: Optional[str] = None
 
 
+# This class is the input for the 'list_package_version_assets' function.
 class ListPackageVersionAssetsRequest(BaseValidatorModel):
     domain: str
     repository: str
@@ -317,6 +345,7 @@ class ListPackageVersionAssetsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_package_version_dependencies' function.
 class ListPackageVersionDependenciesRequest(BaseValidatorModel):
     domain: str
     repository: str
@@ -335,6 +364,7 @@ class PackageDependency(BaseValidatorModel):
     versionRequirement: Optional[str] = None
 
 
+# This class is the input for the 'list_package_versions' function.
 class ListPackageVersionsRequest(BaseValidatorModel):
     domain: str
     repository: str
@@ -349,6 +379,7 @@ class ListPackageVersionsRequest(BaseValidatorModel):
     originType: Optional[PackageVersionOriginTypeType] = None
 
 
+# This class is the input for the 'list_packages' function.
 class ListPackagesRequest(BaseValidatorModel):
     domain: str
     repository: str
@@ -362,6 +393,7 @@ class ListPackagesRequest(BaseValidatorModel):
     upstream: Optional[AllowUpstreamType] = None
 
 
+# This class is the input for the 'list_repositories_in_domain' function.
 class ListRepositoriesInDomainRequest(BaseValidatorModel):
     domain: str
     domainOwner: Optional[str] = None
@@ -381,12 +413,14 @@ class RepositorySummary(BaseValidatorModel):
     createdTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_repositories' function.
 class ListRepositoriesRequest(BaseValidatorModel):
     repositoryPrefix: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_sub_package_groups' function.
 class ListSubPackageGroupsRequest(BaseValidatorModel):
     domain: str
     packageGroup: str
@@ -395,6 +429,7 @@ class ListSubPackageGroupsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -414,6 +449,7 @@ class PackageOriginRestrictions(BaseValidatorModel):
     upstream: AllowUpstreamType
 
 
+# This class is the input for the 'put_domain_permissions_policy' function.
 class PutDomainPermissionsPolicyRequest(BaseValidatorModel):
     domain: str
     policyDocument: str
@@ -421,6 +457,7 @@ class PutDomainPermissionsPolicyRequest(BaseValidatorModel):
     policyRevision: Optional[str] = None
 
 
+# This class is the input for the 'put_repository_permissions_policy' function.
 class PutRepositoryPermissionsPolicyRequest(BaseValidatorModel):
     domain: str
     repository: str
@@ -444,6 +481,7 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_package_group' function.
 class UpdatePackageGroupRequest(BaseValidatorModel):
     domain: str
     packageGroup: str
@@ -452,6 +490,7 @@ class UpdatePackageGroupRequest(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'update_package_versions_status' function.
 class UpdatePackageVersionsStatusRequest(BaseValidatorModel):
     domain: str
     repository: str
@@ -465,12 +504,14 @@ class UpdatePackageVersionsStatusRequest(BaseValidatorModel):
     expectedStatus: Optional[PackageVersionStatusType] = None
 
 
+# This class is the output for the 'get_authorization_token' function.
 class GetAuthorizationTokenResult(BaseValidatorModel):
     authorizationToken: str
     expiration: datetime
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_package_version_asset' function.
 class GetPackageVersionAssetResult(BaseValidatorModel):
     asset: StreamingBody
     assetName: str
@@ -479,6 +520,7 @@ class GetPackageVersionAssetResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_package_version_readme' function.
 class GetPackageVersionReadmeResult(BaseValidatorModel):
     format: PackageFormatType
     namespace: str
@@ -489,17 +531,20 @@ class GetPackageVersionReadmeResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_repository_endpoint' function.
 class GetRepositoryEndpointResult(BaseValidatorModel):
     repositoryEndpoint: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_allowed_repositories_for_group' function.
 class ListAllowedRepositoriesForGroupResult(BaseValidatorModel):
     allowedRepositories: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_package_version_assets' function.
 class ListPackageVersionAssetsResult(BaseValidatorModel):
     format: PackageFormatType
     namespace: str
@@ -511,6 +556,7 @@ class ListPackageVersionAssetsResult(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'publish_package_version' function.
 class PublishPackageVersionResult(BaseValidatorModel):
     format: PackageFormatType
     namespace: str
@@ -522,12 +568,14 @@ class PublishPackageVersionResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_associated_packages' function.
 class ListAssociatedPackagesResult(BaseValidatorModel):
     packages: List[AssociatedPackage]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'publish_package_version' function.
 class PublishPackageVersionRequest(BaseValidatorModel):
     domain: str
     repository: str
@@ -542,36 +590,42 @@ class PublishPackageVersionRequest(BaseValidatorModel):
     unfinished: Optional[bool] = None
 
 
+# This class is the output for the 'copy_package_versions' function.
 class CopyPackageVersionsResult(BaseValidatorModel):
     successfulVersions: Dict[str, SuccessfulPackageVersionInfo]
     failedVersions: Dict[str, PackageVersionError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_package_versions' function.
 class DeletePackageVersionsResult(BaseValidatorModel):
     successfulVersions: Dict[str, SuccessfulPackageVersionInfo]
     failedVersions: Dict[str, PackageVersionError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'dispose_package_versions' function.
 class DisposePackageVersionsResult(BaseValidatorModel):
     successfulVersions: Dict[str, SuccessfulPackageVersionInfo]
     failedVersions: Dict[str, PackageVersionError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_package_versions_status' function.
 class UpdatePackageVersionsStatusResult(BaseValidatorModel):
     successfulVersions: Dict[str, SuccessfulPackageVersionInfo]
     failedVersions: Dict[str, PackageVersionError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_domain' function.
 class CreateDomainRequest(BaseValidatorModel):
     domain: str
     encryptionKey: Optional[str] = None
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_package_group' function.
 class CreatePackageGroupRequest(BaseValidatorModel):
     domain: str
     packageGroup: str
@@ -581,6 +635,7 @@ class CreatePackageGroupRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResult(BaseValidatorModel):
     tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -591,21 +646,25 @@ class TagResourceRequest(BaseValidatorModel):
     tags: List[Tag]
 
 
+# This class is the output for the 'create_domain' function.
 class CreateDomainResult(BaseValidatorModel):
     domain: DomainDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_domain' function.
 class DeleteDomainResult(BaseValidatorModel):
     domain: DomainDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_domain' function.
 class DescribeDomainResult(BaseValidatorModel):
     domain: DomainDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_repository' function.
 class CreateRepositoryRequest(BaseValidatorModel):
     domain: str
     repository: str
@@ -615,6 +674,7 @@ class CreateRepositoryRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_repository' function.
 class UpdateRepositoryRequest(BaseValidatorModel):
     domain: str
     repository: str
@@ -623,31 +683,37 @@ class UpdateRepositoryRequest(BaseValidatorModel):
     upstreams: Optional[List[UpstreamRepository]] = None
 
 
+# This class is the output for the 'delete_domain_permissions_policy' function.
 class DeleteDomainPermissionsPolicyResult(BaseValidatorModel):
     policy: ResourcePolicy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_repository_permissions_policy' function.
 class DeleteRepositoryPermissionsPolicyResult(BaseValidatorModel):
     policy: ResourcePolicy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_domain_permissions_policy' function.
 class GetDomainPermissionsPolicyResult(BaseValidatorModel):
     policy: ResourcePolicy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_repository_permissions_policy' function.
 class GetRepositoryPermissionsPolicyResult(BaseValidatorModel):
     policy: ResourcePolicy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_domain_permissions_policy' function.
 class PutDomainPermissionsPolicyResult(BaseValidatorModel):
     policy: ResourcePolicy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_repository_permissions_policy' function.
 class PutRepositoryPermissionsPolicyResult(BaseValidatorModel):
     policy: ResourcePolicy
     ResponseMetadata: ResponseMetadata
@@ -658,6 +724,7 @@ class PackageVersionOrigin(BaseValidatorModel):
     originType: Optional[PackageVersionOriginTypeType] = None
 
 
+# This class is the output for the 'list_domains' function.
 class ListDomainsResult(BaseValidatorModel):
     domains: List[DomainSummary]
     ResponseMetadata: ResponseMetadata
@@ -747,6 +814,7 @@ class ListSubPackageGroupsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_package_version_dependencies' function.
 class ListPackageVersionDependenciesResult(BaseValidatorModel):
     format: PackageFormatType
     namespace: str
@@ -758,18 +826,21 @@ class ListPackageVersionDependenciesResult(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_repositories_in_domain' function.
 class ListRepositoriesInDomainResult(BaseValidatorModel):
     repositories: List[RepositorySummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_repositories' function.
 class ListRepositoriesResult(BaseValidatorModel):
     repositories: List[RepositorySummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'update_package_group_origin_configuration' function.
 class UpdatePackageGroupOriginConfigurationRequest(BaseValidatorModel):
     domain: str
     packageGroup: str
@@ -790,6 +861,7 @@ class PackageOriginConfiguration(BaseValidatorModel):
     restrictions: Optional[PackageOriginRestrictions] = None
 
 
+# This class is the input for the 'put_package_origin_configuration' function.
 class PutPackageOriginConfigurationRequest(BaseValidatorModel):
     domain: str
     repository: str
@@ -853,46 +925,55 @@ class PackageSummary(BaseValidatorModel):
     originConfiguration: Optional[PackageOriginConfiguration] = None
 
 
+# This class is the output for the 'put_package_origin_configuration' function.
 class PutPackageOriginConfigurationResult(BaseValidatorModel):
     originConfiguration: PackageOriginConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_external_connection' function.
 class AssociateExternalConnectionResult(BaseValidatorModel):
     repository: RepositoryDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_repository' function.
 class CreateRepositoryResult(BaseValidatorModel):
     repository: RepositoryDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_repository' function.
 class DeleteRepositoryResult(BaseValidatorModel):
     repository: RepositoryDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_repository' function.
 class DescribeRepositoryResult(BaseValidatorModel):
     repository: RepositoryDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_external_connection' function.
 class DisassociateExternalConnectionResult(BaseValidatorModel):
     repository: RepositoryDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_repository' function.
 class UpdateRepositoryResult(BaseValidatorModel):
     repository: RepositoryDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_package_version' function.
 class DescribePackageVersionResult(BaseValidatorModel):
     packageVersion: PackageVersionDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_package_versions' function.
 class ListPackageVersionsResult(BaseValidatorModel):
     defaultDisplayVersion: str
     format: PackageFormatType
@@ -927,60 +1008,71 @@ class PackageGroupSummary(BaseValidatorModel):
     parent: Optional[PackageGroupReference] = None
 
 
+# This class is the output for the 'describe_package' function.
 class DescribePackageResult(BaseValidatorModel):
     package: PackageDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_package' function.
 class DeletePackageResult(BaseValidatorModel):
     deletedPackage: PackageSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_packages' function.
 class ListPackagesResult(BaseValidatorModel):
     packages: List[PackageSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_package_group' function.
 class CreatePackageGroupResult(BaseValidatorModel):
     packageGroup: PackageGroupDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_package_group' function.
 class DeletePackageGroupResult(BaseValidatorModel):
     packageGroup: PackageGroupDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_package_group' function.
 class DescribePackageGroupResult(BaseValidatorModel):
     packageGroup: PackageGroupDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_associated_package_group' function.
 class GetAssociatedPackageGroupResult(BaseValidatorModel):
     packageGroup: PackageGroupDescription
     associationType: PackageGroupAssociationTypeType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_package_group_origin_configuration' function.
 class UpdatePackageGroupOriginConfigurationResult(BaseValidatorModel):
     packageGroup: PackageGroupDescription
     allowedRepositoryUpdates: Dict[PackageGroupOriginRestrictionTypeType, Dict[PackageGroupAllowedRepositoryUpdateTypeType, List[str]]]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_package_group' function.
 class UpdatePackageGroupResult(BaseValidatorModel):
     packageGroup: PackageGroupDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_package_groups' function.
 class ListPackageGroupsResult(BaseValidatorModel):
     packageGroups: List[PackageGroupSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_sub_package_groups' function.
 class ListSubPackageGroupsResult(BaseValidatorModel):
     packageGroups: List[PackageGroupSummary]
     ResponseMetadata: ResponseMetadata

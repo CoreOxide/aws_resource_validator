@@ -34,6 +34,7 @@ class ApprovalThresholdPolicy(BaseValidatorModel):
     ThresholdComparator: Optional[ThresholdComparatorType] = None
 
 
+# This class is the input for the 'create_accessor' function.
 class CreateAccessorInput(BaseValidatorModel):
     ClientRequestToken: str
     AccessorType: Literal['BILLING_TOKEN']
@@ -64,25 +65,30 @@ class DeleteNodeInput(BaseValidatorModel):
     MemberId: Optional[str] = None
 
 
+# This class is the input for the 'get_accessor' function.
 class GetAccessorInput(BaseValidatorModel):
     AccessorId: str
 
 
+# This class is the input for the 'get_member' function.
 class GetMemberInput(BaseValidatorModel):
     NetworkId: str
     MemberId: str
 
 
+# This class is the input for the 'get_network' function.
 class GetNetworkInput(BaseValidatorModel):
     NetworkId: str
 
 
+# This class is the input for the 'get_node' function.
 class GetNodeInput(BaseValidatorModel):
     NetworkId: str
     NodeId: str
     MemberId: Optional[str] = None
 
 
+# This class is the input for the 'get_proposal' function.
 class GetProposalInput(BaseValidatorModel):
     NetworkId: str
     ProposalId: str
@@ -109,17 +115,20 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_accessors' function.
 class ListAccessorsInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     NetworkType: Optional[AccessorNetworkTypeType] = None
 
 
+# This class is the input for the 'list_invitations' function.
 class ListInvitationsInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_members' function.
 class ListMembersInput(BaseValidatorModel):
     NetworkId: str
     Name: Optional[str] = None
@@ -139,6 +148,7 @@ class MemberSummary(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
+# This class is the input for the 'list_networks' function.
 class ListNetworksInput(BaseValidatorModel):
     Name: Optional[str] = None
     Framework: Optional[FrameworkType] = None
@@ -147,6 +157,7 @@ class ListNetworksInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_nodes' function.
 class ListNodesInput(BaseValidatorModel):
     NetworkId: str
     MemberId: Optional[str] = None
@@ -164,6 +175,7 @@ class NodeSummary(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
+# This class is the input for the 'list_proposal_votes' function.
 class ListProposalVotesInput(BaseValidatorModel):
     NetworkId: str
     ProposalId: str
@@ -177,6 +189,7 @@ class VoteSummary(BaseValidatorModel):
     MemberId: Optional[str] = None
 
 
+# This class is the input for the 'list_proposals' function.
 class ListProposalsInput(BaseValidatorModel):
     NetworkId: str
     MaxResults: Optional[int] = None
@@ -194,6 +207,7 @@ class ProposalSummary(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -264,6 +278,7 @@ class VotingPolicy(BaseValidatorModel):
     ApprovalThresholdPolicy: Optional[ApprovalThresholdPolicy] = None
 
 
+# This class is the output for the 'create_accessor' function.
 class CreateAccessorOutput(BaseValidatorModel):
     AccessorId: str
     BillingToken: str
@@ -271,38 +286,45 @@ class CreateAccessorOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_member' function.
 class CreateMemberOutput(BaseValidatorModel):
     MemberId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_network' function.
 class CreateNetworkOutput(BaseValidatorModel):
     NetworkId: str
     MemberId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_node' function.
 class CreateNodeOutput(BaseValidatorModel):
     NodeId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_proposal' function.
 class CreateProposalOutput(BaseValidatorModel):
     ProposalId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_accessor' function.
 class GetAccessorOutput(BaseValidatorModel):
     Accessor: Accessor
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_accessors' function.
 class ListAccessorsOutput(BaseValidatorModel):
     Accessors: List[AccessorSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
@@ -317,6 +339,7 @@ class Invitation(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
+# This class is the output for the 'list_networks' function.
 class ListNetworksOutput(BaseValidatorModel):
     Networks: List[NetworkSummary]
     ResponseMetadata: ResponseMetadata
@@ -328,24 +351,28 @@ class ListAccessorsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_members' function.
 class ListMembersOutput(BaseValidatorModel):
     Members: List[MemberSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_nodes' function.
 class ListNodesOutput(BaseValidatorModel):
     Nodes: List[NodeSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_proposal_votes' function.
 class ListProposalVotesOutput(BaseValidatorModel):
     ProposalVotes: List[VoteSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_proposals' function.
 class ListProposalsOutput(BaseValidatorModel):
     Proposals: List[ProposalSummary]
     ResponseMetadata: ResponseMetadata
@@ -388,6 +415,7 @@ class ProposalActions(BaseValidatorModel):
     Removals: Optional[List[RemoveAction]] = None
 
 
+# This class is the output for the 'list_invitations' function.
 class ListInvitationsOutput(BaseValidatorModel):
     Invitations: List[Invitation]
     ResponseMetadata: ResponseMetadata
@@ -445,16 +473,19 @@ class NodeLogPublishingConfiguration(BaseValidatorModel):
     Fabric: Optional[NodeFabricLogPublishingConfiguration] = None
 
 
+# This class is the output for the 'get_network' function.
 class GetNetworkOutput(BaseValidatorModel):
     Network: Network
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_proposal' function.
 class GetProposalOutput(BaseValidatorModel):
     Proposal: Proposal
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_proposal' function.
 class CreateProposalInput(BaseValidatorModel):
     ClientRequestToken: str
     NetworkId: str
@@ -523,6 +554,7 @@ class UpdateNodeInput(BaseValidatorModel):
     LogPublishingConfiguration: Optional[NodeLogPublishingConfiguration] = None
 
 
+# This class is the input for the 'create_member' function.
 class CreateMemberInput(BaseValidatorModel):
     ClientRequestToken: str
     InvitationId: str
@@ -530,6 +562,7 @@ class CreateMemberInput(BaseValidatorModel):
     MemberConfiguration: MemberConfiguration
 
 
+# This class is the input for the 'create_network' function.
 class CreateNetworkInput(BaseValidatorModel):
     ClientRequestToken: str
     Name: str
@@ -542,11 +575,13 @@ class CreateNetworkInput(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'get_member' function.
 class GetMemberOutput(BaseValidatorModel):
     Member: Member
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_node' function.
 class CreateNodeInput(BaseValidatorModel):
     ClientRequestToken: str
     NetworkId: str
@@ -555,6 +590,7 @@ class CreateNodeInput(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'get_node' function.
 class GetNodeOutput(BaseValidatorModel):
     Node: Node
     ResponseMetadata: ResponseMetadata

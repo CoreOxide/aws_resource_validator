@@ -119,6 +119,7 @@ class TimeZone(BaseValidatorModel):
     OffsetSeconds: Optional[int] = None
 
 
+# This class is the input for the 'get_place' function.
 class GetPlaceRequest(BaseValidatorModel):
     PlaceId: str
     AdditionalFeatures: Optional[List[GetPlaceAdditionalFeatureType]] = None
@@ -253,6 +254,7 @@ class SuggestFilter(BaseValidatorModel):
     IncludeCountries: Optional[List[str]] = None
 
 
+# This class is the input for the 'geocode' function.
 class GeocodeRequest(BaseValidatorModel):
     QueryText: Optional[str] = None
     QueryComponents: Optional[GeocodeQueryComponents] = None
@@ -281,6 +283,7 @@ class PostalCodeDetails(BaseValidatorModel):
     UspsZipPlus4: Optional[UspsZipPlus4] = None
 
 
+# This class is the input for the 'reverse_geocode' function.
 class ReverseGeocodeRequest(BaseValidatorModel):
     QueryPosition: List[float]
     QueryRadius: Optional[int] = None
@@ -293,6 +296,7 @@ class ReverseGeocodeRequest(BaseValidatorModel):
     Key: Optional[str] = None
 
 
+# This class is the input for the 'search_nearby' function.
 class SearchNearbyRequest(BaseValidatorModel):
     QueryPosition: List[float]
     QueryRadius: Optional[int] = None
@@ -345,6 +349,7 @@ class SuggestHighlights(BaseValidatorModel):
     Address: Optional[SuggestAddressHighlights] = None
 
 
+# This class is the input for the 'autocomplete' function.
 class AutocompleteRequest(BaseValidatorModel):
     QueryText: str
     MaxResults: Optional[int] = None
@@ -358,6 +363,7 @@ class AutocompleteRequest(BaseValidatorModel):
     Key: Optional[str] = None
 
 
+# This class is the input for the 'search_text' function.
 class SearchTextRequest(BaseValidatorModel):
     QueryText: Optional[str] = None
     QueryId: Optional[str] = None
@@ -372,6 +378,7 @@ class SearchTextRequest(BaseValidatorModel):
     Key: Optional[str] = None
 
 
+# This class is the input for the 'suggest' function.
 class SuggestRequest(BaseValidatorModel):
     QueryText: str
     MaxResults: Optional[int] = None
@@ -420,6 +427,7 @@ class GeocodeResultItem(BaseValidatorModel):
     MatchScores: Optional[MatchScoreDetails] = None
 
 
+# This class is the output for the 'get_place' function.
 class GetPlaceResponse(BaseValidatorModel):
     PlaceId: str
     PlaceType: PlaceTypeType
@@ -507,18 +515,21 @@ class AutocompleteHighlights(BaseValidatorModel):
     Address: Optional[AutocompleteAddressHighlights] = None
 
 
+# This class is the output for the 'reverse_geocode' function.
 class ReverseGeocodeResponse(BaseValidatorModel):
     PricingBucket: str
     ResultItems: List[ReverseGeocodeResultItem]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'geocode' function.
 class GeocodeResponse(BaseValidatorModel):
     PricingBucket: str
     ResultItems: List[GeocodeResultItem]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_nearby' function.
 class SearchNearbyResponse(BaseValidatorModel):
     PricingBucket: str
     ResultItems: List[SearchNearbyResultItem]
@@ -526,6 +537,7 @@ class SearchNearbyResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'search_text' function.
 class SearchTextResponse(BaseValidatorModel):
     PricingBucket: str
     ResultItems: List[SearchTextResultItem]
@@ -552,6 +564,7 @@ class AutocompleteResultItem(BaseValidatorModel):
     Highlights: Optional[AutocompleteHighlights] = None
 
 
+# This class is the output for the 'suggest' function.
 class SuggestResponse(BaseValidatorModel):
     PricingBucket: str
     ResultItems: List[SuggestResultItem]
@@ -559,6 +572,7 @@ class SuggestResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'autocomplete' function.
 class AutocompleteResponse(BaseValidatorModel):
     PricingBucket: str
     ResultItems: List[AutocompleteResultItem]

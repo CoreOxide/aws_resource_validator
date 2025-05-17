@@ -33,6 +33,7 @@ class UniqueSources(BaseValidatorModel):
     Count: Optional[int] = None
 
 
+# This class is the input for the 'associate_firewall_policy' function.
 class AssociateFirewallPolicyRequest(BaseValidatorModel):
     FirewallPolicyArn: str
     UpdateToken: Optional[str] = None
@@ -84,11 +85,13 @@ class SourceMetadata(BaseValidatorModel):
     SourceUpdateToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_firewall_policy' function.
 class DeleteFirewallPolicyRequest(BaseValidatorModel):
     FirewallPolicyName: Optional[str] = None
     FirewallPolicyArn: Optional[str] = None
 
 
+# This class is the input for the 'delete_firewall' function.
 class DeleteFirewallRequest(BaseValidatorModel):
     FirewallName: Optional[str] = None
     FirewallArn: Optional[str] = None
@@ -98,36 +101,43 @@ class DeleteResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'delete_rule_group' function.
 class DeleteRuleGroupRequest(BaseValidatorModel):
     RuleGroupName: Optional[str] = None
     RuleGroupArn: Optional[str] = None
     Type: Optional[RuleGroupTypeType] = None
 
 
+# This class is the input for the 'delete_tls_inspection_configuration' function.
 class DeleteTLSInspectionConfigurationRequest(BaseValidatorModel):
     TLSInspectionConfigurationArn: Optional[str] = None
     TLSInspectionConfigurationName: Optional[str] = None
 
 
+# This class is the input for the 'describe_firewall_policy' function.
 class DescribeFirewallPolicyRequest(BaseValidatorModel):
     FirewallPolicyName: Optional[str] = None
     FirewallPolicyArn: Optional[str] = None
 
 
+# This class is the input for the 'describe_firewall' function.
 class DescribeFirewallRequest(BaseValidatorModel):
     FirewallName: Optional[str] = None
     FirewallArn: Optional[str] = None
 
 
+# This class is the input for the 'describe_logging_configuration' function.
 class DescribeLoggingConfigurationRequest(BaseValidatorModel):
     FirewallArn: Optional[str] = None
     FirewallName: Optional[str] = None
 
 
+# This class is the input for the 'describe_resource_policy' function.
 class DescribeResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'describe_rule_group_metadata' function.
 class DescribeRuleGroupMetadataRequest(BaseValidatorModel):
     RuleGroupName: Optional[str] = None
     RuleGroupArn: Optional[str] = None
@@ -138,6 +148,7 @@ class StatefulRuleOptions(BaseValidatorModel):
     RuleOrder: Optional[RuleOrderType] = None
 
 
+# This class is the input for the 'describe_rule_group' function.
 class DescribeRuleGroupRequest(BaseValidatorModel):
     RuleGroupName: Optional[str] = None
     RuleGroupArn: Optional[str] = None
@@ -145,6 +156,7 @@ class DescribeRuleGroupRequest(BaseValidatorModel):
     AnalyzeRuleGroup: Optional[bool] = None
 
 
+# This class is the input for the 'describe_tls_inspection_configuration' function.
 class DescribeTLSInspectionConfigurationRequest(BaseValidatorModel):
     TLSInspectionConfigurationArn: Optional[str] = None
     TLSInspectionConfigurationName: Optional[str] = None
@@ -154,6 +166,7 @@ class Dimension(BaseValidatorModel):
     Value: str
 
 
+# This class is the input for the 'disassociate_subnets' function.
 class DisassociateSubnetsRequest(BaseValidatorModel):
     SubnetIds: List[str]
     UpdateToken: Optional[str] = None
@@ -186,6 +199,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'get_analysis_report_results' function.
 class GetAnalysisReportResultsRequest(BaseValidatorModel):
     AnalysisReportId: str
     FirewallName: Optional[str] = None
@@ -215,6 +229,7 @@ class IPSet(BaseValidatorModel):
     Definition: List[str]
 
 
+# This class is the input for the 'list_analysis_reports' function.
 class ListAnalysisReportsRequest(BaseValidatorModel):
     FirewallName: Optional[str] = None
     FirewallArn: Optional[str] = None
@@ -222,17 +237,20 @@ class ListAnalysisReportsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_firewall_policies' function.
 class ListFirewallPoliciesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_firewalls' function.
 class ListFirewallsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     VpcIds: Optional[List[str]] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_rule_groups' function.
 class ListRuleGroupsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -246,6 +264,7 @@ class RuleGroupMetadata(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
+# This class is the input for the 'list_tls_inspection_configurations' function.
 class ListTLSInspectionConfigurationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -256,6 +275,7 @@ class TLSInspectionConfigurationMetadata(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
     NextToken: Optional[str] = None
@@ -333,6 +353,7 @@ class ServerCertificate(BaseValidatorModel):
     ResourceArn: Optional[str] = None
 
 
+# This class is the input for the 'start_analysis_report' function.
 class StartAnalysisReportRequest(BaseValidatorModel):
     AnalysisType: EnabledAnalysisTypeType
     FirewallName: Optional[str] = None
@@ -355,6 +376,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_firewall_analysis_settings' function.
 class UpdateFirewallAnalysisSettingsRequest(BaseValidatorModel):
     EnabledAnalysisTypes: Optional[List[EnabledAnalysisTypeType]] = None
     FirewallArn: Optional[str] = None
@@ -362,6 +384,7 @@ class UpdateFirewallAnalysisSettingsRequest(BaseValidatorModel):
     UpdateToken: Optional[str] = None
 
 
+# This class is the input for the 'update_firewall_delete_protection' function.
 class UpdateFirewallDeleteProtectionRequest(BaseValidatorModel):
     DeleteProtection: bool
     UpdateToken: Optional[str] = None
@@ -369,6 +392,7 @@ class UpdateFirewallDeleteProtectionRequest(BaseValidatorModel):
     FirewallName: Optional[str] = None
 
 
+# This class is the input for the 'update_firewall_description' function.
 class UpdateFirewallDescriptionRequest(BaseValidatorModel):
     UpdateToken: Optional[str] = None
     FirewallArn: Optional[str] = None
@@ -376,6 +400,7 @@ class UpdateFirewallDescriptionRequest(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'update_firewall_policy_change_protection' function.
 class UpdateFirewallPolicyChangeProtectionRequest(BaseValidatorModel):
     FirewallPolicyChangeProtection: bool
     UpdateToken: Optional[str] = None
@@ -383,6 +408,7 @@ class UpdateFirewallPolicyChangeProtectionRequest(BaseValidatorModel):
     FirewallName: Optional[str] = None
 
 
+# This class is the input for the 'update_subnet_change_protection' function.
 class UpdateSubnetChangeProtectionRequest(BaseValidatorModel):
     SubnetChangeProtection: bool
     UpdateToken: Optional[str] = None
@@ -399,6 +425,7 @@ class AnalysisTypeReportResult(BaseValidatorModel):
     UniqueSources: Optional[UniqueSources] = None
 
 
+# This class is the output for the 'associate_firewall_policy' function.
 class AssociateFirewallPolicyResponse(BaseValidatorModel):
     FirewallArn: str
     FirewallName: str
@@ -407,22 +434,26 @@ class AssociateFirewallPolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_resource_policy' function.
 class DescribeResourcePolicyResponse(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_analysis_reports' function.
 class ListAnalysisReportsResponse(BaseValidatorModel):
     AnalysisReports: List[AnalysisReport]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_analysis_report' function.
 class StartAnalysisReportResponse(BaseValidatorModel):
     AnalysisReportId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_firewall_analysis_settings' function.
 class UpdateFirewallAnalysisSettingsResponse(BaseValidatorModel):
     EnabledAnalysisTypes: List[EnabledAnalysisTypeType]
     FirewallArn: str
@@ -431,6 +462,7 @@ class UpdateFirewallAnalysisSettingsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_firewall_delete_protection' function.
 class UpdateFirewallDeleteProtectionResponse(BaseValidatorModel):
     FirewallArn: str
     FirewallName: str
@@ -439,6 +471,7 @@ class UpdateFirewallDeleteProtectionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_firewall_description' function.
 class UpdateFirewallDescriptionResponse(BaseValidatorModel):
     FirewallArn: str
     FirewallName: str
@@ -447,6 +480,7 @@ class UpdateFirewallDescriptionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_firewall_policy_change_protection' function.
 class UpdateFirewallPolicyChangeProtectionResponse(BaseValidatorModel):
     UpdateToken: str
     FirewallArn: str
@@ -455,6 +489,7 @@ class UpdateFirewallPolicyChangeProtectionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_subnet_change_protection' function.
 class UpdateSubnetChangeProtectionResponse(BaseValidatorModel):
     UpdateToken: str
     FirewallArn: str
@@ -463,6 +498,7 @@ class UpdateSubnetChangeProtectionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'associate_subnets' function.
 class AssociateSubnetsRequest(BaseValidatorModel):
     SubnetMappings: List[SubnetMapping]
     UpdateToken: Optional[str] = None
@@ -470,6 +506,7 @@ class AssociateSubnetsRequest(BaseValidatorModel):
     FirewallName: Optional[str] = None
 
 
+# This class is the output for the 'associate_subnets' function.
 class AssociateSubnetsResponse(BaseValidatorModel):
     FirewallArn: str
     FirewallName: str
@@ -478,6 +515,7 @@ class AssociateSubnetsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_subnets' function.
 class DisassociateSubnetsResponse(BaseValidatorModel):
     FirewallArn: str
     FirewallName: str
@@ -492,6 +530,7 @@ class CIDRSummary(BaseValidatorModel):
     IPSetReferences: Optional[Dict[str, IPSetMetadata]] = None
 
 
+# This class is the input for the 'update_firewall_encryption_configuration' function.
 class UpdateFirewallEncryptionConfigurationRequest(BaseValidatorModel):
     UpdateToken: Optional[str] = None
     FirewallArn: Optional[str] = None
@@ -499,6 +538,7 @@ class UpdateFirewallEncryptionConfigurationRequest(BaseValidatorModel):
     EncryptionConfiguration: Optional[EncryptionConfiguration] = None
 
 
+# This class is the output for the 'update_firewall_encryption_configuration' function.
 class UpdateFirewallEncryptionConfigurationResponse(BaseValidatorModel):
     FirewallArn: str
     FirewallName: str
@@ -507,6 +547,7 @@ class UpdateFirewallEncryptionConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_firewall' function.
 class CreateFirewallRequest(BaseValidatorModel):
     FirewallName: str
     FirewallPolicyArn: str
@@ -551,6 +592,7 @@ class Firewall(BaseValidatorModel):
     EnabledAnalysisTypes: Optional[List[EnabledAnalysisTypeType]] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -580,6 +622,7 @@ class RuleGroupResponse(BaseValidatorModel):
     AnalysisResults: Optional[List[AnalysisResult]] = None
 
 
+# This class is the output for the 'describe_rule_group_metadata' function.
 class DescribeRuleGroupMetadataResponse(BaseValidatorModel):
     RuleGroupArn: str
     RuleGroupName: str
@@ -599,12 +642,14 @@ class PublishMetricAction(BaseValidatorModel):
     Dimensions: List[Dimension]
 
 
+# This class is the output for the 'list_firewalls' function.
 class ListFirewallsResponse(BaseValidatorModel):
     Firewalls: List[FirewallMetadata]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_firewall_policies' function.
 class ListFirewallPoliciesResponse(BaseValidatorModel):
     FirewallPolicies: List[FirewallPolicyMetadata]
     ResponseMetadata: ResponseMetadata
@@ -671,12 +716,14 @@ class PolicyVariables(BaseValidatorModel):
     RuleVariables: Optional[Dict[str, IPSet]] = None
 
 
+# This class is the output for the 'list_rule_groups' function.
 class ListRuleGroupsResponse(BaseValidatorModel):
     RuleGroups: List[RuleGroupMetadata]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tls_inspection_configurations' function.
 class ListTLSInspectionConfigurationsResponse(BaseValidatorModel):
     TLSInspectionConfigurations: List[TLSInspectionConfigurationMetadata]
     ResponseMetadata: ResponseMetadata
@@ -772,6 +819,7 @@ class TLSInspectionConfigurationResponse(BaseValidatorModel):
     CertificateAuthority: Optional[TlsCertificateData] = None
 
 
+# This class is the output for the 'get_analysis_report_results' function.
 class GetAnalysisReportResultsResponse(BaseValidatorModel):
     Status: str
     StartTime: datetime
@@ -787,34 +835,40 @@ class CapacityUsageSummary(BaseValidatorModel):
     CIDRs: Optional[CIDRSummary] = None
 
 
+# This class is the output for the 'create_firewall_policy' function.
 class CreateFirewallPolicyResponse(BaseValidatorModel):
     UpdateToken: str
     FirewallPolicyResponse: FirewallPolicyResponse
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_firewall_policy' function.
 class DeleteFirewallPolicyResponse(BaseValidatorModel):
     FirewallPolicyResponse: FirewallPolicyResponse
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_firewall_policy' function.
 class UpdateFirewallPolicyResponse(BaseValidatorModel):
     UpdateToken: str
     FirewallPolicyResponse: FirewallPolicyResponse
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_rule_group' function.
 class CreateRuleGroupResponse(BaseValidatorModel):
     UpdateToken: str
     RuleGroupResponse: RuleGroupResponse
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_rule_group' function.
 class DeleteRuleGroupResponse(BaseValidatorModel):
     RuleGroupResponse: RuleGroupResponse
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_rule_group' function.
 class UpdateRuleGroupResponse(BaseValidatorModel):
     UpdateToken: str
     RuleGroupResponse: RuleGroupResponse
@@ -829,12 +883,14 @@ class ActionDefinition(BaseValidatorModel):
     PublishMetricAction: Optional[PublishMetricAction] = None
 
 
+# This class is the output for the 'describe_logging_configuration' function.
 class DescribeLoggingConfigurationResponse(BaseValidatorModel):
     FirewallArn: str
     LoggingConfiguration: LoggingConfigurationOutput
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_logging_configuration' function.
 class UpdateLoggingConfigurationResponse(BaseValidatorModel):
     FirewallArn: str
     FirewallName: str
@@ -868,17 +924,20 @@ class RuleDefinition(BaseValidatorModel):
     Actions: List[str]
 
 
+# This class is the output for the 'create_tls_inspection_configuration' function.
 class CreateTLSInspectionConfigurationResponse(BaseValidatorModel):
     UpdateToken: str
     TLSInspectionConfigurationResponse: TLSInspectionConfigurationResponse
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_tls_inspection_configuration' function.
 class DeleteTLSInspectionConfigurationResponse(BaseValidatorModel):
     TLSInspectionConfigurationResponse: TLSInspectionConfigurationResponse
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_tls_inspection_configuration' function.
 class UpdateTLSInspectionConfigurationResponse(BaseValidatorModel):
     UpdateToken: str
     TLSInspectionConfigurationResponse: TLSInspectionConfigurationResponse
@@ -902,6 +961,7 @@ class CustomAction(BaseValidatorModel):
     ActionDefinition: ActionDefinition
 
 
+# This class is the input for the 'update_logging_configuration' function.
 class UpdateLoggingConfigurationRequest(BaseValidatorModel):
     FirewallArn: Optional[str] = None
     FirewallName: Optional[str] = None
@@ -926,18 +986,21 @@ class StatelessRule(BaseValidatorModel):
     Priority: int
 
 
+# This class is the output for the 'create_firewall' function.
 class CreateFirewallResponse(BaseValidatorModel):
     Firewall: Firewall
     FirewallStatus: FirewallStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_firewall' function.
 class DeleteFirewallResponse(BaseValidatorModel):
     Firewall: Firewall
     FirewallStatus: FirewallStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_firewall' function.
 class DescribeFirewallResponse(BaseValidatorModel):
     UpdateToken: str
     Firewall: Firewall
@@ -969,6 +1032,7 @@ class FirewallPolicy(BaseValidatorModel):
     PolicyVariables: Optional[PolicyVariables] = None
 
 
+# This class is the output for the 'describe_tls_inspection_configuration' function.
 class DescribeTLSInspectionConfigurationResponse(BaseValidatorModel):
     UpdateToken: str
     TLSInspectionConfiguration: TLSInspectionConfigurationOutput
@@ -988,6 +1052,7 @@ class StatelessRulesAndCustomActions(BaseValidatorModel):
     CustomActions: Optional[List[CustomAction]] = None
 
 
+# This class is the output for the 'describe_firewall_policy' function.
 class DescribeFirewallPolicyResponse(BaseValidatorModel):
     UpdateToken: str
     FirewallPolicyResponse: FirewallPolicyResponse
@@ -997,6 +1062,7 @@ class DescribeFirewallPolicyResponse(BaseValidatorModel):
 FirewallPolicyUnion = Union[FirewallPolicy, FirewallPolicyOutput]
 
 
+# This class is the input for the 'create_tls_inspection_configuration' function.
 class CreateTLSInspectionConfigurationRequest(BaseValidatorModel):
     TLSInspectionConfigurationName: str
     TLSInspectionConfiguration: TLSInspectionConfigurationUnion
@@ -1005,6 +1071,7 @@ class CreateTLSInspectionConfigurationRequest(BaseValidatorModel):
     EncryptionConfiguration: Optional[EncryptionConfiguration] = None
 
 
+# This class is the input for the 'update_tls_inspection_configuration' function.
 class UpdateTLSInspectionConfigurationRequest(BaseValidatorModel):
     TLSInspectionConfiguration: TLSInspectionConfigurationUnion
     UpdateToken: str
@@ -1028,6 +1095,7 @@ class RulesSource(BaseValidatorModel):
     StatelessRulesAndCustomActions: Optional[StatelessRulesAndCustomActions] = None
 
 
+# This class is the input for the 'create_firewall_policy' function.
 class CreateFirewallPolicyRequest(BaseValidatorModel):
     FirewallPolicyName: str
     FirewallPolicy: FirewallPolicyUnion
@@ -1037,6 +1105,7 @@ class CreateFirewallPolicyRequest(BaseValidatorModel):
     EncryptionConfiguration: Optional[EncryptionConfiguration] = None
 
 
+# This class is the input for the 'update_firewall_policy' function.
 class UpdateFirewallPolicyRequest(BaseValidatorModel):
     UpdateToken: str
     FirewallPolicy: FirewallPolicyUnion
@@ -1061,6 +1130,7 @@ class RuleGroup(BaseValidatorModel):
     StatefulRuleOptions: Optional[StatefulRuleOptions] = None
 
 
+# This class is the output for the 'describe_rule_group' function.
 class DescribeRuleGroupResponse(BaseValidatorModel):
     UpdateToken: str
     RuleGroup: RuleGroupOutput
@@ -1070,6 +1140,7 @@ class DescribeRuleGroupResponse(BaseValidatorModel):
 RuleGroupUnion = Union[RuleGroup, RuleGroupOutput]
 
 
+# This class is the input for the 'create_rule_group' function.
 class CreateRuleGroupRequest(BaseValidatorModel):
     RuleGroupName: str
     Type: RuleGroupTypeType
@@ -1084,6 +1155,7 @@ class CreateRuleGroupRequest(BaseValidatorModel):
     AnalyzeRuleGroup: Optional[bool] = None
 
 
+# This class is the input for the 'update_rule_group' function.
 class UpdateRuleGroupRequest(BaseValidatorModel):
     UpdateToken: str
     RuleGroupArn: Optional[str] = None

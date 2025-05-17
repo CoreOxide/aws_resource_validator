@@ -40,15 +40,18 @@ class BatchPutMetricsError(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'batch_get_metrics' function.
 class BatchGetMetricsRequest(BaseValidatorModel):
     MetricQueries: List[MetricQuery]
 
 
+# This class is the output for the 'batch_get_metrics' function.
 class BatchGetMetricsResponse(BaseValidatorModel):
     MetricQueryResults: List[MetricQueryResult]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_put_metrics' function.
 class BatchPutMetricsResponse(BaseValidatorModel):
     Errors: List[BatchPutMetricsError]
     ResponseMetadata: ResponseMetadata
@@ -61,6 +64,7 @@ class RawMetricData(BaseValidatorModel):
     Step: Optional[int] = None
 
 
+# This class is the input for the 'batch_put_metrics' function.
 class BatchPutMetricsRequest(BaseValidatorModel):
     TrialComponentName: str
     MetricData: List[RawMetricData]

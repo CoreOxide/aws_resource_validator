@@ -182,6 +182,7 @@ class BandwidthReductionFilterSettings(BaseValidatorModel):
     Strength: Optional[BandwidthReductionFilterStrengthType] = None
 
 
+# This class is the input for the 'batch_delete' function.
 class BatchDeleteRequest(BaseValidatorModel):
     ChannelIds: Optional[List[str]] = None
     InputIds: Optional[List[str]] = None
@@ -214,11 +215,13 @@ class BatchScheduleActionDeleteRequest(BaseValidatorModel):
     ActionNames: List[str]
 
 
+# This class is the input for the 'batch_start' function.
 class BatchStartRequest(BaseValidatorModel):
     ChannelIds: Optional[List[str]] = None
     MultiplexIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'batch_stop' function.
 class BatchStopRequest(BaseValidatorModel):
     ChannelIds: Optional[List[str]] = None
     MultiplexIds: Optional[List[str]] = None
@@ -382,6 +385,7 @@ class ColorCorrection(BaseValidatorModel):
     Uri: str
 
 
+# This class is the input for the 'create_channel_placement_group' function.
 class CreateChannelPlacementGroupRequest(BaseValidatorModel):
     ClusterId: str
     Name: Optional[str] = None
@@ -401,6 +405,7 @@ class VpcOutputSettings(BaseValidatorModel):
     SecurityGroupIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'create_cloud_watch_alarm_template_group' function.
 class CreateCloudWatchAlarmTemplateGroupRequest(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
@@ -408,6 +413,7 @@ class CreateCloudWatchAlarmTemplateGroupRequest(BaseValidatorModel):
     RequestId: Optional[str] = None
 
 
+# This class is the input for the 'create_cloud_watch_alarm_template' function.
 class CreateCloudWatchAlarmTemplateRequest(BaseValidatorModel):
     ComparisonOperator: CloudWatchAlarmTemplateComparisonOperatorType
     EvaluationPeriods: int
@@ -425,6 +431,7 @@ class CreateCloudWatchAlarmTemplateRequest(BaseValidatorModel):
     RequestId: Optional[str] = None
 
 
+# This class is the input for the 'create_event_bridge_rule_template_group' function.
 class CreateEventBridgeRuleTemplateGroupRequest(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
@@ -496,12 +503,14 @@ class NodeInterfaceMappingCreateRequest(BaseValidatorModel):
     PhysicalInterfaceName: Optional[str] = None
 
 
+# This class is the input for the 'create_partner_input' function.
 class CreatePartnerInputRequest(BaseValidatorModel):
     InputId: str
     RequestId: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_signal_map' function.
 class CreateSignalMapRequest(BaseValidatorModel):
     DiscoveryEntryPointArn: str
     Name: str
@@ -523,36 +532,44 @@ class SuccessfulMonitorDeployment(BaseValidatorModel):
     Status: SignalMapMonitorDeploymentStatusType
 
 
+# This class is the input for the 'create_tags' function.
 class CreateTagsRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'delete_channel_placement_group' function.
 class DeleteChannelPlacementGroupRequest(BaseValidatorModel):
     ChannelPlacementGroupId: str
     ClusterId: str
 
 
+# This class is the input for the 'delete_channel' function.
 class DeleteChannelRequest(BaseValidatorModel):
     ChannelId: str
 
 
+# This class is the input for the 'delete_cloud_watch_alarm_template_group' function.
 class DeleteCloudWatchAlarmTemplateGroupRequest(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'delete_cloud_watch_alarm_template' function.
 class DeleteCloudWatchAlarmTemplateRequest(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'delete_cluster' function.
 class DeleteClusterRequest(BaseValidatorModel):
     ClusterId: str
 
 
+# This class is the input for the 'delete_event_bridge_rule_template_group' function.
 class DeleteEventBridgeRuleTemplateGroupRequest(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'delete_event_bridge_rule_template' function.
 class DeleteEventBridgeRuleTemplateRequest(BaseValidatorModel):
     Identifier: str
 
@@ -565,6 +582,7 @@ class DeleteInputSecurityGroupRequest(BaseValidatorModel):
     InputSecurityGroupId: str
 
 
+# This class is the input for the 'delete_multiplex_program' function.
 class DeleteMultiplexProgramRequest(BaseValidatorModel):
     MultiplexId: str
     ProgramName: str
@@ -595,19 +613,23 @@ class MultiplexProgramPipelineDetail(BaseValidatorModel):
     PipelineId: Optional[str] = None
 
 
+# This class is the input for the 'delete_multiplex' function.
 class DeleteMultiplexRequest(BaseValidatorModel):
     MultiplexId: str
 
 
+# This class is the input for the 'delete_network' function.
 class DeleteNetworkRequest(BaseValidatorModel):
     NetworkId: str
 
 
+# This class is the input for the 'delete_node' function.
 class DeleteNodeRequest(BaseValidatorModel):
     ClusterId: str
     NodeId: str
 
 
+# This class is the input for the 'delete_reservation' function.
 class DeleteReservationRequest(BaseValidatorModel):
     ReservationId: str
 
@@ -632,15 +654,18 @@ class DeleteScheduleRequest(BaseValidatorModel):
     ChannelId: str
 
 
+# This class is the input for the 'delete_signal_map' function.
 class DeleteSignalMapRequest(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'delete_tags' function.
 class DeleteTagsRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: List[str]
 
 
+# This class is the input for the 'describe_channel_placement_group' function.
 class DescribeChannelPlacementGroupRequest(BaseValidatorModel):
     ChannelPlacementGroupId: str
     ClusterId: str
@@ -661,14 +686,17 @@ class DescribeChannelPlacementGroupSummary(BaseValidatorModel):
     State: Optional[ChannelPlacementGroupStateType] = None
 
 
+# This class is the input for the 'describe_channel' function.
 class DescribeChannelRequest(BaseValidatorModel):
     ChannelId: str
 
 
+# This class is the input for the 'describe_cluster' function.
 class DescribeClusterRequest(BaseValidatorModel):
     ClusterId: str
 
 
+# This class is the input for the 'describe_input_device' function.
 class DescribeInputDeviceRequest(BaseValidatorModel):
     InputDeviceId: str
 
@@ -693,11 +721,13 @@ class InputDeviceNetworkSettings(BaseValidatorModel):
     SubnetMask: Optional[str] = None
 
 
+# This class is the input for the 'describe_input_device_thumbnail' function.
 class DescribeInputDeviceThumbnailRequest(BaseValidatorModel):
     InputDeviceId: str
     Accept: Literal['image/jpeg']
 
 
+# This class is the input for the 'describe_input' function.
 class DescribeInputRequest(BaseValidatorModel):
     InputId: str
 
@@ -712,6 +742,7 @@ class MediaConnectFlow(BaseValidatorModel):
     FlowArn: Optional[str] = None
 
 
+# This class is the input for the 'describe_input_security_group' function.
 class DescribeInputSecurityGroupRequest(BaseValidatorModel):
     InputSecurityGroupId: str
 
@@ -720,28 +751,34 @@ class InputWhitelistRule(BaseValidatorModel):
     Cidr: Optional[str] = None
 
 
+# This class is the input for the 'describe_multiplex_program' function.
 class DescribeMultiplexProgramRequest(BaseValidatorModel):
     MultiplexId: str
     ProgramName: str
 
 
+# This class is the input for the 'describe_multiplex' function.
 class DescribeMultiplexRequest(BaseValidatorModel):
     MultiplexId: str
 
 
+# This class is the input for the 'describe_network' function.
 class DescribeNetworkRequest(BaseValidatorModel):
     NetworkId: str
 
 
+# This class is the input for the 'describe_node' function.
 class DescribeNodeRequest(BaseValidatorModel):
     ClusterId: str
     NodeId: str
 
 
+# This class is the input for the 'describe_offering' function.
 class DescribeOfferingRequest(BaseValidatorModel):
     OfferingId: str
 
 
+# This class is the input for the 'describe_reservation' function.
 class DescribeReservationRequest(BaseValidatorModel):
     ReservationId: str
 
@@ -752,12 +789,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_schedule' function.
 class DescribeScheduleRequest(BaseValidatorModel):
     ChannelId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_thumbnails' function.
 class DescribeThumbnailsRequest(BaseValidatorModel):
     ChannelId: str
     PipelineId: str
@@ -867,22 +906,27 @@ class FrameCaptureOutputSettings(BaseValidatorModel):
     NameModifier: Optional[str] = None
 
 
+# This class is the input for the 'get_cloud_watch_alarm_template_group' function.
 class GetCloudWatchAlarmTemplateGroupRequest(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'get_cloud_watch_alarm_template' function.
 class GetCloudWatchAlarmTemplateRequest(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'get_event_bridge_rule_template_group' function.
 class GetEventBridgeRuleTemplateGroupRequest(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'get_event_bridge_rule_template' function.
 class GetEventBridgeRuleTemplateRequest(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'get_signal_map' function.
 class GetSignalMapRequest(BaseValidatorModel):
     Identifier: str
 
@@ -1019,17 +1063,20 @@ class IpPoolUpdateRequest(BaseValidatorModel):
     Cidr: Optional[str] = None
 
 
+# This class is the input for the 'list_channel_placement_groups' function.
 class ListChannelPlacementGroupsRequest(BaseValidatorModel):
     ClusterId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_channels' function.
 class ListChannelsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_cloud_watch_alarm_template_groups' function.
 class ListCloudWatchAlarmTemplateGroupsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -1037,6 +1084,7 @@ class ListCloudWatchAlarmTemplateGroupsRequest(BaseValidatorModel):
     SignalMapIdentifier: Optional[str] = None
 
 
+# This class is the input for the 'list_cloud_watch_alarm_templates' function.
 class ListCloudWatchAlarmTemplatesRequest(BaseValidatorModel):
     GroupIdentifier: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -1045,17 +1093,20 @@ class ListCloudWatchAlarmTemplatesRequest(BaseValidatorModel):
     SignalMapIdentifier: Optional[str] = None
 
 
+# This class is the input for the 'list_clusters' function.
 class ListClustersRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_event_bridge_rule_template_groups' function.
 class ListEventBridgeRuleTemplateGroupsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     SignalMapIdentifier: Optional[str] = None
 
 
+# This class is the input for the 'list_event_bridge_rule_templates' function.
 class ListEventBridgeRuleTemplatesRequest(BaseValidatorModel):
     GroupIdentifier: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -1063,6 +1114,7 @@ class ListEventBridgeRuleTemplatesRequest(BaseValidatorModel):
     SignalMapIdentifier: Optional[str] = None
 
 
+# This class is the input for the 'list_input_device_transfers' function.
 class ListInputDeviceTransfersRequest(BaseValidatorModel):
     TransferType: str
     MaxResults: Optional[int] = None
@@ -1076,21 +1128,25 @@ class TransferringInputDeviceSummary(BaseValidatorModel):
     TransferType: Optional[InputDeviceTransferTypeType] = None
 
 
+# This class is the input for the 'list_input_devices' function.
 class ListInputDevicesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_input_security_groups' function.
 class ListInputSecurityGroupsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_inputs' function.
 class ListInputsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_multiplex_programs' function.
 class ListMultiplexProgramsRequest(BaseValidatorModel):
     MultiplexId: str
     MaxResults: Optional[int] = None
@@ -1102,22 +1158,26 @@ class MultiplexProgramSummary(BaseValidatorModel):
     ProgramName: Optional[str] = None
 
 
+# This class is the input for the 'list_multiplexes' function.
 class ListMultiplexesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_networks' function.
 class ListNetworksRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_nodes' function.
 class ListNodesRequest(BaseValidatorModel):
     ClusterId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_offerings' function.
 class ListOfferingsRequest(BaseValidatorModel):
     ChannelClass: Optional[str] = None
     ChannelConfiguration: Optional[str] = None
@@ -1133,6 +1193,7 @@ class ListOfferingsRequest(BaseValidatorModel):
     VideoQuality: Optional[str] = None
 
 
+# This class is the input for the 'list_reservations' function.
 class ListReservationsRequest(BaseValidatorModel):
     ChannelClass: Optional[str] = None
     Codec: Optional[str] = None
@@ -1146,6 +1207,7 @@ class ListReservationsRequest(BaseValidatorModel):
     VideoQuality: Optional[str] = None
 
 
+# This class is the input for the 'list_signal_maps' function.
 class ListSignalMapsRequest(BaseValidatorModel):
     CloudWatchAlarmTemplateGroupIdentifier: Optional[str] = None
     EventBridgeRuleTemplateGroupIdentifier: Optional[str] = None
@@ -1165,6 +1227,7 @@ class SignalMapSummary(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -1378,6 +1441,7 @@ class RejectInputDeviceTransferRequest(BaseValidatorModel):
     InputDeviceId: str
 
 
+# This class is the input for the 'restart_channel_pipelines' function.
 class RestartChannelPipelinesRequest(BaseValidatorModel):
     ChannelId: str
     PipelineIds: Optional[List[ChannelPipelineIdToRestartType]] = None
@@ -1434,10 +1498,12 @@ class SrtCallerDecryption(BaseValidatorModel):
     PassphraseSecretArn: Optional[str] = None
 
 
+# This class is the input for the 'start_channel' function.
 class StartChannelRequest(BaseValidatorModel):
     ChannelId: str
 
 
+# This class is the input for the 'start_delete_monitor_deployment' function.
 class StartDeleteMonitorDeploymentRequest(BaseValidatorModel):
     Identifier: str
 
@@ -1450,15 +1516,18 @@ class StartInputDeviceRequest(BaseValidatorModel):
     InputDeviceId: str
 
 
+# This class is the input for the 'start_monitor_deployment' function.
 class StartMonitorDeploymentRequest(BaseValidatorModel):
     Identifier: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'start_multiplex' function.
 class StartMultiplexRequest(BaseValidatorModel):
     MultiplexId: str
 
 
+# This class is the input for the 'start_update_signal_map' function.
 class StartUpdateSignalMapRequest(BaseValidatorModel):
     Identifier: str
     CloudWatchAlarmTemplateGroupIdentifiers: Optional[List[str]] = None
@@ -1475,6 +1544,7 @@ class StaticImageOutputDeactivateScheduleActionSettings(BaseValidatorModel):
     Layer: Optional[int] = None
 
 
+# This class is the input for the 'stop_channel' function.
 class StopChannelRequest(BaseValidatorModel):
     ChannelId: str
 
@@ -1483,6 +1553,7 @@ class StopInputDeviceRequest(BaseValidatorModel):
     InputDeviceId: str
 
 
+# This class is the input for the 'stop_multiplex' function.
 class StopMultiplexRequest(BaseValidatorModel):
     MultiplexId: str
 
@@ -1501,6 +1572,7 @@ class TransferInputDeviceRequest(BaseValidatorModel):
     TransferMessage: Optional[str] = None
 
 
+# This class is the input for the 'update_channel_placement_group' function.
 class UpdateChannelPlacementGroupRequest(BaseValidatorModel):
     ChannelPlacementGroupId: str
     ClusterId: str
@@ -1508,11 +1580,13 @@ class UpdateChannelPlacementGroupRequest(BaseValidatorModel):
     Nodes: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_cloud_watch_alarm_template_group' function.
 class UpdateCloudWatchAlarmTemplateGroupRequest(BaseValidatorModel):
     Identifier: str
     Description: Optional[str] = None
 
 
+# This class is the input for the 'update_cloud_watch_alarm_template' function.
 class UpdateCloudWatchAlarmTemplateRequest(BaseValidatorModel):
     Identifier: str
     ComparisonOperator: Optional[CloudWatchAlarmTemplateComparisonOperatorType] = None
@@ -1529,11 +1603,13 @@ class UpdateCloudWatchAlarmTemplateRequest(BaseValidatorModel):
     TreatMissingData: Optional[CloudWatchAlarmTemplateTreatMissingDataType] = None
 
 
+# This class is the input for the 'update_event_bridge_rule_template_group' function.
 class UpdateEventBridgeRuleTemplateGroupRequest(BaseValidatorModel):
     Identifier: str
     Description: Optional[str] = None
 
 
+# This class is the input for the 'update_node' function.
 class UpdateNodeRequest(BaseValidatorModel):
     ClusterId: str
     NodeId: str
@@ -1541,6 +1617,7 @@ class UpdateNodeRequest(BaseValidatorModel):
     Role: Optional[NodeRoleType] = None
 
 
+# This class is the input for the 'update_node_state' function.
 class UpdateNodeStateRequest(BaseValidatorModel):
     ClusterId: str
     NodeId: str
@@ -1555,6 +1632,7 @@ class VideoSelectorProgramId(BaseValidatorModel):
     ProgramId: Optional[int] = None
 
 
+# This class is the input for the 'update_account_configuration' function.
 class UpdateAccountConfigurationRequest(BaseValidatorModel):
     AccountConfiguration: Optional[AccountConfiguration] = None
 
@@ -1811,24 +1889,28 @@ class AvailSettings(BaseValidatorModel):
     Scte35TimeSignalApos: Optional[Scte35TimeSignalApos] = None
 
 
+# This class is the output for the 'batch_delete' function.
 class BatchDeleteResponse(BaseValidatorModel):
     Failed: List[BatchFailedResultModel]
     Successful: List[BatchSuccessfulResultModel]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_start' function.
 class BatchStartResponse(BaseValidatorModel):
     Failed: List[BatchFailedResultModel]
     Successful: List[BatchSuccessfulResultModel]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_stop' function.
 class BatchStopResponse(BaseValidatorModel):
     Failed: List[BatchFailedResultModel]
     Successful: List[BatchSuccessfulResultModel]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_channel_placement_group' function.
 class CreateChannelPlacementGroupResponse(BaseValidatorModel):
     Arn: str
     Channels: List[str]
@@ -1840,6 +1922,7 @@ class CreateChannelPlacementGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_cloud_watch_alarm_template_group' function.
 class CreateCloudWatchAlarmTemplateGroupResponse(BaseValidatorModel):
     Arn: str
     CreatedAt: datetime
@@ -1851,6 +1934,7 @@ class CreateCloudWatchAlarmTemplateGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_cloud_watch_alarm_template' function.
 class CreateCloudWatchAlarmTemplateResponse(BaseValidatorModel):
     Arn: str
     ComparisonOperator: CloudWatchAlarmTemplateComparisonOperatorType
@@ -1872,6 +1956,7 @@ class CreateCloudWatchAlarmTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_event_bridge_rule_template_group' function.
 class CreateEventBridgeRuleTemplateGroupResponse(BaseValidatorModel):
     Arn: str
     CreatedAt: datetime
@@ -1883,11 +1968,13 @@ class CreateEventBridgeRuleTemplateGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_node_registration_script' function.
 class CreateNodeRegistrationScriptResponse(BaseValidatorModel):
     NodeRegistrationScript: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_channel_placement_group' function.
 class DeleteChannelPlacementGroupResponse(BaseValidatorModel):
     Arn: str
     Channels: List[str]
@@ -1904,6 +1991,7 @@ class DescribeAccountConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_channel_placement_group' function.
 class DescribeChannelPlacementGroupResponse(BaseValidatorModel):
     Arn: str
     Channels: List[str]
@@ -1915,6 +2003,7 @@ class DescribeChannelPlacementGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_input_device_thumbnail' function.
 class DescribeInputDeviceThumbnailResponse(BaseValidatorModel):
     Body: StreamingBody
     ContentType: Literal['image/jpeg']
@@ -1924,10 +2013,12 @@ class DescribeInputDeviceThumbnailResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_signal_map' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_cloud_watch_alarm_template_group' function.
 class GetCloudWatchAlarmTemplateGroupResponse(BaseValidatorModel):
     Arn: str
     CreatedAt: datetime
@@ -1939,6 +2030,7 @@ class GetCloudWatchAlarmTemplateGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_cloud_watch_alarm_template' function.
 class GetCloudWatchAlarmTemplateResponse(BaseValidatorModel):
     Arn: str
     ComparisonOperator: CloudWatchAlarmTemplateComparisonOperatorType
@@ -1960,6 +2052,7 @@ class GetCloudWatchAlarmTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_event_bridge_rule_template_group' function.
 class GetEventBridgeRuleTemplateGroupResponse(BaseValidatorModel):
     Arn: str
     CreatedAt: datetime
@@ -1971,16 +2064,19 @@ class GetEventBridgeRuleTemplateGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_account_configuration' function.
 class UpdateAccountConfigurationResponse(BaseValidatorModel):
     AccountConfiguration: AccountConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_channel_placement_group' function.
 class UpdateChannelPlacementGroupResponse(BaseValidatorModel):
     Arn: str
     Channels: List[str]
@@ -1992,6 +2088,7 @@ class UpdateChannelPlacementGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_cloud_watch_alarm_template_group' function.
 class UpdateCloudWatchAlarmTemplateGroupResponse(BaseValidatorModel):
     Arn: str
     CreatedAt: datetime
@@ -2003,6 +2100,7 @@ class UpdateCloudWatchAlarmTemplateGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_cloud_watch_alarm_template' function.
 class UpdateCloudWatchAlarmTemplateResponse(BaseValidatorModel):
     Arn: str
     ComparisonOperator: CloudWatchAlarmTemplateComparisonOperatorType
@@ -2024,6 +2122,7 @@ class UpdateCloudWatchAlarmTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_event_bridge_rule_template_group' function.
 class UpdateEventBridgeRuleTemplateGroupResponse(BaseValidatorModel):
     Arn: str
     CreatedAt: datetime
@@ -2054,12 +2153,14 @@ class PipelineDetail(BaseValidatorModel):
     ChannelEngineVersion: Optional[ChannelEngineVersionResponse] = None
 
 
+# This class is the output for the 'list_cloud_watch_alarm_template_groups' function.
 class ListCloudWatchAlarmTemplateGroupsResponse(BaseValidatorModel):
     CloudWatchAlarmTemplateGroups: List[CloudWatchAlarmTemplateGroupSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_cloud_watch_alarm_templates' function.
 class ListCloudWatchAlarmTemplatesResponse(BaseValidatorModel):
     CloudWatchAlarmTemplates: List[CloudWatchAlarmTemplateSummary]
     ResponseMetadata: ResponseMetadata
@@ -2089,6 +2190,7 @@ class ColorCorrectionSettings(BaseValidatorModel):
     GlobalColorCorrections: List[ColorCorrection]
 
 
+# This class is the input for the 'create_event_bridge_rule_template' function.
 class CreateEventBridgeRuleTemplateRequest(BaseValidatorModel):
     EventType: EventBridgeRuleTemplateEventTypeType
     GroupIdentifier: str
@@ -2099,6 +2201,7 @@ class CreateEventBridgeRuleTemplateRequest(BaseValidatorModel):
     RequestId: Optional[str] = None
 
 
+# This class is the output for the 'create_event_bridge_rule_template' function.
 class CreateEventBridgeRuleTemplateResponse(BaseValidatorModel):
     Arn: str
     CreatedAt: datetime
@@ -2113,6 +2216,7 @@ class CreateEventBridgeRuleTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_event_bridge_rule_template' function.
 class GetEventBridgeRuleTemplateResponse(BaseValidatorModel):
     Arn: str
     CreatedAt: datetime
@@ -2127,6 +2231,7 @@ class GetEventBridgeRuleTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_event_bridge_rule_template' function.
 class UpdateEventBridgeRuleTemplateRequest(BaseValidatorModel):
     Identifier: str
     Description: Optional[str] = None
@@ -2136,6 +2241,7 @@ class UpdateEventBridgeRuleTemplateRequest(BaseValidatorModel):
     Name: Optional[str] = None
 
 
+# This class is the output for the 'update_event_bridge_rule_template' function.
 class UpdateEventBridgeRuleTemplateResponse(BaseValidatorModel):
     Arn: str
     CreatedAt: datetime
@@ -2150,17 +2256,20 @@ class UpdateEventBridgeRuleTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_input_security_group' function.
 class CreateInputSecurityGroupRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
     WhitelistRules: Optional[List[InputWhitelistRuleCidr]] = None
 
 
+# This class is the input for the 'update_input_security_group' function.
 class UpdateInputSecurityGroupRequest(BaseValidatorModel):
     InputSecurityGroupId: str
     Tags: Optional[Dict[str, str]] = None
     WhitelistRules: Optional[List[InputWhitelistRuleCidr]] = None
 
 
+# This class is the input for the 'create_multiplex' function.
 class CreateMultiplexRequest(BaseValidatorModel):
     AvailabilityZones: List[str]
     MultiplexSettings: MultiplexSettings
@@ -2169,6 +2278,7 @@ class CreateMultiplexRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_network' function.
 class CreateNetworkRequest(BaseValidatorModel):
     IpPools: Optional[List[IpPoolCreateRequest]] = None
     Name: Optional[str] = None
@@ -2177,6 +2287,7 @@ class CreateNetworkRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_network' function.
 class CreateNetworkResponse(BaseValidatorModel):
     Arn: str
     AssociatedClusterIds: List[str]
@@ -2188,6 +2299,7 @@ class CreateNetworkResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_network' function.
 class DeleteNetworkResponse(BaseValidatorModel):
     Arn: str
     AssociatedClusterIds: List[str]
@@ -2199,6 +2311,7 @@ class DeleteNetworkResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_network' function.
 class DescribeNetworkResponse(BaseValidatorModel):
     Arn: str
     AssociatedClusterIds: List[str]
@@ -2220,6 +2333,7 @@ class DescribeNetworkSummary(BaseValidatorModel):
     State: Optional[NetworkStateType] = None
 
 
+# This class is the output for the 'update_network' function.
 class UpdateNetworkResponse(BaseValidatorModel):
     Arn: str
     AssociatedClusterIds: List[str]
@@ -2231,6 +2345,7 @@ class UpdateNetworkResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_node_registration_script' function.
 class CreateNodeRegistrationScriptRequest(BaseValidatorModel):
     ClusterId: str
     Id: Optional[str] = None
@@ -2240,6 +2355,7 @@ class CreateNodeRegistrationScriptRequest(BaseValidatorModel):
     Role: Optional[NodeRoleType] = None
 
 
+# This class is the output for the 'create_node' function.
 class CreateNodeResponse(BaseValidatorModel):
     Arn: str
     ChannelPlacementGroups: List[str]
@@ -2254,6 +2370,7 @@ class CreateNodeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_node' function.
 class DeleteNodeResponse(BaseValidatorModel):
     Arn: str
     ChannelPlacementGroups: List[str]
@@ -2268,6 +2385,7 @@ class DeleteNodeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_node' function.
 class DescribeNodeResponse(BaseValidatorModel):
     Arn: str
     ChannelPlacementGroups: List[str]
@@ -2296,6 +2414,7 @@ class DescribeNodeSummary(BaseValidatorModel):
     State: Optional[NodeStateType] = None
 
 
+# This class is the output for the 'update_node' function.
 class UpdateNodeResponse(BaseValidatorModel):
     Arn: str
     ChannelPlacementGroups: List[str]
@@ -2310,6 +2429,7 @@ class UpdateNodeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_node_state' function.
 class UpdateNodeStateResponse(BaseValidatorModel):
     Arn: str
     ChannelPlacementGroups: List[str]
@@ -2324,6 +2444,7 @@ class UpdateNodeStateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_node' function.
 class CreateNodeRequest(BaseValidatorModel):
     ClusterId: str
     Name: Optional[str] = None
@@ -2333,6 +2454,7 @@ class CreateNodeRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'purchase_offering' function.
 class PurchaseOfferingRequest(BaseValidatorModel):
     Count: int
     OfferingId: str
@@ -2343,12 +2465,14 @@ class PurchaseOfferingRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_reservation' function.
 class UpdateReservationRequest(BaseValidatorModel):
     ReservationId: str
     Name: Optional[str] = None
     RenewalSettings: Optional[RenewalSettings] = None
 
 
+# This class is the output for the 'delete_reservation' function.
 class DeleteReservationResponse(BaseValidatorModel):
     Arn: str
     Count: int
@@ -2372,6 +2496,7 @@ class DeleteReservationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_offering' function.
 class DescribeOfferingResponse(BaseValidatorModel):
     Arn: str
     CurrencyCode: str
@@ -2387,6 +2512,7 @@ class DescribeOfferingResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_reservation' function.
 class DescribeReservationResponse(BaseValidatorModel):
     Arn: str
     Count: int
@@ -2561,12 +2687,14 @@ class GetSignalMapRequestWait(BaseValidatorModel):
     WaiterConfig: Optional[WaiterConfig] = None
 
 
+# This class is the output for the 'list_channel_placement_groups' function.
 class ListChannelPlacementGroupsResponse(BaseValidatorModel):
     ChannelPlacementGroups: List[DescribeChannelPlacementGroupSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_input_security_group' function.
 class DescribeInputSecurityGroupResponse(BaseValidatorModel):
     Arn: str
     Id: str
@@ -2756,12 +2884,14 @@ class OutputLockingSettings(BaseValidatorModel):
     PipelineLockingSettings: Optional[Dict[str, Any]] = None
 
 
+# This class is the output for the 'list_event_bridge_rule_template_groups' function.
 class ListEventBridgeRuleTemplateGroupsResponse(BaseValidatorModel):
     EventBridgeRuleTemplateGroups: List[EventBridgeRuleTemplateGroupSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_event_bridge_rule_templates' function.
 class ListEventBridgeRuleTemplatesResponse(BaseValidatorModel):
     EventBridgeRuleTemplates: List[EventBridgeRuleTemplateSummary]
     ResponseMetadata: ResponseMetadata
@@ -2858,18 +2988,21 @@ class InputDeviceUhdSettings(BaseValidatorModel):
     AudioChannelPairs: Optional[List[InputDeviceUhdAudioChannelPairConfig]] = None
 
 
+# This class is the output for the 'list_input_device_transfers' function.
 class ListInputDeviceTransfersResponse(BaseValidatorModel):
     InputDeviceTransfers: List[TransferringInputDeviceSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_multiplex_programs' function.
 class ListMultiplexProgramsResponse(BaseValidatorModel):
     MultiplexPrograms: List[MultiplexProgramSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_signal_maps' function.
 class ListSignalMapsResponse(BaseValidatorModel):
     SignalMaps: List[SignalMapSummary]
     ResponseMetadata: ResponseMetadata
@@ -2972,6 +3105,7 @@ class PauseStateScheduleActionSettings(BaseValidatorModel):
     Pipelines: Optional[List[PipelinePauseStateSettings]] = None
 
 
+# This class is the input for the 'update_network' function.
 class UpdateNetworkRequest(BaseValidatorModel):
     NetworkId: str
     IpPools: Optional[List[IpPoolUpdateRequest]] = None
@@ -3151,6 +3285,7 @@ class CaptionSelectorSettings(BaseValidatorModel):
     TeletextSourceSettings: Optional[TeletextSourceSettings] = None
 
 
+# This class is the input for the 'create_cluster' function.
 class CreateClusterRequest(BaseValidatorModel):
     ClusterType: Optional[Literal['ON_PREMISES']] = None
     InstanceRoleArn: Optional[str] = None
@@ -3160,6 +3295,7 @@ class CreateClusterRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_cluster' function.
 class CreateClusterResponse(BaseValidatorModel):
     Arn: str
     ChannelIds: List[str]
@@ -3172,6 +3308,7 @@ class CreateClusterResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_cluster' function.
 class DeleteClusterResponse(BaseValidatorModel):
     Arn: str
     ChannelIds: List[str]
@@ -3184,6 +3321,7 @@ class DeleteClusterResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_cluster' function.
 class DescribeClusterResponse(BaseValidatorModel):
     Arn: str
     ChannelIds: List[str]
@@ -3207,6 +3345,7 @@ class DescribeClusterSummary(BaseValidatorModel):
     State: Optional[ClusterStateType] = None
 
 
+# This class is the output for the 'update_cluster' function.
 class UpdateClusterResponse(BaseValidatorModel):
     Arn: str
     ChannelIds: List[str]
@@ -3218,57 +3357,67 @@ class UpdateClusterResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_cluster' function.
 class UpdateClusterRequest(BaseValidatorModel):
     ClusterId: str
     Name: Optional[str] = None
     NetworkSettings: Optional[ClusterNetworkSettingsUpdateRequest] = None
 
 
+# This class is the output for the 'list_networks' function.
 class ListNetworksResponse(BaseValidatorModel):
     Networks: List[DescribeNetworkSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_nodes' function.
 class ListNodesResponse(BaseValidatorModel):
     Nodes: List[DescribeNodeSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_offerings' function.
 class ListOfferingsResponse(BaseValidatorModel):
     Offerings: List[Offering]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_reservations' function.
 class ListReservationsResponse(BaseValidatorModel):
     Reservations: List[Reservation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'purchase_offering' function.
 class PurchaseOfferingResponse(BaseValidatorModel):
     Reservation: Reservation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_reservation' function.
 class UpdateReservationResponse(BaseValidatorModel):
     Reservation: Reservation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_input_security_group' function.
 class CreateInputSecurityGroupResponse(BaseValidatorModel):
     SecurityGroup: InputSecurityGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_input_security_groups' function.
 class ListInputSecurityGroupsResponse(BaseValidatorModel):
     InputSecurityGroups: List[InputSecurityGroup]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_input_security_group' function.
 class UpdateInputSecurityGroupResponse(BaseValidatorModel):
     SecurityGroup: InputSecurityGroup
     ResponseMetadata: ResponseMetadata
@@ -3537,6 +3686,7 @@ class InputSwitchScheduleActionSettings(BaseValidatorModel):
     UrlPath: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_input_device' function.
 class UpdateInputDeviceRequest(BaseValidatorModel):
     InputDeviceId: str
     HdDeviceSettings: Optional[InputDeviceConfigurableSettings] = None
@@ -3545,6 +3695,7 @@ class UpdateInputDeviceRequest(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
 
 
+# This class is the output for the 'describe_input_device' function.
 class DescribeInputDeviceResponse(BaseValidatorModel):
     Arn: str
     ConnectionState: InputDeviceConnectionStateType
@@ -3584,6 +3735,7 @@ class InputDeviceSummary(BaseValidatorModel):
     OutputType: Optional[InputDeviceOutputTypeType] = None
 
 
+# This class is the output for the 'update_input_device' function.
 class UpdateInputDeviceResponse(BaseValidatorModel):
     Arn: str
     ConnectionState: InputDeviceConnectionStateType
@@ -3618,6 +3770,7 @@ class HlsSettings(BaseValidatorModel):
     StandardHlsSettings: Optional[StandardHlsSettings] = None
 
 
+# This class is the output for the 'create_signal_map' function.
 class CreateSignalMapResponse(BaseValidatorModel):
     Arn: str
     CloudWatchAlarmTemplateGroupIds: List[str]
@@ -3640,6 +3793,7 @@ class CreateSignalMapResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_signal_map' function.
 class GetSignalMapResponse(BaseValidatorModel):
     Arn: str
     CloudWatchAlarmTemplateGroupIds: List[str]
@@ -3662,6 +3816,7 @@ class GetSignalMapResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_delete_monitor_deployment' function.
 class StartDeleteMonitorDeploymentResponse(BaseValidatorModel):
     Arn: str
     CloudWatchAlarmTemplateGroupIds: List[str]
@@ -3684,6 +3839,7 @@ class StartDeleteMonitorDeploymentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_monitor_deployment' function.
 class StartMonitorDeploymentResponse(BaseValidatorModel):
     Arn: str
     CloudWatchAlarmTemplateGroupIds: List[str]
@@ -3706,6 +3862,7 @@ class StartMonitorDeploymentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_update_signal_map' function.
 class StartUpdateSignalMapResponse(BaseValidatorModel):
     Arn: str
     CloudWatchAlarmTemplateGroupIds: List[str]
@@ -3733,6 +3890,7 @@ class MultiplexOutputSettings(BaseValidatorModel):
     ContainerSettings: Optional[MultiplexContainerSettings] = None
 
 
+# This class is the output for the 'delete_multiplex' function.
 class DeleteMultiplexResponse(BaseValidatorModel):
     Arn: str
     AvailabilityZones: List[str]
@@ -3747,6 +3905,7 @@ class DeleteMultiplexResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_multiplex' function.
 class DescribeMultiplexResponse(BaseValidatorModel):
     Arn: str
     AvailabilityZones: List[str]
@@ -3774,6 +3933,7 @@ class Multiplex(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'start_multiplex' function.
 class StartMultiplexResponse(BaseValidatorModel):
     Arn: str
     AvailabilityZones: List[str]
@@ -3788,6 +3948,7 @@ class StartMultiplexResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_multiplex' function.
 class StopMultiplexResponse(BaseValidatorModel):
     Arn: str
     AvailabilityZones: List[str]
@@ -3802,6 +3963,7 @@ class StopMultiplexResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_multiplex' function.
 class UpdateMultiplexRequest(BaseValidatorModel):
     MultiplexId: str
     MultiplexSettings: Optional[MultiplexSettings] = None
@@ -3809,6 +3971,7 @@ class UpdateMultiplexRequest(BaseValidatorModel):
     PacketIdentifiersMapping: Optional[Dict[str, MultiplexProgramPacketIdentifiersMapUnion]] = None
 
 
+# This class is the output for the 'list_multiplexes' function.
 class ListMultiplexesResponse(BaseValidatorModel):
     Multiplexes: List[MultiplexSummary]
     ResponseMetadata: ResponseMetadata
@@ -3842,6 +4005,7 @@ class SrtSettings(BaseValidatorModel):
     SrtCallerSources: Optional[List[SrtCallerSource]] = None
 
 
+# This class is the output for the 'describe_thumbnails' function.
 class DescribeThumbnailsResponse(BaseValidatorModel):
     ThumbnailDetails: List[ThumbnailDetail]
     ResponseMetadata: ResponseMetadata
@@ -3988,6 +4152,7 @@ class CaptionSelectorOutput(BaseValidatorModel):
 CaptionSelectorSettingsUnion = Union[CaptionSelectorSettings, CaptionSelectorSettingsOutput]
 
 
+# This class is the output for the 'list_clusters' function.
 class ListClustersResponse(BaseValidatorModel):
     Clusters: List[DescribeClusterSummary]
     ResponseMetadata: ResponseMetadata
@@ -4055,6 +4220,7 @@ InputPrepareScheduleActionSettingsUnion = Union[InputPrepareScheduleActionSettin
 InputSwitchScheduleActionSettingsUnion = Union[InputSwitchScheduleActionSettings, InputSwitchScheduleActionSettingsOutput]
 
 
+# This class is the output for the 'list_input_devices' function.
 class ListInputDevicesResponse(BaseValidatorModel):
     InputDevices: List[InputDeviceSummary]
     ResponseMetadata: ResponseMetadata
@@ -4075,16 +4241,19 @@ class HlsOutputSettings(BaseValidatorModel):
     SegmentModifier: Optional[str] = None
 
 
+# This class is the output for the 'create_multiplex' function.
 class CreateMultiplexResponse(BaseValidatorModel):
     Multiplex: Multiplex
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_multiplex' function.
 class UpdateMultiplexResponse(BaseValidatorModel):
     Multiplex: Multiplex
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_multiplex_program' function.
 class CreateMultiplexProgramRequest(BaseValidatorModel):
     MultiplexId: str
     MultiplexProgramSettings: MultiplexProgramSettings
@@ -4092,6 +4261,7 @@ class CreateMultiplexProgramRequest(BaseValidatorModel):
     RequestId: str
 
 
+# This class is the output for the 'delete_multiplex_program' function.
 class DeleteMultiplexProgramResponse(BaseValidatorModel):
     ChannelId: str
     MultiplexProgramSettings: MultiplexProgramSettings
@@ -4101,6 +4271,7 @@ class DeleteMultiplexProgramResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_multiplex_program' function.
 class DescribeMultiplexProgramResponse(BaseValidatorModel):
     ChannelId: str
     MultiplexProgramSettings: MultiplexProgramSettings
@@ -4118,6 +4289,7 @@ class MultiplexProgram(BaseValidatorModel):
     ProgramName: Optional[str] = None
 
 
+# This class is the input for the 'update_multiplex_program' function.
 class UpdateMultiplexProgramRequest(BaseValidatorModel):
     MultiplexId: str
     ProgramName: str
@@ -4156,6 +4328,7 @@ class AudioDescription(BaseValidatorModel):
     DvbDashAccessibility: Optional[DvbDashAccessibilityType] = None
 
 
+# This class is the input for the 'update_channel_class' function.
 class UpdateChannelClassRequest(BaseValidatorModel):
     ChannelClass: ChannelClassType
     ChannelId: str
@@ -4166,6 +4339,7 @@ class Scte35Descriptor(BaseValidatorModel):
     Scte35DescriptorSettings: Scte35DescriptorSettings
 
 
+# This class is the input for the 'create_input' function.
 class CreateInputRequest(BaseValidatorModel):
     Destinations: Optional[List[InputDestinationRequest]] = None
     InputDevices: Optional[List[InputDeviceSettings]] = None
@@ -4183,6 +4357,7 @@ class CreateInputRequest(BaseValidatorModel):
     MulticastSettings: Optional[MulticastSettingsCreateRequest] = None
 
 
+# This class is the input for the 'update_input' function.
 class UpdateInputRequest(BaseValidatorModel):
     InputId: str
     Destinations: Optional[List[InputDestinationRequest]] = None
@@ -4196,6 +4371,7 @@ class UpdateInputRequest(BaseValidatorModel):
     MulticastSettings: Optional[MulticastSettingsUpdateRequest] = None
 
 
+# This class is the output for the 'describe_input' function.
 class DescribeInputResponse(BaseValidatorModel):
     Arn: str
     AttachedChannels: List[str]
@@ -4337,11 +4513,13 @@ class OutputSettings(BaseValidatorModel):
     SrtOutputSettings: Optional[SrtOutputSettings] = None
 
 
+# This class is the output for the 'create_multiplex_program' function.
 class CreateMultiplexProgramResponse(BaseValidatorModel):
     MultiplexProgram: MultiplexProgram
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_multiplex_program' function.
 class UpdateMultiplexProgramResponse(BaseValidatorModel):
     MultiplexProgram: MultiplexProgram
     ResponseMetadata: ResponseMetadata
@@ -4355,22 +4533,26 @@ class Scte35TimeSignalScheduleActionSettings(BaseValidatorModel):
     Scte35Descriptors: List[Scte35Descriptor]
 
 
+# This class is the output for the 'create_input' function.
 class CreateInputResponse(BaseValidatorModel):
     Input: Input
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_partner_input' function.
 class CreatePartnerInputResponse(BaseValidatorModel):
     Input: Input
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_inputs' function.
 class ListInputsResponse(BaseValidatorModel):
     Inputs: List[Input]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_input' function.
 class UpdateInputResponse(BaseValidatorModel):
     Input: Input
     ResponseMetadata: ResponseMetadata
@@ -4505,6 +4687,7 @@ class InputSettings(BaseValidatorModel):
     VideoSelector: Optional[VideoSelector] = None
 
 
+# This class is the output for the 'list_channels' function.
 class ListChannelsResponse(BaseValidatorModel):
     Channels: List[ChannelSummary]
     ResponseMetadata: ResponseMetadata
@@ -4553,6 +4736,7 @@ class BatchScheduleActionDeleteResult(BaseValidatorModel):
     ScheduleActions: List[ScheduleActionOutput]
 
 
+# This class is the output for the 'describe_schedule' function.
 class DescribeScheduleResponse(BaseValidatorModel):
     ScheduleActions: List[ScheduleActionOutput]
     ResponseMetadata: ResponseMetadata
@@ -4586,6 +4770,7 @@ class Channel(BaseValidatorModel):
     ChannelEngineVersion: Optional[ChannelEngineVersionResponse] = None
 
 
+# This class is the output for the 'delete_channel' function.
 class DeleteChannelResponse(BaseValidatorModel):
     Arn: str
     CdiInputSpecification: CdiInputSpecification
@@ -4610,6 +4795,7 @@ class DeleteChannelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_channel' function.
 class DescribeChannelResponse(BaseValidatorModel):
     Arn: str
     CdiInputSpecification: CdiInputSpecification
@@ -4634,6 +4820,7 @@ class DescribeChannelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'restart_channel_pipelines' function.
 class RestartChannelPipelinesResponse(BaseValidatorModel):
     Arn: str
     CdiInputSpecification: CdiInputSpecification
@@ -4659,6 +4846,7 @@ class RestartChannelPipelinesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_channel' function.
 class StartChannelResponse(BaseValidatorModel):
     Arn: str
     CdiInputSpecification: CdiInputSpecification
@@ -4683,6 +4871,7 @@ class StartChannelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_channel' function.
 class StopChannelResponse(BaseValidatorModel):
     Arn: str
     CdiInputSpecification: CdiInputSpecification
@@ -4709,6 +4898,7 @@ class StopChannelResponse(BaseValidatorModel):
 EncoderSettingsUnion = Union[EncoderSettings, EncoderSettingsOutput]
 
 
+# This class is the output for the 'batch_update_schedule' function.
 class BatchUpdateScheduleResponse(BaseValidatorModel):
     Creates: BatchScheduleActionCreateResult
     Deletes: BatchScheduleActionDeleteResult
@@ -4729,16 +4919,19 @@ class InputAttachment(BaseValidatorModel):
     LogicalInterfaceNames: Optional[List[str]] = None
 
 
+# This class is the output for the 'create_channel' function.
 class CreateChannelResponse(BaseValidatorModel):
     Channel: Channel
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_channel_class' function.
 class UpdateChannelClassResponse(BaseValidatorModel):
     Channel: Channel
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_channel' function.
 class UpdateChannelResponse(BaseValidatorModel):
     Channel: Channel
     ResponseMetadata: ResponseMetadata
@@ -4752,6 +4945,7 @@ class BatchScheduleActionCreateRequest(BaseValidatorModel):
     ScheduleActions: List[ScheduleActionUnion]
 
 
+# This class is the input for the 'create_channel' function.
 class CreateChannelRequest(BaseValidatorModel):
     CdiInputSpecification: Optional[CdiInputSpecification] = None
     ChannelClass: Optional[ChannelClassType] = None
@@ -4772,6 +4966,7 @@ class CreateChannelRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'update_channel' function.
 class UpdateChannelRequest(BaseValidatorModel):
     ChannelId: str
     CdiInputSpecification: Optional[CdiInputSpecification] = None
@@ -4787,6 +4982,7 @@ class UpdateChannelRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'batch_update_schedule' function.
 class BatchUpdateScheduleRequest(BaseValidatorModel):
     ChannelId: str
     Creates: Optional[BatchScheduleActionCreateRequest] = None

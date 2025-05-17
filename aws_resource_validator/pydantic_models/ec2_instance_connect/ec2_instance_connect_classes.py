@@ -16,6 +16,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'send_ssh_public_key' function.
 class SendSSHPublicKeyRequest(BaseValidatorModel):
     InstanceId: str
     InstanceOSUser: str
@@ -23,18 +24,21 @@ class SendSSHPublicKeyRequest(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
 
 
+# This class is the input for the 'send_serial_console_ssh_public_key' function.
 class SendSerialConsoleSSHPublicKeyRequest(BaseValidatorModel):
     InstanceId: str
     SSHPublicKey: str
     SerialPort: Optional[int] = None
 
 
+# This class is the output for the 'send_ssh_public_key' function.
 class SendSSHPublicKeyResponse(BaseValidatorModel):
     RequestId: str
     Success: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'send_serial_console_ssh_public_key' function.
 class SendSerialConsoleSSHPublicKeyResponse(BaseValidatorModel):
     RequestId: str
     Success: bool

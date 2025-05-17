@@ -16,6 +16,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'add_communication_to_case' function.
 class AddCommunicationToCaseRequest(BaseValidatorModel):
     communicationBody: str
     caseId: Optional[str] = None
@@ -50,6 +51,7 @@ class SupportedHour(BaseValidatorModel):
     endTime: Optional[str] = None
 
 
+# This class is the input for the 'create_case' function.
 class CreateCaseRequest(BaseValidatorModel):
     subject: str
     communicationBody: str
@@ -62,6 +64,7 @@ class CreateCaseRequest(BaseValidatorModel):
     attachmentSetId: Optional[str] = None
 
 
+# This class is the input for the 'describe_attachment' function.
 class DescribeAttachmentRequest(BaseValidatorModel):
     attachmentId: str
 
@@ -72,6 +75,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_cases' function.
 class DescribeCasesRequest(BaseValidatorModel):
     caseIdList: Optional[List[str]] = None
     displayId: Optional[str] = None
@@ -84,6 +88,7 @@ class DescribeCasesRequest(BaseValidatorModel):
     includeCommunications: Optional[bool] = None
 
 
+# This class is the input for the 'describe_communications' function.
 class DescribeCommunicationsRequest(BaseValidatorModel):
     caseId: str
     beforeTime: Optional[str] = None
@@ -92,6 +97,7 @@ class DescribeCommunicationsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_create_case_options' function.
 class DescribeCreateCaseOptionsRequest(BaseValidatorModel):
     issueType: str
     serviceCode: str
@@ -99,11 +105,13 @@ class DescribeCreateCaseOptionsRequest(BaseValidatorModel):
     categoryCode: str
 
 
+# This class is the input for the 'describe_services' function.
 class DescribeServicesRequest(BaseValidatorModel):
     serviceCodeList: Optional[List[str]] = None
     language: Optional[str] = None
 
 
+# This class is the input for the 'describe_severity_levels' function.
 class DescribeSeverityLevelsRequest(BaseValidatorModel):
     language: Optional[str] = None
 
@@ -113,6 +121,7 @@ class SeverityLevel(BaseValidatorModel):
     name: Optional[str] = None
 
 
+# This class is the input for the 'describe_supported_languages' function.
 class DescribeSupportedLanguagesRequest(BaseValidatorModel):
     issueType: str
     serviceCode: str
@@ -125,6 +134,7 @@ class SupportedLanguage(BaseValidatorModel):
     display: Optional[str] = None
 
 
+# This class is the input for the 'describe_trusted_advisor_check_refresh_statuses' function.
 class DescribeTrustedAdvisorCheckRefreshStatusesRequest(BaseValidatorModel):
     checkIds: List[str]
 
@@ -135,15 +145,18 @@ class TrustedAdvisorCheckRefreshStatus(BaseValidatorModel):
     millisUntilNextRefreshable: int
 
 
+# This class is the input for the 'describe_trusted_advisor_check_result' function.
 class DescribeTrustedAdvisorCheckResultRequest(BaseValidatorModel):
     checkId: str
     language: Optional[str] = None
 
 
+# This class is the input for the 'describe_trusted_advisor_check_summaries' function.
 class DescribeTrustedAdvisorCheckSummariesRequest(BaseValidatorModel):
     checkIds: List[str]
 
 
+# This class is the input for the 'describe_trusted_advisor_checks' function.
 class DescribeTrustedAdvisorChecksRequest(BaseValidatorModel):
     language: str
 
@@ -156,10 +169,12 @@ class TrustedAdvisorCheckDescription(BaseValidatorModel):
     metadata: List[str]
 
 
+# This class is the input for the 'refresh_trusted_advisor_check' function.
 class RefreshTrustedAdvisorCheckRequest(BaseValidatorModel):
     checkId: str
 
 
+# This class is the input for the 'resolve_case' function.
 class ResolveCaseRequest(BaseValidatorModel):
     caseId: Optional[str] = None
 
@@ -184,22 +199,26 @@ class TrustedAdvisorResourcesSummary(BaseValidatorModel):
     resourcesSuppressed: int
 
 
+# This class is the output for the 'add_attachments_to_set' function.
 class AddAttachmentsToSetResponse(BaseValidatorModel):
     attachmentSetId: str
     expiryTime: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'add_communication_to_case' function.
 class AddCommunicationToCaseResponse(BaseValidatorModel):
     result: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_case' function.
 class CreateCaseResponse(BaseValidatorModel):
     caseId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'resolve_case' function.
 class ResolveCaseResponse(BaseValidatorModel):
     initialCaseStatus: str
     finalCaseStatus: str
@@ -214,6 +233,7 @@ class Communication(BaseValidatorModel):
     attachmentSet: Optional[List[AttachmentDetails]] = None
 
 
+# This class is the output for the 'describe_attachment' function.
 class DescribeAttachmentResponse(BaseValidatorModel):
     attachment: AttachmentOutput
     ResponseMetadata: ResponseMetadata
@@ -254,26 +274,31 @@ class DescribeCommunicationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'describe_severity_levels' function.
 class DescribeSeverityLevelsResponse(BaseValidatorModel):
     severityLevels: List[SeverityLevel]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_supported_languages' function.
 class DescribeSupportedLanguagesResponse(BaseValidatorModel):
     supportedLanguages: List[SupportedLanguage]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_trusted_advisor_check_refresh_statuses' function.
 class DescribeTrustedAdvisorCheckRefreshStatusesResponse(BaseValidatorModel):
     statuses: List[TrustedAdvisorCheckRefreshStatus]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'refresh_trusted_advisor_check' function.
 class RefreshTrustedAdvisorCheckResponse(BaseValidatorModel):
     status: TrustedAdvisorCheckRefreshStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_trusted_advisor_checks' function.
 class DescribeTrustedAdvisorChecksResponse(BaseValidatorModel):
     checks: List[TrustedAdvisorCheckDescription]
     ResponseMetadata: ResponseMetadata
@@ -283,6 +308,7 @@ class TrustedAdvisorCategorySpecificSummary(BaseValidatorModel):
     costOptimizing: Optional[TrustedAdvisorCostOptimizingSummary] = None
 
 
+# This class is the output for the 'describe_communications' function.
 class DescribeCommunicationsResponse(BaseValidatorModel):
     communications: List[Communication]
     ResponseMetadata: ResponseMetadata
@@ -296,11 +322,13 @@ class RecentCaseCommunications(BaseValidatorModel):
 AttachmentUnion = Union[Attachment, AttachmentOutput]
 
 
+# This class is the output for the 'describe_services' function.
 class DescribeServicesResponse(BaseValidatorModel):
     services: List[Service]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_create_case_options' function.
 class DescribeCreateCaseOptionsResponse(BaseValidatorModel):
     languageAvailability: str
     communicationTypes: List[CommunicationTypeOptions]
@@ -340,21 +368,25 @@ class CaseDetails(BaseValidatorModel):
     language: Optional[str] = None
 
 
+# This class is the input for the 'add_attachments_to_set' function.
 class AddAttachmentsToSetRequest(BaseValidatorModel):
     attachments: List[AttachmentUnion]
     attachmentSetId: Optional[str] = None
 
 
+# This class is the output for the 'describe_trusted_advisor_check_result' function.
 class DescribeTrustedAdvisorCheckResultResponse(BaseValidatorModel):
     result: TrustedAdvisorCheckResult
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_trusted_advisor_check_summaries' function.
 class DescribeTrustedAdvisorCheckSummariesResponse(BaseValidatorModel):
     summaries: List[TrustedAdvisorCheckSummary]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_cases' function.
 class DescribeCasesResponse(BaseValidatorModel):
     cases: List[CaseDetails]
     ResponseMetadata: ResponseMetadata

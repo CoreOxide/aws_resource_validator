@@ -56,6 +56,7 @@ class StatusReason(BaseValidatorModel):
     code: ReasonCodeType
 
 
+# This class is the input for the 'apply_archive_rule' function.
 class ApplyArchiveRuleRequest(BaseValidatorModel):
     analyzerArn: str
     ruleName: str
@@ -87,12 +88,14 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'check_no_new_access' function.
 class CheckNoNewAccessRequest(BaseValidatorModel):
     newPolicyDocument: str
     existingPolicyDocument: str
     policyType: AccessCheckPolicyTypeType
 
 
+# This class is the input for the 'check_no_public_access' function.
 class CheckNoPublicAccessRequest(BaseValidatorModel):
     policyDocument: str
     resourceType: AccessCheckResourceTypeType
@@ -162,11 +165,13 @@ class Criterion(BaseValidatorModel):
     exists: Optional[bool] = None
 
 
+# This class is the input for the 'delete_analyzer' function.
 class DeleteAnalyzerRequest(BaseValidatorModel):
     analyzerName: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_archive_rule' function.
 class DeleteArchiveRuleRequest(BaseValidatorModel):
     analyzerName: str
     ruleName: str
@@ -221,6 +226,7 @@ class FindingSummaryV2(BaseValidatorModel):
     findingType: Optional[FindingTypeType] = None
 
 
+# This class is the input for the 'generate_finding_recommendation' function.
 class GenerateFindingRecommendationRequest(BaseValidatorModel):
     analyzerArn: str
     id: str
@@ -230,20 +236,24 @@ class GeneratedPolicy(BaseValidatorModel):
     policy: str
 
 
+# This class is the input for the 'get_access_preview' function.
 class GetAccessPreviewRequest(BaseValidatorModel):
     accessPreviewId: str
     analyzerArn: str
 
 
+# This class is the input for the 'get_analyzed_resource' function.
 class GetAnalyzedResourceRequest(BaseValidatorModel):
     analyzerArn: str
     resourceArn: str
 
 
+# This class is the input for the 'get_analyzer' function.
 class GetAnalyzerRequest(BaseValidatorModel):
     analyzerName: str
 
 
+# This class is the input for the 'get_archive_rule' function.
 class GetArchiveRuleRequest(BaseValidatorModel):
     analyzerName: str
     ruleName: str
@@ -255,6 +265,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'get_finding_recommendation' function.
 class GetFindingRecommendationRequest(BaseValidatorModel):
     analyzerArn: str
     id: str
@@ -267,11 +278,13 @@ class RecommendationError(BaseValidatorModel):
     message: str
 
 
+# This class is the input for the 'get_finding' function.
 class GetFindingRequest(BaseValidatorModel):
     analyzerArn: str
     id: str
 
 
+# This class is the input for the 'get_finding_v2' function.
 class GetFindingV2Request(BaseValidatorModel):
     analyzerArn: str
     id: str
@@ -279,10 +292,12 @@ class GetFindingV2Request(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_findings_statistics' function.
 class GetFindingsStatisticsRequest(BaseValidatorModel):
     analyzerArn: str
 
 
+# This class is the input for the 'get_generated_policy' function.
 class GetGeneratedPolicyRequest(BaseValidatorModel):
     jobId: str
     includeResourcePlaceholders: Optional[bool] = None
@@ -304,12 +319,14 @@ class KmsGrantConstraints(BaseValidatorModel):
     encryptionContextSubset: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_access_previews' function.
 class ListAccessPreviewsRequest(BaseValidatorModel):
     analyzerArn: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_analyzed_resources' function.
 class ListAnalyzedResourcesRequest(BaseValidatorModel):
     analyzerArn: str
     resourceType: Optional[ResourceTypeType] = None
@@ -317,12 +334,14 @@ class ListAnalyzedResourcesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_analyzers' function.
 class ListAnalyzersRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     type: Optional[TypeType] = None
 
 
+# This class is the input for the 'list_archive_rules' function.
 class ListArchiveRulesRequest(BaseValidatorModel):
     analyzerName: str
     nextToken: Optional[str] = None
@@ -334,6 +353,7 @@ class SortCriteria(BaseValidatorModel):
     orderBy: Optional[OrderByType] = None
 
 
+# This class is the input for the 'list_policy_generations' function.
 class ListPolicyGenerationsRequest(BaseValidatorModel):
     principalArn: Optional[str] = None
     maxResults: Optional[int] = None
@@ -348,6 +368,7 @@ class PolicyGeneration(BaseValidatorModel):
     completedOn: Optional[datetime] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -399,6 +420,7 @@ class S3PublicAccessBlockConfiguration(BaseValidatorModel):
     restrictPublicBuckets: bool
 
 
+# This class is the input for the 'start_resource_scan' function.
 class StartResourceScanRequest(BaseValidatorModel):
     analyzerArn: str
     resourceArn: str
@@ -425,6 +447,7 @@ class UnusedAction(BaseValidatorModel):
     lastAccessed: Optional[datetime] = None
 
 
+# This class is the input for the 'update_findings' function.
 class UpdateFindingsRequest(BaseValidatorModel):
     analyzerArn: str
     status: FindingStatusUpdateType
@@ -433,6 +456,7 @@ class UpdateFindingsRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'validate_policy' function.
 class ValidatePolicyRequest(BaseValidatorModel):
     policyDocument: str
     policyType: PolicyTypeType
@@ -450,6 +474,7 @@ class AccessPreviewSummary(BaseValidatorModel):
     statusReason: Optional[AccessPreviewStatusReason] = None
 
 
+# This class is the input for the 'check_access_not_granted' function.
 class CheckAccessNotGrantedRequest(BaseValidatorModel):
     policyDocument: str
     access: List[Access]
@@ -476,6 +501,7 @@ class ArchiveRuleSummary(BaseValidatorModel):
     updatedAt: datetime
 
 
+# This class is the output for the 'check_access_not_granted' function.
 class CheckAccessNotGrantedResponse(BaseValidatorModel):
     result: CheckAccessNotGrantedResultType
     message: str
@@ -483,6 +509,7 @@ class CheckAccessNotGrantedResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'check_no_new_access' function.
 class CheckNoNewAccessResponse(BaseValidatorModel):
     result: CheckNoNewAccessResultType
     message: str
@@ -490,6 +517,7 @@ class CheckNoNewAccessResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'check_no_public_access' function.
 class CheckNoPublicAccessResponse(BaseValidatorModel):
     result: CheckNoPublicAccessResultType
     message: str
@@ -497,36 +525,43 @@ class CheckNoPublicAccessResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_access_preview' function.
 class CreateAccessPreviewResponse(BaseValidatorModel):
     id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_analyzer' function.
 class CreateAnalyzerResponse(BaseValidatorModel):
     arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_findings' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_analyzed_resource' function.
 class GetAnalyzedResourceResponse(BaseValidatorModel):
     resource: AnalyzedResource
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_analyzed_resources' function.
 class ListAnalyzedResourcesResponse(BaseValidatorModel):
     analyzedResources: List[AnalyzedResourceSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_policy_generation' function.
 class StartPolicyGenerationResponse(BaseValidatorModel):
     jobId: str
     ResponseMetadata: ResponseMetadata
@@ -561,6 +596,7 @@ class FindingSource(BaseValidatorModel):
     detail: Optional[FindingSourceDetail] = None
 
 
+# This class is the output for the 'list_findings_v2' function.
 class ListFindingsV2Response(BaseValidatorModel):
     findings: List[FindingSummaryV2]
     ResponseMetadata: ResponseMetadata
@@ -631,6 +667,7 @@ class KmsGrantConfigurationOutput(BaseValidatorModel):
 KmsGrantConstraintsUnion = Union[KmsGrantConstraints, KmsGrantConstraintsOutput]
 
 
+# This class is the output for the 'list_policy_generations' function.
 class ListPolicyGenerationsResponse(BaseValidatorModel):
     policyGenerations: List[PolicyGeneration]
     ResponseMetadata: ResponseMetadata
@@ -691,6 +728,7 @@ class UnusedPermissionDetails(BaseValidatorModel):
     lastAccessed: Optional[datetime] = None
 
 
+# This class is the output for the 'list_access_previews' function.
 class ListAccessPreviewsResponse(BaseValidatorModel):
     accessPreviews: List[AccessPreviewSummary]
     ResponseMetadata: ResponseMetadata
@@ -707,17 +745,20 @@ class UnusedAccessConfiguration(BaseValidatorModel):
     analysisRule: Optional[AnalysisRule] = None
 
 
+# This class is the output for the 'get_archive_rule' function.
 class GetArchiveRuleResponse(BaseValidatorModel):
     archiveRule: ArchiveRuleSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_archive_rules' function.
 class ListArchiveRulesResponse(BaseValidatorModel):
     archiveRules: List[ArchiveRuleSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'start_policy_generation' function.
 class StartPolicyGenerationRequest(BaseValidatorModel):
     policyGenerationDetails: PolicyGenerationDetails
     cloudTrailDetails: Optional[CloudTrailDetails] = None
@@ -730,6 +771,7 @@ class GeneratedPolicyProperties(BaseValidatorModel):
     cloudTrailProperties: Optional[CloudTrailProperties] = None
 
 
+# This class is the input for the 'create_archive_rule' function.
 class CreateArchiveRuleRequest(BaseValidatorModel):
     analyzerName: str
     ruleName: str
@@ -749,6 +791,7 @@ class ListAccessPreviewFindingsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_access_preview_findings' function.
 class ListAccessPreviewFindingsRequest(BaseValidatorModel):
     accessPreviewId: str
     analyzerArn: str
@@ -764,6 +807,7 @@ class ListFindingsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_findings' function.
 class ListFindingsRequest(BaseValidatorModel):
     analyzerArn: str
     filter: Optional[Dict[str, CriterionUnion]] = None
@@ -779,6 +823,7 @@ class ListFindingsV2RequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_findings_v2' function.
 class ListFindingsV2Request(BaseValidatorModel):
     analyzerArn: str
     filter: Optional[Dict[str, CriterionUnion]] = None
@@ -787,6 +832,7 @@ class ListFindingsV2Request(BaseValidatorModel):
     sort: Optional[SortCriteria] = None
 
 
+# This class is the input for the 'update_archive_rule' function.
 class UpdateArchiveRuleRequest(BaseValidatorModel):
     analyzerName: str
     ruleName: str
@@ -894,6 +940,7 @@ class RdsDbSnapshotConfiguration(BaseValidatorModel):
     kmsKeyId: Optional[str] = None
 
 
+# This class is the output for the 'get_finding_recommendation' function.
 class GetFindingRecommendationResponse(BaseValidatorModel):
     startedAt: datetime
     completedAt: datetime
@@ -924,6 +971,7 @@ class GeneratedPolicyResult(BaseValidatorModel):
     generatedPolicies: Optional[List[GeneratedPolicy]] = None
 
 
+# This class is the output for the 'list_access_preview_findings' function.
 class ListAccessPreviewFindingsResponse(BaseValidatorModel):
     findings: List[AccessPreviewFinding]
     ResponseMetadata: ResponseMetadata
@@ -938,12 +986,14 @@ class FindingDetails(BaseValidatorModel):
     unusedIamUserPasswordDetails: Optional[UnusedIamUserPasswordDetails] = None
 
 
+# This class is the output for the 'list_findings' function.
 class ListFindingsResponse(BaseValidatorModel):
     findings: List[FindingSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_finding' function.
 class GetFindingResponse(BaseValidatorModel):
     finding: Finding
     ResponseMetadata: ResponseMetadata
@@ -976,6 +1026,7 @@ RdsDbClusterSnapshotConfigurationUnion = Union[RdsDbClusterSnapshotConfiguration
 RdsDbSnapshotConfigurationUnion = Union[RdsDbSnapshotConfiguration, RdsDbSnapshotConfigurationOutput]
 
 
+# This class is the output for the 'get_findings_statistics' function.
 class GetFindingsStatisticsResponse(BaseValidatorModel):
     findingsStatistics: List[FindingsStatistics]
     lastUpdatedAt: datetime
@@ -995,6 +1046,7 @@ class AnalyzerSummary(BaseValidatorModel):
     configuration: Optional[AnalyzerConfigurationOutput] = None
 
 
+# This class is the output for the 'update_analyzer' function.
 class UpdateAnalyzerResponse(BaseValidatorModel):
     configuration: AnalyzerConfigurationOutput
     ResponseMetadata: ResponseMetadata
@@ -1002,12 +1054,14 @@ class UpdateAnalyzerResponse(BaseValidatorModel):
 AnalyzerConfigurationUnion = Union[AnalyzerConfiguration, AnalyzerConfigurationOutput]
 
 
+# This class is the output for the 'get_generated_policy' function.
 class GetGeneratedPolicyResponse(BaseValidatorModel):
     jobDetails: JobDetails
     generatedPolicyResult: GeneratedPolicyResult
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_finding_v2' function.
 class GetFindingV2Response(BaseValidatorModel):
     analyzedAt: datetime
     createdAt: datetime
@@ -1048,23 +1102,27 @@ class ConfigurationOutput(BaseValidatorModel):
 S3AccessPointConfigurationUnion = Union[S3AccessPointConfiguration, S3AccessPointConfigurationOutput]
 
 
+# This class is the output for the 'validate_policy' function.
 class ValidatePolicyResponse(BaseValidatorModel):
     findings: List[ValidatePolicyFinding]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_analyzer' function.
 class GetAnalyzerResponse(BaseValidatorModel):
     analyzer: AnalyzerSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_analyzers' function.
 class ListAnalyzersResponse(BaseValidatorModel):
     analyzers: List[AnalyzerSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_analyzer' function.
 class CreateAnalyzerRequest(BaseValidatorModel):
     analyzerName: str
     type: TypeType
@@ -1074,6 +1132,7 @@ class CreateAnalyzerRequest(BaseValidatorModel):
     configuration: Optional[AnalyzerConfigurationUnion] = None
 
 
+# This class is the input for the 'update_analyzer' function.
 class UpdateAnalyzerRequest(BaseValidatorModel):
     analyzerName: str
     configuration: Optional[AnalyzerConfigurationUnion] = None
@@ -1097,6 +1156,7 @@ class S3BucketConfiguration(BaseValidatorModel):
     accessPoints: Optional[Dict[str, S3AccessPointConfigurationUnion]] = None
 
 
+# This class is the output for the 'get_access_preview' function.
 class GetAccessPreviewResponse(BaseValidatorModel):
     accessPreview: AccessPreview
     ResponseMetadata: ResponseMetadata
@@ -1123,6 +1183,7 @@ class Configuration(BaseValidatorModel):
 ConfigurationUnion = Union[Configuration, ConfigurationOutput]
 
 
+# This class is the input for the 'create_access_preview' function.
 class CreateAccessPreviewRequest(BaseValidatorModel):
     analyzerArn: str
     configurations: Dict[str, ConfigurationUnion]

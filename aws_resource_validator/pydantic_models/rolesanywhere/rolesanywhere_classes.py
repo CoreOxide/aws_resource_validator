@@ -54,6 +54,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'delete_attribute_mapping' function.
 class DeleteAttributeMappingRequest(BaseValidatorModel):
     certificateField: CertificateFieldType
     profileId: str
@@ -72,21 +73,25 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_trust_anchors' function.
 class ListRequestRequestExtraExtra(BaseValidatorModel):
     nextToken: Optional[str] = None
     pageSize: Optional[int] = None
 
 
+# This class is the input for the 'list_subjects' function.
 class ListRequestRequestExtra(BaseValidatorModel):
     nextToken: Optional[str] = None
     pageSize: Optional[int] = None
 
 
+# This class is the input for the 'list_profiles' function.
 class ListRequestRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     pageSize: Optional[int] = None
 
 
+# This class is the input for the 'list_crls' function.
 class ListRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     pageSize: Optional[int] = None
@@ -102,6 +107,7 @@ class SubjectSummary(BaseValidatorModel):
     x509Subject: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -119,54 +125,67 @@ class NotificationSettingKey(BaseValidatorModel):
     channel: Optional[Literal['ALL']] = None
 
 
+# This class is the input for the 'get_crl' function.
 class ScalarCrlRequestRequestExtraExtra(BaseValidatorModel):
     crlId: str
 
 
+# This class is the input for the 'enable_crl' function.
 class ScalarCrlRequestRequestExtra(BaseValidatorModel):
     crlId: str
 
 
+# This class is the input for the 'disable_crl' function.
 class ScalarCrlRequestRequest(BaseValidatorModel):
     crlId: str
 
 
+# This class is the input for the 'delete_crl' function.
 class ScalarCrlRequest(BaseValidatorModel):
     crlId: str
 
 
+# This class is the input for the 'get_profile' function.
 class ScalarProfileRequestRequestExtraExtra(BaseValidatorModel):
     profileId: str
 
 
+# This class is the input for the 'enable_profile' function.
 class ScalarProfileRequestRequestExtra(BaseValidatorModel):
     profileId: str
 
 
+# This class is the input for the 'disable_profile' function.
 class ScalarProfileRequestRequest(BaseValidatorModel):
     profileId: str
 
 
+# This class is the input for the 'delete_profile' function.
 class ScalarProfileRequest(BaseValidatorModel):
     profileId: str
 
 
+# This class is the input for the 'get_subject' function.
 class ScalarSubjectRequest(BaseValidatorModel):
     subjectId: str
 
 
+# This class is the input for the 'get_trust_anchor' function.
 class ScalarTrustAnchorRequestRequestExtraExtra(BaseValidatorModel):
     trustAnchorId: str
 
 
+# This class is the input for the 'enable_trust_anchor' function.
 class ScalarTrustAnchorRequestRequestExtra(BaseValidatorModel):
     trustAnchorId: str
 
 
+# This class is the input for the 'disable_trust_anchor' function.
 class ScalarTrustAnchorRequestRequest(BaseValidatorModel):
     trustAnchorId: str
 
 
+# This class is the input for the 'delete_trust_anchor' function.
 class ScalarTrustAnchorRequest(BaseValidatorModel):
     trustAnchorId: str
 
@@ -181,6 +200,7 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_profile' function.
 class UpdateProfileRequest(BaseValidatorModel):
     profileId: str
     acceptRoleSessionName: Optional[bool] = None
@@ -196,18 +216,21 @@ class AttributeMapping(BaseValidatorModel):
     mappingRules: Optional[List[MappingRule]] = None
 
 
+# This class is the input for the 'put_attribute_mapping' function.
 class PutAttributeMappingRequest(BaseValidatorModel):
     certificateField: CertificateFieldType
     mappingRules: List[MappingRule]
     profileId: str
 
 
+# This class is the input for the 'update_crl' function.
 class UpdateCrlRequest(BaseValidatorModel):
     crlId: str
     crlData: Optional[Blob] = None
     name: Optional[str] = None
 
 
+# This class is the input for the 'create_profile' function.
 class CreateProfileRequest(BaseValidatorModel):
     name: str
     roleArns: List[str]
@@ -220,6 +243,7 @@ class CreateProfileRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'import_crl' function.
 class ImportCrlRequest(BaseValidatorModel):
     crlData: Blob
     name: str
@@ -233,22 +257,26 @@ class TagResourceRequest(BaseValidatorModel):
     tags: List[Tag]
 
 
+# This class is the input for the 'put_notification_settings' function.
 class PutNotificationSettingsRequest(BaseValidatorModel):
     notificationSettings: List[NotificationSetting]
     trustAnchorId: str
 
 
+# This class is the output for the 'update_crl' function.
 class CrlDetailResponse(BaseValidatorModel):
     crl: CrlDetail
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_crls' function.
 class ListCrlsResponse(BaseValidatorModel):
     crls: List[CrlDetail]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -286,12 +314,14 @@ class ListRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_subjects' function.
 class ListSubjectsResponse(BaseValidatorModel):
     subjects: List[SubjectSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'reset_notification_settings' function.
 class ResetNotificationSettingsRequest(BaseValidatorModel):
     notificationSettingKeys: List[NotificationSettingKey]
     trustAnchorId: str
@@ -319,11 +349,13 @@ class ProfileDetail(BaseValidatorModel):
     updatedAt: Optional[datetime] = None
 
 
+# This class is the output for the 'get_subject' function.
 class SubjectDetailResponse(BaseValidatorModel):
     subject: SubjectDetail
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_trust_anchor' function.
 class CreateTrustAnchorRequest(BaseValidatorModel):
     name: str
     source: Source
@@ -343,49 +375,58 @@ class TrustAnchorDetail(BaseValidatorModel):
     updatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'update_trust_anchor' function.
 class UpdateTrustAnchorRequest(BaseValidatorModel):
     trustAnchorId: str
     name: Optional[str] = None
     source: Optional[Source] = None
 
 
+# This class is the output for the 'delete_attribute_mapping' function.
 class DeleteAttributeMappingResponse(BaseValidatorModel):
     profile: ProfileDetail
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_profiles' function.
 class ListProfilesResponse(BaseValidatorModel):
     profiles: List[ProfileDetail]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_profile' function.
 class ProfileDetailResponse(BaseValidatorModel):
     profile: ProfileDetail
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_attribute_mapping' function.
 class PutAttributeMappingResponse(BaseValidatorModel):
     profile: ProfileDetail
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_trust_anchors' function.
 class ListTrustAnchorsResponse(BaseValidatorModel):
     trustAnchors: List[TrustAnchorDetail]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'put_notification_settings' function.
 class PutNotificationSettingsResponse(BaseValidatorModel):
     trustAnchor: TrustAnchorDetail
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reset_notification_settings' function.
 class ResetNotificationSettingsResponse(BaseValidatorModel):
     trustAnchor: TrustAnchorDetail
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_trust_anchor' function.
 class TrustAnchorDetailResponse(BaseValidatorModel):
     trustAnchor: TrustAnchorDetail
     ResponseMetadata: ResponseMetadata

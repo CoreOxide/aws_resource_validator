@@ -36,6 +36,7 @@ class AssociateMemberToGroupRequest(BaseValidatorModel):
     MemberId: str
 
 
+# This class is the input for the 'assume_impersonation_role' function.
 class AssumeImpersonationRoleRequest(BaseValidatorModel):
     OrganizationId: str
     ImpersonationRoleId: str
@@ -82,18 +83,21 @@ class EwsAvailabilityProvider(BaseValidatorModel):
     EwsPassword: str
 
 
+# This class is the input for the 'create_group' function.
 class CreateGroupRequest(BaseValidatorModel):
     OrganizationId: str
     Name: str
     HiddenFromGlobalAddressList: Optional[bool] = None
 
 
+# This class is the input for the 'create_identity_center_application' function.
 class CreateIdentityCenterApplicationRequest(BaseValidatorModel):
     Name: str
     InstanceArn: str
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'create_mobile_device_access_rule' function.
 class CreateMobileDeviceAccessRuleRequest(BaseValidatorModel):
     OrganizationId: str
     Name: str
@@ -115,6 +119,7 @@ class Domain(BaseValidatorModel):
     HostedZoneId: Optional[str] = None
 
 
+# This class is the input for the 'create_resource' function.
 class CreateResourceRequest(BaseValidatorModel):
     OrganizationId: str
     Name: str
@@ -123,6 +128,7 @@ class CreateResourceRequest(BaseValidatorModel):
     HiddenFromGlobalAddressList: Optional[bool] = None
 
 
+# This class is the input for the 'create_user' function.
 class CreateUserRequest(BaseValidatorModel):
     OrganizationId: str
     Name: str
@@ -195,6 +201,7 @@ class DeleteMobileDeviceAccessRuleRequest(BaseValidatorModel):
     MobileDeviceAccessRuleId: str
 
 
+# This class is the input for the 'delete_organization' function.
 class DeleteOrganizationRequest(BaseValidatorModel):
     OrganizationId: str
     DeleteDirectory: bool
@@ -233,20 +240,24 @@ class DeregisterMailDomainRequest(BaseValidatorModel):
     DomainName: str
 
 
+# This class is the input for the 'describe_email_monitoring_configuration' function.
 class DescribeEmailMonitoringConfigurationRequest(BaseValidatorModel):
     OrganizationId: str
 
 
+# This class is the input for the 'describe_entity' function.
 class DescribeEntityRequest(BaseValidatorModel):
     OrganizationId: str
     Email: str
 
 
+# This class is the input for the 'describe_group' function.
 class DescribeGroupRequest(BaseValidatorModel):
     OrganizationId: str
     GroupId: str
 
 
+# This class is the input for the 'describe_identity_provider_configuration' function.
 class DescribeIdentityProviderConfigurationRequest(BaseValidatorModel):
     OrganizationId: str
 
@@ -261,24 +272,29 @@ class PersonalAccessTokenConfiguration(BaseValidatorModel):
     LifetimeInDays: Optional[int] = None
 
 
+# This class is the input for the 'describe_inbound_dmarc_settings' function.
 class DescribeInboundDmarcSettingsRequest(BaseValidatorModel):
     OrganizationId: str
 
 
+# This class is the input for the 'describe_mailbox_export_job' function.
 class DescribeMailboxExportJobRequest(BaseValidatorModel):
     JobId: str
     OrganizationId: str
 
 
+# This class is the input for the 'describe_organization' function.
 class DescribeOrganizationRequest(BaseValidatorModel):
     OrganizationId: str
 
 
+# This class is the input for the 'describe_resource' function.
 class DescribeResourceRequest(BaseValidatorModel):
     OrganizationId: str
     ResourceId: str
 
 
+# This class is the input for the 'describe_user' function.
 class DescribeUserRequest(BaseValidatorModel):
     OrganizationId: str
     UserId: str
@@ -308,6 +324,7 @@ class FolderConfiguration(BaseValidatorModel):
     Period: Optional[int] = None
 
 
+# This class is the input for the 'get_access_control_effect' function.
 class GetAccessControlEffectRequest(BaseValidatorModel):
     OrganizationId: str
     IpAddress: str
@@ -316,10 +333,12 @@ class GetAccessControlEffectRequest(BaseValidatorModel):
     ImpersonationRoleId: Optional[str] = None
 
 
+# This class is the input for the 'get_default_retention_policy' function.
 class GetDefaultRetentionPolicyRequest(BaseValidatorModel):
     OrganizationId: str
 
 
+# This class is the input for the 'get_impersonation_role_effect' function.
 class GetImpersonationRoleEffectRequest(BaseValidatorModel):
     OrganizationId: str
     ImpersonationRoleId: str
@@ -331,6 +350,7 @@ class ImpersonationMatchedRule(BaseValidatorModel):
     Name: Optional[str] = None
 
 
+# This class is the input for the 'get_impersonation_role' function.
 class GetImpersonationRoleRequest(BaseValidatorModel):
     OrganizationId: str
     ImpersonationRoleId: str
@@ -345,16 +365,19 @@ class ImpersonationRuleOutput(BaseValidatorModel):
     NotTargetUsers: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_mail_domain' function.
 class GetMailDomainRequest(BaseValidatorModel):
     OrganizationId: str
     DomainName: str
 
 
+# This class is the input for the 'get_mailbox_details' function.
 class GetMailboxDetailsRequest(BaseValidatorModel):
     OrganizationId: str
     UserId: str
 
 
+# This class is the input for the 'get_mobile_device_access_effect' function.
 class GetMobileDeviceAccessEffectRequest(BaseValidatorModel):
     OrganizationId: str
     DeviceType: Optional[str] = None
@@ -368,12 +391,14 @@ class MobileDeviceAccessMatchedRule(BaseValidatorModel):
     Name: Optional[str] = None
 
 
+# This class is the input for the 'get_mobile_device_access_override' function.
 class GetMobileDeviceAccessOverrideRequest(BaseValidatorModel):
     OrganizationId: str
     UserId: str
     DeviceId: str
 
 
+# This class is the input for the 'get_personal_access_token_metadata' function.
 class GetPersonalAccessTokenMetadataRequest(BaseValidatorModel):
     OrganizationId: str
     PersonalAccessTokenId: str
@@ -410,6 +435,7 @@ class ImpersonationRule(BaseValidatorModel):
     NotTargetUsers: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_access_control_rules' function.
 class ListAccessControlRulesRequest(BaseValidatorModel):
     OrganizationId: str
 
@@ -420,6 +446,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_aliases' function.
 class ListAliasesRequest(BaseValidatorModel):
     OrganizationId: str
     EntityId: str
@@ -427,12 +454,14 @@ class ListAliasesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_availability_configurations' function.
 class ListAvailabilityConfigurationsRequest(BaseValidatorModel):
     OrganizationId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_group_members' function.
 class ListGroupMembersRequest(BaseValidatorModel):
     OrganizationId: str
     GroupId: str
@@ -459,12 +488,14 @@ class ListGroupsForEntityFilters(BaseValidatorModel):
     GroupNamePrefix: Optional[str] = None
 
 
+# This class is the input for the 'list_impersonation_roles' function.
 class ListImpersonationRolesRequest(BaseValidatorModel):
     OrganizationId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_mail_domains' function.
 class ListMailDomainsRequest(BaseValidatorModel):
     OrganizationId: str
     MaxResults: Optional[int] = None
@@ -476,6 +507,7 @@ class MailDomainSummary(BaseValidatorModel):
     DefaultDomain: Optional[bool] = None
 
 
+# This class is the input for the 'list_mailbox_export_jobs' function.
 class ListMailboxExportJobsRequest(BaseValidatorModel):
     OrganizationId: str
     NextToken: Optional[str] = None
@@ -494,6 +526,7 @@ class MailboxExportJob(BaseValidatorModel):
     EndTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_mailbox_permissions' function.
 class ListMailboxPermissionsRequest(BaseValidatorModel):
     OrganizationId: str
     EntityId: str
@@ -507,6 +540,7 @@ class Permission(BaseValidatorModel):
     PermissionValues: List[PermissionTypeType]
 
 
+# This class is the input for the 'list_mobile_device_access_overrides' function.
 class ListMobileDeviceAccessOverridesRequest(BaseValidatorModel):
     OrganizationId: str
     UserId: Optional[str] = None
@@ -524,6 +558,7 @@ class MobileDeviceAccessOverride(BaseValidatorModel):
     DateModified: Optional[datetime] = None
 
 
+# This class is the input for the 'list_mobile_device_access_rules' function.
 class ListMobileDeviceAccessRulesRequest(BaseValidatorModel):
     OrganizationId: str
 
@@ -545,6 +580,7 @@ class MobileDeviceAccessRule(BaseValidatorModel):
     DateModified: Optional[datetime] = None
 
 
+# This class is the input for the 'list_organizations' function.
 class ListOrganizationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -558,6 +594,7 @@ class OrganizationSummary(BaseValidatorModel):
     State: Optional[str] = None
 
 
+# This class is the input for the 'list_personal_access_tokens' function.
 class ListPersonalAccessTokensRequest(BaseValidatorModel):
     OrganizationId: str
     UserId: Optional[str] = None
@@ -575,6 +612,7 @@ class PersonalAccessTokenSummary(BaseValidatorModel):
     Scopes: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_resource_delegates' function.
 class ListResourceDelegatesRequest(BaseValidatorModel):
     OrganizationId: str
     ResourceId: str
@@ -599,6 +637,7 @@ class Resource(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
@@ -688,6 +727,7 @@ class ResetPasswordRequest(BaseValidatorModel):
     Password: str
 
 
+# This class is the input for the 'start_mailbox_export_job' function.
 class StartMailboxExportJobRequest(BaseValidatorModel):
     ClientToken: str
     OrganizationId: str
@@ -764,59 +804,70 @@ class UpdateUserRequest(BaseValidatorModel):
     IdentityProviderUserId: Optional[str] = None
 
 
+# This class is the output for the 'assume_impersonation_role' function.
 class AssumeImpersonationRoleResponse(BaseValidatorModel):
     Token: str
     ExpiresIn: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_group' function.
 class CreateGroupResponse(BaseValidatorModel):
     GroupId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_identity_center_application' function.
 class CreateIdentityCenterApplicationResponse(BaseValidatorModel):
     ApplicationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_impersonation_role' function.
 class CreateImpersonationRoleResponse(BaseValidatorModel):
     ImpersonationRoleId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_mobile_device_access_rule' function.
 class CreateMobileDeviceAccessRuleResponse(BaseValidatorModel):
     MobileDeviceAccessRuleId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_organization' function.
 class CreateOrganizationResponse(BaseValidatorModel):
     OrganizationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_resource' function.
 class CreateResourceResponse(BaseValidatorModel):
     ResourceId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_user' function.
 class CreateUserResponse(BaseValidatorModel):
     UserId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_organization' function.
 class DeleteOrganizationResponse(BaseValidatorModel):
     OrganizationId: str
     State: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_email_monitoring_configuration' function.
 class DescribeEmailMonitoringConfigurationResponse(BaseValidatorModel):
     RoleArn: str
     LogGroupArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_entity' function.
 class DescribeEntityResponse(BaseValidatorModel):
     EntityId: str
     Name: str
@@ -824,6 +875,7 @@ class DescribeEntityResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_group' function.
 class DescribeGroupResponse(BaseValidatorModel):
     GroupId: str
     Name: str
@@ -835,11 +887,13 @@ class DescribeGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_inbound_dmarc_settings' function.
 class DescribeInboundDmarcSettingsResponse(BaseValidatorModel):
     Enforced: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_mailbox_export_job' function.
 class DescribeMailboxExportJobResponse(BaseValidatorModel):
     EntityId: str
     Description: str
@@ -856,6 +910,7 @@ class DescribeMailboxExportJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_organization' function.
 class DescribeOrganizationResponse(BaseValidatorModel):
     OrganizationId: str
     Alias: str
@@ -871,6 +926,7 @@ class DescribeOrganizationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_user' function.
 class DescribeUserResponse(BaseValidatorModel):
     UserId: str
     Name: str
@@ -900,18 +956,21 @@ class DescribeUserResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_access_control_effect' function.
 class GetAccessControlEffectResponse(BaseValidatorModel):
     Effect: AccessControlRuleEffectType
     MatchedRules: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_mailbox_details' function.
 class GetMailboxDetailsResponse(BaseValidatorModel):
     MailboxQuota: int
     MailboxSize: float
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_mobile_device_access_override' function.
 class GetMobileDeviceAccessOverrideResponse(BaseValidatorModel):
     UserId: str
     DeviceId: str
@@ -922,6 +981,7 @@ class GetMobileDeviceAccessOverrideResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_personal_access_token_metadata' function.
 class GetPersonalAccessTokenMetadataResponse(BaseValidatorModel):
     PersonalAccessTokenId: str
     UserId: str
@@ -933,22 +993,26 @@ class GetPersonalAccessTokenMetadataResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_access_control_rules' function.
 class ListAccessControlRulesResponse(BaseValidatorModel):
     Rules: List[AccessControlRule]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_aliases' function.
 class ListAliasesResponse(BaseValidatorModel):
     Aliases: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_mailbox_export_job' function.
 class StartMailboxExportJobResponse(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'test_availability_configuration' function.
 class TestAvailabilityConfigurationResponse(BaseValidatorModel):
     TestPassed: bool
     FailureReason: str
@@ -964,6 +1028,7 @@ class AvailabilityConfiguration(BaseValidatorModel):
     DateModified: Optional[datetime] = None
 
 
+# This class is the output for the 'describe_resource' function.
 class DescribeResourceResponse(BaseValidatorModel):
     ResourceId: str
     Email: str
@@ -996,6 +1061,7 @@ class CreateAvailabilityConfigurationRequest(BaseValidatorModel):
     LambdaProvider: Optional[LambdaAvailabilityProvider] = None
 
 
+# This class is the input for the 'test_availability_configuration' function.
 class TestAvailabilityConfigurationRequest(BaseValidatorModel):
     OrganizationId: str
     DomainName: Optional[str] = None
@@ -1010,6 +1076,7 @@ class UpdateAvailabilityConfigurationRequest(BaseValidatorModel):
     LambdaProvider: Optional[LambdaAvailabilityProvider] = None
 
 
+# This class is the input for the 'create_organization' function.
 class CreateOrganizationRequest(BaseValidatorModel):
     Alias: str
     DirectoryId: Optional[str] = None
@@ -1019,12 +1086,14 @@ class CreateOrganizationRequest(BaseValidatorModel):
     EnableInteroperability: Optional[bool] = None
 
 
+# This class is the output for the 'list_resource_delegates' function.
 class ListResourceDelegatesResponse(BaseValidatorModel):
     Delegates: List[Delegate]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_identity_provider_configuration' function.
 class DescribeIdentityProviderConfigurationResponse(BaseValidatorModel):
     AuthenticationMode: IdentityProviderAuthenticationModeType
     IdentityCenterConfiguration: IdentityCenterConfiguration
@@ -1039,6 +1108,7 @@ class PutIdentityProviderConfigurationRequest(BaseValidatorModel):
     PersonalAccessTokenConfiguration: PersonalAccessTokenConfiguration
 
 
+# This class is the output for the 'get_mail_domain' function.
 class GetMailDomainResponse(BaseValidatorModel):
     Records: List[DnsRecord]
     IsTestDomain: bool
@@ -1048,6 +1118,7 @@ class GetMailDomainResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_default_retention_policy' function.
 class GetDefaultRetentionPolicyResponse(BaseValidatorModel):
     Id: str
     Name: str
@@ -1064,6 +1135,7 @@ class PutRetentionPolicyRequest(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the output for the 'get_impersonation_role_effect' function.
 class GetImpersonationRoleEffectResponse(BaseValidatorModel):
     Type: ImpersonationRoleTypeType
     Effect: AccessEffectType
@@ -1071,6 +1143,7 @@ class GetImpersonationRoleEffectResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_impersonation_role' function.
 class GetImpersonationRoleResponse(BaseValidatorModel):
     ImpersonationRoleId: str
     Name: str
@@ -1082,24 +1155,28 @@ class GetImpersonationRoleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_mobile_device_access_effect' function.
 class GetMobileDeviceAccessEffectResponse(BaseValidatorModel):
     Effect: MobileDeviceAccessRuleEffectType
     MatchedRules: List[MobileDeviceAccessMatchedRule]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_groups_for_entity' function.
 class ListGroupsForEntityResponse(BaseValidatorModel):
     Groups: List[GroupIdentifier]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_groups' function.
 class ListGroupsResponse(BaseValidatorModel):
     Groups: List[Group]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_impersonation_roles' function.
 class ListImpersonationRolesResponse(BaseValidatorModel):
     Roles: List[ImpersonationRole]
     ResponseMetadata: ResponseMetadata
@@ -1147,6 +1224,7 @@ class ListResourceDelegatesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_group_members' function.
 class ListGroupMembersResponse(BaseValidatorModel):
     Members: List[Member]
     ResponseMetadata: ResponseMetadata
@@ -1159,6 +1237,7 @@ class ListGroupsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_groups' function.
 class ListGroupsRequest(BaseValidatorModel):
     OrganizationId: str
     NextToken: Optional[str] = None
@@ -1166,6 +1245,7 @@ class ListGroupsRequest(BaseValidatorModel):
     Filters: Optional[ListGroupsFilters] = None
 
 
+# This class is the input for the 'list_groups_for_entity' function.
 class ListGroupsForEntityRequest(BaseValidatorModel):
     OrganizationId: str
     EntityId: str
@@ -1174,41 +1254,48 @@ class ListGroupsForEntityRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the output for the 'list_mail_domains' function.
 class ListMailDomainsResponse(BaseValidatorModel):
     MailDomains: List[MailDomainSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_mailbox_export_jobs' function.
 class ListMailboxExportJobsResponse(BaseValidatorModel):
     Jobs: List[MailboxExportJob]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_mailbox_permissions' function.
 class ListMailboxPermissionsResponse(BaseValidatorModel):
     Permissions: List[Permission]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_mobile_device_access_overrides' function.
 class ListMobileDeviceAccessOverridesResponse(BaseValidatorModel):
     Overrides: List[MobileDeviceAccessOverride]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_mobile_device_access_rules' function.
 class ListMobileDeviceAccessRulesResponse(BaseValidatorModel):
     Rules: List[MobileDeviceAccessRule]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_organizations' function.
 class ListOrganizationsResponse(BaseValidatorModel):
     OrganizationSummaries: List[OrganizationSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_personal_access_tokens' function.
 class ListPersonalAccessTokensResponse(BaseValidatorModel):
     PersonalAccessTokenSummaries: List[PersonalAccessTokenSummary]
     ResponseMetadata: ResponseMetadata
@@ -1221,6 +1308,7 @@ class ListResourcesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_resources' function.
 class ListResourcesRequest(BaseValidatorModel):
     OrganizationId: str
     NextToken: Optional[str] = None
@@ -1228,12 +1316,14 @@ class ListResourcesRequest(BaseValidatorModel):
     Filters: Optional[ListResourcesFilters] = None
 
 
+# This class is the output for the 'list_resources' function.
 class ListResourcesResponse(BaseValidatorModel):
     Resources: List[Resource]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -1250,6 +1340,7 @@ class ListUsersRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_users' function.
 class ListUsersRequest(BaseValidatorModel):
     OrganizationId: str
     NextToken: Optional[str] = None
@@ -1257,18 +1348,21 @@ class ListUsersRequest(BaseValidatorModel):
     Filters: Optional[ListUsersFilters] = None
 
 
+# This class is the output for the 'list_users' function.
 class ListUsersResponse(BaseValidatorModel):
     Users: List[User]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_availability_configurations' function.
 class ListAvailabilityConfigurationsResponse(BaseValidatorModel):
     AvailabilityConfigurations: List[AvailabilityConfiguration]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_impersonation_role' function.
 class CreateImpersonationRoleRequest(BaseValidatorModel):
     OrganizationId: str
     Name: str

@@ -80,37 +80,45 @@ class CustomStepDetails(BaseValidatorModel):
     SourceFileLocation: Optional[str] = None
 
 
+# This class is the input for the 'delete_access' function.
 class DeleteAccessRequest(BaseValidatorModel):
     ServerId: str
     ExternalId: str
 
 
+# This class is the input for the 'delete_agreement' function.
 class DeleteAgreementRequest(BaseValidatorModel):
     AgreementId: str
     ServerId: str
 
 
+# This class is the input for the 'delete_certificate' function.
 class DeleteCertificateRequest(BaseValidatorModel):
     CertificateId: str
 
 
+# This class is the input for the 'delete_connector' function.
 class DeleteConnectorRequest(BaseValidatorModel):
     ConnectorId: str
 
 
+# This class is the input for the 'delete_host_key' function.
 class DeleteHostKeyRequest(BaseValidatorModel):
     ServerId: str
     HostKeyId: str
 
 
+# This class is the input for the 'delete_profile' function.
 class DeleteProfileRequest(BaseValidatorModel):
     ProfileId: str
 
 
+# This class is the input for the 'delete_server' function.
 class DeleteServerRequest(BaseValidatorModel):
     ServerId: str
 
 
+# This class is the input for the 'delete_ssh_public_key' function.
 class DeleteSshPublicKeyRequest(BaseValidatorModel):
     ServerId: str
     SshPublicKeyId: str
@@ -122,55 +130,67 @@ class DeleteStepDetails(BaseValidatorModel):
     SourceFileLocation: Optional[str] = None
 
 
+# This class is the input for the 'delete_user' function.
 class DeleteUserRequest(BaseValidatorModel):
     ServerId: str
     UserName: str
 
 
+# This class is the input for the 'delete_web_app_customization' function.
 class DeleteWebAppCustomizationRequest(BaseValidatorModel):
     WebAppId: str
 
 
+# This class is the input for the 'delete_web_app' function.
 class DeleteWebAppRequest(BaseValidatorModel):
     WebAppId: str
 
 
+# This class is the input for the 'delete_workflow' function.
 class DeleteWorkflowRequest(BaseValidatorModel):
     WorkflowId: str
 
 
+# This class is the input for the 'describe_access' function.
 class DescribeAccessRequest(BaseValidatorModel):
     ServerId: str
     ExternalId: str
 
 
+# This class is the input for the 'describe_agreement' function.
 class DescribeAgreementRequest(BaseValidatorModel):
     AgreementId: str
     ServerId: str
 
 
+# This class is the input for the 'describe_certificate' function.
 class DescribeCertificateRequest(BaseValidatorModel):
     CertificateId: str
 
 
+# This class is the input for the 'describe_connector' function.
 class DescribeConnectorRequest(BaseValidatorModel):
     ConnectorId: str
 
 
+# This class is the input for the 'describe_execution' function.
 class DescribeExecutionRequest(BaseValidatorModel):
     ExecutionId: str
     WorkflowId: str
 
 
+# This class is the input for the 'describe_host_key' function.
 class DescribeHostKeyRequest(BaseValidatorModel):
     ServerId: str
     HostKeyId: str
 
 
+# This class is the input for the 'describe_profile' function.
 class DescribeProfileRequest(BaseValidatorModel):
     ProfileId: str
 
 
+# This class is the input for the 'describe_security_policy' function.
 class DescribeSecurityPolicyRequest(BaseValidatorModel):
     SecurityPolicyName: str
 
@@ -187,6 +207,7 @@ class DescribedSecurityPolicy(BaseValidatorModel):
     Protocols: Optional[List[SecurityPolicyProtocolType]] = None
 
 
+# This class is the input for the 'describe_server' function.
 class DescribeServerRequest(BaseValidatorModel):
     ServerId: str
 
@@ -196,11 +217,13 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'describe_user' function.
 class DescribeUserRequest(BaseValidatorModel):
     ServerId: str
     UserName: str
 
 
+# This class is the input for the 'describe_web_app_customization' function.
 class DescribeWebAppCustomizationRequest(BaseValidatorModel):
     WebAppId: str
 
@@ -213,10 +236,12 @@ class DescribedWebAppCustomization(BaseValidatorModel):
     FaviconFile: Optional[bytes] = None
 
 
+# This class is the input for the 'describe_web_app' function.
 class DescribeWebAppRequest(BaseValidatorModel):
     WebAppId: str
 
 
+# This class is the input for the 'describe_workflow' function.
 class DescribeWorkflowRequest(BaseValidatorModel):
     WorkflowId: str
 
@@ -296,6 +321,7 @@ class IdentityCenterConfig(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'import_ssh_public_key' function.
 class ImportSshPublicKeyRequest(BaseValidatorModel):
     ServerId: str
     SshPublicKeyBody: str
@@ -313,6 +339,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_accesses' function.
 class ListAccessesRequest(BaseValidatorModel):
     ServerId: str
     MaxResults: Optional[int] = None
@@ -326,6 +353,7 @@ class ListedAccess(BaseValidatorModel):
     ExternalId: Optional[str] = None
 
 
+# This class is the input for the 'list_agreements' function.
 class ListAgreementsRequest(BaseValidatorModel):
     ServerId: str
     MaxResults: Optional[int] = None
@@ -342,6 +370,7 @@ class ListedAgreement(BaseValidatorModel):
     PartnerProfileId: Optional[str] = None
 
 
+# This class is the input for the 'list_certificates' function.
 class ListCertificatesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -358,6 +387,7 @@ class ListedCertificate(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'list_connectors' function.
 class ListConnectorsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -369,12 +399,14 @@ class ListedConnector(BaseValidatorModel):
     Url: Optional[str] = None
 
 
+# This class is the input for the 'list_executions' function.
 class ListExecutionsRequest(BaseValidatorModel):
     WorkflowId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_file_transfer_results' function.
 class ListFileTransferResultsRequest(BaseValidatorModel):
     ConnectorId: str
     TransferId: str
@@ -382,6 +414,7 @@ class ListFileTransferResultsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_host_keys' function.
 class ListHostKeysRequest(BaseValidatorModel):
     ServerId: str
     MaxResults: Optional[int] = None
@@ -397,6 +430,7 @@ class ListedHostKey(BaseValidatorModel):
     DateImported: Optional[datetime] = None
 
 
+# This class is the input for the 'list_profiles' function.
 class ListProfilesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -410,11 +444,13 @@ class ListedProfile(BaseValidatorModel):
     ProfileType: Optional[ProfileTypeType] = None
 
 
+# This class is the input for the 'list_security_policies' function.
 class ListSecurityPoliciesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_servers' function.
 class ListServersRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -431,12 +467,14 @@ class ListedServer(BaseValidatorModel):
     UserCount: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     Arn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_users' function.
 class ListUsersRequest(BaseValidatorModel):
     ServerId: str
     MaxResults: Optional[int] = None
@@ -452,6 +490,7 @@ class ListedUser(BaseValidatorModel):
     UserName: Optional[str] = None
 
 
+# This class is the input for the 'list_web_apps' function.
 class ListWebAppsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -464,6 +503,7 @@ class ListedWebApp(BaseValidatorModel):
     WebAppEndpoint: Optional[str] = None
 
 
+# This class is the input for the 'list_workflows' function.
 class ListWorkflowsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -511,6 +551,7 @@ class SftpConnectorConfig(BaseValidatorModel):
     TrustedHostKeys: Optional[List[str]] = None
 
 
+# This class is the input for the 'start_directory_listing' function.
 class StartDirectoryListingRequest(BaseValidatorModel):
     ConnectorId: str
     RemoteDirectoryPath: str
@@ -518,6 +559,7 @@ class StartDirectoryListingRequest(BaseValidatorModel):
     MaxItems: Optional[int] = None
 
 
+# This class is the input for the 'start_file_transfer' function.
 class StartFileTransferRequest(BaseValidatorModel):
     ConnectorId: str
     SendFilePaths: Optional[List[str]] = None
@@ -526,18 +568,22 @@ class StartFileTransferRequest(BaseValidatorModel):
     RemoteDirectoryPath: Optional[str] = None
 
 
+# This class is the input for the 'start_server' function.
 class StartServerRequest(BaseValidatorModel):
     ServerId: str
 
 
+# This class is the input for the 'stop_server' function.
 class StopServerRequest(BaseValidatorModel):
     ServerId: str
 
 
+# This class is the input for the 'test_connection' function.
 class TestConnectionRequest(BaseValidatorModel):
     ConnectorId: str
 
 
+# This class is the input for the 'test_identity_provider' function.
 class TestIdentityProviderRequest(BaseValidatorModel):
     ServerId: str
     UserName: str
@@ -546,17 +592,20 @@ class TestIdentityProviderRequest(BaseValidatorModel):
     UserPassword: Optional[str] = None
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     Arn: str
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_host_key' function.
 class UpdateHostKeyRequest(BaseValidatorModel):
     ServerId: str
     HostKeyId: str
     Description: str
 
 
+# This class is the input for the 'update_profile' function.
 class UpdateProfileRequest(BaseValidatorModel):
     ProfileId: str
     CertificateIds: Optional[List[str]] = None
@@ -571,6 +620,7 @@ class WorkflowDetail(BaseValidatorModel):
     ExecutionRole: str
 
 
+# This class is the input for the 'update_web_app_customization' function.
 class UpdateWebAppCustomizationRequest(BaseValidatorModel):
     WebAppId: str
     Title: Optional[str] = None
@@ -578,63 +628,75 @@ class UpdateWebAppCustomizationRequest(BaseValidatorModel):
     FaviconFile: Optional[Blob] = None
 
 
+# This class is the output for the 'create_access' function.
 class CreateAccessResponse(BaseValidatorModel):
     ServerId: str
     ExternalId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_agreement' function.
 class CreateAgreementResponse(BaseValidatorModel):
     AgreementId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_connector' function.
 class CreateConnectorResponse(BaseValidatorModel):
     ConnectorId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_profile' function.
 class CreateProfileResponse(BaseValidatorModel):
     ProfileId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_server' function.
 class CreateServerResponse(BaseValidatorModel):
     ServerId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_user' function.
 class CreateUserResponse(BaseValidatorModel):
     ServerId: str
     UserName: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_web_app' function.
 class CreateWebAppResponse(BaseValidatorModel):
     WebAppId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_workflow' function.
 class CreateWorkflowResponse(BaseValidatorModel):
     WorkflowId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'untag_resource' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_certificate' function.
 class ImportCertificateResponse(BaseValidatorModel):
     CertificateId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_host_key' function.
 class ImportHostKeyResponse(BaseValidatorModel):
     ServerId: str
     HostKeyId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_ssh_public_key' function.
 class ImportSshPublicKeyResponse(BaseValidatorModel):
     ServerId: str
     SshPublicKeyId: str
@@ -642,29 +704,34 @@ class ImportSshPublicKeyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_file_transfer_results' function.
 class ListFileTransferResultsResponse(BaseValidatorModel):
     FileTransferResults: List[ConnectorFileTransferResult]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_security_policies' function.
 class ListSecurityPoliciesResponse(BaseValidatorModel):
     SecurityPolicyNames: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_directory_listing' function.
 class StartDirectoryListingResponse(BaseValidatorModel):
     ListingId: str
     OutputFileName: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_file_transfer' function.
 class StartFileTransferResponse(BaseValidatorModel):
     TransferId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'test_connection' function.
 class TestConnectionResponse(BaseValidatorModel):
     ConnectorId: str
     Status: str
@@ -672,6 +739,7 @@ class TestConnectionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'test_identity_provider' function.
 class TestIdentityProviderResponse(BaseValidatorModel):
     Response: str
     StatusCode: int
@@ -680,59 +748,70 @@ class TestIdentityProviderResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_access' function.
 class UpdateAccessResponse(BaseValidatorModel):
     ServerId: str
     ExternalId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_agreement' function.
 class UpdateAgreementResponse(BaseValidatorModel):
     AgreementId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_certificate' function.
 class UpdateCertificateResponse(BaseValidatorModel):
     CertificateId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_connector' function.
 class UpdateConnectorResponse(BaseValidatorModel):
     ConnectorId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_host_key' function.
 class UpdateHostKeyResponse(BaseValidatorModel):
     ServerId: str
     HostKeyId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_profile' function.
 class UpdateProfileResponse(BaseValidatorModel):
     ProfileId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_server' function.
 class UpdateServerResponse(BaseValidatorModel):
     ServerId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_user' function.
 class UpdateUserResponse(BaseValidatorModel):
     ServerId: str
     UserName: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_web_app_customization' function.
 class UpdateWebAppCustomizationResponse(BaseValidatorModel):
     WebAppId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_web_app' function.
 class UpdateWebAppResponse(BaseValidatorModel):
     WebAppId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_agreement' function.
 class UpdateAgreementRequest(BaseValidatorModel):
     AgreementId: str
     ServerId: str
@@ -747,6 +826,7 @@ class UpdateAgreementRequest(BaseValidatorModel):
     CustomDirectories: Optional[CustomDirectoriesType] = None
 
 
+# This class is the input for the 'create_agreement' function.
 class CreateAgreementRequest(BaseValidatorModel):
     ServerId: str
     LocalProfileId: str
@@ -761,6 +841,7 @@ class CreateAgreementRequest(BaseValidatorModel):
     CustomDirectories: Optional[CustomDirectoriesType] = None
 
 
+# This class is the input for the 'create_profile' function.
 class CreateProfileRequest(BaseValidatorModel):
     As2Id: str
     ProfileType: ProfileTypeType
@@ -820,6 +901,7 @@ class DescribedProfile(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'import_host_key' function.
 class ImportHostKeyRequest(BaseValidatorModel):
     ServerId: str
     HostKeyBody: str
@@ -827,6 +909,7 @@ class ImportHostKeyRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Arn: str
     Tags: List[Tag]
@@ -834,11 +917,13 @@ class ListTagsForResourceResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     Arn: str
     Tags: List[Tag]
 
 
+# This class is the output for the 'describe_security_policy' function.
 class DescribeSecurityPolicyResponse(BaseValidatorModel):
     SecurityPolicy: DescribedSecurityPolicy
     ResponseMetadata: ResponseMetadata
@@ -854,6 +939,7 @@ class DescribeServerRequestWait(BaseValidatorModel):
     WaiterConfig: Optional[WaiterConfig] = None
 
 
+# This class is the output for the 'describe_web_app_customization' function.
 class DescribeWebAppCustomizationResponse(BaseValidatorModel):
     WebAppCustomization: DescribedWebAppCustomization
     ResponseMetadata: ResponseMetadata
@@ -916,6 +1002,7 @@ class WebAppIdentityProviderDetails(BaseValidatorModel):
     IdentityCenterConfig: Optional[IdentityCenterConfig] = None
 
 
+# This class is the input for the 'import_certificate' function.
 class ImportCertificateRequest(BaseValidatorModel):
     Usage: CertificateUsageTypeType
     Certificate: str
@@ -927,6 +1014,7 @@ class ImportCertificateRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_certificate' function.
 class UpdateCertificateRequest(BaseValidatorModel):
     CertificateId: str
     ActiveDate: Optional[Timestamp] = None
@@ -999,6 +1087,7 @@ class ListWorkflowsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_accesses' function.
 class ListAccessesResponse(BaseValidatorModel):
     ServerId: str
     Accesses: List[ListedAccess]
@@ -1006,24 +1095,28 @@ class ListAccessesResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_agreements' function.
 class ListAgreementsResponse(BaseValidatorModel):
     Agreements: List[ListedAgreement]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_certificates' function.
 class ListCertificatesResponse(BaseValidatorModel):
     Certificates: List[ListedCertificate]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_connectors' function.
 class ListConnectorsResponse(BaseValidatorModel):
     Connectors: List[ListedConnector]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_host_keys' function.
 class ListHostKeysResponse(BaseValidatorModel):
     ServerId: str
     HostKeys: List[ListedHostKey]
@@ -1031,18 +1124,21 @@ class ListHostKeysResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_profiles' function.
 class ListProfilesResponse(BaseValidatorModel):
     Profiles: List[ListedProfile]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_servers' function.
 class ListServersResponse(BaseValidatorModel):
     Servers: List[ListedServer]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_users' function.
 class ListUsersResponse(BaseValidatorModel):
     ServerId: str
     Users: List[ListedUser]
@@ -1050,12 +1146,14 @@ class ListUsersResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_web_apps' function.
 class ListWebAppsResponse(BaseValidatorModel):
     WebApps: List[ListedWebApp]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_workflows' function.
 class ListWorkflowsResponse(BaseValidatorModel):
     Workflows: List[ListedWorkflow]
     ResponseMetadata: ResponseMetadata
@@ -1098,32 +1196,38 @@ class WorkflowDetails(BaseValidatorModel):
     OnPartialUpload: Optional[List[WorkflowDetail]] = None
 
 
+# This class is the output for the 'describe_agreement' function.
 class DescribeAgreementResponse(BaseValidatorModel):
     Agreement: DescribedAgreement
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_certificate' function.
 class DescribeCertificateResponse(BaseValidatorModel):
     Certificate: DescribedCertificate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_host_key' function.
 class DescribeHostKeyResponse(BaseValidatorModel):
     HostKey: DescribedHostKey
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_profile' function.
 class DescribeProfileResponse(BaseValidatorModel):
     Profile: DescribedProfile
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_access' function.
 class DescribeAccessResponse(BaseValidatorModel):
     ServerId: str
     Access: DescribedAccess
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_connector' function.
 class DescribeConnectorResponse(BaseValidatorModel):
     Connector: DescribedConnector
     ResponseMetadata: ResponseMetadata
@@ -1139,6 +1243,7 @@ class DescribedWebApp(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'describe_user' function.
 class DescribeUserResponse(BaseValidatorModel):
     ServerId: str
     User: DescribedUser
@@ -1150,6 +1255,7 @@ class ExecutionResults(BaseValidatorModel):
     OnExceptionSteps: Optional[List[ExecutionStepResult]] = None
 
 
+# This class is the input for the 'create_web_app' function.
 class CreateWebAppRequest(BaseValidatorModel):
     IdentityProviderDetails: WebAppIdentityProviderDetails
     AccessEndpoint: Optional[str] = None
@@ -1172,6 +1278,7 @@ class DecryptStepDetails(BaseValidatorModel):
     OverwriteExisting: Optional[OverwriteExistingType] = None
 
 
+# This class is the input for the 'create_access' function.
 class CreateAccessRequest(BaseValidatorModel):
     Role: str
     ServerId: str
@@ -1183,6 +1290,7 @@ class CreateAccessRequest(BaseValidatorModel):
     PosixProfile: Optional[PosixProfileUnion] = None
 
 
+# This class is the input for the 'create_user' function.
 class CreateUserRequest(BaseValidatorModel):
     Role: str
     ServerId: str
@@ -1196,6 +1304,7 @@ class CreateUserRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_access' function.
 class UpdateAccessRequest(BaseValidatorModel):
     ServerId: str
     ExternalId: str
@@ -1207,6 +1316,7 @@ class UpdateAccessRequest(BaseValidatorModel):
     Role: Optional[str] = None
 
 
+# This class is the input for the 'update_user' function.
 class UpdateUserRequest(BaseValidatorModel):
     ServerId: str
     UserName: str
@@ -1227,6 +1337,7 @@ class ListedExecution(BaseValidatorModel):
     Status: Optional[ExecutionStatusType] = None
 
 
+# This class is the input for the 'create_connector' function.
 class CreateConnectorRequest(BaseValidatorModel):
     Url: str
     AccessRole: str
@@ -1237,6 +1348,7 @@ class CreateConnectorRequest(BaseValidatorModel):
     SecurityPolicyName: Optional[str] = None
 
 
+# This class is the input for the 'update_connector' function.
 class UpdateConnectorRequest(BaseValidatorModel):
     ConnectorId: str
     Url: Optional[str] = None
@@ -1247,6 +1359,7 @@ class UpdateConnectorRequest(BaseValidatorModel):
     SecurityPolicyName: Optional[str] = None
 
 
+# This class is the input for the 'update_web_app' function.
 class UpdateWebAppRequest(BaseValidatorModel):
     WebAppId: str
     IdentityProviderDetails: Optional[UpdateWebAppIdentityProviderDetails] = None
@@ -1281,6 +1394,7 @@ class DescribedServer(BaseValidatorModel):
 WorkflowDetailsUnion = Union[WorkflowDetails, WorkflowDetailsOutput]
 
 
+# This class is the output for the 'describe_web_app' function.
 class DescribeWebAppResponse(BaseValidatorModel):
     WebApp: DescribedWebApp
     ResponseMetadata: ResponseMetadata
@@ -1315,6 +1429,7 @@ class WorkflowStep(BaseValidatorModel):
     DecryptStepDetails: Optional[DecryptStepDetails] = None
 
 
+# This class is the output for the 'list_executions' function.
 class ListExecutionsResponse(BaseValidatorModel):
     WorkflowId: str
     Executions: List[ListedExecution]
@@ -1322,11 +1437,13 @@ class ListExecutionsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_server' function.
 class DescribeServerResponse(BaseValidatorModel):
     Server: DescribedServer
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_server' function.
 class CreateServerRequest(BaseValidatorModel):
     Certificate: Optional[str] = None
     Domain: Optional[DomainType] = None
@@ -1347,6 +1464,7 @@ class CreateServerRequest(BaseValidatorModel):
     S3StorageOptions: Optional[S3StorageOptions] = None
 
 
+# This class is the input for the 'update_server' function.
 class UpdateServerRequest(BaseValidatorModel):
     ServerId: str
     Certificate: Optional[str] = None
@@ -1365,6 +1483,7 @@ class UpdateServerRequest(BaseValidatorModel):
     S3StorageOptions: Optional[S3StorageOptions] = None
 
 
+# This class is the output for the 'describe_execution' function.
 class DescribeExecutionResponse(BaseValidatorModel):
     WorkflowId: str
     Execution: DescribedExecution
@@ -1382,11 +1501,13 @@ class DescribedWorkflow(BaseValidatorModel):
 WorkflowStepUnion = Union[WorkflowStep, WorkflowStepOutput]
 
 
+# This class is the output for the 'describe_workflow' function.
 class DescribeWorkflowResponse(BaseValidatorModel):
     Workflow: DescribedWorkflow
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_workflow' function.
 class CreateWorkflowRequest(BaseValidatorModel):
     Steps: List[WorkflowStepUnion]
     Description: Optional[str] = None

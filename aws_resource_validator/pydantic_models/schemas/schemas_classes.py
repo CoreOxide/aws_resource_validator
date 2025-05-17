@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'create_discoverer' function.
 class CreateDiscovererRequest(BaseValidatorModel):
     SourceArn: str
     Description: Optional[str] = None
@@ -23,12 +24,14 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_registry' function.
 class CreateRegistryRequest(BaseValidatorModel):
     RegistryName: str
     Description: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_schema' function.
 class CreateSchemaRequest(BaseValidatorModel):
     Content: str
     RegistryName: str
@@ -38,29 +41,35 @@ class CreateSchemaRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'delete_discoverer' function.
 class DeleteDiscovererRequest(BaseValidatorModel):
     DiscovererId: str
 
 
+# This class is the input for the 'delete_registry' function.
 class DeleteRegistryRequest(BaseValidatorModel):
     RegistryName: str
 
 
+# This class is the input for the 'delete_resource_policy' function.
 class DeleteResourcePolicyRequest(BaseValidatorModel):
     RegistryName: Optional[str] = None
 
 
+# This class is the input for the 'delete_schema' function.
 class DeleteSchemaRequest(BaseValidatorModel):
     RegistryName: str
     SchemaName: str
 
 
+# This class is the input for the 'delete_schema_version' function.
 class DeleteSchemaVersionRequest(BaseValidatorModel):
     RegistryName: str
     SchemaName: str
     SchemaVersion: str
 
 
+# This class is the input for the 'describe_code_binding' function.
 class DescribeCodeBindingRequest(BaseValidatorModel):
     Language: str
     RegistryName: str
@@ -73,14 +82,17 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'describe_discoverer' function.
 class DescribeDiscovererRequest(BaseValidatorModel):
     DiscovererId: str
 
 
+# This class is the input for the 'describe_registry' function.
 class DescribeRegistryRequest(BaseValidatorModel):
     RegistryName: str
 
 
+# This class is the input for the 'describe_schema' function.
 class DescribeSchemaRequest(BaseValidatorModel):
     RegistryName: str
     SchemaName: str
@@ -96,6 +108,7 @@ class DiscovererSummary(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'export_schema' function.
 class ExportSchemaRequest(BaseValidatorModel):
     RegistryName: str
     SchemaName: str
@@ -103,6 +116,7 @@ class ExportSchemaRequest(BaseValidatorModel):
     SchemaVersion: Optional[str] = None
 
 
+# This class is the input for the 'get_code_binding_source' function.
 class GetCodeBindingSourceRequest(BaseValidatorModel):
     Language: str
     RegistryName: str
@@ -110,11 +124,13 @@ class GetCodeBindingSourceRequest(BaseValidatorModel):
     SchemaVersion: Optional[str] = None
 
 
+# This class is the input for the 'get_discovered_schema' function.
 class GetDiscoveredSchemaRequest(BaseValidatorModel):
     Events: List[str]
     Type: TypeType
 
 
+# This class is the input for the 'get_resource_policy' function.
 class GetResourcePolicyRequest(BaseValidatorModel):
     RegistryName: Optional[str] = None
 
@@ -125,6 +141,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_discoverers' function.
 class ListDiscoverersRequest(BaseValidatorModel):
     DiscovererIdPrefix: Optional[str] = None
     Limit: Optional[int] = None
@@ -132,6 +149,7 @@ class ListDiscoverersRequest(BaseValidatorModel):
     SourceArnPrefix: Optional[str] = None
 
 
+# This class is the input for the 'list_registries' function.
 class ListRegistriesRequest(BaseValidatorModel):
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
@@ -145,6 +163,7 @@ class RegistrySummary(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_schema_versions' function.
 class ListSchemaVersionsRequest(BaseValidatorModel):
     RegistryName: str
     SchemaName: str
@@ -159,6 +178,7 @@ class SchemaVersionSummary(BaseValidatorModel):
     Type: Optional[TypeType] = None
 
 
+# This class is the input for the 'list_schemas' function.
 class ListSchemasRequest(BaseValidatorModel):
     RegistryName: str
     Limit: Optional[int] = None
@@ -174,10 +194,12 @@ class SchemaSummary(BaseValidatorModel):
     VersionCount: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'put_code_binding' function.
 class PutCodeBindingRequest(BaseValidatorModel):
     Language: str
     RegistryName: str
@@ -185,6 +207,7 @@ class PutCodeBindingRequest(BaseValidatorModel):
     SchemaVersion: Optional[str] = None
 
 
+# This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyRequest(BaseValidatorModel):
     Policy: str
     RegistryName: Optional[str] = None
@@ -197,6 +220,7 @@ class SearchSchemaVersionSummary(BaseValidatorModel):
     Type: Optional[TypeType] = None
 
 
+# This class is the input for the 'search_schemas' function.
 class SearchSchemasRequest(BaseValidatorModel):
     Keywords: str
     RegistryName: str
@@ -204,35 +228,42 @@ class SearchSchemasRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'start_discoverer' function.
 class StartDiscovererRequest(BaseValidatorModel):
     DiscovererId: str
 
 
+# This class is the input for the 'stop_discoverer' function.
 class StopDiscovererRequest(BaseValidatorModel):
     DiscovererId: str
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Dict[str, str]
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_discoverer' function.
 class UpdateDiscovererRequest(BaseValidatorModel):
     DiscovererId: str
     Description: Optional[str] = None
     CrossAccount: Optional[bool] = None
 
 
+# This class is the input for the 'update_registry' function.
 class UpdateRegistryRequest(BaseValidatorModel):
     RegistryName: str
     Description: Optional[str] = None
 
 
+# This class is the input for the 'update_schema' function.
 class UpdateSchemaRequest(BaseValidatorModel):
     RegistryName: str
     SchemaName: str
@@ -242,6 +273,7 @@ class UpdateSchemaRequest(BaseValidatorModel):
     Type: Optional[TypeType] = None
 
 
+# This class is the output for the 'create_discoverer' function.
 class CreateDiscovererResponse(BaseValidatorModel):
     Description: str
     DiscovererArn: str
@@ -253,6 +285,7 @@ class CreateDiscovererResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_registry' function.
 class CreateRegistryResponse(BaseValidatorModel):
     Description: str
     RegistryArn: str
@@ -261,6 +294,7 @@ class CreateRegistryResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_schema' function.
 class CreateSchemaResponse(BaseValidatorModel):
     Description: str
     LastModified: datetime
@@ -273,6 +307,7 @@ class CreateSchemaResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_code_binding' function.
 class DescribeCodeBindingResponse(BaseValidatorModel):
     CreationDate: datetime
     LastModified: datetime
@@ -281,6 +316,7 @@ class DescribeCodeBindingResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_discoverer' function.
 class DescribeDiscovererResponse(BaseValidatorModel):
     Description: str
     DiscovererArn: str
@@ -292,6 +328,7 @@ class DescribeDiscovererResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_registry' function.
 class DescribeRegistryResponse(BaseValidatorModel):
     Description: str
     RegistryArn: str
@@ -300,6 +337,7 @@ class DescribeRegistryResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_schema' function.
 class DescribeSchemaResponse(BaseValidatorModel):
     Content: str
     Description: str
@@ -313,10 +351,12 @@ class DescribeSchemaResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'untag_resource' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'export_schema' function.
 class ExportSchemaResponse(BaseValidatorModel):
     Content: str
     SchemaArn: str
@@ -326,27 +366,32 @@ class ExportSchemaResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_code_binding_source' function.
 class GetCodeBindingSourceResponse(BaseValidatorModel):
     Body: StreamingBody
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_discovered_schema' function.
 class GetDiscoveredSchemaResponse(BaseValidatorModel):
     Content: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_policy' function.
 class GetResourcePolicyResponse(BaseValidatorModel):
     Policy: str
     RevisionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_code_binding' function.
 class PutCodeBindingResponse(BaseValidatorModel):
     CreationDate: datetime
     LastModified: datetime
@@ -355,24 +400,28 @@ class PutCodeBindingResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_resource_policy' function.
 class PutResourcePolicyResponse(BaseValidatorModel):
     Policy: str
     RevisionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_discoverer' function.
 class StartDiscovererResponse(BaseValidatorModel):
     DiscovererId: str
     State: DiscovererStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_discoverer' function.
 class StopDiscovererResponse(BaseValidatorModel):
     DiscovererId: str
     State: DiscovererStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_discoverer' function.
 class UpdateDiscovererResponse(BaseValidatorModel):
     Description: str
     DiscovererArn: str
@@ -384,6 +433,7 @@ class UpdateDiscovererResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_registry' function.
 class UpdateRegistryResponse(BaseValidatorModel):
     Description: str
     RegistryArn: str
@@ -392,6 +442,7 @@ class UpdateRegistryResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_schema' function.
 class UpdateSchemaResponse(BaseValidatorModel):
     Description: str
     LastModified: datetime
@@ -412,6 +463,7 @@ class DescribeCodeBindingRequestWait(BaseValidatorModel):
     WaiterConfig: Optional[WaiterConfig] = None
 
 
+# This class is the output for the 'list_discoverers' function.
 class ListDiscoverersResponse(BaseValidatorModel):
     Discoverers: List[DiscovererSummary]
     ResponseMetadata: ResponseMetadata
@@ -448,18 +500,21 @@ class SearchSchemasRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_registries' function.
 class ListRegistriesResponse(BaseValidatorModel):
     Registries: List[RegistrySummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_schema_versions' function.
 class ListSchemaVersionsResponse(BaseValidatorModel):
     SchemaVersions: List[SchemaVersionSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_schemas' function.
 class ListSchemasResponse(BaseValidatorModel):
     Schemas: List[SchemaSummary]
     ResponseMetadata: ResponseMetadata
@@ -473,6 +528,7 @@ class SearchSchemaSummary(BaseValidatorModel):
     SchemaVersions: Optional[List[SearchSchemaVersionSummary]] = None
 
 
+# This class is the output for the 'search_schemas' function.
 class SearchSchemasResponse(BaseValidatorModel):
     Schemas: List[SearchSchemaSummary]
     ResponseMetadata: ResponseMetadata

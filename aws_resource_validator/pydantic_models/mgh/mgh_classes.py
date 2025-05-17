@@ -40,6 +40,7 @@ class DeleteProgressUpdateStreamRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'describe_application_state' function.
 class DescribeApplicationStateRequest(BaseValidatorModel):
     ApplicationId: str
 
@@ -52,6 +53,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'describe_migration_task' function.
 class DescribeMigrationTaskRequest(BaseValidatorModel):
     ProgressUpdateStream: str
     MigrationTaskName: str
@@ -90,12 +92,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_application_states' function.
 class ListApplicationStatesRequest(BaseValidatorModel):
     ApplicationIds: Optional[List[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_created_artifacts' function.
 class ListCreatedArtifactsRequest(BaseValidatorModel):
     ProgressUpdateStream: str
     MigrationTaskName: str
@@ -103,6 +107,7 @@ class ListCreatedArtifactsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_discovered_resources' function.
 class ListDiscoveredResourcesRequest(BaseValidatorModel):
     ProgressUpdateStream: str
     MigrationTaskName: str
@@ -110,6 +115,7 @@ class ListDiscoveredResourcesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_migration_task_updates' function.
 class ListMigrationTaskUpdatesRequest(BaseValidatorModel):
     ProgressUpdateStream: str
     MigrationTaskName: str
@@ -117,6 +123,7 @@ class ListMigrationTaskUpdatesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_migration_tasks' function.
 class ListMigrationTasksRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -132,6 +139,7 @@ class MigrationTaskSummary(BaseValidatorModel):
     UpdateDateTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_progress_update_streams' function.
 class ListProgressUpdateStreamsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -141,6 +149,7 @@ class ProgressUpdateStreamSummary(BaseValidatorModel):
     ProgressUpdateStreamName: Optional[str] = None
 
 
+# This class is the input for the 'list_source_resources' function.
 class ListSourceResourcesRequest(BaseValidatorModel):
     ProgressUpdateStream: str
     MigrationTaskName: str
@@ -182,30 +191,35 @@ class AssociateSourceResourceRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the output for the 'describe_application_state' function.
 class DescribeApplicationStateResult(BaseValidatorModel):
     ApplicationStatus: ApplicationStatusType
     LastUpdatedTime: datetime
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_application_states' function.
 class ListApplicationStatesResult(BaseValidatorModel):
     ApplicationStateList: List[ApplicationState]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_created_artifacts' function.
 class ListCreatedArtifactsResult(BaseValidatorModel):
     CreatedArtifactList: List[CreatedArtifact]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_discovered_resources' function.
 class ListDiscoveredResourcesResult(BaseValidatorModel):
     DiscoveredResourceList: List[DiscoveredResource]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_source_resources' function.
 class ListSourceResourcesResult(BaseValidatorModel):
     SourceResourceList: List[SourceResource]
     ResponseMetadata: ResponseMetadata
@@ -250,12 +264,14 @@ class ListSourceResourcesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_migration_tasks' function.
 class ListMigrationTasksResult(BaseValidatorModel):
     MigrationTaskSummaryList: List[MigrationTaskSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_progress_update_streams' function.
 class ListProgressUpdateStreamsResult(BaseValidatorModel):
     ProgressUpdateStreamSummaryList: List[ProgressUpdateStreamSummary]
     ResponseMetadata: ResponseMetadata
@@ -299,11 +315,13 @@ class NotifyMigrationTaskStateRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the output for the 'describe_migration_task' function.
 class DescribeMigrationTaskResult(BaseValidatorModel):
     MigrationTask: MigrationTask
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_migration_task_updates' function.
 class ListMigrationTaskUpdatesResult(BaseValidatorModel):
     MigrationTaskUpdateList: List[MigrationTaskUpdate]
     ResponseMetadata: ResponseMetadata

@@ -14,6 +14,7 @@ class AccountSettings(BaseValidatorModel):
     GroupLifecycleEventsStatusMessage: Optional[str] = None
 
 
+# This class is the input for the 'cancel_tag_sync_task' function.
 class CancelTagSyncTaskInput(BaseValidatorModel):
     TaskArn: str
 
@@ -41,6 +42,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'delete_group' function.
 class DeleteGroupInput(BaseValidatorModel):
     GroupName: Optional[str] = None
     Group: Optional[str] = None
@@ -52,24 +54,29 @@ class FailedResource(BaseValidatorModel):
     ErrorCode: Optional[str] = None
 
 
+# This class is the input for the 'get_group_configuration' function.
 class GetGroupConfigurationInput(BaseValidatorModel):
     Group: Optional[str] = None
 
 
+# This class is the input for the 'get_group' function.
 class GetGroupInput(BaseValidatorModel):
     GroupName: Optional[str] = None
     Group: Optional[str] = None
 
 
+# This class is the input for the 'get_group_query' function.
 class GetGroupQueryInput(BaseValidatorModel):
     GroupName: Optional[str] = None
     Group: Optional[str] = None
 
 
+# This class is the input for the 'get_tag_sync_task' function.
 class GetTagSyncTaskInput(BaseValidatorModel):
     TaskArn: str
 
 
+# This class is the input for the 'get_tags' function.
 class GetTagsInput(BaseValidatorModel):
     Arn: str
 
@@ -98,6 +105,7 @@ class GroupIdentifier(BaseValidatorModel):
     DisplayName: Optional[str] = None
 
 
+# This class is the input for the 'group_resources' function.
 class GroupResourcesInput(BaseValidatorModel):
     Group: str
     ResourceArns: List[str]
@@ -163,6 +171,7 @@ class TagSyncTaskItem(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'start_tag_sync_task' function.
 class StartTagSyncTaskInput(BaseValidatorModel):
     Group: str
     TagKey: str
@@ -170,25 +179,30 @@ class StartTagSyncTaskInput(BaseValidatorModel):
     RoleArn: str
 
 
+# This class is the input for the 'tag' function.
 class TagInput(BaseValidatorModel):
     Arn: str
     Tags: Dict[str, str]
 
 
+# This class is the input for the 'ungroup_resources' function.
 class UngroupResourcesInput(BaseValidatorModel):
     Group: str
     ResourceArns: List[str]
 
 
+# This class is the input for the 'untag' function.
 class UntagInput(BaseValidatorModel):
     Arn: str
     Keys: List[str]
 
 
+# This class is the input for the 'update_account_settings' function.
 class UpdateAccountSettingsInput(BaseValidatorModel):
     GroupLifecycleEventsDesiredStatus: Optional[GroupLifecycleEventsDesiredStatusType] = None
 
 
+# This class is the input for the 'update_group' function.
 class UpdateGroupInput(BaseValidatorModel):
     GroupName: Optional[str] = None
     Group: Optional[str] = None
@@ -203,23 +217,27 @@ class GroupQuery(BaseValidatorModel):
     ResourceQuery: ResourceQuery
 
 
+# This class is the input for the 'search_resources' function.
 class SearchResourcesInput(BaseValidatorModel):
     ResourceQuery: ResourceQuery
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'update_group_query' function.
 class UpdateGroupQueryInput(BaseValidatorModel):
     ResourceQuery: ResourceQuery
     GroupName: Optional[str] = None
     Group: Optional[str] = None
 
 
+# This class is the output for the 'delete_group' function.
 class DeleteGroupOutput(BaseValidatorModel):
     Group: Group
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_tag_sync_task' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
@@ -229,11 +247,13 @@ class GetAccountSettingsOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_group' function.
 class GetGroupOutput(BaseValidatorModel):
     Group: Group
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_tag_sync_task' function.
 class GetTagSyncTaskOutput(BaseValidatorModel):
     GroupArn: str
     GroupName: str
@@ -247,12 +267,14 @@ class GetTagSyncTaskOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_tags' function.
 class GetTagsOutput(BaseValidatorModel):
     Arn: str
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_tag_sync_task' function.
 class StartTagSyncTaskOutput(BaseValidatorModel):
     GroupArn: str
     GroupName: str
@@ -263,23 +285,27 @@ class StartTagSyncTaskOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'tag' function.
 class TagOutput(BaseValidatorModel):
     Arn: str
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'untag' function.
 class UntagOutput(BaseValidatorModel):
     Arn: str
     Keys: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_account_settings' function.
 class UpdateAccountSettingsOutput(BaseValidatorModel):
     AccountSettings: AccountSettings
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_group' function.
 class UpdateGroupOutput(BaseValidatorModel):
     Group: Group
     ResponseMetadata: ResponseMetadata
@@ -292,12 +318,14 @@ class GroupConfigurationItemOutput(BaseValidatorModel):
 GroupConfigurationParameterUnion = Union[GroupConfigurationParameter, GroupConfigurationParameterOutput]
 
 
+# This class is the input for the 'list_groups' function.
 class ListGroupsInput(BaseValidatorModel):
     Filters: Optional[List[GroupFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_groups' function.
 class ListGroupsOutput(BaseValidatorModel):
     GroupIdentifiers: List[GroupIdentifier]
     Groups: List[Group]
@@ -305,6 +333,7 @@ class ListGroupsOutput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'group_resources' function.
 class GroupResourcesOutput(BaseValidatorModel):
     Succeeded: List[str]
     Failed: List[FailedResource]
@@ -312,6 +341,7 @@ class GroupResourcesOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'ungroup_resources' function.
 class UngroupResourcesOutput(BaseValidatorModel):
     Succeeded: List[str]
     Failed: List[FailedResource]
@@ -319,6 +349,7 @@ class UngroupResourcesOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_grouping_statuses' function.
 class ListGroupingStatusesOutput(BaseValidatorModel):
     Group: str
     GroupingStatuses: List[GroupingStatusesItem]
@@ -343,6 +374,7 @@ class ListGroupResourcesInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_group_resources' function.
 class ListGroupResourcesInput(BaseValidatorModel):
     GroupName: Optional[str] = None
     Group: Optional[str] = None
@@ -356,6 +388,7 @@ class ListGroupResourcesItem(BaseValidatorModel):
     Status: Optional[ResourceStatus] = None
 
 
+# This class is the output for the 'search_resources' function.
 class SearchResourcesOutput(BaseValidatorModel):
     ResourceIdentifiers: List[ResourceIdentifier]
     QueryErrors: List[QueryError]
@@ -369,6 +402,7 @@ class ListGroupingStatusesInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_grouping_statuses' function.
 class ListGroupingStatusesInput(BaseValidatorModel):
     Group: str
     MaxResults: Optional[int] = None
@@ -381,23 +415,27 @@ class ListTagSyncTasksInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_tag_sync_tasks' function.
 class ListTagSyncTasksInput(BaseValidatorModel):
     Filters: Optional[List[ListTagSyncTasksFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tag_sync_tasks' function.
 class ListTagSyncTasksOutput(BaseValidatorModel):
     TagSyncTasks: List[TagSyncTaskItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_group_query' function.
 class GetGroupQueryOutput(BaseValidatorModel):
     GroupQuery: GroupQuery
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_group_query' function.
 class UpdateGroupQueryOutput(BaseValidatorModel):
     GroupQuery: GroupQuery
     ResponseMetadata: ResponseMetadata
@@ -415,6 +453,7 @@ class GroupConfigurationItem(BaseValidatorModel):
     Parameters: Optional[List[GroupConfigurationParameterUnion]] = None
 
 
+# This class is the output for the 'list_group_resources' function.
 class ListGroupResourcesOutput(BaseValidatorModel):
     Resources: List[ListGroupResourcesItem]
     ResourceIdentifiers: List[ResourceIdentifier]
@@ -423,6 +462,7 @@ class ListGroupResourcesOutput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_group' function.
 class CreateGroupOutput(BaseValidatorModel):
     Group: Group
     ResourceQuery: ResourceQuery
@@ -431,6 +471,7 @@ class CreateGroupOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_group_configuration' function.
 class GetGroupConfigurationOutput(BaseValidatorModel):
     GroupConfiguration: GroupConfiguration
     ResponseMetadata: ResponseMetadata
@@ -438,6 +479,7 @@ class GetGroupConfigurationOutput(BaseValidatorModel):
 GroupConfigurationItemUnion = Union[GroupConfigurationItem, GroupConfigurationItemOutput]
 
 
+# This class is the input for the 'create_group' function.
 class CreateGroupInput(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None

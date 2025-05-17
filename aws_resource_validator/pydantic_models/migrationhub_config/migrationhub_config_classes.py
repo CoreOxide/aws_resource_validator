@@ -25,12 +25,14 @@ class DeleteHomeRegionControlRequest(BaseValidatorModel):
     ControlId: str
 
 
+# This class is the input for the 'create_home_region_control' function.
 class CreateHomeRegionControlRequest(BaseValidatorModel):
     HomeRegion: str
     Target: Target
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'describe_home_region_controls' function.
 class DescribeHomeRegionControlsRequest(BaseValidatorModel):
     ControlId: Optional[str] = None
     HomeRegion: Optional[str] = None
@@ -51,11 +53,13 @@ class GetHomeRegionResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_home_region_control' function.
 class CreateHomeRegionControlResult(BaseValidatorModel):
     HomeRegionControl: HomeRegionControl
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_home_region_controls' function.
 class DescribeHomeRegionControlsResult(BaseValidatorModel):
     HomeRegionControls: List[HomeRegionControl]
     ResponseMetadata: ResponseMetadata

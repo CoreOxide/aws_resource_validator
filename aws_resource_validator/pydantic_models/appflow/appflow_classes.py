@@ -41,6 +41,7 @@ class BasicAuthCredentials(BaseValidatorModel):
     password: str
 
 
+# This class is the input for the 'cancel_flow_executions' function.
 class CancelFlowExecutionsRequest(BaseValidatorModel):
     flowName: str
     executionIds: Optional[List[str]] = None
@@ -307,6 +308,7 @@ class DeleteFlowRequest(BaseValidatorModel):
     forceDelete: Optional[bool] = None
 
 
+# This class is the input for the 'describe_connector_entity' function.
 class DescribeConnectorEntityRequest(BaseValidatorModel):
     connectorEntityName: str
     connectorType: Optional[ConnectorTypeType] = None
@@ -314,6 +316,7 @@ class DescribeConnectorEntityRequest(BaseValidatorModel):
     apiVersion: Optional[str] = None
 
 
+# This class is the input for the 'describe_connector_profiles' function.
 class DescribeConnectorProfilesRequest(BaseValidatorModel):
     connectorProfileNames: Optional[List[str]] = None
     connectorType: Optional[ConnectorTypeType] = None
@@ -322,23 +325,27 @@ class DescribeConnectorProfilesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_connector' function.
 class DescribeConnectorRequest(BaseValidatorModel):
     connectorType: ConnectorTypeType
     connectorLabel: Optional[str] = None
 
 
+# This class is the input for the 'describe_connectors' function.
 class DescribeConnectorsRequest(BaseValidatorModel):
     connectorTypes: Optional[List[ConnectorTypeType]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_flow_execution_records' function.
 class DescribeFlowExecutionRecordsRequest(BaseValidatorModel):
     flowName: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_flow' function.
 class DescribeFlowRequest(BaseValidatorModel):
     flowName: str
 
@@ -381,6 +388,7 @@ class InforNexusSourceProperties(BaseValidatorModel):
     object: str
 
 
+# This class is the input for the 'list_connector_entities' function.
 class ListConnectorEntitiesRequest(BaseValidatorModel):
     connectorProfileName: Optional[str] = None
     connectorType: Optional[ConnectorTypeType] = None
@@ -390,16 +398,19 @@ class ListConnectorEntitiesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_connectors' function.
 class ListConnectorsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_flows' function.
 class ListFlowsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -531,11 +542,13 @@ class ZendeskSourceProperties(BaseValidatorModel):
     object: str
 
 
+# This class is the input for the 'start_flow' function.
 class StartFlowRequest(BaseValidatorModel):
     flowName: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'stop_flow' function.
 class StopFlowRequest(BaseValidatorModel):
     flowName: str
 
@@ -560,32 +573,38 @@ class CustomAuthConfig(BaseValidatorModel):
     authParameters: Optional[List[AuthParameter]] = None
 
 
+# This class is the output for the 'cancel_flow_executions' function.
 class CancelFlowExecutionsResponse(BaseValidatorModel):
     invalidExecutions: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_connector_profile' function.
 class CreateConnectorProfileResponse(BaseValidatorModel):
     connectorProfileArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_flow' function.
 class CreateFlowResponse(BaseValidatorModel):
     flowArn: str
     flowStatus: FlowStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_connector' function.
 class RegisterConnectorResponse(BaseValidatorModel):
     connectorArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_flow' function.
 class StartFlowResponse(BaseValidatorModel):
     flowArn: str
     flowStatus: FlowStatusType
@@ -593,22 +612,26 @@ class StartFlowResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_flow' function.
 class StopFlowResponse(BaseValidatorModel):
     flowArn: str
     flowStatus: FlowStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_connector_profile' function.
 class UpdateConnectorProfileResponse(BaseValidatorModel):
     connectorProfileArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_connector_registration' function.
 class UpdateConnectorRegistrationResponse(BaseValidatorModel):
     connectorArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_flow' function.
 class UpdateFlowResponse(BaseValidatorModel):
     flowStatus: FlowStatusType
     ResponseMetadata: ResponseMetadata
@@ -626,12 +649,14 @@ class CustomConnectorSourceProperties(BaseValidatorModel):
     dataTransferApi: Optional[DataTransferApi] = None
 
 
+# This class is the output for the 'list_connectors' function.
 class ListConnectorsResponse(BaseValidatorModel):
     connectors: List[ConnectorDetail]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_connector_entities' function.
 class ListConnectorEntitiesResponse(BaseValidatorModel):
     connectorEntityMap: Dict[str, List[ConnectorEntity]]
     ResponseMetadata: ResponseMetadata
@@ -980,6 +1005,7 @@ class SAPODataConnectorProfileCredentials(BaseValidatorModel):
 TaskUnion = Union[Task, TaskOutput]
 
 
+# This class is the input for the 'register_connector' function.
 class RegisterConnectorRequest(BaseValidatorModel):
     connectorLabel: Optional[str] = None
     description: Optional[str] = None
@@ -988,6 +1014,7 @@ class RegisterConnectorRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'update_connector_registration' function.
 class UpdateConnectorRegistrationRequest(BaseValidatorModel):
     connectorLabel: str
     description: Optional[str] = None
@@ -1001,6 +1028,7 @@ SalesforceDestinationPropertiesUnion = Union[SalesforceDestinationProperties, Sa
 ZendeskDestinationPropertiesUnion = Union[ZendeskDestinationProperties, ZendeskDestinationPropertiesOutput]
 
 
+# This class is the output for the 'list_flows' function.
 class ListFlowsResponse(BaseValidatorModel):
     flows: List[FlowDefinition]
     ResponseMetadata: ResponseMetadata
@@ -1181,6 +1209,7 @@ class ConnectorEntityField(BaseValidatorModel):
     customProperties: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'describe_flow_execution_records' function.
 class DescribeFlowExecutionRecordsResponse(BaseValidatorModel):
     flowExecutions: List[ExecutionRecord]
     ResponseMetadata: ResponseMetadata
@@ -1276,16 +1305,19 @@ class TriggerConfig(BaseValidatorModel):
     triggerProperties: Optional[TriggerProperties] = None
 
 
+# This class is the output for the 'describe_connector_entity' function.
 class DescribeConnectorEntityResponse(BaseValidatorModel):
     connectorEntityFields: List[ConnectorEntityField]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_connector' function.
 class DescribeConnectorResponse(BaseValidatorModel):
     connectorConfiguration: ConnectorConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_connectors' function.
 class DescribeConnectorsResponse(BaseValidatorModel):
     connectorConfigurations: Dict[ConnectorTypeType, ConnectorConfiguration]
     connectors: List[ConnectorDetail]
@@ -1293,6 +1325,7 @@ class DescribeConnectorsResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_connector_profiles' function.
 class DescribeConnectorProfilesResponse(BaseValidatorModel):
     connectorProfileDetails: List[ConnectorProfile]
     ResponseMetadata: ResponseMetadata
@@ -1346,6 +1379,7 @@ TriggerConfigUnion = Union[TriggerConfig, TriggerConfigOutput]
 ConnectorProfilePropertiesUnion = Union[ConnectorProfileProperties, ConnectorProfilePropertiesOutput]
 
 
+# This class is the output for the 'describe_flow' function.
 class DescribeFlowResponse(BaseValidatorModel):
     flowArn: str
     description: str
@@ -1394,6 +1428,7 @@ class DestinationConnectorProperties(BaseValidatorModel):
     SAPOData: Optional[SAPODataDestinationPropertiesUnion] = None
 
 
+# This class is the input for the 'create_connector_profile' function.
 class CreateConnectorProfileRequest(BaseValidatorModel):
     connectorProfileName: str
     connectorType: ConnectorTypeType
@@ -1404,6 +1439,7 @@ class CreateConnectorProfileRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'update_connector_profile' function.
 class UpdateConnectorProfileRequest(BaseValidatorModel):
     connectorProfileName: str
     connectionMode: ConnectionModeType
@@ -1422,6 +1458,7 @@ class DestinationFlowConfig(BaseValidatorModel):
 DestinationFlowConfigUnion = Union[DestinationFlowConfig, DestinationFlowConfigOutput]
 
 
+# This class is the input for the 'create_flow' function.
 class CreateFlowRequest(BaseValidatorModel):
     flowName: str
     triggerConfig: TriggerConfigUnion
@@ -1435,6 +1472,7 @@ class CreateFlowRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'update_flow' function.
 class UpdateFlowRequest(BaseValidatorModel):
     flowName: str
     triggerConfig: TriggerConfigUnion

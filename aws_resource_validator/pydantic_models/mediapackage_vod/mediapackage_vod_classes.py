@@ -36,6 +36,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_asset' function.
 class CreateAssetRequest(BaseValidatorModel):
     Id: str
     PackagingGroupId: str
@@ -69,14 +70,17 @@ class DeletePackagingGroupRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'describe_asset' function.
 class DescribeAssetRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'describe_packaging_configuration' function.
 class DescribePackagingConfigurationRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'describe_packaging_group' function.
 class DescribePackagingGroupRequest(BaseValidatorModel):
     Id: str
 
@@ -92,47 +96,56 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_assets' function.
 class ListAssetsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     PackagingGroupId: Optional[str] = None
 
 
+# This class is the input for the 'list_packaging_configurations' function.
 class ListPackagingConfigurationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     PackagingGroupId: Optional[str] = None
 
 
+# This class is the input for the 'list_packaging_groups' function.
 class ListPackagingGroupsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Dict[str, str]
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_packaging_group' function.
 class UpdatePackagingGroupRequest(BaseValidatorModel):
     Id: str
     Authorization: Optional[Authorization] = None
 
 
+# This class is the input for the 'configure_logs' function.
 class ConfigureLogsRequest(BaseValidatorModel):
     Id: str
     EgressAccessLogs: Optional[EgressAccessLogs] = None
 
 
+# This class is the input for the 'create_packaging_group' function.
 class CreatePackagingGroupRequest(BaseValidatorModel):
     Id: str
     Authorization: Optional[Authorization] = None
@@ -151,6 +164,7 @@ class PackagingGroup(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'configure_logs' function.
 class ConfigureLogsResponse(BaseValidatorModel):
     Arn: str
     Authorization: Authorization
@@ -162,6 +176,7 @@ class ConfigureLogsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_packaging_group' function.
 class CreatePackagingGroupResponse(BaseValidatorModel):
     Arn: str
     Authorization: Authorization
@@ -173,6 +188,7 @@ class CreatePackagingGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_packaging_group' function.
 class DescribePackagingGroupResponse(BaseValidatorModel):
     ApproximateAssetCount: int
     Arn: str
@@ -185,21 +201,25 @@ class DescribePackagingGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'untag_resource' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_assets' function.
 class ListAssetsResponse(BaseValidatorModel):
     Assets: List[AssetShallow]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_packaging_group' function.
 class UpdatePackagingGroupResponse(BaseValidatorModel):
     ApproximateAssetCount: int
     Arn: str
@@ -212,6 +232,7 @@ class UpdatePackagingGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_asset' function.
 class CreateAssetResponse(BaseValidatorModel):
     Arn: str
     CreatedAt: str
@@ -225,6 +246,7 @@ class CreateAssetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_asset' function.
 class DescribeAssetResponse(BaseValidatorModel):
     Arn: str
     CreatedAt: str
@@ -289,6 +311,7 @@ class ListPackagingGroupsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_packaging_groups' function.
 class ListPackagingGroupsResponse(BaseValidatorModel):
     PackagingGroups: List[PackagingGroup]
     ResponseMetadata: ResponseMetadata
@@ -395,6 +418,7 @@ class MssPackage(BaseValidatorModel):
     SegmentDurationSeconds: Optional[int] = None
 
 
+# This class is the output for the 'create_packaging_configuration' function.
 class CreatePackagingConfigurationResponse(BaseValidatorModel):
     Arn: str
     CmafPackage: CmafPackageOutput
@@ -408,6 +432,7 @@ class CreatePackagingConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_packaging_configuration' function.
 class DescribePackagingConfigurationResponse(BaseValidatorModel):
     Arn: str
     CmafPackage: CmafPackageOutput
@@ -441,12 +466,14 @@ HlsPackageUnion = Union[HlsPackage, HlsPackageOutput]
 MssPackageUnion = Union[MssPackage, MssPackageOutput]
 
 
+# This class is the output for the 'list_packaging_configurations' function.
 class ListPackagingConfigurationsResponse(BaseValidatorModel):
     PackagingConfigurations: List[PackagingConfiguration]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_packaging_configuration' function.
 class CreatePackagingConfigurationRequest(BaseValidatorModel):
     Id: str
     PackagingGroupId: str

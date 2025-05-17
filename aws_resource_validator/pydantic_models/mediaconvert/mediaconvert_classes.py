@@ -586,6 +586,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_endpoints' function.
 class DescribeEndpointsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     Mode: Optional[DescribeEndpointsModeType] = None
@@ -655,10 +656,12 @@ class FrameCaptureSettings(BaseValidatorModel):
     Quality: Optional[int] = None
 
 
+# This class is the input for the 'get_job' function.
 class GetJobRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_job_template' function.
 class GetJobTemplateRequest(BaseValidatorModel):
     Name: str
 
@@ -669,10 +672,12 @@ class Policy(BaseValidatorModel):
     S3Inputs: Optional[InputPolicyType] = None
 
 
+# This class is the input for the 'get_preset' function.
 class GetPresetRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'get_queue' function.
 class GetQueueRequest(BaseValidatorModel):
     Name: str
 
@@ -852,6 +857,7 @@ class WarningGroup(BaseValidatorModel):
     Count: int
 
 
+# This class is the input for the 'list_job_templates' function.
 class ListJobTemplatesRequest(BaseValidatorModel):
     Category: Optional[str] = None
     ListBy: Optional[JobTemplateListByType] = None
@@ -860,6 +866,7 @@ class ListJobTemplatesRequest(BaseValidatorModel):
     Order: Optional[OrderType] = None
 
 
+# This class is the input for the 'list_jobs' function.
 class ListJobsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -868,6 +875,7 @@ class ListJobsRequest(BaseValidatorModel):
     Status: Optional[JobStatusType] = None
 
 
+# This class is the input for the 'list_presets' function.
 class ListPresetsRequest(BaseValidatorModel):
     Category: Optional[str] = None
     ListBy: Optional[PresetListByType] = None
@@ -876,6 +884,7 @@ class ListPresetsRequest(BaseValidatorModel):
     Order: Optional[OrderType] = None
 
 
+# This class is the input for the 'list_queues' function.
 class ListQueuesRequest(BaseValidatorModel):
     ListBy: Optional[QueueListByType] = None
     MaxResults: Optional[int] = None
@@ -883,6 +892,7 @@ class ListQueuesRequest(BaseValidatorModel):
     Order: Optional[OrderType] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     Arn: str
 
@@ -892,6 +902,7 @@ class ResourceTags(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_versions' function.
 class ListVersionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -1051,6 +1062,7 @@ class S3EncryptionSettings(BaseValidatorModel):
     KmsKeyArn: Optional[str] = None
 
 
+# This class is the input for the 'search_jobs' function.
 class SearchJobsRequest(BaseValidatorModel):
     InputFile: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -1333,6 +1345,7 @@ class VideoSelector(BaseValidatorModel):
     SampleRange: Optional[InputSampleRangeType] = None
 
 
+# This class is the input for the 'create_queue' function.
 class CreateQueueRequest(BaseValidatorModel):
     Name: str
     ConcurrentJobs: Optional[int] = None
@@ -1343,6 +1356,7 @@ class CreateQueueRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_queue' function.
 class UpdateQueueRequest(BaseValidatorModel):
     Name: str
     ConcurrentJobs: Optional[int] = None
@@ -1395,6 +1409,7 @@ class SearchJobsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'describe_endpoints' function.
 class DescribeEndpointsResponse(BaseValidatorModel):
     Endpoints: List[Endpoint]
     ResponseMetadata: ResponseMetadata
@@ -1453,10 +1468,12 @@ class GetPolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_policy' function.
 class PutPolicyRequest(BaseValidatorModel):
     Policy: Policy
 
 
+# This class is the output for the 'put_policy' function.
 class PutPolicyResponse(BaseValidatorModel):
     Policy: Policy
     ResponseMetadata: ResponseMetadata
@@ -1579,12 +1596,14 @@ class ImageInserter(BaseValidatorModel):
     SdrReferenceWhiteLevel: Optional[int] = None
 
 
+# This class is the output for the 'list_versions' function.
 class ListVersionsResponse(BaseValidatorModel):
     Versions: List[JobEngineVersion]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     ResourceTags: ResourceTags
     ResponseMetadata: ResponseMetadata
@@ -1711,6 +1730,7 @@ class OutputDetail(BaseValidatorModel):
     VideoDetails: Optional[VideoDetail] = None
 
 
+# This class is the input for the 'probe' function.
 class ProbeRequest(BaseValidatorModel):
     InputFiles: Optional[List[ProbeInputFile]] = None
 
@@ -1963,16 +1983,19 @@ class OutputGroupDetail(BaseValidatorModel):
     OutputDetails: Optional[List[OutputDetail]] = None
 
 
+# This class is the output for the 'create_queue' function.
 class CreateQueueResponse(BaseValidatorModel):
     Queue: Queue
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_queue' function.
 class GetQueueResponse(BaseValidatorModel):
     Queue: Queue
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_queues' function.
 class ListQueuesResponse(BaseValidatorModel):
     Queues: List[Queue]
     TotalConcurrentJobs: int
@@ -1981,6 +2004,7 @@ class ListQueuesResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_queue' function.
 class UpdateQueueResponse(BaseValidatorModel):
     Queue: Queue
     ResponseMetadata: ResponseMetadata
@@ -2520,6 +2544,7 @@ class PresetSettings(BaseValidatorModel):
     VideoDescription: Optional[VideoDescription] = None
 
 
+# This class is the output for the 'probe' function.
 class ProbeResponse(BaseValidatorModel):
     ProbeResults: List[ProbeResult]
     ResponseMetadata: ResponseMetadata
@@ -2588,22 +2613,26 @@ class JobTemplateSettingsOutput(BaseValidatorModel):
     TimedMetadataInsertion: Optional[TimedMetadataInsertionOutput] = None
 
 
+# This class is the output for the 'create_preset' function.
 class CreatePresetResponse(BaseValidatorModel):
     Preset: Preset
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_preset' function.
 class GetPresetResponse(BaseValidatorModel):
     Preset: Preset
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_presets' function.
 class ListPresetsResponse(BaseValidatorModel):
     Presets: List[Preset]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_preset' function.
 class UpdatePresetResponse(BaseValidatorModel):
     Preset: Preset
     ResponseMetadata: ResponseMetadata
@@ -2643,6 +2672,7 @@ class JobTemplateSettings(BaseValidatorModel):
     TimedMetadataInsertion: Optional[TimedMetadataInsertion] = None
 
 
+# This class is the input for the 'create_preset' function.
 class CreatePresetRequest(BaseValidatorModel):
     Name: str
     Settings: PresetSettingsUnion
@@ -2651,6 +2681,7 @@ class CreatePresetRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_preset' function.
 class UpdatePresetRequest(BaseValidatorModel):
     Name: str
     Category: Optional[str] = None
@@ -2710,49 +2741,58 @@ JobSettingsUnion = Union[JobSettings, JobSettingsOutput]
 JobTemplateSettingsUnion = Union[JobTemplateSettings, JobTemplateSettingsOutput]
 
 
+# This class is the output for the 'create_job' function.
 class CreateJobResponse(BaseValidatorModel):
     Job: Job
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_job' function.
 class GetJobResponse(BaseValidatorModel):
     Job: Job
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_jobs' function.
 class ListJobsResponse(BaseValidatorModel):
     Jobs: List[Job]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'search_jobs' function.
 class SearchJobsResponse(BaseValidatorModel):
     Jobs: List[Job]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_job_template' function.
 class CreateJobTemplateResponse(BaseValidatorModel):
     JobTemplate: JobTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_job_template' function.
 class GetJobTemplateResponse(BaseValidatorModel):
     JobTemplate: JobTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_job_templates' function.
 class ListJobTemplatesResponse(BaseValidatorModel):
     JobTemplates: List[JobTemplate]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_job_template' function.
 class UpdateJobTemplateResponse(BaseValidatorModel):
     JobTemplate: JobTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_job' function.
 class CreateJobRequest(BaseValidatorModel):
     Role: str
     Settings: JobSettingsUnion
@@ -2770,6 +2810,7 @@ class CreateJobRequest(BaseValidatorModel):
     UserMetadata: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_job_template' function.
 class CreateJobTemplateRequest(BaseValidatorModel):
     Name: str
     Settings: JobTemplateSettingsUnion
@@ -2783,6 +2824,7 @@ class CreateJobTemplateRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_job_template' function.
 class UpdateJobTemplateRequest(BaseValidatorModel):
     Name: str
     AccelerationSettings: Optional[AccelerationSettings] = None

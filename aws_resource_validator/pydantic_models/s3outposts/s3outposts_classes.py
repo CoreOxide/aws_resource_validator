@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'create_endpoint' function.
 class CreateEndpointRequest(BaseValidatorModel):
     OutpostId: str
     SubnetId: str
@@ -24,6 +25,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'delete_endpoint' function.
 class DeleteEndpointRequest(BaseValidatorModel):
     EndpointId: str
     OutpostId: str
@@ -44,11 +46,13 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_endpoints' function.
 class ListEndpointsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_outposts_with_s3' function.
 class ListOutpostsWithS3Request(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -62,17 +66,20 @@ class Outpost(BaseValidatorModel):
     CapacityInBytes: Optional[int] = None
 
 
+# This class is the input for the 'list_shared_endpoints' function.
 class ListSharedEndpointsRequest(BaseValidatorModel):
     OutpostId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the output for the 'create_endpoint' function.
 class CreateEndpointResult(BaseValidatorModel):
     EndpointArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_endpoint' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
@@ -105,18 +112,21 @@ class ListSharedEndpointsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_outposts_with_s3' function.
 class ListOutpostsWithS3Result(BaseValidatorModel):
     Outposts: List[Outpost]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_endpoints' function.
 class ListEndpointsResult(BaseValidatorModel):
     Endpoints: List[Endpoint]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_shared_endpoints' function.
 class ListSharedEndpointsResult(BaseValidatorModel):
     Endpoints: List[Endpoint]
     ResponseMetadata: ResponseMetadata

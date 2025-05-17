@@ -109,6 +109,7 @@ class DeleteTestSuiteRequest(BaseValidatorModel):
     testSuiteId: str
 
 
+# This class is the input for the 'get_test_case' function.
 class GetTestCaseRequest(BaseValidatorModel):
     testCaseId: str
     testCaseVersion: Optional[int] = None
@@ -120,6 +121,7 @@ class TestCaseLatestVersion(BaseValidatorModel):
     statusReason: Optional[str] = None
 
 
+# This class is the input for the 'get_test_configuration' function.
 class GetTestConfigurationRequest(BaseValidatorModel):
     testConfigurationId: str
     testConfigurationVersion: Optional[int] = None
@@ -131,6 +133,7 @@ class TestConfigurationLatestVersion(BaseValidatorModel):
     statusReason: Optional[str] = None
 
 
+# This class is the input for the 'get_test_run_step' function.
 class GetTestRunStepRequest(BaseValidatorModel):
     testRunId: str
     stepName: str
@@ -138,6 +141,7 @@ class GetTestRunStepRequest(BaseValidatorModel):
     testSuiteId: Optional[str] = None
 
 
+# This class is the input for the 'get_test_suite' function.
 class GetTestSuiteRequest(BaseValidatorModel):
     testSuiteId: str
     testSuiteVersion: Optional[int] = None
@@ -153,6 +157,7 @@ class TestSuiteLatestVersion(BaseValidatorModel):
     statusReason: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -163,6 +168,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_test_cases' function.
 class ListTestCasesRequest(BaseValidatorModel):
     testCaseIds: Optional[List[str]] = None
     nextToken: Optional[str] = None
@@ -180,6 +186,7 @@ class TestCaseSummary(BaseValidatorModel):
     statusReason: Optional[str] = None
 
 
+# This class is the input for the 'list_test_configurations' function.
 class ListTestConfigurationsRequest(BaseValidatorModel):
     testConfigurationIds: Optional[List[str]] = None
     nextToken: Optional[str] = None
@@ -197,6 +204,7 @@ class TestConfigurationSummary(BaseValidatorModel):
     statusReason: Optional[str] = None
 
 
+# This class is the input for the 'list_test_run_steps' function.
 class ListTestRunStepsRequest(BaseValidatorModel):
     testRunId: str
     testCaseId: Optional[str] = None
@@ -220,6 +228,7 @@ class TestRunStepSummary(BaseValidatorModel):
     runEndTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_test_run_test_cases' function.
 class ListTestRunTestCasesRequest(BaseValidatorModel):
     testRunId: str
     nextToken: Optional[str] = None
@@ -236,6 +245,7 @@ class TestCaseRunSummary(BaseValidatorModel):
     runEndTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_test_runs' function.
 class ListTestRunsRequest(BaseValidatorModel):
     testSuiteId: Optional[str] = None
     testRunIds: Optional[List[str]] = None
@@ -256,6 +266,7 @@ class TestRunSummary(BaseValidatorModel):
     runEndTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_test_suites' function.
 class ListTestSuitesRequest(BaseValidatorModel):
     testSuiteIds: Optional[List[str]] = None
     nextToken: Optional[str] = None
@@ -336,6 +347,7 @@ class Script(BaseValidatorModel):
     type: Literal['Selenium']
 
 
+# This class is the input for the 'start_test_run' function.
 class StartTestRunRequest(BaseValidatorModel):
     testSuiteId: str
     testConfigurationId: Optional[str] = None
@@ -399,47 +411,55 @@ class CreateCloudFormationSummary(BaseValidatorModel):
     stepOutput: Optional[CreateCloudFormationStepOutput] = None
 
 
+# This class is the output for the 'create_test_case' function.
 class CreateTestCaseResponse(BaseValidatorModel):
     testCaseId: str
     testCaseVersion: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_test_configuration' function.
 class CreateTestConfigurationResponse(BaseValidatorModel):
     testConfigurationId: str
     testConfigurationVersion: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_test_suite' function.
 class CreateTestSuiteResponse(BaseValidatorModel):
     testSuiteId: str
     testSuiteVersion: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_test_run' function.
 class StartTestRunResponse(BaseValidatorModel):
     testRunId: str
     testRunStatus: TestRunStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_test_case' function.
 class UpdateTestCaseResponse(BaseValidatorModel):
     testCaseId: str
     testCaseVersion: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_test_configuration' function.
 class UpdateTestConfigurationResponse(BaseValidatorModel):
     testConfigurationId: str
     testConfigurationVersion: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_test_suite' function.
 class UpdateTestSuiteResponse(BaseValidatorModel):
     testSuiteId: str
     testSuiteVersion: int
@@ -484,36 +504,42 @@ class ListTestSuitesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_test_cases' function.
 class ListTestCasesResponse(BaseValidatorModel):
     testCases: List[TestCaseSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_test_configurations' function.
 class ListTestConfigurationsResponse(BaseValidatorModel):
     testConfigurations: List[TestConfigurationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_test_run_steps' function.
 class ListTestRunStepsResponse(BaseValidatorModel):
     testRunSteps: List[TestRunStepSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_test_run_test_cases' function.
 class ListTestRunTestCasesResponse(BaseValidatorModel):
     testRunTestCases: List[TestCaseRunSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_test_runs' function.
 class ListTestRunsResponse(BaseValidatorModel):
     testRuns: List[TestRunSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_test_suites' function.
 class ListTestSuitesResponse(BaseValidatorModel):
     testSuites: List[TestSuiteSummary]
     ResponseMetadata: ResponseMetadata
@@ -667,6 +693,7 @@ class TN3270Summary(BaseValidatorModel):
     stepOutput: Optional[TN3270StepOutput] = None
 
 
+# This class is the output for the 'get_test_configuration' function.
 class GetTestConfigurationResponse(BaseValidatorModel):
     testConfigurationId: str
     name: str
@@ -741,6 +768,7 @@ class MainframeAction(BaseValidatorModel):
     properties: Optional[MainframeActionProperties] = None
 
 
+# This class is the input for the 'create_test_configuration' function.
 class CreateTestConfigurationRequest(BaseValidatorModel):
     name: str
     resources: List[ResourceUnion]
@@ -751,6 +779,7 @@ class CreateTestConfigurationRequest(BaseValidatorModel):
     serviceSettings: Optional[ServiceSettings] = None
 
 
+# This class is the input for the 'update_test_configuration' function.
 class UpdateTestConfigurationRequest(BaseValidatorModel):
     testConfigurationId: str
     description: Optional[str] = None
@@ -777,6 +806,7 @@ class Input(BaseValidatorModel):
 MainframeActionUnion = Union[MainframeAction, MainframeActionOutput]
 
 
+# This class is the output for the 'get_test_run_step' function.
 class GetTestRunStepResponse(BaseValidatorModel):
     stepName: str
     testRunId: str
@@ -802,6 +832,7 @@ class StepOutput(BaseValidatorModel):
 InputUnion = Union[Input, InputOutput]
 
 
+# This class is the output for the 'get_test_case' function.
 class GetTestCaseResponse(BaseValidatorModel):
     testCaseId: str
     testCaseArn: str
@@ -818,6 +849,7 @@ class GetTestCaseResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_test_suite' function.
 class GetTestSuiteResponse(BaseValidatorModel):
     testSuiteId: str
     name: str
@@ -859,6 +891,7 @@ class Step(BaseValidatorModel):
 StepUnion = Union[Step, StepOutput]
 
 
+# This class is the input for the 'create_test_case' function.
 class CreateTestCaseRequest(BaseValidatorModel):
     name: str
     steps: List[StepUnion]
@@ -867,6 +900,7 @@ class CreateTestCaseRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_test_suite' function.
 class CreateTestSuiteRequest(BaseValidatorModel):
     name: str
     testCases: TestCasesUnion
@@ -877,12 +911,14 @@ class CreateTestSuiteRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_test_case' function.
 class UpdateTestCaseRequest(BaseValidatorModel):
     testCaseId: str
     description: Optional[str] = None
     steps: Optional[List[StepUnion]] = None
 
 
+# This class is the input for the 'update_test_suite' function.
 class UpdateTestSuiteRequest(BaseValidatorModel):
     testSuiteId: str
     description: Optional[str] = None

@@ -40,6 +40,7 @@ class DetailedStatusCodesMetrics(BaseValidatorModel):
     IsEnabled: Optional[bool] = None
 
 
+# This class is the input for the 'associate_access_grants_identity_center' function.
 class AssociateAccessGrantsIdentityCenterRequest(BaseValidatorModel):
     AccountId: str
     IdentityCenterArn: str
@@ -129,64 +130,77 @@ class Credentials(BaseValidatorModel):
     Expiration: Optional[datetime] = None
 
 
+# This class is the input for the 'delete_access_grant' function.
 class DeleteAccessGrantRequest(BaseValidatorModel):
     AccountId: str
     AccessGrantId: str
 
 
+# This class is the input for the 'delete_access_grants_instance' function.
 class DeleteAccessGrantsInstanceRequest(BaseValidatorModel):
     AccountId: str
 
 
+# This class is the input for the 'delete_access_grants_instance_resource_policy' function.
 class DeleteAccessGrantsInstanceResourcePolicyRequest(BaseValidatorModel):
     AccountId: str
 
 
+# This class is the input for the 'delete_access_grants_location' function.
 class DeleteAccessGrantsLocationRequest(BaseValidatorModel):
     AccountId: str
     AccessGrantsLocationId: str
 
 
+# This class is the input for the 'delete_access_point_for_object_lambda' function.
 class DeleteAccessPointForObjectLambdaRequest(BaseValidatorModel):
     AccountId: str
     Name: str
 
 
+# This class is the input for the 'delete_access_point_policy_for_object_lambda' function.
 class DeleteAccessPointPolicyForObjectLambdaRequest(BaseValidatorModel):
     AccountId: str
     Name: str
 
 
+# This class is the input for the 'delete_access_point_policy' function.
 class DeleteAccessPointPolicyRequest(BaseValidatorModel):
     AccountId: str
     Name: str
 
 
+# This class is the input for the 'delete_access_point' function.
 class DeleteAccessPointRequest(BaseValidatorModel):
     AccountId: str
     Name: str
 
 
+# This class is the input for the 'delete_bucket_lifecycle_configuration' function.
 class DeleteBucketLifecycleConfigurationRequest(BaseValidatorModel):
     AccountId: str
     Bucket: str
 
 
+# This class is the input for the 'delete_bucket_policy' function.
 class DeleteBucketPolicyRequest(BaseValidatorModel):
     AccountId: str
     Bucket: str
 
 
+# This class is the input for the 'delete_bucket_replication' function.
 class DeleteBucketReplicationRequest(BaseValidatorModel):
     AccountId: str
     Bucket: str
 
 
+# This class is the input for the 'delete_bucket' function.
 class DeleteBucketRequest(BaseValidatorModel):
     AccountId: str
     Bucket: str
 
 
+# This class is the input for the 'delete_bucket_tagging' function.
 class DeleteBucketTaggingRequest(BaseValidatorModel):
     AccountId: str
     Bucket: str
@@ -201,10 +215,12 @@ class DeleteMarkerReplication(BaseValidatorModel):
     Status: DeleteMarkerReplicationStatusType
 
 
+# This class is the input for the 'delete_public_access_block' function.
 class DeletePublicAccessBlockRequest(BaseValidatorModel):
     AccountId: str
 
 
+# This class is the input for the 'delete_storage_lens_configuration' function.
 class DeleteStorageLensConfigurationRequest(BaseValidatorModel):
     ConfigId: str
     AccountId: str
@@ -215,16 +231,19 @@ class DeleteStorageLensConfigurationTaggingRequest(BaseValidatorModel):
     AccountId: str
 
 
+# This class is the input for the 'delete_storage_lens_group' function.
 class DeleteStorageLensGroupRequest(BaseValidatorModel):
     Name: str
     AccountId: str
 
 
+# This class is the input for the 'describe_job' function.
 class DescribeJobRequest(BaseValidatorModel):
     AccountId: str
     JobId: str
 
 
+# This class is the input for the 'describe_multi_region_access_point_operation' function.
 class DescribeMultiRegionAccessPointOperationRequest(BaseValidatorModel):
     AccountId: str
     RequestTokenARN: str
@@ -234,6 +253,7 @@ class EncryptionConfiguration(BaseValidatorModel):
     ReplicaKmsKeyID: Optional[str] = None
 
 
+# This class is the input for the 'dissociate_access_grants_identity_center' function.
 class DissociateAccessGrantsIdentityCenterRequest(BaseValidatorModel):
     AccountId: str
 
@@ -260,49 +280,59 @@ class SSEKMSEncryption(BaseValidatorModel):
     KeyId: str
 
 
+# This class is the input for the 'get_access_grant' function.
 class GetAccessGrantRequest(BaseValidatorModel):
     AccountId: str
     AccessGrantId: str
 
 
+# This class is the input for the 'get_access_grants_instance_for_prefix' function.
 class GetAccessGrantsInstanceForPrefixRequest(BaseValidatorModel):
     AccountId: str
     S3Prefix: str
 
 
+# This class is the input for the 'get_access_grants_instance' function.
 class GetAccessGrantsInstanceRequest(BaseValidatorModel):
     AccountId: str
 
 
+# This class is the input for the 'get_access_grants_instance_resource_policy' function.
 class GetAccessGrantsInstanceResourcePolicyRequest(BaseValidatorModel):
     AccountId: str
 
 
+# This class is the input for the 'get_access_grants_location' function.
 class GetAccessGrantsLocationRequest(BaseValidatorModel):
     AccountId: str
     AccessGrantsLocationId: str
 
 
+# This class is the input for the 'get_access_point_configuration_for_object_lambda' function.
 class GetAccessPointConfigurationForObjectLambdaRequest(BaseValidatorModel):
     AccountId: str
     Name: str
 
 
+# This class is the input for the 'get_access_point_for_object_lambda' function.
 class GetAccessPointForObjectLambdaRequest(BaseValidatorModel):
     AccountId: str
     Name: str
 
 
+# This class is the input for the 'get_access_point_policy_for_object_lambda' function.
 class GetAccessPointPolicyForObjectLambdaRequest(BaseValidatorModel):
     AccountId: str
     Name: str
 
 
+# This class is the input for the 'get_access_point_policy' function.
 class GetAccessPointPolicyRequest(BaseValidatorModel):
     AccountId: str
     Name: str
 
 
+# This class is the input for the 'get_access_point_policy_status_for_object_lambda' function.
 class GetAccessPointPolicyStatusForObjectLambdaRequest(BaseValidatorModel):
     AccountId: str
     Name: str
@@ -312,46 +342,55 @@ class PolicyStatus(BaseValidatorModel):
     IsPublic: Optional[bool] = None
 
 
+# This class is the input for the 'get_access_point_policy_status' function.
 class GetAccessPointPolicyStatusRequest(BaseValidatorModel):
     AccountId: str
     Name: str
 
 
+# This class is the input for the 'get_access_point' function.
 class GetAccessPointRequest(BaseValidatorModel):
     AccountId: str
     Name: str
 
 
+# This class is the input for the 'get_bucket_lifecycle_configuration' function.
 class GetBucketLifecycleConfigurationRequest(BaseValidatorModel):
     AccountId: str
     Bucket: str
 
 
+# This class is the input for the 'get_bucket_policy' function.
 class GetBucketPolicyRequest(BaseValidatorModel):
     AccountId: str
     Bucket: str
 
 
+# This class is the input for the 'get_bucket_replication' function.
 class GetBucketReplicationRequest(BaseValidatorModel):
     AccountId: str
     Bucket: str
 
 
+# This class is the input for the 'get_bucket' function.
 class GetBucketRequest(BaseValidatorModel):
     AccountId: str
     Bucket: str
 
 
+# This class is the input for the 'get_bucket_tagging' function.
 class GetBucketTaggingRequest(BaseValidatorModel):
     AccountId: str
     Bucket: str
 
 
+# This class is the input for the 'get_bucket_versioning' function.
 class GetBucketVersioningRequest(BaseValidatorModel):
     AccountId: str
     Bucket: str
 
 
+# This class is the input for the 'get_data_access' function.
 class GetDataAccessRequest(BaseValidatorModel):
     AccountId: str
     Target: str
@@ -361,26 +400,31 @@ class GetDataAccessRequest(BaseValidatorModel):
     TargetType: Optional[Literal['Object']] = None
 
 
+# This class is the input for the 'get_job_tagging' function.
 class GetJobTaggingRequest(BaseValidatorModel):
     AccountId: str
     JobId: str
 
 
+# This class is the input for the 'get_multi_region_access_point_policy' function.
 class GetMultiRegionAccessPointPolicyRequest(BaseValidatorModel):
     AccountId: str
     Name: str
 
 
+# This class is the input for the 'get_multi_region_access_point_policy_status' function.
 class GetMultiRegionAccessPointPolicyStatusRequest(BaseValidatorModel):
     AccountId: str
     Name: str
 
 
+# This class is the input for the 'get_multi_region_access_point' function.
 class GetMultiRegionAccessPointRequest(BaseValidatorModel):
     AccountId: str
     Name: str
 
 
+# This class is the input for the 'get_multi_region_access_point_routes' function.
 class GetMultiRegionAccessPointRoutesRequest(BaseValidatorModel):
     AccountId: str
     Mrap: str
@@ -392,15 +436,18 @@ class MultiRegionAccessPointRoute(BaseValidatorModel):
     Region: Optional[str] = None
 
 
+# This class is the input for the 'get_public_access_block' function.
 class GetPublicAccessBlockRequest(BaseValidatorModel):
     AccountId: str
 
 
+# This class is the input for the 'get_storage_lens_configuration' function.
 class GetStorageLensConfigurationRequest(BaseValidatorModel):
     ConfigId: str
     AccountId: str
 
 
+# This class is the input for the 'get_storage_lens_configuration_tagging' function.
 class GetStorageLensConfigurationTaggingRequest(BaseValidatorModel):
     ConfigId: str
     AccountId: str
@@ -411,6 +458,7 @@ class StorageLensTag(BaseValidatorModel):
     Value: str
 
 
+# This class is the input for the 'get_storage_lens_group' function.
 class GetStorageLensGroupRequest(BaseValidatorModel):
     Name: str
     AccountId: str
@@ -513,6 +561,7 @@ class ListAccessGrantsInstanceEntry(BaseValidatorModel):
     IdentityCenterApplicationArn: Optional[str] = None
 
 
+# This class is the input for the 'list_access_grants_instances' function.
 class ListAccessGrantsInstancesRequest(BaseValidatorModel):
     AccountId: str
     NextToken: Optional[str] = None
@@ -527,6 +576,7 @@ class ListAccessGrantsLocationsEntry(BaseValidatorModel):
     IAMRoleArn: Optional[str] = None
 
 
+# This class is the input for the 'list_access_grants_locations' function.
 class ListAccessGrantsLocationsRequest(BaseValidatorModel):
     AccountId: str
     NextToken: Optional[str] = None
@@ -534,6 +584,7 @@ class ListAccessGrantsLocationsRequest(BaseValidatorModel):
     LocationScope: Optional[str] = None
 
 
+# This class is the input for the 'list_access_grants' function.
 class ListAccessGrantsRequest(BaseValidatorModel):
     AccountId: str
     NextToken: Optional[str] = None
@@ -551,12 +602,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_access_points_for_object_lambda' function.
 class ListAccessPointsForObjectLambdaRequest(BaseValidatorModel):
     AccountId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_access_points' function.
 class ListAccessPointsRequest(BaseValidatorModel):
     AccountId: str
     Bucket: Optional[str] = None
@@ -570,6 +623,7 @@ class ListCallerAccessGrantsEntry(BaseValidatorModel):
     ApplicationArn: Optional[str] = None
 
 
+# This class is the input for the 'list_caller_access_grants' function.
 class ListCallerAccessGrantsRequest(BaseValidatorModel):
     AccountId: str
     GrantScope: Optional[str] = None
@@ -578,6 +632,7 @@ class ListCallerAccessGrantsRequest(BaseValidatorModel):
     AllowedByApplication: Optional[bool] = None
 
 
+# This class is the input for the 'list_jobs' function.
 class ListJobsRequest(BaseValidatorModel):
     AccountId: str
     JobStatuses: Optional[List[JobStatusType]] = None
@@ -585,12 +640,14 @@ class ListJobsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_multi_region_access_points' function.
 class ListMultiRegionAccessPointsRequest(BaseValidatorModel):
     AccountId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_regional_buckets' function.
 class ListRegionalBucketsRequest(BaseValidatorModel):
     AccountId: str
     NextToken: Optional[str] = None
@@ -613,6 +670,7 @@ class ListStorageLensConfigurationEntry(BaseValidatorModel):
     IsEnabled: Optional[bool] = None
 
 
+# This class is the input for the 'list_storage_lens_configurations' function.
 class ListStorageLensConfigurationsRequest(BaseValidatorModel):
     AccountId: str
     NextToken: Optional[str] = None
@@ -624,11 +682,13 @@ class ListStorageLensGroupEntry(BaseValidatorModel):
     HomeRegion: str
 
 
+# This class is the input for the 'list_storage_lens_groups' function.
 class ListStorageLensGroupsRequest(BaseValidatorModel):
     AccountId: str
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     AccountId: str
     ResourceArn: str
@@ -669,24 +729,28 @@ class SelectionCriteria(BaseValidatorModel):
     MinStorageBytesPercentage: Optional[float] = None
 
 
+# This class is the input for the 'put_access_grants_instance_resource_policy' function.
 class PutAccessGrantsInstanceResourcePolicyRequest(BaseValidatorModel):
     AccountId: str
     Policy: str
     Organization: Optional[str] = None
 
 
+# This class is the input for the 'put_access_point_policy_for_object_lambda' function.
 class PutAccessPointPolicyForObjectLambdaRequest(BaseValidatorModel):
     AccountId: str
     Name: str
     Policy: str
 
 
+# This class is the input for the 'put_access_point_policy' function.
 class PutAccessPointPolicyRequest(BaseValidatorModel):
     AccountId: str
     Name: str
     Policy: str
 
 
+# This class is the input for the 'put_bucket_policy' function.
 class PutBucketPolicyRequest(BaseValidatorModel):
     AccountId: str
     Bucket: str
@@ -765,18 +829,21 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_access_grants_location' function.
 class UpdateAccessGrantsLocationRequest(BaseValidatorModel):
     AccountId: str
     AccessGrantsLocationId: str
     IAMRoleArn: str
 
 
+# This class is the input for the 'update_job_priority' function.
 class UpdateJobPriorityRequest(BaseValidatorModel):
     AccountId: str
     JobId: str
     Priority: int
 
 
+# This class is the input for the 'update_job_status' function.
 class UpdateJobStatusRequest(BaseValidatorModel):
     AccountId: str
     JobId: str
@@ -794,12 +861,14 @@ class AccessPoint(BaseValidatorModel):
     BucketAccountId: Optional[str] = None
 
 
+# This class is the input for the 'delete_multi_region_access_point' function.
 class DeleteMultiRegionAccessPointRequest(BaseValidatorModel):
     AccountId: str
     ClientToken: str
     Details: DeleteMultiRegionAccessPointInput
 
 
+# This class is the input for the 'put_multi_region_access_point_policy' function.
 class PutMultiRegionAccessPointPolicyRequest(BaseValidatorModel):
     AccountId: str
     ClientToken: str
@@ -822,6 +891,7 @@ class ListAccessGrantEntry(BaseValidatorModel):
     ApplicationArn: Optional[str] = None
 
 
+# This class is the input for the 'create_access_grant' function.
 class CreateAccessGrantRequest(BaseValidatorModel):
     AccountId: str
     AccessGrantsLocationId: str
@@ -833,12 +903,14 @@ class CreateAccessGrantRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_access_grants_instance' function.
 class CreateAccessGrantsInstanceRequest(BaseValidatorModel):
     AccountId: str
     IdentityCenterArn: Optional[str] = None
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_access_grants_location' function.
 class CreateAccessGrantsLocationRequest(BaseValidatorModel):
     AccountId: str
     LocationScope: str
@@ -852,6 +924,7 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the output for the 'create_access_grant' function.
 class CreateAccessGrantResult(BaseValidatorModel):
     CreatedAt: datetime
     AccessGrantId: str
@@ -865,6 +938,7 @@ class CreateAccessGrantResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_access_grants_instance' function.
 class CreateAccessGrantsInstanceResult(BaseValidatorModel):
     CreatedAt: datetime
     AccessGrantsInstanceId: str
@@ -875,6 +949,7 @@ class CreateAccessGrantsInstanceResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_access_grants_location' function.
 class CreateAccessGrantsLocationResult(BaseValidatorModel):
     CreatedAt: datetime
     AccessGrantsLocationId: str
@@ -884,37 +959,44 @@ class CreateAccessGrantsLocationResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_access_point' function.
 class CreateAccessPointResult(BaseValidatorModel):
     AccessPointArn: str
     Alias: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_bucket' function.
 class CreateBucketResult(BaseValidatorModel):
     Location: str
     BucketArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_job' function.
 class CreateJobResult(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_multi_region_access_point' function.
 class CreateMultiRegionAccessPointResult(BaseValidatorModel):
     RequestTokenARN: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_multi_region_access_point' function.
 class DeleteMultiRegionAccessPointResult(BaseValidatorModel):
     RequestTokenARN: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_storage_lens_group' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_access_grant' function.
 class GetAccessGrantResult(BaseValidatorModel):
     CreatedAt: datetime
     AccessGrantId: str
@@ -928,12 +1010,14 @@ class GetAccessGrantResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_access_grants_instance_for_prefix' function.
 class GetAccessGrantsInstanceForPrefixResult(BaseValidatorModel):
     AccessGrantsInstanceArn: str
     AccessGrantsInstanceId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_access_grants_instance_resource_policy' function.
 class GetAccessGrantsInstanceResourcePolicyResult(BaseValidatorModel):
     Policy: str
     Organization: str
@@ -941,6 +1025,7 @@ class GetAccessGrantsInstanceResourcePolicyResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_access_grants_instance' function.
 class GetAccessGrantsInstanceResult(BaseValidatorModel):
     AccessGrantsInstanceArn: str
     AccessGrantsInstanceId: str
@@ -951,6 +1036,7 @@ class GetAccessGrantsInstanceResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_access_grants_location' function.
 class GetAccessGrantsLocationResult(BaseValidatorModel):
     CreatedAt: datetime
     AccessGrantsLocationId: str
@@ -960,21 +1046,25 @@ class GetAccessGrantsLocationResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_access_point_policy_for_object_lambda' function.
 class GetAccessPointPolicyForObjectLambdaResult(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_access_point_policy' function.
 class GetAccessPointPolicyResult(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_bucket_policy' function.
 class GetBucketPolicyResult(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_bucket' function.
 class GetBucketResult(BaseValidatorModel):
     Bucket: str
     PublicAccessBlockEnabled: bool
@@ -982,17 +1072,20 @@ class GetBucketResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_bucket_versioning' function.
 class GetBucketVersioningResult(BaseValidatorModel):
     Status: BucketVersioningStatusType
     MFADelete: MFADeleteStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResult(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_access_grants_instance_resource_policy' function.
 class PutAccessGrantsInstanceResourcePolicyResult(BaseValidatorModel):
     Policy: str
     Organization: str
@@ -1000,11 +1093,13 @@ class PutAccessGrantsInstanceResourcePolicyResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_multi_region_access_point_policy' function.
 class PutMultiRegionAccessPointPolicyResult(BaseValidatorModel):
     RequestTokenARN: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_access_grants_location' function.
 class UpdateAccessGrantsLocationResult(BaseValidatorModel):
     CreatedAt: datetime
     AccessGrantsLocationId: str
@@ -1014,12 +1109,14 @@ class UpdateAccessGrantsLocationResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_job_priority' function.
 class UpdateJobPriorityResult(BaseValidatorModel):
     JobId: str
     Priority: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_job_status' function.
 class UpdateJobStatusResult(BaseValidatorModel):
     JobId: str
     Status: JobStatusType
@@ -1027,6 +1124,7 @@ class UpdateJobStatusResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_access_point_for_object_lambda' function.
 class CreateAccessPointForObjectLambdaResult(BaseValidatorModel):
     ObjectLambdaAccessPointArn: str
     Alias: ObjectLambdaAccessPointAlias
@@ -1039,6 +1137,7 @@ class ObjectLambdaAccessPoint(BaseValidatorModel):
     Alias: Optional[ObjectLambdaAccessPointAlias] = None
 
 
+# This class is the input for the 'create_access_point' function.
 class CreateAccessPointRequest(BaseValidatorModel):
     AccountId: str
     Name: str
@@ -1048,6 +1147,7 @@ class CreateAccessPointRequest(BaseValidatorModel):
     BucketAccountId: Optional[str] = None
 
 
+# This class is the output for the 'get_access_point_for_object_lambda' function.
 class GetAccessPointForObjectLambdaResult(BaseValidatorModel):
     Name: str
     PublicAccessBlockConfiguration: PublicAccessBlockConfiguration
@@ -1056,6 +1156,7 @@ class GetAccessPointForObjectLambdaResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_access_point' function.
 class GetAccessPointResult(BaseValidatorModel):
     Name: str
     Bucket: str
@@ -1070,16 +1171,19 @@ class GetAccessPointResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_public_access_block' function.
 class GetPublicAccessBlockOutput(BaseValidatorModel):
     PublicAccessBlockConfiguration: PublicAccessBlockConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_public_access_block' function.
 class PutPublicAccessBlockRequest(BaseValidatorModel):
     PublicAccessBlockConfiguration: PublicAccessBlockConfiguration
     AccountId: str
 
 
+# This class is the input for the 'create_bucket' function.
 class CreateBucketRequest(BaseValidatorModel):
     Bucket: str
     ACL: Optional[BucketCannedACLType] = None
@@ -1093,11 +1197,13 @@ class CreateBucketRequest(BaseValidatorModel):
     OutpostId: Optional[str] = None
 
 
+# This class is the output for the 'get_bucket_tagging' function.
 class GetBucketTaggingResult(BaseValidatorModel):
     TagSet: List[S3Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_job_tagging' function.
 class GetJobTaggingResult(BaseValidatorModel):
     Tags: List[S3Tag]
     ResponseMetadata: ResponseMetadata
@@ -1157,6 +1263,7 @@ class CreateMultiRegionAccessPointInput(BaseValidatorModel):
     PublicAccessBlock: Optional[PublicAccessBlockConfiguration] = None
 
 
+# This class is the output for the 'get_data_access' function.
 class GetDataAccessResult(BaseValidatorModel):
     Credentials: Credentials
     MatchedGrantTarget: str
@@ -1173,21 +1280,25 @@ class GeneratedManifestEncryption(BaseValidatorModel):
     SSEKMS: Optional[SSEKMSEncryption] = None
 
 
+# This class is the output for the 'get_access_point_policy_status_for_object_lambda' function.
 class GetAccessPointPolicyStatusForObjectLambdaResult(BaseValidatorModel):
     PolicyStatus: PolicyStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_access_point_policy_status' function.
 class GetAccessPointPolicyStatusResult(BaseValidatorModel):
     PolicyStatus: PolicyStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_multi_region_access_point_policy_status' function.
 class GetMultiRegionAccessPointPolicyStatusResult(BaseValidatorModel):
     Established: PolicyStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_multi_region_access_point_routes' function.
 class GetMultiRegionAccessPointRoutesResult(BaseValidatorModel):
     Mrap: str
     Routes: List[MultiRegionAccessPointRoute]
@@ -1200,6 +1311,7 @@ class SubmitMultiRegionAccessPointRoutesRequest(BaseValidatorModel):
     RouteUpdates: List[MultiRegionAccessPointRoute]
 
 
+# This class is the output for the 'get_storage_lens_configuration_tagging' function.
 class GetStorageLensConfigurationTaggingResult(BaseValidatorModel):
     Tags: List[StorageLensTag]
     ResponseMetadata: ResponseMetadata
@@ -1286,12 +1398,14 @@ class JobProgressSummary(BaseValidatorModel):
     Timers: Optional[JobTimers] = None
 
 
+# This class is the output for the 'list_access_grants_instances' function.
 class ListAccessGrantsInstancesResult(BaseValidatorModel):
     AccessGrantsInstancesList: List[ListAccessGrantsInstanceEntry]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_access_grants_locations' function.
 class ListAccessGrantsLocationsResult(BaseValidatorModel):
     AccessGrantsLocationsList: List[ListAccessGrantsLocationsEntry]
     ResponseMetadata: ResponseMetadata
@@ -1310,24 +1424,28 @@ class ListCallerAccessGrantsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_caller_access_grants' function.
 class ListCallerAccessGrantsResult(BaseValidatorModel):
     CallerAccessGrantsList: List[ListCallerAccessGrantsEntry]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_regional_buckets' function.
 class ListRegionalBucketsResult(BaseValidatorModel):
     RegionalBucketList: List[RegionalBucket]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_storage_lens_configurations' function.
 class ListStorageLensConfigurationsResult(BaseValidatorModel):
     StorageLensConfigurationList: List[ListStorageLensConfigurationEntry]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_storage_lens_groups' function.
 class ListStorageLensGroupsResult(BaseValidatorModel):
     StorageLensGroupList: List[ListStorageLensGroupEntry]
     ResponseMetadata: ResponseMetadata
@@ -1399,6 +1517,7 @@ class PrefixLevelStorageMetrics(BaseValidatorModel):
     SelectionCriteria: Optional[SelectionCriteria] = None
 
 
+# This class is the input for the 'put_bucket_versioning' function.
 class PutBucketVersioningRequest(BaseValidatorModel):
     AccountId: str
     Bucket: str
@@ -1443,6 +1562,7 @@ class StorageLensGroupLevel(BaseValidatorModel):
     SelectionCriteria: Optional[StorageLensGroupLevelSelectionCriteria] = None
 
 
+# This class is the output for the 'list_access_points' function.
 class ListAccessPointsResult(BaseValidatorModel):
     AccessPointList: List[AccessPoint]
     ResponseMetadata: ResponseMetadata
@@ -1459,12 +1579,14 @@ class ObjectLambdaTransformationConfiguration(BaseValidatorModel):
     ContentTransformation: ObjectLambdaContentTransformation
 
 
+# This class is the output for the 'list_access_grants' function.
 class ListAccessGrantsResult(BaseValidatorModel):
     AccessGrantsList: List[ListAccessGrantEntry]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_access_points_for_object_lambda' function.
 class ListAccessPointsForObjectLambdaResult(BaseValidatorModel):
     ObjectLambdaAccessPointList: List[ObjectLambdaAccessPoint]
     ResponseMetadata: ResponseMetadata
@@ -1493,6 +1615,7 @@ class ReplicationRuleFilter(BaseValidatorModel):
     And: Optional[ReplicationRuleAndOperator] = None
 
 
+# This class is the input for the 'put_bucket_tagging' function.
 class PutBucketTaggingRequest(BaseValidatorModel):
     AccountId: str
     Bucket: str
@@ -1575,6 +1698,7 @@ class Destination(BaseValidatorModel):
     StorageClass: Optional[ReplicationStorageClassType] = None
 
 
+# This class is the output for the 'get_multi_region_access_point_policy' function.
 class GetMultiRegionAccessPointPolicyResult(BaseValidatorModel):
     Policy: MultiRegionAccessPointPolicyDocument
     ResponseMetadata: ResponseMetadata
@@ -1585,11 +1709,13 @@ class AsyncResponseDetails(BaseValidatorModel):
     ErrorDetails: Optional[AsyncErrorDetails] = None
 
 
+# This class is the output for the 'get_multi_region_access_point' function.
 class GetMultiRegionAccessPointResult(BaseValidatorModel):
     AccessPoint: MultiRegionAccessPointReport
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_multi_region_access_points' function.
 class ListMultiRegionAccessPointsResult(BaseValidatorModel):
     AccessPoints: List[MultiRegionAccessPointReport]
     ResponseMetadata: ResponseMetadata
@@ -1703,6 +1829,7 @@ class LifecycleRuleFilter(BaseValidatorModel):
     ObjectSizeLessThan: Optional[int] = None
 
 
+# This class is the input for the 'create_multi_region_access_point' function.
 class CreateMultiRegionAccessPointRequest(BaseValidatorModel):
     AccountId: str
     ClientToken: str
@@ -1725,6 +1852,7 @@ class S3JobManifestGenerator(BaseValidatorModel):
     Filter: Optional[JobManifestGeneratorFilter] = None
 
 
+# This class is the output for the 'list_jobs' function.
 class ListJobsResult(BaseValidatorModel):
     Jobs: List[JobListDescriptor]
     ResponseMetadata: ResponseMetadata
@@ -1806,6 +1934,7 @@ class StorageLensDataExport(BaseValidatorModel):
     CloudWatchMetrics: Optional[CloudWatchMetrics] = None
 
 
+# This class is the output for the 'get_access_point_configuration_for_object_lambda' function.
 class GetAccessPointConfigurationForObjectLambdaResult(BaseValidatorModel):
     Configuration: ObjectLambdaConfigurationOutput
     ResponseMetadata: ResponseMetadata
@@ -1813,6 +1942,7 @@ class GetAccessPointConfigurationForObjectLambdaResult(BaseValidatorModel):
 ObjectLambdaConfigurationUnion = Union[ObjectLambdaConfiguration, ObjectLambdaConfigurationOutput]
 
 
+# This class is the output for the 'get_bucket_lifecycle_configuration' function.
 class GetBucketLifecycleConfigurationResult(BaseValidatorModel):
     Rules: List[LifecycleRuleOutput]
     ResponseMetadata: ResponseMetadata
@@ -1828,6 +1958,7 @@ class JobManifestGenerator(BaseValidatorModel):
     S3JobManifestGenerator: Optional[S3JobManifestGenerator] = None
 
 
+# This class is the output for the 'get_storage_lens_group' function.
 class GetStorageLensGroupResult(BaseValidatorModel):
     StorageLensGroup: StorageLensGroupOutput
     ResponseMetadata: ResponseMetadata
@@ -1845,6 +1976,7 @@ class ReplicationConfiguration(BaseValidatorModel):
     Rules: List[ReplicationRule]
 
 
+# This class is the output for the 'describe_multi_region_access_point_operation' function.
 class DescribeMultiRegionAccessPointOperationResult(BaseValidatorModel):
     AsyncOperation: AsyncOperation
     ResponseMetadata: ResponseMetadata
@@ -1876,12 +2008,14 @@ class S3SetObjectAclOperation(BaseValidatorModel):
     AccessControlPolicy: Optional[S3AccessControlPolicy] = None
 
 
+# This class is the input for the 'create_access_point_for_object_lambda' function.
 class CreateAccessPointForObjectLambdaRequest(BaseValidatorModel):
     AccountId: str
     Name: str
     Configuration: ObjectLambdaConfigurationUnion
 
 
+# This class is the input for the 'put_access_point_configuration_for_object_lambda' function.
 class PutAccessPointConfigurationForObjectLambdaRequest(BaseValidatorModel):
     AccountId: str
     Name: str
@@ -1901,18 +2035,21 @@ class LifecycleRule(BaseValidatorModel):
 JobManifestGeneratorUnion = Union[JobManifestGenerator, JobManifestGeneratorOutput]
 
 
+# This class is the input for the 'create_storage_lens_group' function.
 class CreateStorageLensGroupRequest(BaseValidatorModel):
     AccountId: str
     StorageLensGroup: StorageLensGroupUnion
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_storage_lens_group' function.
 class UpdateStorageLensGroupRequest(BaseValidatorModel):
     Name: str
     AccountId: str
     StorageLensGroup: StorageLensGroupUnion
 
 
+# This class is the output for the 'get_bucket_replication' function.
 class GetBucketReplicationResult(BaseValidatorModel):
     ReplicationConfiguration: ReplicationConfigurationOutput
     ResponseMetadata: ResponseMetadata
@@ -1968,12 +2105,14 @@ class JobOperation(BaseValidatorModel):
 LifecycleRuleUnion = Union[LifecycleRule, LifecycleRuleOutput]
 
 
+# This class is the input for the 'put_bucket_replication' function.
 class PutBucketReplicationRequest(BaseValidatorModel):
     AccountId: str
     Bucket: str
     ReplicationConfiguration: ReplicationConfigurationUnion
 
 
+# This class is the output for the 'get_storage_lens_configuration' function.
 class GetStorageLensConfigurationResult(BaseValidatorModel):
     StorageLensConfiguration: StorageLensConfigurationOutput
     ResponseMetadata: ResponseMetadata
@@ -2009,6 +2148,7 @@ class LifecycleConfiguration(BaseValidatorModel):
     Rules: Optional[List[LifecycleRuleUnion]] = None
 
 
+# This class is the input for the 'put_storage_lens_configuration' function.
 class PutStorageLensConfigurationRequest(BaseValidatorModel):
     ConfigId: str
     AccountId: str
@@ -2016,11 +2156,13 @@ class PutStorageLensConfigurationRequest(BaseValidatorModel):
     Tags: Optional[List[StorageLensTag]] = None
 
 
+# This class is the output for the 'describe_job' function.
 class DescribeJobResult(BaseValidatorModel):
     Job: JobDescriptor
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_job' function.
 class CreateJobRequest(BaseValidatorModel):
     AccountId: str
     Operation: JobOperationUnion
@@ -2035,6 +2177,7 @@ class CreateJobRequest(BaseValidatorModel):
     ManifestGenerator: Optional[JobManifestGeneratorUnion] = None
 
 
+# This class is the input for the 'put_bucket_lifecycle_configuration' function.
 class PutBucketLifecycleConfigurationRequest(BaseValidatorModel):
     AccountId: str
     Bucket: str

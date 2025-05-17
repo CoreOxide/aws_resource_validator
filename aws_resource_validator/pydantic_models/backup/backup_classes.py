@@ -133,6 +133,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_backup_vault' function.
 class CreateBackupVaultInput(BaseValidatorModel):
     BackupVaultName: str
     BackupVaultTags: Optional[Dict[str, str]] = None
@@ -140,6 +141,7 @@ class CreateBackupVaultInput(BaseValidatorModel):
     CreatorRequestId: Optional[str] = None
 
 
+# This class is the input for the 'create_logically_air_gapped_backup_vault' function.
 class CreateLogicallyAirGappedBackupVaultInput(BaseValidatorModel):
     BackupVaultName: str
     MinRetentionDays: int
@@ -155,88 +157,108 @@ class DateRangeOutput(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'delete_backup_plan' function.
 class DeleteBackupPlanInput(BaseValidatorModel):
     BackupPlanId: str
 
 
+# This class is the input for the 'delete_backup_selection' function.
 class DeleteBackupSelectionInput(BaseValidatorModel):
     BackupPlanId: str
     SelectionId: str
 
 
+# This class is the input for the 'delete_backup_vault_access_policy' function.
 class DeleteBackupVaultAccessPolicyInput(BaseValidatorModel):
     BackupVaultName: str
 
 
+# This class is the input for the 'delete_backup_vault' function.
 class DeleteBackupVaultInput(BaseValidatorModel):
     BackupVaultName: str
 
 
+# This class is the input for the 'delete_backup_vault_lock_configuration' function.
 class DeleteBackupVaultLockConfigurationInput(BaseValidatorModel):
     BackupVaultName: str
 
 
+# This class is the input for the 'delete_backup_vault_notifications' function.
 class DeleteBackupVaultNotificationsInput(BaseValidatorModel):
     BackupVaultName: str
 
 
+# This class is the input for the 'delete_framework' function.
 class DeleteFrameworkInput(BaseValidatorModel):
     FrameworkName: str
 
 
+# This class is the input for the 'delete_recovery_point' function.
 class DeleteRecoveryPointInput(BaseValidatorModel):
     BackupVaultName: str
     RecoveryPointArn: str
 
 
+# This class is the input for the 'delete_report_plan' function.
 class DeleteReportPlanInput(BaseValidatorModel):
     ReportPlanName: str
 
 
+# This class is the input for the 'delete_restore_testing_plan' function.
 class DeleteRestoreTestingPlanInput(BaseValidatorModel):
     RestoreTestingPlanName: str
 
 
+# This class is the input for the 'delete_restore_testing_selection' function.
 class DeleteRestoreTestingSelectionInput(BaseValidatorModel):
     RestoreTestingPlanName: str
     RestoreTestingSelectionName: str
 
 
+# This class is the input for the 'describe_backup_job' function.
 class DescribeBackupJobInput(BaseValidatorModel):
     BackupJobId: str
 
 
+# This class is the input for the 'describe_backup_vault' function.
 class DescribeBackupVaultInput(BaseValidatorModel):
     BackupVaultName: str
     BackupVaultAccountId: Optional[str] = None
 
 
+# This class is the input for the 'describe_copy_job' function.
 class DescribeCopyJobInput(BaseValidatorModel):
     CopyJobId: str
 
 
+# This class is the input for the 'describe_framework' function.
 class DescribeFrameworkInput(BaseValidatorModel):
     FrameworkName: str
 
 
+# This class is the input for the 'describe_protected_resource' function.
 class DescribeProtectedResourceInput(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'describe_recovery_point' function.
 class DescribeRecoveryPointInput(BaseValidatorModel):
     BackupVaultName: str
     RecoveryPointArn: str
     BackupVaultAccountId: Optional[str] = None
 
 
+# This class is the input for the 'describe_report_job' function.
 class DescribeReportJobInput(BaseValidatorModel):
     ReportJobId: str
 
 
+# This class is the input for the 'describe_report_plan' function.
 class DescribeReportPlanInput(BaseValidatorModel):
     ReportPlanName: str
 
 
+# This class is the input for the 'describe_restore_job' function.
 class DescribeRestoreJobInput(BaseValidatorModel):
     RestoreJobId: str
 
@@ -245,16 +267,19 @@ class RestoreJobCreator(BaseValidatorModel):
     RestoreTestingPlanArn: Optional[str] = None
 
 
+# This class is the input for the 'disassociate_recovery_point_from_parent' function.
 class DisassociateRecoveryPointFromParentInput(BaseValidatorModel):
     BackupVaultName: str
     RecoveryPointArn: str
 
 
+# This class is the input for the 'disassociate_recovery_point' function.
 class DisassociateRecoveryPointInput(BaseValidatorModel):
     BackupVaultName: str
     RecoveryPointArn: str
 
 
+# This class is the input for the 'export_backup_plan_template' function.
 class ExportBackupPlanTemplateInput(BaseValidatorModel):
     BackupPlanId: str
 
@@ -268,61 +293,74 @@ class Framework(BaseValidatorModel):
     DeploymentStatus: Optional[str] = None
 
 
+# This class is the input for the 'get_backup_plan_from_json' function.
 class GetBackupPlanFromJSONInput(BaseValidatorModel):
     BackupPlanTemplateJson: str
 
 
+# This class is the input for the 'get_backup_plan_from_template' function.
 class GetBackupPlanFromTemplateInput(BaseValidatorModel):
     BackupPlanTemplateId: str
 
 
+# This class is the input for the 'get_backup_plan' function.
 class GetBackupPlanInput(BaseValidatorModel):
     BackupPlanId: str
     VersionId: Optional[str] = None
 
 
+# This class is the input for the 'get_backup_selection' function.
 class GetBackupSelectionInput(BaseValidatorModel):
     BackupPlanId: str
     SelectionId: str
 
 
+# This class is the input for the 'get_backup_vault_access_policy' function.
 class GetBackupVaultAccessPolicyInput(BaseValidatorModel):
     BackupVaultName: str
 
 
+# This class is the input for the 'get_backup_vault_notifications' function.
 class GetBackupVaultNotificationsInput(BaseValidatorModel):
     BackupVaultName: str
 
 
+# This class is the input for the 'get_legal_hold' function.
 class GetLegalHoldInput(BaseValidatorModel):
     LegalHoldId: str
 
 
+# This class is the input for the 'get_recovery_point_index_details' function.
 class GetRecoveryPointIndexDetailsInput(BaseValidatorModel):
     BackupVaultName: str
     RecoveryPointArn: str
 
 
+# This class is the input for the 'get_recovery_point_restore_metadata' function.
 class GetRecoveryPointRestoreMetadataInput(BaseValidatorModel):
     BackupVaultName: str
     RecoveryPointArn: str
     BackupVaultAccountId: Optional[str] = None
 
 
+# This class is the input for the 'get_restore_job_metadata' function.
 class GetRestoreJobMetadataInput(BaseValidatorModel):
     RestoreJobId: str
 
 
+# This class is the input for the 'get_restore_testing_inferred_metadata' function.
 class GetRestoreTestingInferredMetadataInput(BaseValidatorModel):
     BackupVaultName: str
     RecoveryPointArn: str
     BackupVaultAccountId: Optional[str] = None
 
 
+# This class is the input for the 'get_restore_testing_plan' function.
 class GetRestoreTestingPlanInput(BaseValidatorModel):
     RestoreTestingPlanName: str
 
 
+# This class is the input for the 'get_restore_testing_selection' function.
 class GetRestoreTestingSelectionInput(BaseValidatorModel):
     RestoreTestingPlanName: str
     RestoreTestingSelectionName: str
@@ -359,6 +397,7 @@ class LegalHold(BaseValidatorModel):
     CancellationDate: Optional[datetime] = None
 
 
+# This class is the input for the 'list_backup_job_summaries' function.
 class ListBackupJobSummariesInput(BaseValidatorModel):
     AccountId: Optional[str] = None
     State: Optional[BackupJobStatusType] = None
@@ -375,29 +414,34 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_backup_plan_templates' function.
 class ListBackupPlanTemplatesInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_backup_plan_versions' function.
 class ListBackupPlanVersionsInput(BaseValidatorModel):
     BackupPlanId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_backup_plans' function.
 class ListBackupPlansInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     IncludeDeleted: Optional[bool] = None
 
 
+# This class is the input for the 'list_backup_selections' function.
 class ListBackupSelectionsInput(BaseValidatorModel):
     BackupPlanId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_backup_vaults' function.
 class ListBackupVaultsInput(BaseValidatorModel):
     ByVaultType: Optional[VaultTypeType] = None
     ByShared: Optional[bool] = None
@@ -405,6 +449,7 @@ class ListBackupVaultsInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_copy_job_summaries' function.
 class ListCopyJobSummariesInput(BaseValidatorModel):
     AccountId: Optional[str] = None
     State: Optional[CopyJobStatusType] = None
@@ -415,16 +460,19 @@ class ListCopyJobSummariesInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_frameworks' function.
 class ListFrameworksInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_legal_holds' function.
 class ListLegalHoldsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_protected_resources_by_backup_vault' function.
 class ListProtectedResourcesByBackupVaultInput(BaseValidatorModel):
     BackupVaultName: str
     BackupVaultAccountId: Optional[str] = None
@@ -441,11 +489,13 @@ class ProtectedResource(BaseValidatorModel):
     LastRecoveryPointArn: Optional[str] = None
 
 
+# This class is the input for the 'list_protected_resources' function.
 class ListProtectedResourcesInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_recovery_points_by_legal_hold' function.
 class ListRecoveryPointsByLegalHoldInput(BaseValidatorModel):
     LegalHoldId: str
     NextToken: Optional[str] = None
@@ -459,6 +509,7 @@ class RecoveryPointMember(BaseValidatorModel):
     BackupVaultName: Optional[str] = None
 
 
+# This class is the input for the 'list_recovery_points_by_resource' function.
 class ListRecoveryPointsByResourceInput(BaseValidatorModel):
     ResourceArn: str
     NextToken: Optional[str] = None
@@ -482,11 +533,13 @@ class RecoveryPointByResource(BaseValidatorModel):
     IndexStatusMessage: Optional[str] = None
 
 
+# This class is the input for the 'list_report_plans' function.
 class ListReportPlansInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_restore_job_summaries' function.
 class ListRestoreJobSummariesInput(BaseValidatorModel):
     AccountId: Optional[str] = None
     State: Optional[RestoreJobStateType] = None
@@ -506,6 +559,7 @@ class RestoreJobSummary(BaseValidatorModel):
     EndTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_restore_testing_plans' function.
 class ListRestoreTestingPlansInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -522,6 +576,7 @@ class RestoreTestingPlanForList(BaseValidatorModel):
     StartWindowHours: Optional[int] = None
 
 
+# This class is the input for the 'list_restore_testing_selections' function.
 class ListRestoreTestingSelectionsInput(BaseValidatorModel):
     RestoreTestingPlanName: str
     MaxResults: Optional[int] = None
@@ -537,17 +592,20 @@ class RestoreTestingSelectionForList(BaseValidatorModel):
     ValidationWindowHours: Optional[int] = None
 
 
+# This class is the input for the 'list_tags' function.
 class ListTagsInput(BaseValidatorModel):
     ResourceArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'put_backup_vault_access_policy' function.
 class PutBackupVaultAccessPolicyInput(BaseValidatorModel):
     BackupVaultName: str
     Policy: Optional[str] = None
 
 
+# This class is the input for the 'put_backup_vault_lock_configuration' function.
 class PutBackupVaultLockConfigurationInput(BaseValidatorModel):
     BackupVaultName: str
     MinRetentionDays: Optional[int] = None
@@ -555,12 +613,14 @@ class PutBackupVaultLockConfigurationInput(BaseValidatorModel):
     ChangeableForDays: Optional[int] = None
 
 
+# This class is the input for the 'put_backup_vault_notifications' function.
 class PutBackupVaultNotificationsInput(BaseValidatorModel):
     BackupVaultName: str
     SNSTopicArn: str
     BackupVaultEvents: List[BackupVaultEventType]
 
 
+# This class is the input for the 'put_restore_validation_result' function.
 class PutRestoreValidationResultInput(BaseValidatorModel):
     RestoreJobId: str
     ValidationStatus: RestoreValidationStatusType
@@ -618,11 +678,13 @@ class RestoreTestingRecoveryPointSelection(BaseValidatorModel):
     SelectionWindowDays: Optional[int] = None
 
 
+# This class is the input for the 'start_report_job' function.
 class StartReportJobInput(BaseValidatorModel):
     ReportPlanName: str
     IdempotencyToken: Optional[str] = None
 
 
+# This class is the input for the 'start_restore_job' function.
 class StartRestoreJobInput(BaseValidatorModel):
     RecoveryPointArn: str
     Metadata: Dict[str, str]
@@ -632,24 +694,29 @@ class StartRestoreJobInput(BaseValidatorModel):
     CopySourceTagsToRestoredResource: Optional[bool] = None
 
 
+# This class is the input for the 'stop_backup_job' function.
 class StopBackupJobInput(BaseValidatorModel):
     BackupJobId: str
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceInput(BaseValidatorModel):
     ResourceArn: str
     Tags: Dict[str, str]
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceInput(BaseValidatorModel):
     ResourceArn: str
     TagKeyList: List[str]
 
 
+# This class is the input for the 'update_global_settings' function.
 class UpdateGlobalSettingsInput(BaseValidatorModel):
     GlobalSettings: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_recovery_point_index_settings' function.
 class UpdateRecoveryPointIndexSettingsInput(BaseValidatorModel):
     BackupVaultName: str
     RecoveryPointArn: str
@@ -657,6 +724,7 @@ class UpdateRecoveryPointIndexSettingsInput(BaseValidatorModel):
     IamRoleArn: Optional[str] = None
 
 
+# This class is the input for the 'update_region_settings' function.
 class UpdateRegionSettingsInput(BaseValidatorModel):
     ResourceTypeOptInPreference: Optional[Dict[str, bool]] = None
     ResourceTypeManagementPreference: Optional[Dict[str, bool]] = None
@@ -734,6 +802,7 @@ class CopyAction(BaseValidatorModel):
     Lifecycle: Optional[Lifecycle] = None
 
 
+# This class is the input for the 'start_backup_job' function.
 class StartBackupJobInput(BaseValidatorModel):
     BackupVaultName: str
     ResourceArn: str
@@ -747,6 +816,7 @@ class StartBackupJobInput(BaseValidatorModel):
     Index: Optional[IndexType] = None
 
 
+# This class is the input for the 'start_copy_job' function.
 class StartCopyJobInput(BaseValidatorModel):
     RecoveryPointArn: str
     SourceBackupVaultName: str
@@ -756,6 +826,7 @@ class StartCopyJobInput(BaseValidatorModel):
     Lifecycle: Optional[Lifecycle] = None
 
 
+# This class is the input for the 'update_recovery_point_lifecycle' function.
 class UpdateRecoveryPointLifecycleInput(BaseValidatorModel):
     BackupVaultName: str
     RecoveryPointArn: str
@@ -812,6 +883,7 @@ class FrameworkControlOutput(BaseValidatorModel):
 ControlScopeUnion = Union[ControlScope, ControlScopeOutput]
 
 
+# This class is the output for the 'create_backup_plan' function.
 class CreateBackupPlanOutput(BaseValidatorModel):
     BackupPlanId: str
     BackupPlanArn: str
@@ -821,6 +893,7 @@ class CreateBackupPlanOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_backup_selection' function.
 class CreateBackupSelectionOutput(BaseValidatorModel):
     SelectionId: str
     BackupPlanId: str
@@ -828,6 +901,7 @@ class CreateBackupSelectionOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_backup_vault' function.
 class CreateBackupVaultOutput(BaseValidatorModel):
     BackupVaultName: str
     BackupVaultArn: str
@@ -835,12 +909,14 @@ class CreateBackupVaultOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_framework' function.
 class CreateFrameworkOutput(BaseValidatorModel):
     FrameworkName: str
     FrameworkArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_logically_air_gapped_backup_vault' function.
 class CreateLogicallyAirGappedBackupVaultOutput(BaseValidatorModel):
     BackupVaultName: str
     BackupVaultArn: str
@@ -849,6 +925,7 @@ class CreateLogicallyAirGappedBackupVaultOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_report_plan' function.
 class CreateReportPlanOutput(BaseValidatorModel):
     ReportPlanName: str
     ReportPlanArn: str
@@ -856,6 +933,7 @@ class CreateReportPlanOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_restore_testing_plan' function.
 class CreateRestoreTestingPlanOutput(BaseValidatorModel):
     CreationTime: datetime
     RestoreTestingPlanArn: str
@@ -863,6 +941,7 @@ class CreateRestoreTestingPlanOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_restore_testing_selection' function.
 class CreateRestoreTestingSelectionOutput(BaseValidatorModel):
     CreationTime: datetime
     RestoreTestingPlanArn: str
@@ -871,6 +950,7 @@ class CreateRestoreTestingSelectionOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_backup_plan' function.
 class DeleteBackupPlanOutput(BaseValidatorModel):
     BackupPlanId: str
     BackupPlanArn: str
@@ -879,6 +959,7 @@ class DeleteBackupPlanOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_backup_job' function.
 class DescribeBackupJobOutput(BaseValidatorModel):
     AccountId: str
     BackupJobId: str
@@ -910,6 +991,7 @@ class DescribeBackupJobOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_backup_vault' function.
 class DescribeBackupVaultOutput(BaseValidatorModel):
     BackupVaultName: str
     BackupVaultArn: str
@@ -932,6 +1014,7 @@ class DescribeGlobalSettingsOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_protected_resource' function.
 class DescribeProtectedResourceOutput(BaseValidatorModel):
     ResourceArn: str
     ResourceType: str
@@ -945,6 +1028,7 @@ class DescribeProtectedResourceOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_recovery_point' function.
 class DescribeRecoveryPointOutput(BaseValidatorModel):
     RecoveryPointArn: str
     BackupVaultName: str
@@ -981,15 +1065,18 @@ class DescribeRegionSettingsOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_region_settings' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'export_backup_plan_template' function.
 class ExportBackupPlanTemplateOutput(BaseValidatorModel):
     BackupPlanTemplateJson: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_backup_vault_access_policy' function.
 class GetBackupVaultAccessPolicyOutput(BaseValidatorModel):
     BackupVaultName: str
     BackupVaultArn: str
@@ -997,6 +1084,7 @@ class GetBackupVaultAccessPolicyOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_backup_vault_notifications' function.
 class GetBackupVaultNotificationsOutput(BaseValidatorModel):
     BackupVaultName: str
     BackupVaultArn: str
@@ -1005,6 +1093,7 @@ class GetBackupVaultNotificationsOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_recovery_point_index_details' function.
 class GetRecoveryPointIndexDetailsOutput(BaseValidatorModel):
     RecoveryPointArn: str
     BackupVaultArn: str
@@ -1018,6 +1107,7 @@ class GetRecoveryPointIndexDetailsOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_recovery_point_restore_metadata' function.
 class GetRecoveryPointRestoreMetadataOutput(BaseValidatorModel):
     BackupVaultArn: str
     RecoveryPointArn: str
@@ -1026,12 +1116,14 @@ class GetRecoveryPointRestoreMetadataOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_restore_job_metadata' function.
 class GetRestoreJobMetadataOutput(BaseValidatorModel):
     RestoreJobId: str
     Metadata: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_restore_testing_inferred_metadata' function.
 class GetRestoreTestingInferredMetadataOutput(BaseValidatorModel):
     InferredMetadata: Dict[str, str]
     ResponseMetadata: ResponseMetadata
@@ -1042,6 +1134,7 @@ class GetSupportedResourceTypesOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_backup_job_summaries' function.
 class ListBackupJobSummariesOutput(BaseValidatorModel):
     BackupJobSummaries: List[BackupJobSummary]
     AggregationPeriod: str
@@ -1049,24 +1142,28 @@ class ListBackupJobSummariesOutput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_backup_plan_templates' function.
 class ListBackupPlanTemplatesOutput(BaseValidatorModel):
     BackupPlanTemplatesList: List[BackupPlanTemplatesListMember]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_backup_selections' function.
 class ListBackupSelectionsOutput(BaseValidatorModel):
     BackupSelectionsList: List[BackupSelectionsListMember]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_backup_vaults' function.
 class ListBackupVaultsOutput(BaseValidatorModel):
     BackupVaultList: List[BackupVaultListMember]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_copy_job_summaries' function.
 class ListCopyJobSummariesOutput(BaseValidatorModel):
     CopyJobSummaries: List[CopyJobSummary]
     AggregationPeriod: str
@@ -1074,12 +1171,14 @@ class ListCopyJobSummariesOutput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags' function.
 class ListTagsOutput(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_backup_job' function.
 class StartBackupJobOutput(BaseValidatorModel):
     BackupJobId: str
     RecoveryPointArn: str
@@ -1088,6 +1187,7 @@ class StartBackupJobOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_copy_job' function.
 class StartCopyJobOutput(BaseValidatorModel):
     CopyJobId: str
     CreationDate: datetime
@@ -1095,16 +1195,19 @@ class StartCopyJobOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_report_job' function.
 class StartReportJobOutput(BaseValidatorModel):
     ReportJobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_restore_job' function.
 class StartRestoreJobOutput(BaseValidatorModel):
     RestoreJobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_backup_plan' function.
 class UpdateBackupPlanOutput(BaseValidatorModel):
     BackupPlanId: str
     BackupPlanArn: str
@@ -1114,6 +1217,7 @@ class UpdateBackupPlanOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_framework' function.
 class UpdateFrameworkOutput(BaseValidatorModel):
     FrameworkName: str
     FrameworkArn: str
@@ -1121,6 +1225,7 @@ class UpdateFrameworkOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_recovery_point_index_settings' function.
 class UpdateRecoveryPointIndexSettingsOutput(BaseValidatorModel):
     BackupVaultName: str
     RecoveryPointArn: str
@@ -1129,6 +1234,7 @@ class UpdateRecoveryPointIndexSettingsOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_recovery_point_lifecycle' function.
 class UpdateRecoveryPointLifecycleOutput(BaseValidatorModel):
     BackupVaultArn: str
     RecoveryPointArn: str
@@ -1137,6 +1243,7 @@ class UpdateRecoveryPointLifecycleOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_report_plan' function.
 class UpdateReportPlanOutput(BaseValidatorModel):
     ReportPlanName: str
     ReportPlanArn: str
@@ -1144,6 +1251,7 @@ class UpdateReportPlanOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_restore_testing_plan' function.
 class UpdateRestoreTestingPlanOutput(BaseValidatorModel):
     CreationTime: datetime
     RestoreTestingPlanArn: str
@@ -1152,6 +1260,7 @@ class UpdateRestoreTestingPlanOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_restore_testing_selection' function.
 class UpdateRestoreTestingSelectionOutput(BaseValidatorModel):
     CreationTime: datetime
     RestoreTestingPlanArn: str
@@ -1172,6 +1281,7 @@ class DateRange(BaseValidatorModel):
     ToDate: Timestamp
 
 
+# This class is the input for the 'list_backup_jobs' function.
 class ListBackupJobsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -1188,6 +1298,7 @@ class ListBackupJobsInput(BaseValidatorModel):
     ByMessageCategory: Optional[str] = None
 
 
+# This class is the input for the 'list_copy_jobs' function.
 class ListCopyJobsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -1204,6 +1315,7 @@ class ListCopyJobsInput(BaseValidatorModel):
     ByMessageCategory: Optional[str] = None
 
 
+# This class is the input for the 'list_indexed_recovery_points' function.
 class ListIndexedRecoveryPointsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -1214,6 +1326,7 @@ class ListIndexedRecoveryPointsInput(BaseValidatorModel):
     IndexStatus: Optional[IndexStatusType] = None
 
 
+# This class is the input for the 'list_recovery_points_by_backup_vault' function.
 class ListRecoveryPointsByBackupVaultInput(BaseValidatorModel):
     BackupVaultName: str
     BackupVaultAccountId: Optional[str] = None
@@ -1227,6 +1340,7 @@ class ListRecoveryPointsByBackupVaultInput(BaseValidatorModel):
     ByParentRecoveryPointArn: Optional[str] = None
 
 
+# This class is the input for the 'list_report_jobs' function.
 class ListReportJobsInput(BaseValidatorModel):
     ByReportPlanName: Optional[str] = None
     ByCreationBefore: Optional[Timestamp] = None
@@ -1236,6 +1350,7 @@ class ListReportJobsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_restore_jobs_by_protected_resource' function.
 class ListRestoreJobsByProtectedResourceInput(BaseValidatorModel):
     ResourceArn: str
     ByStatus: Optional[RestoreJobStatusType] = None
@@ -1245,6 +1360,7 @@ class ListRestoreJobsByProtectedResourceInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_restore_jobs' function.
 class ListRestoreJobsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -1258,6 +1374,7 @@ class ListRestoreJobsInput(BaseValidatorModel):
     ByRestoreTestingPlanArn: Optional[str] = None
 
 
+# This class is the output for the 'describe_restore_job' function.
 class DescribeRestoreJobOutput(BaseValidatorModel):
     AccountId: str
     RestoreJobId: str
@@ -1303,6 +1420,7 @@ class RestoreJobsListMember(BaseValidatorModel):
     DeletionStatusMessage: Optional[str] = None
 
 
+# This class is the output for the 'list_frameworks' function.
 class ListFrameworksOutput(BaseValidatorModel):
     Frameworks: List[Framework]
     ResponseMetadata: ResponseMetadata
@@ -1311,6 +1429,7 @@ class ListFrameworksOutput(BaseValidatorModel):
 IndexActionUnion = Union[IndexAction, IndexActionOutput]
 
 
+# This class is the output for the 'list_indexed_recovery_points' function.
 class ListIndexedRecoveryPointsOutput(BaseValidatorModel):
     IndexedRecoveryPoints: List[IndexedRecoveryPoint]
     ResponseMetadata: ResponseMetadata
@@ -1327,6 +1446,7 @@ class ProtectedResourceConditions(BaseValidatorModel):
     StringNotEquals: Optional[List[KeyValue]] = None
 
 
+# This class is the output for the 'list_legal_holds' function.
 class ListLegalHoldsOutput(BaseValidatorModel):
     LegalHolds: List[LegalHold]
     ResponseMetadata: ResponseMetadata
@@ -1463,30 +1583,35 @@ class ListRestoreTestingSelectionsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_protected_resources_by_backup_vault' function.
 class ListProtectedResourcesByBackupVaultOutput(BaseValidatorModel):
     Results: List[ProtectedResource]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_protected_resources' function.
 class ListProtectedResourcesOutput(BaseValidatorModel):
     Results: List[ProtectedResource]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_recovery_points_by_legal_hold' function.
 class ListRecoveryPointsByLegalHoldOutput(BaseValidatorModel):
     RecoveryPoints: List[RecoveryPointMember]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_recovery_points_by_resource' function.
 class ListRecoveryPointsByResourceOutput(BaseValidatorModel):
     RecoveryPoints: List[RecoveryPointByResource]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_restore_job_summaries' function.
 class ListRestoreJobSummariesOutput(BaseValidatorModel):
     RestoreJobSummaries: List[RestoreJobSummary]
     AggregationPeriod: str
@@ -1494,12 +1619,14 @@ class ListRestoreJobSummariesOutput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_restore_testing_plans' function.
 class ListRestoreTestingPlansOutput(BaseValidatorModel):
     RestoreTestingPlans: List[RestoreTestingPlanForList]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_restore_testing_selections' function.
 class ListRestoreTestingSelectionsOutput(BaseValidatorModel):
     RestoreTestingSelections: List[RestoreTestingSelectionForList]
     ResponseMetadata: ResponseMetadata
@@ -1548,29 +1675,34 @@ class RestoreTestingPlanForGet(BaseValidatorModel):
 RestoreTestingRecoveryPointSelectionUnion = Union[RestoreTestingRecoveryPointSelection, RestoreTestingRecoveryPointSelectionOutput]
 
 
+# This class is the output for the 'list_backup_plan_versions' function.
 class ListBackupPlanVersionsOutput(BaseValidatorModel):
     BackupPlanVersionsList: List[BackupPlansListMember]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_backup_plans' function.
 class ListBackupPlansOutput(BaseValidatorModel):
     BackupPlansList: List[BackupPlansListMember]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_backup_jobs' function.
 class ListBackupJobsOutput(BaseValidatorModel):
     BackupJobs: List[BackupJob]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_copy_job' function.
 class DescribeCopyJobOutput(BaseValidatorModel):
     CopyJob: CopyJob
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_copy_jobs' function.
 class ListCopyJobsOutput(BaseValidatorModel):
     CopyJobs: List[CopyJob]
     ResponseMetadata: ResponseMetadata
@@ -1592,6 +1724,7 @@ class BackupRule(BaseValidatorModel):
     IndexActions: Optional[List[IndexActionOutput]] = None
 
 
+# This class is the output for the 'list_recovery_points_by_backup_vault' function.
 class ListRecoveryPointsByBackupVaultOutput(BaseValidatorModel):
     RecoveryPoints: List[RecoveryPointByBackupVault]
     ResponseMetadata: ResponseMetadata
@@ -1616,6 +1749,7 @@ class BackupSelection(BaseValidatorModel):
     Conditions: Optional[Conditions] = None
 
 
+# This class is the output for the 'describe_framework' function.
 class DescribeFrameworkOutput(BaseValidatorModel):
     FrameworkName: str
     FrameworkArn: str
@@ -1634,6 +1768,7 @@ class FrameworkControl(BaseValidatorModel):
     ControlScope: Optional[ControlScopeUnion] = None
 
 
+# This class is the output for the 'create_legal_hold' function.
 class CreateLegalHoldOutput(BaseValidatorModel):
     Title: str
     Status: LegalHoldStatusType
@@ -1645,6 +1780,7 @@ class CreateLegalHoldOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_legal_hold' function.
 class GetLegalHoldOutput(BaseValidatorModel):
     Title: str
     Status: LegalHoldStatusType
@@ -1665,12 +1801,14 @@ class RecoveryPointSelection(BaseValidatorModel):
     DateRange: Optional[DateRange] = None
 
 
+# This class is the output for the 'list_restore_jobs_by_protected_resource' function.
 class ListRestoreJobsByProtectedResourceOutput(BaseValidatorModel):
     RestoreJobs: List[RestoreJobsListMember]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_restore_jobs' function.
 class ListRestoreJobsOutput(BaseValidatorModel):
     RestoreJobs: List[RestoreJobsListMember]
     ResponseMetadata: ResponseMetadata
@@ -1706,28 +1844,33 @@ class RestoreTestingSelectionForGet(BaseValidatorModel):
 ProtectedResourceConditionsUnion = Union[ProtectedResourceConditions, ProtectedResourceConditionsOutput]
 
 
+# This class is the output for the 'describe_report_job' function.
 class DescribeReportJobOutput(BaseValidatorModel):
     ReportJob: ReportJob
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_report_jobs' function.
 class ListReportJobsOutput(BaseValidatorModel):
     ReportJobs: List[ReportJob]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_report_plan' function.
 class DescribeReportPlanOutput(BaseValidatorModel):
     ReportPlan: ReportPlan
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_report_plans' function.
 class ListReportPlansOutput(BaseValidatorModel):
     ReportPlans: List[ReportPlan]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_report_plan' function.
 class CreateReportPlanInput(BaseValidatorModel):
     ReportPlanName: str
     ReportDeliveryChannel: ReportDeliveryChannelUnion
@@ -1737,6 +1880,7 @@ class CreateReportPlanInput(BaseValidatorModel):
     IdempotencyToken: Optional[str] = None
 
 
+# This class is the input for the 'update_report_plan' function.
 class UpdateReportPlanInput(BaseValidatorModel):
     ReportPlanName: str
     ReportPlanDescription: Optional[str] = None
@@ -1745,6 +1889,7 @@ class UpdateReportPlanInput(BaseValidatorModel):
     IdempotencyToken: Optional[str] = None
 
 
+# This class is the output for the 'get_restore_testing_plan' function.
 class GetRestoreTestingPlanOutput(BaseValidatorModel):
     RestoreTestingPlan: RestoreTestingPlanForGet
     ResponseMetadata: ResponseMetadata
@@ -1771,6 +1916,7 @@ class BackupPlan(BaseValidatorModel):
     AdvancedBackupSettings: Optional[List[AdvancedBackupSettingOutput]] = None
 
 
+# This class is the output for the 'get_backup_selection' function.
 class GetBackupSelectionOutput(BaseValidatorModel):
     BackupSelection: BackupSelectionOutput
     SelectionId: str
@@ -1792,6 +1938,7 @@ class BackupPlanInput(BaseValidatorModel):
     AdvancedBackupSettings: Optional[List[AdvancedBackupSettingUnion]] = None
 
 
+# This class is the output for the 'get_restore_testing_selection' function.
 class GetRestoreTestingSelectionOutput(BaseValidatorModel):
     RestoreTestingSelection: RestoreTestingSelectionForGet
     ResponseMetadata: ResponseMetadata
@@ -1815,27 +1962,32 @@ class RestoreTestingSelectionForUpdate(BaseValidatorModel):
     ValidationWindowHours: Optional[int] = None
 
 
+# This class is the input for the 'create_restore_testing_plan' function.
 class CreateRestoreTestingPlanInput(BaseValidatorModel):
     RestoreTestingPlan: RestoreTestingPlanForCreate
     CreatorRequestId: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_restore_testing_plan' function.
 class UpdateRestoreTestingPlanInput(BaseValidatorModel):
     RestoreTestingPlan: RestoreTestingPlanForUpdate
     RestoreTestingPlanName: str
 
 
+# This class is the output for the 'get_backup_plan_from_json' function.
 class GetBackupPlanFromJSONOutput(BaseValidatorModel):
     BackupPlan: BackupPlan
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_backup_plan_from_template' function.
 class GetBackupPlanFromTemplateOutput(BaseValidatorModel):
     BackupPlanDocument: BackupPlan
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_backup_plan' function.
 class GetBackupPlanOutput(BaseValidatorModel):
     BackupPlan: BackupPlan
     BackupPlanId: str
@@ -1849,12 +2001,14 @@ class GetBackupPlanOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_backup_selection' function.
 class CreateBackupSelectionInput(BaseValidatorModel):
     BackupPlanId: str
     BackupSelection: BackupSelectionUnion
     CreatorRequestId: Optional[str] = None
 
 
+# This class is the input for the 'create_framework' function.
 class CreateFrameworkInput(BaseValidatorModel):
     FrameworkName: str
     FrameworkControls: List[FrameworkControlUnion]
@@ -1863,6 +2017,7 @@ class CreateFrameworkInput(BaseValidatorModel):
     FrameworkTags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_framework' function.
 class UpdateFrameworkInput(BaseValidatorModel):
     FrameworkName: str
     FrameworkDescription: Optional[str] = None
@@ -1870,6 +2025,7 @@ class UpdateFrameworkInput(BaseValidatorModel):
     IdempotencyToken: Optional[str] = None
 
 
+# This class is the input for the 'create_legal_hold' function.
 class CreateLegalHoldInput(BaseValidatorModel):
     Title: str
     Description: str
@@ -1878,23 +2034,27 @@ class CreateLegalHoldInput(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_backup_plan' function.
 class CreateBackupPlanInput(BaseValidatorModel):
     BackupPlan: BackupPlanInput
     BackupPlanTags: Optional[Dict[str, str]] = None
     CreatorRequestId: Optional[str] = None
 
 
+# This class is the input for the 'update_backup_plan' function.
 class UpdateBackupPlanInput(BaseValidatorModel):
     BackupPlanId: str
     BackupPlan: BackupPlanInput
 
 
+# This class is the input for the 'create_restore_testing_selection' function.
 class CreateRestoreTestingSelectionInput(BaseValidatorModel):
     RestoreTestingPlanName: str
     RestoreTestingSelection: RestoreTestingSelectionForCreate
     CreatorRequestId: Optional[str] = None
 
 
+# This class is the input for the 'update_restore_testing_selection' function.
 class UpdateRestoreTestingSelectionInput(BaseValidatorModel):
     RestoreTestingPlanName: str
     RestoreTestingSelection: RestoreTestingSelectionForUpdate

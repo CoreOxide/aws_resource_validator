@@ -18,6 +18,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'generate_data_set' function.
 class GenerateDataSetRequest(BaseValidatorModel):
     dataSetType: DataSetTypeType
     dataSetPublicationDate: Timestamp
@@ -28,6 +29,7 @@ class GenerateDataSetRequest(BaseValidatorModel):
     customerDefinedValues: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'start_support_data_export' function.
 class StartSupportDataExportRequest(BaseValidatorModel):
     dataSetType: SupportDataSetTypeType
     fromDate: Timestamp
@@ -38,11 +40,13 @@ class StartSupportDataExportRequest(BaseValidatorModel):
     customerDefinedValues: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'generate_data_set' function.
 class GenerateDataSetResult(BaseValidatorModel):
     dataSetRequestId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_support_data_export' function.
 class StartSupportDataExportResult(BaseValidatorModel):
     dataSetRequestId: str
     ResponseMetadata: ResponseMetadata

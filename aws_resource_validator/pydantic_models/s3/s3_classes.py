@@ -226,6 +226,7 @@ class SessionCredentials(BaseValidatorModel):
     Expiration: datetime
 
 
+# This class is the input for the 'create_session' function.
 class CreateSessionRequest(BaseValidatorModel):
     Bucket: str
     SessionMode: Optional[SessionModeType] = None
@@ -241,6 +242,7 @@ class DefaultRetention(BaseValidatorModel):
     Years: Optional[int] = None
 
 
+# This class is the input for the 'delete_bucket_analytics_configuration' function.
 class DeleteBucketAnalyticsConfigurationRequest(BaseValidatorModel):
     Bucket: str
     Id: str
@@ -251,21 +253,25 @@ class DeleteBucketCorsRequestBucketCorsDelete(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'delete_bucket_cors' function.
 class DeleteBucketCorsRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'delete_bucket_encryption' function.
 class DeleteBucketEncryptionRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'delete_bucket_intelligent_tiering_configuration' function.
 class DeleteBucketIntelligentTieringConfigurationRequest(BaseValidatorModel):
     Bucket: str
     Id: str
 
 
+# This class is the input for the 'delete_bucket_inventory_configuration' function.
 class DeleteBucketInventoryConfigurationRequest(BaseValidatorModel):
     Bucket: str
     Id: str
@@ -280,22 +286,26 @@ class DeleteBucketLifecycleRequestBucketLifecycleDelete(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'delete_bucket_lifecycle' function.
 class DeleteBucketLifecycleRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'delete_bucket_metadata_table_configuration' function.
 class DeleteBucketMetadataTableConfigurationRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'delete_bucket_metrics_configuration' function.
 class DeleteBucketMetricsConfigurationRequest(BaseValidatorModel):
     Bucket: str
     Id: str
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'delete_bucket_ownership_controls' function.
 class DeleteBucketOwnershipControlsRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
@@ -305,11 +315,13 @@ class DeleteBucketPolicyRequestBucketPolicyDelete(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'delete_bucket_policy' function.
 class DeleteBucketPolicyRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'delete_bucket_replication' function.
 class DeleteBucketReplicationRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
@@ -319,6 +331,7 @@ class DeleteBucketRequestBucketDelete(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'delete_bucket' function.
 class DeleteBucketRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
@@ -328,6 +341,7 @@ class DeleteBucketTaggingRequestBucketTaggingDelete(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'delete_bucket_tagging' function.
 class DeleteBucketTaggingRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
@@ -337,6 +351,7 @@ class DeleteBucketWebsiteRequestBucketWebsiteDelete(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'delete_bucket_website' function.
 class DeleteBucketWebsiteRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
@@ -346,6 +361,7 @@ class DeleteMarkerReplication(BaseValidatorModel):
     Status: Optional[DeleteMarkerReplicationStatusType] = None
 
 
+# This class is the input for the 'delete_object_tagging' function.
 class DeleteObjectTaggingRequest(BaseValidatorModel):
     Bucket: str
     Key: str
@@ -367,6 +383,7 @@ class Error(BaseValidatorModel):
     Message: Optional[str] = None
 
 
+# This class is the input for the 'delete_public_access_block' function.
 class DeletePublicAccessBlockRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
@@ -400,90 +417,107 @@ class FilterRule(BaseValidatorModel):
     Value: Optional[str] = None
 
 
+# This class is the input for the 'get_bucket_accelerate_configuration' function.
 class GetBucketAccelerateConfigurationRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
     RequestPayer: Optional[Literal['requester']] = None
 
 
+# This class is the input for the 'get_bucket_acl' function.
 class GetBucketAclRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'get_bucket_analytics_configuration' function.
 class GetBucketAnalyticsConfigurationRequest(BaseValidatorModel):
     Bucket: str
     Id: str
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'get_bucket_cors' function.
 class GetBucketCorsRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'get_bucket_encryption' function.
 class GetBucketEncryptionRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'get_bucket_intelligent_tiering_configuration' function.
 class GetBucketIntelligentTieringConfigurationRequest(BaseValidatorModel):
     Bucket: str
     Id: str
 
 
+# This class is the input for the 'get_bucket_inventory_configuration' function.
 class GetBucketInventoryConfigurationRequest(BaseValidatorModel):
     Bucket: str
     Id: str
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'get_bucket_lifecycle_configuration' function.
 class GetBucketLifecycleConfigurationRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'get_bucket_lifecycle' function.
 class GetBucketLifecycleRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'get_bucket_location' function.
 class GetBucketLocationRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'get_bucket_logging' function.
 class GetBucketLoggingRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'get_bucket_metadata_table_configuration' function.
 class GetBucketMetadataTableConfigurationRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'get_bucket_metrics_configuration' function.
 class GetBucketMetricsConfigurationRequest(BaseValidatorModel):
     Bucket: str
     Id: str
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'get_bucket_notification_configuration' function.
 class GetBucketNotificationConfigurationRequestRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'get_bucket_notification' function.
 class GetBucketNotificationConfigurationRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'get_bucket_ownership_controls' function.
 class GetBucketOwnershipControlsRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'get_bucket_policy' function.
 class GetBucketPolicyRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
@@ -493,26 +527,31 @@ class PolicyStatus(BaseValidatorModel):
     IsPublic: Optional[bool] = None
 
 
+# This class is the input for the 'get_bucket_policy_status' function.
 class GetBucketPolicyStatusRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'get_bucket_replication' function.
 class GetBucketReplicationRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'get_bucket_request_payment' function.
 class GetBucketRequestPaymentRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'get_bucket_tagging' function.
 class GetBucketTaggingRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'get_bucket_versioning' function.
 class GetBucketVersioningRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
@@ -527,11 +566,13 @@ class RedirectAllRequestsTo(BaseValidatorModel):
     Protocol: Optional[ProtocolType] = None
 
 
+# This class is the input for the 'get_bucket_website' function.
 class GetBucketWebsiteRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'get_object_acl' function.
 class GetObjectAclRequest(BaseValidatorModel):
     Bucket: str
     Key: str
@@ -550,6 +591,7 @@ class ObjectPart(BaseValidatorModel):
     ChecksumSHA256: Optional[str] = None
 
 
+# This class is the input for the 'get_object_attributes' function.
 class GetObjectAttributesRequest(BaseValidatorModel):
     Bucket: str
     Key: str
@@ -567,6 +609,7 @@ class ObjectLockLegalHold(BaseValidatorModel):
     Status: Optional[ObjectLockLegalHoldStatusType] = None
 
 
+# This class is the input for the 'get_object_legal_hold' function.
 class GetObjectLegalHoldRequest(BaseValidatorModel):
     Bucket: str
     Key: str
@@ -575,6 +618,7 @@ class GetObjectLegalHoldRequest(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'get_object_lock_configuration' function.
 class GetObjectLockConfigurationRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
@@ -585,6 +629,7 @@ class ObjectLockRetentionOutput(BaseValidatorModel):
     RetainUntilDate: Optional[datetime] = None
 
 
+# This class is the input for the 'get_object_retention' function.
 class GetObjectRetentionRequest(BaseValidatorModel):
     Bucket: str
     Key: str
@@ -593,6 +638,7 @@ class GetObjectRetentionRequest(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'get_object_tagging' function.
 class GetObjectTaggingRequest(BaseValidatorModel):
     Bucket: str
     Key: str
@@ -601,6 +647,7 @@ class GetObjectTaggingRequest(BaseValidatorModel):
     RequestPayer: Optional[Literal['requester']] = None
 
 
+# This class is the input for the 'get_object_torrent' function.
 class GetObjectTorrentRequest(BaseValidatorModel):
     Bucket: str
     Key: str
@@ -615,6 +662,7 @@ class PublicAccessBlockConfiguration(BaseValidatorModel):
     RestrictPublicBuckets: Optional[bool] = None
 
 
+# This class is the input for the 'get_public_access_block' function.
 class GetPublicAccessBlockRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
@@ -632,6 +680,7 @@ class Grantee(BaseValidatorModel):
     URI: Optional[str] = None
 
 
+# This class is the input for the 'head_bucket' function.
 class HeadBucketRequest(BaseValidatorModel):
     Bucket: str
     ExpectedBucketOwner: Optional[str] = None
@@ -695,23 +744,27 @@ class TransitionOutput(BaseValidatorModel):
     StorageClass: Optional[TransitionStorageClassType] = None
 
 
+# This class is the input for the 'list_bucket_analytics_configurations' function.
 class ListBucketAnalyticsConfigurationsRequest(BaseValidatorModel):
     Bucket: str
     ContinuationToken: Optional[str] = None
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'list_bucket_intelligent_tiering_configurations' function.
 class ListBucketIntelligentTieringConfigurationsRequest(BaseValidatorModel):
     Bucket: str
     ContinuationToken: Optional[str] = None
 
 
+# This class is the input for the 'list_bucket_inventory_configurations' function.
 class ListBucketInventoryConfigurationsRequest(BaseValidatorModel):
     Bucket: str
     ContinuationToken: Optional[str] = None
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'list_bucket_metrics_configurations' function.
 class ListBucketMetricsConfigurationsRequest(BaseValidatorModel):
     Bucket: str
     ContinuationToken: Optional[str] = None
@@ -724,6 +777,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_buckets' function.
 class ListBucketsRequest(BaseValidatorModel):
     MaxBuckets: Optional[int] = None
     ContinuationToken: Optional[str] = None
@@ -731,11 +785,13 @@ class ListBucketsRequest(BaseValidatorModel):
     BucketRegion: Optional[str] = None
 
 
+# This class is the input for the 'list_directory_buckets' function.
 class ListDirectoryBucketsRequest(BaseValidatorModel):
     ContinuationToken: Optional[str] = None
     MaxDirectoryBuckets: Optional[int] = None
 
 
+# This class is the input for the 'list_multipart_uploads' function.
 class ListMultipartUploadsRequest(BaseValidatorModel):
     Bucket: str
     Delimiter: Optional[str] = None
@@ -748,6 +804,7 @@ class ListMultipartUploadsRequest(BaseValidatorModel):
     RequestPayer: Optional[Literal['requester']] = None
 
 
+# This class is the input for the 'list_object_versions' function.
 class ListObjectVersionsRequest(BaseValidatorModel):
     Bucket: str
     Delimiter: Optional[str] = None
@@ -761,6 +818,7 @@ class ListObjectVersionsRequest(BaseValidatorModel):
     OptionalObjectAttributes: Optional[List[Literal['RestoreStatus']]] = None
 
 
+# This class is the input for the 'list_objects' function.
 class ListObjectsRequest(BaseValidatorModel):
     Bucket: str
     Delimiter: Optional[str] = None
@@ -773,6 +831,7 @@ class ListObjectsRequest(BaseValidatorModel):
     OptionalObjectAttributes: Optional[List[Literal['RestoreStatus']]] = None
 
 
+# This class is the input for the 'list_objects_v2' function.
 class ListObjectsV2Request(BaseValidatorModel):
     Bucket: str
     Delimiter: Optional[str] = None
@@ -799,6 +858,7 @@ class Part(BaseValidatorModel):
     ChecksumSHA256: Optional[str] = None
 
 
+# This class is the input for the 'list_parts' function.
 class ListPartsRequest(BaseValidatorModel):
     Bucket: str
     Key: str
@@ -886,6 +946,7 @@ class PutBucketPolicyRequestBucketPolicyPut(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'put_bucket_policy' function.
 class PutBucketPolicyRequest(BaseValidatorModel):
     Bucket: str
     Policy: str
@@ -969,11 +1030,13 @@ class TopicConfigurationDeprecated(BaseValidatorModel):
     Topic: Optional[str] = None
 
 
+# This class is the output for the 'abort_multipart_upload' function.
 class AbortMultipartUploadOutput(BaseValidatorModel):
     RequestCharged: Literal['requester']
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'complete_multipart_upload' function.
 class CompleteMultipartUploadOutput(BaseValidatorModel):
     Location: str
     Bucket: str
@@ -994,11 +1057,13 @@ class CompleteMultipartUploadOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_bucket' function.
 class CreateBucketOutput(BaseValidatorModel):
     Location: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_multipart_upload' function.
 class CreateMultipartUploadOutput(BaseValidatorModel):
     AbortDate: datetime
     AbortRuleId: str
@@ -1017,6 +1082,7 @@ class CreateMultipartUploadOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_object' function.
 class DeleteObjectOutput(BaseValidatorModel):
     DeleteMarker: bool
     VersionId: str
@@ -1024,42 +1090,50 @@ class DeleteObjectOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_object_tagging' function.
 class DeleteObjectTaggingOutput(BaseValidatorModel):
     VersionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'write_get_object_response' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_bucket_accelerate_configuration' function.
 class GetBucketAccelerateConfigurationOutput(BaseValidatorModel):
     Status: BucketAccelerateStatusType
     RequestCharged: Literal['requester']
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_bucket_location' function.
 class GetBucketLocationOutput(BaseValidatorModel):
     LocationConstraint: BucketLocationConstraintType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_bucket_policy' function.
 class GetBucketPolicyOutput(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_bucket_request_payment' function.
 class GetBucketRequestPaymentOutput(BaseValidatorModel):
     Payer: PayerType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_bucket_versioning' function.
 class GetBucketVersioningOutput(BaseValidatorModel):
     Status: BucketVersioningStatusType
     MFADelete: MFADeleteStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_object' function.
 class GetObjectOutput(BaseValidatorModel):
     Body: StreamingBody
     DeleteMarker: bool
@@ -1102,12 +1176,14 @@ class GetObjectOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_object_torrent' function.
 class GetObjectTorrentOutput(BaseValidatorModel):
     Body: StreamingBody
     RequestCharged: Literal['requester']
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'head_bucket' function.
 class HeadBucketOutput(BaseValidatorModel):
     BucketLocationType: LocationTypeType
     BucketLocationName: str
@@ -1116,6 +1192,7 @@ class HeadBucketOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'head_object' function.
 class HeadObjectOutput(BaseValidatorModel):
     DeleteMarker: bool
     AcceptRanges: str
@@ -1157,26 +1234,31 @@ class HeadObjectOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_bucket_lifecycle_configuration' function.
 class PutBucketLifecycleConfigurationOutput(BaseValidatorModel):
     TransitionDefaultMinimumObjectSize: TransitionDefaultMinimumObjectSizeType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_object_acl' function.
 class PutObjectAclOutput(BaseValidatorModel):
     RequestCharged: Literal['requester']
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_object_legal_hold' function.
 class PutObjectLegalHoldOutput(BaseValidatorModel):
     RequestCharged: Literal['requester']
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_object_lock_configuration' function.
 class PutObjectLockConfigurationOutput(BaseValidatorModel):
     RequestCharged: Literal['requester']
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_object' function.
 class PutObjectOutput(BaseValidatorModel):
     Expiration: str
     ETag: str
@@ -1198,22 +1280,26 @@ class PutObjectOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_object_retention' function.
 class PutObjectRetentionOutput(BaseValidatorModel):
     RequestCharged: Literal['requester']
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_object_tagging' function.
 class PutObjectTaggingOutput(BaseValidatorModel):
     VersionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'restore_object' function.
 class RestoreObjectOutput(BaseValidatorModel):
     RequestCharged: Literal['requester']
     RestoreOutputPath: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'upload_part' function.
 class UploadPartOutput(BaseValidatorModel):
     ServerSideEncryption: ServerSideEncryptionType
     ETag: str
@@ -1236,6 +1322,7 @@ class AbortMultipartUploadRequestMultipartUploadAbort(BaseValidatorModel):
     IfMatchInitiatedTime: Optional[Timestamp] = None
 
 
+# This class is the input for the 'abort_multipart_upload' function.
 class AbortMultipartUploadRequest(BaseValidatorModel):
     Bucket: str
     Key: str
@@ -1307,6 +1394,7 @@ class CreateMultipartUploadRequestObjectSummaryInitiateMultipartUpload(BaseValid
     ChecksumType: Optional[ChecksumTypeType] = None
 
 
+# This class is the input for the 'create_multipart_upload' function.
 class CreateMultipartUploadRequest(BaseValidatorModel):
     Bucket: str
     Key: str
@@ -1372,6 +1460,7 @@ class DeleteObjectRequestObjectVersionDelete(BaseValidatorModel):
     IfMatchSize: Optional[int] = None
 
 
+# This class is the input for the 'delete_object' function.
 class DeleteObjectRequest(BaseValidatorModel):
     Bucket: str
     Key: str
@@ -1447,6 +1536,7 @@ class GetObjectRequestObjectVersionGet(BaseValidatorModel):
     ChecksumMode: Optional[Literal['ENABLED']] = None
 
 
+# This class is the input for the 'get_object' function.
 class GetObjectRequest(BaseValidatorModel):
     Bucket: str
     Key: str
@@ -1490,6 +1580,7 @@ class HeadObjectRequestObjectVersionHead(BaseValidatorModel):
     ChecksumMode: Optional[Literal['ENABLED']] = None
 
 
+# This class is the input for the 'head_object' function.
 class HeadObjectRequest(BaseValidatorModel):
     Bucket: str
     Key: str
@@ -1538,6 +1629,7 @@ class Transition(BaseValidatorModel):
     StorageClass: Optional[TransitionStorageClassType] = None
 
 
+# This class is the input for the 'put_bucket_accelerate_configuration' function.
 class PutBucketAccelerateConfigurationRequest(BaseValidatorModel):
     Bucket: str
     AccelerateConfiguration: AccelerateConfiguration
@@ -1563,11 +1655,13 @@ class AnalyticsAndOperator(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'get_bucket_tagging' function.
 class GetBucketTaggingOutput(BaseValidatorModel):
     TagSet: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_object_tagging' function.
 class GetObjectTaggingOutput(BaseValidatorModel):
     VersionId: str
     TagSet: List[Tag]
@@ -1752,6 +1846,7 @@ class PutObjectRequestObjectSummaryPut(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'put_object' function.
 class PutObjectRequest(BaseValidatorModel):
     Bucket: str
     Key: str
@@ -1811,6 +1906,7 @@ class UploadPartRequestMultipartUploadPartUpload(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'upload_part' function.
 class UploadPartRequest(BaseValidatorModel):
     Bucket: str
     Key: str
@@ -1831,6 +1927,7 @@ class UploadPartRequest(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'write_get_object_response' function.
 class WriteGetObjectResponseRequest(BaseValidatorModel):
     RequestRoute: str
     RequestToken: str
@@ -1951,6 +2048,7 @@ class ObjectUploadFileobjRequest(BaseValidatorModel):
     Config: Optional[TransferConfig] = None
 
 
+# This class is the output for the 'list_buckets' function.
 class ListBucketsOutput(BaseValidatorModel):
     Buckets: List[Bucket]
     Owner: Owner
@@ -1959,12 +2057,14 @@ class ListBucketsOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_directory_buckets' function.
 class ListDirectoryBucketsOutput(BaseValidatorModel):
     Buckets: List[Bucket]
     ContinuationToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_bucket_cors' function.
 class GetBucketCorsOutput(BaseValidatorModel):
     CORSRules: List[CORSRuleOutput]
     ResponseMetadata: ResponseMetadata
@@ -1978,6 +2078,7 @@ class CompletedMultipartUpload(BaseValidatorModel):
     Parts: Optional[List[CompletedPart]] = None
 
 
+# This class is the output for the 'copy_object' function.
 class CopyObjectOutput(BaseValidatorModel):
     CopyObjectResult: CopyObjectResult
     Expiration: str
@@ -1993,6 +2094,7 @@ class CopyObjectOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'upload_part_copy' function.
 class UploadPartCopyOutput(BaseValidatorModel):
     CopySourceVersionId: str
     CopyPartResult: CopyPartResult
@@ -2011,6 +2113,7 @@ class CreateBucketConfiguration(BaseValidatorModel):
     Bucket: Optional[BucketInfo] = None
 
 
+# This class is the output for the 'create_session' function.
 class CreateSessionOutput(BaseValidatorModel):
     ServerSideEncryption: ServerSideEncryptionType
     SSEKMSKeyId: str
@@ -2024,6 +2127,7 @@ class ObjectLockRule(BaseValidatorModel):
     DefaultRetention: Optional[DefaultRetention] = None
 
 
+# This class is the output for the 'delete_objects' function.
 class DeleteObjectsOutput(BaseValidatorModel):
     Deleted: List[DeletedObject]
     RequestCharged: Literal['requester']
@@ -2039,6 +2143,7 @@ class S3KeyFilter(BaseValidatorModel):
     FilterRules: Optional[List[FilterRule]] = None
 
 
+# This class is the output for the 'get_bucket_policy_status' function.
 class GetBucketPolicyStatusOutput(BaseValidatorModel):
     PolicyStatus: PolicyStatus
     ResponseMetadata: ResponseMetadata
@@ -2053,11 +2158,13 @@ class GetObjectAttributesParts(BaseValidatorModel):
     Parts: Optional[List[ObjectPart]] = None
 
 
+# This class is the output for the 'get_object_legal_hold' function.
 class GetObjectLegalHoldOutput(BaseValidatorModel):
     LegalHold: ObjectLockLegalHold
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_object_legal_hold' function.
 class PutObjectLegalHoldRequest(BaseValidatorModel):
     Bucket: str
     Key: str
@@ -2069,16 +2176,19 @@ class PutObjectLegalHoldRequest(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the output for the 'get_object_retention' function.
 class GetObjectRetentionOutput(BaseValidatorModel):
     Retention: ObjectLockRetentionOutput
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_public_access_block' function.
 class GetPublicAccessBlockOutput(BaseValidatorModel):
     PublicAccessBlockConfiguration: PublicAccessBlockConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_public_access_block' function.
 class PutPublicAccessBlockRequest(BaseValidatorModel):
     Bucket: str
     PublicAccessBlockConfiguration: PublicAccessBlockConfiguration
@@ -2267,6 +2377,7 @@ class ListPartsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_parts' function.
 class ListPartsOutput(BaseValidatorModel):
     AbortDate: datetime
     AbortRuleId: str
@@ -2305,6 +2416,7 @@ class ReplicationTime(BaseValidatorModel):
     Time: ReplicationTimeValue
 
 
+# This class is the output for the 'get_bucket_notification' function.
 class NotificationConfigurationDeprecatedResponse(BaseValidatorModel):
     TopicConfiguration: TopicConfigurationDeprecatedOutput
     QueueConfiguration: QueueConfigurationDeprecatedOutput
@@ -2366,6 +2478,7 @@ class PutBucketRequestPaymentRequestBucketRequestPaymentPut(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'put_bucket_request_payment' function.
 class PutBucketRequestPaymentRequest(BaseValidatorModel):
     Bucket: str
     RequestPaymentConfiguration: RequestPaymentConfiguration
@@ -2380,6 +2493,7 @@ class PutBucketVersioningRequestBucketVersioningPut(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'put_bucket_versioning' function.
 class PutBucketVersioningRequest(BaseValidatorModel):
     Bucket: str
     VersioningConfiguration: VersioningConfiguration
@@ -2488,6 +2602,7 @@ class PutBucketTaggingRequestBucketTaggingPut(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'put_bucket_tagging' function.
 class PutBucketTaggingRequest(BaseValidatorModel):
     Bucket: str
     Tagging: Tagging
@@ -2495,6 +2610,7 @@ class PutBucketTaggingRequest(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'put_object_tagging' function.
 class PutObjectTaggingRequest(BaseValidatorModel):
     Bucket: str
     Key: str
@@ -2591,6 +2707,7 @@ class CopyObjectRequestObjectSummaryCopyFrom(BaseValidatorModel):
     ExpectedSourceBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'copy_object' function.
 class CopyObjectRequest(BaseValidatorModel):
     Bucket: str
     CopySource: CopySourceOrStr
@@ -2649,6 +2766,7 @@ class UploadPartCopyRequestMultipartUploadPartCopyFrom(BaseValidatorModel):
     ExpectedSourceBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'upload_part_copy' function.
 class UploadPartCopyRequest(BaseValidatorModel):
     Bucket: str
     CopySource: CopySourceOrStr
@@ -2690,6 +2808,7 @@ class CompleteMultipartUploadRequestMultipartUploadComplete(BaseValidatorModel):
     SSECustomerKey: Optional[Union[bytes, str]] = None
 
 
+# This class is the input for the 'complete_multipart_upload' function.
 class CompleteMultipartUploadRequest(BaseValidatorModel):
     Bucket: str
     Key: str
@@ -2735,6 +2854,7 @@ class CreateBucketRequestServiceResourceCreateBucket(BaseValidatorModel):
     ObjectOwnership: Optional[ObjectOwnershipType] = None
 
 
+# This class is the input for the 'create_bucket' function.
 class CreateBucketRequest(BaseValidatorModel):
     Bucket: str
     ACL: Optional[BucketCannedACLType] = None
@@ -2759,6 +2879,7 @@ class NotificationConfigurationFilterOutput(BaseValidatorModel):
 S3KeyFilterUnion = Union[S3KeyFilter, S3KeyFilterOutput]
 
 
+# This class is the output for the 'get_object_attributes' function.
 class GetObjectAttributesOutput(BaseValidatorModel):
     DeleteMarker: bool
     LastModified: datetime
@@ -2777,12 +2898,14 @@ class AccessControlPolicy(BaseValidatorModel):
     Owner: Optional[Owner] = None
 
 
+# This class is the output for the 'get_bucket_acl' function.
 class GetBucketAclOutput(BaseValidatorModel):
     Owner: Owner
     Grants: List[Grant]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_object_acl' function.
 class GetObjectAclOutput(BaseValidatorModel):
     Owner: Owner
     Grants: List[Grant]
@@ -2801,6 +2924,7 @@ class S3Location(BaseValidatorModel):
     StorageClass: Optional[StorageClassType] = None
 
 
+# This class is the output for the 'list_multipart_uploads' function.
 class ListMultipartUploadsOutput(BaseValidatorModel):
     Bucket: str
     KeyMarker: str
@@ -2834,6 +2958,7 @@ class InventoryS3BucketDestination(BaseValidatorModel):
     Encryption: Optional[InventoryEncryption] = None
 
 
+# This class is the input for the 'select_object_content' function.
 class SelectObjectContentRequest(BaseValidatorModel):
     Bucket: str
     Key: str
@@ -2855,6 +2980,7 @@ class SelectParameters(BaseValidatorModel):
     OutputSerialization: OutputSerialization
 
 
+# This class is the output for the 'get_bucket_lifecycle' function.
 class GetBucketLifecycleOutput(BaseValidatorModel):
     Rules: List[RuleOutput]
     ResponseMetadata: ResponseMetadata
@@ -2866,6 +2992,7 @@ class GetBucketMetadataTableConfigurationResult(BaseValidatorModel):
     Error: Optional[ErrorDetails] = None
 
 
+# This class is the input for the 'create_bucket_metadata_table_configuration' function.
 class CreateBucketMetadataTableConfigurationRequest(BaseValidatorModel):
     Bucket: str
     MetadataTableConfiguration: MetadataTableConfiguration
@@ -2884,6 +3011,7 @@ class Destination(BaseValidatorModel):
     Metrics: Optional[Metrics] = None
 
 
+# This class is the output for the 'list_objects' function.
 class ListObjectsOutput(BaseValidatorModel):
     IsTruncated: bool
     Marker: str
@@ -2899,6 +3027,7 @@ class ListObjectsOutput(BaseValidatorModel):
     CommonPrefixes: Optional[List[CommonPrefix]] = None
 
 
+# This class is the output for the 'list_objects_v2' function.
 class ListObjectsV2Output(BaseValidatorModel):
     IsTruncated: bool
     Name: str
@@ -2916,6 +3045,7 @@ class ListObjectsV2Output(BaseValidatorModel):
     CommonPrefixes: Optional[List[CommonPrefix]] = None
 
 
+# This class is the output for the 'list_object_versions' function.
 class ListObjectVersionsOutput(BaseValidatorModel):
     IsTruncated: bool
     KeyMarker: str
@@ -2934,6 +3064,7 @@ class ListObjectVersionsOutput(BaseValidatorModel):
     CommonPrefixes: Optional[List[CommonPrefix]] = None
 
 
+# This class is the output for the 'get_bucket_ownership_controls' function.
 class GetBucketOwnershipControlsOutput(BaseValidatorModel):
     OwnershipControls: OwnershipControlsOutput
     ResponseMetadata: ResponseMetadata
@@ -2950,6 +3081,7 @@ class LoggingEnabledOutput(BaseValidatorModel):
 TargetObjectKeyFormatUnion = Union[TargetObjectKeyFormat, TargetObjectKeyFormatOutput]
 
 
+# This class is the output for the 'get_bucket_website' function.
 class GetBucketWebsiteOutput(BaseValidatorModel):
     RedirectAllRequestsTo: RedirectAllRequestsTo
     IndexDocument: IndexDocument
@@ -2996,6 +3128,7 @@ class DeleteObjectsRequestBucketDeleteObjects(BaseValidatorModel):
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
 
 
+# This class is the input for the 'delete_objects' function.
 class DeleteObjectsRequest(BaseValidatorModel):
     Bucket: str
     Delete: Delete
@@ -3006,6 +3139,7 @@ class DeleteObjectsRequest(BaseValidatorModel):
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
 
 
+# This class is the input for the 'put_object_retention' function.
 class PutObjectRetentionRequest(BaseValidatorModel):
     Bucket: str
     Key: str
@@ -3083,6 +3217,7 @@ class PutBucketCorsRequestBucketCorsPut(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'put_bucket_cors' function.
 class PutBucketCorsRequest(BaseValidatorModel):
     Bucket: str
     CORSConfiguration: CORSConfiguration
@@ -3090,11 +3225,13 @@ class PutBucketCorsRequest(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the output for the 'get_object_lock_configuration' function.
 class GetObjectLockConfigurationOutput(BaseValidatorModel):
     ObjectLockConfiguration: ObjectLockConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_object_lock_configuration' function.
 class PutObjectLockConfigurationRequest(BaseValidatorModel):
     Bucket: str
     ObjectLockConfiguration: Optional[ObjectLockConfiguration] = None
@@ -3142,6 +3279,7 @@ class PutBucketAclRequestBucketAclPut(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'put_bucket_acl' function.
 class PutBucketAclRequest(BaseValidatorModel):
     Bucket: str
     ACL: Optional[BucketCannedACLType] = None
@@ -3170,6 +3308,7 @@ class PutObjectAclRequestObjectAclPut(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'put_object_acl' function.
 class PutObjectAclRequest(BaseValidatorModel):
     Bucket: str
     Key: str
@@ -3198,6 +3337,7 @@ class InventoryDestination(BaseValidatorModel):
     S3BucketDestination: InventoryS3BucketDestination
 
 
+# This class is the output for the 'get_bucket_metadata_table_configuration' function.
 class GetBucketMetadataTableConfigurationOutput(BaseValidatorModel):
     GetBucketMetadataTableConfigurationResult: GetBucketMetadataTableConfigurationResult
     ResponseMetadata: ResponseMetadata
@@ -3227,6 +3367,7 @@ class ReplicationRule(BaseValidatorModel):
     DeleteMarkerReplication: Optional[DeleteMarkerReplication] = None
 
 
+# This class is the input for the 'put_bucket_ownership_controls' function.
 class PutBucketOwnershipControlsRequest(BaseValidatorModel):
     Bucket: str
     OwnershipControls: OwnershipControlsUnion
@@ -3234,6 +3375,7 @@ class PutBucketOwnershipControlsRequest(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the output for the 'get_bucket_logging' function.
 class GetBucketLoggingOutput(BaseValidatorModel):
     LoggingEnabled: LoggingEnabledOutput
     ResponseMetadata: ResponseMetadata
@@ -3252,6 +3394,7 @@ class PutBucketWebsiteRequestBucketWebsitePut(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'put_bucket_website' function.
 class PutBucketWebsiteRequest(BaseValidatorModel):
     Bucket: str
     WebsiteConfiguration: WebsiteConfiguration
@@ -3259,6 +3402,7 @@ class PutBucketWebsiteRequest(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the output for the 'get_bucket_encryption' function.
 class GetBucketEncryptionOutput(BaseValidatorModel):
     ServerSideEncryptionConfiguration: ServerSideEncryptionConfigurationOutput
     ResponseMetadata: ResponseMetadata
@@ -3266,11 +3410,13 @@ class GetBucketEncryptionOutput(BaseValidatorModel):
 ServerSideEncryptionConfigurationUnion = Union[ServerSideEncryptionConfiguration, ServerSideEncryptionConfigurationOutput]
 
 
+# This class is the output for the 'select_object_content' function.
 class SelectObjectContentOutput(BaseValidatorModel):
     Payload: EventStream[SelectObjectContentEventStream]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_bucket_notification' function.
 class PutBucketNotificationRequest(BaseValidatorModel):
     Bucket: str
     NotificationConfiguration: NotificationConfigurationDeprecated
@@ -3280,11 +3426,13 @@ class PutBucketNotificationRequest(BaseValidatorModel):
 RuleUnion = Union[Rule, RuleOutput]
 
 
+# This class is the output for the 'get_bucket_intelligent_tiering_configuration' function.
 class GetBucketIntelligentTieringConfigurationOutput(BaseValidatorModel):
     IntelligentTieringConfiguration: IntelligentTieringConfigurationOutput
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_bucket_intelligent_tiering_configurations' function.
 class ListBucketIntelligentTieringConfigurationsOutput(BaseValidatorModel):
     IsTruncated: bool
     ContinuationToken: str
@@ -3295,6 +3443,7 @@ class ListBucketIntelligentTieringConfigurationsOutput(BaseValidatorModel):
 IntelligentTieringConfigurationUnion = Union[IntelligentTieringConfiguration, IntelligentTieringConfigurationOutput]
 
 
+# This class is the output for the 'get_bucket_lifecycle_configuration' function.
 class GetBucketLifecycleConfigurationOutput(BaseValidatorModel):
     Rules: List[LifecycleRuleOutput]
     TransitionDefaultMinimumObjectSize: TransitionDefaultMinimumObjectSizeType
@@ -3303,11 +3452,13 @@ class GetBucketLifecycleConfigurationOutput(BaseValidatorModel):
 LifecycleRuleFilterUnion = Union[LifecycleRuleFilter, LifecycleRuleFilterOutput]
 
 
+# This class is the output for the 'get_bucket_metrics_configuration' function.
 class GetBucketMetricsConfigurationOutput(BaseValidatorModel):
     MetricsConfiguration: MetricsConfigurationOutput
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_bucket_metrics_configurations' function.
 class ListBucketMetricsConfigurationsOutput(BaseValidatorModel):
     IsTruncated: bool
     ContinuationToken: str
@@ -3330,6 +3481,7 @@ class AnalyticsConfiguration(BaseValidatorModel):
     Filter: Optional[AnalyticsFilter] = None
 
 
+# This class is the output for the 'get_bucket_notification_configuration' function.
 class NotificationConfigurationResponse(BaseValidatorModel):
     TopicConfigurations: List[TopicConfigurationOutput]
     QueueConfigurations: List[QueueConfigurationOutput]
@@ -3382,6 +3534,7 @@ class ReplicationConfiguration(BaseValidatorModel):
 LoggingEnabledUnion = Union[LoggingEnabled, LoggingEnabledOutput]
 
 
+# This class is the input for the 'put_bucket_encryption' function.
 class PutBucketEncryptionRequest(BaseValidatorModel):
     Bucket: str
     ServerSideEncryptionConfiguration: ServerSideEncryptionConfigurationUnion
@@ -3394,6 +3547,7 @@ class LifecycleConfiguration(BaseValidatorModel):
     Rules: List[RuleUnion]
 
 
+# This class is the input for the 'put_bucket_intelligent_tiering_configuration' function.
 class PutBucketIntelligentTieringConfigurationRequest(BaseValidatorModel):
     Bucket: str
     Id: str
@@ -3412,6 +3566,7 @@ class LifecycleRule(BaseValidatorModel):
     AbortIncompleteMultipartUpload: Optional[AbortIncompleteMultipartUpload] = None
 
 
+# This class is the input for the 'put_bucket_metrics_configuration' function.
 class PutBucketMetricsConfigurationRequest(BaseValidatorModel):
     Bucket: str
     Id: str
@@ -3419,11 +3574,13 @@ class PutBucketMetricsConfigurationRequest(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the output for the 'get_bucket_analytics_configuration' function.
 class GetBucketAnalyticsConfigurationOutput(BaseValidatorModel):
     AnalyticsConfiguration: AnalyticsConfigurationOutput
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_bucket_analytics_configurations' function.
 class ListBucketAnalyticsConfigurationsOutput(BaseValidatorModel):
     IsTruncated: bool
     ContinuationToken: str
@@ -3471,6 +3628,7 @@ class RestoreObjectRequestObjectSummaryRestoreObject(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'restore_object' function.
 class RestoreObjectRequest(BaseValidatorModel):
     Bucket: str
     Key: str
@@ -3481,11 +3639,13 @@ class RestoreObjectRequest(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the output for the 'get_bucket_inventory_configuration' function.
 class GetBucketInventoryConfigurationOutput(BaseValidatorModel):
     InventoryConfiguration: InventoryConfigurationOutput
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_bucket_inventory_configurations' function.
 class ListBucketInventoryConfigurationsOutput(BaseValidatorModel):
     ContinuationToken: str
     InventoryConfigurationList: List[InventoryConfigurationOutput]
@@ -3496,6 +3656,7 @@ class ListBucketInventoryConfigurationsOutput(BaseValidatorModel):
 InventoryConfigurationUnion = Union[InventoryConfiguration, InventoryConfigurationOutput]
 
 
+# This class is the output for the 'get_bucket_replication' function.
 class GetBucketReplicationOutput(BaseValidatorModel):
     ReplicationConfiguration: ReplicationConfigurationOutput
     ResponseMetadata: ResponseMetadata
@@ -3513,6 +3674,7 @@ class PutBucketLifecycleRequestBucketLifecyclePut(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'put_bucket_lifecycle' function.
 class PutBucketLifecycleRequest(BaseValidatorModel):
     Bucket: str
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
@@ -3522,6 +3684,7 @@ class PutBucketLifecycleRequest(BaseValidatorModel):
 LifecycleRuleUnion = Union[LifecycleRule, LifecycleRuleOutput]
 
 
+# This class is the input for the 'put_bucket_analytics_configuration' function.
 class PutBucketAnalyticsConfigurationRequest(BaseValidatorModel):
     Bucket: str
     Id: str
@@ -3535,6 +3698,7 @@ QueueConfigurationUnion = Union[QueueConfiguration, QueueConfigurationOutput]
 TopicConfigurationUnion = Union[TopicConfiguration, TopicConfigurationOutput]
 
 
+# This class is the input for the 'put_bucket_inventory_configuration' function.
 class PutBucketInventoryConfigurationRequest(BaseValidatorModel):
     Bucket: str
     Id: str
@@ -3542,6 +3706,7 @@ class PutBucketInventoryConfigurationRequest(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'put_bucket_replication' function.
 class PutBucketReplicationRequest(BaseValidatorModel):
     Bucket: str
     ReplicationConfiguration: ReplicationConfigurationUnion
@@ -3556,6 +3721,7 @@ class PutBucketLoggingRequestBucketLoggingPut(BaseValidatorModel):
     ExpectedBucketOwner: Optional[str] = None
 
 
+# This class is the input for the 'put_bucket_logging' function.
 class PutBucketLoggingRequest(BaseValidatorModel):
     Bucket: str
     BucketLoggingStatus: BucketLoggingStatus
@@ -3581,6 +3747,7 @@ class PutBucketLifecycleConfigurationRequestBucketLifecycleConfigurationPut(Base
     TransitionDefaultMinimumObjectSize: Optional[TransitionDefaultMinimumObjectSizeType] = None
 
 
+# This class is the input for the 'put_bucket_lifecycle_configuration' function.
 class PutBucketLifecycleConfigurationRequest(BaseValidatorModel):
     Bucket: str
     ChecksumAlgorithm: Optional[ChecksumAlgorithmType] = None
@@ -3595,6 +3762,7 @@ class PutBucketNotificationConfigurationRequestBucketNotificationPut(BaseValidat
     SkipDestinationValidation: Optional[bool] = None
 
 
+# This class is the input for the 'put_bucket_notification_configuration' function.
 class PutBucketNotificationConfigurationRequest(BaseValidatorModel):
     Bucket: str
     NotificationConfiguration: NotificationConfiguration

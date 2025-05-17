@@ -236,6 +236,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_ip_set' function.
 class CreateIPSetRequest(BaseValidatorModel):
     DetectorId: str
     Name: str
@@ -271,6 +272,7 @@ class CreateSampleFindingsRequest(BaseValidatorModel):
     FindingTypes: Optional[List[str]] = None
 
 
+# This class is the input for the 'create_threat_intel_set' function.
 class CreateThreatIntelSetRequest(BaseValidatorModel):
     DetectorId: str
     Name: str
@@ -308,6 +310,7 @@ class DateStatistics(BaseValidatorModel):
     TotalFindings: Optional[int] = None
 
 
+# This class is the input for the 'decline_invitations' function.
 class DeclineInvitationsRequest(BaseValidatorModel):
     AccountIds: List[str]
 
@@ -331,14 +334,17 @@ class DeleteIPSetRequest(BaseValidatorModel):
     IpSetId: str
 
 
+# This class is the input for the 'delete_invitations' function.
 class DeleteInvitationsRequest(BaseValidatorModel):
     AccountIds: List[str]
 
 
+# This class is the input for the 'delete_malware_protection_plan' function.
 class DeleteMalwareProtectionPlanRequest(BaseValidatorModel):
     MalwareProtectionPlanId: str
 
 
+# This class is the input for the 'delete_members' function.
 class DeleteMembersRequest(BaseValidatorModel):
     DetectorId: str
     AccountIds: List[str]
@@ -365,12 +371,14 @@ class SortCriteria(BaseValidatorModel):
     OrderBy: Optional[OrderByType] = None
 
 
+# This class is the input for the 'describe_organization_configuration' function.
 class DescribeOrganizationConfigurationRequest(BaseValidatorModel):
     DetectorId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_publishing_destination' function.
 class DescribePublishingDestinationRequest(BaseValidatorModel):
     DetectorId: str
     DestinationId: str
@@ -405,6 +413,7 @@ class DisassociateFromMasterAccountRequest(BaseValidatorModel):
     DetectorId: str
 
 
+# This class is the input for the 'disassociate_members' function.
 class DisassociateMembersRequest(BaseValidatorModel):
     DetectorId: str
     AccountIds: List[str]
@@ -491,24 +500,29 @@ class GeoLocation(BaseValidatorModel):
     Lon: Optional[float] = None
 
 
+# This class is the input for the 'get_administrator_account' function.
 class GetAdministratorAccountRequest(BaseValidatorModel):
     DetectorId: str
 
 
+# This class is the input for the 'get_detector' function.
 class GetDetectorRequest(BaseValidatorModel):
     DetectorId: str
 
 
+# This class is the input for the 'get_filter' function.
 class GetFilterRequest(BaseValidatorModel):
     DetectorId: str
     FilterName: str
 
 
+# This class is the input for the 'get_ip_set' function.
 class GetIPSetRequest(BaseValidatorModel):
     DetectorId: str
     IpSetId: str
 
 
+# This class is the input for the 'get_malware_protection_plan' function.
 class GetMalwareProtectionPlanRequest(BaseValidatorModel):
     MalwareProtectionPlanId: str
 
@@ -518,10 +532,12 @@ class MalwareProtectionPlanStatusReason(BaseValidatorModel):
     Message: Optional[str] = None
 
 
+# This class is the input for the 'get_malware_scan_settings' function.
 class GetMalwareScanSettingsRequest(BaseValidatorModel):
     DetectorId: str
 
 
+# This class is the input for the 'get_master_account' function.
 class GetMasterAccountRequest(BaseValidatorModel):
     DetectorId: str
 
@@ -533,11 +549,13 @@ class Master(BaseValidatorModel):
     InvitedAt: Optional[str] = None
 
 
+# This class is the input for the 'get_member_detectors' function.
 class GetMemberDetectorsRequest(BaseValidatorModel):
     DetectorId: str
     AccountIds: List[str]
 
 
+# This class is the input for the 'get_members' function.
 class GetMembersRequest(BaseValidatorModel):
     DetectorId: str
     AccountIds: List[str]
@@ -554,11 +572,13 @@ class Member(BaseValidatorModel):
     AdministratorId: Optional[str] = None
 
 
+# This class is the input for the 'get_remaining_free_trial_days' function.
 class GetRemainingFreeTrialDaysRequest(BaseValidatorModel):
     DetectorId: str
     AccountIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_threat_intel_set' function.
 class GetThreatIntelSetRequest(BaseValidatorModel):
     DetectorId: str
     ThreatIntelSetId: str
@@ -599,6 +619,7 @@ class Invitation(BaseValidatorModel):
     InvitedAt: Optional[str] = None
 
 
+# This class is the input for the 'invite_members' function.
 class InviteMembersRequest(BaseValidatorModel):
     DetectorId: str
     AccountIds: List[str]
@@ -631,28 +652,33 @@ class LineageObject(BaseValidatorModel):
     ParentUuid: Optional[str] = None
 
 
+# This class is the input for the 'list_detectors' function.
 class ListDetectorsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_filters' function.
 class ListFiltersRequest(BaseValidatorModel):
     DetectorId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_ip_sets' function.
 class ListIPSetsRequest(BaseValidatorModel):
     DetectorId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_invitations' function.
 class ListInvitationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_malware_protection_plans' function.
 class ListMalwareProtectionPlansRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
@@ -661,6 +687,7 @@ class MalwareProtectionPlanSummary(BaseValidatorModel):
     MalwareProtectionPlanId: Optional[str] = None
 
 
+# This class is the input for the 'list_members' function.
 class ListMembersRequest(BaseValidatorModel):
     DetectorId: str
     MaxResults: Optional[int] = None
@@ -668,21 +695,25 @@ class ListMembersRequest(BaseValidatorModel):
     OnlyAssociated: Optional[str] = None
 
 
+# This class is the input for the 'list_organization_admin_accounts' function.
 class ListOrganizationAdminAccountsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_publishing_destinations' function.
 class ListPublishingDestinationsRequest(BaseValidatorModel):
     DetectorId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'list_threat_intel_sets' function.
 class ListThreatIntelSetsRequest(BaseValidatorModel):
     DetectorId: str
     MaxResults: Optional[int] = None
@@ -860,15 +891,18 @@ class ServiceAdditionalInfo(BaseValidatorModel):
     Type: Optional[str] = None
 
 
+# This class is the input for the 'start_malware_scan' function.
 class StartMalwareScanRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'start_monitoring_members' function.
 class StartMonitoringMembersRequest(BaseValidatorModel):
     DetectorId: str
     AccountIds: List[str]
 
 
+# This class is the input for the 'stop_monitoring_members' function.
 class StopMonitoringMembersRequest(BaseValidatorModel):
     DetectorId: str
     AccountIds: List[str]
@@ -921,6 +955,7 @@ class UpdateThreatIntelSetRequest(BaseValidatorModel):
     Activate: Optional[bool] = None
 
 
+# This class is the input for the 'create_members' function.
 class CreateMembersRequest(BaseValidatorModel):
     DetectorId: str
     AccountDetails: List[AccountDetail]
@@ -995,45 +1030,54 @@ class CoverageFilterCriterion(BaseValidatorModel):
     FilterCondition: Optional[CoverageFilterCondition] = None
 
 
+# This class is the output for the 'create_filter' function.
 class CreateFilterResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_ip_set' function.
 class CreateIPSetResponse(BaseValidatorModel):
     IpSetId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_malware_protection_plan' function.
 class CreateMalwareProtectionPlanResponse(BaseValidatorModel):
     MalwareProtectionPlanId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_publishing_destination' function.
 class CreatePublishingDestinationResponse(BaseValidatorModel):
     DestinationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_threat_intel_set' function.
 class CreateThreatIntelSetResponse(BaseValidatorModel):
     ThreatIntelSetId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_malware_protection_plan' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_administrator_account' function.
 class GetAdministratorAccountResponse(BaseValidatorModel):
     Administrator: Administrator
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_coverage_statistics' function.
 class GetCoverageStatisticsResponse(BaseValidatorModel):
     CoverageStatistics: CoverageStatistics
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_ip_set' function.
 class GetIPSetResponse(BaseValidatorModel):
     Name: str
     Format: IpSetFormatType
@@ -1048,6 +1092,7 @@ class GetInvitationsCountResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_threat_intel_set' function.
 class GetThreatIntelSetResponse(BaseValidatorModel):
     Name: str
     Format: ThreatIntelSetFormatType
@@ -1057,97 +1102,115 @@ class GetThreatIntelSetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_detectors' function.
 class ListDetectorsResponse(BaseValidatorModel):
     DetectorIds: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_filters' function.
 class ListFiltersResponse(BaseValidatorModel):
     FilterNames: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_findings' function.
 class ListFindingsResponse(BaseValidatorModel):
     FindingIds: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_ip_sets' function.
 class ListIPSetsResponse(BaseValidatorModel):
     IpSetIds: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_organization_admin_accounts' function.
 class ListOrganizationAdminAccountsResponse(BaseValidatorModel):
     AdminAccounts: List[AdminAccount]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_threat_intel_sets' function.
 class ListThreatIntelSetsResponse(BaseValidatorModel):
     ThreatIntelSetIds: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_malware_scan' function.
 class StartMalwareScanResponse(BaseValidatorModel):
     ScanId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_filter' function.
 class UpdateFilterResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_members' function.
 class CreateMembersResponse(BaseValidatorModel):
     UnprocessedAccounts: List[UnprocessedAccount]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'decline_invitations' function.
 class DeclineInvitationsResponse(BaseValidatorModel):
     UnprocessedAccounts: List[UnprocessedAccount]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_invitations' function.
 class DeleteInvitationsResponse(BaseValidatorModel):
     UnprocessedAccounts: List[UnprocessedAccount]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_members' function.
 class DeleteMembersResponse(BaseValidatorModel):
     UnprocessedAccounts: List[UnprocessedAccount]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_members' function.
 class DisassociateMembersResponse(BaseValidatorModel):
     UnprocessedAccounts: List[UnprocessedAccount]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'invite_members' function.
 class InviteMembersResponse(BaseValidatorModel):
     UnprocessedAccounts: List[UnprocessedAccount]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_monitoring_members' function.
 class StartMonitoringMembersResponse(BaseValidatorModel):
     UnprocessedAccounts: List[UnprocessedAccount]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_monitoring_members' function.
 class StopMonitoringMembersResponse(BaseValidatorModel):
     UnprocessedAccounts: List[UnprocessedAccount]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_member_detectors' function.
 class UpdateMemberDetectorsResponse(BaseValidatorModel):
     UnprocessedAccounts: List[UnprocessedAccount]
     ResponseMetadata: ResponseMetadata
@@ -1161,6 +1224,7 @@ class CreateProtectedResource(BaseValidatorModel):
     S3Bucket: Optional[CreateS3BucketResource] = None
 
 
+# This class is the input for the 'create_publishing_destination' function.
 class CreatePublishingDestinationRequest(BaseValidatorModel):
     DetectorId: str
     DestinationType: Literal['S3']
@@ -1168,6 +1232,7 @@ class CreatePublishingDestinationRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_publishing_destination' function.
 class DescribePublishingDestinationResponse(BaseValidatorModel):
     DestinationId: str
     DestinationType: Literal['S3']
@@ -1224,12 +1289,14 @@ class ListThreatIntelSetsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_findings' function.
 class GetFindingsRequest(BaseValidatorModel):
     DetectorId: str
     FindingIds: List[str]
     SortCriteria: Optional[SortCriteria] = None
 
 
+# This class is the output for the 'list_publishing_destinations' function.
 class ListPublishingDestinationsResponse(BaseValidatorModel):
     Destinations: List[Destination]
     ResponseMetadata: ResponseMetadata
@@ -1344,23 +1411,27 @@ class FindingStatistics(BaseValidatorModel):
     GroupedBySeverity: Optional[List[SeverityStatistics]] = None
 
 
+# This class is the output for the 'get_master_account' function.
 class GetMasterAccountResponse(BaseValidatorModel):
     Master: Master
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_members' function.
 class GetMembersResponse(BaseValidatorModel):
     Members: List[Member]
     UnprocessedAccounts: List[UnprocessedAccount]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_members' function.
 class ListMembersResponse(BaseValidatorModel):
     Members: List[Member]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_usage_statistics' function.
 class GetUsageStatisticsRequest(BaseValidatorModel):
     DetectorId: str
     UsageStatisticType: UsageStatisticTypeType
@@ -1400,6 +1471,7 @@ class Signal(BaseValidatorModel):
     SignalIndicators: Optional[List[Indicator]] = None
 
 
+# This class is the output for the 'list_invitations' function.
 class ListInvitationsResponse(BaseValidatorModel):
     Invitations: List[Invitation]
     ResponseMetadata: ResponseMetadata
@@ -1436,6 +1508,7 @@ class ProcessDetails(BaseValidatorModel):
     Lineage: Optional[List[LineageObject]] = None
 
 
+# This class is the output for the 'list_malware_protection_plans' function.
 class ListMalwareProtectionPlansResponse(BaseValidatorModel):
     MalwareProtectionPlans: List[MalwareProtectionPlanSummary]
     ResponseMetadata: ResponseMetadata
@@ -1606,6 +1679,7 @@ class PermissionConfiguration(BaseValidatorModel):
     AccountLevelPermissions: Optional[AccountLevelPermissions] = None
 
 
+# This class is the output for the 'get_filter' function.
 class GetFilterResponse(BaseValidatorModel):
     Name: str
     Description: str
@@ -1677,6 +1751,7 @@ class FilterCriteria(BaseValidatorModel):
     FilterCriterion: Optional[List[FilterCriterion]] = None
 
 
+# This class is the output for the 'get_findings_statistics' function.
 class GetFindingsStatisticsResponse(BaseValidatorModel):
     FindingStatistics: FindingStatistics
     ResponseMetadata: ResponseMetadata
@@ -1748,6 +1823,7 @@ class DataSourceConfigurations(BaseValidatorModel):
     MalwareProtection: Optional[MalwareProtectionConfiguration] = None
 
 
+# This class is the output for the 'get_malware_protection_plan' function.
 class GetMalwareProtectionPlanResponse(BaseValidatorModel):
     Arn: str
     Role: str
@@ -1849,6 +1925,7 @@ class ThreatDetectedByName(BaseValidatorModel):
     ThreatNames: Optional[List[ScanThreatName]] = None
 
 
+# This class is the output for the 'describe_malware_scans' function.
 class DescribeMalwareScansResponse(BaseValidatorModel):
     Scans: List[Scan]
     ResponseMetadata: ResponseMetadata
@@ -1860,6 +1937,7 @@ class UsageTopAccountsResult(BaseValidatorModel):
     Accounts: Optional[List[UsageTopAccountResult]] = None
 
 
+# This class is the input for the 'update_malware_protection_plan' function.
 class UpdateMalwareProtectionPlanRequest(BaseValidatorModel):
     MalwareProtectionPlanId: str
     Role: Optional[str] = None
@@ -1877,6 +1955,7 @@ class PublicAccess(BaseValidatorModel):
     EffectivePermission: Optional[str] = None
 
 
+# This class is the input for the 'create_filter' function.
 class CreateFilterRequest(BaseValidatorModel):
     DetectorId: str
     Name: str
@@ -1888,6 +1967,7 @@ class CreateFilterRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'get_findings_statistics' function.
 class GetFindingsStatisticsRequest(BaseValidatorModel):
     DetectorId: str
     FindingStatisticTypes: Optional[List[Literal['COUNT_BY_SEVERITY']]] = None
@@ -1904,6 +1984,7 @@ class ListFindingsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_findings' function.
 class ListFindingsRequest(BaseValidatorModel):
     DetectorId: str
     FindingCriteria: Optional[FindingCriteriaUnion] = None
@@ -1912,6 +1993,7 @@ class ListFindingsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'update_filter' function.
 class UpdateFilterRequest(BaseValidatorModel):
     DetectorId: str
     FilterName: str
@@ -1931,6 +2013,7 @@ class CoverageResource(BaseValidatorModel):
     UpdatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'get_coverage_statistics' function.
 class GetCoverageStatisticsRequest(BaseValidatorModel):
     DetectorId: str
     StatisticsType: List[CoverageStatisticsTypeType]
@@ -1944,6 +2027,7 @@ class ListCoverageRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_coverage' function.
 class ListCoverageRequest(BaseValidatorModel):
     DetectorId: str
     NextToken: Optional[str] = None
@@ -1952,6 +2036,7 @@ class ListCoverageRequest(BaseValidatorModel):
     SortCriteria: Optional[CoverageSortCriteria] = None
 
 
+# This class is the input for the 'create_malware_protection_plan' function.
 class CreateMalwareProtectionPlanRequest(BaseValidatorModel):
     Role: str
     ProtectedResource: CreateProtectedResourceUnion
@@ -1986,6 +2071,7 @@ class DescribeMalwareScansRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_malware_scans' function.
 class DescribeMalwareScansRequest(BaseValidatorModel):
     DetectorId: str
     NextToken: Optional[str] = None
@@ -2015,6 +2101,7 @@ class RuntimeDetails(BaseValidatorModel):
     Context: Optional[RuntimeContext] = None
 
 
+# This class is the input for the 'create_detector' function.
 class CreateDetectorRequest(BaseValidatorModel):
     Enable: bool
     ClientToken: Optional[str] = None
@@ -2032,6 +2119,7 @@ class UpdateDetectorRequest(BaseValidatorModel):
     Features: Optional[List[DetectorFeatureConfiguration]] = None
 
 
+# This class is the input for the 'update_member_detectors' function.
 class UpdateMemberDetectorsRequest(BaseValidatorModel):
     DetectorId: str
     AccountIds: List[str]
@@ -2073,6 +2161,7 @@ class ResourceV2(BaseValidatorModel):
     Data: Optional[ResourceData] = None
 
 
+# This class is the output for the 'get_malware_scan_settings' function.
 class GetMalwareScanSettingsResponse(BaseValidatorModel):
     ScanResourceCriteria: ScanResourceCriteriaOutput
     EbsSnapshotPreservation: EbsSnapshotPreservationType
@@ -2109,18 +2198,21 @@ class S3BucketDetail(BaseValidatorModel):
     S3ObjectDetails: Optional[List[S3ObjectDetail]] = None
 
 
+# This class is the output for the 'list_coverage' function.
 class ListCoverageResponse(BaseValidatorModel):
     Resources: List[CoverageResource]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_remaining_free_trial_days' function.
 class GetRemainingFreeTrialDaysResponse(BaseValidatorModel):
     Accounts: List[AccountFreeTrialInfo]
     UnprocessedAccounts: List[UnprocessedAccount]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_detector' function.
 class GetDetectorResponse(BaseValidatorModel):
     CreatedAt: str
     FindingPublishingFrequency: FindingPublishingFrequencyType
@@ -2139,12 +2231,14 @@ class MemberDataSourceConfiguration(BaseValidatorModel):
     Features: Optional[List[MemberFeaturesConfigurationResult]] = None
 
 
+# This class is the output for the 'create_detector' function.
 class CreateDetectorResponse(BaseValidatorModel):
     DetectorId: str
     UnprocessedDataSources: UnprocessedDataSourcesResult
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_organization_configuration' function.
 class DescribeOrganizationConfigurationResponse(BaseValidatorModel):
     AutoEnable: bool
     MemberAccountLimitReached: bool
@@ -2207,6 +2301,7 @@ class EbsVolumeScanDetails(BaseValidatorModel):
     ScanType: Optional[ScanTypeType] = None
 
 
+# This class is the output for the 'get_usage_statistics' function.
 class GetUsageStatisticsResponse(BaseValidatorModel):
     UsageStatistics: UsageStatistics
     ResponseMetadata: ResponseMetadata
@@ -2229,6 +2324,7 @@ class Resource(BaseValidatorModel):
     LambdaDetails: Optional[LambdaDetails] = None
 
 
+# This class is the output for the 'get_member_detectors' function.
 class GetMemberDetectorsResponse(BaseValidatorModel):
     MemberDataSourceConfigurations: List[MemberDataSourceConfiguration]
     UnprocessedAccounts: List[UnprocessedAccount]
@@ -2278,6 +2374,7 @@ class Finding(BaseValidatorModel):
     AssociatedAttackSequenceArn: Optional[str] = None
 
 
+# This class is the output for the 'get_findings' function.
 class GetFindingsResponse(BaseValidatorModel):
     Findings: List[Finding]
     ResponseMetadata: ResponseMetadata

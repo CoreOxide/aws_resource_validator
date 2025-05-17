@@ -66,22 +66,27 @@ class DeleteMetricPolicyInput(BaseValidatorModel):
     ContainerName: str
 
 
+# This class is the input for the 'describe_container' function.
 class DescribeContainerInput(BaseValidatorModel):
     ContainerName: Optional[str] = None
 
 
+# This class is the input for the 'get_container_policy' function.
 class GetContainerPolicyInput(BaseValidatorModel):
     ContainerName: str
 
 
+# This class is the input for the 'get_cors_policy' function.
 class GetCorsPolicyInput(BaseValidatorModel):
     ContainerName: str
 
 
+# This class is the input for the 'get_lifecycle_policy' function.
 class GetLifecyclePolicyInput(BaseValidatorModel):
     ContainerName: str
 
 
+# This class is the input for the 'get_metric_policy' function.
 class GetMetricPolicyInput(BaseValidatorModel):
     ContainerName: str
 
@@ -92,11 +97,13 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_containers' function.
 class ListContainersInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInput(BaseValidatorModel):
     Resource: str
 
@@ -131,6 +138,7 @@ class UntagResourceInput(BaseValidatorModel):
 CorsRuleUnion = Union[CorsRule, CorsRuleOutput]
 
 
+# This class is the input for the 'create_container' function.
 class CreateContainerInput(BaseValidatorModel):
     ContainerName: str
     Tags: Optional[List[Tag]] = None
@@ -141,37 +149,44 @@ class TagResourceInput(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the output for the 'create_container' function.
 class CreateContainerOutput(BaseValidatorModel):
     Container: Container
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_container' function.
 class DescribeContainerOutput(BaseValidatorModel):
     Container: Container
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_container_policy' function.
 class GetContainerPolicyOutput(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_cors_policy' function.
 class GetCorsPolicyOutput(BaseValidatorModel):
     CorsPolicy: List[CorsRuleOutput]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_lifecycle_policy' function.
 class GetLifecyclePolicyOutput(BaseValidatorModel):
     LifecyclePolicy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_containers' function.
 class ListContainersOutput(BaseValidatorModel):
     Containers: List[Container]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceOutput(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -196,6 +211,7 @@ class PutCorsPolicyInput(BaseValidatorModel):
     CorsPolicy: List[CorsRuleUnion]
 
 
+# This class is the output for the 'get_metric_policy' function.
 class GetMetricPolicyOutput(BaseValidatorModel):
     MetricPolicy: MetricPolicyOutput
     ResponseMetadata: ResponseMetadata

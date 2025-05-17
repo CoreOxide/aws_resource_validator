@@ -91,11 +91,13 @@ class DeleteTableRequest(BaseValidatorModel):
     tableName: str
 
 
+# This class is the input for the 'delete_type' function.
 class DeleteTypeRequest(BaseValidatorModel):
     keyspaceName: str
     typeName: str
 
 
+# This class is the input for the 'get_keyspace' function.
 class GetKeyspaceRequest(BaseValidatorModel):
     keyspaceName: str
 
@@ -106,11 +108,13 @@ class ReplicationGroupStatus(BaseValidatorModel):
     tablesReplicationProgress: Optional[str] = None
 
 
+# This class is the input for the 'get_table_auto_scaling_settings' function.
 class GetTableAutoScalingSettingsRequest(BaseValidatorModel):
     keyspaceName: str
     tableName: str
 
 
+# This class is the input for the 'get_table' function.
 class GetTableRequest(BaseValidatorModel):
     keyspaceName: str
     tableName: str
@@ -121,6 +125,7 @@ class PointInTimeRecoverySummary(BaseValidatorModel):
     earliestRestorableTimestamp: Optional[datetime] = None
 
 
+# This class is the input for the 'get_type' function.
 class GetTypeRequest(BaseValidatorModel):
     keyspaceName: str
     typeName: str
@@ -139,11 +144,13 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_keyspaces' function.
 class ListKeyspacesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tables' function.
 class ListTablesRequest(BaseValidatorModel):
     keyspaceName: str
     nextToken: Optional[str] = None
@@ -156,12 +163,14 @@ class TableSummary(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_types' function.
 class ListTypesRequest(BaseValidatorModel):
     keyspaceName: str
     nextToken: Optional[str] = None
@@ -188,12 +197,14 @@ class ReplicaSpecificationSummary(BaseValidatorModel):
     capacitySpecification: Optional[CapacitySpecificationSummary] = None
 
 
+# This class is the input for the 'update_keyspace' function.
 class UpdateKeyspaceRequest(BaseValidatorModel):
     keyspaceName: str
     replicationSpecification: ReplicationSpecification
     clientSideTimestamps: Optional[ClientSideTimestamps] = None
 
 
+# This class is the input for the 'create_keyspace' function.
 class CreateKeyspaceRequest(BaseValidatorModel):
     keyspaceName: str
     tags: Optional[List[Tag]] = None
@@ -210,61 +221,72 @@ class UntagResourceRequest(BaseValidatorModel):
     tags: List[Tag]
 
 
+# This class is the output for the 'create_keyspace' function.
 class CreateKeyspaceResponse(BaseValidatorModel):
     resourceArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_table' function.
 class CreateTableResponse(BaseValidatorModel):
     resourceArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_type' function.
 class CreateTypeResponse(BaseValidatorModel):
     keyspaceArn: str
     typeName: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_type' function.
 class DeleteTypeResponse(BaseValidatorModel):
     keyspaceArn: str
     typeName: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: List[Tag]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_types' function.
 class ListTypesResponse(BaseValidatorModel):
     types: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'restore_table' function.
 class RestoreTableResponse(BaseValidatorModel):
     restoredTableARN: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_keyspace' function.
 class UpdateKeyspaceResponse(BaseValidatorModel):
     resourceArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_table' function.
 class UpdateTableResponse(BaseValidatorModel):
     resourceArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_type' function.
 class CreateTypeRequest(BaseValidatorModel):
     keyspaceName: str
     typeName: str
     fieldDefinitions: List[FieldDefinition]
 
 
+# This class is the output for the 'get_type' function.
 class GetTypeResponse(BaseValidatorModel):
     keyspaceName: str
     typeName: str
@@ -278,6 +300,7 @@ class GetTypeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_keyspace' function.
 class GetKeyspaceResponse(BaseValidatorModel):
     keyspaceName: str
     resourceArn: str
@@ -287,6 +310,7 @@ class GetKeyspaceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_keyspaces' function.
 class ListKeyspacesResponse(BaseValidatorModel):
     keyspaces: List[KeyspaceSummary]
     ResponseMetadata: ResponseMetadata
@@ -312,6 +336,7 @@ class ListTypesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_tables' function.
 class ListTablesResponse(BaseValidatorModel):
     tables: List[TableSummary]
     ResponseMetadata: ResponseMetadata
@@ -339,6 +364,7 @@ class AutoScalingSettings(BaseValidatorModel):
     scalingPolicy: Optional[AutoScalingPolicy] = None
 
 
+# This class is the output for the 'get_table' function.
 class GetTableResponse(BaseValidatorModel):
     keyspaceName: str
     tableName: str
@@ -375,6 +401,7 @@ class ReplicaAutoScalingSpecification(BaseValidatorModel):
     autoScalingSpecification: Optional[AutoScalingSpecification] = None
 
 
+# This class is the input for the 'create_table' function.
 class CreateTableRequest(BaseValidatorModel):
     keyspaceName: str
     tableName: str
@@ -391,6 +418,7 @@ class CreateTableRequest(BaseValidatorModel):
     replicaSpecifications: Optional[List[ReplicaSpecification]] = None
 
 
+# This class is the input for the 'restore_table' function.
 class RestoreTableRequest(BaseValidatorModel):
     sourceKeyspaceName: str
     sourceTableName: str
@@ -405,6 +433,7 @@ class RestoreTableRequest(BaseValidatorModel):
     replicaSpecifications: Optional[List[ReplicaSpecification]] = None
 
 
+# This class is the input for the 'update_table' function.
 class UpdateTableRequest(BaseValidatorModel):
     keyspaceName: str
     tableName: str
@@ -419,6 +448,7 @@ class UpdateTableRequest(BaseValidatorModel):
     replicaSpecifications: Optional[List[ReplicaSpecification]] = None
 
 
+# This class is the output for the 'get_table_auto_scaling_settings' function.
 class GetTableAutoScalingSettingsResponse(BaseValidatorModel):
     keyspaceName: str
     tableName: str

@@ -71,10 +71,12 @@ class App(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'associate_admin_account' function.
 class AssociateAdminAccountRequest(BaseValidatorModel):
     AdminAccount: str
 
 
+# This class is the input for the 'associate_third_party_firewall' function.
 class AssociateThirdPartyFirewallRequest(BaseValidatorModel):
     ThirdPartyFirewall: ThirdPartyFirewallType
 
@@ -97,6 +99,7 @@ class PartialMatch(BaseValidatorModel):
     TargetViolationReasons: Optional[List[str]] = None
 
 
+# This class is the input for the 'batch_associate_resource' function.
 class BatchAssociateResourceRequest(BaseValidatorModel):
     ResourceSetIdentifier: str
     Items: List[str]
@@ -107,6 +110,7 @@ class FailedItem(BaseValidatorModel):
     Reason: Optional[FailedItemReasonType] = None
 
 
+# This class is the input for the 'batch_disassociate_resource' function.
 class BatchDisassociateResourceRequest(BaseValidatorModel):
     ResourceSetIdentifier: str
     Items: List[str]
@@ -119,23 +123,28 @@ class ComplianceViolator(BaseValidatorModel):
     Metadata: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'delete_apps_list' function.
 class DeleteAppsListRequest(BaseValidatorModel):
     ListId: str
 
 
+# This class is the input for the 'delete_policy' function.
 class DeletePolicyRequest(BaseValidatorModel):
     PolicyId: str
     DeleteAllPolicyResources: Optional[bool] = None
 
 
+# This class is the input for the 'delete_protocols_list' function.
 class DeleteProtocolsListRequest(BaseValidatorModel):
     ListId: str
 
 
+# This class is the input for the 'delete_resource_set' function.
 class DeleteResourceSetRequest(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'disassociate_third_party_firewall' function.
 class DisassociateThirdPartyFirewallRequest(BaseValidatorModel):
     ThirdPartyFirewall: ThirdPartyFirewallType
 
@@ -201,24 +210,29 @@ class FirewallSubnetMissingVPCEndpointViolation(BaseValidatorModel):
     SubnetAvailabilityZoneId: Optional[str] = None
 
 
+# This class is the input for the 'get_admin_scope' function.
 class GetAdminScopeRequest(BaseValidatorModel):
     AdminAccount: str
 
 
+# This class is the input for the 'get_apps_list' function.
 class GetAppsListRequest(BaseValidatorModel):
     ListId: str
     DefaultList: Optional[bool] = None
 
 
+# This class is the input for the 'get_compliance_detail' function.
 class GetComplianceDetailRequest(BaseValidatorModel):
     PolicyId: str
     MemberAccount: str
 
 
+# This class is the input for the 'get_policy' function.
 class GetPolicyRequest(BaseValidatorModel):
     PolicyId: str
 
 
+# This class is the input for the 'get_protocols_list' function.
 class GetProtocolsListRequest(BaseValidatorModel):
     ListId: str
     DefaultList: Optional[bool] = None
@@ -234,6 +248,7 @@ class ProtocolsListDataOutput(BaseValidatorModel):
     PreviousProtocolsList: Optional[Dict[str, List[str]]] = None
 
 
+# This class is the input for the 'get_resource_set' function.
 class GetResourceSetRequest(BaseValidatorModel):
     Identifier: str
 
@@ -248,10 +263,12 @@ class ResourceSetOutput(BaseValidatorModel):
     ResourceSetStatus: Optional[ResourceSetStatusType] = None
 
 
+# This class is the input for the 'get_third_party_firewall_association_status' function.
 class GetThirdPartyFirewallAssociationStatusRequest(BaseValidatorModel):
     ThirdPartyFirewall: ThirdPartyFirewallType
 
 
+# This class is the input for the 'get_violation_details' function.
 class GetViolationDetailsRequest(BaseValidatorModel):
     PolicyId: str
     MemberAccount: str
@@ -265,28 +282,33 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_admin_accounts_for_organization' function.
 class ListAdminAccountsForOrganizationRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_admins_managing_account' function.
 class ListAdminsManagingAccountRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_apps_lists' function.
 class ListAppsListsRequest(BaseValidatorModel):
     MaxResults: int
     DefaultLists: Optional[bool] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_compliance_status' function.
 class ListComplianceStatusRequest(BaseValidatorModel):
     PolicyId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_discovered_resources' function.
 class ListDiscoveredResourcesRequest(BaseValidatorModel):
     MemberAccountIds: List[str]
     ResourceType: str
@@ -294,11 +316,13 @@ class ListDiscoveredResourcesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_member_accounts' function.
 class ListMemberAccountsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_policies' function.
 class ListPoliciesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -315,6 +339,7 @@ class PolicySummary(BaseValidatorModel):
     PolicyStatus: Optional[CustomerPolicyStatusType] = None
 
 
+# This class is the input for the 'list_protocols_lists' function.
 class ListProtocolsListsRequest(BaseValidatorModel):
     MaxResults: int
     DefaultLists: Optional[bool] = None
@@ -328,6 +353,7 @@ class ProtocolsListDataSummary(BaseValidatorModel):
     ProtocolsList: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_resource_set_resources' function.
 class ListResourceSetResourcesRequest(BaseValidatorModel):
     Identifier: str
     MaxResults: Optional[int] = None
@@ -339,6 +365,7 @@ class Resource(BaseValidatorModel):
     AccountId: Optional[str] = None
 
 
+# This class is the input for the 'list_resource_sets' function.
 class ListResourceSetsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -352,6 +379,7 @@ class ResourceSetSummary(BaseValidatorModel):
     ResourceSetStatus: Optional[ResourceSetStatusType] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -361,6 +389,7 @@ class Tag(BaseValidatorModel):
     Value: str
 
 
+# This class is the input for the 'list_third_party_firewall_firewall_policies' function.
 class ListThirdPartyFirewallFirewallPoliciesRequest(BaseValidatorModel):
     ThirdPartyFirewall: ThirdPartyFirewallType
     MaxResults: int
@@ -439,6 +468,7 @@ class ResourceTag(BaseValidatorModel):
     Value: Optional[str] = None
 
 
+# This class is the input for the 'put_notification_channel' function.
 class PutNotificationChannelRequest(BaseValidatorModel):
     SnsTopicArn: str
     SnsRoleName: str
@@ -595,6 +625,7 @@ class AppsListData(BaseValidatorModel):
     PreviousAppsList: Optional[Dict[str, List[App]]] = None
 
 
+# This class is the input for the 'get_protection_status' function.
 class GetProtectionStatusRequest(BaseValidatorModel):
     PolicyId: str
     MemberAccountId: Optional[str] = None
@@ -624,16 +655,19 @@ class ResourceSet(BaseValidatorModel):
     ResourceSetStatus: Optional[ResourceSetStatusType] = None
 
 
+# This class is the output for the 'associate_third_party_firewall' function.
 class AssociateThirdPartyFirewallResponse(BaseValidatorModel):
     ThirdPartyFirewallStatus: ThirdPartyFirewallAssociationStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_third_party_firewall' function.
 class DisassociateThirdPartyFirewallResponse(BaseValidatorModel):
     ThirdPartyFirewallStatus: ThirdPartyFirewallAssociationStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_notification_channel' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
@@ -650,6 +684,7 @@ class GetNotificationChannelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_protection_status' function.
 class GetProtectionStatusResponse(BaseValidatorModel):
     AdminAccountId: str
     ServiceType: SecurityServiceTypeType
@@ -658,24 +693,28 @@ class GetProtectionStatusResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_third_party_firewall_association_status' function.
 class GetThirdPartyFirewallAssociationStatusResponse(BaseValidatorModel):
     ThirdPartyFirewallStatus: ThirdPartyFirewallAssociationStatusType
     MarketplaceOnboardingStatus: MarketplaceSubscriptionOnboardingStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_admin_accounts_for_organization' function.
 class ListAdminAccountsForOrganizationResponse(BaseValidatorModel):
     AdminAccounts: List[AdminAccountSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_admins_managing_account' function.
 class ListAdminsManagingAccountResponse(BaseValidatorModel):
     AdminAccounts: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_member_accounts' function.
 class ListMemberAccountsResponse(BaseValidatorModel):
     MemberAccounts: List[str]
     ResponseMetadata: ResponseMetadata
@@ -687,12 +726,14 @@ class AwsEc2InstanceViolation(BaseValidatorModel):
     AwsEc2NetworkInterfaceViolations: Optional[List[AwsEc2NetworkInterfaceViolation]] = None
 
 
+# This class is the output for the 'batch_associate_resource' function.
 class BatchAssociateResourceResponse(BaseValidatorModel):
     ResourceSetIdentifier: str
     FailedItems: List[FailedItem]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_disassociate_resource' function.
 class BatchDisassociateResourceResponse(BaseValidatorModel):
     ResourceSetIdentifier: str
     FailedItems: List[FailedItem]
@@ -709,6 +750,7 @@ class PolicyComplianceDetail(BaseValidatorModel):
     IssueInfoMap: Optional[Dict[DependentServiceNameType, str]] = None
 
 
+# This class is the output for the 'list_discovered_resources' function.
 class ListDiscoveredResourcesResponse(BaseValidatorModel):
     Items: List[DiscoveredResource]
     ResponseMetadata: ResponseMetadata
@@ -731,24 +773,28 @@ class NetworkFirewallMissingExpectedRoutesViolation(BaseValidatorModel):
     VpcId: Optional[str] = None
 
 
+# This class is the output for the 'get_protocols_list' function.
 class GetProtocolsListResponse(BaseValidatorModel):
     ProtocolsList: ProtocolsListDataOutput
     ProtocolsListArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_protocols_list' function.
 class PutProtocolsListResponse(BaseValidatorModel):
     ProtocolsList: ProtocolsListDataOutput
     ProtocolsListArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_set' function.
 class GetResourceSetResponse(BaseValidatorModel):
     ResourceSet: ResourceSetOutput
     ResourceSetArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_resource_set' function.
 class PutResourceSetResponse(BaseValidatorModel):
     ResourceSet: ResourceSetOutput
     ResourceSetArn: str
@@ -791,30 +837,35 @@ class ListThirdPartyFirewallFirewallPoliciesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_policies' function.
 class ListPoliciesResponse(BaseValidatorModel):
     PolicyList: List[PolicySummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_protocols_lists' function.
 class ListProtocolsListsResponse(BaseValidatorModel):
     ProtocolsLists: List[ProtocolsListDataSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_resource_set_resources' function.
 class ListResourceSetResourcesResponse(BaseValidatorModel):
     Items: List[Resource]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_resource_sets' function.
 class ListResourceSetsResponse(BaseValidatorModel):
     ResourceSets: List[ResourceSetSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     TagList: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -825,6 +876,7 @@ class TagResourceRequest(BaseValidatorModel):
     TagList: List[Tag]
 
 
+# This class is the output for the 'list_third_party_firewall_firewall_policies' function.
 class ListThirdPartyFirewallFirewallPoliciesResponse(BaseValidatorModel):
     ThirdPartyFirewallFirewallPolicies: List[ThirdPartyFirewallFirewallPolicy]
     ResponseMetadata: ResponseMetadata
@@ -929,6 +981,7 @@ class SecurityGroupRemediationAction(BaseValidatorModel):
     IsDefaultAction: Optional[bool] = None
 
 
+# This class is the output for the 'get_admin_scope' function.
 class GetAdminScopeResponse(BaseValidatorModel):
     AdminScope: AdminScopeOutput
     Status: OrganizationStatusType
@@ -937,18 +990,21 @@ class GetAdminScopeResponse(BaseValidatorModel):
 AdminScopeUnion = Union[AdminScope, AdminScopeOutput]
 
 
+# This class is the output for the 'get_apps_list' function.
 class GetAppsListResponse(BaseValidatorModel):
     AppsList: AppsListDataOutput
     AppsListArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_apps_list' function.
 class PutAppsListResponse(BaseValidatorModel):
     AppsList: AppsListDataOutput
     AppsListArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_apps_lists' function.
 class ListAppsListsResponse(BaseValidatorModel):
     AppsLists: List[AppsListDataSummary]
     ResponseMetadata: ResponseMetadata
@@ -961,11 +1017,13 @@ ProtocolsListDataUnion = Union[ProtocolsListData, ProtocolsListDataOutput]
 ResourceSetUnion = Union[ResourceSet, ResourceSetOutput]
 
 
+# This class is the output for the 'get_compliance_detail' function.
 class GetComplianceDetailResponse(BaseValidatorModel):
     PolicyComplianceDetail: PolicyComplianceDetail
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_compliance_status' function.
 class ListComplianceStatusResponse(BaseValidatorModel):
     PolicyComplianceStatusList: List[PolicyComplianceStatus]
     ResponseMetadata: ResponseMetadata
@@ -1009,21 +1067,25 @@ class AwsVPCSecurityGroupViolation(BaseValidatorModel):
     PossibleSecurityGroupRemediationActions: Optional[List[SecurityGroupRemediationAction]] = None
 
 
+# This class is the input for the 'put_admin_account' function.
 class PutAdminAccountRequest(BaseValidatorModel):
     AdminAccount: str
     AdminScope: Optional[AdminScopeUnion] = None
 
 
+# This class is the input for the 'put_apps_list' function.
 class PutAppsListRequest(BaseValidatorModel):
     AppsList: AppsListDataUnion
     TagList: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'put_protocols_list' function.
 class PutProtocolsListRequest(BaseValidatorModel):
     ProtocolsList: ProtocolsListDataUnion
     TagList: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'put_resource_set' function.
 class PutResourceSetRequest(BaseValidatorModel):
     ResourceSet: ResourceSetUnion
     TagList: Optional[List[Tag]] = None
@@ -1168,12 +1230,14 @@ class PossibleRemediationActions(BaseValidatorModel):
     Actions: Optional[List[PossibleRemediationAction]] = None
 
 
+# This class is the output for the 'get_policy' function.
 class GetPolicyResponse(BaseValidatorModel):
     Policy: PolicyOutput
     PolicyArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_policy' function.
 class PutPolicyResponse(BaseValidatorModel):
     Policy: PolicyOutput
     PolicyArn: str
@@ -1211,6 +1275,7 @@ class ResourceViolation(BaseValidatorModel):
     WebACLHasOutOfScopeResourcesViolation: Optional[WebACLHasOutOfScopeResourcesViolation] = None
 
 
+# This class is the input for the 'put_policy' function.
 class PutPolicyRequest(BaseValidatorModel):
     Policy: PolicyUnion
     TagList: Optional[List[Tag]] = None
@@ -1226,6 +1291,7 @@ class ViolationDetail(BaseValidatorModel):
     ResourceDescription: Optional[str] = None
 
 
+# This class is the output for the 'get_violation_details' function.
 class GetViolationDetailsResponse(BaseValidatorModel):
     ViolationDetail: ViolationDetail
     ResponseMetadata: ResponseMetadata

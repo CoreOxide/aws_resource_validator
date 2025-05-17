@@ -65,6 +65,7 @@ class LogSettingsResponse(BaseValidatorModel):
     resourcePrefix: Optional[str] = None
 
 
+# This class is the input for the 'create_bot_version' function.
 class CreateBotVersionRequest(BaseValidatorModel):
     name: str
     checksum: Optional[str] = None
@@ -83,6 +84,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_intent_version' function.
 class CreateIntentVersionRequest(BaseValidatorModel):
     name: str
     checksum: Optional[str] = None
@@ -104,6 +106,7 @@ class OutputContext(BaseValidatorModel):
     turnsToLive: int
 
 
+# This class is the input for the 'create_slot_type_version' function.
 class CreateSlotTypeVersionRequest(BaseValidatorModel):
     name: str
     checksum: Optional[str] = None
@@ -114,44 +117,53 @@ class EnumerationValueOutput(BaseValidatorModel):
     synonyms: Optional[List[str]] = None
 
 
+# This class is the input for the 'delete_bot_alias' function.
 class DeleteBotAliasRequest(BaseValidatorModel):
     name: str
     botName: str
 
 
+# This class is the input for the 'delete_bot_channel_association' function.
 class DeleteBotChannelAssociationRequest(BaseValidatorModel):
     name: str
     botName: str
     botAlias: str
 
 
+# This class is the input for the 'delete_bot' function.
 class DeleteBotRequest(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'delete_bot_version' function.
 class DeleteBotVersionRequest(BaseValidatorModel):
     name: str
     version: str
 
 
+# This class is the input for the 'delete_intent' function.
 class DeleteIntentRequest(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'delete_intent_version' function.
 class DeleteIntentVersionRequest(BaseValidatorModel):
     name: str
     version: str
 
 
+# This class is the input for the 'delete_slot_type' function.
 class DeleteSlotTypeRequest(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'delete_slot_type_version' function.
 class DeleteSlotTypeVersionRequest(BaseValidatorModel):
     name: str
     version: str
 
 
+# This class is the input for the 'delete_utterances' function.
 class DeleteUtterancesRequest(BaseValidatorModel):
     botName: str
     userId: str
@@ -162,6 +174,7 @@ class EnumerationValue(BaseValidatorModel):
     synonyms: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_bot_alias' function.
 class GetBotAliasRequest(BaseValidatorModel):
     name: str
     botName: str
@@ -173,6 +186,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'get_bot_aliases' function.
 class GetBotAliasesRequest(BaseValidatorModel):
     botName: str
     nextToken: Optional[str] = None
@@ -180,12 +194,14 @@ class GetBotAliasesRequest(BaseValidatorModel):
     nameContains: Optional[str] = None
 
 
+# This class is the input for the 'get_bot_channel_association' function.
 class GetBotChannelAssociationRequest(BaseValidatorModel):
     name: str
     botName: str
     botAlias: str
 
 
+# This class is the input for the 'get_bot_channel_associations' function.
 class GetBotChannelAssociationsRequest(BaseValidatorModel):
     botName: str
     botAlias: str
@@ -194,27 +210,32 @@ class GetBotChannelAssociationsRequest(BaseValidatorModel):
     nameContains: Optional[str] = None
 
 
+# This class is the input for the 'get_bot' function.
 class GetBotRequest(BaseValidatorModel):
     name: str
     versionOrAlias: str
 
 
+# This class is the input for the 'get_bot_versions' function.
 class GetBotVersionsRequest(BaseValidatorModel):
     name: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_bots' function.
 class GetBotsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     nameContains: Optional[str] = None
 
 
+# This class is the input for the 'get_builtin_intent' function.
 class GetBuiltinIntentRequest(BaseValidatorModel):
     signature: str
 
 
+# This class is the input for the 'get_builtin_intents' function.
 class GetBuiltinIntentsRequest(BaseValidatorModel):
     locale: Optional[LocaleType] = None
     signatureContains: Optional[str] = None
@@ -222,6 +243,7 @@ class GetBuiltinIntentsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_builtin_slot_types' function.
 class GetBuiltinSlotTypesRequest(BaseValidatorModel):
     locale: Optional[LocaleType] = None
     signatureContains: Optional[str] = None
@@ -229,6 +251,7 @@ class GetBuiltinSlotTypesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_export' function.
 class GetExportRequest(BaseValidatorModel):
     name: str
     version: str
@@ -236,15 +259,18 @@ class GetExportRequest(BaseValidatorModel):
     exportType: ExportTypeType
 
 
+# This class is the input for the 'get_import' function.
 class GetImportRequest(BaseValidatorModel):
     importId: str
 
 
+# This class is the input for the 'get_intent' function.
 class GetIntentRequest(BaseValidatorModel):
     name: str
     version: str
 
 
+# This class is the input for the 'get_intent_versions' function.
 class GetIntentVersionsRequest(BaseValidatorModel):
     name: str
     nextToken: Optional[str] = None
@@ -259,12 +285,14 @@ class IntentMetadata(BaseValidatorModel):
     version: Optional[str] = None
 
 
+# This class is the input for the 'get_intents' function.
 class GetIntentsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     nameContains: Optional[str] = None
 
 
+# This class is the input for the 'get_migration' function.
 class GetMigrationRequest(BaseValidatorModel):
     migrationId: str
 
@@ -276,6 +304,7 @@ class MigrationAlert(BaseValidatorModel):
     referenceURLs: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_migrations' function.
 class GetMigrationsRequest(BaseValidatorModel):
     sortByAttribute: Optional[MigrationSortAttributeType] = None
     sortByOrder: Optional[SortOrderType] = None
@@ -297,11 +326,13 @@ class MigrationSummary(BaseValidatorModel):
     migrationTimestamp: Optional[datetime] = None
 
 
+# This class is the input for the 'get_slot_type' function.
 class GetSlotTypeRequest(BaseValidatorModel):
     name: str
     version: str
 
 
+# This class is the input for the 'get_slot_type_versions' function.
 class GetSlotTypeVersionsRequest(BaseValidatorModel):
     name: str
     nextToken: Optional[str] = None
@@ -316,18 +347,21 @@ class SlotTypeMetadata(BaseValidatorModel):
     version: Optional[str] = None
 
 
+# This class is the input for the 'get_slot_types' function.
 class GetSlotTypesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     nameContains: Optional[str] = None
 
 
+# This class is the input for the 'get_utterances_view' function.
 class GetUtterancesViewRequest(BaseValidatorModel):
     botName: str
     botVersions: List[str]
     statusType: StatusTypeType
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -351,6 +385,7 @@ class SlotTypeRegexConfiguration(BaseValidatorModel):
     pattern: str
 
 
+# This class is the input for the 'start_migration' function.
 class StartMigrationRequest(BaseValidatorModel):
     v1BotName: str
     v1BotVersion: str
@@ -387,10 +422,12 @@ class ConversationLogsResponse(BaseValidatorModel):
     iamRoleArn: Optional[str] = None
 
 
+# This class is the output for the 'delete_utterances' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_bot_channel_association' function.
 class GetBotChannelAssociationResponse(BaseValidatorModel):
     name: str
     description: str
@@ -404,24 +441,28 @@ class GetBotChannelAssociationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_bot_channel_associations' function.
 class GetBotChannelAssociationsResponse(BaseValidatorModel):
     botChannelAssociations: List[BotChannelAssociation]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_bot_versions' function.
 class GetBotVersionsResponse(BaseValidatorModel):
     bots: List[BotMetadata]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_bots' function.
 class GetBotsResponse(BaseValidatorModel):
     bots: List[BotMetadata]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_builtin_intent' function.
 class GetBuiltinIntentResponse(BaseValidatorModel):
     signature: str
     supportedLocales: List[LocaleType]
@@ -429,18 +470,21 @@ class GetBuiltinIntentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_builtin_intents' function.
 class GetBuiltinIntentsResponse(BaseValidatorModel):
     intents: List[BuiltinIntentMetadata]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_builtin_slot_types' function.
 class GetBuiltinSlotTypesResponse(BaseValidatorModel):
     slotTypes: List[BuiltinSlotTypeMetadata]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_export' function.
 class GetExportResponse(BaseValidatorModel):
     name: str
     version: str
@@ -452,6 +496,7 @@ class GetExportResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_import' function.
 class GetImportResponse(BaseValidatorModel):
     name: str
     resourceType: ResourceTypeType
@@ -463,6 +508,7 @@ class GetImportResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_migration' function.
 class StartMigrationResponse(BaseValidatorModel):
     v1BotName: str
     v1BotVersion: str
@@ -532,18 +578,21 @@ class GetSlotTypesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'get_intent_versions' function.
 class GetIntentVersionsResponse(BaseValidatorModel):
     intents: List[IntentMetadata]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_intents' function.
 class GetIntentsResponse(BaseValidatorModel):
     intents: List[IntentMetadata]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_migration' function.
 class GetMigrationResponse(BaseValidatorModel):
     migrationId: str
     v1BotName: str
@@ -558,29 +607,34 @@ class GetMigrationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_migrations' function.
 class GetMigrationsResponse(BaseValidatorModel):
     migrationSummaries: List[MigrationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_slot_type_versions' function.
 class GetSlotTypeVersionsResponse(BaseValidatorModel):
     slotTypes: List[SlotTypeMetadata]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_slot_types' function.
 class GetSlotTypesResponse(BaseValidatorModel):
     slotTypes: List[SlotTypeMetadata]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_import' function.
 class StartImportRequest(BaseValidatorModel):
     payload: Blob
     resourceType: ResourceTypeType
@@ -588,6 +642,7 @@ class StartImportRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'start_import' function.
 class StartImportResponse(BaseValidatorModel):
     name: str
     resourceType: ResourceTypeType
@@ -643,6 +698,7 @@ class UtteranceList(BaseValidatorModel):
     utterances: Optional[List[UtteranceData]] = None
 
 
+# This class is the input for the 'put_bot_alias' function.
 class PutBotAliasRequest(BaseValidatorModel):
     name: str
     botVersion: str
@@ -664,6 +720,7 @@ class BotAliasMetadata(BaseValidatorModel):
     conversationLogs: Optional[ConversationLogsResponse] = None
 
 
+# This class is the output for the 'get_bot_alias' function.
 class GetBotAliasResponse(BaseValidatorModel):
     name: str
     description: str
@@ -676,6 +733,7 @@ class GetBotAliasResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_bot_alias' function.
 class PutBotAliasResponse(BaseValidatorModel):
     name: str
     description: str
@@ -691,6 +749,7 @@ class PutBotAliasResponse(BaseValidatorModel):
 PromptUnion = Union[Prompt, PromptOutput]
 
 
+# This class is the output for the 'create_bot_version' function.
 class CreateBotVersionResponse(BaseValidatorModel):
     name: str
     description: str
@@ -717,6 +776,7 @@ class FollowUpPromptOutput(BaseValidatorModel):
     rejectionStatement: StatementOutput
 
 
+# This class is the output for the 'get_bot' function.
 class GetBotResponse(BaseValidatorModel):
     name: str
     description: str
@@ -739,6 +799,7 @@ class GetBotResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_bot' function.
 class PutBotResponse(BaseValidatorModel):
     name: str
     description: str
@@ -786,6 +847,7 @@ class SlotOutput(BaseValidatorModel):
 SlotDefaultValueSpecUnion = Union[SlotDefaultValueSpec, SlotDefaultValueSpecOutput]
 
 
+# This class is the output for the 'create_slot_type_version' function.
 class CreateSlotTypeVersionResponse(BaseValidatorModel):
     name: str
     description: str
@@ -800,6 +862,7 @@ class CreateSlotTypeVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_slot_type' function.
 class GetSlotTypeResponse(BaseValidatorModel):
     name: str
     description: str
@@ -814,6 +877,7 @@ class GetSlotTypeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_slot_type' function.
 class PutSlotTypeRequest(BaseValidatorModel):
     name: str
     description: Optional[str] = None
@@ -825,6 +889,7 @@ class PutSlotTypeRequest(BaseValidatorModel):
     slotTypeConfigurations: Optional[List[SlotTypeConfiguration]] = None
 
 
+# This class is the output for the 'put_slot_type' function.
 class PutSlotTypeResponse(BaseValidatorModel):
     name: str
     description: str
@@ -840,12 +905,14 @@ class PutSlotTypeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_utterances_view' function.
 class GetUtterancesViewResponse(BaseValidatorModel):
     botName: str
     utterances: List[UtteranceList]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_bot_aliases' function.
 class GetBotAliasesResponse(BaseValidatorModel):
     BotAliases: List[BotAliasMetadata]
     ResponseMetadata: ResponseMetadata
@@ -854,6 +921,7 @@ class GetBotAliasesResponse(BaseValidatorModel):
 FollowUpPromptUnion = Union[FollowUpPrompt, FollowUpPromptOutput]
 
 
+# This class is the input for the 'put_bot' function.
 class PutBotRequest(BaseValidatorModel):
     name: str
     locale: LocaleType
@@ -873,6 +941,7 @@ class PutBotRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'create_intent_version' function.
 class CreateIntentVersionResponse(BaseValidatorModel):
     name: str
     description: str
@@ -895,6 +964,7 @@ class CreateIntentVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_intent' function.
 class GetIntentResponse(BaseValidatorModel):
     name: str
     description: str
@@ -917,6 +987,7 @@ class GetIntentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_intent' function.
 class PutIntentResponse(BaseValidatorModel):
     name: str
     description: str
@@ -956,6 +1027,7 @@ class Slot(BaseValidatorModel):
 SlotUnion = Union[Slot, SlotOutput]
 
 
+# This class is the input for the 'put_intent' function.
 class PutIntentRequest(BaseValidatorModel):
     name: str
     description: Optional[str] = None

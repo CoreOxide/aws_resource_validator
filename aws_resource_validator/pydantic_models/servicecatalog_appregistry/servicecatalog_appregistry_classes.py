@@ -39,6 +39,7 @@ class Application(BaseValidatorModel):
     applicationTag: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'associate_attribute_group' function.
 class AssociateAttributeGroupRequest(BaseValidatorModel):
     application: str
     attributeGroup: str
@@ -52,6 +53,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'associate_resource' function.
 class AssociateResourceRequest(BaseValidatorModel):
     application: str
     resourceType: ResourceTypeType
@@ -86,6 +88,7 @@ class AttributeGroup(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_application' function.
 class CreateApplicationRequest(BaseValidatorModel):
     name: str
     clientToken: str
@@ -93,6 +96,7 @@ class CreateApplicationRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_attribute_group' function.
 class CreateAttributeGroupRequest(BaseValidatorModel):
     name: str
     attributes: str
@@ -101,29 +105,35 @@ class CreateAttributeGroupRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'delete_application' function.
 class DeleteApplicationRequest(BaseValidatorModel):
     application: str
 
 
+# This class is the input for the 'delete_attribute_group' function.
 class DeleteAttributeGroupRequest(BaseValidatorModel):
     attributeGroup: str
 
 
+# This class is the input for the 'disassociate_attribute_group' function.
 class DisassociateAttributeGroupRequest(BaseValidatorModel):
     application: str
     attributeGroup: str
 
 
+# This class is the input for the 'disassociate_resource' function.
 class DisassociateResourceRequest(BaseValidatorModel):
     application: str
     resourceType: ResourceTypeType
     resource: str
 
 
+# This class is the input for the 'get_application' function.
 class GetApplicationRequest(BaseValidatorModel):
     application: str
 
 
+# This class is the input for the 'get_associated_resource' function.
 class GetAssociatedResourceRequest(BaseValidatorModel):
     application: str
     resourceType: ResourceTypeType
@@ -133,6 +143,7 @@ class GetAssociatedResourceRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_attribute_group' function.
 class GetAttributeGroupRequest(BaseValidatorModel):
     attributeGroup: str
 
@@ -149,34 +160,40 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_applications' function.
 class ListApplicationsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_associated_attribute_groups' function.
 class ListAssociatedAttributeGroupsRequest(BaseValidatorModel):
     application: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_associated_resources' function.
 class ListAssociatedResourcesRequest(BaseValidatorModel):
     application: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_attribute_groups_for_application' function.
 class ListAttributeGroupsForApplicationRequest(BaseValidatorModel):
     application: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_attribute_groups' function.
 class ListAttributeGroupsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -185,6 +202,7 @@ class ResourceDetails(BaseValidatorModel):
     tagValue: Optional[str] = None
 
 
+# This class is the input for the 'sync_resource' function.
 class SyncResourceRequest(BaseValidatorModel):
     resourceType: ResourceTypeType
     resource: str
@@ -200,12 +218,14 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_application' function.
 class UpdateApplicationRequest(BaseValidatorModel):
     application: str
     name: Optional[str] = None
     description: Optional[str] = None
 
 
+# This class is the input for the 'update_attribute_group' function.
 class UpdateAttributeGroupRequest(BaseValidatorModel):
     attributeGroup: str
     name: Optional[str] = None
@@ -224,12 +244,14 @@ class ApplicationTagResult(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'associate_attribute_group' function.
 class AssociateAttributeGroupResponse(BaseValidatorModel):
     applicationArn: str
     attributeGroupArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_resource' function.
 class AssociateResourceResponse(BaseValidatorModel):
     applicationArn: str
     resourceArn: str
@@ -237,32 +259,38 @@ class AssociateResourceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_application' function.
 class CreateApplicationResponse(BaseValidatorModel):
     application: Application
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_application' function.
 class DeleteApplicationResponse(BaseValidatorModel):
     application: ApplicationSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_attribute_group' function.
 class DisassociateAttributeGroupResponse(BaseValidatorModel):
     applicationArn: str
     attributeGroupArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_resource' function.
 class DisassociateResourceResponse(BaseValidatorModel):
     applicationArn: str
     resourceArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_configuration' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_attribute_group' function.
 class GetAttributeGroupResponse(BaseValidatorModel):
     id: str
     arn: str
@@ -276,23 +304,27 @@ class GetAttributeGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_applications' function.
 class ListApplicationsResponse(BaseValidatorModel):
     applications: List[ApplicationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_associated_attribute_groups' function.
 class ListAssociatedAttributeGroupsResponse(BaseValidatorModel):
     attributeGroups: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'sync_resource' function.
 class SyncResourceResponse(BaseValidatorModel):
     applicationArn: str
     resourceArn: str
@@ -300,33 +332,39 @@ class SyncResourceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_application' function.
 class UpdateApplicationResponse(BaseValidatorModel):
     application: Application
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_attribute_groups_for_application' function.
 class ListAttributeGroupsForApplicationResponse(BaseValidatorModel):
     attributeGroupsDetails: List[AttributeGroupDetails]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'delete_attribute_group' function.
 class DeleteAttributeGroupResponse(BaseValidatorModel):
     attributeGroup: AttributeGroupSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_attribute_groups' function.
 class ListAttributeGroupsResponse(BaseValidatorModel):
     attributeGroups: List[AttributeGroupSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_attribute_group' function.
 class CreateAttributeGroupResponse(BaseValidatorModel):
     attributeGroup: AttributeGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_attribute_group' function.
 class UpdateAttributeGroupResponse(BaseValidatorModel):
     attributeGroup: AttributeGroup
     ResponseMetadata: ResponseMetadata
@@ -377,10 +415,12 @@ class GetConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_configuration' function.
 class PutConfigurationRequest(BaseValidatorModel):
     configuration: AppRegistryConfiguration
 
 
+# This class is the output for the 'get_application' function.
 class GetApplicationResponse(BaseValidatorModel):
     id: str
     arn: str
@@ -402,12 +442,14 @@ class Resource(BaseValidatorModel):
     integrations: Optional[ResourceIntegrations] = None
 
 
+# This class is the output for the 'list_associated_resources' function.
 class ListAssociatedResourcesResponse(BaseValidatorModel):
     resources: List[ResourceInfo]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_associated_resource' function.
 class GetAssociatedResourceResponse(BaseValidatorModel):
     resource: Resource
     options: List[AssociationOptionType]

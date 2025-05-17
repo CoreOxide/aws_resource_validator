@@ -166,18 +166,21 @@ class FormDataTypeConfig(BaseValidatorModel):
     dataTypeName: str
 
 
+# This class is the input for the 'delete_component' function.
 class DeleteComponentRequest(BaseValidatorModel):
     appId: str
     environmentName: str
     id: str
 
 
+# This class is the input for the 'delete_form' function.
 class DeleteFormRequest(BaseValidatorModel):
     appId: str
     environmentName: str
     id: str
 
 
+# This class is the input for the 'delete_theme' function.
 class DeleteThemeRequest(BaseValidatorModel):
     appId: str
     environmentName: str
@@ -196,18 +199,21 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'export_components' function.
 class ExportComponentsRequest(BaseValidatorModel):
     appId: str
     environmentName: str
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'export_forms' function.
 class ExportFormsRequest(BaseValidatorModel):
     appId: str
     environmentName: str
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'export_themes' function.
 class ExportThemesRequest(BaseValidatorModel):
     appId: str
     environmentName: str
@@ -266,35 +272,41 @@ class FormStyleConfig(BaseValidatorModel):
     value: Optional[str] = None
 
 
+# This class is the input for the 'get_codegen_job' function.
 class GetCodegenJobRequest(BaseValidatorModel):
     appId: str
     environmentName: str
     id: str
 
 
+# This class is the input for the 'get_component' function.
 class GetComponentRequest(BaseValidatorModel):
     appId: str
     environmentName: str
     id: str
 
 
+# This class is the input for the 'get_form' function.
 class GetFormRequest(BaseValidatorModel):
     appId: str
     environmentName: str
     id: str
 
 
+# This class is the input for the 'get_metadata' function.
 class GetMetadataRequest(BaseValidatorModel):
     appId: str
     environmentName: str
 
 
+# This class is the input for the 'get_theme' function.
 class GetThemeRequest(BaseValidatorModel):
     appId: str
     environmentName: str
     id: str
 
 
+# This class is the input for the 'list_codegen_jobs' function.
 class ListCodegenJobsRequest(BaseValidatorModel):
     appId: str
     environmentName: str
@@ -302,6 +314,7 @@ class ListCodegenJobsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_components' function.
 class ListComponentsRequest(BaseValidatorModel):
     appId: str
     environmentName: str
@@ -309,6 +322,7 @@ class ListComponentsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_forms' function.
 class ListFormsRequest(BaseValidatorModel):
     appId: str
     environmentName: str
@@ -316,10 +330,12 @@ class ListFormsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'list_themes' function.
 class ListThemesRequest(BaseValidatorModel):
     appId: str
     environmentName: str
@@ -478,10 +494,12 @@ class ComponentPropertyPaginator(BaseValidatorModel):
 ComponentVariantUnion = Union[ComponentVariant, ComponentVariantOutput]
 
 
+# This class is the output for the 'put_metadata_flag' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'exchange_code_for_token' function.
 class ExchangeCodeForTokenResponse(BaseValidatorModel):
     accessToken: str
     expiresIn: int
@@ -489,28 +507,33 @@ class ExchangeCodeForTokenResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_metadata' function.
 class GetMetadataResponse(BaseValidatorModel):
     features: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_codegen_jobs' function.
 class ListCodegenJobsResponse(BaseValidatorModel):
     entities: List[CodegenJobSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_components' function.
 class ListComponentsResponse(BaseValidatorModel):
     entities: List[ComponentSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'refresh_token' function.
 class RefreshTokenResponse(BaseValidatorModel):
     accessToken: str
     expiresIn: int
@@ -526,6 +549,7 @@ class FormSummary(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'exchange_code_for_token' function.
 class ExchangeCodeForTokenRequest(BaseValidatorModel):
     provider: Literal['figma']
     request: ExchangeCodeForTokenRequestBody
@@ -621,6 +645,7 @@ class FormStyle(BaseValidatorModel):
     outerPadding: Optional[FormStyleConfig] = None
 
 
+# This class is the output for the 'list_themes' function.
 class ListThemesResponse(BaseValidatorModel):
     entities: List[ThemeSummary]
     ResponseMetadata: ResponseMetadata
@@ -629,6 +654,7 @@ class ListThemesResponse(BaseValidatorModel):
 PredicateUnion = Union[Predicate, PredicateOutput]
 
 
+# This class is the input for the 'put_metadata_flag' function.
 class PutMetadataFlagRequest(BaseValidatorModel):
     appId: str
     environmentName: str
@@ -636,6 +662,7 @@ class PutMetadataFlagRequest(BaseValidatorModel):
     body: PutMetadataFlagBody
 
 
+# This class is the input for the 'refresh_token' function.
 class RefreshTokenRequest(BaseValidatorModel):
     provider: Literal['figma']
     refreshTokenBody: RefreshTokenRequestBody
@@ -726,6 +753,7 @@ class MutationActionSetStateParameterPaginator(BaseValidatorModel):
     set: ComponentPropertyPaginator
 
 
+# This class is the output for the 'list_forms' function.
 class ListFormsResponse(BaseValidatorModel):
     entities: List[FormSummary]
     ResponseMetadata: ResponseMetadata
@@ -872,22 +900,26 @@ ComponentBindingPropertiesValuePropertiesUnion = Union[ComponentBindingPropertie
 ComponentDataConfigurationUnion = Union[ComponentDataConfiguration, ComponentDataConfigurationOutput]
 
 
+# This class is the output for the 'create_theme' function.
 class CreateThemeResponse(BaseValidatorModel):
     entity: Theme
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'export_themes' function.
 class ExportThemesResponse(BaseValidatorModel):
     entities: List[Theme]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_theme' function.
 class GetThemeResponse(BaseValidatorModel):
     theme: Theme
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_theme' function.
 class UpdateThemeResponse(BaseValidatorModel):
     entity: Theme
     ResponseMetadata: ResponseMetadata
@@ -1008,11 +1040,13 @@ class CodegenJobRenderConfig(BaseValidatorModel):
     react: Optional[ReactStartCodegenJobDataUnion] = None
 
 
+# This class is the output for the 'get_codegen_job' function.
 class GetCodegenJobResponse(BaseValidatorModel):
     job: CodegenJob
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_codegen_job' function.
 class StartCodegenJobResponse(BaseValidatorModel):
     entity: CodegenJob
     ResponseMetadata: ResponseMetadata
@@ -1063,6 +1097,7 @@ class ValueMappings(BaseValidatorModel):
 ComponentBindingPropertiesValueUnion = Union[ComponentBindingPropertiesValue, ComponentBindingPropertiesValueOutput]
 
 
+# This class is the input for the 'create_theme' function.
 class CreateThemeRequest(BaseValidatorModel):
     appId: str
     environmentName: str
@@ -1070,6 +1105,7 @@ class CreateThemeRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'update_theme' function.
 class UpdateThemeRequest(BaseValidatorModel):
     appId: str
     environmentName: str
@@ -1177,22 +1213,26 @@ CodegenJobGenericDataSchemaUnion = Union[CodegenJobGenericDataSchema, CodegenJob
 ActionParametersUnion = Union[ActionParameters, ActionParametersOutput]
 
 
+# This class is the output for the 'create_component' function.
 class CreateComponentResponse(BaseValidatorModel):
     entity: Component
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'export_components' function.
 class ExportComponentsResponse(BaseValidatorModel):
     entities: List[Component]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_component' function.
 class GetComponentResponse(BaseValidatorModel):
     component: Component
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_component' function.
 class UpdateComponentResponse(BaseValidatorModel):
     entity: Component
     ResponseMetadata: ResponseMetadata
@@ -1204,22 +1244,26 @@ class ExportComponentsResponsePaginator(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_form' function.
 class CreateFormResponse(BaseValidatorModel):
     entity: Form
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'export_forms' function.
 class ExportFormsResponse(BaseValidatorModel):
     entities: List[Form]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_form' function.
 class GetFormResponse(BaseValidatorModel):
     form: Form
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_form' function.
 class UpdateFormResponse(BaseValidatorModel):
     entity: Form
     ResponseMetadata: ResponseMetadata
@@ -1266,6 +1310,7 @@ class ComponentEvent(BaseValidatorModel):
 FieldInputConfigUnion = Union[FieldInputConfig, FieldInputConfigOutput]
 
 
+# This class is the input for the 'start_codegen_job' function.
 class StartCodegenJobRequest(BaseValidatorModel):
     appId: str
     environmentName: str
@@ -1351,6 +1396,7 @@ class UpdateFormData(BaseValidatorModel):
     labelDecorator: Optional[LabelDecoratorType] = None
 
 
+# This class is the input for the 'create_component' function.
 class CreateComponentRequest(BaseValidatorModel):
     appId: str
     environmentName: str
@@ -1358,6 +1404,7 @@ class CreateComponentRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'update_component' function.
 class UpdateComponentRequest(BaseValidatorModel):
     appId: str
     environmentName: str
@@ -1366,6 +1413,7 @@ class UpdateComponentRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'create_form' function.
 class CreateFormRequest(BaseValidatorModel):
     appId: str
     environmentName: str
@@ -1373,6 +1421,7 @@ class CreateFormRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'update_form' function.
 class UpdateFormRequest(BaseValidatorModel):
     appId: str
     environmentName: str

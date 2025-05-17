@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'batch_execute_statement' function.
 class BatchExecuteStatementInput(BaseValidatorModel):
     Sqls: List[str]
     ClientToken: Optional[str] = None
@@ -31,6 +32,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'cancel_statement' function.
 class CancelStatementRequest(BaseValidatorModel):
     Id: str
 
@@ -51,6 +53,7 @@ class ColumnMetadata(BaseValidatorModel):
     typeName: Optional[str] = None
 
 
+# This class is the input for the 'describe_statement' function.
 class DescribeStatementRequest(BaseValidatorModel):
     Id: str
 
@@ -80,6 +83,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_table' function.
 class DescribeTableRequest(BaseValidatorModel):
     Database: str
     ClusterIdentifier: Optional[str] = None
@@ -102,11 +106,13 @@ class Field(BaseValidatorModel):
     stringValue: Optional[str] = None
 
 
+# This class is the input for the 'get_statement_result' function.
 class GetStatementResultRequest(BaseValidatorModel):
     Id: str
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_statement_result_v2' function.
 class GetStatementResultV2Request(BaseValidatorModel):
     Id: str
     NextToken: Optional[str] = None
@@ -116,6 +122,7 @@ class QueryRecords(BaseValidatorModel):
     CSVRecords: Optional[str] = None
 
 
+# This class is the input for the 'list_databases' function.
 class ListDatabasesRequest(BaseValidatorModel):
     Database: str
     ClusterIdentifier: Optional[str] = None
@@ -126,6 +133,7 @@ class ListDatabasesRequest(BaseValidatorModel):
     WorkgroupName: Optional[str] = None
 
 
+# This class is the input for the 'list_schemas' function.
 class ListSchemasRequest(BaseValidatorModel):
     Database: str
     ClusterIdentifier: Optional[str] = None
@@ -138,6 +146,7 @@ class ListSchemasRequest(BaseValidatorModel):
     WorkgroupName: Optional[str] = None
 
 
+# This class is the input for the 'list_statements' function.
 class ListStatementsRequest(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     Database: Optional[str] = None
@@ -149,6 +158,7 @@ class ListStatementsRequest(BaseValidatorModel):
     WorkgroupName: Optional[str] = None
 
 
+# This class is the input for the 'list_tables' function.
 class ListTablesRequest(BaseValidatorModel):
     Database: str
     ClusterIdentifier: Optional[str] = None
@@ -168,6 +178,7 @@ class TableMember(BaseValidatorModel):
     type: Optional[str] = None
 
 
+# This class is the output for the 'batch_execute_statement' function.
 class BatchExecuteStatementOutput(BaseValidatorModel):
     ClusterIdentifier: str
     CreatedAt: datetime
@@ -181,11 +192,13 @@ class BatchExecuteStatementOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_statement' function.
 class CancelStatementResponse(BaseValidatorModel):
     Status: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'execute_statement' function.
 class ExecuteStatementOutput(BaseValidatorModel):
     ClusterIdentifier: str
     CreatedAt: datetime
@@ -199,18 +212,21 @@ class ExecuteStatementOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_databases' function.
 class ListDatabasesResponse(BaseValidatorModel):
     Databases: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_schemas' function.
 class ListSchemasResponse(BaseValidatorModel):
     Schemas: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_table' function.
 class DescribeTableResponse(BaseValidatorModel):
     ColumnList: List[ColumnMetadata]
     TableName: str
@@ -218,6 +234,7 @@ class DescribeTableResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'execute_statement' function.
 class ExecuteStatementInput(BaseValidatorModel):
     Sql: str
     ClientToken: Optional[str] = None
@@ -249,6 +266,7 @@ class StatementData(BaseValidatorModel):
     UpdatedAt: Optional[datetime] = None
 
 
+# This class is the output for the 'describe_statement' function.
 class DescribeStatementResponse(BaseValidatorModel):
     ClusterIdentifier: str
     CreatedAt: datetime
@@ -338,6 +356,7 @@ class ListTablesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'get_statement_result' function.
 class GetStatementResultResponse(BaseValidatorModel):
     ColumnMetadata: List[ColumnMetadata]
     Records: List[List[Field]]
@@ -346,6 +365,7 @@ class GetStatementResultResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_statement_result_v2' function.
 class GetStatementResultV2Response(BaseValidatorModel):
     ColumnMetadata: List[ColumnMetadata]
     Records: List[QueryRecords]
@@ -355,12 +375,14 @@ class GetStatementResultV2Response(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tables' function.
 class ListTablesResponse(BaseValidatorModel):
     Tables: List[TableMember]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_statements' function.
 class ListStatementsResponse(BaseValidatorModel):
     Statements: List[StatementData]
     ResponseMetadata: ResponseMetadata

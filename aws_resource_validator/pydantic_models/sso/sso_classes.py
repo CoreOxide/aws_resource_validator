@@ -22,6 +22,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'get_role_credentials' function.
 class GetRoleCredentialsRequest(BaseValidatorModel):
     roleName: str
     accountId: str
@@ -41,6 +42,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_account_roles' function.
 class ListAccountRolesRequest(BaseValidatorModel):
     accessToken: str
     accountId: str
@@ -53,26 +55,31 @@ class RoleInfo(BaseValidatorModel):
     accountId: Optional[str] = None
 
 
+# This class is the input for the 'list_accounts' function.
 class ListAccountsRequest(BaseValidatorModel):
     accessToken: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'logout' function.
 class LogoutRequest(BaseValidatorModel):
     accessToken: str
 
 
+# This class is the output for the 'logout' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_accounts' function.
 class ListAccountsResponse(BaseValidatorModel):
     accountList: List[AccountInfo]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_role_credentials' function.
 class GetRoleCredentialsResponse(BaseValidatorModel):
     roleCredentials: RoleCredentials
     ResponseMetadata: ResponseMetadata
@@ -89,6 +96,7 @@ class ListAccountsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_account_roles' function.
 class ListAccountRolesResponse(BaseValidatorModel):
     roleList: List[RoleInfo]
     ResponseMetadata: ResponseMetadata

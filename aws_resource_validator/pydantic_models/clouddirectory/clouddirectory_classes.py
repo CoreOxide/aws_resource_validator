@@ -17,6 +17,7 @@ class SchemaFacet(BaseValidatorModel):
     FacetName: Optional[str] = None
 
 
+# This class is the input for the 'apply_schema' function.
 class ApplySchemaRequest(BaseValidatorModel):
     PublishedSchemaArn: str
     DirectoryArn: str
@@ -109,15 +110,18 @@ class BatchUpdateObjectAttributesResponse(BaseValidatorModel):
 Blob = Union[str, bytes, IO[Any], StreamingBody]
 
 
+# This class is the input for the 'create_directory' function.
 class CreateDirectoryRequest(BaseValidatorModel):
     Name: str
     SchemaArn: str
 
 
+# This class is the input for the 'create_schema' function.
 class CreateSchemaRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'delete_directory' function.
 class DeleteDirectoryRequest(BaseValidatorModel):
     DirectoryArn: str
 
@@ -127,6 +131,7 @@ class DeleteFacetRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'delete_schema' function.
 class DeleteSchemaRequest(BaseValidatorModel):
     SchemaArn: str
 
@@ -143,10 +148,12 @@ class Directory(BaseValidatorModel):
     CreationDateTime: Optional[datetime] = None
 
 
+# This class is the input for the 'disable_directory' function.
 class DisableDirectoryRequest(BaseValidatorModel):
     DirectoryArn: str
 
 
+# This class is the input for the 'enable_directory' function.
 class EnableDirectoryRequest(BaseValidatorModel):
     DirectoryArn: str
 
@@ -167,23 +174,28 @@ class Facet(BaseValidatorModel):
     FacetStyle: Optional[FacetStyleType] = None
 
 
+# This class is the input for the 'get_applied_schema_version' function.
 class GetAppliedSchemaVersionRequest(BaseValidatorModel):
     SchemaArn: str
 
 
+# This class is the input for the 'get_directory' function.
 class GetDirectoryRequest(BaseValidatorModel):
     DirectoryArn: str
 
 
+# This class is the input for the 'get_facet' function.
 class GetFacetRequest(BaseValidatorModel):
     SchemaArn: str
     Name: str
 
 
+# This class is the input for the 'get_schema_as_json' function.
 class GetSchemaAsJsonRequest(BaseValidatorModel):
     SchemaArn: str
 
 
+# This class is the input for the 'get_typed_link_facet_information' function.
 class GetTypedLinkFacetInformationRequest(BaseValidatorModel):
     SchemaArn: str
     Name: str
@@ -195,6 +207,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_applied_schema_arns' function.
 class ListAppliedSchemaArnsRequest(BaseValidatorModel):
     DirectoryArn: str
     SchemaArn: Optional[str] = None
@@ -202,17 +215,20 @@ class ListAppliedSchemaArnsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_development_schema_arns' function.
 class ListDevelopmentSchemaArnsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_directories' function.
 class ListDirectoriesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     state: Optional[DirectoryStateType] = None
 
 
+# This class is the input for the 'list_facet_attributes' function.
 class ListFacetAttributesRequest(BaseValidatorModel):
     SchemaArn: str
     Name: str
@@ -220,24 +236,28 @@ class ListFacetAttributesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_facet_names' function.
 class ListFacetNamesRequest(BaseValidatorModel):
     SchemaArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_managed_schema_arns' function.
 class ListManagedSchemaArnsRequest(BaseValidatorModel):
     SchemaArn: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_published_schema_arns' function.
 class ListPublishedSchemaArnsRequest(BaseValidatorModel):
     SchemaArn: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
     NextToken: Optional[str] = None
@@ -249,6 +269,7 @@ class Tag(BaseValidatorModel):
     Value: Optional[str] = None
 
 
+# This class is the input for the 'list_typed_link_facet_attributes' function.
 class ListTypedLinkFacetAttributesRequest(BaseValidatorModel):
     SchemaArn: str
     Name: str
@@ -256,6 +277,7 @@ class ListTypedLinkFacetAttributesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_typed_link_facet_names' function.
 class ListTypedLinkFacetNamesRequest(BaseValidatorModel):
     SchemaArn: str
     NextToken: Optional[str] = None
@@ -268,6 +290,7 @@ class PolicyAttachment(BaseValidatorModel):
     PolicyType: Optional[str] = None
 
 
+# This class is the input for the 'publish_schema' function.
 class PublishSchemaRequest(BaseValidatorModel):
     DevelopmentSchemaArn: str
     Version: str
@@ -275,6 +298,7 @@ class PublishSchemaRequest(BaseValidatorModel):
     Name: Optional[str] = None
 
 
+# This class is the input for the 'put_schema_from_json' function.
 class PutSchemaFromJsonRequest(BaseValidatorModel):
     SchemaArn: str
     Document: str
@@ -292,17 +316,20 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_schema' function.
 class UpdateSchemaRequest(BaseValidatorModel):
     SchemaArn: str
     Name: str
 
 
+# This class is the input for the 'upgrade_applied_schema' function.
 class UpgradeAppliedSchemaRequest(BaseValidatorModel):
     PublishedSchemaArn: str
     DirectoryArn: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'upgrade_published_schema' function.
 class UpgradePublishedSchemaRequest(BaseValidatorModel):
     DevelopmentSchemaArn: str
     PublishedSchemaArn: str
@@ -310,6 +337,7 @@ class UpgradePublishedSchemaRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'attach_object' function.
 class AttachObjectRequest(BaseValidatorModel):
     DirectoryArn: str
     ParentReference: ObjectReference
@@ -323,6 +351,7 @@ class AttachPolicyRequest(BaseValidatorModel):
     ObjectReference: ObjectReference
 
 
+# This class is the input for the 'attach_to_index' function.
 class AttachToIndexRequest(BaseValidatorModel):
     DirectoryArn: str
     IndexReference: ObjectReference
@@ -416,12 +445,14 @@ class DeleteObjectRequest(BaseValidatorModel):
     ObjectReference: ObjectReference
 
 
+# This class is the input for the 'detach_from_index' function.
 class DetachFromIndexRequest(BaseValidatorModel):
     DirectoryArn: str
     IndexReference: ObjectReference
     TargetReference: ObjectReference
 
 
+# This class is the input for the 'detach_object' function.
 class DetachObjectRequest(BaseValidatorModel):
     DirectoryArn: str
     ParentReference: ObjectReference
@@ -434,12 +465,14 @@ class DetachPolicyRequest(BaseValidatorModel):
     ObjectReference: ObjectReference
 
 
+# This class is the input for the 'get_object_information' function.
 class GetObjectInformationRequest(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReference
     ConsistencyLevel: Optional[ConsistencyLevelType] = None
 
 
+# This class is the input for the 'list_attached_indices' function.
 class ListAttachedIndicesRequest(BaseValidatorModel):
     DirectoryArn: str
     TargetReference: ObjectReference
@@ -448,6 +481,7 @@ class ListAttachedIndicesRequest(BaseValidatorModel):
     ConsistencyLevel: Optional[ConsistencyLevelType] = None
 
 
+# This class is the input for the 'list_object_children' function.
 class ListObjectChildrenRequest(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReference
@@ -456,6 +490,7 @@ class ListObjectChildrenRequest(BaseValidatorModel):
     ConsistencyLevel: Optional[ConsistencyLevelType] = None
 
 
+# This class is the input for the 'list_object_parent_paths' function.
 class ListObjectParentPathsRequest(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReference
@@ -463,6 +498,7 @@ class ListObjectParentPathsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_object_parents' function.
 class ListObjectParentsRequest(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReference
@@ -472,6 +508,7 @@ class ListObjectParentsRequest(BaseValidatorModel):
     IncludeAllLinksToEachParent: Optional[bool] = None
 
 
+# This class is the input for the 'list_object_policies' function.
 class ListObjectPoliciesRequest(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReference
@@ -480,6 +517,7 @@ class ListObjectPoliciesRequest(BaseValidatorModel):
     ConsistencyLevel: Optional[ConsistencyLevelType] = None
 
 
+# This class is the input for the 'list_policy_attachments' function.
 class ListPolicyAttachmentsRequest(BaseValidatorModel):
     DirectoryArn: str
     PolicyReference: ObjectReference
@@ -488,6 +526,7 @@ class ListPolicyAttachmentsRequest(BaseValidatorModel):
     ConsistencyLevel: Optional[ConsistencyLevelType] = None
 
 
+# This class is the input for the 'lookup_policy' function.
 class LookupPolicyRequest(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReference
@@ -518,6 +557,7 @@ class BatchRemoveFacetFromObject(BaseValidatorModel):
     ObjectReference: ObjectReference
 
 
+# This class is the input for the 'get_object_attributes' function.
 class GetObjectAttributesRequest(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReference
@@ -526,6 +566,7 @@ class GetObjectAttributesRequest(BaseValidatorModel):
     ConsistencyLevel: Optional[ConsistencyLevelType] = None
 
 
+# This class is the input for the 'list_object_attributes' function.
 class ListObjectAttributesRequest(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReference
@@ -541,22 +582,26 @@ class RemoveFacetFromObjectRequest(BaseValidatorModel):
     ObjectReference: ObjectReference
 
 
+# This class is the output for the 'apply_schema' function.
 class ApplySchemaResponse(BaseValidatorModel):
     AppliedSchemaArn: str
     DirectoryArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'attach_object' function.
 class AttachObjectResponse(BaseValidatorModel):
     AttachedObjectIdentifier: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'attach_to_index' function.
 class AttachToIndexResponse(BaseValidatorModel):
     AttachedObjectIdentifier: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_directory' function.
 class CreateDirectoryResponse(BaseValidatorModel):
     DirectoryArn: str
     Name: str
@@ -565,157 +610,186 @@ class CreateDirectoryResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_index' function.
 class CreateIndexResponse(BaseValidatorModel):
     ObjectIdentifier: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_object' function.
 class CreateObjectResponse(BaseValidatorModel):
     ObjectIdentifier: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_schema' function.
 class CreateSchemaResponse(BaseValidatorModel):
     SchemaArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_directory' function.
 class DeleteDirectoryResponse(BaseValidatorModel):
     DirectoryArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_schema' function.
 class DeleteSchemaResponse(BaseValidatorModel):
     SchemaArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'detach_from_index' function.
 class DetachFromIndexResponse(BaseValidatorModel):
     DetachedObjectIdentifier: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'detach_object' function.
 class DetachObjectResponse(BaseValidatorModel):
     DetachedObjectIdentifier: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disable_directory' function.
 class DisableDirectoryResponse(BaseValidatorModel):
     DirectoryArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'detach_typed_link' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enable_directory' function.
 class EnableDirectoryResponse(BaseValidatorModel):
     DirectoryArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_applied_schema_version' function.
 class GetAppliedSchemaVersionResponse(BaseValidatorModel):
     AppliedSchemaArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_object_information' function.
 class GetObjectInformationResponse(BaseValidatorModel):
     SchemaFacets: List[SchemaFacet]
     ObjectIdentifier: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_schema_as_json' function.
 class GetSchemaAsJsonResponse(BaseValidatorModel):
     Name: str
     Document: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_typed_link_facet_information' function.
 class GetTypedLinkFacetInformationResponse(BaseValidatorModel):
     IdentityAttributeOrder: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_applied_schema_arns' function.
 class ListAppliedSchemaArnsResponse(BaseValidatorModel):
     SchemaArns: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_development_schema_arns' function.
 class ListDevelopmentSchemaArnsResponse(BaseValidatorModel):
     SchemaArns: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_facet_names' function.
 class ListFacetNamesResponse(BaseValidatorModel):
     FacetNames: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_managed_schema_arns' function.
 class ListManagedSchemaArnsResponse(BaseValidatorModel):
     SchemaArns: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_object_children' function.
 class ListObjectChildrenResponse(BaseValidatorModel):
     Children: Dict[str, str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_object_policies' function.
 class ListObjectPoliciesResponse(BaseValidatorModel):
     AttachedPolicyIds: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_policy_attachments' function.
 class ListPolicyAttachmentsResponse(BaseValidatorModel):
     ObjectIdentifiers: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_published_schema_arns' function.
 class ListPublishedSchemaArnsResponse(BaseValidatorModel):
     SchemaArns: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_typed_link_facet_names' function.
 class ListTypedLinkFacetNamesResponse(BaseValidatorModel):
     FacetNames: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'publish_schema' function.
 class PublishSchemaResponse(BaseValidatorModel):
     PublishedSchemaArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_schema_from_json' function.
 class PutSchemaFromJsonResponse(BaseValidatorModel):
     Arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_object_attributes' function.
 class UpdateObjectAttributesResponse(BaseValidatorModel):
     ObjectIdentifier: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_schema' function.
 class UpdateSchemaResponse(BaseValidatorModel):
     SchemaArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'upgrade_applied_schema' function.
 class UpgradeAppliedSchemaResponse(BaseValidatorModel):
     UpgradedSchemaArn: str
     DirectoryArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'upgrade_published_schema' function.
 class UpgradePublishedSchemaResponse(BaseValidatorModel):
     UpgradedSchemaArn: str
     ResponseMetadata: ResponseMetadata
@@ -729,6 +803,7 @@ class BatchCreateIndex(BaseValidatorModel):
     BatchReferenceName: Optional[str] = None
 
 
+# This class is the input for the 'create_index' function.
 class CreateIndexRequest(BaseValidatorModel):
     DirectoryArn: str
     OrderedIndexedAttributeList: List[AttributeKey]
@@ -752,6 +827,7 @@ class BatchListObjectParentPathsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_object_parent_paths' function.
 class ListObjectParentPathsResponse(BaseValidatorModel):
     PathToObjectIdentifiersList: List[PathToObjectIdentifiers]
     ResponseMetadata: ResponseMetadata
@@ -763,6 +839,7 @@ class BatchListObjectParentsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_object_parents' function.
 class ListObjectParentsResponse(BaseValidatorModel):
     Parents: Dict[str, str]
     ParentLinks: List[ObjectIdentifierAndLinkNameTuple]
@@ -770,11 +847,13 @@ class ListObjectParentsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_directory' function.
 class GetDirectoryResponse(BaseValidatorModel):
     Directory: Directory
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_directories' function.
 class ListDirectoriesResponse(BaseValidatorModel):
     Directories: List[Directory]
     ResponseMetadata: ResponseMetadata
@@ -797,6 +876,7 @@ class TypedLinkAttributeDefinitionOutput(BaseValidatorModel):
     Rules: Optional[Dict[str, RuleOutput]] = None
 
 
+# This class is the output for the 'get_facet' function.
 class GetFacetResponse(BaseValidatorModel):
     Facet: Facet
     ResponseMetadata: ResponseMetadata
@@ -895,6 +975,7 @@ class LookupPolicyRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -934,11 +1015,13 @@ class BatchListObjectAttributesResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_link_attributes' function.
 class GetLinkAttributesResponse(BaseValidatorModel):
     Attributes: List[AttributeKeyAndValueOutput]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_object_attributes' function.
 class GetObjectAttributesResponse(BaseValidatorModel):
     Attributes: List[AttributeKeyAndValueOutput]
     ResponseMetadata: ResponseMetadata
@@ -949,6 +1032,7 @@ class IndexAttachment(BaseValidatorModel):
     ObjectIdentifier: Optional[str] = None
 
 
+# This class is the output for the 'list_object_attributes' function.
 class ListObjectAttributesResponse(BaseValidatorModel):
     Attributes: List[AttributeKeyAndValueOutput]
     ResponseMetadata: ResponseMetadata
@@ -969,6 +1053,7 @@ class FacetAttributeOutput(BaseValidatorModel):
     RequiredBehavior: Optional[RequiredAttributeBehaviorType] = None
 
 
+# This class is the output for the 'list_typed_link_facet_attributes' function.
 class ListTypedLinkFacetAttributesResponse(BaseValidatorModel):
     Attributes: List[TypedLinkAttributeDefinitionOutput]
     ResponseMetadata: ResponseMetadata
@@ -980,6 +1065,7 @@ class BatchLookupPolicyResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'lookup_policy' function.
 class LookupPolicyResponse(BaseValidatorModel):
     PolicyToPathList: List[PolicyToPath]
     ResponseMetadata: ResponseMetadata
@@ -998,18 +1084,21 @@ class BatchListIndexResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_attached_indices' function.
 class ListAttachedIndicesResponse(BaseValidatorModel):
     IndexAttachments: List[IndexAttachment]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_index' function.
 class ListIndexResponse(BaseValidatorModel):
     IndexAttachments: List[IndexAttachment]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'attach_typed_link' function.
 class AttachTypedLinkResponse(BaseValidatorModel):
     TypedLinkSpecifier: TypedLinkSpecifierOutput
     ResponseMetadata: ResponseMetadata
@@ -1029,18 +1118,21 @@ class BatchListOutgoingTypedLinksResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_incoming_typed_links' function.
 class ListIncomingTypedLinksResponse(BaseValidatorModel):
     LinkSpecifiers: List[TypedLinkSpecifierOutput]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_outgoing_typed_links' function.
 class ListOutgoingTypedLinksResponse(BaseValidatorModel):
     TypedLinkSpecifiers: List[TypedLinkSpecifierOutput]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_facet_attributes' function.
 class ListFacetAttributesResponse(BaseValidatorModel):
     Attributes: List[FacetAttributeOutput]
     ResponseMetadata: ResponseMetadata
@@ -1161,6 +1253,7 @@ class TypedLinkAttributeRange(BaseValidatorModel):
 TypedLinkAttributeDefinitionUnion = Union[TypedLinkAttributeDefinition, TypedLinkAttributeDefinitionOutput]
 
 
+# This class is the output for the 'batch_write' function.
 class BatchWriteResponse(BaseValidatorModel):
     Responses: List[BatchWriteOperationResponse]
     ResponseMetadata: ResponseMetadata
@@ -1184,6 +1277,7 @@ class BatchAddFacetToObject(BaseValidatorModel):
     ObjectReference: ObjectReference
 
 
+# This class is the input for the 'create_object' function.
 class CreateObjectRequest(BaseValidatorModel):
     DirectoryArn: str
     SchemaFacets: List[SchemaFacet]
@@ -1192,6 +1286,7 @@ class CreateObjectRequest(BaseValidatorModel):
     LinkName: Optional[str] = None
 
 
+# This class is the input for the 'attach_typed_link' function.
 class AttachTypedLinkRequest(BaseValidatorModel):
     DirectoryArn: str
     SourceObjectReference: ObjectReference
@@ -1226,6 +1321,7 @@ class BatchUpdateObjectAttributes(BaseValidatorModel):
     AttributeUpdates: List[ObjectAttributeUpdate]
 
 
+# This class is the input for the 'update_object_attributes' function.
 class UpdateObjectAttributesRequest(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReference
@@ -1247,6 +1343,7 @@ class ListIndexRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_index' function.
 class ListIndexRequest(BaseValidatorModel):
     DirectoryArn: str
     IndexReference: ObjectReference
@@ -1281,6 +1378,7 @@ class ListIncomingTypedLinksRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_incoming_typed_links' function.
 class ListIncomingTypedLinksRequest(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReference
@@ -1300,6 +1398,7 @@ class ListOutgoingTypedLinksRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_outgoing_typed_links' function.
 class ListOutgoingTypedLinksRequest(BaseValidatorModel):
     DirectoryArn: str
     ObjectReference: ObjectReference
@@ -1321,6 +1420,7 @@ class TypedLinkFacet(BaseValidatorModel):
     IdentityAttributeOrder: List[str]
 
 
+# This class is the output for the 'batch_read' function.
 class BatchReadResponse(BaseValidatorModel):
     Responses: List[BatchReadOperationResponse]
     ResponseMetadata: ResponseMetadata
@@ -1356,11 +1456,13 @@ class BatchUpdateLinkAttributes(BaseValidatorModel):
     AttributeUpdates: List[LinkAttributeUpdate]
 
 
+# This class is the input for the 'detach_typed_link' function.
 class DetachTypedLinkRequest(BaseValidatorModel):
     DirectoryArn: str
     TypedLinkSpecifier: TypedLinkSpecifierUnion
 
 
+# This class is the input for the 'get_link_attributes' function.
 class GetLinkAttributesRequest(BaseValidatorModel):
     DirectoryArn: str
     TypedLinkSpecifier: TypedLinkSpecifierUnion
@@ -1429,12 +1531,14 @@ class UpdateFacetRequest(BaseValidatorModel):
     ObjectType: Optional[ObjectTypeType] = None
 
 
+# This class is the input for the 'batch_read' function.
 class BatchReadRequest(BaseValidatorModel):
     DirectoryArn: str
     Operations: List[BatchReadOperation]
     ConsistencyLevel: Optional[ConsistencyLevelType] = None
 
 
+# This class is the input for the 'batch_write' function.
 class BatchWriteRequest(BaseValidatorModel):
     DirectoryArn: str
     Operations: List[BatchWriteOperation]

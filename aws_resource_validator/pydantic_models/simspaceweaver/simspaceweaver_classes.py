@@ -27,6 +27,7 @@ class DeleteSimulationInput(BaseValidatorModel):
     Simulation: str
 
 
+# This class is the input for the 'describe_app' function.
 class DescribeAppInput(BaseValidatorModel):
     App: str
     Domain: str
@@ -45,6 +46,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'describe_simulation' function.
 class DescribeSimulationInput(BaseValidatorModel):
     Simulation: str
 
@@ -63,6 +65,7 @@ class LaunchOverrides(BaseValidatorModel):
     LaunchCommands: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_apps' function.
 class ListAppsInput(BaseValidatorModel):
     Simulation: str
     Domain: Optional[str] = None
@@ -78,6 +81,7 @@ class SimulationAppMetadata(BaseValidatorModel):
     TargetStatus: Optional[SimulationAppTargetStatusType] = None
 
 
+# This class is the input for the 'list_simulations' function.
 class ListSimulationsInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -91,6 +95,7 @@ class SimulationMetadata(BaseValidatorModel):
     TargetStatus: Optional[SimulationTargetStatusType] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInput(BaseValidatorModel):
     ResourceArn: str
 
@@ -142,11 +147,13 @@ class CreateSnapshotInput(BaseValidatorModel):
     Simulation: str
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceOutput(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_app' function.
 class StartAppOutput(BaseValidatorModel):
     Domain: str
     Name: str
@@ -154,6 +161,7 @@ class StartAppOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_simulation' function.
 class StartSimulationOutput(BaseValidatorModel):
     Arn: str
     CreationTime: datetime
@@ -161,6 +169,7 @@ class StartSimulationOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_simulation' function.
 class StartSimulationInput(BaseValidatorModel):
     Name: str
     RoleArn: str
@@ -174,12 +183,14 @@ class StartSimulationInput(BaseValidatorModel):
 LaunchOverridesUnion = Union[LaunchOverrides, LaunchOverridesOutput]
 
 
+# This class is the output for the 'list_apps' function.
 class ListAppsOutput(BaseValidatorModel):
     Apps: List[SimulationAppMetadata]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_simulations' function.
 class ListSimulationsOutput(BaseValidatorModel):
     Simulations: List[SimulationMetadata]
     ResponseMetadata: ResponseMetadata
@@ -200,6 +211,7 @@ class LoggingConfiguration(BaseValidatorModel):
     Destinations: Optional[List[LogDestination]] = None
 
 
+# This class is the input for the 'start_app' function.
 class StartAppInput(BaseValidatorModel):
     Domain: str
     Name: str
@@ -209,6 +221,7 @@ class StartAppInput(BaseValidatorModel):
     LaunchOverrides: Optional[LaunchOverridesUnion] = None
 
 
+# This class is the output for the 'describe_app' function.
 class DescribeAppOutput(BaseValidatorModel):
     Description: str
     Domain: str
@@ -221,6 +234,7 @@ class DescribeAppOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_simulation' function.
 class DescribeSimulationOutput(BaseValidatorModel):
     Arn: str
     CreationTime: datetime

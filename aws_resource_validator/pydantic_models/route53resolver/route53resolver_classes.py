@@ -63,6 +63,7 @@ class ResolverEndpoint(BaseValidatorModel):
     Protocols: Optional[List[ProtocolType]] = None
 
 
+# This class is the input for the 'associate_resolver_query_log_config' function.
 class AssociateResolverQueryLogConfigRequest(BaseValidatorModel):
     ResolverQueryLogConfigId: str
     ResourceId: str
@@ -78,6 +79,7 @@ class ResolverQueryLogConfigAssociation(BaseValidatorModel):
     CreationTime: Optional[str] = None
 
 
+# This class is the input for the 'associate_resolver_rule' function.
 class AssociateResolverRuleRequest(BaseValidatorModel):
     ResolverRuleId: str
     VPCId: str
@@ -120,6 +122,7 @@ class FirewallRuleGroup(BaseValidatorModel):
     ModificationTime: Optional[str] = None
 
 
+# This class is the input for the 'create_firewall_rule' function.
 class CreateFirewallRuleRequest(BaseValidatorModel):
     CreatorRequestId: str
     FirewallRuleGroupId: str
@@ -198,14 +201,17 @@ class TargetAddress(BaseValidatorModel):
     ServerNameIndication: Optional[str] = None
 
 
+# This class is the input for the 'delete_firewall_domain_list' function.
 class DeleteFirewallDomainListRequest(BaseValidatorModel):
     FirewallDomainListId: str
 
 
+# This class is the input for the 'delete_firewall_rule_group' function.
 class DeleteFirewallRuleGroupRequest(BaseValidatorModel):
     FirewallRuleGroupId: str
 
 
+# This class is the input for the 'delete_firewall_rule' function.
 class DeleteFirewallRuleRequest(BaseValidatorModel):
     FirewallRuleGroupId: str
     FirewallDomainListId: Optional[str] = None
@@ -213,31 +219,38 @@ class DeleteFirewallRuleRequest(BaseValidatorModel):
     Qtype: Optional[str] = None
 
 
+# This class is the input for the 'delete_outpost_resolver' function.
 class DeleteOutpostResolverRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'delete_resolver_endpoint' function.
 class DeleteResolverEndpointRequest(BaseValidatorModel):
     ResolverEndpointId: str
 
 
+# This class is the input for the 'delete_resolver_query_log_config' function.
 class DeleteResolverQueryLogConfigRequest(BaseValidatorModel):
     ResolverQueryLogConfigId: str
 
 
+# This class is the input for the 'delete_resolver_rule' function.
 class DeleteResolverRuleRequest(BaseValidatorModel):
     ResolverRuleId: str
 
 
+# This class is the input for the 'disassociate_firewall_rule_group' function.
 class DisassociateFirewallRuleGroupRequest(BaseValidatorModel):
     FirewallRuleGroupAssociationId: str
 
 
+# This class is the input for the 'disassociate_resolver_query_log_config' function.
 class DisassociateResolverQueryLogConfigRequest(BaseValidatorModel):
     ResolverQueryLogConfigId: str
     ResourceId: str
 
 
+# This class is the input for the 'disassociate_resolver_rule' function.
 class DisassociateResolverRuleRequest(BaseValidatorModel):
     VPCId: str
     ResolverRuleId: str
@@ -272,30 +285,37 @@ class FirewallRuleGroupMetadata(BaseValidatorModel):
     ShareStatus: Optional[ShareStatusType] = None
 
 
+# This class is the input for the 'get_firewall_config' function.
 class GetFirewallConfigRequest(BaseValidatorModel):
     ResourceId: str
 
 
+# This class is the input for the 'get_firewall_domain_list' function.
 class GetFirewallDomainListRequest(BaseValidatorModel):
     FirewallDomainListId: str
 
 
+# This class is the input for the 'get_firewall_rule_group_association' function.
 class GetFirewallRuleGroupAssociationRequest(BaseValidatorModel):
     FirewallRuleGroupAssociationId: str
 
 
+# This class is the input for the 'get_firewall_rule_group_policy' function.
 class GetFirewallRuleGroupPolicyRequest(BaseValidatorModel):
     Arn: str
 
 
+# This class is the input for the 'get_firewall_rule_group' function.
 class GetFirewallRuleGroupRequest(BaseValidatorModel):
     FirewallRuleGroupId: str
 
 
+# This class is the input for the 'get_outpost_resolver' function.
 class GetOutpostResolverRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_resolver_config' function.
 class GetResolverConfigRequest(BaseValidatorModel):
     ResourceId: str
 
@@ -307,6 +327,7 @@ class ResolverConfig(BaseValidatorModel):
     AutodefinedReverse: Optional[ResolverAutodefinedReverseStatusType] = None
 
 
+# This class is the input for the 'get_resolver_dnssec_config' function.
 class GetResolverDnssecConfigRequest(BaseValidatorModel):
     ResourceId: str
 
@@ -318,34 +339,42 @@ class ResolverDnssecConfig(BaseValidatorModel):
     ValidationStatus: Optional[ResolverDNSSECValidationStatusType] = None
 
 
+# This class is the input for the 'get_resolver_endpoint' function.
 class GetResolverEndpointRequest(BaseValidatorModel):
     ResolverEndpointId: str
 
 
+# This class is the input for the 'get_resolver_query_log_config_association' function.
 class GetResolverQueryLogConfigAssociationRequest(BaseValidatorModel):
     ResolverQueryLogConfigAssociationId: str
 
 
+# This class is the input for the 'get_resolver_query_log_config_policy' function.
 class GetResolverQueryLogConfigPolicyRequest(BaseValidatorModel):
     Arn: str
 
 
+# This class is the input for the 'get_resolver_query_log_config' function.
 class GetResolverQueryLogConfigRequest(BaseValidatorModel):
     ResolverQueryLogConfigId: str
 
 
+# This class is the input for the 'get_resolver_rule_association' function.
 class GetResolverRuleAssociationRequest(BaseValidatorModel):
     ResolverRuleAssociationId: str
 
 
+# This class is the input for the 'get_resolver_rule_policy' function.
 class GetResolverRulePolicyRequest(BaseValidatorModel):
     Arn: str
 
 
+# This class is the input for the 'get_resolver_rule' function.
 class GetResolverRuleRequest(BaseValidatorModel):
     ResolverRuleId: str
 
 
+# This class is the input for the 'import_firewall_domains' function.
 class ImportFirewallDomainsRequest(BaseValidatorModel):
     FirewallDomainListId: str
     Operation: Literal['REPLACE']
@@ -369,22 +398,26 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_firewall_configs' function.
 class ListFirewallConfigsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_firewall_domain_lists' function.
 class ListFirewallDomainListsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_firewall_domains' function.
 class ListFirewallDomainsRequest(BaseValidatorModel):
     FirewallDomainListId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_firewall_rule_group_associations' function.
 class ListFirewallRuleGroupAssociationsRequest(BaseValidatorModel):
     FirewallRuleGroupId: Optional[str] = None
     VpcId: Optional[str] = None
@@ -394,11 +427,13 @@ class ListFirewallRuleGroupAssociationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_firewall_rule_groups' function.
 class ListFirewallRuleGroupsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_firewall_rules' function.
 class ListFirewallRulesRequest(BaseValidatorModel):
     FirewallRuleGroupId: str
     Priority: Optional[int] = None
@@ -407,39 +442,46 @@ class ListFirewallRulesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_outpost_resolvers' function.
 class ListOutpostResolversRequest(BaseValidatorModel):
     OutpostArn: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_resolver_configs' function.
 class ListResolverConfigsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_resolver_endpoint_ip_addresses' function.
 class ListResolverEndpointIpAddressesRequest(BaseValidatorModel):
     ResolverEndpointId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'put_firewall_rule_group_policy' function.
 class PutFirewallRuleGroupPolicyRequest(BaseValidatorModel):
     Arn: str
     FirewallRuleGroupPolicy: str
 
 
+# This class is the input for the 'put_resolver_query_log_config_policy' function.
 class PutResolverQueryLogConfigPolicyRequest(BaseValidatorModel):
     Arn: str
     ResolverQueryLogConfigPolicy: str
 
 
+# This class is the input for the 'put_resolver_rule_policy' function.
 class PutResolverRulePolicyRequest(BaseValidatorModel):
     Arn: str
     ResolverRulePolicy: str
@@ -450,17 +492,20 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_firewall_config' function.
 class UpdateFirewallConfigRequest(BaseValidatorModel):
     ResourceId: str
     FirewallFailOpen: FirewallFailOpenStatusType
 
 
+# This class is the input for the 'update_firewall_domains' function.
 class UpdateFirewallDomainsRequest(BaseValidatorModel):
     FirewallDomainListId: str
     Operation: FirewallDomainUpdateOperationType
     Domains: List[str]
 
 
+# This class is the input for the 'update_firewall_rule_group_association' function.
 class UpdateFirewallRuleGroupAssociationRequest(BaseValidatorModel):
     FirewallRuleGroupAssociationId: str
     Priority: Optional[int] = None
@@ -468,6 +513,7 @@ class UpdateFirewallRuleGroupAssociationRequest(BaseValidatorModel):
     Name: Optional[str] = None
 
 
+# This class is the input for the 'update_firewall_rule' function.
 class UpdateFirewallRuleRequest(BaseValidatorModel):
     FirewallRuleGroupId: str
     FirewallDomainListId: Optional[str] = None
@@ -490,6 +536,7 @@ class UpdateIpAddress(BaseValidatorModel):
     Ipv6: str
 
 
+# This class is the input for the 'update_outpost_resolver' function.
 class UpdateOutpostResolverRequest(BaseValidatorModel):
     Id: str
     Name: Optional[str] = None
@@ -497,16 +544,19 @@ class UpdateOutpostResolverRequest(BaseValidatorModel):
     PreferredInstanceType: Optional[str] = None
 
 
+# This class is the input for the 'update_resolver_config' function.
 class UpdateResolverConfigRequest(BaseValidatorModel):
     ResourceId: str
     AutodefinedReverseFlag: AutodefinedReverseFlagType
 
 
+# This class is the input for the 'update_resolver_dnssec_config' function.
 class UpdateResolverDnssecConfigRequest(BaseValidatorModel):
     ResourceId: str
     Validation: ValidationType
 
 
+# This class is the input for the 'associate_firewall_rule_group' function.
 class AssociateFirewallRuleGroupRequest(BaseValidatorModel):
     CreatorRequestId: str
     FirewallRuleGroupId: str
@@ -517,18 +567,21 @@ class AssociateFirewallRuleGroupRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_firewall_domain_list' function.
 class CreateFirewallDomainListRequest(BaseValidatorModel):
     CreatorRequestId: str
     Name: str
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_firewall_rule_group' function.
 class CreateFirewallRuleGroupRequest(BaseValidatorModel):
     CreatorRequestId: str
     Name: str
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_outpost_resolver' function.
 class CreateOutpostResolverRequest(BaseValidatorModel):
     CreatorRequestId: str
     Name: str
@@ -538,6 +591,7 @@ class CreateOutpostResolverRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_resolver_query_log_config' function.
 class CreateResolverQueryLogConfigRequest(BaseValidatorModel):
     Name: str
     DestinationArn: str
@@ -550,36 +604,43 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the output for the 'associate_firewall_rule_group' function.
 class AssociateFirewallRuleGroupResponse(BaseValidatorModel):
     FirewallRuleGroupAssociation: FirewallRuleGroupAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_firewall_rule_group' function.
 class DisassociateFirewallRuleGroupResponse(BaseValidatorModel):
     FirewallRuleGroupAssociation: FirewallRuleGroupAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_firewall_rule_group_association' function.
 class GetFirewallRuleGroupAssociationResponse(BaseValidatorModel):
     FirewallRuleGroupAssociation: FirewallRuleGroupAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_firewall_rule_group_policy' function.
 class GetFirewallRuleGroupPolicyResponse(BaseValidatorModel):
     FirewallRuleGroupPolicy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resolver_query_log_config_policy' function.
 class GetResolverQueryLogConfigPolicyResponse(BaseValidatorModel):
     ResolverQueryLogConfigPolicy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resolver_rule_policy' function.
 class GetResolverRulePolicyResponse(BaseValidatorModel):
     ResolverRulePolicy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_firewall_domains' function.
 class ImportFirewallDomainsResponse(BaseValidatorModel):
     Id: str
     Name: str
@@ -588,39 +649,46 @@ class ImportFirewallDomainsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_firewall_domains' function.
 class ListFirewallDomainsResponse(BaseValidatorModel):
     Domains: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_firewall_rule_group_associations' function.
 class ListFirewallRuleGroupAssociationsResponse(BaseValidatorModel):
     FirewallRuleGroupAssociations: List[FirewallRuleGroupAssociation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'put_firewall_rule_group_policy' function.
 class PutFirewallRuleGroupPolicyResponse(BaseValidatorModel):
     ReturnValue: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_resolver_query_log_config_policy' function.
 class PutResolverQueryLogConfigPolicyResponse(BaseValidatorModel):
     ReturnValue: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_resolver_rule_policy' function.
 class PutResolverRulePolicyResponse(BaseValidatorModel):
     ReturnValue: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_firewall_domains' function.
 class UpdateFirewallDomainsResponse(BaseValidatorModel):
     Id: str
     Name: str
@@ -629,46 +697,55 @@ class UpdateFirewallDomainsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_firewall_rule_group_association' function.
 class UpdateFirewallRuleGroupAssociationResponse(BaseValidatorModel):
     FirewallRuleGroupAssociation: FirewallRuleGroupAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'associate_resolver_endpoint_ip_address' function.
 class AssociateResolverEndpointIpAddressRequest(BaseValidatorModel):
     ResolverEndpointId: str
     IpAddress: IpAddressUpdate
 
 
+# This class is the input for the 'disassociate_resolver_endpoint_ip_address' function.
 class DisassociateResolverEndpointIpAddressRequest(BaseValidatorModel):
     ResolverEndpointId: str
     IpAddress: IpAddressUpdate
 
 
+# This class is the output for the 'associate_resolver_endpoint_ip_address' function.
 class AssociateResolverEndpointIpAddressResponse(BaseValidatorModel):
     ResolverEndpoint: ResolverEndpoint
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_resolver_endpoint' function.
 class CreateResolverEndpointResponse(BaseValidatorModel):
     ResolverEndpoint: ResolverEndpoint
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_resolver_endpoint' function.
 class DeleteResolverEndpointResponse(BaseValidatorModel):
     ResolverEndpoint: ResolverEndpoint
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_resolver_endpoint_ip_address' function.
 class DisassociateResolverEndpointIpAddressResponse(BaseValidatorModel):
     ResolverEndpoint: ResolverEndpoint
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resolver_endpoint' function.
 class GetResolverEndpointResponse(BaseValidatorModel):
     ResolverEndpoint: ResolverEndpoint
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_resolver_endpoints' function.
 class ListResolverEndpointsResponse(BaseValidatorModel):
     MaxResults: int
     ResolverEndpoints: List[ResolverEndpoint]
@@ -676,26 +753,31 @@ class ListResolverEndpointsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_resolver_endpoint' function.
 class UpdateResolverEndpointResponse(BaseValidatorModel):
     ResolverEndpoint: ResolverEndpoint
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_resolver_query_log_config' function.
 class AssociateResolverQueryLogConfigResponse(BaseValidatorModel):
     ResolverQueryLogConfigAssociation: ResolverQueryLogConfigAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_resolver_query_log_config' function.
 class DisassociateResolverQueryLogConfigResponse(BaseValidatorModel):
     ResolverQueryLogConfigAssociation: ResolverQueryLogConfigAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resolver_query_log_config_association' function.
 class GetResolverQueryLogConfigAssociationResponse(BaseValidatorModel):
     ResolverQueryLogConfigAssociation: ResolverQueryLogConfigAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_resolver_query_log_config_associations' function.
 class ListResolverQueryLogConfigAssociationsResponse(BaseValidatorModel):
     TotalCount: int
     TotalFilteredCount: int
@@ -704,21 +786,25 @@ class ListResolverQueryLogConfigAssociationsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'associate_resolver_rule' function.
 class AssociateResolverRuleResponse(BaseValidatorModel):
     ResolverRuleAssociation: ResolverRuleAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_resolver_rule' function.
 class DisassociateResolverRuleResponse(BaseValidatorModel):
     ResolverRuleAssociation: ResolverRuleAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resolver_rule_association' function.
 class GetResolverRuleAssociationResponse(BaseValidatorModel):
     ResolverRuleAssociation: ResolverRuleAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_resolver_rule_associations' function.
 class ListResolverRuleAssociationsResponse(BaseValidatorModel):
     MaxResults: int
     ResolverRuleAssociations: List[ResolverRuleAssociation]
@@ -726,83 +812,99 @@ class ListResolverRuleAssociationsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_firewall_domain_list' function.
 class CreateFirewallDomainListResponse(BaseValidatorModel):
     FirewallDomainList: FirewallDomainList
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_firewall_domain_list' function.
 class DeleteFirewallDomainListResponse(BaseValidatorModel):
     FirewallDomainList: FirewallDomainList
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_firewall_domain_list' function.
 class GetFirewallDomainListResponse(BaseValidatorModel):
     FirewallDomainList: FirewallDomainList
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_firewall_rule_group' function.
 class CreateFirewallRuleGroupResponse(BaseValidatorModel):
     FirewallRuleGroup: FirewallRuleGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_firewall_rule_group' function.
 class DeleteFirewallRuleGroupResponse(BaseValidatorModel):
     FirewallRuleGroup: FirewallRuleGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_firewall_rule_group' function.
 class GetFirewallRuleGroupResponse(BaseValidatorModel):
     FirewallRuleGroup: FirewallRuleGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_firewall_rule' function.
 class CreateFirewallRuleResponse(BaseValidatorModel):
     FirewallRule: FirewallRule
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_firewall_rule' function.
 class DeleteFirewallRuleResponse(BaseValidatorModel):
     FirewallRule: FirewallRule
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_firewall_rules' function.
 class ListFirewallRulesResponse(BaseValidatorModel):
     FirewallRules: List[FirewallRule]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_firewall_rule' function.
 class UpdateFirewallRuleResponse(BaseValidatorModel):
     FirewallRule: FirewallRule
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_outpost_resolver' function.
 class CreateOutpostResolverResponse(BaseValidatorModel):
     OutpostResolver: OutpostResolver
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_outpost_resolver' function.
 class DeleteOutpostResolverResponse(BaseValidatorModel):
     OutpostResolver: OutpostResolver
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_outpost_resolver' function.
 class GetOutpostResolverResponse(BaseValidatorModel):
     OutpostResolver: OutpostResolver
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_outpost_resolvers' function.
 class ListOutpostResolversResponse(BaseValidatorModel):
     OutpostResolvers: List[OutpostResolver]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_outpost_resolver' function.
 class UpdateOutpostResolverResponse(BaseValidatorModel):
     OutpostResolver: OutpostResolver
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_resolver_endpoint' function.
 class CreateResolverEndpointRequest(BaseValidatorModel):
     CreatorRequestId: str
     SecurityGroupIds: List[str]
@@ -816,21 +918,25 @@ class CreateResolverEndpointRequest(BaseValidatorModel):
     Protocols: Optional[List[ProtocolType]] = None
 
 
+# This class is the output for the 'create_resolver_query_log_config' function.
 class CreateResolverQueryLogConfigResponse(BaseValidatorModel):
     ResolverQueryLogConfig: ResolverQueryLogConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_resolver_query_log_config' function.
 class DeleteResolverQueryLogConfigResponse(BaseValidatorModel):
     ResolverQueryLogConfig: ResolverQueryLogConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resolver_query_log_config' function.
 class GetResolverQueryLogConfigResponse(BaseValidatorModel):
     ResolverQueryLogConfig: ResolverQueryLogConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_resolver_query_log_configs' function.
 class ListResolverQueryLogConfigsResponse(BaseValidatorModel):
     TotalCount: int
     TotalFilteredCount: int
@@ -839,6 +945,7 @@ class ListResolverQueryLogConfigsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_resolver_rule' function.
 class CreateResolverRuleRequest(BaseValidatorModel):
     CreatorRequestId: str
     RuleType: RuleTypeOptionType
@@ -872,18 +979,21 @@ class ResolverRule(BaseValidatorModel):
     ModificationTime: Optional[str] = None
 
 
+# This class is the input for the 'list_resolver_dnssec_configs' function.
 class ListResolverDnssecConfigsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[List[Filter]] = None
 
 
+# This class is the input for the 'list_resolver_endpoints' function.
 class ListResolverEndpointsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[List[Filter]] = None
 
 
+# This class is the input for the 'list_resolver_query_log_config_associations' function.
 class ListResolverQueryLogConfigAssociationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -892,6 +1002,7 @@ class ListResolverQueryLogConfigAssociationsRequest(BaseValidatorModel):
     SortOrder: Optional[SortOrderType] = None
 
 
+# This class is the input for the 'list_resolver_query_log_configs' function.
 class ListResolverQueryLogConfigsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -900,78 +1011,92 @@ class ListResolverQueryLogConfigsRequest(BaseValidatorModel):
     SortOrder: Optional[SortOrderType] = None
 
 
+# This class is the input for the 'list_resolver_rule_associations' function.
 class ListResolverRuleAssociationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[List[Filter]] = None
 
 
+# This class is the input for the 'list_resolver_rules' function.
 class ListResolverRulesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[List[Filter]] = None
 
 
+# This class is the output for the 'get_firewall_config' function.
 class GetFirewallConfigResponse(BaseValidatorModel):
     FirewallConfig: FirewallConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_firewall_configs' function.
 class ListFirewallConfigsResponse(BaseValidatorModel):
     FirewallConfigs: List[FirewallConfig]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_firewall_config' function.
 class UpdateFirewallConfigResponse(BaseValidatorModel):
     FirewallConfig: FirewallConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_firewall_domain_lists' function.
 class ListFirewallDomainListsResponse(BaseValidatorModel):
     FirewallDomainLists: List[FirewallDomainListMetadata]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_firewall_rule_groups' function.
 class ListFirewallRuleGroupsResponse(BaseValidatorModel):
     FirewallRuleGroups: List[FirewallRuleGroupMetadata]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_resolver_config' function.
 class GetResolverConfigResponse(BaseValidatorModel):
     ResolverConfig: ResolverConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_resolver_configs' function.
 class ListResolverConfigsResponse(BaseValidatorModel):
     ResolverConfigs: List[ResolverConfig]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_resolver_config' function.
 class UpdateResolverConfigResponse(BaseValidatorModel):
     ResolverConfig: ResolverConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resolver_dnssec_config' function.
 class GetResolverDnssecConfigResponse(BaseValidatorModel):
     ResolverDNSSECConfig: ResolverDnssecConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_resolver_dnssec_configs' function.
 class ListResolverDnssecConfigsResponse(BaseValidatorModel):
     ResolverDnssecConfigs: List[ResolverDnssecConfig]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_resolver_dnssec_config' function.
 class UpdateResolverDnssecConfigResponse(BaseValidatorModel):
     ResolverDNSSECConfig: ResolverDnssecConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_resolver_endpoint_ip_addresses' function.
 class ListResolverEndpointIpAddressesResponse(BaseValidatorModel):
     MaxResults: int
     IpAddresses: List[IpAddressResponse]
@@ -1064,6 +1189,7 @@ class ListTagsForResourceRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'update_resolver_endpoint' function.
 class UpdateResolverEndpointRequest(BaseValidatorModel):
     ResolverEndpointId: str
     Name: Optional[str] = None
@@ -1072,26 +1198,31 @@ class UpdateResolverEndpointRequest(BaseValidatorModel):
     Protocols: Optional[List[ProtocolType]] = None
 
 
+# This class is the input for the 'update_resolver_rule' function.
 class UpdateResolverRuleRequest(BaseValidatorModel):
     ResolverRuleId: str
     Config: ResolverRuleConfig
 
 
+# This class is the output for the 'create_resolver_rule' function.
 class CreateResolverRuleResponse(BaseValidatorModel):
     ResolverRule: ResolverRule
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_resolver_rule' function.
 class DeleteResolverRuleResponse(BaseValidatorModel):
     ResolverRule: ResolverRule
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resolver_rule' function.
 class GetResolverRuleResponse(BaseValidatorModel):
     ResolverRule: ResolverRule
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_resolver_rules' function.
 class ListResolverRulesResponse(BaseValidatorModel):
     MaxResults: int
     ResolverRules: List[ResolverRule]
@@ -1099,6 +1230,7 @@ class ListResolverRulesResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_resolver_rule' function.
 class UpdateResolverRuleResponse(BaseValidatorModel):
     ResolverRule: ResolverRule
     ResponseMetadata: ResponseMetadata

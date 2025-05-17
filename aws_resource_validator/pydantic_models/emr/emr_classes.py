@@ -70,6 +70,7 @@ class CancelStepsInfo(BaseValidatorModel):
     Reason: Optional[str] = None
 
 
+# This class is the input for the 'cancel_steps' function.
 class CancelStepsInput(BaseValidatorModel):
     ClusterId: str
     StepIds: List[str]
@@ -157,11 +158,13 @@ class Configuration(BaseValidatorModel):
     Properties: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_security_configuration' function.
 class CreateSecurityConfigurationInput(BaseValidatorModel):
     Name: str
     SecurityConfiguration: str
 
 
+# This class is the input for the 'create_studio_session_mapping' function.
 class CreateStudioSessionMappingInput(BaseValidatorModel):
     StudioId: str
     IdentityType: IdentityTypeType
@@ -179,10 +182,12 @@ class DeleteSecurityConfigurationInput(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'delete_studio' function.
 class DeleteStudioInput(BaseValidatorModel):
     StudioId: str
 
 
+# This class is the input for the 'delete_studio_session_mapping' function.
 class DeleteStudioSessionMappingInput(BaseValidatorModel):
     StudioId: str
     IdentityType: IdentityTypeType
@@ -190,6 +195,7 @@ class DeleteStudioSessionMappingInput(BaseValidatorModel):
     IdentityName: Optional[str] = None
 
 
+# This class is the input for the 'describe_cluster' function.
 class DescribeClusterInput(BaseValidatorModel):
     ClusterId: str
 
@@ -201,10 +207,12 @@ class WaiterConfig(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'describe_notebook_execution' function.
 class DescribeNotebookExecutionInput(BaseValidatorModel):
     NotebookExecutionId: str
 
 
+# This class is the input for the 'describe_release_label' function.
 class DescribeReleaseLabelInput(BaseValidatorModel):
     ReleaseLabel: Optional[str] = None
     NextToken: Optional[str] = None
@@ -220,15 +228,18 @@ class SimplifiedApplication(BaseValidatorModel):
     Version: Optional[str] = None
 
 
+# This class is the input for the 'describe_security_configuration' function.
 class DescribeSecurityConfigurationInput(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'describe_step' function.
 class DescribeStepInput(BaseValidatorModel):
     ClusterId: str
     StepId: str
 
 
+# This class is the input for the 'describe_studio' function.
 class DescribeStudioInput(BaseValidatorModel):
     StudioId: str
 
@@ -258,19 +269,23 @@ class FailureDetails(BaseValidatorModel):
     LogFile: Optional[str] = None
 
 
+# This class is the input for the 'get_auto_termination_policy' function.
 class GetAutoTerminationPolicyInput(BaseValidatorModel):
     ClusterId: str
 
 
+# This class is the input for the 'get_cluster_session_credentials' function.
 class GetClusterSessionCredentialsInput(BaseValidatorModel):
     ClusterId: str
     ExecutionRoleArn: Optional[str] = None
 
 
+# This class is the input for the 'get_managed_scaling_policy' function.
 class GetManagedScalingPolicyInput(BaseValidatorModel):
     ClusterId: str
 
 
+# This class is the input for the 'get_studio_session_mapping' function.
 class GetStudioSessionMappingInput(BaseValidatorModel):
     StudioId: str
     IdentityType: IdentityTypeType
@@ -395,21 +410,25 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_bootstrap_actions' function.
 class ListBootstrapActionsInput(BaseValidatorModel):
     ClusterId: str
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'list_instance_fleets' function.
 class ListInstanceFleetsInput(BaseValidatorModel):
     ClusterId: str
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'list_instance_groups' function.
 class ListInstanceGroupsInput(BaseValidatorModel):
     ClusterId: str
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'list_instances' function.
 class ListInstancesInput(BaseValidatorModel):
     ClusterId: str
     InstanceGroupId: Optional[str] = None
@@ -425,6 +444,7 @@ class ReleaseLabelFilter(BaseValidatorModel):
     Application: Optional[str] = None
 
 
+# This class is the input for the 'list_security_configurations' function.
 class ListSecurityConfigurationsInput(BaseValidatorModel):
     Marker: Optional[str] = None
 
@@ -434,6 +454,7 @@ class SecurityConfigurationSummary(BaseValidatorModel):
     CreationDateTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_steps' function.
 class ListStepsInput(BaseValidatorModel):
     ClusterId: str
     StepStates: Optional[List[StepStateType]] = None
@@ -441,6 +462,7 @@ class ListStepsInput(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'list_studio_session_mappings' function.
 class ListStudioSessionMappingsInput(BaseValidatorModel):
     StudioId: Optional[str] = None
     IdentityType: Optional[IdentityTypeType] = None
@@ -456,6 +478,7 @@ class SessionMappingSummary(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_studios' function.
 class ListStudiosInput(BaseValidatorModel):
     Marker: Optional[str] = None
 
@@ -470,6 +493,7 @@ class StudioSummary(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_supported_instance_types' function.
 class ListSupportedInstanceTypesInput(BaseValidatorModel):
     ReleaseLabel: str
     Marker: Optional[str] = None
@@ -489,6 +513,7 @@ class SupportedInstanceType(BaseValidatorModel):
     Architecture: Optional[str] = None
 
 
+# This class is the input for the 'modify_cluster' function.
 class ModifyClusterInput(BaseValidatorModel):
     ClusterId: str
     StepConcurrencyLevel: Optional[int] = None
@@ -559,21 +584,25 @@ class ScriptBootstrapActionConfig(BaseValidatorModel):
     Args: Optional[List[str]] = None
 
 
+# This class is the input for the 'set_keep_job_flow_alive_when_no_steps' function.
 class SetKeepJobFlowAliveWhenNoStepsInput(BaseValidatorModel):
     JobFlowIds: List[str]
     KeepJobFlowAliveWhenNoSteps: bool
 
 
+# This class is the input for the 'set_termination_protection' function.
 class SetTerminationProtectionInput(BaseValidatorModel):
     JobFlowIds: List[str]
     TerminationProtected: bool
 
 
+# This class is the input for the 'set_unhealthy_node_replacement' function.
 class SetUnhealthyNodeReplacementInput(BaseValidatorModel):
     JobFlowIds: List[str]
     UnhealthyNodeReplacement: bool
 
 
+# This class is the input for the 'set_visible_to_all_users' function.
 class SetVisibleToAllUsersInput(BaseValidatorModel):
     JobFlowIds: List[str]
     VisibleToAllUsers: bool
@@ -598,14 +627,17 @@ class StepTimeline(BaseValidatorModel):
     EndDateTime: Optional[datetime] = None
 
 
+# This class is the input for the 'stop_notebook_execution' function.
 class StopNotebookExecutionInput(BaseValidatorModel):
     NotebookExecutionId: str
 
 
+# This class is the input for the 'terminate_job_flows' function.
 class TerminateJobFlowsInput(BaseValidatorModel):
     JobFlowIds: List[str]
 
 
+# This class is the input for the 'update_studio' function.
 class UpdateStudioInput(BaseValidatorModel):
     StudioId: str
     Name: Optional[str] = None
@@ -615,6 +647,7 @@ class UpdateStudioInput(BaseValidatorModel):
     EncryptionKeyArn: Optional[str] = None
 
 
+# This class is the input for the 'update_studio_session_mapping' function.
 class UpdateStudioSessionMappingInput(BaseValidatorModel):
     StudioId: str
     IdentityType: IdentityTypeType
@@ -623,6 +656,7 @@ class UpdateStudioSessionMappingInput(BaseValidatorModel):
     IdentityName: Optional[str] = None
 
 
+# This class is the output for the 'add_instance_fleet' function.
 class AddInstanceFleetOutput(BaseValidatorModel):
     ClusterId: str
     InstanceFleetId: str
@@ -630,6 +664,7 @@ class AddInstanceFleetOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'add_instance_groups' function.
 class AddInstanceGroupsOutput(BaseValidatorModel):
     JobFlowId: str
     InstanceGroupIds: List[str]
@@ -637,23 +672,27 @@ class AddInstanceGroupsOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'add_job_flow_steps' function.
 class AddJobFlowStepsOutput(BaseValidatorModel):
     StepIds: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_security_configuration' function.
 class CreateSecurityConfigurationOutput(BaseValidatorModel):
     Name: str
     CreationDateTime: datetime
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_studio' function.
 class CreateStudioOutput(BaseValidatorModel):
     StudioId: str
     Url: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_security_configuration' function.
 class DescribeSecurityConfigurationOutput(BaseValidatorModel):
     Name: str
     SecurityConfiguration: str
@@ -661,27 +700,32 @@ class DescribeSecurityConfigurationOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_studio_session_mapping' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_release_labels' function.
 class ListReleaseLabelsOutput(BaseValidatorModel):
     ReleaseLabels: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'modify_cluster' function.
 class ModifyClusterOutput(BaseValidatorModel):
     StepConcurrencyLevel: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'run_job_flow' function.
 class RunJobFlowOutput(BaseValidatorModel):
     JobFlowId: str
     ClusterArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_notebook_execution' function.
 class StartNotebookExecutionOutput(BaseValidatorModel):
     NotebookExecutionId: str
     ResponseMetadata: ResponseMetadata
@@ -692,6 +736,7 @@ class AddTagsInput(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the input for the 'create_studio' function.
 class CreateStudioInput(BaseValidatorModel):
     Name: str
     AuthMode: AuthModeType
@@ -743,6 +788,7 @@ class AutoScalingPolicyStatus(BaseValidatorModel):
     StateChangeReason: Optional[AutoScalingPolicyStateChangeReason] = None
 
 
+# This class is the output for the 'get_auto_termination_policy' function.
 class GetAutoTerminationPolicyOutput(BaseValidatorModel):
     AutoTerminationPolicy: AutoTerminationPolicy
     ResponseMetadata: ResponseMetadata
@@ -768,6 +814,7 @@ class BootstrapActionConfigOutput(BaseValidatorModel):
     ScriptBootstrapAction: ScriptBootstrapActionConfigOutput
 
 
+# This class is the output for the 'cancel_steps' function.
 class CancelStepsOutput(BaseValidatorModel):
     CancelStepsInfoList: List[CancelStepsInfo]
     ResponseMetadata: ResponseMetadata
@@ -804,6 +851,7 @@ class ClusterStatus(BaseValidatorModel):
     ErrorDetails: Optional[List[ErrorDetail]] = None
 
 
+# This class is the output for the 'list_bootstrap_actions' function.
 class ListBootstrapActionsOutput(BaseValidatorModel):
     BootstrapActions: List[Command]
     Marker: str
@@ -838,6 +886,7 @@ class DescribeStepInputWait(BaseValidatorModel):
     WaiterConfig: Optional[WaiterConfig] = None
 
 
+# This class is the input for the 'describe_job_flows' function.
 class DescribeJobFlowsInput(BaseValidatorModel):
     CreatedAfter: Optional[Timestamp] = None
     CreatedBefore: Optional[Timestamp] = None
@@ -845,6 +894,7 @@ class DescribeJobFlowsInput(BaseValidatorModel):
     JobFlowStates: Optional[List[JobFlowExecutionStateType]] = None
 
 
+# This class is the input for the 'list_clusters' function.
 class ListClustersInput(BaseValidatorModel):
     CreatedAfter: Optional[Timestamp] = None
     CreatedBefore: Optional[Timestamp] = None
@@ -852,6 +902,7 @@ class ListClustersInput(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'list_notebook_executions' function.
 class ListNotebookExecutionsInput(BaseValidatorModel):
     EditorId: Optional[str] = None
     Status: Optional[NotebookExecutionStatusType] = None
@@ -861,6 +912,7 @@ class ListNotebookExecutionsInput(BaseValidatorModel):
     ExecutionEngineId: Optional[str] = None
 
 
+# This class is the output for the 'describe_release_label' function.
 class DescribeReleaseLabelOutput(BaseValidatorModel):
     ReleaseLabel: str
     Applications: List[SimplifiedApplication]
@@ -879,6 +931,7 @@ class EbsBlockDevice(BaseValidatorModel):
     Device: Optional[str] = None
 
 
+# This class is the output for the 'get_studio_session_mapping' function.
 class GetStudioSessionMappingOutput(BaseValidatorModel):
     SessionMapping: SessionMappingDetail
     ResponseMetadata: ResponseMetadata
@@ -1002,30 +1055,35 @@ class ListStudiosInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_release_labels' function.
 class ListReleaseLabelsInput(BaseValidatorModel):
     Filters: Optional[ReleaseLabelFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the output for the 'list_security_configurations' function.
 class ListSecurityConfigurationsOutput(BaseValidatorModel):
     SecurityConfigurations: List[SecurityConfigurationSummary]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_studio_session_mappings' function.
 class ListStudioSessionMappingsOutput(BaseValidatorModel):
     SessionMappings: List[SessionMappingSummary]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_studios' function.
 class ListStudiosOutput(BaseValidatorModel):
     Studios: List[StudioSummary]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_supported_instance_types' function.
 class ListSupportedInstanceTypesOutput(BaseValidatorModel):
     SupportedInstanceTypes: List[SupportedInstanceType]
     Marker: str
@@ -1074,6 +1132,7 @@ class OnDemandResizingSpecification(BaseValidatorModel):
     CapacityReservationOptions: Optional[OnDemandCapacityReservationOptions] = None
 
 
+# This class is the input for the 'start_notebook_execution' function.
 class StartNotebookExecutionInput(BaseValidatorModel):
     ExecutionEngine: ExecutionEngineConfig
     ServiceRole: str
@@ -1105,6 +1164,7 @@ class StepStatus(BaseValidatorModel):
     Timeline: Optional[StepTimeline] = None
 
 
+# This class is the output for the 'describe_studio' function.
 class DescribeStudioOutput(BaseValidatorModel):
     Studio: Studio
     ResponseMetadata: ResponseMetadata
@@ -1174,6 +1234,7 @@ class Cluster(BaseValidatorModel):
     EbsRootVolumeThroughput: Optional[int] = None
 
 
+# This class is the output for the 'get_managed_scaling_policy' function.
 class GetManagedScalingPolicyOutput(BaseValidatorModel):
     ManagedScalingPolicy: ManagedScalingPolicy
     ResponseMetadata: ResponseMetadata
@@ -1184,6 +1245,7 @@ class PutManagedScalingPolicyInput(BaseValidatorModel):
     ManagedScalingPolicy: ManagedScalingPolicy
 
 
+# This class is the output for the 'get_cluster_session_credentials' function.
 class GetClusterSessionCredentialsOutput(BaseValidatorModel):
     Credentials: Credentials
     ExpiresAt: datetime
@@ -1247,12 +1309,14 @@ class Instance(BaseValidatorModel):
     EbsVolumes: Optional[List[EbsVolume]] = None
 
 
+# This class is the output for the 'list_notebook_executions' function.
 class ListNotebookExecutionsOutput(BaseValidatorModel):
     NotebookExecutions: List[NotebookExecutionSummary]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_notebook_execution' function.
 class DescribeNotebookExecutionOutput(BaseValidatorModel):
     NotebookExecution: NotebookExecution
     ResponseMetadata: ResponseMetadata
@@ -1305,12 +1369,14 @@ class ScalingTrigger(BaseValidatorModel):
     CloudWatchAlarmDefinition: CloudWatchAlarmDefinitionUnion
 
 
+# This class is the output for the 'list_clusters' function.
 class ListClustersOutput(BaseValidatorModel):
     Clusters: List[ClusterSummary]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_cluster' function.
 class DescribeClusterOutput(BaseValidatorModel):
     Cluster: Cluster
     ResponseMetadata: ResponseMetadata
@@ -1340,6 +1406,7 @@ class StepConfig(BaseValidatorModel):
 ShrinkPolicyUnion = Union[ShrinkPolicy, ShrinkPolicyOutput]
 
 
+# This class is the output for the 'list_instances' function.
 class ListInstancesOutput(BaseValidatorModel):
     Instances: List[Instance]
     Marker: str
@@ -1378,12 +1445,14 @@ class InstanceFleet(BaseValidatorModel):
 BootstrapActionConfigUnion = Union[BootstrapActionConfig, BootstrapActionConfigOutput]
 
 
+# This class is the output for the 'list_steps' function.
 class ListStepsOutput(BaseValidatorModel):
     Steps: List[StepSummary]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_step' function.
 class DescribeStepOutput(BaseValidatorModel):
     Step: Step
     ResponseMetadata: ResponseMetadata
@@ -1452,6 +1521,7 @@ class ListInstanceFleetsOutputPaginator(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_instance_fleets' function.
 class ListInstanceFleetsOutput(BaseValidatorModel):
     InstanceFleets: List[InstanceFleet]
     Marker: str
@@ -1500,6 +1570,7 @@ class InstanceGroup(BaseValidatorModel):
     CustomAmiId: Optional[str] = None
 
 
+# This class is the output for the 'put_auto_scaling_policy' function.
 class PutAutoScalingPolicyOutput(BaseValidatorModel):
     ClusterId: str
     InstanceGroupId: str
@@ -1515,27 +1586,32 @@ class ScalingRule(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'add_instance_fleet' function.
 class AddInstanceFleetInput(BaseValidatorModel):
     ClusterId: str
     InstanceFleet: InstanceFleetConfig
 
 
+# This class is the input for the 'modify_instance_fleet' function.
 class ModifyInstanceFleetInput(BaseValidatorModel):
     ClusterId: str
     InstanceFleet: InstanceFleetModifyConfig
 
 
+# This class is the output for the 'describe_job_flows' function.
 class DescribeJobFlowsOutput(BaseValidatorModel):
     JobFlows: List[JobFlowDetail]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'add_job_flow_steps' function.
 class AddJobFlowStepsInput(BaseValidatorModel):
     JobFlowId: str
     Steps: List[StepConfigUnion]
     ExecutionRoleArn: Optional[str] = None
 
 
+# This class is the input for the 'modify_instance_groups' function.
 class ModifyInstanceGroupsInput(BaseValidatorModel):
     ClusterId: Optional[str] = None
     InstanceGroups: Optional[List[InstanceGroupModifyConfig]] = None
@@ -1547,6 +1623,7 @@ class ListInstanceGroupsOutputPaginator(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_instance_groups' function.
 class ListInstanceGroupsOutput(BaseValidatorModel):
     InstanceGroups: List[InstanceGroup]
     Marker: str
@@ -1573,12 +1650,14 @@ class InstanceGroupConfig(BaseValidatorModel):
     CustomAmiId: Optional[str] = None
 
 
+# This class is the input for the 'put_auto_scaling_policy' function.
 class PutAutoScalingPolicyInput(BaseValidatorModel):
     ClusterId: str
     InstanceGroupId: str
     AutoScalingPolicy: AutoScalingPolicy
 
 
+# This class is the input for the 'add_instance_groups' function.
 class AddInstanceGroupsInput(BaseValidatorModel):
     InstanceGroups: List[InstanceGroupConfig]
     JobFlowId: str
@@ -1605,6 +1684,7 @@ class JobFlowInstancesConfig(BaseValidatorModel):
     AdditionalSlaveSecurityGroups: Optional[List[str]] = None
 
 
+# This class is the input for the 'run_job_flow' function.
 class RunJobFlowInput(BaseValidatorModel):
     Name: str
     Instances: JobFlowInstancesConfig

@@ -124,10 +124,12 @@ class Contact(BaseValidatorModel):
     contactArn: str
 
 
+# This class is the input for the 'create_domain' function.
 class CreateDomainRequest(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'create_field' function.
 class CreateFieldRequest(BaseValidatorModel):
     domainId: str
     name: str
@@ -218,6 +220,7 @@ class FileFilter(BaseValidatorModel):
     fileArn: Optional[str] = None
 
 
+# This class is the input for the 'get_case_audit_events' function.
 class GetCaseAuditEventsRequest(BaseValidatorModel):
     caseId: str
     domainId: str
@@ -225,19 +228,23 @@ class GetCaseAuditEventsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_case_event_configuration' function.
 class GetCaseEventConfigurationRequest(BaseValidatorModel):
     domainId: str
 
 
+# This class is the input for the 'get_domain' function.
 class GetDomainRequest(BaseValidatorModel):
     domainId: str
 
 
+# This class is the input for the 'get_layout' function.
 class GetLayoutRequest(BaseValidatorModel):
     domainId: str
     layoutId: str
 
 
+# This class is the input for the 'get_template' function.
 class GetTemplateRequest(BaseValidatorModel):
     domainId: str
     templateId: str
@@ -255,12 +262,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_case_rules' function.
 class ListCaseRulesRequest(BaseValidatorModel):
     domainId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_cases_for_contact' function.
 class ListCasesForContactRequest(BaseValidatorModel):
     contactArn: str
     domainId: str
@@ -268,11 +277,13 @@ class ListCasesForContactRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_domains' function.
 class ListDomainsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_field_options' function.
 class ListFieldOptionsRequest(BaseValidatorModel):
     domainId: str
     fieldId: str
@@ -281,22 +292,26 @@ class ListFieldOptionsRequest(BaseValidatorModel):
     values: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_fields' function.
 class ListFieldsRequest(BaseValidatorModel):
     domainId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_layouts' function.
 class ListLayoutsRequest(BaseValidatorModel):
     domainId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'list_templates' function.
 class ListTemplatesRequest(BaseValidatorModel):
     domainId: str
     maxResults: Optional[int] = None
@@ -316,11 +331,13 @@ class Sort(BaseValidatorModel):
     sortOrder: OrderType
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     arn: str
     tags: Dict[str, str]
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     arn: str
     tagKeys: List[str]
@@ -344,23 +361,27 @@ class AuditEventPerformedBy(BaseValidatorModel):
     user: Optional[UserUnion] = None
 
 
+# This class is the input for the 'batch_get_case_rule' function.
 class BatchGetCaseRuleRequest(BaseValidatorModel):
     caseRules: List[CaseRuleIdentifier]
     domainId: str
 
 
+# This class is the output for the 'create_case' function.
 class CreateCaseResponse(BaseValidatorModel):
     caseArn: str
     caseId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_case_rule' function.
 class CreateCaseRuleResponse(BaseValidatorModel):
     caseRuleArn: str
     caseRuleId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_domain' function.
 class CreateDomainResponse(BaseValidatorModel):
     domainArn: str
     domainId: str
@@ -368,34 +389,40 @@ class CreateDomainResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_field' function.
 class CreateFieldResponse(BaseValidatorModel):
     fieldArn: str
     fieldId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_layout' function.
 class CreateLayoutResponse(BaseValidatorModel):
     layoutArn: str
     layoutId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_related_item' function.
 class CreateRelatedItemResponse(BaseValidatorModel):
     relatedItemArn: str
     relatedItemId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_template' function.
 class CreateTemplateResponse(BaseValidatorModel):
     templateArn: str
     templateId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'untag_resource' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_domain' function.
 class GetDomainResponse(BaseValidatorModel):
     createdTime: datetime
     domainArn: str
@@ -406,11 +433,13 @@ class GetDomainResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'batch_get_field' function.
 class BatchGetFieldRequest(BaseValidatorModel):
     domainId: str
     fields: List[FieldIdentifier]
@@ -424,6 +453,7 @@ class CaseEventIncludedData(BaseValidatorModel):
     fields: List[FieldIdentifier]
 
 
+# This class is the input for the 'get_case' function.
 class GetCaseRequest(BaseValidatorModel):
     caseId: str
     domainId: str
@@ -431,24 +461,28 @@ class GetCaseRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'batch_get_field' function.
 class BatchGetFieldResponse(BaseValidatorModel):
     errors: List[FieldError]
     fields: List[GetFieldResponse]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'batch_put_field_options' function.
 class BatchPutFieldOptionsRequest(BaseValidatorModel):
     domainId: str
     fieldId: str
     options: List[FieldOption]
 
 
+# This class is the output for the 'list_field_options' function.
 class ListFieldOptionsResponse(BaseValidatorModel):
     options: List[FieldOption]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'batch_put_field_options' function.
 class BatchPutFieldOptionsResponse(BaseValidatorModel):
     errors: List[FieldOptionError]
     ResponseMetadata: ResponseMetadata
@@ -466,18 +500,21 @@ class BooleanOperands(BaseValidatorModel):
     result: bool
 
 
+# This class is the output for the 'list_case_rules' function.
 class ListCaseRulesResponse(BaseValidatorModel):
     caseRules: List[CaseRuleSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_cases_for_contact' function.
 class ListCasesForContactResponse(BaseValidatorModel):
     cases: List[CaseSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_template' function.
 class CreateTemplateRequest(BaseValidatorModel):
     domainId: str
     name: str
@@ -488,6 +525,7 @@ class CreateTemplateRequest(BaseValidatorModel):
     status: Optional[TemplateStatusType] = None
 
 
+# This class is the output for the 'get_template' function.
 class GetTemplateResponse(BaseValidatorModel):
     createdTime: datetime
     deleted: bool
@@ -515,6 +553,7 @@ class UpdateTemplateRequest(BaseValidatorModel):
     status: Optional[TemplateStatusType] = None
 
 
+# This class is the output for the 'list_domains' function.
 class ListDomainsResponse(BaseValidatorModel):
     domains: List[DomainSummary]
     ResponseMetadata: ResponseMetadata
@@ -531,6 +570,7 @@ class FieldGroup(BaseValidatorModel):
     name: Optional[str] = None
 
 
+# This class is the output for the 'list_fields' function.
 class ListFieldsResponse(BaseValidatorModel):
     fields: List[FieldSummary]
     ResponseMetadata: ResponseMetadata
@@ -562,6 +602,7 @@ class RelatedItemTypeFilter(BaseValidatorModel):
     file: Optional[FileFilter] = None
 
 
+# This class is the output for the 'list_layouts' function.
 class ListLayoutsResponse(BaseValidatorModel):
     layouts: List[LayoutSummary]
     ResponseMetadata: ResponseMetadata
@@ -573,6 +614,7 @@ class ListCaseRulesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_templates' function.
 class ListTemplatesResponse(BaseValidatorModel):
     templates: List[TemplateSummary]
     ResponseMetadata: ResponseMetadata
@@ -616,6 +658,7 @@ class Section(BaseValidatorModel):
     fieldGroup: Optional[FieldGroup] = None
 
 
+# This class is the output for the 'get_case' function.
 class GetCaseResponse(BaseValidatorModel):
     fields: List[FieldValueOutput]
     tags: Dict[str, str]
@@ -645,6 +688,7 @@ class SearchRelatedItemsResponseItem(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_related_item' function.
 class CreateRelatedItemRequest(BaseValidatorModel):
     caseId: str
     content: RelatedItemInputContent
@@ -660,6 +704,7 @@ class SearchRelatedItemsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_related_items' function.
 class SearchRelatedItemsRequest(BaseValidatorModel):
     caseId: str
     domainId: str
@@ -668,6 +713,7 @@ class SearchRelatedItemsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_case_audit_events' function.
 class GetCaseAuditEventsResponse(BaseValidatorModel):
     auditEvents: List[AuditEvent]
     ResponseMetadata: ResponseMetadata
@@ -702,6 +748,7 @@ class LayoutSections(BaseValidatorModel):
     sections: Optional[List[Section]] = None
 
 
+# This class is the output for the 'search_cases' function.
 class SearchCasesResponse(BaseValidatorModel):
     cases: List[SearchCasesResponseItem]
     ResponseMetadata: ResponseMetadata
@@ -710,12 +757,14 @@ class SearchCasesResponse(BaseValidatorModel):
 FieldValueUnionExtra = Union[FieldValue, FieldValueOutput]
 
 
+# This class is the output for the 'search_related_items' function.
 class SearchRelatedItemsResponse(BaseValidatorModel):
     relatedItems: List[SearchRelatedItemsResponseItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_case_event_configuration' function.
 class GetCaseEventConfigurationResponse(BaseValidatorModel):
     eventBridge: EventBridgeConfigurationOutput
     ResponseMetadata: ResponseMetadata
@@ -741,6 +790,7 @@ class BasicLayout(BaseValidatorModel):
     topPanel: Optional[LayoutSections] = None
 
 
+# This class is the input for the 'create_case' function.
 class CreateCaseRequest(BaseValidatorModel):
     domainId: str
     fields: List[FieldValueUnionExtra]
@@ -806,12 +856,14 @@ class CaseFilter(BaseValidatorModel):
     orAll: Optional[List[Dict[str, Any]]] = None
 
 
+# This class is the output for the 'batch_get_case_rule' function.
 class BatchGetCaseRuleResponse(BaseValidatorModel):
     caseRules: List[GetCaseRuleResponse]
     errors: List[CaseRuleError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_case_rule' function.
 class CreateCaseRuleRequest(BaseValidatorModel):
     domainId: str
     name: str
@@ -827,6 +879,7 @@ class UpdateCaseRuleRequest(BaseValidatorModel):
     rule: Optional[CaseRuleDetailsUnion] = None
 
 
+# This class is the output for the 'get_layout' function.
 class GetLayoutResponse(BaseValidatorModel):
     content: LayoutContentOutput
     createdTime: datetime
@@ -850,6 +903,7 @@ class SearchCasesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_cases' function.
 class SearchCasesRequest(BaseValidatorModel):
     domainId: str
     fields: Optional[List[FieldIdentifier]] = None
@@ -860,6 +914,7 @@ class SearchCasesRequest(BaseValidatorModel):
     sorts: Optional[List[Sort]] = None
 
 
+# This class is the input for the 'create_layout' function.
 class CreateLayoutRequest(BaseValidatorModel):
     content: LayoutContentUnion
     domainId: str

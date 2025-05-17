@@ -22,6 +22,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_resource_telemetry_for_organization' function.
 class ListResourceTelemetryForOrganizationInput(BaseValidatorModel):
     AccountIdentifiers: Optional[List[str]] = None
     ResourceIdentifierPrefix: Optional[str] = None
@@ -41,6 +42,7 @@ class TelemetryConfiguration(BaseValidatorModel):
     LastUpdateTimeStamp: Optional[int] = None
 
 
+# This class is the input for the 'list_resource_telemetry' function.
 class ListResourceTelemetryInput(BaseValidatorModel):
     ResourceIdentifierPrefix: Optional[str] = None
     ResourceTypes: Optional[List[ResourceTypeType]] = None
@@ -83,12 +85,14 @@ class ListResourceTelemetryInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_resource_telemetry_for_organization' function.
 class ListResourceTelemetryForOrganizationOutput(BaseValidatorModel):
     TelemetryConfigurations: List[TelemetryConfiguration]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_resource_telemetry' function.
 class ListResourceTelemetryOutput(BaseValidatorModel):
     TelemetryConfigurations: List[TelemetryConfiguration]
     ResponseMetadata: ResponseMetadata

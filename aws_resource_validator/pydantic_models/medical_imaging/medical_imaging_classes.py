@@ -47,6 +47,7 @@ class MetadataCopies(BaseValidatorModel):
     copiableAttributes: str
 
 
+# This class is the input for the 'create_datastore' function.
 class CreateDatastoreRequest(BaseValidatorModel):
     clientToken: str
     datastoreName: Optional[str] = None
@@ -121,20 +122,24 @@ class DatastoreSummary(BaseValidatorModel):
     updatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'delete_datastore' function.
 class DeleteDatastoreRequest(BaseValidatorModel):
     datastoreId: str
 
 
+# This class is the input for the 'delete_image_set' function.
 class DeleteImageSetRequest(BaseValidatorModel):
     datastoreId: str
     imageSetId: str
 
 
+# This class is the input for the 'get_dicom_import_job' function.
 class GetDICOMImportJobRequest(BaseValidatorModel):
     datastoreId: str
     jobId: str
 
 
+# This class is the input for the 'get_datastore' function.
 class GetDatastoreRequest(BaseValidatorModel):
     datastoreId: str
 
@@ -143,12 +148,14 @@ class ImageFrameInformation(BaseValidatorModel):
     imageFrameId: str
 
 
+# This class is the input for the 'get_image_set_metadata' function.
 class GetImageSetMetadataRequest(BaseValidatorModel):
     datastoreId: str
     imageSetId: str
     versionId: Optional[str] = None
 
 
+# This class is the input for the 'get_image_set' function.
 class GetImageSetRequest(BaseValidatorModel):
     datastoreId: str
     imageSetId: str
@@ -165,6 +172,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_dicom_import_jobs' function.
 class ListDICOMImportJobsRequest(BaseValidatorModel):
     datastoreId: str
     jobStatus: Optional[JobStatusType] = None
@@ -172,12 +180,14 @@ class ListDICOMImportJobsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_datastores' function.
 class ListDatastoresRequest(BaseValidatorModel):
     datastoreStatus: Optional[DatastoreStatusType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_image_set_versions' function.
 class ListImageSetVersionsRequest(BaseValidatorModel):
     datastoreId: str
     imageSetId: str
@@ -185,6 +195,7 @@ class ListImageSetVersionsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -196,6 +207,7 @@ class Sort(BaseValidatorModel):
     sortField: SortFieldType
 
 
+# This class is the input for the 'start_dicom_import_job' function.
 class StartDICOMImportJobRequest(BaseValidatorModel):
     dataAccessRoleArn: str
     clientToken: str
@@ -221,6 +233,7 @@ class DICOMUpdates(BaseValidatorModel):
     updatableAttributes: Optional[Blob] = None
 
 
+# This class is the output for the 'copy_image_set' function.
 class CopyImageSetResponse(BaseValidatorModel):
     datastoreId: str
     sourceImageSetProperties: CopySourceImageSetProperties
@@ -228,18 +241,21 @@ class CopyImageSetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_datastore' function.
 class CreateDatastoreResponse(BaseValidatorModel):
     datastoreId: str
     datastoreStatus: DatastoreStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_datastore' function.
 class DeleteDatastoreResponse(BaseValidatorModel):
     datastoreId: str
     datastoreStatus: DatastoreStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_image_set' function.
 class DeleteImageSetResponse(BaseValidatorModel):
     datastoreId: str
     imageSetId: str
@@ -248,12 +264,14 @@ class DeleteImageSetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_image_frame' function.
 class GetImageFrameResponse(BaseValidatorModel):
     imageFrameBlob: StreamingBody
     contentType: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_image_set_metadata' function.
 class GetImageSetMetadataResponse(BaseValidatorModel):
     imageSetMetadataBlob: StreamingBody
     contentType: str
@@ -261,11 +279,13 @@ class GetImageSetMetadataResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_dicom_import_job' function.
 class StartDICOMImportJobResponse(BaseValidatorModel):
     datastoreId: str
     jobId: str
@@ -274,6 +294,7 @@ class StartDICOMImportJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_image_set_metadata' function.
 class UpdateImageSetMetadataResponse(BaseValidatorModel):
     datastoreId: str
     imageSetId: str
@@ -291,11 +312,13 @@ class CopySourceImageSetInformation(BaseValidatorModel):
     DICOMCopies: Optional[MetadataCopies] = None
 
 
+# This class is the output for the 'get_dicom_import_job' function.
 class GetDICOMImportJobResponse(BaseValidatorModel):
     jobProperties: DICOMImportJobProperties
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_dicom_import_jobs' function.
 class ListDICOMImportJobsResponse(BaseValidatorModel):
     jobSummaries: List[DICOMImportJobSummary]
     ResponseMetadata: ResponseMetadata
@@ -310,23 +333,27 @@ class ImageSetsMetadataSummary(BaseValidatorModel):
     DICOMTags: Optional[DICOMTags] = None
 
 
+# This class is the output for the 'get_datastore' function.
 class GetDatastoreResponse(BaseValidatorModel):
     datastoreProperties: DatastoreProperties
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_datastores' function.
 class ListDatastoresResponse(BaseValidatorModel):
     datastoreSummaries: List[DatastoreSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_image_frame' function.
 class GetImageFrameRequest(BaseValidatorModel):
     datastoreId: str
     imageSetId: str
     imageFrameInformation: ImageFrameInformation
 
 
+# This class is the output for the 'get_image_set' function.
 class GetImageSetResponse(BaseValidatorModel):
     datastoreId: str
     imageSetId: str
@@ -392,6 +419,7 @@ class CopyImageSetInformation(BaseValidatorModel):
     destinationImageSet: Optional[CopyDestinationImageSet] = None
 
 
+# This class is the output for the 'search_image_sets' function.
 class SearchImageSetsResponse(BaseValidatorModel):
     imageSetsMetadataSummaries: List[ImageSetsMetadataSummary]
     sort: Sort
@@ -399,6 +427,7 @@ class SearchImageSetsResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_image_set_versions' function.
 class ListImageSetVersionsResponse(BaseValidatorModel):
     imageSetPropertiesList: List[ImageSetProperties]
     ResponseMetadata: ResponseMetadata
@@ -410,6 +439,7 @@ class SearchFilter(BaseValidatorModel):
     operator: OperatorType
 
 
+# This class is the input for the 'update_image_set_metadata' function.
 class UpdateImageSetMetadataRequest(BaseValidatorModel):
     datastoreId: str
     imageSetId: str
@@ -418,6 +448,7 @@ class UpdateImageSetMetadataRequest(BaseValidatorModel):
     force: Optional[bool] = None
 
 
+# This class is the input for the 'copy_image_set' function.
 class CopyImageSetRequest(BaseValidatorModel):
     datastoreId: str
     sourceImageSetId: str
@@ -436,6 +467,7 @@ class SearchImageSetsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_image_sets' function.
 class SearchImageSetsRequest(BaseValidatorModel):
     datastoreId: str
     searchCriteria: Optional[SearchCriteria] = None

@@ -38,6 +38,7 @@ class ApplicationSummary(BaseValidatorModel):
     SpdxLicenseId: Optional[str] = None
 
 
+# This class is the input for the 'create_application' function.
 class CreateApplicationRequest(BaseValidatorModel):
     Author: str
     Description: str
@@ -64,6 +65,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_application_version' function.
 class CreateApplicationVersionRequest(BaseValidatorModel):
     ApplicationId: str
     SemanticVersion: str
@@ -99,24 +101,29 @@ class Tag(BaseValidatorModel):
     Value: str
 
 
+# This class is the input for the 'create_cloud_formation_template' function.
 class CreateCloudFormationTemplateRequest(BaseValidatorModel):
     ApplicationId: str
     SemanticVersion: Optional[str] = None
 
 
+# This class is the input for the 'delete_application' function.
 class DeleteApplicationRequest(BaseValidatorModel):
     ApplicationId: str
 
 
+# This class is the input for the 'get_application_policy' function.
 class GetApplicationPolicyRequest(BaseValidatorModel):
     ApplicationId: str
 
 
+# This class is the input for the 'get_application' function.
 class GetApplicationRequest(BaseValidatorModel):
     ApplicationId: str
     SemanticVersion: Optional[str] = None
 
 
+# This class is the input for the 'get_cloud_formation_template' function.
 class GetCloudFormationTemplateRequest(BaseValidatorModel):
     ApplicationId: str
     TemplateId: str
@@ -128,6 +135,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_application_dependencies' function.
 class ListApplicationDependenciesRequest(BaseValidatorModel):
     ApplicationId: str
     MaxItems: Optional[int] = None
@@ -135,6 +143,7 @@ class ListApplicationDependenciesRequest(BaseValidatorModel):
     SemanticVersion: Optional[str] = None
 
 
+# This class is the input for the 'list_application_versions' function.
 class ListApplicationVersionsRequest(BaseValidatorModel):
     ApplicationId: str
     MaxItems: Optional[int] = None
@@ -148,6 +157,7 @@ class VersionSummary(BaseValidatorModel):
     SourceCodeUrl: Optional[str] = None
 
 
+# This class is the input for the 'list_applications' function.
 class ListApplicationsRequest(BaseValidatorModel):
     MaxItems: Optional[int] = None
     NextToken: Optional[str] = None
@@ -158,11 +168,13 @@ class RollbackTrigger(BaseValidatorModel):
     Type: str
 
 
+# This class is the input for the 'unshare_application' function.
 class UnshareApplicationRequest(BaseValidatorModel):
     ApplicationId: str
     OrganizationId: str
 
 
+# This class is the input for the 'update_application' function.
 class UpdateApplicationRequest(BaseValidatorModel):
     ApplicationId: str
     Author: Optional[str] = None
@@ -175,6 +187,7 @@ class UpdateApplicationRequest(BaseValidatorModel):
 ApplicationPolicyStatementUnion = Union[ApplicationPolicyStatement, ApplicationPolicyStatementOutput]
 
 
+# This class is the output for the 'create_cloud_formation_change_set' function.
 class CreateCloudFormationChangeSetResponse(BaseValidatorModel):
     ApplicationId: str
     ChangeSetId: str
@@ -183,6 +196,7 @@ class CreateCloudFormationChangeSetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_cloud_formation_template' function.
 class CreateCloudFormationTemplateResponse(BaseValidatorModel):
     ApplicationId: str
     CreationTime: str
@@ -194,15 +208,18 @@ class CreateCloudFormationTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'unshare_application' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_application_policy' function.
 class GetApplicationPolicyResponse(BaseValidatorModel):
     Statements: List[ApplicationPolicyStatementOutput]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_cloud_formation_template' function.
 class GetCloudFormationTemplateResponse(BaseValidatorModel):
     ApplicationId: str
     CreationTime: str
@@ -214,23 +231,27 @@ class GetCloudFormationTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_application_dependencies' function.
 class ListApplicationDependenciesResponse(BaseValidatorModel):
     Dependencies: List[ApplicationDependencySummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_applications' function.
 class ListApplicationsResponse(BaseValidatorModel):
     Applications: List[ApplicationSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'put_application_policy' function.
 class PutApplicationPolicyResponse(BaseValidatorModel):
     Statements: List[ApplicationPolicyStatementOutput]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_application_version' function.
 class CreateApplicationVersionResponse(BaseValidatorModel):
     ApplicationId: str
     CreationTime: str
@@ -271,6 +292,7 @@ class ListApplicationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_application_versions' function.
 class ListApplicationVersionsResponse(BaseValidatorModel):
     Versions: List[VersionSummary]
     ResponseMetadata: ResponseMetadata
@@ -282,11 +304,13 @@ class RollbackConfiguration(BaseValidatorModel):
     RollbackTriggers: Optional[List[RollbackTrigger]] = None
 
 
+# This class is the input for the 'put_application_policy' function.
 class PutApplicationPolicyRequest(BaseValidatorModel):
     ApplicationId: str
     Statements: List[ApplicationPolicyStatementUnion]
 
 
+# This class is the output for the 'create_application' function.
 class CreateApplicationResponse(BaseValidatorModel):
     ApplicationId: str
     Author: str
@@ -304,6 +328,7 @@ class CreateApplicationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_application' function.
 class GetApplicationResponse(BaseValidatorModel):
     ApplicationId: str
     Author: str
@@ -321,6 +346,7 @@ class GetApplicationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_application' function.
 class UpdateApplicationResponse(BaseValidatorModel):
     ApplicationId: str
     Author: str
@@ -338,6 +364,7 @@ class UpdateApplicationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_cloud_formation_change_set' function.
 class CreateCloudFormationChangeSetRequest(BaseValidatorModel):
     ApplicationId: str
     StackName: str

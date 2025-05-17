@@ -47,6 +47,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'batch_delete_phone_number' function.
 class BatchDeletePhoneNumberRequest(BaseValidatorModel):
     PhoneNumberIds: List[str]
 
@@ -57,6 +58,7 @@ class PhoneNumberError(BaseValidatorModel):
     ErrorMessage: Optional[str] = None
 
 
+# This class is the input for the 'batch_suspend_user' function.
 class BatchSuspendUserRequest(BaseValidatorModel):
     AccountId: str
     UserIdList: List[str]
@@ -68,6 +70,7 @@ class UserError(BaseValidatorModel):
     ErrorMessage: Optional[str] = None
 
 
+# This class is the input for the 'batch_unsuspend_user' function.
 class BatchUnsuspendUserRequest(BaseValidatorModel):
     AccountId: str
     UserIdList: List[str]
@@ -99,16 +102,19 @@ class ConversationRetentionSettings(BaseValidatorModel):
     RetentionDays: Optional[int] = None
 
 
+# This class is the input for the 'create_account' function.
 class CreateAccountRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'create_bot' function.
 class CreateBotRequest(BaseValidatorModel):
     AccountId: str
     DisplayName: str
     Domain: Optional[str] = None
 
 
+# This class is the input for the 'create_meeting_dial_out' function.
 class CreateMeetingDialOutRequest(BaseValidatorModel):
     MeetingId: str
     FromPhoneNumber: str
@@ -116,11 +122,13 @@ class CreateMeetingDialOutRequest(BaseValidatorModel):
     JoinToken: str
 
 
+# This class is the input for the 'create_phone_number_order' function.
 class CreatePhoneNumberOrderRequest(BaseValidatorModel):
     ProductType: PhoneNumberProductTypeType
     E164PhoneNumbers: List[str]
 
 
+# This class is the input for the 'create_room_membership' function.
 class CreateRoomMembershipRequest(BaseValidatorModel):
     AccountId: str
     RoomId: str
@@ -128,6 +136,7 @@ class CreateRoomMembershipRequest(BaseValidatorModel):
     Role: Optional[RoomMembershipRoleType] = None
 
 
+# This class is the input for the 'create_room' function.
 class CreateRoomRequest(BaseValidatorModel):
     AccountId: str
     Name: str
@@ -143,6 +152,7 @@ class Room(BaseValidatorModel):
     UpdatedTimestamp: Optional[datetime] = None
 
 
+# This class is the input for the 'create_user' function.
 class CreateUserRequest(BaseValidatorModel):
     AccountId: str
     Username: Optional[str] = None
@@ -154,21 +164,25 @@ class DeleteAccountRequest(BaseValidatorModel):
     AccountId: str
 
 
+# This class is the input for the 'delete_events_configuration' function.
 class DeleteEventsConfigurationRequest(BaseValidatorModel):
     AccountId: str
     BotId: str
 
 
+# This class is the input for the 'delete_phone_number' function.
 class DeletePhoneNumberRequest(BaseValidatorModel):
     PhoneNumberId: str
 
 
+# This class is the input for the 'delete_room_membership' function.
 class DeleteRoomMembershipRequest(BaseValidatorModel):
     AccountId: str
     RoomId: str
     MemberId: str
 
 
+# This class is the input for the 'delete_room' function.
 class DeleteRoomRequest(BaseValidatorModel):
     AccountId: str
     RoomId: str
@@ -190,19 +204,23 @@ class EventsConfiguration(BaseValidatorModel):
     LambdaFunctionArn: Optional[str] = None
 
 
+# This class is the input for the 'get_account' function.
 class GetAccountRequest(BaseValidatorModel):
     AccountId: str
 
 
+# This class is the input for the 'get_account_settings' function.
 class GetAccountSettingsRequest(BaseValidatorModel):
     AccountId: str
 
 
+# This class is the input for the 'get_bot' function.
 class GetBotRequest(BaseValidatorModel):
     AccountId: str
     BotId: str
 
 
+# This class is the input for the 'get_events_configuration' function.
 class GetEventsConfigurationRequest(BaseValidatorModel):
     AccountId: str
     BotId: str
@@ -212,28 +230,34 @@ class VoiceConnectorSettings(BaseValidatorModel):
     CdrBucket: Optional[str] = None
 
 
+# This class is the input for the 'get_phone_number_order' function.
 class GetPhoneNumberOrderRequest(BaseValidatorModel):
     PhoneNumberOrderId: str
 
 
+# This class is the input for the 'get_phone_number' function.
 class GetPhoneNumberRequest(BaseValidatorModel):
     PhoneNumberId: str
 
 
+# This class is the input for the 'get_retention_settings' function.
 class GetRetentionSettingsRequest(BaseValidatorModel):
     AccountId: str
 
 
+# This class is the input for the 'get_room' function.
 class GetRoomRequest(BaseValidatorModel):
     AccountId: str
     RoomId: str
 
 
+# This class is the input for the 'get_user' function.
 class GetUserRequest(BaseValidatorModel):
     AccountId: str
     UserId: str
 
 
+# This class is the input for the 'get_user_settings' function.
 class GetUserSettingsRequest(BaseValidatorModel):
     AccountId: str
     UserId: str
@@ -246,6 +270,7 @@ class Invite(BaseValidatorModel):
     EmailStatus: Optional[EmailStatusType] = None
 
 
+# This class is the input for the 'invite_users' function.
 class InviteUsersRequest(BaseValidatorModel):
     AccountId: str
     UserEmailList: List[str]
@@ -258,6 +283,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_accounts' function.
 class ListAccountsRequest(BaseValidatorModel):
     Name: Optional[str] = None
     UserEmail: Optional[str] = None
@@ -265,17 +291,20 @@ class ListAccountsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_bots' function.
 class ListBotsRequest(BaseValidatorModel):
     AccountId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_phone_number_orders' function.
 class ListPhoneNumberOrdersRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_phone_numbers' function.
 class ListPhoneNumbersRequest(BaseValidatorModel):
     Status: Optional[PhoneNumberStatusType] = None
     ProductType: Optional[PhoneNumberProductTypeType] = None
@@ -285,6 +314,7 @@ class ListPhoneNumbersRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_room_memberships' function.
 class ListRoomMembershipsRequest(BaseValidatorModel):
     AccountId: str
     RoomId: str
@@ -292,6 +322,7 @@ class ListRoomMembershipsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_rooms' function.
 class ListRoomsRequest(BaseValidatorModel):
     AccountId: str
     MemberId: Optional[str] = None
@@ -299,6 +330,7 @@ class ListRoomsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_supported_phone_number_countries' function.
 class ListSupportedPhoneNumberCountriesRequest(BaseValidatorModel):
     ProductType: PhoneNumberProductTypeType
 
@@ -308,6 +340,7 @@ class PhoneNumberCountry(BaseValidatorModel):
     SupportedPhoneNumberTypes: Optional[List[PhoneNumberTypeType]] = None
 
 
+# This class is the input for the 'list_users' function.
 class ListUsersRequest(BaseValidatorModel):
     AccountId: str
     UserEmail: Optional[str] = None
@@ -349,6 +382,7 @@ class PhoneNumberCapabilities(BaseValidatorModel):
     OutboundMMS: Optional[bool] = None
 
 
+# This class is the input for the 'put_events_configuration' function.
 class PutEventsConfigurationRequest(BaseValidatorModel):
     AccountId: str
     BotId: str
@@ -368,16 +402,19 @@ class RedactRoomMessageRequest(BaseValidatorModel):
     MessageId: str
 
 
+# This class is the input for the 'regenerate_security_token' function.
 class RegenerateSecurityTokenRequest(BaseValidatorModel):
     AccountId: str
     BotId: str
 
 
+# This class is the input for the 'reset_personal_pin' function.
 class ResetPersonalPINRequest(BaseValidatorModel):
     AccountId: str
     UserId: str
 
 
+# This class is the input for the 'restore_phone_number' function.
 class RestorePhoneNumberRequest(BaseValidatorModel):
     PhoneNumberId: str
 
@@ -386,6 +423,7 @@ class RoomRetentionSettings(BaseValidatorModel):
     RetentionDays: Optional[int] = None
 
 
+# This class is the input for the 'search_available_phone_numbers' function.
 class SearchAvailablePhoneNumbersRequest(BaseValidatorModel):
     AreaCode: Optional[str] = None
     City: Optional[str] = None
@@ -403,28 +441,33 @@ class TelephonySettings(BaseValidatorModel):
     SMS: bool
 
 
+# This class is the input for the 'update_account' function.
 class UpdateAccountRequest(BaseValidatorModel):
     AccountId: str
     Name: Optional[str] = None
     DefaultLicense: Optional[LicenseType] = None
 
 
+# This class is the input for the 'update_bot' function.
 class UpdateBotRequest(BaseValidatorModel):
     AccountId: str
     BotId: str
     Disabled: Optional[bool] = None
 
 
+# This class is the input for the 'update_phone_number' function.
 class UpdatePhoneNumberRequest(BaseValidatorModel):
     PhoneNumberId: str
     ProductType: Optional[PhoneNumberProductTypeType] = None
     CallingName: Optional[str] = None
 
 
+# This class is the input for the 'update_phone_number_settings' function.
 class UpdatePhoneNumberSettingsRequest(BaseValidatorModel):
     CallingName: str
 
 
+# This class is the input for the 'update_room_membership' function.
 class UpdateRoomMembershipRequest(BaseValidatorModel):
     AccountId: str
     RoomId: str
@@ -432,6 +475,7 @@ class UpdateRoomMembershipRequest(BaseValidatorModel):
     Role: Optional[RoomMembershipRoleType] = None
 
 
+# This class is the input for the 'update_room' function.
 class UpdateRoomRequest(BaseValidatorModel):
     AccountId: str
     RoomId: str
@@ -467,6 +511,7 @@ class UpdateUserRequestItem(BaseValidatorModel):
     AlexaForBusinessMetadata: Optional[AlexaForBusinessMetadata] = None
 
 
+# This class is the input for the 'update_user' function.
 class UpdateUserRequest(BaseValidatorModel):
     AccountId: str
     UserId: str
@@ -491,26 +536,31 @@ class User(BaseValidatorModel):
     PersonalPIN: Optional[str] = None
 
 
+# This class is the input for the 'batch_create_room_membership' function.
 class BatchCreateRoomMembershipRequest(BaseValidatorModel):
     AccountId: str
     RoomId: str
     MembershipItemList: List[MembershipItem]
 
 
+# This class is the output for the 'batch_create_room_membership' function.
 class BatchCreateRoomMembershipResponse(BaseValidatorModel):
     Errors: List[MemberError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_meeting_dial_out' function.
 class CreateMeetingDialOutResponse(BaseValidatorModel):
     TransactionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_user_settings' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_account_settings' function.
 class GetAccountSettingsResponse(BaseValidatorModel):
     AccountSettings: AccountSettings
     ResponseMetadata: ResponseMetadata
@@ -522,93 +572,111 @@ class GetPhoneNumberSettingsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_available_phone_numbers' function.
 class SearchAvailablePhoneNumbersResponse(BaseValidatorModel):
     E164PhoneNumbers: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'batch_delete_phone_number' function.
 class BatchDeletePhoneNumberResponse(BaseValidatorModel):
     PhoneNumberErrors: List[PhoneNumberError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_update_phone_number' function.
 class BatchUpdatePhoneNumberResponse(BaseValidatorModel):
     PhoneNumberErrors: List[PhoneNumberError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_suspend_user' function.
 class BatchSuspendUserResponse(BaseValidatorModel):
     UserErrors: List[UserError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_unsuspend_user' function.
 class BatchUnsuspendUserResponse(BaseValidatorModel):
     UserErrors: List[UserError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_update_user' function.
 class BatchUpdateUserResponse(BaseValidatorModel):
     UserErrors: List[UserError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'batch_update_phone_number' function.
 class BatchUpdatePhoneNumberRequest(BaseValidatorModel):
     UpdatePhoneNumberRequestItems: List[UpdatePhoneNumberRequestItem]
 
 
+# This class is the output for the 'create_bot' function.
 class CreateBotResponse(BaseValidatorModel):
     Bot: Bot
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_bot' function.
 class GetBotResponse(BaseValidatorModel):
     Bot: Bot
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_bots' function.
 class ListBotsResponse(BaseValidatorModel):
     Bots: List[Bot]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'regenerate_security_token' function.
 class RegenerateSecurityTokenResponse(BaseValidatorModel):
     Bot: Bot
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_bot' function.
 class UpdateBotResponse(BaseValidatorModel):
     Bot: Bot
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_room' function.
 class CreateRoomResponse(BaseValidatorModel):
     Room: Room
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_room' function.
 class GetRoomResponse(BaseValidatorModel):
     Room: Room
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_rooms' function.
 class ListRoomsResponse(BaseValidatorModel):
     Rooms: List[Room]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_room' function.
 class UpdateRoomResponse(BaseValidatorModel):
     Room: Room
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_events_configuration' function.
 class GetEventsConfigurationResponse(BaseValidatorModel):
     EventsConfiguration: EventsConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_events_configuration' function.
 class PutEventsConfigurationResponse(BaseValidatorModel):
     EventsConfiguration: EventsConfiguration
     ResponseMetadata: ResponseMetadata
@@ -620,11 +688,13 @@ class GetGlobalSettingsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_global_settings' function.
 class UpdateGlobalSettingsRequest(BaseValidatorModel):
     BusinessCalling: Optional[BusinessCallingSettings] = None
     VoiceConnector: Optional[VoiceConnectorSettings] = None
 
 
+# This class is the output for the 'invite_users' function.
 class InviteUsersResponse(BaseValidatorModel):
     Invites: List[Invite]
     ResponseMetadata: ResponseMetadata
@@ -643,6 +713,7 @@ class ListUsersRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_supported_phone_number_countries' function.
 class ListSupportedPhoneNumberCountriesResponse(BaseValidatorModel):
     PhoneNumberCountries: List[PhoneNumberCountry]
     ResponseMetadata: ResponseMetadata
@@ -690,133 +761,158 @@ class UserSettings(BaseValidatorModel):
     Telephony: TelephonySettings
 
 
+# This class is the output for the 'create_account' function.
 class CreateAccountResponse(BaseValidatorModel):
     Account: Account
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_account' function.
 class GetAccountResponse(BaseValidatorModel):
     Account: Account
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_accounts' function.
 class ListAccountsResponse(BaseValidatorModel):
     Accounts: List[Account]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_account' function.
 class UpdateAccountResponse(BaseValidatorModel):
     Account: Account
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'batch_update_user' function.
 class BatchUpdateUserRequest(BaseValidatorModel):
     AccountId: str
     UpdateUserRequestItems: List[UpdateUserRequestItem]
 
 
+# This class is the output for the 'create_user' function.
 class CreateUserResponse(BaseValidatorModel):
     User: User
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_user' function.
 class GetUserResponse(BaseValidatorModel):
     User: User
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_users' function.
 class ListUsersResponse(BaseValidatorModel):
     Users: List[User]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'reset_personal_pin' function.
 class ResetPersonalPINResponse(BaseValidatorModel):
     User: User
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_user' function.
 class UpdateUserResponse(BaseValidatorModel):
     User: User
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_room_membership' function.
 class CreateRoomMembershipResponse(BaseValidatorModel):
     RoomMembership: RoomMembership
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_room_memberships' function.
 class ListRoomMembershipsResponse(BaseValidatorModel):
     RoomMemberships: List[RoomMembership]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_room_membership' function.
 class UpdateRoomMembershipResponse(BaseValidatorModel):
     RoomMembership: RoomMembership
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_phone_number_order' function.
 class CreatePhoneNumberOrderResponse(BaseValidatorModel):
     PhoneNumberOrder: PhoneNumberOrder
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_phone_number_order' function.
 class GetPhoneNumberOrderResponse(BaseValidatorModel):
     PhoneNumberOrder: PhoneNumberOrder
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_phone_number_orders' function.
 class ListPhoneNumberOrdersResponse(BaseValidatorModel):
     PhoneNumberOrders: List[PhoneNumberOrder]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_phone_number' function.
 class GetPhoneNumberResponse(BaseValidatorModel):
     PhoneNumber: PhoneNumber
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_phone_numbers' function.
 class ListPhoneNumbersResponse(BaseValidatorModel):
     PhoneNumbers: List[PhoneNumber]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'restore_phone_number' function.
 class RestorePhoneNumberResponse(BaseValidatorModel):
     PhoneNumber: PhoneNumber
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_phone_number' function.
 class UpdatePhoneNumberResponse(BaseValidatorModel):
     PhoneNumber: PhoneNumber
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_retention_settings' function.
 class GetRetentionSettingsResponse(BaseValidatorModel):
     RetentionSettings: RetentionSettings
     InitiateDeletionTimestamp: datetime
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_retention_settings' function.
 class PutRetentionSettingsRequest(BaseValidatorModel):
     AccountId: str
     RetentionSettings: RetentionSettings
 
 
+# This class is the output for the 'put_retention_settings' function.
 class PutRetentionSettingsResponse(BaseValidatorModel):
     RetentionSettings: RetentionSettings
     InitiateDeletionTimestamp: datetime
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_user_settings' function.
 class GetUserSettingsResponse(BaseValidatorModel):
     UserSettings: UserSettings
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_user_settings' function.
 class UpdateUserSettingsRequest(BaseValidatorModel):
     AccountId: str
     UserId: str

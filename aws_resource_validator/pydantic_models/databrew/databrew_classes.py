@@ -16,6 +16,7 @@ class AllowedStatistics(BaseValidatorModel):
     Statistics: List[str]
 
 
+# This class is the input for the 'batch_delete_recipe_version' function.
 class BatchDeleteRecipeVersionRequest(BaseValidatorModel):
     Name: str
     RecipeVersions: List[str]
@@ -72,6 +73,7 @@ class RecipeReference(BaseValidatorModel):
     RecipeVersion: Optional[str] = None
 
 
+# This class is the input for the 'create_schedule' function.
 class CreateScheduleRequest(BaseValidatorModel):
     CronExpression: str
     Name: str
@@ -104,57 +106,70 @@ class FilterExpression(BaseValidatorModel):
     ValuesMap: Dict[str, str]
 
 
+# This class is the input for the 'delete_dataset' function.
 class DeleteDatasetRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'delete_job' function.
 class DeleteJobRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'delete_project' function.
 class DeleteProjectRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'delete_recipe_version' function.
 class DeleteRecipeVersionRequest(BaseValidatorModel):
     Name: str
     RecipeVersion: str
 
 
+# This class is the input for the 'delete_ruleset' function.
 class DeleteRulesetRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'delete_schedule' function.
 class DeleteScheduleRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'describe_dataset' function.
 class DescribeDatasetRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'describe_job' function.
 class DescribeJobRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'describe_job_run' function.
 class DescribeJobRunRequest(BaseValidatorModel):
     Name: str
     RunId: str
 
 
+# This class is the input for the 'describe_project' function.
 class DescribeProjectRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'describe_recipe' function.
 class DescribeRecipeRequest(BaseValidatorModel):
     Name: str
     RecipeVersion: Optional[str] = None
 
 
+# This class is the input for the 'describe_ruleset' function.
 class DescribeRulesetRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'describe_schedule' function.
 class DescribeScheduleRequest(BaseValidatorModel):
     Name: str
 
@@ -191,17 +206,20 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_datasets' function.
 class ListDatasetsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_job_runs' function.
 class ListJobRunsRequest(BaseValidatorModel):
     Name: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_jobs' function.
 class ListJobsRequest(BaseValidatorModel):
     DatasetName: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -209,23 +227,27 @@ class ListJobsRequest(BaseValidatorModel):
     ProjectName: Optional[str] = None
 
 
+# This class is the input for the 'list_projects' function.
 class ListProjectsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_recipe_versions' function.
 class ListRecipeVersionsRequest(BaseValidatorModel):
     Name: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_recipes' function.
 class ListRecipesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     RecipeVersion: Optional[str] = None
 
 
+# This class is the input for the 'list_rulesets' function.
 class ListRulesetsRequest(BaseValidatorModel):
     TargetArn: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -246,6 +268,7 @@ class RulesetItem(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_schedules' function.
 class ListSchedulesRequest(BaseValidatorModel):
     JobName: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -265,10 +288,12 @@ class Schedule(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'publish_recipe' function.
 class PublishRecipeRequest(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
@@ -299,10 +324,12 @@ class ViewFrame(BaseValidatorModel):
     Analytics: Optional[AnalyticsModeType] = None
 
 
+# This class is the input for the 'start_job_run' function.
 class StartJobRunRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'start_project_session' function.
 class StartProjectSessionRequest(BaseValidatorModel):
     Name: str
     AssumeControl: Optional[bool] = None
@@ -318,6 +345,7 @@ class StatisticOverride(BaseValidatorModel):
     Parameters: Dict[str, str]
 
 
+# This class is the input for the 'stop_job_run' function.
 class StopJobRunRequest(BaseValidatorModel):
     Name: str
     RunId: str
@@ -333,6 +361,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_schedule' function.
 class UpdateScheduleRequest(BaseValidatorModel):
     CronExpression: str
     Name: str
@@ -349,78 +378,93 @@ class EntityDetectorConfiguration(BaseValidatorModel):
     AllowedStatistics: Optional[List[AllowedStatistics]] = None
 
 
+# This class is the output for the 'batch_delete_recipe_version' function.
 class BatchDeleteRecipeVersionResponse(BaseValidatorModel):
     Name: str
     Errors: List[RecipeVersionErrorDetail]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_dataset' function.
 class CreateDatasetResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_profile_job' function.
 class CreateProfileJobResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_project' function.
 class CreateProjectResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_recipe_job' function.
 class CreateRecipeJobResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_recipe' function.
 class CreateRecipeResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_ruleset' function.
 class CreateRulesetResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_schedule' function.
 class CreateScheduleResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_dataset' function.
 class DeleteDatasetResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_job' function.
 class DeleteJobResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_project' function.
 class DeleteProjectResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_recipe_version' function.
 class DeleteRecipeVersionResponse(BaseValidatorModel):
     Name: str
     RecipeVersion: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_ruleset' function.
 class DeleteRulesetResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_schedule' function.
 class DeleteScheduleResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_schedule' function.
 class DescribeScheduleResponse(BaseValidatorModel):
     CreateDate: datetime
     CreatedBy: str
@@ -434,16 +478,19 @@ class DescribeScheduleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'publish_recipe' function.
 class PublishRecipeResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'send_project_session_action' function.
 class SendProjectSessionActionResponse(BaseValidatorModel):
     Result: str
     Name: str
@@ -451,53 +498,63 @@ class SendProjectSessionActionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_job_run' function.
 class StartJobRunResponse(BaseValidatorModel):
     RunId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_project_session' function.
 class StartProjectSessionResponse(BaseValidatorModel):
     Name: str
     ClientSessionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_job_run' function.
 class StopJobRunResponse(BaseValidatorModel):
     RunId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_dataset' function.
 class UpdateDatasetResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_profile_job' function.
 class UpdateProfileJobResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_project' function.
 class UpdateProjectResponse(BaseValidatorModel):
     LastModifiedDate: datetime
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_recipe_job' function.
 class UpdateRecipeJobResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_recipe' function.
 class UpdateRecipeResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_ruleset' function.
 class UpdateRulesetResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_schedule' function.
 class UpdateScheduleResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
@@ -526,6 +583,7 @@ class S3TableOutputOptions(BaseValidatorModel):
     Location: S3Location
 
 
+# This class is the input for the 'create_project' function.
 class CreateProjectRequest(BaseValidatorModel):
     DatasetName: str
     Name: str
@@ -535,6 +593,7 @@ class CreateProjectRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'describe_project' function.
 class DescribeProjectResponse(BaseValidatorModel):
     CreateDate: datetime
     CreatedBy: str
@@ -570,6 +629,7 @@ class Project(BaseValidatorModel):
     OpenDate: Optional[datetime] = None
 
 
+# This class is the input for the 'update_project' function.
 class UpdateProjectRequest(BaseValidatorModel):
     RoleArn: str
     Name: str
@@ -647,12 +707,14 @@ class ListSchedulesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_rulesets' function.
 class ListRulesetsResponse(BaseValidatorModel):
     Rulesets: List[RulesetItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_schedules' function.
 class ListSchedulesResponse(BaseValidatorModel):
     Schedules: List[Schedule]
     ResponseMetadata: ResponseMetadata
@@ -716,6 +778,7 @@ class DataCatalogOutput(BaseValidatorModel):
     Overwrite: Optional[bool] = None
 
 
+# This class is the output for the 'list_projects' function.
 class ListProjectsResponse(BaseValidatorModel):
     Projects: List[Project]
     ResponseMetadata: ResponseMetadata
@@ -756,6 +819,7 @@ class PathOptions(BaseValidatorModel):
 FormatOptionsUnion = Union[FormatOptions, FormatOptionsOutput]
 
 
+# This class is the output for the 'describe_recipe' function.
 class DescribeRecipeResponse(BaseValidatorModel):
     CreatedBy: str
     CreateDate: datetime
@@ -794,6 +858,7 @@ class RecipeStep(BaseValidatorModel):
     ConditionExpressions: Optional[List[ConditionExpression]] = None
 
 
+# This class is the output for the 'describe_ruleset' function.
 class DescribeRulesetResponse(BaseValidatorModel):
     Name: str
     Description: str
@@ -886,6 +951,7 @@ class Dataset(BaseValidatorModel):
     ResourceArn: Optional[str] = None
 
 
+# This class is the output for the 'describe_dataset' function.
 class DescribeDatasetResponse(BaseValidatorModel):
     CreatedBy: str
     CreateDate: datetime
@@ -904,12 +970,14 @@ class DescribeDatasetResponse(BaseValidatorModel):
 PathOptionsUnion = Union[PathOptions, PathOptionsOutput]
 
 
+# This class is the output for the 'list_recipe_versions' function.
 class ListRecipeVersionsResponse(BaseValidatorModel):
     Recipes: List[Recipe]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_recipes' function.
 class ListRecipesResponse(BaseValidatorModel):
     Recipes: List[Recipe]
     ResponseMetadata: ResponseMetadata
@@ -918,6 +986,7 @@ class ListRecipesResponse(BaseValidatorModel):
 RecipeStepUnion = Union[RecipeStep, RecipeStepOutput]
 
 
+# This class is the input for the 'create_ruleset' function.
 class CreateRulesetRequest(BaseValidatorModel):
     Name: str
     TargetArn: str
@@ -926,6 +995,7 @@ class CreateRulesetRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_ruleset' function.
 class UpdateRulesetRequest(BaseValidatorModel):
     Name: str
     Rules: List[RuleUnion]
@@ -946,18 +1016,21 @@ class ProfileConfiguration(BaseValidatorModel):
     EntityDetectorConfiguration: Optional[EntityDetectorConfiguration] = None
 
 
+# This class is the output for the 'list_job_runs' function.
 class ListJobRunsResponse(BaseValidatorModel):
     JobRuns: List[JobRun]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_jobs' function.
 class ListJobsResponse(BaseValidatorModel):
     Jobs: List[Job]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_recipe_job' function.
 class CreateRecipeJobRequest(BaseValidatorModel):
     Name: str
     RoleArn: str
@@ -976,6 +1049,7 @@ class CreateRecipeJobRequest(BaseValidatorModel):
     Timeout: Optional[int] = None
 
 
+# This class is the input for the 'update_recipe_job' function.
 class UpdateRecipeJobRequest(BaseValidatorModel):
     Name: str
     RoleArn: str
@@ -990,12 +1064,14 @@ class UpdateRecipeJobRequest(BaseValidatorModel):
     Timeout: Optional[int] = None
 
 
+# This class is the output for the 'list_datasets' function.
 class ListDatasetsResponse(BaseValidatorModel):
     Datasets: List[Dataset]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_dataset' function.
 class CreateDatasetRequest(BaseValidatorModel):
     Name: str
     Input: Input
@@ -1005,6 +1081,7 @@ class CreateDatasetRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_dataset' function.
 class UpdateDatasetRequest(BaseValidatorModel):
     Name: str
     Input: Input
@@ -1013,6 +1090,7 @@ class UpdateDatasetRequest(BaseValidatorModel):
     PathOptions: Optional[PathOptionsUnion] = None
 
 
+# This class is the input for the 'create_recipe' function.
 class CreateRecipeRequest(BaseValidatorModel):
     Name: str
     Steps: List[RecipeStepUnion]
@@ -1020,6 +1098,7 @@ class CreateRecipeRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'send_project_session_action' function.
 class SendProjectSessionActionRequest(BaseValidatorModel):
     Name: str
     Preview: Optional[bool] = None
@@ -1029,12 +1108,14 @@ class SendProjectSessionActionRequest(BaseValidatorModel):
     ViewFrame: Optional[ViewFrame] = None
 
 
+# This class is the input for the 'update_recipe' function.
 class UpdateRecipeRequest(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
     Steps: Optional[List[RecipeStepUnion]] = None
 
 
+# This class is the output for the 'describe_job' function.
 class DescribeJobResponse(BaseValidatorModel):
     CreateDate: datetime
     CreatedBy: str
@@ -1063,6 +1144,7 @@ class DescribeJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_job_run' function.
 class DescribeJobRunResponse(BaseValidatorModel):
     Attempt: int
     CompletedOn: datetime
@@ -1088,6 +1170,7 @@ class DescribeJobRunResponse(BaseValidatorModel):
 ProfileConfigurationUnion = Union[ProfileConfiguration, ProfileConfigurationOutput]
 
 
+# This class is the input for the 'create_profile_job' function.
 class CreateProfileJobRequest(BaseValidatorModel):
     DatasetName: str
     Name: str
@@ -1105,6 +1188,7 @@ class CreateProfileJobRequest(BaseValidatorModel):
     JobSample: Optional[JobSample] = None
 
 
+# This class is the input for the 'update_profile_job' function.
 class UpdateProfileJobRequest(BaseValidatorModel):
     Name: str
     OutputLocation: S3Location

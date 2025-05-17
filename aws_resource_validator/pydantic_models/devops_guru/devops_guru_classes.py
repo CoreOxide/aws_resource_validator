@@ -103,11 +103,13 @@ class DeleteInsightRequest(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'describe_anomaly' function.
 class DescribeAnomalyRequest(BaseValidatorModel):
     Id: str
     AccountId: Optional[str] = None
 
 
+# This class is the input for the 'describe_feedback' function.
 class DescribeFeedbackRequest(BaseValidatorModel):
     InsightId: Optional[str] = None
 
@@ -117,11 +119,13 @@ class InsightFeedback(BaseValidatorModel):
     Feedback: Optional[InsightFeedbackOptionType] = None
 
 
+# This class is the input for the 'describe_insight' function.
 class DescribeInsightRequest(BaseValidatorModel):
     Id: str
     AccountId: Optional[str] = None
 
 
+# This class is the input for the 'describe_organization_health' function.
 class DescribeOrganizationHealthRequest(BaseValidatorModel):
     AccountIds: Optional[List[str]] = None
     OrganizationalUnitIds: Optional[List[str]] = None
@@ -133,6 +137,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_organization_resource_collection_health' function.
 class DescribeOrganizationResourceCollectionHealthRequest(BaseValidatorModel):
     OrganizationResourceCollectionType: OrganizationResourceCollectionTypeType
     AccountIds: Optional[List[str]] = None
@@ -141,6 +146,7 @@ class DescribeOrganizationResourceCollectionHealthRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_resource_collection_health' function.
 class DescribeResourceCollectionHealthRequest(BaseValidatorModel):
     ResourceCollectionType: ResourceCollectionTypeType
     NextToken: Optional[str] = None
@@ -152,6 +158,7 @@ class EventResource(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
+# This class is the input for the 'get_cost_estimation' function.
 class GetCostEstimationRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
@@ -164,6 +171,7 @@ class ServiceResourceCost(BaseValidatorModel):
     Cost: Optional[float] = None
 
 
+# This class is the input for the 'get_resource_collection' function.
 class GetResourceCollectionRequest(BaseValidatorModel):
     ResourceCollectionType: ResourceCollectionTypeType
     NextToken: Optional[str] = None
@@ -186,6 +194,7 @@ class KMSServerSideEncryptionIntegration(BaseValidatorModel):
     Type: Optional[ServerSideEncryptionTypeType] = None
 
 
+# This class is the input for the 'list_anomalous_log_groups' function.
 class ListAnomalousLogGroupsRequest(BaseValidatorModel):
     InsightId: str
     MaxResults: Optional[int] = None
@@ -201,10 +210,12 @@ class ListMonitoredResourcesFilters(BaseValidatorModel):
     ResourceTypeFilters: List[ResourceTypeFilterType]
 
 
+# This class is the input for the 'list_notification_channels' function.
 class ListNotificationChannelsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_recommendations' function.
 class ListRecommendationsRequest(BaseValidatorModel):
     InsightId: str
     NextToken: Optional[str] = None
@@ -333,6 +344,7 @@ class AccountHealth(BaseValidatorModel):
     Insight: Optional[AccountInsightHealth] = None
 
 
+# This class is the output for the 'add_notification_channel' function.
 class AddNotificationChannelResponse(BaseValidatorModel):
     Id: str
     ResponseMetadata: ResponseMetadata
@@ -347,6 +359,7 @@ class DescribeAccountHealthResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_account_overview' function.
 class DescribeAccountOverviewResponse(BaseValidatorModel):
     ReactiveInsights: int
     ProactiveInsights: int
@@ -354,6 +367,7 @@ class DescribeAccountOverviewResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_organization_health' function.
 class DescribeOrganizationHealthResponse(BaseValidatorModel):
     OpenReactiveInsights: int
     OpenProactiveInsights: int
@@ -362,6 +376,7 @@ class DescribeOrganizationHealthResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_organization_overview' function.
 class DescribeOrganizationOverviewResponse(BaseValidatorModel):
     ReactiveInsights: int
     ProactiveInsights: int
@@ -402,11 +417,13 @@ class CostEstimationResourceCollectionFilter(BaseValidatorModel):
     Tags: Optional[List[TagCostEstimationResourceCollectionFilter]] = None
 
 
+# This class is the input for the 'describe_account_overview' function.
 class DescribeAccountOverviewRequest(BaseValidatorModel):
     FromTime: Timestamp
     ToTime: Optional[Timestamp] = None
 
 
+# This class is the input for the 'describe_organization_overview' function.
 class DescribeOrganizationOverviewRequest(BaseValidatorModel):
     FromTime: Timestamp
     ToTime: Optional[Timestamp] = None
@@ -429,6 +446,7 @@ class StartTimeRange(BaseValidatorModel):
     ToTime: Optional[Timestamp] = None
 
 
+# This class is the output for the 'describe_feedback' function.
 class DescribeFeedbackResponse(BaseValidatorModel):
     InsightFeedback: InsightFeedback
     ResponseMetadata: ResponseMetadata
@@ -481,6 +499,7 @@ class ListMonitoredResourcesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_monitored_resources' function.
 class ListMonitoredResourcesRequest(BaseValidatorModel):
     Filters: Optional[ListMonitoredResourcesFilters] = None
     MaxResults: Optional[int] = None
@@ -572,6 +591,7 @@ class CloudWatchMetricsDetail(BaseValidatorModel):
     MetricDataSummary: Optional[CloudWatchMetricsDataSummary] = None
 
 
+# This class is the output for the 'get_cost_estimation' function.
 class GetCostEstimationResponse(BaseValidatorModel):
     ResourceCollection: CostEstimationResourceCollectionFilterOutput
     Status: CostEstimationStatusType
@@ -628,6 +648,7 @@ class RecommendationRelatedAnomaly(BaseValidatorModel):
     AnomalyId: Optional[str] = None
 
 
+# This class is the output for the 'get_resource_collection' function.
 class GetResourceCollectionResponse(BaseValidatorModel):
     ResourceCollection: ResourceCollectionFilter
     ResponseMetadata: ResponseMetadata
@@ -728,6 +749,7 @@ class ListAnomaliesForInsightFilters(BaseValidatorModel):
     ServiceCollection: Optional[ServiceCollectionUnion] = None
 
 
+# This class is the output for the 'describe_organization_resource_collection_health' function.
 class DescribeOrganizationResourceCollectionHealthResponse(BaseValidatorModel):
     CloudFormation: List[CloudFormationHealth]
     Service: List[ServiceHealth]
@@ -737,6 +759,7 @@ class DescribeOrganizationResourceCollectionHealthResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_resource_collection_health' function.
 class DescribeResourceCollectionHealthResponse(BaseValidatorModel):
     CloudFormation: List[CloudFormationHealth]
     Service: List[ServiceHealth]
@@ -766,6 +789,7 @@ class ListInsightsStatusFilter(BaseValidatorModel):
     Any: Optional[ListInsightsAnyStatusFilter] = None
 
 
+# This class is the output for the 'list_anomalous_log_groups' function.
 class ListAnomalousLogGroupsResponse(BaseValidatorModel):
     InsightId: str
     AnomalousLogGroups: List[AnomalousLogGroup]
@@ -773,12 +797,14 @@ class ListAnomalousLogGroupsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_notification_channels' function.
 class ListNotificationChannelsResponse(BaseValidatorModel):
     Channels: List[NotificationChannel]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'add_notification_channel' function.
 class AddNotificationChannelRequest(BaseValidatorModel):
     Config: NotificationChannelConfigUnion
 
@@ -798,18 +824,21 @@ class Recommendation(BaseValidatorModel):
     Category: Optional[str] = None
 
 
+# This class is the output for the 'list_events' function.
 class ListEventsResponse(BaseValidatorModel):
     Events: List[Event]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_monitored_resources' function.
 class ListMonitoredResourcesResponse(BaseValidatorModel):
     MonitoredResourceIdentifiers: List[MonitoredResourceIdentifier]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_insights' function.
 class ListInsightsResponse(BaseValidatorModel):
     ProactiveInsights: List[ProactiveInsightSummary]
     ReactiveInsights: List[ReactiveInsightSummary]
@@ -817,6 +846,7 @@ class ListInsightsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'search_insights' function.
 class SearchInsightsResponse(BaseValidatorModel):
     ProactiveInsights: List[ProactiveInsightSummary]
     ReactiveInsights: List[ReactiveInsightSummary]
@@ -824,6 +854,7 @@ class SearchInsightsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'search_organization_insights' function.
 class SearchOrganizationInsightsResponse(BaseValidatorModel):
     ProactiveInsights: List[ProactiveInsightSummary]
     ReactiveInsights: List[ReactiveInsightSummary]
@@ -831,12 +862,14 @@ class SearchOrganizationInsightsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_insight' function.
 class DescribeInsightResponse(BaseValidatorModel):
     ProactiveInsight: ProactiveInsight
     ReactiveInsight: ReactiveInsight
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_organization_insights' function.
 class ListOrganizationInsightsResponse(BaseValidatorModel):
     ProactiveInsights: List[ProactiveOrganizationInsightSummary]
     ReactiveInsights: List[ReactiveOrganizationInsightSummary]
@@ -852,6 +885,7 @@ class ListAnomaliesForInsightRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_anomalies_for_insight' function.
 class ListAnomaliesForInsightRequest(BaseValidatorModel):
     InsightId: str
     StartTimeRange: Optional[StartTimeRange] = None
@@ -868,6 +902,7 @@ class ListInsightsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_insights' function.
 class ListInsightsRequest(BaseValidatorModel):
     StatusFilter: ListInsightsStatusFilter
     MaxResults: Optional[int] = None
@@ -881,6 +916,7 @@ class ListOrganizationInsightsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_organization_insights' function.
 class ListOrganizationInsightsRequest(BaseValidatorModel):
     StatusFilter: ListInsightsStatusFilter
     MaxResults: Optional[int] = None
@@ -894,6 +930,7 @@ class PerformanceInsightsReferenceData(BaseValidatorModel):
     ComparisonValues: Optional[PerformanceInsightsReferenceComparisonValues] = None
 
 
+# This class is the output for the 'list_recommendations' function.
 class ListRecommendationsResponse(BaseValidatorModel):
     Recommendations: List[Recommendation]
     ResponseMetadata: ResponseMetadata
@@ -938,6 +975,7 @@ class ListEventsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_events' function.
 class ListEventsRequest(BaseValidatorModel):
     Filters: ListEventsFilters
     MaxResults: Optional[int] = None
@@ -952,6 +990,7 @@ class SearchInsightsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_insights' function.
 class SearchInsightsRequest(BaseValidatorModel):
     StartTimeRange: StartTimeRange
     Type: InsightTypeType
@@ -968,6 +1007,7 @@ class SearchOrganizationInsightsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_organization_insights' function.
 class SearchOrganizationInsightsRequest(BaseValidatorModel):
     AccountIds: List[str]
     StartTimeRange: StartTimeRange
@@ -1048,6 +1088,7 @@ class ReactiveAnomaly(BaseValidatorModel):
     AnomalyResources: Optional[List[AnomalyResource]] = None
 
 
+# This class is the output for the 'list_anomalies_for_insight' function.
 class ListAnomaliesForInsightResponse(BaseValidatorModel):
     ProactiveAnomalies: List[ProactiveAnomalySummary]
     ReactiveAnomalies: List[ReactiveAnomalySummary]
@@ -1055,6 +1096,7 @@ class ListAnomaliesForInsightResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_anomaly' function.
 class DescribeAnomalyResponse(BaseValidatorModel):
     ProactiveAnomaly: ProactiveAnomaly
     ReactiveAnomaly: ReactiveAnomaly

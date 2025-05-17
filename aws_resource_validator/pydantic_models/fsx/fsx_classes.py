@@ -28,6 +28,7 @@ class Alias(BaseValidatorModel):
     Lifecycle: Optional[AliasLifecycleType] = None
 
 
+# This class is the input for the 'associate_file_system_aliases' function.
 class AssociateFileSystemAliasesRequest(BaseValidatorModel):
     FileSystemId: str
     Aliases: List[str]
@@ -72,6 +73,7 @@ class Tag(BaseValidatorModel):
     Value: str
 
 
+# This class is the input for the 'cancel_data_repository_task' function.
 class CancelDataRepositoryTaskRequest(BaseValidatorModel):
     TaskId: str
 
@@ -83,6 +85,7 @@ class CompletionReport(BaseValidatorModel):
     Scope: Optional[Literal['FAILED_FILES_ONLY']] = None
 
 
+# This class is the input for the 'copy_snapshot_and_update_volume' function.
 class CopySnapshotAndUpdateVolumeRequest(BaseValidatorModel):
     VolumeId: str
     SourceSnapshotARN: str
@@ -172,27 +175,32 @@ class DataRepositoryTaskStatus(BaseValidatorModel):
     ReleasedCapacity: Optional[int] = None
 
 
+# This class is the input for the 'delete_backup' function.
 class DeleteBackupRequest(BaseValidatorModel):
     BackupId: str
     ClientRequestToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_data_repository_association' function.
 class DeleteDataRepositoryAssociationRequest(BaseValidatorModel):
     AssociationId: str
     ClientRequestToken: Optional[str] = None
     DeleteDataInFileSystem: Optional[bool] = None
 
 
+# This class is the input for the 'delete_file_cache' function.
 class DeleteFileCacheRequest(BaseValidatorModel):
     FileCacheId: str
     ClientRequestToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_snapshot' function.
 class DeleteSnapshotRequest(BaseValidatorModel):
     SnapshotId: str
     ClientRequestToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_storage_virtual_machine' function.
 class DeleteStorageVirtualMachineRequest(BaseValidatorModel):
     StorageVirtualMachineId: str
     ClientRequestToken: Optional[str] = None
@@ -213,12 +221,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_file_caches' function.
 class DescribeFileCachesRequest(BaseValidatorModel):
     FileCacheIds: Optional[List[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_file_system_aliases' function.
 class DescribeFileSystemAliasesRequest(BaseValidatorModel):
     FileSystemId: str
     ClientRequestToken: Optional[str] = None
@@ -226,6 +236,7 @@ class DescribeFileSystemAliasesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_file_systems' function.
 class DescribeFileSystemsRequest(BaseValidatorModel):
     FileSystemIds: Optional[List[str]] = None
     MaxResults: Optional[int] = None
@@ -247,6 +258,7 @@ class VolumeFilter(BaseValidatorModel):
     Values: Optional[List[str]] = None
 
 
+# This class is the input for the 'disassociate_file_system_aliases' function.
 class DisassociateFileSystemAliasesRequest(BaseValidatorModel):
     FileSystemId: str
     Aliases: List[str]
@@ -290,6 +302,7 @@ class LifecycleTransitionReason(BaseValidatorModel):
     Message: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
     MaxResults: Optional[int] = None
@@ -321,11 +334,13 @@ class OpenZFSOriginSnapshotConfiguration(BaseValidatorModel):
     CopyStrategy: Optional[OpenZFSCopyStrategyType] = None
 
 
+# This class is the input for the 'release_file_system_nfs_v3_locks' function.
 class ReleaseFileSystemNfsV3LocksRequest(BaseValidatorModel):
     FileSystemId: str
     ClientRequestToken: Optional[str] = None
 
 
+# This class is the input for the 'restore_volume_from_snapshot' function.
 class RestoreVolumeFromSnapshotRequest(BaseValidatorModel):
     VolumeId: str
     SnapshotId: str
@@ -355,6 +370,7 @@ class SelfManagedActiveDirectoryConfigurationUpdates(BaseValidatorModel):
     FileSystemAdministratorsGroup: Optional[str] = None
 
 
+# This class is the input for the 'start_misconfigured_state_recovery' function.
 class StartMisconfiguredStateRecoveryRequest(BaseValidatorModel):
     FileSystemId: str
     ClientRequestToken: Optional[str] = None
@@ -379,11 +395,13 @@ class UpdateFileSystemLustreMetadataConfiguration(BaseValidatorModel):
     Mode: Optional[MetadataConfigurationModeType] = None
 
 
+# This class is the input for the 'update_shared_vpc_configuration' function.
 class UpdateSharedVpcConfigurationRequest(BaseValidatorModel):
     EnableFsxRouteTableUpdatesFromParticipantAccounts: Optional[str] = None
     ClientRequestToken: Optional[str] = None
 
 
+# This class is the input for the 'update_snapshot' function.
 class UpdateSnapshotRequest(BaseValidatorModel):
     Name: str
     SnapshotId: str
@@ -396,23 +414,27 @@ class WindowsAuditLogConfiguration(BaseValidatorModel):
     AuditLogDestination: Optional[str] = None
 
 
+# This class is the output for the 'associate_file_system_aliases' function.
 class AssociateFileSystemAliasesResponse(BaseValidatorModel):
     Aliases: List[Alias]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_data_repository_task' function.
 class CancelDataRepositoryTaskResponse(BaseValidatorModel):
     Lifecycle: DataRepositoryTaskLifecycleType
     TaskId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_backup' function.
 class DeleteBackupResponse(BaseValidatorModel):
     BackupId: str
     Lifecycle: BackupLifecycleType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_data_repository_association' function.
 class DeleteDataRepositoryAssociationResponse(BaseValidatorModel):
     AssociationId: str
     Lifecycle: DataRepositoryLifecycleType
@@ -420,24 +442,28 @@ class DeleteDataRepositoryAssociationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_file_cache' function.
 class DeleteFileCacheResponse(BaseValidatorModel):
     FileCacheId: str
     Lifecycle: FileCacheLifecycleType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_snapshot' function.
 class DeleteSnapshotResponse(BaseValidatorModel):
     SnapshotId: str
     Lifecycle: SnapshotLifecycleType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_storage_virtual_machine' function.
 class DeleteStorageVirtualMachineResponse(BaseValidatorModel):
     StorageVirtualMachineId: str
     Lifecycle: StorageVirtualMachineLifecycleType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_file_system_aliases' function.
 class DescribeFileSystemAliasesResponse(BaseValidatorModel):
     Aliases: List[Alias]
     ResponseMetadata: ResponseMetadata
@@ -449,11 +475,13 @@ class DescribeSharedVpcConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_file_system_aliases' function.
 class DisassociateFileSystemAliasesResponse(BaseValidatorModel):
     Aliases: List[Alias]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_shared_vpc_configuration' function.
 class UpdateSharedVpcConfigurationResponse(BaseValidatorModel):
     EnableFsxRouteTableUpdatesFromParticipantAccounts: str
     ResponseMetadata: ResponseMetadata
@@ -475,6 +503,7 @@ class S3DataRepositoryConfiguration(BaseValidatorModel):
     AutoExportPolicy: Optional[AutoExportPolicy] = None
 
 
+# This class is the input for the 'copy_backup' function.
 class CopyBackupRequest(BaseValidatorModel):
     SourceBackupId: str
     ClientRequestToken: Optional[str] = None
@@ -484,6 +513,7 @@ class CopyBackupRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_backup' function.
 class CreateBackupRequest(BaseValidatorModel):
     FileSystemId: Optional[str] = None
     ClientRequestToken: Optional[str] = None
@@ -491,6 +521,7 @@ class CreateBackupRequest(BaseValidatorModel):
     VolumeId: Optional[str] = None
 
 
+# This class is the input for the 'create_snapshot' function.
 class CreateSnapshotRequest(BaseValidatorModel):
     Name: str
     VolumeId: str
@@ -540,6 +571,7 @@ class DeleteVolumeOntapResponse(BaseValidatorModel):
     FinalBackupTags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -645,6 +677,7 @@ class DataRepositoryConfiguration(BaseValidatorModel):
     FailureDetails: Optional[DataRepositoryFailureDetails] = None
 
 
+# This class is the input for the 'describe_data_repository_tasks' function.
 class DescribeDataRepositoryTasksRequest(BaseValidatorModel):
     TaskIds: Optional[List[str]] = None
     Filters: Optional[List[DataRepositoryTaskFilter]] = None
@@ -652,6 +685,7 @@ class DescribeDataRepositoryTasksRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_backups' function.
 class DescribeBackupsRequest(BaseValidatorModel):
     BackupIds: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -659,6 +693,7 @@ class DescribeBackupsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_data_repository_associations' function.
 class DescribeDataRepositoryAssociationsRequest(BaseValidatorModel):
     AssociationIds: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -682,6 +717,7 @@ class ListTagsForResourceRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_snapshots' function.
 class DescribeSnapshotsRequest(BaseValidatorModel):
     SnapshotIds: Optional[List[str]] = None
     Filters: Optional[List[SnapshotFilter]] = None
@@ -696,6 +732,7 @@ class DescribeStorageVirtualMachinesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_storage_virtual_machines' function.
 class DescribeStorageVirtualMachinesRequest(BaseValidatorModel):
     StorageVirtualMachineIds: Optional[List[str]] = None
     Filters: Optional[List[StorageVirtualMachineFilter]] = None
@@ -709,6 +746,7 @@ class DescribeVolumesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_volumes' function.
 class DescribeVolumesRequest(BaseValidatorModel):
     VolumeIds: Optional[List[str]] = None
     Filters: Optional[List[VolumeFilter]] = None
@@ -806,6 +844,7 @@ class SvmEndpoints(BaseValidatorModel):
     Smb: Optional[SvmEndpoint] = None
 
 
+# This class is the input for the 'update_file_cache' function.
 class UpdateFileCacheRequest(BaseValidatorModel):
     FileCacheId: str
     ClientRequestToken: Optional[str] = None
@@ -851,6 +890,7 @@ class DataRepositoryAssociation(BaseValidatorModel):
 S3DataRepositoryConfigurationUnion = Union[S3DataRepositoryConfiguration, S3DataRepositoryConfigurationOutput]
 
 
+# This class is the input for the 'delete_file_system' function.
 class DeleteFileSystemRequest(BaseValidatorModel):
     FileSystemId: str
     ClientRequestToken: Optional[str] = None
@@ -859,6 +899,7 @@ class DeleteFileSystemRequest(BaseValidatorModel):
     OpenZFSConfiguration: Optional[DeleteFileSystemOpenZFSConfiguration] = None
 
 
+# This class is the output for the 'delete_file_system' function.
 class DeleteFileSystemResponse(BaseValidatorModel):
     FileSystemId: str
     Lifecycle: FileSystemLifecycleType
@@ -868,6 +909,7 @@ class DeleteFileSystemResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'delete_volume' function.
 class DeleteVolumeRequest(BaseValidatorModel):
     VolumeId: str
     ClientRequestToken: Optional[str] = None
@@ -875,6 +917,7 @@ class DeleteVolumeRequest(BaseValidatorModel):
     OpenZFSConfiguration: Optional[DeleteVolumeOpenZFSConfiguration] = None
 
 
+# This class is the output for the 'delete_volume' function.
 class DeleteVolumeResponse(BaseValidatorModel):
     VolumeId: str
     Lifecycle: VolumeLifecycleType
@@ -882,6 +925,7 @@ class DeleteVolumeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_storage_virtual_machine' function.
 class CreateStorageVirtualMachineRequest(BaseValidatorModel):
     FileSystemId: str
     Name: str
@@ -909,6 +953,7 @@ class LustreFileSystemConfiguration(BaseValidatorModel):
     EfaEnabled: Optional[bool] = None
 
 
+# This class is the input for the 'create_data_repository_task' function.
 class CreateDataRepositoryTaskRequest(BaseValidatorModel):
     Type: DataRepositoryTaskTypeType
     FileSystemId: str
@@ -939,6 +984,7 @@ class DataRepositoryTask(BaseValidatorModel):
     ReleaseConfiguration: Optional[ReleaseConfiguration] = None
 
 
+# This class is the input for the 'create_file_cache' function.
 class CreateFileCacheRequest(BaseValidatorModel):
     FileCacheType: Literal['LUSTRE']
     FileCacheTypeVersion: str
@@ -1009,17 +1055,20 @@ class OntapFileSystemConfiguration(BaseValidatorModel):
     ThroughputCapacityPerHAPair: Optional[int] = None
 
 
+# This class is the output for the 'create_snapshot' function.
 class CreateSnapshotResponse(BaseValidatorModel):
     Snapshot: Snapshot
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_snapshots' function.
 class DescribeSnapshotsResponse(BaseValidatorModel):
     Snapshots: List[Snapshot]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_snapshot' function.
 class UpdateSnapshotResponse(BaseValidatorModel):
     Snapshot: Snapshot
     ResponseMetadata: ResponseMetadata
@@ -1107,6 +1156,7 @@ class UpdateSnaplockConfiguration(BaseValidatorModel):
     VolumeAppendModeEnabled: Optional[bool] = None
 
 
+# This class is the input for the 'update_storage_virtual_machine' function.
 class UpdateStorageVirtualMachineRequest(BaseValidatorModel):
     StorageVirtualMachineId: str
     ActiveDirectoryConfiguration: Optional[UpdateSvmActiveDirectoryConfiguration] = None
@@ -1130,22 +1180,26 @@ class StorageVirtualMachine(BaseValidatorModel):
     RootVolumeSecurityStyle: Optional[StorageVirtualMachineRootVolumeSecurityStyleType] = None
 
 
+# This class is the output for the 'create_data_repository_association' function.
 class CreateDataRepositoryAssociationResponse(BaseValidatorModel):
     Association: DataRepositoryAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_data_repository_associations' function.
 class DescribeDataRepositoryAssociationsResponse(BaseValidatorModel):
     Associations: List[DataRepositoryAssociation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_data_repository_association' function.
 class UpdateDataRepositoryAssociationResponse(BaseValidatorModel):
     Association: DataRepositoryAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_data_repository_association' function.
 class CreateDataRepositoryAssociationRequest(BaseValidatorModel):
     FileSystemId: str
     DataRepositoryPath: str
@@ -1157,6 +1211,7 @@ class CreateDataRepositoryAssociationRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_data_repository_association' function.
 class UpdateDataRepositoryAssociationRequest(BaseValidatorModel):
     AssociationId: str
     ClientRequestToken: Optional[str] = None
@@ -1164,33 +1219,39 @@ class UpdateDataRepositoryAssociationRequest(BaseValidatorModel):
     S3: Optional[S3DataRepositoryConfigurationUnion] = None
 
 
+# This class is the output for the 'create_data_repository_task' function.
 class CreateDataRepositoryTaskResponse(BaseValidatorModel):
     DataRepositoryTask: DataRepositoryTask
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_data_repository_tasks' function.
 class DescribeDataRepositoryTasksResponse(BaseValidatorModel):
     DataRepositoryTasks: List[DataRepositoryTask]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_file_cache' function.
 class CreateFileCacheResponse(BaseValidatorModel):
     FileCache: FileCacheCreating
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_file_caches' function.
 class DescribeFileCachesResponse(BaseValidatorModel):
     FileCaches: List[FileCache]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_file_cache' function.
 class UpdateFileCacheResponse(BaseValidatorModel):
     FileCache: FileCache
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_file_system' function.
 class UpdateFileSystemRequest(BaseValidatorModel):
     FileSystemId: str
     ClientRequestToken: Optional[str] = None
@@ -1252,17 +1313,20 @@ class UpdateOntapVolumeConfiguration(BaseValidatorModel):
     SizeInBytes: Optional[int] = None
 
 
+# This class is the output for the 'create_storage_virtual_machine' function.
 class CreateStorageVirtualMachineResponse(BaseValidatorModel):
     StorageVirtualMachine: StorageVirtualMachine
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_storage_virtual_machines' function.
 class DescribeStorageVirtualMachinesResponse(BaseValidatorModel):
     StorageVirtualMachines: List[StorageVirtualMachine]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_storage_virtual_machine' function.
 class UpdateStorageVirtualMachineResponse(BaseValidatorModel):
     StorageVirtualMachine: StorageVirtualMachine
     ResponseMetadata: ResponseMetadata
@@ -1300,6 +1364,7 @@ class UpdateOpenZFSVolumeConfiguration(BaseValidatorModel):
     ReadOnly: Optional[bool] = None
 
 
+# This class is the input for the 'create_volume_from_backup' function.
 class CreateVolumeFromBackupRequest(BaseValidatorModel):
     BackupId: str
     Name: str
@@ -1338,6 +1403,7 @@ class Volume(BaseValidatorModel):
     OpenZFSConfiguration: Optional[OpenZFSVolumeConfiguration] = None
 
 
+# This class is the input for the 'create_volume' function.
 class CreateVolumeRequest(BaseValidatorModel):
     VolumeType: VolumeTypeType
     Name: str
@@ -1363,6 +1429,7 @@ class CreateFileSystemOpenZFSConfiguration(BaseValidatorModel):
     ReadCacheConfiguration: Optional[OpenZFSReadCacheConfiguration] = None
 
 
+# This class is the input for the 'update_volume' function.
 class UpdateVolumeRequest(BaseValidatorModel):
     VolumeId: str
     ClientRequestToken: Optional[str] = None
@@ -1403,27 +1470,32 @@ class AdministrativeAction(BaseValidatorModel):
     RemainingTransferBytes: Optional[int] = None
 
 
+# This class is the output for the 'create_volume_from_backup' function.
 class CreateVolumeFromBackupResponse(BaseValidatorModel):
     Volume: Volume
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_volume' function.
 class CreateVolumeResponse(BaseValidatorModel):
     Volume: Volume
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_volumes' function.
 class DescribeVolumesResponse(BaseValidatorModel):
     Volumes: List[Volume]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_volume' function.
 class UpdateVolumeResponse(BaseValidatorModel):
     Volume: Volume
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_file_system_from_backup' function.
 class CreateFileSystemFromBackupRequest(BaseValidatorModel):
     BackupId: str
     SubnetIds: List[str]
@@ -1439,6 +1511,7 @@ class CreateFileSystemFromBackupRequest(BaseValidatorModel):
     StorageCapacity: Optional[int] = None
 
 
+# This class is the input for the 'create_file_system' function.
 class CreateFileSystemRequest(BaseValidatorModel):
     FileSystemType: FileSystemTypeType
     SubnetIds: List[str]
@@ -1479,6 +1552,7 @@ class FileSystemPaginator(BaseValidatorModel):
     OpenZFSConfiguration: Optional[OpenZFSFileSystemConfiguration] = None
 
 
+# This class is the output for the 'copy_snapshot_and_update_volume' function.
 class CopySnapshotAndUpdateVolumeResponse(BaseValidatorModel):
     VolumeId: str
     Lifecycle: VolumeLifecycleType
@@ -1510,6 +1584,7 @@ class FileSystem(BaseValidatorModel):
     OpenZFSConfiguration: Optional[OpenZFSFileSystemConfiguration] = None
 
 
+# This class is the output for the 'restore_volume_from_snapshot' function.
 class RestoreVolumeFromSnapshotResponse(BaseValidatorModel):
     VolumeId: str
     Lifecycle: VolumeLifecycleType
@@ -1563,32 +1638,38 @@ class Backup(BaseValidatorModel):
     SizeInBytes: Optional[int] = None
 
 
+# This class is the output for the 'create_file_system_from_backup' function.
 class CreateFileSystemFromBackupResponse(BaseValidatorModel):
     FileSystem: FileSystem
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_file_system' function.
 class CreateFileSystemResponse(BaseValidatorModel):
     FileSystem: FileSystem
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_file_systems' function.
 class DescribeFileSystemsResponse(BaseValidatorModel):
     FileSystems: List[FileSystem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'release_file_system_nfs_v3_locks' function.
 class ReleaseFileSystemNfsV3LocksResponse(BaseValidatorModel):
     FileSystem: FileSystem
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_misconfigured_state_recovery' function.
 class StartMisconfiguredStateRecoveryResponse(BaseValidatorModel):
     FileSystem: FileSystem
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_file_system' function.
 class UpdateFileSystemResponse(BaseValidatorModel):
     FileSystem: FileSystem
     ResponseMetadata: ResponseMetadata
@@ -1600,16 +1681,19 @@ class DescribeBackupsResponsePaginator(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'copy_backup' function.
 class CopyBackupResponse(BaseValidatorModel):
     Backup: Backup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_backup' function.
 class CreateBackupResponse(BaseValidatorModel):
     Backup: Backup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_backups' function.
 class DescribeBackupsResponse(BaseValidatorModel):
     Backups: List[Backup]
     ResponseMetadata: ResponseMetadata

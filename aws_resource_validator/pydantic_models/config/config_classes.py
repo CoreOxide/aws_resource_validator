@@ -89,6 +89,7 @@ class AggregatorFilterServicePrincipal(BaseValidatorModel):
     Value: Optional[List[str]] = None
 
 
+# This class is the input for the 'associate_resource_types' function.
 class AssociateResourceTypesRequest(BaseValidatorModel):
     ConfigurationRecorderArn: str
     ResourceTypes: List[ResourceTypeType]
@@ -297,27 +298,33 @@ class CustomPolicyDetails(BaseValidatorModel):
     EnableDebugLogDelivery: Optional[bool] = None
 
 
+# This class is the input for the 'delete_aggregation_authorization' function.
 class DeleteAggregationAuthorizationRequest(BaseValidatorModel):
     AuthorizedAccountId: str
     AuthorizedAwsRegion: str
 
 
+# This class is the input for the 'delete_config_rule' function.
 class DeleteConfigRuleRequest(BaseValidatorModel):
     ConfigRuleName: str
 
 
+# This class is the input for the 'delete_configuration_aggregator' function.
 class DeleteConfigurationAggregatorRequest(BaseValidatorModel):
     ConfigurationAggregatorName: str
 
 
+# This class is the input for the 'delete_configuration_recorder' function.
 class DeleteConfigurationRecorderRequest(BaseValidatorModel):
     ConfigurationRecorderName: str
 
 
+# This class is the input for the 'delete_conformance_pack' function.
 class DeleteConformancePackRequest(BaseValidatorModel):
     ConformancePackName: str
 
 
+# This class is the input for the 'delete_delivery_channel' function.
 class DeleteDeliveryChannelRequest(BaseValidatorModel):
     DeliveryChannelName: str
 
@@ -326,14 +333,17 @@ class DeleteEvaluationResultsRequest(BaseValidatorModel):
     ConfigRuleName: str
 
 
+# This class is the input for the 'delete_organization_config_rule' function.
 class DeleteOrganizationConfigRuleRequest(BaseValidatorModel):
     OrganizationConfigRuleName: str
 
 
+# This class is the input for the 'delete_organization_conformance_pack' function.
 class DeleteOrganizationConformancePackRequest(BaseValidatorModel):
     OrganizationConformancePackName: str
 
 
+# This class is the input for the 'delete_pending_aggregation_request' function.
 class DeletePendingAggregationRequestRequest(BaseValidatorModel):
     RequesterAccountId: str
     RequesterAwsRegion: str
@@ -349,15 +359,18 @@ class RemediationExceptionResourceKey(BaseValidatorModel):
     ResourceId: Optional[str] = None
 
 
+# This class is the input for the 'delete_resource_config' function.
 class DeleteResourceConfigRequest(BaseValidatorModel):
     ResourceType: str
     ResourceId: str
 
 
+# This class is the input for the 'delete_retention_configuration' function.
 class DeleteRetentionConfigurationRequest(BaseValidatorModel):
     RetentionConfigurationName: str
 
 
+# This class is the input for the 'delete_service_linked_configuration_recorder' function.
 class DeleteServiceLinkedConfigurationRecorderRequest(BaseValidatorModel):
     ServicePrincipal: str
 
@@ -366,6 +379,7 @@ class DeleteStoredQueryRequest(BaseValidatorModel):
     QueryName: str
 
 
+# This class is the input for the 'deliver_config_snapshot' function.
 class DeliverConfigSnapshotRequest(BaseValidatorModel):
     deliveryChannelName: str
 
@@ -376,17 +390,20 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_aggregation_authorizations' function.
 class DescribeAggregationAuthorizationsRequest(BaseValidatorModel):
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_compliance_by_config_rule' function.
 class DescribeComplianceByConfigRuleRequest(BaseValidatorModel):
     ConfigRuleNames: Optional[List[str]] = None
     ComplianceTypes: Optional[List[ComplianceTypeType]] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_compliance_by_resource' function.
 class DescribeComplianceByResourceRequest(BaseValidatorModel):
     ResourceType: Optional[str] = None
     ResourceId: Optional[str] = None
@@ -395,6 +412,7 @@ class DescribeComplianceByResourceRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_config_rule_evaluation_status' function.
 class DescribeConfigRuleEvaluationStatusRequest(BaseValidatorModel):
     ConfigRuleNames: Optional[List[str]] = None
     NextToken: Optional[str] = None
@@ -405,6 +423,7 @@ class DescribeConfigRulesFilters(BaseValidatorModel):
     EvaluationMode: Optional[EvaluationModeType] = None
 
 
+# This class is the input for the 'describe_configuration_aggregator_sources_status' function.
 class DescribeConfigurationAggregatorSourcesStatusRequest(BaseValidatorModel):
     ConfigurationAggregatorName: str
     UpdateStatus: Optional[List[AggregatedSourceStatusTypeType]] = None
@@ -412,44 +431,52 @@ class DescribeConfigurationAggregatorSourcesStatusRequest(BaseValidatorModel):
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'describe_configuration_aggregators' function.
 class DescribeConfigurationAggregatorsRequest(BaseValidatorModel):
     ConfigurationAggregatorNames: Optional[List[str]] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'describe_configuration_recorder_status' function.
 class DescribeConfigurationRecorderStatusRequest(BaseValidatorModel):
     ConfigurationRecorderNames: Optional[List[str]] = None
     ServicePrincipal: Optional[str] = None
     Arn: Optional[str] = None
 
 
+# This class is the input for the 'describe_configuration_recorders' function.
 class DescribeConfigurationRecordersRequest(BaseValidatorModel):
     ConfigurationRecorderNames: Optional[List[str]] = None
     ServicePrincipal: Optional[str] = None
     Arn: Optional[str] = None
 
 
+# This class is the input for the 'describe_conformance_pack_status' function.
 class DescribeConformancePackStatusRequest(BaseValidatorModel):
     ConformancePackNames: Optional[List[str]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_conformance_packs' function.
 class DescribeConformancePacksRequest(BaseValidatorModel):
     ConformancePackNames: Optional[List[str]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_delivery_channel_status' function.
 class DescribeDeliveryChannelStatusRequest(BaseValidatorModel):
     DeliveryChannelNames: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_delivery_channels' function.
 class DescribeDeliveryChannelsRequest(BaseValidatorModel):
     DeliveryChannelNames: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_organization_config_rule_statuses' function.
 class DescribeOrganizationConfigRuleStatusesRequest(BaseValidatorModel):
     OrganizationConfigRuleNames: Optional[List[str]] = None
     Limit: Optional[int] = None
@@ -464,12 +491,14 @@ class OrganizationConfigRuleStatus(BaseValidatorModel):
     LastUpdateTime: Optional[datetime] = None
 
 
+# This class is the input for the 'describe_organization_config_rules' function.
 class DescribeOrganizationConfigRulesRequest(BaseValidatorModel):
     OrganizationConfigRuleNames: Optional[List[str]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_organization_conformance_pack_statuses' function.
 class DescribeOrganizationConformancePackStatusesRequest(BaseValidatorModel):
     OrganizationConformancePackNames: Optional[List[str]] = None
     Limit: Optional[int] = None
@@ -484,12 +513,14 @@ class OrganizationConformancePackStatus(BaseValidatorModel):
     LastUpdateTime: Optional[datetime] = None
 
 
+# This class is the input for the 'describe_organization_conformance_packs' function.
 class DescribeOrganizationConformancePacksRequest(BaseValidatorModel):
     OrganizationConformancePackNames: Optional[List[str]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_pending_aggregation_requests' function.
 class DescribePendingAggregationRequestsRequest(BaseValidatorModel):
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
@@ -500,6 +531,7 @@ class PendingAggregationRequest(BaseValidatorModel):
     RequesterAwsRegion: Optional[str] = None
 
 
+# This class is the input for the 'describe_remediation_configurations' function.
 class DescribeRemediationConfigurationsRequest(BaseValidatorModel):
     ConfigRuleNames: List[str]
 
@@ -512,6 +544,7 @@ class RemediationException(BaseValidatorModel):
     ExpirationTime: Optional[datetime] = None
 
 
+# This class is the input for the 'describe_retention_configurations' function.
 class DescribeRetentionConfigurationsRequest(BaseValidatorModel):
     RetentionConfigurationNames: Optional[List[str]] = None
     NextToken: Optional[str] = None
@@ -522,6 +555,7 @@ class RetentionConfiguration(BaseValidatorModel):
     RetentionPeriodInDays: int
 
 
+# This class is the input for the 'disassociate_resource_types' function.
 class DisassociateResourceTypesRequest(BaseValidatorModel):
     ConfigurationRecorderArn: str
     ResourceTypes: List[ResourceTypeType]
@@ -570,6 +604,7 @@ class FieldInfo(BaseValidatorModel):
     Name: Optional[str] = None
 
 
+# This class is the input for the 'get_aggregate_compliance_details_by_config_rule' function.
 class GetAggregateComplianceDetailsByConfigRuleRequest(BaseValidatorModel):
     ConfigurationAggregatorName: str
     ConfigRuleName: str
@@ -591,6 +626,7 @@ class GroupedResourceCount(BaseValidatorModel):
     ResourceCount: int
 
 
+# This class is the input for the 'get_compliance_details_by_config_rule' function.
 class GetComplianceDetailsByConfigRuleRequest(BaseValidatorModel):
     ConfigRuleName: str
     ComplianceTypes: Optional[List[ComplianceTypeType]] = None
@@ -598,6 +634,7 @@ class GetComplianceDetailsByConfigRuleRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_compliance_details_by_resource' function.
 class GetComplianceDetailsByResourceRequest(BaseValidatorModel):
     ResourceType: Optional[str] = None
     ResourceId: Optional[str] = None
@@ -606,20 +643,24 @@ class GetComplianceDetailsByResourceRequest(BaseValidatorModel):
     ResourceEvaluationId: Optional[str] = None
 
 
+# This class is the input for the 'get_compliance_summary_by_resource_type' function.
 class GetComplianceSummaryByResourceTypeRequest(BaseValidatorModel):
     ResourceTypes: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_conformance_pack_compliance_summary' function.
 class GetConformancePackComplianceSummaryRequest(BaseValidatorModel):
     ConformancePackNames: List[str]
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_custom_rule_policy' function.
 class GetCustomRulePolicyRequest(BaseValidatorModel):
     ConfigRuleName: Optional[str] = None
 
 
+# This class is the input for the 'get_discovered_resource_counts' function.
 class GetDiscoveredResourceCountsRequest(BaseValidatorModel):
     resourceTypes: Optional[List[str]] = None
     limit: Optional[int] = None
@@ -659,10 +700,12 @@ class OrganizationConformancePackDetailedStatus(BaseValidatorModel):
     LastUpdateTime: Optional[datetime] = None
 
 
+# This class is the input for the 'get_organization_custom_rule_policy' function.
 class GetOrganizationCustomRulePolicyRequest(BaseValidatorModel):
     OrganizationConfigRuleName: str
 
 
+# This class is the input for the 'get_resource_evaluation_summary' function.
 class GetResourceEvaluationSummaryRequest(BaseValidatorModel):
     ResourceEvaluationId: str
 
@@ -674,6 +717,7 @@ class ResourceDetails(BaseValidatorModel):
     ResourceConfigurationSchemaType: Optional[Literal['CFN_RESOURCE_SCHEMA']] = None
 
 
+# This class is the input for the 'get_stored_query' function.
 class GetStoredQueryRequest(BaseValidatorModel):
     QueryName: str
 
@@ -693,6 +737,7 @@ class ResourceFilters(BaseValidatorModel):
     Region: Optional[str] = None
 
 
+# This class is the input for the 'list_discovered_resources' function.
 class ListDiscoveredResourcesRequest(BaseValidatorModel):
     resourceType: ResourceTypeType
     resourceIds: Optional[List[str]] = None
@@ -715,6 +760,7 @@ class ResourceEvaluation(BaseValidatorModel):
     EvaluationStartTimestamp: Optional[datetime] = None
 
 
+# This class is the input for the 'list_stored_queries' function.
 class ListStoredQueriesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -727,6 +773,7 @@ class StoredQueryMetadata(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Limit: Optional[int] = None
@@ -817,6 +864,7 @@ class OrganizationManagedRuleMetadata(BaseValidatorModel):
     TagValueScope: Optional[str] = None
 
 
+# This class is the input for the 'put_resource_config' function.
 class PutResourceConfigRequest(BaseValidatorModel):
     ResourceType: str
     SchemaVersionId: str
@@ -826,6 +874,7 @@ class PutResourceConfigRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'put_retention_configuration' function.
 class PutRetentionConfigurationRequest(BaseValidatorModel):
     RetentionPeriodInDays: int
 
@@ -862,6 +911,7 @@ class StaticValueOutput(BaseValidatorModel):
     Values: List[str]
 
 
+# This class is the input for the 'select_aggregate_resource_config' function.
 class SelectAggregateResourceConfigRequest(BaseValidatorModel):
     Expression: str
     ConfigurationAggregatorName: str
@@ -870,6 +920,7 @@ class SelectAggregateResourceConfigRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'select_resource_config' function.
 class SelectResourceConfigRequest(BaseValidatorModel):
     Expression: str
     Limit: Optional[int] = None
@@ -886,6 +937,7 @@ class StartConfigRulesEvaluationRequest(BaseValidatorModel):
     ConfigRuleNames: Optional[List[str]] = None
 
 
+# This class is the input for the 'start_configuration_recorder' function.
 class StartConfigurationRecorderRequest(BaseValidatorModel):
     ConfigurationRecorderName: str
 
@@ -894,10 +946,12 @@ class StaticValue(BaseValidatorModel):
     Values: List[str]
 
 
+# This class is the input for the 'stop_configuration_recorder' function.
 class StopConfigurationRecorderRequest(BaseValidatorModel):
     ConfigurationRecorderName: str
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: List[str]
@@ -917,6 +971,7 @@ class AggregateConformancePackComplianceSummary(BaseValidatorModel):
     GroupName: Optional[str] = None
 
 
+# This class is the input for the 'describe_aggregate_compliance_by_conformance_packs' function.
 class DescribeAggregateComplianceByConformancePacksRequest(BaseValidatorModel):
     ConfigurationAggregatorName: str
     Filters: Optional[AggregateConformancePackComplianceFilters] = None
@@ -924,6 +979,7 @@ class DescribeAggregateComplianceByConformancePacksRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_aggregate_conformance_pack_compliance_summary' function.
 class GetAggregateConformancePackComplianceSummaryRequest(BaseValidatorModel):
     ConfigurationAggregatorName: str
     Filters: Optional[AggregateConformancePackComplianceSummaryFilters] = None
@@ -932,11 +988,13 @@ class GetAggregateConformancePackComplianceSummaryRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'batch_get_aggregate_resource_config' function.
 class BatchGetAggregateResourceConfigRequest(BaseValidatorModel):
     ConfigurationAggregatorName: str
     ResourceIdentifiers: List[AggregateResourceIdentifier]
 
 
+# This class is the input for the 'get_aggregate_resource_config' function.
 class GetAggregateResourceConfigRequest(BaseValidatorModel):
     ConfigurationAggregatorName: str
     ResourceIdentifier: AggregateResourceIdentifier
@@ -952,101 +1010,120 @@ class AggregatorFilters(BaseValidatorModel):
     ServicePrincipal: Optional[AggregatorFilterServicePrincipal] = None
 
 
+# This class is the output for the 'delete_service_linked_configuration_recorder' function.
 class DeleteServiceLinkedConfigurationRecorderResponse(BaseValidatorModel):
     Arn: str
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'deliver_config_snapshot' function.
 class DeliverConfigSnapshotResponse(BaseValidatorModel):
     configSnapshotId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_aggregation_authorizations' function.
 class DescribeAggregationAuthorizationsResponse(BaseValidatorModel):
     AggregationAuthorizations: List[AggregationAuthorization]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_configuration_aggregator_sources_status' function.
 class DescribeConfigurationAggregatorSourcesStatusResponse(BaseValidatorModel):
     AggregatedSourceStatusList: List[AggregatedSourceStatus]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'untag_resource' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_custom_rule_policy' function.
 class GetCustomRulePolicyResponse(BaseValidatorModel):
     PolicyText: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_organization_custom_rule_policy' function.
 class GetOrganizationCustomRulePolicyResponse(BaseValidatorModel):
     PolicyText: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_aggregate_discovered_resources' function.
 class ListAggregateDiscoveredResourcesResponse(BaseValidatorModel):
     ResourceIdentifiers: List[AggregateResourceIdentifier]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'put_aggregation_authorization' function.
 class PutAggregationAuthorizationResponse(BaseValidatorModel):
     AggregationAuthorization: AggregationAuthorization
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_conformance_pack' function.
 class PutConformancePackResponse(BaseValidatorModel):
     ConformancePackArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_organization_config_rule' function.
 class PutOrganizationConfigRuleResponse(BaseValidatorModel):
     OrganizationConfigRuleArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_organization_conformance_pack' function.
 class PutOrganizationConformancePackResponse(BaseValidatorModel):
     OrganizationConformancePackArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_service_linked_configuration_recorder' function.
 class PutServiceLinkedConfigurationRecorderResponse(BaseValidatorModel):
     Arn: str
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_stored_query' function.
 class PutStoredQueryResponse(BaseValidatorModel):
     QueryArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_resource_evaluation' function.
 class StartResourceEvaluationResponse(BaseValidatorModel):
     ResourceEvaluationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_get_aggregate_resource_config' function.
 class BatchGetAggregateResourceConfigResponse(BaseValidatorModel):
     BaseConfigurationItems: List[BaseConfigurationItem]
     UnprocessedResourceIdentifiers: List[AggregateResourceIdentifier]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'batch_get_resource_config' function.
 class BatchGetResourceConfigRequest(BaseValidatorModel):
     resourceKeys: List[ResourceKey]
 
 
+# This class is the output for the 'batch_get_resource_config' function.
 class BatchGetResourceConfigResponse(BaseValidatorModel):
     baseConfigurationItems: List[BaseConfigurationItem]
     unprocessedResourceKeys: List[ResourceKey]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'describe_remediation_execution_status' function.
 class DescribeRemediationExecutionStatusRequest(BaseValidatorModel):
     ConfigRuleName: str
     ResourceKeys: Optional[List[ResourceKey]] = None
@@ -1054,11 +1131,13 @@ class DescribeRemediationExecutionStatusRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'start_remediation_execution' function.
 class StartRemediationExecutionRequest(BaseValidatorModel):
     ConfigRuleName: str
     ResourceKeys: List[ResourceKey]
 
 
+# This class is the output for the 'start_remediation_execution' function.
 class StartRemediationExecutionResponse(BaseValidatorModel):
     FailureMessage: str
     FailedItems: List[ResourceKey]
@@ -1076,6 +1155,7 @@ class Compliance(BaseValidatorModel):
     ComplianceContributorCount: Optional[ComplianceContributorCount] = None
 
 
+# This class is the input for the 'describe_aggregate_compliance_by_config_rules' function.
 class DescribeAggregateComplianceByConfigRulesRequest(BaseValidatorModel):
     ConfigurationAggregatorName: str
     Filters: Optional[ConfigRuleComplianceFilters] = None
@@ -1083,6 +1163,7 @@ class DescribeAggregateComplianceByConfigRulesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_aggregate_config_rule_compliance_summary' function.
 class GetAggregateConfigRuleComplianceSummaryRequest(BaseValidatorModel):
     ConfigurationAggregatorName: str
     Filters: Optional[ConfigRuleComplianceSummaryFilters] = None
@@ -1091,6 +1172,7 @@ class GetAggregateConfigRuleComplianceSummaryRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_config_rule_evaluation_status' function.
 class DescribeConfigRuleEvaluationStatusResponse(BaseValidatorModel):
     ConfigRulesEvaluationStatus: List[ConfigRuleEvaluationStatus]
     ResponseMetadata: ResponseMetadata
@@ -1136,23 +1218,27 @@ class ConfigurationItem(BaseValidatorModel):
     configurationItemDeliveryTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_configuration_recorders' function.
 class ListConfigurationRecordersRequest(BaseValidatorModel):
     Filters: Optional[List[ConfigurationRecorderFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_configuration_recorder_status' function.
 class DescribeConfigurationRecorderStatusResponse(BaseValidatorModel):
     ConfigurationRecordersStatus: List[ConfigurationRecorderStatus]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_configuration_recorders' function.
 class ListConfigurationRecordersResponse(BaseValidatorModel):
     ConfigurationRecorderSummaries: List[ConfigurationRecorderSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_conformance_pack_compliance' function.
 class DescribeConformancePackComplianceRequest(BaseValidatorModel):
     ConformancePackName: str
     Filters: Optional[ConformancePackComplianceFilters] = None
@@ -1160,12 +1246,14 @@ class DescribeConformancePackComplianceRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_conformance_pack_compliance_scores' function.
 class ListConformancePackComplianceScoresResponse(BaseValidatorModel):
     ConformancePackComplianceScores: List[ConformancePackComplianceScore]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_conformance_pack_compliance_scores' function.
 class ListConformancePackComplianceScoresRequest(BaseValidatorModel):
     Filters: Optional[ConformancePackComplianceScoresFilters] = None
     SortOrder: Optional[SortOrderType] = None
@@ -1174,6 +1262,7 @@ class ListConformancePackComplianceScoresRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_conformance_pack_compliance_summary' function.
 class GetConformancePackComplianceSummaryResponse(BaseValidatorModel):
     ConformancePackComplianceSummaryList: List[ConformancePackComplianceSummary]
     ResponseMetadata: ResponseMetadata
@@ -1190,6 +1279,7 @@ class OrganizationConformancePack(BaseValidatorModel):
     ExcludedAccounts: Optional[List[str]] = None
 
 
+# This class is the input for the 'put_organization_conformance_pack' function.
 class PutOrganizationConformancePackRequest(BaseValidatorModel):
     OrganizationConformancePackName: str
     TemplateS3Uri: Optional[str] = None
@@ -1212,6 +1302,7 @@ class ConformancePackDetail(BaseValidatorModel):
     TemplateSSMDocumentDetails: Optional[TemplateSSMDocumentDetails] = None
 
 
+# This class is the input for the 'put_conformance_pack' function.
 class PutConformancePackRequest(BaseValidatorModel):
     ConformancePackName: str
     TemplateS3Uri: Optional[str] = None
@@ -1222,6 +1313,7 @@ class PutConformancePackRequest(BaseValidatorModel):
     TemplateSSMDocumentDetails: Optional[TemplateSSMDocumentDetails] = None
 
 
+# This class is the input for the 'get_conformance_pack_compliance_details' function.
 class GetConformancePackComplianceDetailsRequest(BaseValidatorModel):
     ConformancePackName: str
     Filters: Optional[ConformancePackEvaluationFilters] = None
@@ -1229,6 +1321,7 @@ class GetConformancePackComplianceDetailsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_conformance_pack_compliance' function.
 class DescribeConformancePackComplianceResponse(BaseValidatorModel):
     ConformancePackName: str
     ConformancePackRuleComplianceList: List[ConformancePackRuleCompliance]
@@ -1236,17 +1329,20 @@ class DescribeConformancePackComplianceResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_conformance_pack_status' function.
 class DescribeConformancePackStatusResponse(BaseValidatorModel):
     ConformancePackStatusDetails: List[ConformancePackStatusDetail]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_remediation_exceptions' function.
 class DeleteRemediationExceptionsRequest(BaseValidatorModel):
     ConfigRuleName: str
     ResourceKeys: List[RemediationExceptionResourceKey]
 
 
+# This class is the input for the 'describe_remediation_exceptions' function.
 class DescribeRemediationExceptionsRequest(BaseValidatorModel):
     ConfigRuleName: str
     ResourceKeys: Optional[List[RemediationExceptionResourceKey]] = None
@@ -1413,30 +1509,35 @@ class DescribeConfigRulesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_config_rules' function.
 class DescribeConfigRulesRequest(BaseValidatorModel):
     ConfigRuleNames: Optional[List[str]] = None
     NextToken: Optional[str] = None
     Filters: Optional[DescribeConfigRulesFilters] = None
 
 
+# This class is the output for the 'describe_organization_config_rule_statuses' function.
 class DescribeOrganizationConfigRuleStatusesResponse(BaseValidatorModel):
     OrganizationConfigRuleStatuses: List[OrganizationConfigRuleStatus]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_organization_conformance_pack_statuses' function.
 class DescribeOrganizationConformancePackStatusesResponse(BaseValidatorModel):
     OrganizationConformancePackStatuses: List[OrganizationConformancePackStatus]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_pending_aggregation_requests' function.
 class DescribePendingAggregationRequestsResponse(BaseValidatorModel):
     PendingAggregationRequests: List[PendingAggregationRequest]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_remediation_exceptions' function.
 class DescribeRemediationExceptionsResponse(BaseValidatorModel):
     RemediationExceptions: List[RemediationException]
     ResponseMetadata: ResponseMetadata
@@ -1448,17 +1549,20 @@ class FailedRemediationExceptionBatch(BaseValidatorModel):
     FailedItems: Optional[List[RemediationException]] = None
 
 
+# This class is the output for the 'describe_retention_configurations' function.
 class DescribeRetentionConfigurationsResponse(BaseValidatorModel):
     RetentionConfigurations: List[RetentionConfiguration]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'put_retention_configuration' function.
 class PutRetentionConfigurationResponse(BaseValidatorModel):
     RetentionConfiguration: RetentionConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_evaluations' function.
 class PutEvaluationsResponse(BaseValidatorModel):
     FailedEvaluations: List[EvaluationOutput]
     ResponseMetadata: ResponseMetadata
@@ -1495,6 +1599,7 @@ class GetResourceConfigHistoryRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_resource_config_history' function.
 class GetResourceConfigHistoryRequest(BaseValidatorModel):
     resourceType: ResourceTypeType
     resourceId: str
@@ -1505,6 +1610,7 @@ class GetResourceConfigHistoryRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'put_remediation_exceptions' function.
 class PutRemediationExceptionsRequest(BaseValidatorModel):
     ConfigRuleName: str
     ResourceKeys: List[RemediationExceptionResourceKey]
@@ -1525,6 +1631,7 @@ class QueryInfo(BaseValidatorModel):
     SelectFields: Optional[List[FieldInfo]] = None
 
 
+# This class is the input for the 'get_aggregate_discovered_resource_counts' function.
 class GetAggregateDiscoveredResourceCountsRequest(BaseValidatorModel):
     ConfigurationAggregatorName: str
     Filters: Optional[ResourceCountFilters] = None
@@ -1533,6 +1640,7 @@ class GetAggregateDiscoveredResourceCountsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_aggregate_discovered_resource_counts' function.
 class GetAggregateDiscoveredResourceCountsResponse(BaseValidatorModel):
     TotalDiscoveredResources: int
     GroupByKey: str
@@ -1541,6 +1649,7 @@ class GetAggregateDiscoveredResourceCountsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_discovered_resource_counts' function.
 class GetDiscoveredResourceCountsResponse(BaseValidatorModel):
     totalDiscoveredResources: int
     resourceCounts: List[ResourceCount]
@@ -1554,6 +1663,7 @@ class GetOrganizationConfigRuleDetailedStatusRequestPaginate(BaseValidatorModel)
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_organization_config_rule_detailed_status' function.
 class GetOrganizationConfigRuleDetailedStatusRequest(BaseValidatorModel):
     OrganizationConfigRuleName: str
     Filters: Optional[StatusDetailFilters] = None
@@ -1561,6 +1671,7 @@ class GetOrganizationConfigRuleDetailedStatusRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_organization_config_rule_detailed_status' function.
 class GetOrganizationConfigRuleDetailedStatusResponse(BaseValidatorModel):
     OrganizationConfigRuleDetailedStatus: List[MemberAccountStatus]
     ResponseMetadata: ResponseMetadata
@@ -1573,6 +1684,7 @@ class GetOrganizationConformancePackDetailedStatusRequestPaginate(BaseValidatorM
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_organization_conformance_pack_detailed_status' function.
 class GetOrganizationConformancePackDetailedStatusRequest(BaseValidatorModel):
     OrganizationConformancePackName: str
     Filters: Optional[OrganizationResourceDetailedStatusFilters] = None
@@ -1580,12 +1692,14 @@ class GetOrganizationConformancePackDetailedStatusRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_organization_conformance_pack_detailed_status' function.
 class GetOrganizationConformancePackDetailedStatusResponse(BaseValidatorModel):
     OrganizationConformancePackDetailedStatuses: List[OrganizationConformancePackDetailedStatus]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_resource_evaluation_summary' function.
 class GetResourceEvaluationSummaryResponse(BaseValidatorModel):
     ResourceEvaluationId: str
     EvaluationMode: EvaluationModeType
@@ -1597,6 +1711,7 @@ class GetResourceEvaluationSummaryResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_resource_evaluation' function.
 class StartResourceEvaluationRequest(BaseValidatorModel):
     ResourceDetails: ResourceDetails
     EvaluationMode: EvaluationModeType
@@ -1605,6 +1720,7 @@ class StartResourceEvaluationRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the output for the 'get_stored_query' function.
 class GetStoredQueryResponse(BaseValidatorModel):
     StoredQuery: StoredQuery
     ResponseMetadata: ResponseMetadata
@@ -1617,6 +1733,7 @@ class ListAggregateDiscoveredResourcesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_aggregate_discovered_resources' function.
 class ListAggregateDiscoveredResourcesRequest(BaseValidatorModel):
     ConfigurationAggregatorName: str
     ResourceType: ResourceTypeType
@@ -1625,46 +1742,54 @@ class ListAggregateDiscoveredResourcesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_discovered_resources' function.
 class ListDiscoveredResourcesResponse(BaseValidatorModel):
     resourceIdentifiers: List[ResourceIdentifier]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_resource_evaluations' function.
 class ListResourceEvaluationsResponse(BaseValidatorModel):
     ResourceEvaluations: List[ResourceEvaluation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_stored_queries' function.
 class ListStoredQueriesResponse(BaseValidatorModel):
     StoredQueryMetadata: List[StoredQueryMetadata]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'put_aggregation_authorization' function.
 class PutAggregationAuthorizationRequest(BaseValidatorModel):
     AuthorizedAccountId: str
     AuthorizedAwsRegion: str
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'put_service_linked_configuration_recorder' function.
 class PutServiceLinkedConfigurationRecorderRequest(BaseValidatorModel):
     ServicePrincipal: str
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'put_stored_query' function.
 class PutStoredQueryRequest(BaseValidatorModel):
     StoredQuery: StoredQuery
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: List[Tag]
@@ -1741,12 +1866,14 @@ class Source(BaseValidatorModel):
 StaticValueUnion = Union[StaticValue, StaticValueOutput]
 
 
+# This class is the output for the 'describe_aggregate_compliance_by_conformance_packs' function.
 class DescribeAggregateComplianceByConformancePacksResponse(BaseValidatorModel):
     AggregateComplianceByConformancePacks: List[AggregateComplianceByConformancePack]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_aggregate_conformance_pack_compliance_summary' function.
 class GetAggregateConformancePackComplianceSummaryResponse(BaseValidatorModel):
     AggregateConformancePackComplianceSummaries: List[AggregateConformancePackComplianceSummary]
     GroupByKey: str
@@ -1800,48 +1927,57 @@ class ComplianceByResource(BaseValidatorModel):
     Compliance: Optional[Compliance] = None
 
 
+# This class is the output for the 'describe_delivery_channels' function.
 class DescribeDeliveryChannelsResponse(BaseValidatorModel):
     DeliveryChannels: List[DeliveryChannel]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_delivery_channel' function.
 class PutDeliveryChannelRequest(BaseValidatorModel):
     DeliveryChannel: DeliveryChannel
 
 
+# This class is the output for the 'describe_delivery_channel_status' function.
 class DescribeDeliveryChannelStatusResponse(BaseValidatorModel):
     DeliveryChannelsStatus: List[DeliveryChannelStatus]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_aggregate_resource_config' function.
 class GetAggregateResourceConfigResponse(BaseValidatorModel):
     ConfigurationItem: ConfigurationItem
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_config_history' function.
 class GetResourceConfigHistoryResponse(BaseValidatorModel):
     configurationItems: List[ConfigurationItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_organization_conformance_packs' function.
 class DescribeOrganizationConformancePacksResponse(BaseValidatorModel):
     OrganizationConformancePacks: List[OrganizationConformancePack]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_conformance_packs' function.
 class DescribeConformancePacksResponse(BaseValidatorModel):
     ConformancePackDetails: List[ConformancePackDetail]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'delete_remediation_exceptions' function.
 class DeleteRemediationExceptionsResponse(BaseValidatorModel):
     FailedBatches: List[FailedDeleteRemediationExceptionsBatch]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_remediation_exceptions' function.
 class PutRemediationExceptionsResponse(BaseValidatorModel):
     FailedBatches: List[FailedRemediationExceptionBatch]
     ResponseMetadata: ResponseMetadata
@@ -1887,6 +2023,7 @@ class ResourceEvaluationFilters(BaseValidatorModel):
     EvaluationContextIdentifier: Optional[str] = None
 
 
+# This class is the output for the 'select_aggregate_resource_config' function.
 class SelectAggregateResourceConfigResponse(BaseValidatorModel):
     Results: List[str]
     QueryInfo: QueryInfo
@@ -1894,6 +2031,7 @@ class SelectAggregateResourceConfigResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'select_resource_config' function.
 class SelectResourceConfigResponse(BaseValidatorModel):
     Results: List[str]
     QueryInfo: QueryInfo
@@ -1901,12 +2039,14 @@ class SelectResourceConfigResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_organization_config_rules' function.
 class DescribeOrganizationConfigRulesResponse(BaseValidatorModel):
     OrganizationConfigRules: List[OrganizationConfigRule]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'put_organization_config_rule' function.
 class PutOrganizationConfigRuleRequest(BaseValidatorModel):
     OrganizationConfigRuleName: str
     OrganizationManagedRuleMetadata: Optional[OrganizationManagedRuleMetadataUnion] = None
@@ -1935,6 +2075,7 @@ class ConfigurationRecorder(BaseValidatorModel):
     servicePrincipal: Optional[str] = None
 
 
+# This class is the output for the 'describe_remediation_execution_status' function.
 class DescribeRemediationExecutionStatusResponse(BaseValidatorModel):
     RemediationExecutionStatuses: List[RemediationExecutionStatus]
     ResponseMetadata: ResponseMetadata
@@ -1989,17 +2130,20 @@ class RemediationParameterValue(BaseValidatorModel):
     StaticValue: Optional[StaticValueUnion] = None
 
 
+# This class is the output for the 'describe_configuration_aggregators' function.
 class DescribeConfigurationAggregatorsResponse(BaseValidatorModel):
     ConfigurationAggregators: List[ConfigurationAggregator]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'put_configuration_aggregator' function.
 class PutConfigurationAggregatorResponse(BaseValidatorModel):
     ConfigurationAggregator: ConfigurationAggregator
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_configuration_aggregator' function.
 class PutConfigurationAggregatorRequest(BaseValidatorModel):
     ConfigurationAggregatorName: str
     AccountAggregationSources: Optional[List[AccountAggregationSourceUnion]] = None
@@ -2008,6 +2152,7 @@ class PutConfigurationAggregatorRequest(BaseValidatorModel):
     AggregatorFilters: Optional[AggregatorFiltersUnion] = None
 
 
+# This class is the output for the 'get_aggregate_config_rule_compliance_summary' function.
 class GetAggregateConfigRuleComplianceSummaryResponse(BaseValidatorModel):
     GroupByKey: str
     AggregateComplianceCounts: List[AggregateComplianceCount]
@@ -2015,35 +2160,41 @@ class GetAggregateConfigRuleComplianceSummaryResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_compliance_summary_by_resource_type' function.
 class GetComplianceSummaryByResourceTypeResponse(BaseValidatorModel):
     ComplianceSummariesByResourceType: List[ComplianceSummaryByResourceType]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_aggregate_compliance_by_config_rules' function.
 class DescribeAggregateComplianceByConfigRulesResponse(BaseValidatorModel):
     AggregateComplianceByConfigRules: List[AggregateComplianceByConfigRule]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_compliance_by_config_rule' function.
 class DescribeComplianceByConfigRuleResponse(BaseValidatorModel):
     ComplianceByConfigRules: List[ComplianceByConfigRule]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_compliance_by_resource' function.
 class DescribeComplianceByResourceResponse(BaseValidatorModel):
     ComplianceByResources: List[ComplianceByResource]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_aggregate_compliance_details_by_config_rule' function.
 class GetAggregateComplianceDetailsByConfigRuleResponse(BaseValidatorModel):
     AggregateEvaluationResults: List[AggregateEvaluationResult]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_conformance_pack_compliance_details' function.
 class GetConformancePackComplianceDetailsResponse(BaseValidatorModel):
     ConformancePackName: str
     ConformancePackRuleEvaluationResults: List[ConformancePackEvaluationResult]
@@ -2051,18 +2202,21 @@ class GetConformancePackComplianceDetailsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_compliance_details_by_config_rule' function.
 class GetComplianceDetailsByConfigRuleResponse(BaseValidatorModel):
     EvaluationResults: List[EvaluationResult]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_compliance_details_by_resource' function.
 class GetComplianceDetailsByResourceResponse(BaseValidatorModel):
     EvaluationResults: List[EvaluationResult]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'put_evaluations' function.
 class PutEvaluationsRequest(BaseValidatorModel):
     ResultToken: str
     Evaluations: Optional[List[EvaluationUnion]] = None
@@ -2074,22 +2228,26 @@ class ListResourceEvaluationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_resource_evaluations' function.
 class ListResourceEvaluationsRequest(BaseValidatorModel):
     Filters: Optional[ResourceEvaluationFilters] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'associate_resource_types' function.
 class AssociateResourceTypesResponse(BaseValidatorModel):
     ConfigurationRecorder: ConfigurationRecorderOutput
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_configuration_recorders' function.
 class DescribeConfigurationRecordersResponse(BaseValidatorModel):
     ConfigurationRecorders: List[ConfigurationRecorderOutput]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_resource_types' function.
 class DisassociateResourceTypesResponse(BaseValidatorModel):
     ConfigurationRecorder: ConfigurationRecorderOutput
     ResponseMetadata: ResponseMetadata
@@ -2097,6 +2255,7 @@ class DisassociateResourceTypesResponse(BaseValidatorModel):
 ConfigurationRecorderUnion = Union[ConfigurationRecorder, ConfigurationRecorderOutput]
 
 
+# This class is the output for the 'describe_remediation_configurations' function.
 class DescribeRemediationConfigurationsResponse(BaseValidatorModel):
     RemediationConfigurations: List[RemediationConfigurationOutput]
     ResponseMetadata: ResponseMetadata
@@ -2107,6 +2266,7 @@ class FailedRemediationBatch(BaseValidatorModel):
     FailedItems: Optional[List[RemediationConfigurationOutput]] = None
 
 
+# This class is the output for the 'describe_config_rules' function.
 class DescribeConfigRulesResponse(BaseValidatorModel):
     ConfigRules: List[ConfigRuleOutput]
     ResponseMetadata: ResponseMetadata
@@ -2117,16 +2277,19 @@ ConfigRuleUnion = Union[ConfigRule, ConfigRuleOutput]
 RemediationParameterValueUnion = Union[RemediationParameterValue, RemediationParameterValueOutput]
 
 
+# This class is the input for the 'put_configuration_recorder' function.
 class PutConfigurationRecorderRequest(BaseValidatorModel):
     ConfigurationRecorder: ConfigurationRecorderUnion
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'put_remediation_configurations' function.
 class PutRemediationConfigurationsResponse(BaseValidatorModel):
     FailedBatches: List[FailedRemediationBatch]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_config_rule' function.
 class PutConfigRuleRequest(BaseValidatorModel):
     ConfigRule: ConfigRuleUnion
     Tags: Optional[List[Tag]] = None
@@ -2149,5 +2312,6 @@ class RemediationConfiguration(BaseValidatorModel):
 RemediationConfigurationUnion = Union[RemediationConfiguration, RemediationConfigurationOutput]
 
 
+# This class is the input for the 'put_remediation_configurations' function.
 class PutRemediationConfigurationsRequest(BaseValidatorModel):
     RemediationConfigurations: List[RemediationConfigurationUnion]

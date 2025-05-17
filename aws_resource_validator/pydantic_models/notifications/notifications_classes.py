@@ -39,6 +39,7 @@ class AssociateManagedNotificationAdditionalChannelRequest(BaseValidatorModel):
     managedNotificationConfigurationArn: str
 
 
+# This class is the input for the 'create_event_rule' function.
 class CreateEventRuleRequest(BaseValidatorModel):
     notificationConfigurationArn: str
     source: str
@@ -60,6 +61,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_notification_configuration' function.
 class CreateNotificationConfigurationRequest(BaseValidatorModel):
     name: str
     description: str
@@ -75,6 +77,7 @@ class DeleteNotificationConfigurationRequest(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'deregister_notification_hub' function.
 class DeregisterNotificationHubRequest(BaseValidatorModel):
     notificationHubRegion: str
 
@@ -104,28 +107,34 @@ class DisassociateManagedNotificationAdditionalChannelRequest(BaseValidatorModel
     managedNotificationConfigurationArn: str
 
 
+# This class is the input for the 'get_event_rule' function.
 class GetEventRuleRequest(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'get_managed_notification_child_event' function.
 class GetManagedNotificationChildEventRequest(BaseValidatorModel):
     arn: str
     locale: Optional[LocaleCodeType] = None
 
 
+# This class is the input for the 'get_managed_notification_configuration' function.
 class GetManagedNotificationConfigurationRequest(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'get_managed_notification_event' function.
 class GetManagedNotificationEventRequest(BaseValidatorModel):
     arn: str
     locale: Optional[LocaleCodeType] = None
 
 
+# This class is the input for the 'get_notification_configuration' function.
 class GetNotificationConfigurationRequest(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'get_notification_event' function.
 class GetNotificationEventRequest(BaseValidatorModel):
     arn: str
     locale: Optional[LocaleCodeType] = None
@@ -141,18 +150,21 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_channels' function.
 class ListChannelsRequest(BaseValidatorModel):
     notificationConfigurationArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_event_rules' function.
 class ListEventRulesRequest(BaseValidatorModel):
     notificationConfigurationArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_managed_notification_channel_associations' function.
 class ListManagedNotificationChannelAssociationsRequest(BaseValidatorModel):
     managedNotificationConfigurationArn: str
     maxResults: Optional[int] = None
@@ -167,6 +179,7 @@ class ManagedNotificationChannelAssociationSummary(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'list_managed_notification_configurations' function.
 class ListManagedNotificationConfigurationsRequest(BaseValidatorModel):
     channelIdentifier: Optional[str] = None
     maxResults: Optional[int] = None
@@ -179,6 +192,7 @@ class ManagedNotificationConfigurationStructure(BaseValidatorModel):
     description: str
 
 
+# This class is the input for the 'list_notification_configurations' function.
 class ListNotificationConfigurationsRequest(BaseValidatorModel):
     eventRuleSource: Optional[str] = None
     channelArn: Optional[str] = None
@@ -196,11 +210,13 @@ class NotificationConfigurationStructure(BaseValidatorModel):
     aggregationDuration: Optional[AggregationDurationType] = None
 
 
+# This class is the input for the 'list_notification_hubs' function.
 class ListNotificationHubsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     arn: str
 
@@ -235,6 +251,7 @@ class SourceEventMetadataSummary(BaseValidatorModel):
     eventOriginRegion: Optional[str] = None
 
 
+# This class is the input for the 'register_notification_hub' function.
 class RegisterNotificationHubRequest(BaseValidatorModel):
     notificationHubRegion: str
 
@@ -256,12 +273,14 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_event_rule' function.
 class UpdateEventRuleRequest(BaseValidatorModel):
     arn: str
     eventPattern: Optional[str] = None
     regions: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_notification_configuration' function.
 class UpdateNotificationConfigurationRequest(BaseValidatorModel):
     arn: str
     name: Optional[str] = None
@@ -294,6 +313,7 @@ class EventRuleStructure(BaseValidatorModel):
     statusSummaryByRegion: Dict[str, EventRuleStatusSummary]
 
 
+# This class is the output for the 'create_event_rule' function.
 class CreateEventRuleResponse(BaseValidatorModel):
     arn: str
     notificationConfigurationArn: str
@@ -301,12 +321,14 @@ class CreateEventRuleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_notification_configuration' function.
 class CreateNotificationConfigurationResponse(BaseValidatorModel):
     arn: str
     status: NotificationConfigurationStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_event_rule' function.
 class GetEventRuleResponse(BaseValidatorModel):
     arn: str
     notificationConfigurationArn: str
@@ -320,6 +342,7 @@ class GetEventRuleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_managed_notification_configuration' function.
 class GetManagedNotificationConfigurationResponse(BaseValidatorModel):
     arn: str
     name: str
@@ -329,6 +352,7 @@ class GetManagedNotificationConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_notification_configuration' function.
 class GetNotificationConfigurationResponse(BaseValidatorModel):
     arn: str
     name: str
@@ -339,17 +363,20 @@ class GetNotificationConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_channels' function.
 class ListChannelsResponse(BaseValidatorModel):
     channels: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_event_rule' function.
 class UpdateEventRuleResponse(BaseValidatorModel):
     arn: str
     notificationConfigurationArn: str
@@ -357,11 +384,13 @@ class UpdateEventRuleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_notification_configuration' function.
 class UpdateNotificationConfigurationResponse(BaseValidatorModel):
     arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'deregister_notification_hub' function.
 class DeregisterNotificationHubResponse(BaseValidatorModel):
     notificationHubRegion: str
     statusSummary: NotificationHubStatusSummary
@@ -375,6 +404,7 @@ class NotificationHubOverview(BaseValidatorModel):
     lastActivationTime: Optional[datetime] = None
 
 
+# This class is the output for the 'register_notification_hub' function.
 class RegisterNotificationHubResponse(BaseValidatorModel):
     notificationHubRegion: str
     statusSummary: NotificationHubStatusSummary
@@ -426,6 +456,7 @@ class ListNotificationHubsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_managed_notification_channel_associations' function.
 class ListManagedNotificationChannelAssociationsResponse(BaseValidatorModel):
     channelAssociations: List[ManagedNotificationChannelAssociationSummary]
     ResponseMetadata: ResponseMetadata
@@ -442,6 +473,7 @@ class ListManagedNotificationChildEventsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_managed_notification_child_events' function.
 class ListManagedNotificationChildEventsRequest(BaseValidatorModel):
     aggregateManagedNotificationEventArn: str
     startTime: Optional[Timestamp] = None
@@ -463,6 +495,7 @@ class ListManagedNotificationEventsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_managed_notification_events' function.
 class ListManagedNotificationEventsRequest(BaseValidatorModel):
     startTime: Optional[Timestamp] = None
     endTime: Optional[Timestamp] = None
@@ -484,6 +517,7 @@ class ListNotificationEventsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_notification_events' function.
 class ListNotificationEventsRequest(BaseValidatorModel):
     startTime: Optional[Timestamp] = None
     endTime: Optional[Timestamp] = None
@@ -495,12 +529,14 @@ class ListNotificationEventsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_managed_notification_configurations' function.
 class ListManagedNotificationConfigurationsResponse(BaseValidatorModel):
     managedNotificationConfigurations: List[ManagedNotificationConfigurationStructure]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_notification_configurations' function.
 class ListNotificationConfigurationsResponse(BaseValidatorModel):
     notificationConfigurations: List[NotificationConfigurationStructure]
     ResponseMetadata: ResponseMetadata
@@ -543,12 +579,14 @@ class ManagedNotificationChildEventSummary(BaseValidatorModel):
     notificationType: NotificationTypeType
 
 
+# This class is the output for the 'list_event_rules' function.
 class ListEventRulesResponse(BaseValidatorModel):
     eventRules: List[EventRuleStructure]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_notification_hubs' function.
 class ListNotificationHubsResponse(BaseValidatorModel):
     notificationHubs: List[NotificationHubOverview]
     ResponseMetadata: ResponseMetadata
@@ -638,6 +676,7 @@ class ManagedNotificationChildEventOverview(BaseValidatorModel):
     organizationalUnitId: Optional[str] = None
 
 
+# This class is the output for the 'get_managed_notification_child_event' function.
 class GetManagedNotificationChildEventResponse(BaseValidatorModel):
     arn: str
     managedNotificationConfigurationArn: str
@@ -646,6 +685,7 @@ class GetManagedNotificationChildEventResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_managed_notification_event' function.
 class GetManagedNotificationEventResponse(BaseValidatorModel):
     arn: str
     managedNotificationConfigurationArn: str
@@ -654,18 +694,21 @@ class GetManagedNotificationEventResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_managed_notification_events' function.
 class ListManagedNotificationEventsResponse(BaseValidatorModel):
     managedNotificationEvents: List[ManagedNotificationEventOverview]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_notification_events' function.
 class ListNotificationEventsResponse(BaseValidatorModel):
     notificationEvents: List[NotificationEventOverview]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_notification_event' function.
 class GetNotificationEventResponse(BaseValidatorModel):
     arn: str
     notificationConfigurationArn: str
@@ -674,6 +717,7 @@ class GetNotificationEventResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_managed_notification_child_events' function.
 class ListManagedNotificationChildEventsResponse(BaseValidatorModel):
     managedNotificationChildEvents: List[ManagedNotificationChildEventOverview]
     ResponseMetadata: ResponseMetadata

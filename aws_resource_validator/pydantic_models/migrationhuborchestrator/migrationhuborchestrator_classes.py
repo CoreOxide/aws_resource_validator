@@ -27,6 +27,7 @@ class TemplateSource(BaseValidatorModel):
     workflowId: Optional[str] = None
 
 
+# This class is the input for the 'create_workflow_step_group' function.
 class CreateWorkflowStepGroupRequest(BaseValidatorModel):
     workflowId: str
     name: str
@@ -40,6 +41,7 @@ class Tool(BaseValidatorModel):
     url: Optional[str] = None
 
 
+# This class is the input for the 'delete_workflow' function.
 class DeleteMigrationWorkflowRequest(BaseValidatorModel):
     id: str
 
@@ -59,10 +61,12 @@ class DeleteWorkflowStepRequest(BaseValidatorModel):
     workflowId: str
 
 
+# This class is the input for the 'get_workflow' function.
 class GetMigrationWorkflowRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'get_template' function.
 class GetMigrationWorkflowTemplateRequest(BaseValidatorModel):
     id: str
 
@@ -73,11 +77,13 @@ class TemplateInput(BaseValidatorModel):
     required: Optional[bool] = None
 
 
+# This class is the input for the 'get_template_step_group' function.
 class GetTemplateStepGroupRequest(BaseValidatorModel):
     templateId: str
     id: str
 
 
+# This class is the input for the 'get_template_step' function.
 class GetTemplateStepRequest(BaseValidatorModel):
     id: str
     templateId: str
@@ -90,11 +96,13 @@ class StepOutput(BaseValidatorModel):
     required: Optional[bool] = None
 
 
+# This class is the input for the 'get_workflow_step_group' function.
 class GetWorkflowStepGroupRequest(BaseValidatorModel):
     id: str
     workflowId: str
 
 
+# This class is the input for the 'get_workflow_step' function.
 class GetWorkflowStepRequest(BaseValidatorModel):
     workflowId: str
     stepGroupId: str
@@ -107,6 +115,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_templates' function.
 class ListMigrationWorkflowTemplatesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -120,6 +129,7 @@ class TemplateSummary(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'list_workflows' function.
 class ListMigrationWorkflowsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -142,6 +152,7 @@ class MigrationWorkflowSummary(BaseValidatorModel):
     totalSteps: Optional[int] = None
 
 
+# This class is the input for the 'list_plugins' function.
 class ListPluginsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -156,10 +167,12 @@ class PluginSummary(BaseValidatorModel):
     registeredTime: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'list_template_step_groups' function.
 class ListTemplateStepGroupsRequest(BaseValidatorModel):
     templateId: str
     maxResults: Optional[int] = None
@@ -173,6 +186,7 @@ class TemplateStepGroupSummary(BaseValidatorModel):
     next: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_template_steps' function.
 class ListTemplateStepsRequest(BaseValidatorModel):
     templateId: str
     stepGroupId: str
@@ -192,6 +206,7 @@ class TemplateStepSummary(BaseValidatorModel):
     next: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_workflow_step_groups' function.
 class ListWorkflowStepGroupsRequest(BaseValidatorModel):
     workflowId: str
     nextToken: Optional[str] = None
@@ -207,6 +222,7 @@ class WorkflowStepGroupSummary(BaseValidatorModel):
     next: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_workflow_steps' function.
 class ListWorkflowStepsRequest(BaseValidatorModel):
     workflowId: str
     stepGroupId: str
@@ -240,12 +256,14 @@ class PlatformScriptKey(BaseValidatorModel):
     windows: Optional[str] = None
 
 
+# This class is the input for the 'retry_workflow_step' function.
 class RetryWorkflowStepRequest(BaseValidatorModel):
     workflowId: str
     stepGroupId: str
     id: str
 
 
+# This class is the input for the 'start_workflow' function.
 class StartMigrationWorkflowRequest(BaseValidatorModel):
     id: str
 
@@ -257,6 +275,7 @@ class StepInput(BaseValidatorModel):
     mapOfStringValue: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'stop_workflow' function.
 class StopMigrationWorkflowRequest(BaseValidatorModel):
     id: str
 
@@ -271,6 +290,7 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_template' function.
 class UpdateTemplateRequest(BaseValidatorModel):
     id: str
     templateName: Optional[str] = None
@@ -278,6 +298,7 @@ class UpdateTemplateRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'update_workflow_step_group' function.
 class UpdateWorkflowStepGroupRequest(BaseValidatorModel):
     workflowId: str
     id: str
@@ -299,6 +320,7 @@ class WorkflowStepOutputUnion(BaseValidatorModel):
     listOfStringValue: Optional[List[str]] = None
 
 
+# This class is the output for the 'create_template' function.
 class CreateTemplateResponse(BaseValidatorModel):
     templateId: str
     templateArn: str
@@ -306,6 +328,7 @@ class CreateTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_workflow_step' function.
 class CreateWorkflowStepResponse(BaseValidatorModel):
     id: str
     stepGroupId: str
@@ -314,6 +337,7 @@ class CreateWorkflowStepResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_workflow' function.
 class DeleteMigrationWorkflowResponse(BaseValidatorModel):
     id: str
     arn: str
@@ -321,11 +345,13 @@ class DeleteMigrationWorkflowResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'retry_workflow_step' function.
 class RetryWorkflowStepResponse(BaseValidatorModel):
     stepGroupId: str
     workflowId: str
@@ -334,6 +360,7 @@ class RetryWorkflowStepResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_workflow' function.
 class StartMigrationWorkflowResponse(BaseValidatorModel):
     id: str
     arn: str
@@ -343,6 +370,7 @@ class StartMigrationWorkflowResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_workflow' function.
 class StopMigrationWorkflowResponse(BaseValidatorModel):
     id: str
     arn: str
@@ -352,6 +380,7 @@ class StopMigrationWorkflowResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_template' function.
 class UpdateTemplateResponse(BaseValidatorModel):
     templateId: str
     templateArn: str
@@ -359,6 +388,7 @@ class UpdateTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_workflow_step' function.
 class UpdateWorkflowStepResponse(BaseValidatorModel):
     id: str
     stepGroupId: str
@@ -367,6 +397,7 @@ class UpdateWorkflowStepResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_workflow' function.
 class CreateMigrationWorkflowResponse(BaseValidatorModel):
     id: str
     arn: str
@@ -382,6 +413,7 @@ class CreateMigrationWorkflowResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_workflow' function.
 class UpdateMigrationWorkflowResponse(BaseValidatorModel):
     id: str
     arn: str
@@ -398,6 +430,7 @@ class UpdateMigrationWorkflowResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_template' function.
 class CreateTemplateRequest(BaseValidatorModel):
     templateName: str
     templateSource: TemplateSource
@@ -406,6 +439,7 @@ class CreateTemplateRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_workflow_step_group' function.
 class CreateWorkflowStepGroupResponse(BaseValidatorModel):
     workflowId: str
     name: str
@@ -418,6 +452,7 @@ class CreateWorkflowStepGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_workflow' function.
 class GetMigrationWorkflowResponse(BaseValidatorModel):
     id: str
     arn: str
@@ -442,6 +477,7 @@ class GetMigrationWorkflowResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_template_step_group' function.
 class GetTemplateStepGroupResponse(BaseValidatorModel):
     templateId: str
     id: str
@@ -456,6 +492,7 @@ class GetTemplateStepGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_workflow_step_group' function.
 class GetWorkflowStepGroupResponse(BaseValidatorModel):
     id: str
     workflowId: str
@@ -472,6 +509,7 @@ class GetWorkflowStepGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_workflow_step_group' function.
 class UpdateWorkflowStepGroupResponse(BaseValidatorModel):
     workflowId: str
     name: str
@@ -484,6 +522,7 @@ class UpdateWorkflowStepGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_template' function.
 class GetMigrationWorkflowTemplateResponse(BaseValidatorModel):
     id: str
     templateArn: str
@@ -539,42 +578,49 @@ class ListWorkflowStepsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_templates' function.
 class ListMigrationWorkflowTemplatesResponse(BaseValidatorModel):
     templateSummary: List[TemplateSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_workflows' function.
 class ListMigrationWorkflowsResponse(BaseValidatorModel):
     migrationWorkflowSummary: List[MigrationWorkflowSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_plugins' function.
 class ListPluginsResponse(BaseValidatorModel):
     plugins: List[PluginSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_template_step_groups' function.
 class ListTemplateStepGroupsResponse(BaseValidatorModel):
     templateStepGroupSummary: List[TemplateStepGroupSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_template_steps' function.
 class ListTemplateStepsResponse(BaseValidatorModel):
     templateStepSummaryList: List[TemplateStepSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_workflow_step_groups' function.
 class ListWorkflowStepGroupsResponse(BaseValidatorModel):
     workflowStepGroupsSummary: List[WorkflowStepGroupSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_workflow_steps' function.
 class ListWorkflowStepsResponse(BaseValidatorModel):
     workflowStepsSummary: List[WorkflowStepSummary]
     ResponseMetadata: ResponseMetadata
@@ -608,6 +654,7 @@ class WorkflowStepExtra(BaseValidatorModel):
 WorkflowStepOutputUnionUnion = Union[WorkflowStepOutputUnion, WorkflowStepOutputUnionOutput]
 
 
+# This class is the output for the 'get_template_step' function.
 class GetTemplateStepResponse(BaseValidatorModel):
     id: str
     stepGroupId: str
@@ -623,6 +670,7 @@ class GetTemplateStepResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_workflow' function.
 class CreateMigrationWorkflowRequest(BaseValidatorModel):
     name: str
     templateId: str
@@ -633,6 +681,7 @@ class CreateMigrationWorkflowRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_workflow' function.
 class UpdateMigrationWorkflowRequest(BaseValidatorModel):
     id: str
     name: Optional[str] = None
@@ -641,6 +690,7 @@ class UpdateMigrationWorkflowRequest(BaseValidatorModel):
     stepTargets: Optional[List[str]] = None
 
 
+# This class is the output for the 'get_workflow_step' function.
 class GetWorkflowStepResponse(BaseValidatorModel):
     name: str
     stepGroupId: str
@@ -675,6 +725,7 @@ class WorkflowStepOutput(BaseValidatorModel):
 WorkflowStepUnion = Union[WorkflowStepOutput, WorkflowStepExtra]
 
 
+# This class is the input for the 'create_workflow_step' function.
 class CreateWorkflowStepRequest(BaseValidatorModel):
     name: str
     stepGroupId: str
@@ -688,6 +739,7 @@ class CreateWorkflowStepRequest(BaseValidatorModel):
     next: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_workflow_step' function.
 class UpdateWorkflowStepRequest(BaseValidatorModel):
     id: str
     stepGroupId: str

@@ -205,6 +205,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_account_limits' function.
 class DescribeAccountLimitsInput(BaseValidatorModel):
     Marker: Optional[str] = None
     PageSize: Optional[int] = None
@@ -215,6 +216,7 @@ class Limit(BaseValidatorModel):
     Max: Optional[str] = None
 
 
+# This class is the input for the 'describe_capacity_reservation' function.
 class DescribeCapacityReservationInput(BaseValidatorModel):
     LoadBalancerArn: str
 
@@ -223,6 +225,7 @@ class MinimumLoadBalancerCapacity(BaseValidatorModel):
     CapacityUnits: Optional[int] = None
 
 
+# This class is the input for the 'describe_listener_attributes' function.
 class DescribeListenerAttributesInput(BaseValidatorModel):
     ListenerArn: str
 
@@ -232,12 +235,14 @@ class ListenerAttribute(BaseValidatorModel):
     Value: Optional[str] = None
 
 
+# This class is the input for the 'describe_listener_certificates' function.
 class DescribeListenerCertificatesInput(BaseValidatorModel):
     ListenerArn: str
     Marker: Optional[str] = None
     PageSize: Optional[int] = None
 
 
+# This class is the input for the 'describe_listeners' function.
 class DescribeListenersInput(BaseValidatorModel):
     LoadBalancerArn: Optional[str] = None
     ListenerArns: Optional[List[str]] = None
@@ -245,6 +250,7 @@ class DescribeListenersInput(BaseValidatorModel):
     PageSize: Optional[int] = None
 
 
+# This class is the input for the 'describe_load_balancer_attributes' function.
 class DescribeLoadBalancerAttributesInput(BaseValidatorModel):
     LoadBalancerArn: str
 
@@ -254,6 +260,7 @@ class LoadBalancerAttribute(BaseValidatorModel):
     Value: Optional[str] = None
 
 
+# This class is the input for the 'describe_load_balancers' function.
 class DescribeLoadBalancersInput(BaseValidatorModel):
     LoadBalancerArns: Optional[List[str]] = None
     Names: Optional[List[str]] = None
@@ -266,6 +273,7 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'describe_rules' function.
 class DescribeRulesInput(BaseValidatorModel):
     ListenerArn: Optional[str] = None
     RuleArns: Optional[List[str]] = None
@@ -273,6 +281,7 @@ class DescribeRulesInput(BaseValidatorModel):
     PageSize: Optional[int] = None
 
 
+# This class is the input for the 'describe_ssl_policies' function.
 class DescribeSSLPoliciesInput(BaseValidatorModel):
     Names: Optional[List[str]] = None
     Marker: Optional[str] = None
@@ -280,10 +289,12 @@ class DescribeSSLPoliciesInput(BaseValidatorModel):
     LoadBalancerType: Optional[LoadBalancerTypeEnumType] = None
 
 
+# This class is the input for the 'describe_tags' function.
 class DescribeTagsInput(BaseValidatorModel):
     ResourceArns: List[str]
 
 
+# This class is the input for the 'describe_target_group_attributes' function.
 class DescribeTargetGroupAttributesInput(BaseValidatorModel):
     TargetGroupArn: str
 
@@ -293,6 +304,7 @@ class TargetGroupAttribute(BaseValidatorModel):
     Value: Optional[str] = None
 
 
+# This class is the input for the 'describe_target_groups' function.
 class DescribeTargetGroupsInput(BaseValidatorModel):
     LoadBalancerArn: Optional[str] = None
     TargetGroupArns: Optional[List[str]] = None
@@ -301,6 +313,7 @@ class DescribeTargetGroupsInput(BaseValidatorModel):
     PageSize: Optional[int] = None
 
 
+# This class is the input for the 'describe_trust_store_associations' function.
 class DescribeTrustStoreAssociationsInput(BaseValidatorModel):
     TrustStoreArn: str
     Marker: Optional[str] = None
@@ -318,6 +331,7 @@ class DescribeTrustStoreRevocation(BaseValidatorModel):
     NumberOfRevokedEntries: Optional[int] = None
 
 
+# This class is the input for the 'describe_trust_store_revocations' function.
 class DescribeTrustStoreRevocationsInput(BaseValidatorModel):
     TrustStoreArn: str
     RevocationIds: Optional[List[int]] = None
@@ -325,6 +339,7 @@ class DescribeTrustStoreRevocationsInput(BaseValidatorModel):
     PageSize: Optional[int] = None
 
 
+# This class is the input for the 'describe_trust_stores' function.
 class DescribeTrustStoresInput(BaseValidatorModel):
     TrustStoreArns: Optional[List[str]] = None
     Names: Optional[List[str]] = None
@@ -342,14 +357,17 @@ class TargetGroupTuple(BaseValidatorModel):
     Weight: Optional[int] = None
 
 
+# This class is the input for the 'get_resource_policy' function.
 class GetResourcePolicyInput(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'get_trust_store_ca_certificates_bundle' function.
 class GetTrustStoreCaCertificatesBundleInput(BaseValidatorModel):
     TrustStoreArn: str
 
 
+# This class is the input for the 'get_trust_store_revocation_content' function.
 class GetTrustStoreRevocationContentInput(BaseValidatorModel):
     TrustStoreArn: str
     RevocationId: int
@@ -386,6 +404,7 @@ class LoadBalancerState(BaseValidatorModel):
     Reason: Optional[str] = None
 
 
+# This class is the input for the 'modify_trust_store' function.
 class ModifyTrustStoreInput(BaseValidatorModel):
     TrustStoreArn: str
     CaCertificatesBundleS3Bucket: str
@@ -425,11 +444,13 @@ class RulePriorityPair(BaseValidatorModel):
     Priority: Optional[int] = None
 
 
+# This class is the input for the 'set_ip_address_type' function.
 class SetIpAddressTypeInput(BaseValidatorModel):
     LoadBalancerArn: str
     IpAddressType: IpAddressTypeType
 
 
+# This class is the input for the 'set_security_groups' function.
 class SetSecurityGroupsInput(BaseValidatorModel):
     LoadBalancerArn: str
     SecurityGroups: List[str]
@@ -446,6 +467,7 @@ class TargetHealth(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'add_listener_certificates' function.
 class AddListenerCertificatesInput(BaseValidatorModel):
     ListenerArn: str
     Certificates: List[Certificate]
@@ -456,37 +478,44 @@ class RemoveListenerCertificatesInput(BaseValidatorModel):
     Certificates: List[Certificate]
 
 
+# This class is the output for the 'add_listener_certificates' function.
 class AddListenerCertificatesOutput(BaseValidatorModel):
     Certificates: List[Certificate]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_listener_certificates' function.
 class DescribeListenerCertificatesOutput(BaseValidatorModel):
     Certificates: List[Certificate]
     NextMarker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_policy' function.
 class GetResourcePolicyOutput(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_trust_store_ca_certificates_bundle' function.
 class GetTrustStoreCaCertificatesBundleOutput(BaseValidatorModel):
     Location: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_trust_store_revocation_content' function.
 class GetTrustStoreRevocationContentOutput(BaseValidatorModel):
     Location: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'set_ip_address_type' function.
 class SetIpAddressTypeOutput(BaseValidatorModel):
     IpAddressType: IpAddressTypeType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'set_security_groups' function.
 class SetSecurityGroupsOutput(BaseValidatorModel):
     SecurityGroupIds: List[str]
     EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumType
@@ -498,6 +527,7 @@ class AddTagsInput(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the input for the 'create_trust_store' function.
 class CreateTrustStoreInput(BaseValidatorModel):
     Name: str
     CaCertificatesBundleS3Bucket: str
@@ -511,11 +541,13 @@ class TagDescription(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'add_trust_store_revocations' function.
 class AddTrustStoreRevocationsInput(BaseValidatorModel):
     TrustStoreArn: str
     RevocationContents: Optional[List[RevocationContent]] = None
 
 
+# This class is the output for the 'add_trust_store_revocations' function.
 class AddTrustStoreRevocationsOutput(BaseValidatorModel):
     TrustStoreRevocations: List[TrustStoreRevocation]
     ResponseMetadata: ResponseMetadata
@@ -546,17 +578,20 @@ class SslPolicy(BaseValidatorModel):
     SupportedLoadBalancerTypes: Optional[List[str]] = None
 
 
+# This class is the input for the 'modify_ip_pools' function.
 class ModifyIpPoolsInput(BaseValidatorModel):
     LoadBalancerArn: str
     IpamPools: Optional[IpamPools] = None
     RemoveIpamPools: Optional[List[Literal['ipv4']]] = None
 
 
+# This class is the output for the 'modify_ip_pools' function.
 class ModifyIpPoolsOutput(BaseValidatorModel):
     IpamPools: IpamPools
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_load_balancer' function.
 class CreateLoadBalancerInput(BaseValidatorModel):
     Name: str
     Subnets: Optional[List[str]] = None
@@ -571,6 +606,7 @@ class CreateLoadBalancerInput(BaseValidatorModel):
     IpamPools: Optional[IpamPools] = None
 
 
+# This class is the input for the 'set_subnets' function.
 class SetSubnetsInput(BaseValidatorModel):
     LoadBalancerArn: str
     Subnets: Optional[List[str]] = None
@@ -579,6 +615,7 @@ class SetSubnetsInput(BaseValidatorModel):
     EnablePrefixForIpv6SourceNat: Optional[EnablePrefixForIpv6SourceNatEnumType] = None
 
 
+# This class is the input for the 'create_target_group' function.
 class CreateTargetGroupInput(BaseValidatorModel):
     Name: str
     Protocol: Optional[ProtocolEnumType] = None
@@ -599,6 +636,7 @@ class CreateTargetGroupInput(BaseValidatorModel):
     IpAddressType: Optional[TargetGroupIpAddressTypeEnumType] = None
 
 
+# This class is the input for the 'modify_target_group' function.
 class ModifyTargetGroupInput(BaseValidatorModel):
     TargetGroupArn: str
     HealthCheckProtocol: Optional[ProtocolEnumType] = None
@@ -633,17 +671,20 @@ class TargetGroup(BaseValidatorModel):
     IpAddressType: Optional[TargetGroupIpAddressTypeEnumType] = None
 
 
+# This class is the output for the 'create_trust_store' function.
 class CreateTrustStoreOutput(BaseValidatorModel):
     TrustStores: List[TrustStore]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_trust_stores' function.
 class DescribeTrustStoresOutput(BaseValidatorModel):
     TrustStores: List[TrustStore]
     NextMarker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_trust_store' function.
 class ModifyTrustStoreOutput(BaseValidatorModel):
     TrustStores: List[TrustStore]
     ResponseMetadata: ResponseMetadata
@@ -654,6 +695,7 @@ class DeregisterTargetsInput(BaseValidatorModel):
     Targets: List[TargetDescription]
 
 
+# This class is the input for the 'describe_target_health' function.
 class DescribeTargetHealthInput(BaseValidatorModel):
     TargetGroupArn: str
     Targets: Optional[List[TargetDescription]] = None
@@ -705,43 +747,51 @@ class DescribeTargetGroupsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'describe_account_limits' function.
 class DescribeAccountLimitsOutput(BaseValidatorModel):
     Limits: List[Limit]
     NextMarker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'modify_capacity_reservation' function.
 class ModifyCapacityReservationInput(BaseValidatorModel):
     LoadBalancerArn: str
     MinimumLoadBalancerCapacity: Optional[MinimumLoadBalancerCapacity] = None
     ResetCapacityReservation: Optional[bool] = None
 
 
+# This class is the output for the 'describe_listener_attributes' function.
 class DescribeListenerAttributesOutput(BaseValidatorModel):
     Attributes: List[ListenerAttribute]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'modify_listener_attributes' function.
 class ModifyListenerAttributesInput(BaseValidatorModel):
     ListenerArn: str
     Attributes: List[ListenerAttribute]
 
 
+# This class is the output for the 'modify_listener_attributes' function.
 class ModifyListenerAttributesOutput(BaseValidatorModel):
     Attributes: List[ListenerAttribute]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_load_balancer_attributes' function.
 class DescribeLoadBalancerAttributesOutput(BaseValidatorModel):
     Attributes: List[LoadBalancerAttribute]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'modify_load_balancer_attributes' function.
 class ModifyLoadBalancerAttributesInput(BaseValidatorModel):
     LoadBalancerArn: str
     Attributes: List[LoadBalancerAttribute]
 
 
+# This class is the output for the 'modify_load_balancer_attributes' function.
 class ModifyLoadBalancerAttributesOutput(BaseValidatorModel):
     Attributes: List[LoadBalancerAttribute]
     ResponseMetadata: ResponseMetadata
@@ -785,27 +835,32 @@ class DescribeTargetHealthInputWait(BaseValidatorModel):
     WaiterConfig: Optional[WaiterConfig] = None
 
 
+# This class is the output for the 'describe_target_group_attributes' function.
 class DescribeTargetGroupAttributesOutput(BaseValidatorModel):
     Attributes: List[TargetGroupAttribute]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'modify_target_group_attributes' function.
 class ModifyTargetGroupAttributesInput(BaseValidatorModel):
     TargetGroupArn: str
     Attributes: List[TargetGroupAttribute]
 
 
+# This class is the output for the 'modify_target_group_attributes' function.
 class ModifyTargetGroupAttributesOutput(BaseValidatorModel):
     Attributes: List[TargetGroupAttribute]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_trust_store_associations' function.
 class DescribeTrustStoreAssociationsOutput(BaseValidatorModel):
     TrustStoreAssociations: List[TrustStoreAssociation]
     NextMarker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_trust_store_revocations' function.
 class DescribeTrustStoreRevocationsOutput(BaseValidatorModel):
     TrustStoreRevocations: List[DescribeTrustStoreRevocation]
     NextMarker: str
@@ -838,6 +893,7 @@ class QueryStringConditionConfig(BaseValidatorModel):
     Values: Optional[List[QueryStringKeyValuePair]] = None
 
 
+# This class is the input for the 'set_rule_priorities' function.
 class SetRulePrioritiesInput(BaseValidatorModel):
     RulePriorities: List[RulePriorityPair]
 
@@ -852,6 +908,7 @@ class TargetHealthDescription(BaseValidatorModel):
     AdministrativeOverride: Optional[AdministrativeOverride] = None
 
 
+# This class is the output for the 'describe_tags' function.
 class DescribeTagsOutput(BaseValidatorModel):
     TagDescriptions: List[TagDescription]
     ResponseMetadata: ResponseMetadata
@@ -876,6 +933,7 @@ class LoadBalancer(BaseValidatorModel):
     IpamPools: Optional[IpamPools] = None
 
 
+# This class is the output for the 'set_subnets' function.
 class SetSubnetsOutput(BaseValidatorModel):
     AvailabilityZones: List[AvailabilityZone]
     IpAddressType: IpAddressTypeType
@@ -883,6 +941,7 @@ class SetSubnetsOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_capacity_reservation' function.
 class DescribeCapacityReservationOutput(BaseValidatorModel):
     LastModifiedTime: datetime
     DecreaseRequestsRemaining: int
@@ -891,6 +950,7 @@ class DescribeCapacityReservationOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_capacity_reservation' function.
 class ModifyCapacityReservationOutput(BaseValidatorModel):
     LastModifiedTime: datetime
     DecreaseRequestsRemaining: int
@@ -899,23 +959,27 @@ class ModifyCapacityReservationOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_ssl_policies' function.
 class DescribeSSLPoliciesOutput(BaseValidatorModel):
     SslPolicies: List[SslPolicy]
     NextMarker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_target_group' function.
 class CreateTargetGroupOutput(BaseValidatorModel):
     TargetGroups: List[TargetGroup]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_target_groups' function.
 class DescribeTargetGroupsOutput(BaseValidatorModel):
     TargetGroups: List[TargetGroup]
     NextMarker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_target_group' function.
 class ModifyTargetGroupOutput(BaseValidatorModel):
     TargetGroups: List[TargetGroup]
     ResponseMetadata: ResponseMetadata
@@ -947,16 +1011,19 @@ class RuleConditionOutput(BaseValidatorModel):
 QueryStringConditionConfigUnion = Union[QueryStringConditionConfig, QueryStringConditionConfigOutput]
 
 
+# This class is the output for the 'describe_target_health' function.
 class DescribeTargetHealthOutput(BaseValidatorModel):
     TargetHealthDescriptions: List[TargetHealthDescription]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_load_balancer' function.
 class CreateLoadBalancerOutput(BaseValidatorModel):
     LoadBalancers: List[LoadBalancer]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_load_balancers' function.
 class DescribeLoadBalancersOutput(BaseValidatorModel):
     LoadBalancers: List[LoadBalancer]
     NextMarker: str
@@ -1005,17 +1072,20 @@ class RuleCondition(BaseValidatorModel):
     SourceIpConfig: Optional[SourceIpConditionConfigUnion] = None
 
 
+# This class is the output for the 'create_listener' function.
 class CreateListenerOutput(BaseValidatorModel):
     Listeners: List[Listener]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_listeners' function.
 class DescribeListenersOutput(BaseValidatorModel):
     Listeners: List[Listener]
     NextMarker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_listener' function.
 class ModifyListenerOutput(BaseValidatorModel):
     Listeners: List[Listener]
     ResponseMetadata: ResponseMetadata
@@ -1023,22 +1093,26 @@ class ModifyListenerOutput(BaseValidatorModel):
 ActionUnion = Union[Action, ActionOutput]
 
 
+# This class is the output for the 'create_rule' function.
 class CreateRuleOutput(BaseValidatorModel):
     Rules: List[Rule]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_rules' function.
 class DescribeRulesOutput(BaseValidatorModel):
     Rules: List[Rule]
     NextMarker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_rule' function.
 class ModifyRuleOutput(BaseValidatorModel):
     Rules: List[Rule]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'set_rule_priorities' function.
 class SetRulePrioritiesOutput(BaseValidatorModel):
     Rules: List[Rule]
     ResponseMetadata: ResponseMetadata
@@ -1046,6 +1120,7 @@ class SetRulePrioritiesOutput(BaseValidatorModel):
 RuleConditionUnion = Union[RuleCondition, RuleConditionOutput]
 
 
+# This class is the input for the 'create_listener' function.
 class CreateListenerInput(BaseValidatorModel):
     LoadBalancerArn: str
     DefaultActions: List[ActionUnion]
@@ -1058,6 +1133,7 @@ class CreateListenerInput(BaseValidatorModel):
     MutualAuthentication: Optional[MutualAuthenticationAttributes] = None
 
 
+# This class is the input for the 'modify_listener' function.
 class ModifyListenerInput(BaseValidatorModel):
     ListenerArn: str
     Port: Optional[int] = None
@@ -1069,6 +1145,7 @@ class ModifyListenerInput(BaseValidatorModel):
     MutualAuthentication: Optional[MutualAuthenticationAttributes] = None
 
 
+# This class is the input for the 'create_rule' function.
 class CreateRuleInput(BaseValidatorModel):
     ListenerArn: str
     Conditions: List[RuleConditionUnion]
@@ -1077,6 +1154,7 @@ class CreateRuleInput(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'modify_rule' function.
 class ModifyRuleInput(BaseValidatorModel):
     RuleArn: str
     Conditions: Optional[List[RuleConditionUnion]] = None

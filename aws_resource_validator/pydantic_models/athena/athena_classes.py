@@ -24,6 +24,7 @@ class AthenaError(BaseValidatorModel):
     ErrorMessage: Optional[str] = None
 
 
+# This class is the input for the 'batch_get_named_query' function.
 class BatchGetNamedQueryInput(BaseValidatorModel):
     NamedQueryIds: List[str]
 
@@ -51,6 +52,7 @@ class UnprocessedNamedQueryId(BaseValidatorModel):
     ErrorMessage: Optional[str] = None
 
 
+# This class is the input for the 'batch_get_prepared_statement' function.
 class BatchGetPreparedStatementInput(BaseValidatorModel):
     PreparedStatementNames: List[str]
     WorkGroup: str
@@ -70,6 +72,7 @@ class UnprocessedPreparedStatementName(BaseValidatorModel):
     ErrorMessage: Optional[str] = None
 
 
+# This class is the input for the 'batch_get_query_execution' function.
 class BatchGetQueryExecutionInput(BaseValidatorModel):
     QueryExecutionIds: List[str]
 
@@ -156,6 +159,7 @@ class DataCatalog(BaseValidatorModel):
     Error: Optional[str] = None
 
 
+# This class is the input for the 'create_named_query' function.
 class CreateNamedQueryInput(BaseValidatorModel):
     Name: str
     Database: str
@@ -165,6 +169,7 @@ class CreateNamedQueryInput(BaseValidatorModel):
     WorkGroup: Optional[str] = None
 
 
+# This class is the input for the 'create_notebook' function.
 class CreateNotebookInput(BaseValidatorModel):
     WorkGroup: str
     Name: str
@@ -178,6 +183,7 @@ class CreatePreparedStatementInput(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'create_presigned_notebook_url' function.
 class CreatePresignedNotebookUrlRequest(BaseValidatorModel):
     SessionId: str
 
@@ -208,6 +214,7 @@ class DeleteCapacityReservationInput(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'delete_data_catalog' function.
 class DeleteDataCatalogInput(BaseValidatorModel):
     Name: str
     DeleteCatalogOnly: Optional[bool] = None
@@ -266,6 +273,7 @@ class ExecutorsSummary(BaseValidatorModel):
     ExecutorSize: Optional[int] = None
 
 
+# This class is the input for the 'export_notebook' function.
 class ExportNotebookInput(BaseValidatorModel):
     NotebookId: str
 
@@ -283,50 +291,61 @@ class FilterDefinition(BaseValidatorModel):
     Name: Optional[str] = None
 
 
+# This class is the input for the 'get_calculation_execution_code' function.
 class GetCalculationExecutionCodeRequest(BaseValidatorModel):
     CalculationExecutionId: str
 
 
+# This class is the input for the 'get_calculation_execution' function.
 class GetCalculationExecutionRequest(BaseValidatorModel):
     CalculationExecutionId: str
 
 
+# This class is the input for the 'get_calculation_execution_status' function.
 class GetCalculationExecutionStatusRequest(BaseValidatorModel):
     CalculationExecutionId: str
 
 
+# This class is the input for the 'get_capacity_assignment_configuration' function.
 class GetCapacityAssignmentConfigurationInput(BaseValidatorModel):
     CapacityReservationName: str
 
 
+# This class is the input for the 'get_capacity_reservation' function.
 class GetCapacityReservationInput(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'get_data_catalog' function.
 class GetDataCatalogInput(BaseValidatorModel):
     Name: str
     WorkGroup: Optional[str] = None
 
 
+# This class is the input for the 'get_database' function.
 class GetDatabaseInput(BaseValidatorModel):
     CatalogName: str
     DatabaseName: str
     WorkGroup: Optional[str] = None
 
 
+# This class is the input for the 'get_named_query' function.
 class GetNamedQueryInput(BaseValidatorModel):
     NamedQueryId: str
 
 
+# This class is the input for the 'get_notebook_metadata' function.
 class GetNotebookMetadataInput(BaseValidatorModel):
     NotebookId: str
 
 
+# This class is the input for the 'get_prepared_statement' function.
 class GetPreparedStatementInput(BaseValidatorModel):
     StatementName: str
     WorkGroup: str
 
 
+# This class is the input for the 'get_query_execution' function.
 class GetQueryExecutionInput(BaseValidatorModel):
     QueryExecutionId: str
 
@@ -337,16 +356,19 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'get_query_results' function.
 class GetQueryResultsInput(BaseValidatorModel):
     QueryExecutionId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_query_runtime_statistics' function.
 class GetQueryRuntimeStatisticsInput(BaseValidatorModel):
     QueryExecutionId: str
 
 
+# This class is the input for the 'get_session' function.
 class GetSessionRequest(BaseValidatorModel):
     SessionId: str
 
@@ -364,10 +386,12 @@ class SessionStatus(BaseValidatorModel):
     StateChangeReason: Optional[str] = None
 
 
+# This class is the input for the 'get_session_status' function.
 class GetSessionStatusRequest(BaseValidatorModel):
     SessionId: str
 
 
+# This class is the input for the 'get_table_metadata' function.
 class GetTableMetadataInput(BaseValidatorModel):
     CatalogName: str
     DatabaseName: str
@@ -375,6 +399,7 @@ class GetTableMetadataInput(BaseValidatorModel):
     WorkGroup: Optional[str] = None
 
 
+# This class is the input for the 'get_work_group' function.
 class GetWorkGroupInput(BaseValidatorModel):
     WorkGroup: str
 
@@ -384,6 +409,7 @@ class IdentityCenterConfiguration(BaseValidatorModel):
     IdentityCenterInstanceArn: Optional[str] = None
 
 
+# This class is the input for the 'import_notebook' function.
 class ImportNotebookInput(BaseValidatorModel):
     WorkGroup: str
     Name: str
@@ -393,11 +419,13 @@ class ImportNotebookInput(BaseValidatorModel):
     ClientRequestToken: Optional[str] = None
 
 
+# This class is the input for the 'list_application_dpu_sizes' function.
 class ListApplicationDPUSizesInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_calculation_executions' function.
 class ListCalculationExecutionsRequest(BaseValidatorModel):
     SessionId: str
     StateFilter: Optional[CalculationExecutionStateType] = None
@@ -405,17 +433,20 @@ class ListCalculationExecutionsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_capacity_reservations' function.
 class ListCapacityReservationsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_data_catalogs' function.
 class ListDataCatalogsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     WorkGroup: Optional[str] = None
 
 
+# This class is the input for the 'list_databases' function.
 class ListDatabasesInput(BaseValidatorModel):
     CatalogName: str
     NextToken: Optional[str] = None
@@ -423,11 +454,13 @@ class ListDatabasesInput(BaseValidatorModel):
     WorkGroup: Optional[str] = None
 
 
+# This class is the input for the 'list_engine_versions' function.
 class ListEngineVersionsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_executors' function.
 class ListExecutorsRequest(BaseValidatorModel):
     SessionId: str
     ExecutorStateFilter: Optional[ExecutorStateType] = None
@@ -435,12 +468,14 @@ class ListExecutorsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_named_queries' function.
 class ListNamedQueriesInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     WorkGroup: Optional[str] = None
 
 
+# This class is the input for the 'list_notebook_sessions' function.
 class ListNotebookSessionsRequest(BaseValidatorModel):
     NotebookId: str
     MaxResults: Optional[int] = None
@@ -452,6 +487,7 @@ class NotebookSessionSummary(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_prepared_statements' function.
 class ListPreparedStatementsInput(BaseValidatorModel):
     WorkGroup: str
     NextToken: Optional[str] = None
@@ -463,12 +499,14 @@ class PreparedStatementSummary(BaseValidatorModel):
     LastModifiedTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_query_executions' function.
 class ListQueryExecutionsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     WorkGroup: Optional[str] = None
 
 
+# This class is the input for the 'list_sessions' function.
 class ListSessionsRequest(BaseValidatorModel):
     WorkGroup: str
     StateFilter: Optional[SessionStateType] = None
@@ -476,6 +514,7 @@ class ListSessionsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_table_metadata' function.
 class ListTableMetadataInput(BaseValidatorModel):
     CatalogName: str
     DatabaseName: str
@@ -485,12 +524,14 @@ class ListTableMetadataInput(BaseValidatorModel):
     WorkGroup: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInput(BaseValidatorModel):
     ResourceARN: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_work_groups' function.
 class ListWorkGroupsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -539,6 +580,7 @@ class ResultReuseByAgeConfiguration(BaseValidatorModel):
     MaxAgeInMinutes: Optional[int] = None
 
 
+# This class is the input for the 'stop_calculation_execution' function.
 class StopCalculationExecutionRequest(BaseValidatorModel):
     CalculationExecutionId: str
 
@@ -547,6 +589,7 @@ class StopQueryExecutionInput(BaseValidatorModel):
     QueryExecutionId: str
 
 
+# This class is the input for the 'terminate_session' function.
 class TerminateSessionRequest(BaseValidatorModel):
     SessionId: str
 
@@ -604,16 +647,19 @@ class QueryExecutionStatus(BaseValidatorModel):
     AthenaError: Optional[AthenaError] = None
 
 
+# This class is the output for the 'create_named_query' function.
 class CreateNamedQueryOutput(BaseValidatorModel):
     NamedQueryId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_notebook' function.
 class CreateNotebookOutput(BaseValidatorModel):
     NotebookId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_presigned_notebook_url' function.
 class CreatePresignedNotebookUrlResponse(BaseValidatorModel):
     NotebookUrl: str
     AuthToken: str
@@ -621,83 +667,98 @@ class CreatePresignedNotebookUrlResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_calculation_execution_code' function.
 class GetCalculationExecutionCodeResponse(BaseValidatorModel):
     CodeBlock: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_named_query' function.
 class GetNamedQueryOutput(BaseValidatorModel):
     NamedQuery: NamedQuery
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_notebook' function.
 class ImportNotebookOutput(BaseValidatorModel):
     NotebookId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_application_dpu_sizes' function.
 class ListApplicationDPUSizesOutput(BaseValidatorModel):
     ApplicationDPUSizes: List[ApplicationDPUSizes]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_named_queries' function.
 class ListNamedQueriesOutput(BaseValidatorModel):
     NamedQueryIds: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_query_executions' function.
 class ListQueryExecutionsOutput(BaseValidatorModel):
     QueryExecutionIds: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_calculation_execution' function.
 class StartCalculationExecutionResponse(BaseValidatorModel):
     CalculationExecutionId: str
     State: CalculationExecutionStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_query_execution' function.
 class StartQueryExecutionOutput(BaseValidatorModel):
     QueryExecutionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_session' function.
 class StartSessionResponse(BaseValidatorModel):
     SessionId: str
     State: SessionStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_calculation_execution' function.
 class StopCalculationExecutionResponse(BaseValidatorModel):
     State: CalculationExecutionStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'terminate_session' function.
 class TerminateSessionResponse(BaseValidatorModel):
     State: SessionStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_get_named_query' function.
 class BatchGetNamedQueryOutput(BaseValidatorModel):
     NamedQueries: List[NamedQuery]
     UnprocessedNamedQueryIds: List[UnprocessedNamedQueryId]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_prepared_statement' function.
 class GetPreparedStatementOutput(BaseValidatorModel):
     PreparedStatement: PreparedStatement
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_get_prepared_statement' function.
 class BatchGetPreparedStatementOutput(BaseValidatorModel):
     PreparedStatements: List[PreparedStatement]
     UnprocessedPreparedStatementNames: List[UnprocessedPreparedStatementName]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_calculation_execution' function.
 class StartCalculationExecutionRequest(BaseValidatorModel):
     SessionId: str
     Description: Optional[str] = None
@@ -712,6 +773,7 @@ class CalculationSummary(BaseValidatorModel):
     Status: Optional[CalculationStatus] = None
 
 
+# This class is the output for the 'get_calculation_execution' function.
 class GetCalculationExecutionResponse(BaseValidatorModel):
     CalculationExecutionId: str
     SessionId: str
@@ -723,6 +785,7 @@ class GetCalculationExecutionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_calculation_execution_status' function.
 class GetCalculationExecutionStatusResponse(BaseValidatorModel):
     Status: CalculationStatus
     Statistics: CalculationStatistics
@@ -766,6 +829,7 @@ class CreateCapacityReservationInput(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_data_catalog' function.
 class CreateDataCatalogInput(BaseValidatorModel):
     Name: str
     Type: DataCatalogTypeType
@@ -774,6 +838,7 @@ class CreateDataCatalogInput(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceOutput(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -785,32 +850,38 @@ class TagResourceInput(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the output for the 'create_data_catalog' function.
 class CreateDataCatalogOutput(BaseValidatorModel):
     DataCatalog: DataCatalog
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_data_catalog' function.
 class DeleteDataCatalogOutput(BaseValidatorModel):
     DataCatalog: DataCatalog
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_data_catalog' function.
 class GetDataCatalogOutput(BaseValidatorModel):
     DataCatalog: DataCatalog
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_data_catalogs' function.
 class ListDataCatalogsOutput(BaseValidatorModel):
     DataCatalogsSummary: List[DataCatalogSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_database' function.
 class GetDatabaseOutput(BaseValidatorModel):
     Database: Database
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_databases' function.
 class ListDatabasesOutput(BaseValidatorModel):
     DatabaseList: List[Database]
     ResponseMetadata: ResponseMetadata
@@ -848,6 +919,7 @@ class SessionConfiguration(BaseValidatorModel):
 EngineConfigurationUnion = Union[EngineConfiguration, EngineConfigurationOutput]
 
 
+# This class is the output for the 'list_engine_versions' function.
 class ListEngineVersionsOutput(BaseValidatorModel):
     EngineVersions: List[EngineVersion]
     ResponseMetadata: ResponseMetadata
@@ -863,6 +935,7 @@ class WorkGroupSummary(BaseValidatorModel):
     IdentityCenterApplicationArn: Optional[str] = None
 
 
+# This class is the output for the 'list_executors' function.
 class ListExecutorsResponse(BaseValidatorModel):
     SessionId: str
     ExecutorsSummary: List[ExecutorsSummary]
@@ -870,23 +943,27 @@ class ListExecutorsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'export_notebook' function.
 class ExportNotebookOutput(BaseValidatorModel):
     NotebookMetadata: NotebookMetadata
     Payload: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_notebook_metadata' function.
 class GetNotebookMetadataOutput(BaseValidatorModel):
     NotebookMetadata: NotebookMetadata
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_notebook_metadata' function.
 class ListNotebookMetadataOutput(BaseValidatorModel):
     NotebookMetadataList: List[NotebookMetadata]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_notebook_metadata' function.
 class ListNotebookMetadataInput(BaseValidatorModel):
     WorkGroup: str
     Filters: Optional[FilterDefinition] = None
@@ -933,6 +1010,7 @@ class ListTagsForResourceInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'get_session_status' function.
 class GetSessionStatusResponse(BaseValidatorModel):
     SessionId: str
     Status: SessionStatus
@@ -947,12 +1025,14 @@ class SessionSummary(BaseValidatorModel):
     Status: Optional[SessionStatus] = None
 
 
+# This class is the output for the 'list_notebook_sessions' function.
 class ListNotebookSessionsResponse(BaseValidatorModel):
     NotebookSessionsList: List[NotebookSessionSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_prepared_statements' function.
 class ListPreparedStatementsOutput(BaseValidatorModel):
     PreparedStatements: List[PreparedStatementSummary]
     ResponseMetadata: ResponseMetadata
@@ -987,23 +1067,27 @@ class ResultReuseConfiguration(BaseValidatorModel):
     ResultReuseByAgeConfiguration: Optional[ResultReuseByAgeConfiguration] = None
 
 
+# This class is the output for the 'list_calculation_executions' function.
 class ListCalculationExecutionsResponse(BaseValidatorModel):
     Calculations: List[CalculationSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_capacity_reservation' function.
 class GetCapacityReservationOutput(BaseValidatorModel):
     CapacityReservation: CapacityReservation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_capacity_reservations' function.
 class ListCapacityReservationsOutput(BaseValidatorModel):
     CapacityReservations: List[CapacityReservation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_capacity_assignment_configuration' function.
 class GetCapacityAssignmentConfigurationOutput(BaseValidatorModel):
     CapacityAssignmentConfiguration: CapacityAssignmentConfiguration
     ResponseMetadata: ResponseMetadata
@@ -1014,11 +1098,13 @@ class PutCapacityAssignmentConfigurationInput(BaseValidatorModel):
     CapacityAssignments: List[CapacityAssignmentUnion]
 
 
+# This class is the output for the 'get_table_metadata' function.
 class GetTableMetadataOutput(BaseValidatorModel):
     TableMetadata: TableMetadata
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_table_metadata' function.
 class ListTableMetadataOutput(BaseValidatorModel):
     TableMetadataList: List[TableMetadata]
     ResponseMetadata: ResponseMetadata
@@ -1061,6 +1147,7 @@ class WorkGroupConfigurationUpdates(BaseValidatorModel):
     QueryResultsS3AccessGrantsConfiguration: Optional[QueryResultsS3AccessGrantsConfiguration] = None
 
 
+# This class is the output for the 'get_session' function.
 class GetSessionResponse(BaseValidatorModel):
     SessionId: str
     Description: str
@@ -1074,6 +1161,7 @@ class GetSessionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_session' function.
 class StartSessionRequest(BaseValidatorModel):
     WorkGroup: str
     EngineConfiguration: EngineConfigurationUnion
@@ -1083,12 +1171,14 @@ class StartSessionRequest(BaseValidatorModel):
     ClientRequestToken: Optional[str] = None
 
 
+# This class is the output for the 'list_work_groups' function.
 class ListWorkGroupsOutput(BaseValidatorModel):
     WorkGroups: List[WorkGroupSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_sessions' function.
 class ListSessionsResponse(BaseValidatorModel):
     Sessions: List[SessionSummary]
     ResponseMetadata: ResponseMetadata
@@ -1117,6 +1207,7 @@ class QueryExecution(BaseValidatorModel):
     QueryResultsS3AccessGrantsConfiguration: Optional[QueryResultsS3AccessGrantsConfiguration] = None
 
 
+# This class is the input for the 'start_query_execution' function.
 class StartQueryExecutionInput(BaseValidatorModel):
     QueryString: str
     ClientRequestToken: Optional[str] = None
@@ -1127,6 +1218,7 @@ class StartQueryExecutionInput(BaseValidatorModel):
     ResultReuseConfiguration: Optional[ResultReuseConfiguration] = None
 
 
+# This class is the output for the 'get_query_results' function.
 class GetQueryResultsOutput(BaseValidatorModel):
     UpdateCount: int
     ResultSet: ResultSet
@@ -1157,22 +1249,26 @@ class UpdateWorkGroupInput(BaseValidatorModel):
     State: Optional[WorkGroupStateType] = None
 
 
+# This class is the output for the 'get_query_runtime_statistics' function.
 class GetQueryRuntimeStatisticsOutput(BaseValidatorModel):
     QueryRuntimeStatistics: QueryRuntimeStatistics
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_get_query_execution' function.
 class BatchGetQueryExecutionOutput(BaseValidatorModel):
     QueryExecutions: List[QueryExecution]
     UnprocessedQueryExecutionIds: List[UnprocessedQueryExecutionId]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_query_execution' function.
 class GetQueryExecutionOutput(BaseValidatorModel):
     QueryExecution: QueryExecution
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_work_group' function.
 class GetWorkGroupOutput(BaseValidatorModel):
     WorkGroup: WorkGroup
     ResponseMetadata: ResponseMetadata

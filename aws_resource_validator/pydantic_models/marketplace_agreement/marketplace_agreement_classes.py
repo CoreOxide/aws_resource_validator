@@ -59,6 +59,7 @@ class Selector(BaseValidatorModel):
     value: Optional[str] = None
 
 
+# This class is the input for the 'describe_agreement' function.
 class DescribeAgreementInput(BaseValidatorModel):
     agreementId: str
 
@@ -92,6 +93,7 @@ class GrantItem(BaseValidatorModel):
     maxQuantity: Optional[int] = None
 
 
+# This class is the input for the 'get_agreement_terms' function.
 class GetAgreementTermsInput(BaseValidatorModel):
     agreementId: str
     maxResults: Optional[int] = None
@@ -167,6 +169,7 @@ class RenewalTerm(BaseValidatorModel):
     type: Optional[str] = None
 
 
+# This class is the input for the 'search_agreements' function.
 class SearchAgreementsInput(BaseValidatorModel):
     catalog: Optional[str] = None
     filters: Optional[List[Filter]] = None
@@ -200,6 +203,7 @@ class AgreementViewSummary(BaseValidatorModel):
     status: Optional[AgreementStatusType] = None
 
 
+# This class is the output for the 'describe_agreement' function.
 class DescribeAgreementOutput(BaseValidatorModel):
     acceptanceTime: datetime
     acceptor: Acceptor
@@ -228,12 +232,14 @@ class AcceptedTerm(BaseValidatorModel):
     validityTerm: Optional[ValidityTerm] = None
 
 
+# This class is the output for the 'search_agreements' function.
 class SearchAgreementsOutput(BaseValidatorModel):
     agreementViewSummaries: List[AgreementViewSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_agreement_terms' function.
 class GetAgreementTermsOutput(BaseValidatorModel):
     acceptedTerms: List[AcceptedTerm]
     ResponseMetadata: ResponseMetadata

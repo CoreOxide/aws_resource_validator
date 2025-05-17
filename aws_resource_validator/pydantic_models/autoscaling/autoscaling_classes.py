@@ -58,6 +58,7 @@ class Alarm(BaseValidatorModel):
     AlarmARN: Optional[str] = None
 
 
+# This class is the input for the 'attach_instances' function.
 class AttachInstancesQuery(BaseValidatorModel):
     AutoScalingGroupName: str
     InstanceIds: Optional[List[str]] = None
@@ -138,6 +139,7 @@ class FailedScheduledUpdateGroupActionRequest(BaseValidatorModel):
     ErrorMessage: Optional[str] = None
 
 
+# This class is the input for the 'batch_delete_scheduled_action' function.
 class BatchDeleteScheduledActionType(BaseValidatorModel):
     AutoScalingGroupName: str
     ScheduledActionNames: List[str]
@@ -153,6 +155,7 @@ class Ebs(BaseValidatorModel):
     Throughput: Optional[int] = None
 
 
+# This class is the input for the 'cancel_instance_refresh' function.
 class CancelInstanceRefreshType(BaseValidatorModel):
     AutoScalingGroupName: str
 
@@ -217,6 +220,7 @@ class MetricDimension(BaseValidatorModel):
     Value: str
 
 
+# This class is the input for the 'delete_auto_scaling_group' function.
 class DeleteAutoScalingGroupType(BaseValidatorModel):
     AutoScalingGroupName: str
     ForceDelete: Optional[bool] = None
@@ -227,16 +231,19 @@ class DeleteLifecycleHookType(BaseValidatorModel):
     AutoScalingGroupName: str
 
 
+# This class is the input for the 'delete_notification_configuration' function.
 class DeleteNotificationConfigurationType(BaseValidatorModel):
     AutoScalingGroupName: str
     TopicARN: str
 
 
+# This class is the input for the 'delete_policy' function.
 class DeletePolicyType(BaseValidatorModel):
     PolicyName: str
     AutoScalingGroupName: Optional[str] = None
 
 
+# This class is the input for the 'delete_scheduled_action' function.
 class DeleteScheduledActionType(BaseValidatorModel):
     AutoScalingGroupName: str
     ScheduledActionName: str
@@ -247,12 +254,14 @@ class DeleteWarmPoolType(BaseValidatorModel):
     ForceDelete: Optional[bool] = None
 
 
+# This class is the input for the 'describe_auto_scaling_instances' function.
 class DescribeAutoScalingInstancesType(BaseValidatorModel):
     InstanceIds: Optional[List[str]] = None
     MaxRecords: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_instance_refreshes' function.
 class DescribeInstanceRefreshesType(BaseValidatorModel):
     AutoScalingGroupName: str
     InstanceRefreshIds: Optional[List[str]] = None
@@ -272,11 +281,13 @@ class LifecycleHook(BaseValidatorModel):
     DefaultResult: Optional[str] = None
 
 
+# This class is the input for the 'describe_lifecycle_hooks' function.
 class DescribeLifecycleHooksType(BaseValidatorModel):
     AutoScalingGroupName: str
     LifecycleHookNames: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_load_balancer_target_groups' function.
 class DescribeLoadBalancerTargetGroupsRequest(BaseValidatorModel):
     AutoScalingGroupName: str
     NextToken: Optional[str] = None
@@ -288,6 +299,7 @@ class LoadBalancerTargetGroupState(BaseValidatorModel):
     State: Optional[str] = None
 
 
+# This class is the input for the 'describe_load_balancers' function.
 class DescribeLoadBalancersRequest(BaseValidatorModel):
     AutoScalingGroupName: str
     NextToken: Optional[str] = None
@@ -313,12 +325,14 @@ class NotificationConfiguration(BaseValidatorModel):
     NotificationType: Optional[str] = None
 
 
+# This class is the input for the 'describe_notification_configurations' function.
 class DescribeNotificationConfigurationsType(BaseValidatorModel):
     AutoScalingGroupNames: Optional[List[str]] = None
     NextToken: Optional[str] = None
     MaxRecords: Optional[int] = None
 
 
+# This class is the input for the 'describe_policies' function.
 class DescribePoliciesType(BaseValidatorModel):
     AutoScalingGroupName: Optional[str] = None
     PolicyNames: Optional[List[str]] = None
@@ -327,6 +341,7 @@ class DescribePoliciesType(BaseValidatorModel):
     MaxRecords: Optional[int] = None
 
 
+# This class is the input for the 'describe_scaling_activities' function.
 class DescribeScalingActivitiesType(BaseValidatorModel):
     ActivityIds: Optional[List[str]] = None
     AutoScalingGroupName: Optional[str] = None
@@ -337,6 +352,7 @@ class DescribeScalingActivitiesType(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'describe_traffic_sources' function.
 class DescribeTrafficSourcesRequest(BaseValidatorModel):
     AutoScalingGroupName: str
     TrafficSourceType: Optional[str] = None
@@ -351,12 +367,14 @@ class TrafficSourceState(BaseValidatorModel):
     Type: Optional[str] = None
 
 
+# This class is the input for the 'describe_warm_pool' function.
 class DescribeWarmPoolType(BaseValidatorModel):
     AutoScalingGroupName: str
     MaxRecords: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'detach_instances' function.
 class DetachInstancesQuery(BaseValidatorModel):
     AutoScalingGroupName: str
     ShouldDecrementDesiredCapacity: bool
@@ -373,23 +391,27 @@ class DetachLoadBalancersType(BaseValidatorModel):
     LoadBalancerNames: List[str]
 
 
+# This class is the input for the 'disable_metrics_collection' function.
 class DisableMetricsCollectionQuery(BaseValidatorModel):
     AutoScalingGroupName: str
     Metrics: Optional[List[str]] = None
 
 
+# This class is the input for the 'enable_metrics_collection' function.
 class EnableMetricsCollectionQuery(BaseValidatorModel):
     AutoScalingGroupName: str
     Granularity: str
     Metrics: Optional[List[str]] = None
 
 
+# This class is the input for the 'enter_standby' function.
 class EnterStandbyQuery(BaseValidatorModel):
     AutoScalingGroupName: str
     ShouldDecrementDesiredCapacity: bool
     InstanceIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'execute_policy' function.
 class ExecutePolicyType(BaseValidatorModel):
     PolicyName: str
     AutoScalingGroupName: Optional[str] = None
@@ -398,6 +420,7 @@ class ExecutePolicyType(BaseValidatorModel):
     BreachThreshold: Optional[float] = None
 
 
+# This class is the input for the 'exit_standby' function.
 class ExitStandbyQuery(BaseValidatorModel):
     AutoScalingGroupName: str
     InstanceIds: Optional[List[str]] = None
@@ -456,10 +479,12 @@ class InstancesDistribution(BaseValidatorModel):
     SpotMaxPrice: Optional[str] = None
 
 
+# This class is the input for the 'delete_launch_configuration' function.
 class LaunchConfigurationNameType(BaseValidatorModel):
     LaunchConfigurationName: str
 
 
+# This class is the input for the 'describe_launch_configurations' function.
 class LaunchConfigurationNamesType(BaseValidatorModel):
     LaunchConfigurationNames: Optional[List[str]] = None
     NextToken: Optional[str] = None
@@ -501,6 +526,7 @@ class PutLifecycleHookType(BaseValidatorModel):
     DefaultResult: Optional[str] = None
 
 
+# This class is the input for the 'put_notification_configuration' function.
 class PutNotificationConfigurationType(BaseValidatorModel):
     AutoScalingGroupName: str
     TopicARN: str
@@ -520,15 +546,18 @@ class RecordLifecycleActionHeartbeatType(BaseValidatorModel):
     InstanceId: Optional[str] = None
 
 
+# This class is the input for the 'rollback_instance_refresh' function.
 class RollbackInstanceRefreshType(BaseValidatorModel):
     AutoScalingGroupName: str
 
 
+# This class is the input for the 'suspend_processes' function.
 class ScalingProcessQueryRequest(BaseValidatorModel):
     AutoScalingGroupName: str
     ScalingProcesses: Optional[List[str]] = None
 
 
+# This class is the input for the 'resume_processes' function.
 class ScalingProcessQuery(BaseValidatorModel):
     AutoScalingGroupName: str
     ScalingProcesses: Optional[List[str]] = None
@@ -548,12 +577,14 @@ class ScheduledUpdateGroupAction(BaseValidatorModel):
     TimeZone: Optional[str] = None
 
 
+# This class is the input for the 'set_desired_capacity' function.
 class SetDesiredCapacityType(BaseValidatorModel):
     AutoScalingGroupName: str
     DesiredCapacity: int
     HonorCooldown: Optional[bool] = None
 
 
+# This class is the input for the 'set_instance_health' function.
 class SetInstanceHealthQuery(BaseValidatorModel):
     InstanceId: str
     HealthStatus: str
@@ -566,22 +597,26 @@ class SetInstanceProtectionQuery(BaseValidatorModel):
     ProtectedFromScaleIn: bool
 
 
+# This class is the input for the 'terminate_instance_in_auto_scaling_group' function.
 class TerminateInstanceInAutoScalingGroupType(BaseValidatorModel):
     InstanceId: str
     ShouldDecrementDesiredCapacity: bool
 
 
+# This class is the output for the 'describe_scaling_activities' function.
 class ActivitiesType(BaseValidatorModel):
     Activities: List[Activity]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'terminate_instance_in_auto_scaling_group' function.
 class ActivityType(BaseValidatorModel):
     Activity: Activity
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_instance_refresh' function.
 class CancelInstanceRefreshAnswer(BaseValidatorModel):
     InstanceRefreshId: str
     ResponseMetadata: ResponseMetadata
@@ -610,30 +645,36 @@ class DescribeTerminationPolicyTypesAnswer(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'detach_instances' function.
 class DetachInstancesAnswer(BaseValidatorModel):
     Activities: List[Activity]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_auto_scaling_group' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enter_standby' function.
 class EnterStandbyAnswer(BaseValidatorModel):
     Activities: List[Activity]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'exit_standby' function.
 class ExitStandbyAnswer(BaseValidatorModel):
     Activities: List[Activity]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'rollback_instance_refresh' function.
 class RollbackInstanceRefreshAnswer(BaseValidatorModel):
     InstanceRefreshId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_instance_refresh' function.
 class StartInstanceRefreshAnswer(BaseValidatorModel):
     InstanceRefreshId: str
     ResponseMetadata: ResponseMetadata
@@ -672,6 +713,7 @@ class RefreshPreferences(BaseValidatorModel):
     BakeTime: Optional[int] = None
 
 
+# This class is the output for the 'put_scaling_policy' function.
 class PolicyARNType(BaseValidatorModel):
     PolicyARN: str
     Alarms: List[Alarm]
@@ -689,6 +731,7 @@ class DetachTrafficSourcesType(BaseValidatorModel):
     TrafficSources: List[TrafficSourceIdentifier]
 
 
+# This class is the input for the 'describe_auto_scaling_groups' function.
 class AutoScalingGroupNamesType(BaseValidatorModel):
     AutoScalingGroupNames: Optional[List[str]] = None
     NextToken: Optional[str] = None
@@ -696,6 +739,7 @@ class AutoScalingGroupNamesType(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
 
 
+# This class is the input for the 'describe_tags' function.
 class DescribeTagsType(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     NextToken: Optional[str] = None
@@ -782,17 +826,20 @@ class Instance(BaseValidatorModel):
     WeightedCapacity: Optional[str] = None
 
 
+# This class is the output for the 'describe_tags' function.
 class TagsType(BaseValidatorModel):
     Tags: List[TagDescription]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'batch_delete_scheduled_action' function.
 class BatchDeleteScheduledActionAnswer(BaseValidatorModel):
     FailedScheduledActions: List[FailedScheduledUpdateGroupActionRequest]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_put_scheduled_update_group_action' function.
 class BatchPutScheduledUpdateGroupActionAnswer(BaseValidatorModel):
     FailedScheduledUpdateGroupActions: List[FailedScheduledUpdateGroupActionRequest]
     ResponseMetadata: ResponseMetadata
@@ -823,10 +870,12 @@ class CpuPerformanceFactorRequest(BaseValidatorModel):
     References: Optional[List[PerformanceFactorReferenceRequest]] = None
 
 
+# This class is the input for the 'create_or_update_tags' function.
 class CreateOrUpdateTagsType(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the input for the 'delete_tags' function.
 class DeleteTagsType(BaseValidatorModel):
     Tags: List[Tag]
 
@@ -843,17 +892,20 @@ class Metric(BaseValidatorModel):
     Dimensions: Optional[List[MetricDimension]] = None
 
 
+# This class is the output for the 'describe_lifecycle_hooks' function.
 class DescribeLifecycleHooksAnswer(BaseValidatorModel):
     LifecycleHooks: List[LifecycleHook]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_load_balancer_target_groups' function.
 class DescribeLoadBalancerTargetGroupsResponse(BaseValidatorModel):
     LoadBalancerTargetGroups: List[LoadBalancerTargetGroupState]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_load_balancers' function.
 class DescribeLoadBalancersResponse(BaseValidatorModel):
     LoadBalancers: List[LoadBalancerState]
     ResponseMetadata: ResponseMetadata
@@ -866,6 +918,7 @@ class DescribeMetricCollectionTypesAnswer(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_notification_configurations' function.
 class DescribeNotificationConfigurationsAnswer(BaseValidatorModel):
     NotificationConfigurations: List[NotificationConfiguration]
     ResponseMetadata: ResponseMetadata
@@ -880,6 +933,7 @@ class DescribeScheduledActionsTypePaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_scheduled_actions' function.
 class DescribeScheduledActionsType(BaseValidatorModel):
     AutoScalingGroupName: Optional[str] = None
     ScheduledActionNames: Optional[List[str]] = None
@@ -889,6 +943,7 @@ class DescribeScheduledActionsType(BaseValidatorModel):
     MaxRecords: Optional[int] = None
 
 
+# This class is the input for the 'get_predictive_scaling_forecast' function.
 class GetPredictiveScalingForecastType(BaseValidatorModel):
     AutoScalingGroupName: str
     PolicyName: str
@@ -896,6 +951,7 @@ class GetPredictiveScalingForecastType(BaseValidatorModel):
     EndTime: Timestamp
 
 
+# This class is the input for the 'put_scheduled_update_group_action' function.
 class PutScheduledUpdateGroupActionType(BaseValidatorModel):
     AutoScalingGroupName: str
     ScheduledActionName: str
@@ -920,6 +976,7 @@ class ScheduledUpdateGroupActionRequest(BaseValidatorModel):
     TimeZone: Optional[str] = None
 
 
+# This class is the output for the 'describe_traffic_sources' function.
 class DescribeTrafficSourcesResponse(BaseValidatorModel):
     TrafficSources: List[TrafficSourceState]
     ResponseMetadata: ResponseMetadata
@@ -952,6 +1009,7 @@ class ProcessesType(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_scheduled_actions' function.
 class ScheduledActionsType(BaseValidatorModel):
     ScheduledUpdateGroupActions: List[ScheduledUpdateGroupAction]
     ResponseMetadata: ResponseMetadata
@@ -960,12 +1018,14 @@ class ScheduledActionsType(BaseValidatorModel):
 RefreshPreferencesUnion = Union[RefreshPreferences, RefreshPreferencesOutput]
 
 
+# This class is the output for the 'describe_auto_scaling_instances' function.
 class AutoScalingInstancesType(BaseValidatorModel):
     AutoScalingInstances: List[AutoScalingInstanceDetails]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_launch_configuration' function.
 class CreateLaunchConfigurationType(BaseValidatorModel):
     LaunchConfigurationName: str
     ImageId: Optional[str] = None
@@ -1047,6 +1107,7 @@ class TargetTrackingMetricStat(BaseValidatorModel):
     Period: Optional[int] = None
 
 
+# This class is the input for the 'batch_put_scheduled_update_group_action' function.
 class BatchPutScheduledUpdateGroupActionType(BaseValidatorModel):
     AutoScalingGroupName: str
     ScheduledUpdateGroupActions: List[ScheduledUpdateGroupActionRequest]
@@ -1060,6 +1121,7 @@ class RollbackDetails(BaseValidatorModel):
     ProgressDetailsOnRollback: Optional[InstanceRefreshProgressDetails] = None
 
 
+# This class is the output for the 'describe_warm_pool' function.
 class DescribeWarmPoolAnswer(BaseValidatorModel):
     WarmPoolConfiguration: WarmPoolConfiguration
     Instances: List[Instance]
@@ -1067,6 +1129,7 @@ class DescribeWarmPoolAnswer(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_launch_configurations' function.
 class LaunchConfigurationsType(BaseValidatorModel):
     LaunchConfigurations: List[LaunchConfiguration]
     ResponseMetadata: ResponseMetadata
@@ -1352,6 +1415,7 @@ class DesiredConfiguration(BaseValidatorModel):
 MixedInstancesPolicyUnion = Union[MixedInstancesPolicy, MixedInstancesPolicyOutput]
 
 
+# This class is the output for the 'get_predictive_scaling_forecast' function.
 class GetPredictiveScalingForecastAnswer(BaseValidatorModel):
     LoadForecast: List[LoadForecast]
     CapacityForecast: CapacityForecast
@@ -1380,6 +1444,7 @@ class ScalingPolicy(BaseValidatorModel):
 PredictiveScalingConfigurationUnion = Union[PredictiveScalingConfiguration, PredictiveScalingConfigurationOutput]
 
 
+# This class is the output for the 'describe_auto_scaling_groups' function.
 class AutoScalingGroupsType(BaseValidatorModel):
     AutoScalingGroups: List[AutoScalingGroup]
     ResponseMetadata: ResponseMetadata
@@ -1403,6 +1468,7 @@ class InstanceRefresh(BaseValidatorModel):
 DesiredConfigurationUnion = Union[DesiredConfiguration, DesiredConfigurationOutput]
 
 
+# This class is the input for the 'create_auto_scaling_group' function.
 class CreateAutoScalingGroupType(BaseValidatorModel):
     AutoScalingGroupName: str
     MinSize: int
@@ -1438,6 +1504,7 @@ class CreateAutoScalingGroupType(BaseValidatorModel):
     CapacityReservationSpecification: Optional[CapacityReservationSpecificationUnion] = None
 
 
+# This class is the input for the 'update_auto_scaling_group' function.
 class UpdateAutoScalingGroupType(BaseValidatorModel):
     AutoScalingGroupName: str
     LaunchConfigurationName: Optional[str] = None
@@ -1467,12 +1534,14 @@ class UpdateAutoScalingGroupType(BaseValidatorModel):
     CapacityReservationSpecification: Optional[CapacityReservationSpecificationUnion] = None
 
 
+# This class is the output for the 'describe_policies' function.
 class PoliciesType(BaseValidatorModel):
     ScalingPolicies: List[ScalingPolicy]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'put_scaling_policy' function.
 class PutScalingPolicyType(BaseValidatorModel):
     AutoScalingGroupName: str
     PolicyName: str
@@ -1490,12 +1559,14 @@ class PutScalingPolicyType(BaseValidatorModel):
     PredictiveScalingConfiguration: Optional[PredictiveScalingConfigurationUnion] = None
 
 
+# This class is the output for the 'describe_instance_refreshes' function.
 class DescribeInstanceRefreshesAnswer(BaseValidatorModel):
     InstanceRefreshes: List[InstanceRefresh]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'start_instance_refresh' function.
 class StartInstanceRefreshType(BaseValidatorModel):
     AutoScalingGroupName: str
     Strategy: Optional[Literal['Rolling']] = None

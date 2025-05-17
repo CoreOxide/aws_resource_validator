@@ -69,10 +69,12 @@ class DeadLetterConfig(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
+# This class is the input for the 'delete_pipe' function.
 class DeletePipeRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'describe_pipe' function.
 class DescribePipeRequest(BaseValidatorModel):
     Name: str
 
@@ -125,6 +127,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_pipes' function.
 class ListPipesRequest(BaseValidatorModel):
     NamePrefix: Optional[str] = None
     DesiredState: Optional[RequestedPipeStateType] = None
@@ -148,6 +151,7 @@ class Pipe(BaseValidatorModel):
     Enrichment: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -311,10 +315,12 @@ class SingleMeasureMapping(BaseValidatorModel):
     MeasureName: str
 
 
+# This class is the input for the 'start_pipe' function.
 class StartPipeRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'stop_pipe' function.
 class StopPipeRequest(BaseValidatorModel):
     Name: str
 
@@ -356,6 +362,7 @@ class BatchContainerOverrides(BaseValidatorModel):
     ResourceRequirements: Optional[List[BatchResourceRequirement]] = None
 
 
+# This class is the output for the 'create_pipe' function.
 class CreatePipeResponse(BaseValidatorModel):
     Arn: str
     Name: str
@@ -366,6 +373,7 @@ class CreatePipeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_pipe' function.
 class DeletePipeResponse(BaseValidatorModel):
     Arn: str
     Name: str
@@ -376,11 +384,13 @@ class DeletePipeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_pipe' function.
 class StartPipeResponse(BaseValidatorModel):
     Arn: str
     Name: str
@@ -391,6 +401,7 @@ class StartPipeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_pipe' function.
 class StopPipeResponse(BaseValidatorModel):
     Arn: str
     Name: str
@@ -401,6 +412,7 @@ class StopPipeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_pipe' function.
 class UpdatePipeResponse(BaseValidatorModel):
     Arn: str
     Name: str
@@ -493,6 +505,7 @@ class ListPipesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_pipes' function.
 class ListPipesResponse(BaseValidatorModel):
     Pipes: List[Pipe]
     ResponseMetadata: ResponseMetadata
@@ -800,6 +813,7 @@ class PipeTargetParameters(BaseValidatorModel):
     TimestreamParameters: Optional[PipeTargetTimestreamParameters] = None
 
 
+# This class is the output for the 'describe_pipe' function.
 class DescribePipeResponse(BaseValidatorModel):
     Arn: str
     Name: str
@@ -824,6 +838,7 @@ class DescribePipeResponse(BaseValidatorModel):
 PipeTargetParametersUnion = Union[PipeTargetParameters, PipeTargetParametersOutput]
 
 
+# This class is the input for the 'create_pipe' function.
 class CreatePipeRequest(BaseValidatorModel):
     Name: str
     Source: str
@@ -840,6 +855,7 @@ class CreatePipeRequest(BaseValidatorModel):
     KmsKeyIdentifier: Optional[str] = None
 
 
+# This class is the input for the 'update_pipe' function.
 class UpdatePipeRequest(BaseValidatorModel):
     Name: str
     RoleArn: str

@@ -158,6 +158,7 @@ class DeleteDeliveryStreamInput(BaseValidatorModel):
     AllowForceDelete: Optional[bool] = None
 
 
+# This class is the input for the 'describe_delivery_stream' function.
 class DescribeDeliveryStreamInput(BaseValidatorModel):
     DeliveryStreamName: str
     Limit: Optional[int] = None
@@ -238,12 +239,14 @@ class KinesisStreamSourceDescription(BaseValidatorModel):
     DeliveryStartTimestamp: Optional[datetime] = None
 
 
+# This class is the input for the 'list_delivery_streams' function.
 class ListDeliveryStreamsInput(BaseValidatorModel):
     Limit: Optional[int] = None
     DeliveryStreamType: Optional[DeliveryStreamTypeType] = None
     ExclusiveStartDeliveryStreamName: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_delivery_stream' function.
 class ListTagsForDeliveryStreamInput(BaseValidatorModel):
     DeliveryStreamName: str
     ExclusiveStartTagKey: Optional[str] = None
@@ -370,23 +373,27 @@ class TagDeliveryStreamInput(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the output for the 'create_delivery_stream' function.
 class CreateDeliveryStreamOutput(BaseValidatorModel):
     DeliveryStreamARN: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_delivery_streams' function.
 class ListDeliveryStreamsOutput(BaseValidatorModel):
     DeliveryStreamNames: List[str]
     HasMoreDeliveryStreams: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_delivery_stream' function.
 class ListTagsForDeliveryStreamOutput(BaseValidatorModel):
     Tags: List[Tag]
     HasMoreTags: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_record' function.
 class PutRecordOutput(BaseValidatorModel):
     RecordId: str
     Encrypted: bool
@@ -480,6 +487,7 @@ class Processor(BaseValidatorModel):
     Parameters: Optional[List[ProcessorParameter]] = None
 
 
+# This class is the output for the 'put_record_batch' function.
 class PutRecordBatchOutput(BaseValidatorModel):
     FailedPutCount: int
     Encrypted: bool
@@ -487,11 +495,13 @@ class PutRecordBatchOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_record_batch' function.
 class PutRecordBatchInput(BaseValidatorModel):
     DeliveryStreamName: str
     Records: List[Record]
 
 
+# This class is the input for the 'put_record' function.
 class PutRecordInput(BaseValidatorModel):
     DeliveryStreamName: str
     Record: Record
@@ -1070,6 +1080,7 @@ class DeliveryStreamDescription(BaseValidatorModel):
 DataFormatConversionConfigurationUnion = Union[DataFormatConversionConfiguration, DataFormatConversionConfigurationOutput]
 
 
+# This class is the output for the 'describe_delivery_stream' function.
 class DescribeDeliveryStreamOutput(BaseValidatorModel):
     DeliveryStreamDescription: DeliveryStreamDescription
     ResponseMetadata: ResponseMetadata
@@ -1111,6 +1122,7 @@ class ExtendedS3DestinationUpdate(BaseValidatorModel):
     CustomTimeZone: Optional[str] = None
 
 
+# This class is the input for the 'create_delivery_stream' function.
 class CreateDeliveryStreamInput(BaseValidatorModel):
     DeliveryStreamName: str
     DeliveryStreamType: Optional[DeliveryStreamTypeType] = None

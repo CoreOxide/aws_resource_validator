@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'associate_role_to_group' function.
 class AssociateRoleToGroupRequest(BaseValidatorModel):
     GroupId: str
     RoleArn: str
@@ -21,6 +22,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'associate_service_role_to_account' function.
 class AssociateServiceRoleToAccountRequest(BaseValidatorModel):
     RoleArn: str
 
@@ -68,6 +70,7 @@ class Core(BaseValidatorModel):
     SyncShadow: Optional[bool] = None
 
 
+# This class is the input for the 'create_deployment' function.
 class CreateDeploymentRequest(BaseValidatorModel):
     DeploymentType: DeploymentTypeType
     GroupId: str
@@ -83,6 +86,7 @@ class Device(BaseValidatorModel):
     SyncShadow: Optional[bool] = None
 
 
+# This class is the input for the 'create_group_certificate_authority' function.
 class CreateGroupCertificateAuthorityRequest(BaseValidatorModel):
     GroupId: str
     AmznClientToken: Optional[str] = None
@@ -98,6 +102,7 @@ class GroupVersion(BaseValidatorModel):
     SubscriptionDefinitionVersionArn: Optional[str] = None
 
 
+# This class is the input for the 'create_group_version' function.
 class CreateGroupVersionRequest(BaseValidatorModel):
     GroupId: str
     AmznClientToken: Optional[str] = None
@@ -118,6 +123,7 @@ class Logger(BaseValidatorModel):
     Space: Optional[int] = None
 
 
+# This class is the input for the 'create_software_update_job' function.
 class CreateSoftwareUpdateJobRequest(BaseValidatorModel):
     S3UrlSignerRole: str
     SoftwareToUpdate: SoftwareToUpdateType
@@ -186,6 +192,7 @@ class Deployment(BaseValidatorModel):
     GroupArn: Optional[str] = None
 
 
+# This class is the input for the 'disassociate_role_from_group' function.
 class DisassociateRoleFromGroupRequest(BaseValidatorModel):
     GroupId: str
 
@@ -200,109 +207,132 @@ class FunctionRunAsConfig(BaseValidatorModel):
     Uid: Optional[int] = None
 
 
+# This class is the input for the 'get_associated_role' function.
 class GetAssociatedRoleRequest(BaseValidatorModel):
     GroupId: str
 
 
+# This class is the input for the 'get_bulk_deployment_status' function.
 class GetBulkDeploymentStatusRequest(BaseValidatorModel):
     BulkDeploymentId: str
 
 
+# This class is the input for the 'get_connectivity_info' function.
 class GetConnectivityInfoRequest(BaseValidatorModel):
     ThingName: str
 
 
+# This class is the input for the 'get_connector_definition' function.
 class GetConnectorDefinitionRequest(BaseValidatorModel):
     ConnectorDefinitionId: str
 
 
+# This class is the input for the 'get_connector_definition_version' function.
 class GetConnectorDefinitionVersionRequest(BaseValidatorModel):
     ConnectorDefinitionId: str
     ConnectorDefinitionVersionId: str
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_core_definition' function.
 class GetCoreDefinitionRequest(BaseValidatorModel):
     CoreDefinitionId: str
 
 
+# This class is the input for the 'get_core_definition_version' function.
 class GetCoreDefinitionVersionRequest(BaseValidatorModel):
     CoreDefinitionId: str
     CoreDefinitionVersionId: str
 
 
+# This class is the input for the 'get_deployment_status' function.
 class GetDeploymentStatusRequest(BaseValidatorModel):
     DeploymentId: str
     GroupId: str
 
 
+# This class is the input for the 'get_device_definition' function.
 class GetDeviceDefinitionRequest(BaseValidatorModel):
     DeviceDefinitionId: str
 
 
+# This class is the input for the 'get_device_definition_version' function.
 class GetDeviceDefinitionVersionRequest(BaseValidatorModel):
     DeviceDefinitionId: str
     DeviceDefinitionVersionId: str
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_function_definition' function.
 class GetFunctionDefinitionRequest(BaseValidatorModel):
     FunctionDefinitionId: str
 
 
+# This class is the input for the 'get_function_definition_version' function.
 class GetFunctionDefinitionVersionRequest(BaseValidatorModel):
     FunctionDefinitionId: str
     FunctionDefinitionVersionId: str
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_group_certificate_authority' function.
 class GetGroupCertificateAuthorityRequest(BaseValidatorModel):
     CertificateAuthorityId: str
     GroupId: str
 
 
+# This class is the input for the 'get_group_certificate_configuration' function.
 class GetGroupCertificateConfigurationRequest(BaseValidatorModel):
     GroupId: str
 
 
+# This class is the input for the 'get_group' function.
 class GetGroupRequest(BaseValidatorModel):
     GroupId: str
 
 
+# This class is the input for the 'get_group_version' function.
 class GetGroupVersionRequest(BaseValidatorModel):
     GroupId: str
     GroupVersionId: str
 
 
+# This class is the input for the 'get_logger_definition' function.
 class GetLoggerDefinitionRequest(BaseValidatorModel):
     LoggerDefinitionId: str
 
 
+# This class is the input for the 'get_logger_definition_version' function.
 class GetLoggerDefinitionVersionRequest(BaseValidatorModel):
     LoggerDefinitionId: str
     LoggerDefinitionVersionId: str
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_resource_definition' function.
 class GetResourceDefinitionRequest(BaseValidatorModel):
     ResourceDefinitionId: str
 
 
+# This class is the input for the 'get_resource_definition_version' function.
 class GetResourceDefinitionVersionRequest(BaseValidatorModel):
     ResourceDefinitionId: str
     ResourceDefinitionVersionId: str
 
 
+# This class is the input for the 'get_subscription_definition' function.
 class GetSubscriptionDefinitionRequest(BaseValidatorModel):
     SubscriptionDefinitionId: str
 
 
+# This class is the input for the 'get_subscription_definition_version' function.
 class GetSubscriptionDefinitionVersionRequest(BaseValidatorModel):
     SubscriptionDefinitionId: str
     SubscriptionDefinitionVersionId: str
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_thing_runtime_configuration' function.
 class GetThingRuntimeConfigurationRequest(BaseValidatorModel):
     ThingName: str
 
@@ -333,17 +363,20 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_bulk_deployment_detailed_reports' function.
 class ListBulkDeploymentDetailedReportsRequest(BaseValidatorModel):
     BulkDeploymentId: str
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_bulk_deployments' function.
 class ListBulkDeploymentsRequest(BaseValidatorModel):
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_connector_definition_versions' function.
 class ListConnectorDefinitionVersionsRequest(BaseValidatorModel):
     ConnectorDefinitionId: str
     MaxResults: Optional[str] = None
@@ -357,102 +390,121 @@ class VersionInformation(BaseValidatorModel):
     Version: Optional[str] = None
 
 
+# This class is the input for the 'list_connector_definitions' function.
 class ListConnectorDefinitionsRequest(BaseValidatorModel):
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_core_definition_versions' function.
 class ListCoreDefinitionVersionsRequest(BaseValidatorModel):
     CoreDefinitionId: str
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_core_definitions' function.
 class ListCoreDefinitionsRequest(BaseValidatorModel):
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_deployments' function.
 class ListDeploymentsRequest(BaseValidatorModel):
     GroupId: str
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_device_definition_versions' function.
 class ListDeviceDefinitionVersionsRequest(BaseValidatorModel):
     DeviceDefinitionId: str
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_device_definitions' function.
 class ListDeviceDefinitionsRequest(BaseValidatorModel):
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_function_definition_versions' function.
 class ListFunctionDefinitionVersionsRequest(BaseValidatorModel):
     FunctionDefinitionId: str
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_function_definitions' function.
 class ListFunctionDefinitionsRequest(BaseValidatorModel):
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_group_certificate_authorities' function.
 class ListGroupCertificateAuthoritiesRequest(BaseValidatorModel):
     GroupId: str
 
 
+# This class is the input for the 'list_group_versions' function.
 class ListGroupVersionsRequest(BaseValidatorModel):
     GroupId: str
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_groups' function.
 class ListGroupsRequest(BaseValidatorModel):
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_logger_definition_versions' function.
 class ListLoggerDefinitionVersionsRequest(BaseValidatorModel):
     LoggerDefinitionId: str
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_logger_definitions' function.
 class ListLoggerDefinitionsRequest(BaseValidatorModel):
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_resource_definition_versions' function.
 class ListResourceDefinitionVersionsRequest(BaseValidatorModel):
     ResourceDefinitionId: str
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_resource_definitions' function.
 class ListResourceDefinitionsRequest(BaseValidatorModel):
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_subscription_definition_versions' function.
 class ListSubscriptionDefinitionVersionsRequest(BaseValidatorModel):
     SubscriptionDefinitionId: str
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_subscription_definitions' function.
 class ListSubscriptionDefinitionsRequest(BaseValidatorModel):
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'reset_deployments' function.
 class ResetDeploymentsRequest(BaseValidatorModel):
     GroupId: str
     AmznClientToken: Optional[str] = None
@@ -479,6 +531,7 @@ class SecretsManagerSecretResourceData(BaseValidatorModel):
     AdditionalStagingLabelsToDownload: Optional[List[str]] = None
 
 
+# This class is the input for the 'start_bulk_deployment' function.
 class StartBulkDeploymentRequest(BaseValidatorModel):
     ExecutionRoleArn: str
     InputFileUri: str
@@ -490,6 +543,7 @@ class StopBulkDeploymentRequest(BaseValidatorModel):
     BulkDeploymentId: str
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     tags: Optional[Dict[str, str]] = None
@@ -499,6 +553,7 @@ class TelemetryConfigurationUpdate(BaseValidatorModel):
     Telemetry: TelemetryType
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: List[str]
@@ -524,6 +579,7 @@ class UpdateFunctionDefinitionRequest(BaseValidatorModel):
     Name: Optional[str] = None
 
 
+# This class is the input for the 'update_group_certificate_configuration' function.
 class UpdateGroupCertificateConfigurationRequest(BaseValidatorModel):
     GroupId: str
     CertificateExpiryInMilliseconds: Optional[str] = None
@@ -549,16 +605,19 @@ class UpdateSubscriptionDefinitionRequest(BaseValidatorModel):
     Name: Optional[str] = None
 
 
+# This class is the output for the 'associate_role_to_group' function.
 class AssociateRoleToGroupResponse(BaseValidatorModel):
     AssociatedAt: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_service_role_to_account' function.
 class AssociateServiceRoleToAccountResponse(BaseValidatorModel):
     AssociatedAt: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_connector_definition' function.
 class CreateConnectorDefinitionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -570,6 +629,7 @@ class CreateConnectorDefinitionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_connector_definition_version' function.
 class CreateConnectorDefinitionVersionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -578,6 +638,7 @@ class CreateConnectorDefinitionVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_core_definition' function.
 class CreateCoreDefinitionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -589,6 +650,7 @@ class CreateCoreDefinitionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_core_definition_version' function.
 class CreateCoreDefinitionVersionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -597,12 +659,14 @@ class CreateCoreDefinitionVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_deployment' function.
 class CreateDeploymentResponse(BaseValidatorModel):
     DeploymentArn: str
     DeploymentId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_device_definition' function.
 class CreateDeviceDefinitionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -614,6 +678,7 @@ class CreateDeviceDefinitionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_device_definition_version' function.
 class CreateDeviceDefinitionVersionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -622,6 +687,7 @@ class CreateDeviceDefinitionVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_function_definition' function.
 class CreateFunctionDefinitionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -633,6 +699,7 @@ class CreateFunctionDefinitionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_function_definition_version' function.
 class CreateFunctionDefinitionVersionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -641,11 +708,13 @@ class CreateFunctionDefinitionVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_group_certificate_authority' function.
 class CreateGroupCertificateAuthorityResponse(BaseValidatorModel):
     GroupCertificateAuthorityArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_group' function.
 class CreateGroupResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -657,6 +726,7 @@ class CreateGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_group_version' function.
 class CreateGroupVersionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -665,6 +735,7 @@ class CreateGroupVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_logger_definition' function.
 class CreateLoggerDefinitionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -676,6 +747,7 @@ class CreateLoggerDefinitionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_logger_definition_version' function.
 class CreateLoggerDefinitionVersionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -684,6 +756,7 @@ class CreateLoggerDefinitionVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_resource_definition' function.
 class CreateResourceDefinitionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -695,6 +768,7 @@ class CreateResourceDefinitionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_resource_definition_version' function.
 class CreateResourceDefinitionVersionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -703,6 +777,7 @@ class CreateResourceDefinitionVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_software_update_job' function.
 class CreateSoftwareUpdateJobResponse(BaseValidatorModel):
     IotJobArn: str
     IotJobId: str
@@ -710,6 +785,7 @@ class CreateSoftwareUpdateJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_subscription_definition' function.
 class CreateSubscriptionDefinitionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -721,6 +797,7 @@ class CreateSubscriptionDefinitionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_subscription_definition_version' function.
 class CreateSubscriptionDefinitionVersionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -729,6 +806,7 @@ class CreateSubscriptionDefinitionVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_role_from_group' function.
 class DisassociateRoleFromGroupResponse(BaseValidatorModel):
     DisassociatedAt: str
     ResponseMetadata: ResponseMetadata
@@ -739,16 +817,19 @@ class DisassociateServiceRoleFromAccountResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'untag_resource' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_associated_role' function.
 class GetAssociatedRoleResponse(BaseValidatorModel):
     AssociatedAt: str
     RoleArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_connector_definition' function.
 class GetConnectorDefinitionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -761,6 +842,7 @@ class GetConnectorDefinitionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_core_definition' function.
 class GetCoreDefinitionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -773,6 +855,7 @@ class GetCoreDefinitionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_device_definition' function.
 class GetDeviceDefinitionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -785,6 +868,7 @@ class GetDeviceDefinitionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_function_definition' function.
 class GetFunctionDefinitionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -797,6 +881,7 @@ class GetFunctionDefinitionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_group_certificate_authority' function.
 class GetGroupCertificateAuthorityResponse(BaseValidatorModel):
     GroupCertificateAuthorityArn: str
     GroupCertificateAuthorityId: str
@@ -804,6 +889,7 @@ class GetGroupCertificateAuthorityResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_group_certificate_configuration' function.
 class GetGroupCertificateConfigurationResponse(BaseValidatorModel):
     CertificateAuthorityExpiryInMilliseconds: str
     CertificateExpiryInMilliseconds: str
@@ -811,6 +897,7 @@ class GetGroupCertificateConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_group' function.
 class GetGroupResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -823,6 +910,7 @@ class GetGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_logger_definition' function.
 class GetLoggerDefinitionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -835,6 +923,7 @@ class GetLoggerDefinitionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_definition' function.
 class GetResourceDefinitionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -853,6 +942,7 @@ class GetServiceRoleForAccountResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_subscription_definition' function.
 class GetSubscriptionDefinitionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -865,29 +955,34 @@ class GetSubscriptionDefinitionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reset_deployments' function.
 class ResetDeploymentsResponse(BaseValidatorModel):
     DeploymentArn: str
     DeploymentId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_bulk_deployment' function.
 class StartBulkDeploymentResponse(BaseValidatorModel):
     BulkDeploymentArn: str
     BulkDeploymentId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_connectivity_info' function.
 class UpdateConnectivityInfoResponse(BaseValidatorModel):
     Message: str
     Version: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_group_certificate_configuration' function.
 class UpdateGroupCertificateConfigurationResponse(BaseValidatorModel):
     CertificateAuthorityExpiryInMilliseconds: str
     CertificateExpiryInMilliseconds: str
@@ -906,6 +1001,7 @@ class BulkDeploymentResult(BaseValidatorModel):
     GroupArn: Optional[str] = None
 
 
+# This class is the output for the 'get_bulk_deployment_status' function.
 class GetBulkDeploymentStatusResponse(BaseValidatorModel):
     BulkDeploymentMetrics: BulkDeploymentMetrics
     BulkDeploymentStatus: BulkDeploymentStatusType
@@ -916,6 +1012,7 @@ class GetBulkDeploymentStatusResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_deployment_status' function.
 class GetDeploymentStatusResponse(BaseValidatorModel):
     DeploymentStatus: str
     DeploymentType: DeploymentTypeType
@@ -925,18 +1022,21 @@ class GetDeploymentStatusResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_bulk_deployments' function.
 class ListBulkDeploymentsResponse(BaseValidatorModel):
     BulkDeployments: List[BulkDeployment]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_connectivity_info' function.
 class GetConnectivityInfoResponse(BaseValidatorModel):
     ConnectivityInfo: List[ConnectivityInfo]
     Message: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_connectivity_info' function.
 class UpdateConnectivityInfoRequest(BaseValidatorModel):
     ThingName: str
     ConnectivityInfo: Optional[List[ConnectivityInfo]] = None
@@ -960,12 +1060,14 @@ class CoreDefinitionVersion(BaseValidatorModel):
     Cores: Optional[List[Core]] = None
 
 
+# This class is the input for the 'create_core_definition_version' function.
 class CreateCoreDefinitionVersionRequest(BaseValidatorModel):
     CoreDefinitionId: str
     AmznClientToken: Optional[str] = None
     Cores: Optional[List[Core]] = None
 
 
+# This class is the input for the 'create_device_definition_version' function.
 class CreateDeviceDefinitionVersionRequest(BaseValidatorModel):
     DeviceDefinitionId: str
     AmznClientToken: Optional[str] = None
@@ -980,6 +1082,7 @@ class DeviceDefinitionVersion(BaseValidatorModel):
     Devices: Optional[List[Device]] = None
 
 
+# This class is the input for the 'create_group' function.
 class CreateGroupRequest(BaseValidatorModel):
     Name: str
     AmznClientToken: Optional[str] = None
@@ -987,6 +1090,7 @@ class CreateGroupRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'get_group_version' function.
 class GetGroupVersionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -996,6 +1100,7 @@ class GetGroupVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_logger_definition_version' function.
 class CreateLoggerDefinitionVersionRequest(BaseValidatorModel):
     LoggerDefinitionId: str
     AmznClientToken: Optional[str] = None
@@ -1010,6 +1115,7 @@ class LoggerDefinitionVersion(BaseValidatorModel):
     Loggers: Optional[List[Logger]] = None
 
 
+# This class is the input for the 'create_subscription_definition_version' function.
 class CreateSubscriptionDefinitionVersionRequest(BaseValidatorModel):
     SubscriptionDefinitionId: str
     AmznClientToken: Optional[str] = None
@@ -1024,48 +1130,56 @@ class SubscriptionDefinitionVersion(BaseValidatorModel):
     Subscriptions: Optional[List[Subscription]] = None
 
 
+# This class is the output for the 'list_connector_definitions' function.
 class ListConnectorDefinitionsResponse(BaseValidatorModel):
     Definitions: List[DefinitionInformation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_core_definitions' function.
 class ListCoreDefinitionsResponse(BaseValidatorModel):
     Definitions: List[DefinitionInformation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_device_definitions' function.
 class ListDeviceDefinitionsResponse(BaseValidatorModel):
     Definitions: List[DefinitionInformation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_function_definitions' function.
 class ListFunctionDefinitionsResponse(BaseValidatorModel):
     Definitions: List[DefinitionInformation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_logger_definitions' function.
 class ListLoggerDefinitionsResponse(BaseValidatorModel):
     Definitions: List[DefinitionInformation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_resource_definitions' function.
 class ListResourceDefinitionsResponse(BaseValidatorModel):
     Definitions: List[DefinitionInformation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_subscription_definitions' function.
 class ListSubscriptionDefinitionsResponse(BaseValidatorModel):
     Definitions: List[DefinitionInformation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_deployments' function.
 class ListDeploymentsResponse(BaseValidatorModel):
     Deployments: List[Deployment]
     ResponseMetadata: ResponseMetadata
@@ -1082,11 +1196,13 @@ class FunctionExecutionConfig(BaseValidatorModel):
     RunAs: Optional[FunctionRunAsConfig] = None
 
 
+# This class is the output for the 'list_group_certificate_authorities' function.
 class ListGroupCertificateAuthoritiesResponse(BaseValidatorModel):
     GroupCertificateAuthorities: List[GroupCertificateAuthorityProperties]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_groups' function.
 class ListGroupsResponse(BaseValidatorModel):
     Groups: List[GroupInformation]
     ResponseMetadata: ResponseMetadata
@@ -1190,48 +1306,56 @@ class ListSubscriptionDefinitionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_connector_definition_versions' function.
 class ListConnectorDefinitionVersionsResponse(BaseValidatorModel):
     Versions: List[VersionInformation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_core_definition_versions' function.
 class ListCoreDefinitionVersionsResponse(BaseValidatorModel):
     Versions: List[VersionInformation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_device_definition_versions' function.
 class ListDeviceDefinitionVersionsResponse(BaseValidatorModel):
     Versions: List[VersionInformation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_function_definition_versions' function.
 class ListFunctionDefinitionVersionsResponse(BaseValidatorModel):
     Versions: List[VersionInformation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_group_versions' function.
 class ListGroupVersionsResponse(BaseValidatorModel):
     Versions: List[VersionInformation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_logger_definition_versions' function.
 class ListLoggerDefinitionVersionsResponse(BaseValidatorModel):
     Versions: List[VersionInformation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_resource_definition_versions' function.
 class ListResourceDefinitionVersionsResponse(BaseValidatorModel):
     Versions: List[VersionInformation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_subscription_definition_versions' function.
 class ListSubscriptionDefinitionVersionsResponse(BaseValidatorModel):
     Versions: List[VersionInformation]
     ResponseMetadata: ResponseMetadata
@@ -1261,12 +1385,14 @@ class UpdateThingRuntimeConfigurationRequest(BaseValidatorModel):
     TelemetryConfiguration: Optional[TelemetryConfigurationUpdate] = None
 
 
+# This class is the output for the 'list_bulk_deployment_detailed_reports' function.
 class ListBulkDeploymentDetailedReportsResponse(BaseValidatorModel):
     Deployments: List[BulkDeploymentResult]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_connector_definition_version' function.
 class GetConnectorDefinitionVersionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -1279,12 +1405,14 @@ class GetConnectorDefinitionVersionResponse(BaseValidatorModel):
 ConnectorDefinitionVersionUnion = Union[ConnectorDefinitionVersion, ConnectorDefinitionVersionOutput]
 
 
+# This class is the input for the 'create_connector_definition_version' function.
 class CreateConnectorDefinitionVersionRequest(BaseValidatorModel):
     ConnectorDefinitionId: str
     AmznClientToken: Optional[str] = None
     Connectors: Optional[List[ConnectorUnion]] = None
 
 
+# This class is the output for the 'get_core_definition_version' function.
 class GetCoreDefinitionVersionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -1297,6 +1425,7 @@ class GetCoreDefinitionVersionResponse(BaseValidatorModel):
 CoreDefinitionVersionUnion = Union[CoreDefinitionVersion, CoreDefinitionVersionOutput]
 
 
+# This class is the output for the 'get_device_definition_version' function.
 class GetDeviceDefinitionVersionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -1309,6 +1438,7 @@ class GetDeviceDefinitionVersionResponse(BaseValidatorModel):
 DeviceDefinitionVersionUnion = Union[DeviceDefinitionVersion, DeviceDefinitionVersionOutput]
 
 
+# This class is the output for the 'get_logger_definition_version' function.
 class GetLoggerDefinitionVersionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -1320,6 +1450,7 @@ class GetLoggerDefinitionVersionResponse(BaseValidatorModel):
 LoggerDefinitionVersionUnion = Union[LoggerDefinitionVersion, LoggerDefinitionVersionOutput]
 
 
+# This class is the output for the 'get_subscription_definition_version' function.
 class GetSubscriptionDefinitionVersionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -1358,6 +1489,7 @@ class ResourceDataContainerOutput(BaseValidatorModel):
     SecretsManagerSecretResourceData: Optional[SecretsManagerSecretResourceDataOutput] = None
 
 
+# This class is the output for the 'get_thing_runtime_configuration' function.
 class GetThingRuntimeConfigurationResponse(BaseValidatorModel):
     RuntimeConfiguration: RuntimeConfiguration
     ResponseMetadata: ResponseMetadata
@@ -1371,6 +1503,7 @@ class ResourceDataContainer(BaseValidatorModel):
     SecretsManagerSecretResourceData: Optional[SecretsManagerSecretResourceDataUnion] = None
 
 
+# This class is the input for the 'create_connector_definition' function.
 class CreateConnectorDefinitionRequest(BaseValidatorModel):
     AmznClientToken: Optional[str] = None
     InitialVersion: Optional[ConnectorDefinitionVersionUnion] = None
@@ -1378,6 +1511,7 @@ class CreateConnectorDefinitionRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_core_definition' function.
 class CreateCoreDefinitionRequest(BaseValidatorModel):
     AmznClientToken: Optional[str] = None
     InitialVersion: Optional[CoreDefinitionVersionUnion] = None
@@ -1385,6 +1519,7 @@ class CreateCoreDefinitionRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_device_definition' function.
 class CreateDeviceDefinitionRequest(BaseValidatorModel):
     AmznClientToken: Optional[str] = None
     InitialVersion: Optional[DeviceDefinitionVersionUnion] = None
@@ -1392,6 +1527,7 @@ class CreateDeviceDefinitionRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_logger_definition' function.
 class CreateLoggerDefinitionRequest(BaseValidatorModel):
     AmznClientToken: Optional[str] = None
     InitialVersion: Optional[LoggerDefinitionVersionUnion] = None
@@ -1399,6 +1535,7 @@ class CreateLoggerDefinitionRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_subscription_definition' function.
 class CreateSubscriptionDefinitionRequest(BaseValidatorModel):
     AmznClientToken: Optional[str] = None
     InitialVersion: Optional[SubscriptionDefinitionVersionUnion] = None
@@ -1461,6 +1598,7 @@ class FunctionDefinitionVersionOutput(BaseValidatorModel):
 FunctionConfigurationUnion = Union[FunctionConfiguration, FunctionConfigurationOutput]
 
 
+# This class is the output for the 'get_resource_definition_version' function.
 class GetResourceDefinitionVersionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -1476,6 +1614,7 @@ class ResourceDefinitionVersion(BaseValidatorModel):
 ResourceUnion = Union[Resource, ResourceOutput]
 
 
+# This class is the output for the 'get_function_definition_version' function.
 class GetFunctionDefinitionVersionResponse(BaseValidatorModel):
     Arn: str
     CreationTimestamp: str
@@ -1494,6 +1633,7 @@ class Function(BaseValidatorModel):
 ResourceDefinitionVersionUnion = Union[ResourceDefinitionVersion, ResourceDefinitionVersionOutput]
 
 
+# This class is the input for the 'create_resource_definition_version' function.
 class CreateResourceDefinitionVersionRequest(BaseValidatorModel):
     ResourceDefinitionId: str
     AmznClientToken: Optional[str] = None
@@ -1507,6 +1647,7 @@ class FunctionDefinitionVersion(BaseValidatorModel):
 FunctionUnion = Union[Function, FunctionOutput]
 
 
+# This class is the input for the 'create_resource_definition' function.
 class CreateResourceDefinitionRequest(BaseValidatorModel):
     AmznClientToken: Optional[str] = None
     InitialVersion: Optional[ResourceDefinitionVersionUnion] = None
@@ -1516,6 +1657,7 @@ class CreateResourceDefinitionRequest(BaseValidatorModel):
 FunctionDefinitionVersionUnion = Union[FunctionDefinitionVersion, FunctionDefinitionVersionOutput]
 
 
+# This class is the input for the 'create_function_definition_version' function.
 class CreateFunctionDefinitionVersionRequest(BaseValidatorModel):
     FunctionDefinitionId: str
     AmznClientToken: Optional[str] = None
@@ -1523,6 +1665,7 @@ class CreateFunctionDefinitionVersionRequest(BaseValidatorModel):
     Functions: Optional[List[FunctionUnion]] = None
 
 
+# This class is the input for the 'create_function_definition' function.
 class CreateFunctionDefinitionRequest(BaseValidatorModel):
     AmznClientToken: Optional[str] = None
     InitialVersion: Optional[FunctionDefinitionVersionUnion] = None

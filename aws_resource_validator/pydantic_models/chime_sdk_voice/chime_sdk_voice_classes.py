@@ -21,6 +21,7 @@ class Address(BaseValidatorModel):
     country: Optional[str] = None
 
 
+# This class is the input for the 'associate_phone_numbers_with_voice_connector_group' function.
 class AssociatePhoneNumbersWithVoiceConnectorGroupRequest(BaseValidatorModel):
     VoiceConnectorGroupId: str
     E164PhoneNumbers: List[str]
@@ -41,12 +42,14 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'associate_phone_numbers_with_voice_connector' function.
 class AssociatePhoneNumbersWithVoiceConnectorRequest(BaseValidatorModel):
     VoiceConnectorId: str
     E164PhoneNumbers: List[str]
     ForceAssociate: Optional[bool] = None
 
 
+# This class is the input for the 'batch_delete_phone_number' function.
 class BatchDeletePhoneNumberRequest(BaseValidatorModel):
     PhoneNumberIds: List[str]
 
@@ -74,6 +77,7 @@ class CandidateAddress(BaseValidatorModel):
     country: Optional[str] = None
 
 
+# This class is the input for the 'create_phone_number_order' function.
 class CreatePhoneNumberOrderRequest(BaseValidatorModel):
     ProductType: PhoneNumberProductTypeType
     E164PhoneNumbers: List[str]
@@ -85,6 +89,7 @@ class GeoMatchParams(BaseValidatorModel):
     AreaCode: str
 
 
+# This class is the input for the 'create_sip_media_application_call' function.
 class CreateSipMediaApplicationCallRequest(BaseValidatorModel):
     FromPhoneNumber: str
     ToPhoneNumber: str
@@ -133,6 +138,7 @@ class ServerSideEncryptionConfiguration(BaseValidatorModel):
     KmsKeyArn: str
 
 
+# This class is the input for the 'create_voice_profile' function.
 class CreateVoiceProfileRequest(BaseValidatorModel):
     SpeakerSearchTaskId: str
 
@@ -157,73 +163,90 @@ class DNISEmergencyCallingConfiguration(BaseValidatorModel):
     TestPhoneNumber: Optional[str] = None
 
 
+# This class is the input for the 'delete_phone_number' function.
 class DeletePhoneNumberRequest(BaseValidatorModel):
     PhoneNumberId: str
 
 
+# This class is the input for the 'delete_proxy_session' function.
 class DeleteProxySessionRequest(BaseValidatorModel):
     VoiceConnectorId: str
     ProxySessionId: str
 
 
+# This class is the input for the 'delete_sip_media_application' function.
 class DeleteSipMediaApplicationRequest(BaseValidatorModel):
     SipMediaApplicationId: str
 
 
+# This class is the input for the 'delete_sip_rule' function.
 class DeleteSipRuleRequest(BaseValidatorModel):
     SipRuleId: str
 
 
+# This class is the input for the 'delete_voice_connector_emergency_calling_configuration' function.
 class DeleteVoiceConnectorEmergencyCallingConfigurationRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
+# This class is the input for the 'delete_voice_connector_external_systems_configuration' function.
 class DeleteVoiceConnectorExternalSystemsConfigurationRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
+# This class is the input for the 'delete_voice_connector_group' function.
 class DeleteVoiceConnectorGroupRequest(BaseValidatorModel):
     VoiceConnectorGroupId: str
 
 
+# This class is the input for the 'delete_voice_connector_origination' function.
 class DeleteVoiceConnectorOriginationRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
+# This class is the input for the 'delete_voice_connector_proxy' function.
 class DeleteVoiceConnectorProxyRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
+# This class is the input for the 'delete_voice_connector' function.
 class DeleteVoiceConnectorRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
+# This class is the input for the 'delete_voice_connector_streaming_configuration' function.
 class DeleteVoiceConnectorStreamingConfigurationRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
+# This class is the input for the 'delete_voice_connector_termination_credentials' function.
 class DeleteVoiceConnectorTerminationCredentialsRequest(BaseValidatorModel):
     VoiceConnectorId: str
     Usernames: List[str]
 
 
+# This class is the input for the 'delete_voice_connector_termination' function.
 class DeleteVoiceConnectorTerminationRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
+# This class is the input for the 'delete_voice_profile_domain' function.
 class DeleteVoiceProfileDomainRequest(BaseValidatorModel):
     VoiceProfileDomainId: str
 
 
+# This class is the input for the 'delete_voice_profile' function.
 class DeleteVoiceProfileRequest(BaseValidatorModel):
     VoiceProfileId: str
 
 
+# This class is the input for the 'disassociate_phone_numbers_from_voice_connector_group' function.
 class DisassociatePhoneNumbersFromVoiceConnectorGroupRequest(BaseValidatorModel):
     VoiceConnectorGroupId: str
     E164PhoneNumbers: List[str]
 
 
+# This class is the input for the 'disassociate_phone_numbers_from_voice_connector' function.
 class DisassociatePhoneNumbersFromVoiceConnectorRequest(BaseValidatorModel):
     VoiceConnectorId: str
     E164PhoneNumbers: List[str]
@@ -238,19 +261,23 @@ class VoiceConnectorSettings(BaseValidatorModel):
     CdrBucket: Optional[str] = None
 
 
+# This class is the input for the 'get_phone_number_order' function.
 class GetPhoneNumberOrderRequest(BaseValidatorModel):
     PhoneNumberOrderId: str
 
 
+# This class is the input for the 'get_phone_number' function.
 class GetPhoneNumberRequest(BaseValidatorModel):
     PhoneNumberId: str
 
 
+# This class is the input for the 'get_proxy_session' function.
 class GetProxySessionRequest(BaseValidatorModel):
     VoiceConnectorId: str
     ProxySessionId: str
 
 
+# This class is the input for the 'get_sip_media_application_alexa_skill_configuration' function.
 class GetSipMediaApplicationAlexaSkillConfigurationRequest(BaseValidatorModel):
     SipMediaApplicationId: str
 
@@ -260,6 +287,7 @@ class SipMediaApplicationAlexaSkillConfigurationOutput(BaseValidatorModel):
     AlexaSkillIds: List[str]
 
 
+# This class is the input for the 'get_sip_media_application_logging_configuration' function.
 class GetSipMediaApplicationLoggingConfigurationRequest(BaseValidatorModel):
     SipMediaApplicationId: str
 
@@ -268,31 +296,38 @@ class SipMediaApplicationLoggingConfiguration(BaseValidatorModel):
     EnableSipMediaApplicationMessageLogs: Optional[bool] = None
 
 
+# This class is the input for the 'get_sip_media_application' function.
 class GetSipMediaApplicationRequest(BaseValidatorModel):
     SipMediaApplicationId: str
 
 
+# This class is the input for the 'get_sip_rule' function.
 class GetSipRuleRequest(BaseValidatorModel):
     SipRuleId: str
 
 
+# This class is the input for the 'get_speaker_search_task' function.
 class GetSpeakerSearchTaskRequest(BaseValidatorModel):
     VoiceConnectorId: str
     SpeakerSearchTaskId: str
 
 
+# This class is the input for the 'get_voice_connector_emergency_calling_configuration' function.
 class GetVoiceConnectorEmergencyCallingConfigurationRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
+# This class is the input for the 'get_voice_connector_external_systems_configuration' function.
 class GetVoiceConnectorExternalSystemsConfigurationRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
+# This class is the input for the 'get_voice_connector_group' function.
 class GetVoiceConnectorGroupRequest(BaseValidatorModel):
     VoiceConnectorGroupId: str
 
 
+# This class is the input for the 'get_voice_connector_logging_configuration' function.
 class GetVoiceConnectorLoggingConfigurationRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
@@ -302,10 +337,12 @@ class LoggingConfiguration(BaseValidatorModel):
     EnableMediaMetricLogs: Optional[bool] = None
 
 
+# This class is the input for the 'get_voice_connector_origination' function.
 class GetVoiceConnectorOriginationRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
+# This class is the input for the 'get_voice_connector_proxy' function.
 class GetVoiceConnectorProxyRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
@@ -317,14 +354,17 @@ class Proxy(BaseValidatorModel):
     PhoneNumberCountries: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_voice_connector' function.
 class GetVoiceConnectorRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
+# This class is the input for the 'get_voice_connector_streaming_configuration' function.
 class GetVoiceConnectorStreamingConfigurationRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
+# This class is the input for the 'get_voice_connector_termination_health' function.
 class GetVoiceConnectorTerminationHealthRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
@@ -334,6 +374,7 @@ class TerminationHealth(BaseValidatorModel):
     Source: Optional[str] = None
 
 
+# This class is the input for the 'get_voice_connector_termination' function.
 class GetVoiceConnectorTerminationRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
@@ -346,25 +387,30 @@ class TerminationOutput(BaseValidatorModel):
     Disabled: Optional[bool] = None
 
 
+# This class is the input for the 'get_voice_profile_domain' function.
 class GetVoiceProfileDomainRequest(BaseValidatorModel):
     VoiceProfileDomainId: str
 
 
+# This class is the input for the 'get_voice_profile' function.
 class GetVoiceProfileRequest(BaseValidatorModel):
     VoiceProfileId: str
 
 
+# This class is the input for the 'get_voice_tone_analysis_task' function.
 class GetVoiceToneAnalysisTaskRequest(BaseValidatorModel):
     VoiceConnectorId: str
     VoiceToneAnalysisTaskId: str
     IsCaller: bool
 
 
+# This class is the input for the 'list_phone_number_orders' function.
 class ListPhoneNumberOrdersRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_phone_numbers' function.
 class ListPhoneNumbersRequest(BaseValidatorModel):
     Status: Optional[str] = None
     ProductType: Optional[PhoneNumberProductTypeType] = None
@@ -374,6 +420,7 @@ class ListPhoneNumbersRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_proxy_sessions' function.
 class ListProxySessionsRequest(BaseValidatorModel):
     VoiceConnectorId: str
     Status: Optional[ProxySessionStatusType] = None
@@ -387,17 +434,20 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_sip_media_applications' function.
 class ListSipMediaApplicationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_sip_rules' function.
 class ListSipRulesRequest(BaseValidatorModel):
     SipMediaApplicationId: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_supported_phone_number_countries' function.
 class ListSupportedPhoneNumberCountriesRequest(BaseValidatorModel):
     ProductType: PhoneNumberProductTypeType
 
@@ -407,24 +457,29 @@ class PhoneNumberCountry(BaseValidatorModel):
     SupportedPhoneNumberTypes: Optional[List[PhoneNumberTypeType]] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
 
+# This class is the input for the 'list_voice_connector_groups' function.
 class ListVoiceConnectorGroupsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_voice_connector_termination_credentials' function.
 class ListVoiceConnectorTerminationCredentialsRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
+# This class is the input for the 'list_voice_connectors' function.
 class ListVoiceConnectorsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_voice_profile_domains' function.
 class ListVoiceProfileDomainsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -439,6 +494,7 @@ class VoiceProfileDomainSummary(BaseValidatorModel):
     UpdatedTimestamp: Optional[datetime] = None
 
 
+# This class is the input for the 'list_voice_profiles' function.
 class ListVoiceProfilesRequest(BaseValidatorModel):
     VoiceProfileDomainId: str
     NextToken: Optional[str] = None
@@ -492,12 +548,14 @@ class PhoneNumberCapabilities(BaseValidatorModel):
     OutboundMMS: Optional[bool] = None
 
 
+# This class is the input for the 'put_voice_connector_external_systems_configuration' function.
 class PutVoiceConnectorExternalSystemsConfigurationRequest(BaseValidatorModel):
     VoiceConnectorId: str
     SessionBorderControllerTypes: Optional[List[SessionBorderControllerTypeType]] = None
     ContactCenterSystemTypes: Optional[List[ContactCenterSystemTypeType]] = None
 
 
+# This class is the input for the 'put_voice_connector_proxy' function.
 class PutVoiceConnectorProxyRequest(BaseValidatorModel):
     VoiceConnectorId: str
     DefaultSessionExpiryMinutes: int
@@ -506,10 +564,12 @@ class PutVoiceConnectorProxyRequest(BaseValidatorModel):
     Disabled: Optional[bool] = None
 
 
+# This class is the input for the 'restore_phone_number' function.
 class RestorePhoneNumberRequest(BaseValidatorModel):
     PhoneNumberId: str
 
 
+# This class is the input for the 'search_available_phone_numbers' function.
 class SearchAvailablePhoneNumbersRequest(BaseValidatorModel):
     AreaCode: Optional[str] = None
     City: Optional[str] = None
@@ -531,6 +591,7 @@ class SpeakerSearchResult(BaseValidatorModel):
     VoiceProfileId: Optional[str] = None
 
 
+# This class is the input for the 'start_speaker_search_task' function.
 class StartSpeakerSearchTaskRequest(BaseValidatorModel):
     VoiceConnectorId: str
     TransactionId: str
@@ -539,6 +600,7 @@ class StartSpeakerSearchTaskRequest(BaseValidatorModel):
     CallLeg: Optional[CallLegTypeType] = None
 
 
+# This class is the input for the 'start_voice_tone_analysis_task' function.
 class StartVoiceToneAnalysisTaskRequest(BaseValidatorModel):
     VoiceConnectorId: str
     TransactionId: str
@@ -546,11 +608,13 @@ class StartVoiceToneAnalysisTaskRequest(BaseValidatorModel):
     ClientRequestToken: Optional[str] = None
 
 
+# This class is the input for the 'stop_speaker_search_task' function.
 class StopSpeakerSearchTaskRequest(BaseValidatorModel):
     VoiceConnectorId: str
     SpeakerSearchTaskId: str
 
 
+# This class is the input for the 'stop_voice_tone_analysis_task' function.
 class StopVoiceToneAnalysisTaskRequest(BaseValidatorModel):
     VoiceConnectorId: str
     VoiceToneAnalysisTaskId: str
@@ -568,11 +632,13 @@ class Termination(BaseValidatorModel):
     Disabled: Optional[bool] = None
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     ResourceARN: str
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_phone_number' function.
 class UpdatePhoneNumberRequest(BaseValidatorModel):
     PhoneNumberId: str
     ProductType: Optional[PhoneNumberProductTypeType] = None
@@ -580,10 +646,12 @@ class UpdatePhoneNumberRequest(BaseValidatorModel):
     Name: Optional[str] = None
 
 
+# This class is the input for the 'update_phone_number_settings' function.
 class UpdatePhoneNumberSettingsRequest(BaseValidatorModel):
     CallingName: str
 
 
+# This class is the input for the 'update_proxy_session' function.
 class UpdateProxySessionRequest(BaseValidatorModel):
     VoiceConnectorId: str
     ProxySessionId: str
@@ -591,29 +659,34 @@ class UpdateProxySessionRequest(BaseValidatorModel):
     ExpiryMinutes: Optional[int] = None
 
 
+# This class is the input for the 'update_sip_media_application_call' function.
 class UpdateSipMediaApplicationCallRequest(BaseValidatorModel):
     SipMediaApplicationId: str
     TransactionId: str
     Arguments: Dict[str, str]
 
 
+# This class is the input for the 'update_voice_connector' function.
 class UpdateVoiceConnectorRequest(BaseValidatorModel):
     VoiceConnectorId: str
     Name: str
     RequireEncryption: bool
 
 
+# This class is the input for the 'update_voice_profile_domain' function.
 class UpdateVoiceProfileDomainRequest(BaseValidatorModel):
     VoiceProfileDomainId: str
     Name: Optional[str] = None
     Description: Optional[str] = None
 
 
+# This class is the input for the 'update_voice_profile' function.
 class UpdateVoiceProfileRequest(BaseValidatorModel):
     VoiceProfileId: str
     SpeakerSearchTaskId: str
 
 
+# This class is the input for the 'validate_e911_address' function.
 class ValidateE911AddressRequest(BaseValidatorModel):
     AwsAccountId: str
     StreetNumber: str
@@ -624,36 +697,43 @@ class ValidateE911AddressRequest(BaseValidatorModel):
     PostalCode: str
 
 
+# This class is the output for the 'associate_phone_numbers_with_voice_connector_group' function.
 class AssociatePhoneNumbersWithVoiceConnectorGroupResponse(BaseValidatorModel):
     PhoneNumberErrors: List[PhoneNumberError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_phone_numbers_with_voice_connector' function.
 class AssociatePhoneNumbersWithVoiceConnectorResponse(BaseValidatorModel):
     PhoneNumberErrors: List[PhoneNumberError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_delete_phone_number' function.
 class BatchDeletePhoneNumberResponse(BaseValidatorModel):
     PhoneNumberErrors: List[PhoneNumberError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_update_phone_number' function.
 class BatchUpdatePhoneNumberResponse(BaseValidatorModel):
     PhoneNumberErrors: List[PhoneNumberError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_phone_numbers_from_voice_connector_group' function.
 class DisassociatePhoneNumbersFromVoiceConnectorGroupResponse(BaseValidatorModel):
     PhoneNumberErrors: List[PhoneNumberError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_phone_numbers_from_voice_connector' function.
 class DisassociatePhoneNumbersFromVoiceConnectorResponse(BaseValidatorModel):
     PhoneNumberErrors: List[PhoneNumberError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_phone_number_settings' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
@@ -669,17 +749,20 @@ class ListAvailableVoiceConnectorRegionsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_voice_connector_termination_credentials' function.
 class ListVoiceConnectorTerminationCredentialsResponse(BaseValidatorModel):
     Usernames: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_available_phone_numbers' function.
 class SearchAvailablePhoneNumbersResponse(BaseValidatorModel):
     E164PhoneNumbers: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'batch_update_phone_number' function.
 class BatchUpdatePhoneNumberRequest(BaseValidatorModel):
     UpdatePhoneNumberRequestItems: List[UpdatePhoneNumberRequestItem]
 
@@ -694,6 +777,7 @@ class VoiceToneAnalysisTask(BaseValidatorModel):
     StatusMessage: Optional[str] = None
 
 
+# This class is the output for the 'validate_e911_address' function.
 class ValidateE911AddressResponse(BaseValidatorModel):
     ValidationResult: int
     AddressExternalId: str
@@ -702,6 +786,7 @@ class ValidateE911AddressResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_proxy_session' function.
 class CreateProxySessionRequest(BaseValidatorModel):
     VoiceConnectorId: str
     ParticipantPhoneNumbers: List[str]
@@ -713,11 +798,13 @@ class CreateProxySessionRequest(BaseValidatorModel):
     GeoMatchParams: Optional[GeoMatchParams] = None
 
 
+# This class is the output for the 'create_sip_media_application_call' function.
 class CreateSipMediaApplicationCallResponse(BaseValidatorModel):
     SipMediaApplicationCall: SipMediaApplicationCall
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_sip_media_application_call' function.
 class UpdateSipMediaApplicationCallResponse(BaseValidatorModel):
     SipMediaApplicationCall: SipMediaApplicationCall
     ResponseMetadata: ResponseMetadata
@@ -733,12 +820,14 @@ class SipMediaApplication(BaseValidatorModel):
     SipMediaApplicationArn: Optional[str] = None
 
 
+# This class is the input for the 'update_sip_media_application' function.
 class UpdateSipMediaApplicationRequest(BaseValidatorModel):
     SipMediaApplicationId: str
     Name: Optional[str] = None
     Endpoints: Optional[List[SipMediaApplicationEndpoint]] = None
 
 
+# This class is the input for the 'create_sip_media_application' function.
 class CreateSipMediaApplicationRequest(BaseValidatorModel):
     AwsRegion: str
     Name: str
@@ -746,6 +835,7 @@ class CreateSipMediaApplicationRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_voice_connector' function.
 class CreateVoiceConnectorRequest(BaseValidatorModel):
     Name: str
     RequireEncryption: bool
@@ -754,16 +844,19 @@ class CreateVoiceConnectorRequest(BaseValidatorModel):
     IntegrationType: Optional[VoiceConnectorIntegrationTypeType] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     ResourceARN: str
     Tags: List[Tag]
 
 
+# This class is the input for the 'create_sip_rule' function.
 class CreateSipRuleRequest(BaseValidatorModel):
     Name: str
     TriggerType: SipRuleTriggerTypeType
@@ -783,6 +876,7 @@ class SipRule(BaseValidatorModel):
     UpdatedTimestamp: Optional[datetime] = None
 
 
+# This class is the input for the 'update_sip_rule' function.
 class UpdateSipRuleRequest(BaseValidatorModel):
     SipRuleId: str
     Name: str
@@ -790,11 +884,13 @@ class UpdateSipRuleRequest(BaseValidatorModel):
     TargetApplications: Optional[List[SipRuleTargetApplication]] = None
 
 
+# This class is the input for the 'create_voice_connector_group' function.
 class CreateVoiceConnectorGroupRequest(BaseValidatorModel):
     Name: str
     VoiceConnectorItems: Optional[List[VoiceConnectorItem]] = None
 
 
+# This class is the input for the 'update_voice_connector_group' function.
 class UpdateVoiceConnectorGroupRequest(BaseValidatorModel):
     VoiceConnectorGroupId: str
     Name: str
@@ -810,27 +906,32 @@ class VoiceConnectorGroup(BaseValidatorModel):
     VoiceConnectorGroupArn: Optional[str] = None
 
 
+# This class is the output for the 'create_voice_connector' function.
 class CreateVoiceConnectorResponse(BaseValidatorModel):
     VoiceConnector: VoiceConnector
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_voice_connector' function.
 class GetVoiceConnectorResponse(BaseValidatorModel):
     VoiceConnector: VoiceConnector
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_voice_connectors' function.
 class ListVoiceConnectorsResponse(BaseValidatorModel):
     VoiceConnectors: List[VoiceConnector]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_voice_connector' function.
 class UpdateVoiceConnectorResponse(BaseValidatorModel):
     VoiceConnector: VoiceConnector
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_voice_profile_domain' function.
 class CreateVoiceProfileDomainRequest(BaseValidatorModel):
     Name: str
     ServerSideEncryptionConfiguration: ServerSideEncryptionConfiguration
@@ -849,21 +950,25 @@ class VoiceProfileDomain(BaseValidatorModel):
     UpdatedTimestamp: Optional[datetime] = None
 
 
+# This class is the output for the 'create_voice_profile' function.
 class CreateVoiceProfileResponse(BaseValidatorModel):
     VoiceProfile: VoiceProfile
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_voice_profile' function.
 class GetVoiceProfileResponse(BaseValidatorModel):
     VoiceProfile: VoiceProfile
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_voice_profile' function.
 class UpdateVoiceProfileResponse(BaseValidatorModel):
     VoiceProfile: VoiceProfile
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_voice_connector_termination_credentials' function.
 class PutVoiceConnectorTerminationCredentialsRequest(BaseValidatorModel):
     VoiceConnectorId: str
     Credentials: Optional[List[Credential]] = None
@@ -877,11 +982,13 @@ class EmergencyCallingConfiguration(BaseValidatorModel):
     DNIS: Optional[List[DNISEmergencyCallingConfiguration]] = None
 
 
+# This class is the output for the 'get_voice_connector_external_systems_configuration' function.
 class GetVoiceConnectorExternalSystemsConfigurationResponse(BaseValidatorModel):
     ExternalSystemsConfiguration: ExternalSystemsConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_voice_connector_external_systems_configuration' function.
 class PutVoiceConnectorExternalSystemsConfigurationResponse(BaseValidatorModel):
     ExternalSystemsConfiguration: ExternalSystemsConfiguration
     ResponseMetadata: ResponseMetadata
@@ -892,70 +999,84 @@ class GetGlobalSettingsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_global_settings' function.
 class UpdateGlobalSettingsRequest(BaseValidatorModel):
     VoiceConnector: Optional[VoiceConnectorSettings] = None
 
 
+# This class is the output for the 'get_sip_media_application_alexa_skill_configuration' function.
 class GetSipMediaApplicationAlexaSkillConfigurationResponse(BaseValidatorModel):
     SipMediaApplicationAlexaSkillConfiguration: SipMediaApplicationAlexaSkillConfigurationOutput
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_sip_media_application_alexa_skill_configuration' function.
 class PutSipMediaApplicationAlexaSkillConfigurationResponse(BaseValidatorModel):
     SipMediaApplicationAlexaSkillConfiguration: SipMediaApplicationAlexaSkillConfigurationOutput
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_sip_media_application_logging_configuration' function.
 class GetSipMediaApplicationLoggingConfigurationResponse(BaseValidatorModel):
     SipMediaApplicationLoggingConfiguration: SipMediaApplicationLoggingConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_sip_media_application_logging_configuration' function.
 class PutSipMediaApplicationLoggingConfigurationRequest(BaseValidatorModel):
     SipMediaApplicationId: str
     SipMediaApplicationLoggingConfiguration: Optional[SipMediaApplicationLoggingConfiguration] = None
 
 
+# This class is the output for the 'put_sip_media_application_logging_configuration' function.
 class PutSipMediaApplicationLoggingConfigurationResponse(BaseValidatorModel):
     SipMediaApplicationLoggingConfiguration: SipMediaApplicationLoggingConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_voice_connector_logging_configuration' function.
 class GetVoiceConnectorLoggingConfigurationResponse(BaseValidatorModel):
     LoggingConfiguration: LoggingConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_voice_connector_logging_configuration' function.
 class PutVoiceConnectorLoggingConfigurationRequest(BaseValidatorModel):
     VoiceConnectorId: str
     LoggingConfiguration: LoggingConfiguration
 
 
+# This class is the output for the 'put_voice_connector_logging_configuration' function.
 class PutVoiceConnectorLoggingConfigurationResponse(BaseValidatorModel):
     LoggingConfiguration: LoggingConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_voice_connector_proxy' function.
 class GetVoiceConnectorProxyResponse(BaseValidatorModel):
     Proxy: Proxy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_voice_connector_proxy' function.
 class PutVoiceConnectorProxyResponse(BaseValidatorModel):
     Proxy: Proxy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_voice_connector_termination_health' function.
 class GetVoiceConnectorTerminationHealthResponse(BaseValidatorModel):
     TerminationHealth: TerminationHealth
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_voice_connector_termination' function.
 class GetVoiceConnectorTerminationResponse(BaseValidatorModel):
     Termination: TerminationOutput
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_voice_connector_termination' function.
 class PutVoiceConnectorTerminationResponse(BaseValidatorModel):
     Termination: TerminationOutput
     ResponseMetadata: ResponseMetadata
@@ -970,17 +1091,20 @@ class ListSipRulesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_supported_phone_number_countries' function.
 class ListSupportedPhoneNumberCountriesResponse(BaseValidatorModel):
     PhoneNumberCountries: List[PhoneNumberCountry]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_voice_profile_domains' function.
 class ListVoiceProfileDomainsResponse(BaseValidatorModel):
     VoiceProfileDomains: List[VoiceProfileDomainSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_voice_profiles' function.
 class ListVoiceProfilesResponse(BaseValidatorModel):
     VoiceProfiles: List[VoiceProfileSummary]
     ResponseMetadata: ResponseMetadata
@@ -1064,99 +1188,118 @@ class StreamingConfiguration(BaseValidatorModel):
 TerminationUnion = Union[Termination, TerminationOutput]
 
 
+# This class is the output for the 'get_voice_tone_analysis_task' function.
 class GetVoiceToneAnalysisTaskResponse(BaseValidatorModel):
     VoiceToneAnalysisTask: VoiceToneAnalysisTask
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_voice_tone_analysis_task' function.
 class StartVoiceToneAnalysisTaskResponse(BaseValidatorModel):
     VoiceToneAnalysisTask: VoiceToneAnalysisTask
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_sip_media_application' function.
 class CreateSipMediaApplicationResponse(BaseValidatorModel):
     SipMediaApplication: SipMediaApplication
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_sip_media_application' function.
 class GetSipMediaApplicationResponse(BaseValidatorModel):
     SipMediaApplication: SipMediaApplication
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_sip_media_applications' function.
 class ListSipMediaApplicationsResponse(BaseValidatorModel):
     SipMediaApplications: List[SipMediaApplication]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_sip_media_application' function.
 class UpdateSipMediaApplicationResponse(BaseValidatorModel):
     SipMediaApplication: SipMediaApplication
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_sip_rule' function.
 class CreateSipRuleResponse(BaseValidatorModel):
     SipRule: SipRule
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_sip_rule' function.
 class GetSipRuleResponse(BaseValidatorModel):
     SipRule: SipRule
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_sip_rules' function.
 class ListSipRulesResponse(BaseValidatorModel):
     SipRules: List[SipRule]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_sip_rule' function.
 class UpdateSipRuleResponse(BaseValidatorModel):
     SipRule: SipRule
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_voice_connector_group' function.
 class CreateVoiceConnectorGroupResponse(BaseValidatorModel):
     VoiceConnectorGroup: VoiceConnectorGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_voice_connector_group' function.
 class GetVoiceConnectorGroupResponse(BaseValidatorModel):
     VoiceConnectorGroup: VoiceConnectorGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_voice_connector_groups' function.
 class ListVoiceConnectorGroupsResponse(BaseValidatorModel):
     VoiceConnectorGroups: List[VoiceConnectorGroup]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_voice_connector_group' function.
 class UpdateVoiceConnectorGroupResponse(BaseValidatorModel):
     VoiceConnectorGroup: VoiceConnectorGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_voice_profile_domain' function.
 class CreateVoiceProfileDomainResponse(BaseValidatorModel):
     VoiceProfileDomain: VoiceProfileDomain
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_voice_profile_domain' function.
 class GetVoiceProfileDomainResponse(BaseValidatorModel):
     VoiceProfileDomain: VoiceProfileDomain
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_voice_profile_domain' function.
 class UpdateVoiceProfileDomainResponse(BaseValidatorModel):
     VoiceProfileDomain: VoiceProfileDomain
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_voice_connector_emergency_calling_configuration' function.
 class GetVoiceConnectorEmergencyCallingConfigurationResponse(BaseValidatorModel):
     EmergencyCallingConfiguration: EmergencyCallingConfigurationOutput
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_voice_connector_emergency_calling_configuration' function.
 class PutVoiceConnectorEmergencyCallingConfigurationResponse(BaseValidatorModel):
     EmergencyCallingConfiguration: EmergencyCallingConfigurationOutput
     ResponseMetadata: ResponseMetadata
@@ -1164,27 +1307,32 @@ class PutVoiceConnectorEmergencyCallingConfigurationResponse(BaseValidatorModel)
 EmergencyCallingConfigurationUnion = Union[EmergencyCallingConfiguration, EmergencyCallingConfigurationOutput]
 
 
+# This class is the output for the 'create_phone_number_order' function.
 class CreatePhoneNumberOrderResponse(BaseValidatorModel):
     PhoneNumberOrder: PhoneNumberOrder
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_phone_number_order' function.
 class GetPhoneNumberOrderResponse(BaseValidatorModel):
     PhoneNumberOrder: PhoneNumberOrder
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_phone_number_orders' function.
 class ListPhoneNumberOrdersResponse(BaseValidatorModel):
     PhoneNumberOrders: List[PhoneNumberOrder]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_voice_connector_origination' function.
 class GetVoiceConnectorOriginationResponse(BaseValidatorModel):
     Origination: OriginationOutput
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_voice_connector_origination' function.
 class PutVoiceConnectorOriginationResponse(BaseValidatorModel):
     Origination: OriginationOutput
     ResponseMetadata: ResponseMetadata
@@ -1192,48 +1340,57 @@ class PutVoiceConnectorOriginationResponse(BaseValidatorModel):
 OriginationUnion = Union[Origination, OriginationOutput]
 
 
+# This class is the output for the 'create_proxy_session' function.
 class CreateProxySessionResponse(BaseValidatorModel):
     ProxySession: ProxySession
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_proxy_session' function.
 class GetProxySessionResponse(BaseValidatorModel):
     ProxySession: ProxySession
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_proxy_sessions' function.
 class ListProxySessionsResponse(BaseValidatorModel):
     ProxySessions: List[ProxySession]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_proxy_session' function.
 class UpdateProxySessionResponse(BaseValidatorModel):
     ProxySession: ProxySession
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_phone_number' function.
 class GetPhoneNumberResponse(BaseValidatorModel):
     PhoneNumber: PhoneNumber
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_phone_numbers' function.
 class ListPhoneNumbersResponse(BaseValidatorModel):
     PhoneNumbers: List[PhoneNumber]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'restore_phone_number' function.
 class RestorePhoneNumberResponse(BaseValidatorModel):
     PhoneNumber: PhoneNumber
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_phone_number' function.
 class UpdatePhoneNumberResponse(BaseValidatorModel):
     PhoneNumber: PhoneNumber
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_sip_media_application_alexa_skill_configuration' function.
 class PutSipMediaApplicationAlexaSkillConfigurationRequest(BaseValidatorModel):
     SipMediaApplicationId: str
     SipMediaApplicationAlexaSkillConfiguration: Optional[SipMediaApplicationAlexaSkillConfigurationUnion] = None
@@ -1250,11 +1407,13 @@ class SpeakerSearchTask(BaseValidatorModel):
     StatusMessage: Optional[str] = None
 
 
+# This class is the output for the 'get_voice_connector_streaming_configuration' function.
 class GetVoiceConnectorStreamingConfigurationResponse(BaseValidatorModel):
     StreamingConfiguration: StreamingConfigurationOutput
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_voice_connector_streaming_configuration' function.
 class PutVoiceConnectorStreamingConfigurationResponse(BaseValidatorModel):
     StreamingConfiguration: StreamingConfigurationOutput
     ResponseMetadata: ResponseMetadata
@@ -1262,31 +1421,37 @@ class PutVoiceConnectorStreamingConfigurationResponse(BaseValidatorModel):
 StreamingConfigurationUnion = Union[StreamingConfiguration, StreamingConfigurationOutput]
 
 
+# This class is the input for the 'put_voice_connector_termination' function.
 class PutVoiceConnectorTerminationRequest(BaseValidatorModel):
     VoiceConnectorId: str
     Termination: TerminationUnion
 
 
+# This class is the input for the 'put_voice_connector_emergency_calling_configuration' function.
 class PutVoiceConnectorEmergencyCallingConfigurationRequest(BaseValidatorModel):
     VoiceConnectorId: str
     EmergencyCallingConfiguration: EmergencyCallingConfigurationUnion
 
 
+# This class is the input for the 'put_voice_connector_origination' function.
 class PutVoiceConnectorOriginationRequest(BaseValidatorModel):
     VoiceConnectorId: str
     Origination: OriginationUnion
 
 
+# This class is the output for the 'get_speaker_search_task' function.
 class GetSpeakerSearchTaskResponse(BaseValidatorModel):
     SpeakerSearchTask: SpeakerSearchTask
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_speaker_search_task' function.
 class StartSpeakerSearchTaskResponse(BaseValidatorModel):
     SpeakerSearchTask: SpeakerSearchTask
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_voice_connector_streaming_configuration' function.
 class PutVoiceConnectorStreamingConfigurationRequest(BaseValidatorModel):
     VoiceConnectorId: str
     StreamingConfiguration: StreamingConfigurationUnion

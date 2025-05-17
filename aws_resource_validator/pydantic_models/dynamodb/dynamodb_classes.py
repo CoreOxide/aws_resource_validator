@@ -108,6 +108,7 @@ class ContributorInsightsSummary(BaseValidatorModel):
     ContributorInsightsStatus: Optional[ContributorInsightsStatusType] = None
 
 
+# This class is the input for the 'create_backup' function.
 class CreateBackupInput(BaseValidatorModel):
     TableName: str
     BackupName: str
@@ -175,6 +176,7 @@ class CsvOptions(BaseValidatorModel):
     HeaderList: Optional[List[str]] = None
 
 
+# This class is the input for the 'delete_backup' function.
 class DeleteBackupInput(BaseValidatorModel):
     BackupArn: str
 
@@ -191,23 +193,28 @@ class DeleteReplicationGroupMemberAction(BaseValidatorModel):
     RegionName: str
 
 
+# This class is the input for the 'delete_resource_policy' function.
 class DeleteResourcePolicyInput(BaseValidatorModel):
     ResourceArn: str
     ExpectedRevisionId: Optional[str] = None
 
 
+# This class is the input for the 'delete_table' function.
 class DeleteTableInput(BaseValidatorModel):
     TableName: str
 
 
+# This class is the input for the 'describe_backup' function.
 class DescribeBackupInput(BaseValidatorModel):
     BackupArn: str
 
 
+# This class is the input for the 'describe_continuous_backups' function.
 class DescribeContinuousBackupsInput(BaseValidatorModel):
     TableName: str
 
 
+# This class is the input for the 'describe_contributor_insights' function.
 class DescribeContributorInsightsInput(BaseValidatorModel):
     TableName: str
     IndexName: Optional[str] = None
@@ -223,22 +230,27 @@ class Endpoint(BaseValidatorModel):
     CachePeriodInMinutes: int
 
 
+# This class is the input for the 'describe_export' function.
 class DescribeExportInput(BaseValidatorModel):
     ExportArn: str
 
 
+# This class is the input for the 'describe_global_table' function.
 class DescribeGlobalTableInput(BaseValidatorModel):
     GlobalTableName: str
 
 
+# This class is the input for the 'describe_global_table_settings' function.
 class DescribeGlobalTableSettingsInput(BaseValidatorModel):
     GlobalTableName: str
 
 
+# This class is the input for the 'describe_import' function.
 class DescribeImportInput(BaseValidatorModel):
     ImportArn: str
 
 
+# This class is the input for the 'describe_kinesis_streaming_destination' function.
 class DescribeKinesisStreamingDestinationInput(BaseValidatorModel):
     TableName: str
 
@@ -250,6 +262,7 @@ class KinesisDataStreamDestination(BaseValidatorModel):
     ApproximateCreationDateTimePrecision: Optional[ApproximateCreationDateTimePrecisionType] = None
 
 
+# This class is the input for the 'describe_table' function.
 class DescribeTableInput(BaseValidatorModel):
     TableName: str
 
@@ -259,10 +272,12 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'describe_table_replica_auto_scaling' function.
 class DescribeTableReplicaAutoScalingInput(BaseValidatorModel):
     TableName: str
 
 
+# This class is the input for the 'describe_time_to_live' function.
 class DescribeTimeToLiveInput(BaseValidatorModel):
     TableName: str
 
@@ -290,6 +305,7 @@ class ExportSummary(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'get_resource_policy' function.
 class GetResourcePolicyInput(BaseValidatorModel):
     ResourceArn: str
 
@@ -325,35 +341,41 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_contributor_insights' function.
 class ListContributorInsightsInput(BaseValidatorModel):
     TableName: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_exports' function.
 class ListExportsInput(BaseValidatorModel):
     TableArn: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_global_tables' function.
 class ListGlobalTablesInput(BaseValidatorModel):
     ExclusiveStartGlobalTableName: Optional[str] = None
     Limit: Optional[int] = None
     RegionName: Optional[str] = None
 
 
+# This class is the input for the 'list_imports' function.
 class ListImportsInput(BaseValidatorModel):
     TableArn: Optional[str] = None
     PageSize: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tables' function.
 class ListTablesInput(BaseValidatorModel):
     ExclusiveStartTableName: Optional[str] = None
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_of_resource' function.
 class ListTagsOfResourceInput(BaseValidatorModel):
     ResourceArn: str
     NextToken: Optional[str] = None
@@ -369,6 +391,7 @@ class Projection(BaseValidatorModel):
     NonKeyAttributes: Optional[List[str]] = None
 
 
+# This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyInput(BaseValidatorModel):
     ResourceArn: str
     Policy: str
@@ -410,11 +433,13 @@ class TimeToLiveSpecification(BaseValidatorModel):
     AttributeName: str
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceInput(BaseValidatorModel):
     ResourceArn: str
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_contributor_insights' function.
 class UpdateContributorInsightsInput(BaseValidatorModel):
     TableName: str
     ContributorInsightsAction: ContributorInsightsActionType
@@ -536,11 +561,13 @@ class AutoScalingPolicyUpdate(BaseValidatorModel):
     PolicyName: Optional[str] = None
 
 
+# This class is the output for the 'create_backup' function.
 class CreateBackupOutput(BaseValidatorModel):
     BackupDetails: BackupDetails
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_resource_policy' function.
 class DeleteResourcePolicyOutput(BaseValidatorModel):
     RevisionId: str
     ResponseMetadata: ResponseMetadata
@@ -554,33 +581,39 @@ class DescribeLimitsOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'untag_resource' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_policy' function.
 class GetResourcePolicyOutput(BaseValidatorModel):
     Policy: str
     RevisionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_backups' function.
 class ListBackupsOutput(BaseValidatorModel):
     BackupSummaries: List[BackupSummary]
     LastEvaluatedBackupArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tables' function.
 class ListTablesOutput(BaseValidatorModel):
     TableNames: List[str]
     LastEvaluatedTableName: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_resource_policy' function.
 class PutResourcePolicyOutput(BaseValidatorModel):
     RevisionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_contributor_insights' function.
 class UpdateContributorInsightsOutput(BaseValidatorModel):
     TableName: str
     IndexName: str
@@ -603,6 +636,7 @@ class ContinuousBackupsDescription(BaseValidatorModel):
     PointInTimeRecoveryDescription: Optional[PointInTimeRecoveryDescription] = None
 
 
+# This class is the output for the 'list_contributor_insights' function.
 class ListContributorInsightsOutput(BaseValidatorModel):
     ContributorInsightsSummaries: List[ContributorInsightsSummary]
     ResponseMetadata: ResponseMetadata
@@ -629,6 +663,7 @@ class UpdateGlobalSecondaryIndexAction(BaseValidatorModel):
     WarmThroughput: Optional[WarmThroughput] = None
 
 
+# This class is the input for the 'create_global_table' function.
 class CreateGlobalTableInput(BaseValidatorModel):
     GlobalTableName: str
     ReplicationGroup: List[Replica]
@@ -645,12 +680,14 @@ class ReplicaGlobalSecondaryIndex(BaseValidatorModel):
     OnDemandThroughputOverride: Optional[OnDemandThroughputOverride] = None
 
 
+# This class is the output for the 'list_tags_of_resource' function.
 class ListTagsOfResourceOutput(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceInput(BaseValidatorModel):
     ResourceArn: str
     Tags: List[Tag]
@@ -669,6 +706,7 @@ class ReplicaUpdate(BaseValidatorModel):
     Delete: Optional[DeleteReplicaAction] = None
 
 
+# This class is the output for the 'describe_contributor_insights' function.
 class DescribeContributorInsightsOutput(BaseValidatorModel):
     TableName: str
     IndexName: str
@@ -684,6 +722,7 @@ class DescribeEndpointsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_kinesis_streaming_destination' function.
 class DescribeKinesisStreamingDestinationOutput(BaseValidatorModel):
     TableName: str
     KinesisDataStreamDestinations: List[KinesisDataStreamDestination]
@@ -700,23 +739,27 @@ class DescribeTableInputWait(BaseValidatorModel):
     WaiterConfig: Optional[WaiterConfig] = None
 
 
+# This class is the output for the 'describe_time_to_live' function.
 class DescribeTimeToLiveOutput(BaseValidatorModel):
     TimeToLiveDescription: TimeToLiveDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'enable_kinesis_streaming_destination' function.
 class KinesisStreamingDestinationInputRequest(BaseValidatorModel):
     TableName: str
     StreamArn: str
     EnableKinesisStreamingConfiguration: Optional[EnableKinesisStreamingConfiguration] = None
 
 
+# This class is the input for the 'disable_kinesis_streaming_destination' function.
 class KinesisStreamingDestinationInput(BaseValidatorModel):
     TableName: str
     StreamArn: str
     EnableKinesisStreamingConfiguration: Optional[EnableKinesisStreamingConfiguration] = None
 
 
+# This class is the output for the 'enable_kinesis_streaming_destination' function.
 class KinesisStreamingDestinationOutput(BaseValidatorModel):
     TableName: str
     StreamArn: str
@@ -749,6 +792,7 @@ class ExportDescription(BaseValidatorModel):
     IncrementalExportSpecification: Optional[IncrementalExportSpecificationOutput] = None
 
 
+# This class is the output for the 'list_exports' function.
 class ListExportsOutput(BaseValidatorModel):
     ExportSummaries: List[ExportSummary]
     ResponseMetadata: ResponseMetadata
@@ -761,6 +805,7 @@ class IncrementalExportSpecification(BaseValidatorModel):
     ExportViewType: Optional[ExportViewTypeType] = None
 
 
+# This class is the input for the 'list_backups' function.
 class ListBackupsInput(BaseValidatorModel):
     TableName: Optional[str] = None
     Limit: Optional[int] = None
@@ -851,6 +896,7 @@ class ListTagsOfResourceInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'update_continuous_backups' function.
 class UpdateContinuousBackupsInput(BaseValidatorModel):
     TableName: str
     PointInTimeRecoverySpecification: PointInTimeRecoverySpecification
@@ -858,22 +904,26 @@ class UpdateContinuousBackupsInput(BaseValidatorModel):
 ProjectionUnion = Union[Projection, ProjectionOutput]
 
 
+# This class is the input for the 'update_time_to_live' function.
 class UpdateTimeToLiveInput(BaseValidatorModel):
     TableName: str
     TimeToLiveSpecification: TimeToLiveSpecification
 
 
+# This class is the output for the 'update_time_to_live' function.
 class UpdateTimeToLiveOutput(BaseValidatorModel):
     TimeToLiveSpecification: TimeToLiveSpecification
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_kinesis_streaming_destination' function.
 class UpdateKinesisStreamingDestinationInput(BaseValidatorModel):
     TableName: str
     StreamArn: str
     UpdateKinesisStreamingConfiguration: Optional[UpdateKinesisStreamingConfiguration] = None
 
 
+# This class is the output for the 'update_kinesis_streaming_destination' function.
 class UpdateKinesisStreamingDestinationOutput(BaseValidatorModel):
     TableName: str
     StreamArn: str
@@ -932,6 +982,7 @@ class Delete(BaseValidatorModel):
     ReturnValuesOnConditionCheckFailure: Optional[ReturnValuesOnConditionCheckFailureType] = None
 
 
+# This class is the input for the 'execute_statement' function.
 class ExecuteStatementInput(BaseValidatorModel):
     Statement: str
     Parameters: Optional[List[UniversalAttributeValue]] = None
@@ -949,6 +1000,7 @@ class ExpectedAttributeValue(BaseValidatorModel):
     AttributeValueList: Optional[List[UniversalAttributeValue]] = None
 
 
+# This class is the input for the 'get_item' function.
 class GetItemInput(BaseValidatorModel):
     TableName: str
     Key: Dict[str, UniversalAttributeValue]
@@ -1115,6 +1167,7 @@ class BatchGetItemOutputServiceResource(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_get_item' function.
 class BatchGetItemOutput(BaseValidatorModel):
     Responses: Dict[str, List[Dict[str, AttributeValue]]]
     UnprocessedKeys: Dict[str, KeysAndAttributesOutput]
@@ -1129,6 +1182,7 @@ class DeleteItemOutputTable(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_item' function.
 class DeleteItemOutput(BaseValidatorModel):
     Attributes: Dict[str, AttributeValue]
     ConsumedCapacity: ConsumedCapacity
@@ -1136,6 +1190,7 @@ class DeleteItemOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'execute_statement' function.
 class ExecuteStatementOutput(BaseValidatorModel):
     Items: List[Dict[str, AttributeValue]]
     ConsumedCapacity: ConsumedCapacity
@@ -1144,6 +1199,7 @@ class ExecuteStatementOutput(BaseValidatorModel):
     LastEvaluatedKey: Optional[Dict[str, AttributeValue]] = None
 
 
+# This class is the output for the 'execute_transaction' function.
 class ExecuteTransactionOutput(BaseValidatorModel):
     Responses: List[ItemResponse]
     ConsumedCapacity: List[ConsumedCapacity]
@@ -1156,6 +1212,7 @@ class GetItemOutputTable(BaseValidatorModel):
     Item: Optional[Dict[str, TableAttributeValue]] = None
 
 
+# This class is the output for the 'get_item' function.
 class GetItemOutput(BaseValidatorModel):
     ConsumedCapacity: ConsumedCapacity
     ResponseMetadata: ResponseMetadata
@@ -1169,6 +1226,7 @@ class PutItemOutputTable(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_item' function.
 class PutItemOutput(BaseValidatorModel):
     Attributes: Dict[str, AttributeValue]
     ConsumedCapacity: ConsumedCapacity
@@ -1185,6 +1243,7 @@ class QueryOutputTable(BaseValidatorModel):
     LastEvaluatedKey: Optional[Dict[str, TableAttributeValue]] = None
 
 
+# This class is the output for the 'query' function.
 class QueryOutput(BaseValidatorModel):
     Items: List[Dict[str, AttributeValue]]
     Count: int
@@ -1203,6 +1262,7 @@ class ScanOutputTable(BaseValidatorModel):
     LastEvaluatedKey: Optional[Dict[str, TableAttributeValue]] = None
 
 
+# This class is the output for the 'scan' function.
 class ScanOutput(BaseValidatorModel):
     Items: List[Dict[str, AttributeValue]]
     Count: int
@@ -1212,12 +1272,14 @@ class ScanOutput(BaseValidatorModel):
     LastEvaluatedKey: Optional[Dict[str, AttributeValue]] = None
 
 
+# This class is the output for the 'transact_get_items' function.
 class TransactGetItemsOutput(BaseValidatorModel):
     ConsumedCapacity: List[ConsumedCapacity]
     Responses: List[ItemResponse]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'transact_write_items' function.
 class TransactWriteItemsOutput(BaseValidatorModel):
     ConsumedCapacity: List[ConsumedCapacity]
     ItemCollectionMetrics: Dict[str, List[ItemCollectionMetrics]]
@@ -1231,6 +1293,7 @@ class UpdateItemOutputTable(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_item' function.
 class UpdateItemOutput(BaseValidatorModel):
     Attributes: Dict[str, AttributeValue]
     ConsumedCapacity: ConsumedCapacity
@@ -1238,16 +1301,19 @@ class UpdateItemOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_continuous_backups' function.
 class DescribeContinuousBackupsOutput(BaseValidatorModel):
     ContinuousBackupsDescription: ContinuousBackupsDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_continuous_backups' function.
 class UpdateContinuousBackupsOutput(BaseValidatorModel):
     ContinuousBackupsDescription: ContinuousBackupsDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_global_tables' function.
 class ListGlobalTablesOutput(BaseValidatorModel):
     GlobalTables: List[GlobalTable]
     LastEvaluatedGlobalTableName: str
@@ -1274,16 +1340,19 @@ class UpdateReplicationGroupMemberAction(BaseValidatorModel):
 InputFormatOptionsUnion = Union[InputFormatOptions, InputFormatOptionsOutput]
 
 
+# This class is the input for the 'update_global_table' function.
 class UpdateGlobalTableInput(BaseValidatorModel):
     GlobalTableName: str
     ReplicaUpdates: List[ReplicaUpdate]
 
 
+# This class is the output for the 'describe_export' function.
 class DescribeExportOutput(BaseValidatorModel):
     ExportDescription: ExportDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'export_table_to_point_in_time' function.
 class ExportTableToPointInTimeOutput(BaseValidatorModel):
     ExportDescription: ExportDescription
     ResponseMetadata: ResponseMetadata
@@ -1324,6 +1393,7 @@ class SourceTableFeatureDetails(BaseValidatorModel):
     SSEDescription: Optional[SSEDescription] = None
 
 
+# This class is the output for the 'list_imports' function.
 class ListImportsOutput(BaseValidatorModel):
     ImportSummaryList: List[ImportSummary]
     ResponseMetadata: ResponseMetadata
@@ -1354,12 +1424,14 @@ class LocalSecondaryIndex(BaseValidatorModel):
     Projection: ProjectionUnion
 
 
+# This class is the output for the 'batch_execute_statement' function.
 class BatchExecuteStatementOutput(BaseValidatorModel):
     Responses: List[BatchStatementResponse]
     ConsumedCapacity: List[ConsumedCapacity]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_write_item' function.
 class BatchWriteItemOutput(BaseValidatorModel):
     UnprocessedItems: Dict[str, List[WriteRequestOutput]]
     ItemCollectionMetrics: Dict[str, List[ItemCollectionMetrics]]
@@ -1367,6 +1439,7 @@ class BatchWriteItemOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'batch_execute_statement' function.
 class BatchExecuteStatementInput(BaseValidatorModel):
     Statements: List[BatchStatementRequest]
     ReturnConsumedCapacity: Optional[ReturnConsumedCapacityType] = None
@@ -1391,6 +1464,7 @@ class QueryInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'query' function.
 class QueryInput(BaseValidatorModel):
     TableName: str
     IndexName: Optional[str] = None
@@ -1429,6 +1503,7 @@ class ScanInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'scan' function.
 class ScanInput(BaseValidatorModel):
     TableName: str
     IndexName: Optional[str] = None
@@ -1450,6 +1525,7 @@ class ScanInput(BaseValidatorModel):
 DeleteRequestUnion = Union[DeleteRequest, DeleteRequestOutput]
 
 
+# This class is the input for the 'delete_item' function.
 class DeleteItemInput(BaseValidatorModel):
     TableName: str
     Key: Dict[str, UniversalAttributeValue]
@@ -1464,6 +1540,7 @@ class DeleteItemInput(BaseValidatorModel):
     ReturnValuesOnConditionCheckFailure: Optional[ReturnValuesOnConditionCheckFailureType] = None
 
 
+# This class is the input for the 'put_item' function.
 class PutItemInput(BaseValidatorModel):
     TableName: str
     Item: Dict[str, UniversalAttributeValue]
@@ -1478,6 +1555,7 @@ class PutItemInput(BaseValidatorModel):
     ReturnValuesOnConditionCheckFailure: Optional[ReturnValuesOnConditionCheckFailureType] = None
 
 
+# This class is the input for the 'update_item' function.
 class UpdateItemInput(BaseValidatorModel):
     TableName: str
     Key: Dict[str, UniversalAttributeValue]
@@ -1500,6 +1578,7 @@ class TransactGetItem(BaseValidatorModel):
 KeysAndAttributesUnion = Union[KeysAndAttributes, KeysAndAttributesOutput]
 
 
+# This class is the input for the 'execute_transaction' function.
 class ExecuteTransactionInput(BaseValidatorModel):
     TransactStatements: List[ParameterizedStatement]
     ClientRequestToken: Optional[str] = None
@@ -1576,6 +1655,7 @@ class ReplicationGroupUpdate(BaseValidatorModel):
     Delete: Optional[DeleteReplicationGroupMemberAction] = None
 
 
+# This class is the input for the 'export_table_to_point_in_time' function.
 class ExportTableToPointInTimeInput(BaseValidatorModel):
     TableArn: str
     S3Bucket: str
@@ -1674,11 +1754,13 @@ class TableCreationParameters(BaseValidatorModel):
     GlobalSecondaryIndexes: Optional[List[GlobalSecondaryIndex]] = None
 
 
+# This class is the input for the 'transact_get_items' function.
 class TransactGetItemsInput(BaseValidatorModel):
     TransactItems: List[TransactGetItem]
     ReturnConsumedCapacity: Optional[ReturnConsumedCapacityType] = None
 
 
+# This class is the input for the 'batch_get_item' function.
 class BatchGetItemInput(BaseValidatorModel):
     RequestItems: Dict[str, KeysAndAttributesUnion]
     ReturnConsumedCapacity: Optional[ReturnConsumedCapacityType] = None
@@ -1689,6 +1771,7 @@ class WriteRequest(BaseValidatorModel):
     DeleteRequest: Optional[DeleteRequestUnion] = None
 
 
+# This class is the input for the 'transact_write_items' function.
 class TransactWriteItemsInput(BaseValidatorModel):
     TransactItems: List[TransactWriteItem]
     ReturnConsumedCapacity: Optional[ReturnConsumedCapacityType] = None
@@ -1732,66 +1815,79 @@ class ReplicaSettingsUpdate(BaseValidatorModel):
     ReplicaTableClass: Optional[TableClassType] = None
 
 
+# This class is the output for the 'create_global_table' function.
 class CreateGlobalTableOutput(BaseValidatorModel):
     GlobalTableDescription: GlobalTableDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_global_table' function.
 class DescribeGlobalTableOutput(BaseValidatorModel):
     GlobalTableDescription: GlobalTableDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_global_table' function.
 class UpdateGlobalTableOutput(BaseValidatorModel):
     GlobalTableDescription: GlobalTableDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_table' function.
 class CreateTableOutput(BaseValidatorModel):
     TableDescription: TableDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_table' function.
 class DeleteTableOutput(BaseValidatorModel):
     TableDescription: TableDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_table' function.
 class DescribeTableOutput(BaseValidatorModel):
     Table: TableDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'restore_table_from_backup' function.
 class RestoreTableFromBackupOutput(BaseValidatorModel):
     TableDescription: TableDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'restore_table_to_point_in_time' function.
 class RestoreTableToPointInTimeOutput(BaseValidatorModel):
     TableDescription: TableDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_table' function.
 class UpdateTableOutput(BaseValidatorModel):
     TableDescription: TableDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_import' function.
 class DescribeImportOutput(BaseValidatorModel):
     ImportTableDescription: ImportTableDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_table' function.
 class ImportTableOutput(BaseValidatorModel):
     ImportTableDescription: ImportTableDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_backup' function.
 class DeleteBackupOutput(BaseValidatorModel):
     BackupDescription: BackupDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_backup' function.
 class DescribeBackupOutput(BaseValidatorModel):
     BackupDescription: BackupDescription
     ResponseMetadata: ResponseMetadata
@@ -1812,6 +1908,7 @@ class UpdateTableInputTableUpdate(BaseValidatorModel):
     WarmThroughput: Optional[WarmThroughput] = None
 
 
+# This class is the input for the 'update_table' function.
 class UpdateTableInput(BaseValidatorModel):
     TableName: str
     AttributeDefinitions: Optional[List[AttributeDefinition]] = None
@@ -1846,6 +1943,7 @@ class CreateTableInputServiceResourceCreateTable(BaseValidatorModel):
     OnDemandThroughput: Optional[OnDemandThroughput] = None
 
 
+# This class is the input for the 'create_table' function.
 class CreateTableInput(BaseValidatorModel):
     AttributeDefinitions: List[AttributeDefinition]
     TableName: str
@@ -1864,6 +1962,7 @@ class CreateTableInput(BaseValidatorModel):
     OnDemandThroughput: Optional[OnDemandThroughput] = None
 
 
+# This class is the input for the 'restore_table_from_backup' function.
 class RestoreTableFromBackupInput(BaseValidatorModel):
     TargetTableName: str
     BackupArn: str
@@ -1875,6 +1974,7 @@ class RestoreTableFromBackupInput(BaseValidatorModel):
     SSESpecificationOverride: Optional[SSESpecification] = None
 
 
+# This class is the input for the 'restore_table_to_point_in_time' function.
 class RestoreTableToPointInTimeInput(BaseValidatorModel):
     TargetTableName: str
     SourceTableArn: Optional[str] = None
@@ -1905,18 +2005,21 @@ class TableAutoScalingDescription(BaseValidatorModel):
     Replicas: Optional[List[ReplicaAutoScalingDescription]] = None
 
 
+# This class is the output for the 'describe_global_table_settings' function.
 class DescribeGlobalTableSettingsOutput(BaseValidatorModel):
     GlobalTableName: str
     ReplicaSettings: List[ReplicaSettingsDescription]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_global_table_settings' function.
 class UpdateGlobalTableSettingsOutput(BaseValidatorModel):
     GlobalTableName: str
     ReplicaSettings: List[ReplicaSettingsDescription]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_table_replica_auto_scaling' function.
 class UpdateTableReplicaAutoScalingInput(BaseValidatorModel):
     TableName: str
     GlobalSecondaryIndexUpdates: Optional[List[GlobalSecondaryIndexAutoScalingUpdate]] = None
@@ -1924,6 +2027,7 @@ class UpdateTableReplicaAutoScalingInput(BaseValidatorModel):
     ReplicaUpdates: Optional[List[ReplicaAutoScalingUpdate]] = None
 
 
+# This class is the input for the 'update_global_table_settings' function.
 class UpdateGlobalTableSettingsInput(BaseValidatorModel):
     GlobalTableName: str
     GlobalTableBillingMode: Optional[BillingModeType] = None
@@ -1933,6 +2037,7 @@ class UpdateGlobalTableSettingsInput(BaseValidatorModel):
     ReplicaSettingsUpdate: Optional[List[ReplicaSettingsUpdate]] = None
 
 
+# This class is the input for the 'import_table' function.
 class ImportTableInput(BaseValidatorModel):
     S3BucketSource: S3BucketSource
     InputFormat: InputFormatType
@@ -1942,17 +2047,20 @@ class ImportTableInput(BaseValidatorModel):
     InputCompressionType: Optional[InputCompressionTypeType] = None
 
 
+# This class is the input for the 'batch_write_item' function.
 class BatchWriteItemInput(BaseValidatorModel):
     RequestItems: Dict[str, List[WriteRequestUnion]]
     ReturnConsumedCapacity: Optional[ReturnConsumedCapacityType] = None
     ReturnItemCollectionMetrics: Optional[ReturnItemCollectionMetricsType] = None
 
 
+# This class is the output for the 'describe_table_replica_auto_scaling' function.
 class DescribeTableReplicaAutoScalingOutput(BaseValidatorModel):
     TableAutoScalingDescription: TableAutoScalingDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_table_replica_auto_scaling' function.
 class UpdateTableReplicaAutoScalingOutput(BaseValidatorModel):
     TableAutoScalingDescription: TableAutoScalingDescription
     ResponseMetadata: ResponseMetadata

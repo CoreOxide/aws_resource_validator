@@ -13,6 +13,7 @@ class ActivateEmailContactRequest(BaseValidatorModel):
     code: str
 
 
+# This class is the input for the 'create_email_contact' function.
 class CreateEmailContactRequest(BaseValidatorModel):
     name: str
     emailAddress: str
@@ -40,6 +41,7 @@ class EmailContact(BaseValidatorModel):
     updateTime: datetime
 
 
+# This class is the input for the 'get_email_contact' function.
 class GetEmailContactRequest(BaseValidatorModel):
     arn: str
 
@@ -50,11 +52,13 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_email_contacts' function.
 class ListEmailContactsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     arn: str
 
@@ -73,21 +77,25 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the output for the 'create_email_contact' function.
 class CreateEmailContactResponse(BaseValidatorModel):
     arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_email_contact' function.
 class GetEmailContactResponse(BaseValidatorModel):
     emailContact: EmailContact
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_email_contacts' function.
 class ListEmailContactsResponse(BaseValidatorModel):
     emailContacts: List[EmailContact]
     ResponseMetadata: ResponseMetadata

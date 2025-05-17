@@ -13,6 +13,7 @@ class AbortMultipartReadSetUploadRequest(BaseValidatorModel):
     uploadId: str
 
 
+# This class is the input for the 'accept_share' function.
 class AcceptShareRequest(BaseValidatorModel):
     shareId: str
 
@@ -86,6 +87,7 @@ class AnnotationStoreVersionItem(BaseValidatorModel):
     versionSizeBytes: int
 
 
+# This class is the input for the 'batch_delete_read_set' function.
 class BatchDeleteReadSetRequest(BaseValidatorModel):
     ids: List[str]
     sequenceStoreId: str
@@ -103,6 +105,7 @@ class CancelAnnotationImportRequest(BaseValidatorModel):
     jobId: str
 
 
+# This class is the input for the 'cancel_run' function.
 class CancelRunRequest(BaseValidatorModel):
     id: str
 
@@ -117,6 +120,7 @@ class CompleteReadSetUploadPartListItem(BaseValidatorModel):
     checksum: str
 
 
+# This class is the input for the 'create_multipart_read_set_upload' function.
 class CreateMultipartReadSetUploadRequest(BaseValidatorModel):
     sequenceStoreId: str
     sourceFileType: FileTypeType
@@ -130,6 +134,7 @@ class CreateMultipartReadSetUploadRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_run_cache' function.
 class CreateRunCacheRequest(BaseValidatorModel):
     cacheS3Location: str
     requestId: str
@@ -140,6 +145,7 @@ class CreateRunCacheRequest(BaseValidatorModel):
     cacheBucketOwnerId: Optional[str] = None
 
 
+# This class is the input for the 'create_run_group' function.
 class CreateRunGroupRequest(BaseValidatorModel):
     requestId: str
     name: Optional[str] = None
@@ -160,6 +166,7 @@ class SequenceStoreS3Access(BaseValidatorModel):
     accessLogLocation: Optional[str] = None
 
 
+# This class is the input for the 'create_share' function.
 class CreateShareRequest(BaseValidatorModel):
     resourceArn: str
     principalSubscriber: str
@@ -171,11 +178,13 @@ class WorkflowParameter(BaseValidatorModel):
     optional: Optional[bool] = None
 
 
+# This class is the input for the 'delete_annotation_store' function.
 class DeleteAnnotationStoreRequest(BaseValidatorModel):
     name: str
     force: Optional[bool] = None
 
 
+# This class is the input for the 'delete_annotation_store_versions' function.
 class DeleteAnnotationStoreVersionsRequest(BaseValidatorModel):
     name: str
     versions: List[str]
@@ -196,14 +205,17 @@ class DeleteReferenceStoreRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'delete_run_cache' function.
 class DeleteRunCacheRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'delete_run_group' function.
 class DeleteRunGroupRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'delete_run' function.
 class DeleteRunRequest(BaseValidatorModel):
     id: str
 
@@ -216,15 +228,18 @@ class DeleteSequenceStoreRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'delete_share' function.
 class DeleteShareRequest(BaseValidatorModel):
     shareId: str
 
 
+# This class is the input for the 'delete_variant_store' function.
 class DeleteVariantStoreRequest(BaseValidatorModel):
     name: str
     force: Optional[bool] = None
 
 
+# This class is the input for the 'delete_workflow' function.
 class DeleteWorkflowRequest(BaseValidatorModel):
     id: str
 
@@ -269,6 +284,7 @@ class VcfOptions(BaseValidatorModel):
     ignoreFilterField: Optional[bool] = None
 
 
+# This class is the input for the 'get_annotation_import_job' function.
 class GetAnnotationImportRequest(BaseValidatorModel):
     jobId: str
 
@@ -278,30 +294,36 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'get_annotation_store' function.
 class GetAnnotationStoreRequest(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'get_annotation_store_version' function.
 class GetAnnotationStoreVersionRequest(BaseValidatorModel):
     name: str
     versionName: str
 
 
+# This class is the input for the 'get_read_set_activation_job' function.
 class GetReadSetActivationJobRequest(BaseValidatorModel):
     id: str
     sequenceStoreId: str
 
 
+# This class is the input for the 'get_read_set_export_job' function.
 class GetReadSetExportJobRequest(BaseValidatorModel):
     sequenceStoreId: str
     id: str
 
 
+# This class is the input for the 'get_read_set_import_job' function.
 class GetReadSetImportJobRequest(BaseValidatorModel):
     id: str
     sequenceStoreId: str
 
 
+# This class is the input for the 'get_read_set_metadata' function.
 class GetReadSetMetadataRequest(BaseValidatorModel):
     id: str
     sequenceStoreId: str
@@ -314,6 +336,7 @@ class SequenceInformation(BaseValidatorModel):
     alignment: Optional[str] = None
 
 
+# This class is the input for the 'get_read_set' function.
 class GetReadSetRequest(BaseValidatorModel):
     id: str
     sequenceStoreId: str
@@ -321,6 +344,7 @@ class GetReadSetRequest(BaseValidatorModel):
     file: Optional[ReadSetFileType] = None
 
 
+# This class is the input for the 'get_reference_import_job' function.
 class GetReferenceImportJobRequest(BaseValidatorModel):
     id: str
     referenceStoreId: str
@@ -336,11 +360,13 @@ class ImportReferenceSourceItem(BaseValidatorModel):
     referenceId: Optional[str] = None
 
 
+# This class is the input for the 'get_reference_metadata' function.
 class GetReferenceMetadataRequest(BaseValidatorModel):
     id: str
     referenceStoreId: str
 
 
+# This class is the input for the 'get_reference' function.
 class GetReferenceRequest(BaseValidatorModel):
     id: str
     referenceStoreId: str
@@ -349,18 +375,22 @@ class GetReferenceRequest(BaseValidatorModel):
     file: Optional[ReferenceFileType] = None
 
 
+# This class is the input for the 'get_reference_store' function.
 class GetReferenceStoreRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'get_run_cache' function.
 class GetRunCacheRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'get_run_group' function.
 class GetRunGroupRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'get_run' function.
 class GetRunRequest(BaseValidatorModel):
     id: str
     export: Optional[List[Literal['DEFINITION']]] = None
@@ -371,19 +401,23 @@ class RunLogLocation(BaseValidatorModel):
     runLogStream: Optional[str] = None
 
 
+# This class is the input for the 'get_run_task' function.
 class GetRunTaskRequest(BaseValidatorModel):
     id: str
     taskId: str
 
 
+# This class is the input for the 'get_s3_access_policy' function.
 class GetS3AccessPolicyRequest(BaseValidatorModel):
     s3AccessPointArn: str
 
 
+# This class is the input for the 'get_sequence_store' function.
 class GetSequenceStoreRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'get_share' function.
 class GetShareRequest(BaseValidatorModel):
     shareId: str
 
@@ -401,6 +435,7 @@ class ShareDetails(BaseValidatorModel):
     updateTime: Optional[datetime] = None
 
 
+# This class is the input for the 'get_variant_import_job' function.
 class GetVariantImportRequest(BaseValidatorModel):
     jobId: str
 
@@ -411,10 +446,12 @@ class VariantImportItemDetail(BaseValidatorModel):
     statusMessage: Optional[str] = None
 
 
+# This class is the input for the 'get_variant_store' function.
 class GetVariantStoreRequest(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'get_workflow' function.
 class GetWorkflowRequest(BaseValidatorModel):
     id: str
     type: Optional[WorkflowTypeType] = None
@@ -464,6 +501,7 @@ class ListAnnotationStoresFilter(BaseValidatorModel):
     status: Optional[StoreStatusType] = None
 
 
+# This class is the input for the 'list_multipart_read_set_uploads' function.
 class ListMultipartReadSetUploadsRequest(BaseValidatorModel):
     sequenceStoreId: str
     maxResults: Optional[int] = None
@@ -505,6 +543,7 @@ class ReferenceListItem(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'list_run_caches' function.
 class ListRunCachesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     startingToken: Optional[str] = None
@@ -520,6 +559,7 @@ class RunCacheListItem(BaseValidatorModel):
     status: Optional[RunCacheStatusType] = None
 
 
+# This class is the input for the 'list_run_groups' function.
 class ListRunGroupsRequest(BaseValidatorModel):
     name: Optional[str] = None
     startingToken: Optional[str] = None
@@ -537,6 +577,7 @@ class RunGroupListItem(BaseValidatorModel):
     maxGpus: Optional[int] = None
 
 
+# This class is the input for the 'list_run_tasks' function.
 class ListRunTasksRequest(BaseValidatorModel):
     id: str
     status: Optional[TaskStatusType] = None
@@ -559,6 +600,7 @@ class TaskListItem(BaseValidatorModel):
     instanceType: Optional[str] = None
 
 
+# This class is the input for the 'list_runs' function.
 class ListRunsRequest(BaseValidatorModel):
     name: Optional[str] = None
     runGroupId: Optional[str] = None
@@ -581,6 +623,7 @@ class RunListItem(BaseValidatorModel):
     storageType: Optional[StorageTypeType] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -606,6 +649,7 @@ class ListVariantStoresFilter(BaseValidatorModel):
     status: Optional[StoreStatusType] = None
 
 
+# This class is the input for the 'list_workflows' function.
 class ListWorkflowsRequest(BaseValidatorModel):
     type: Optional[WorkflowTypeType] = None
     name: Optional[str] = None
@@ -624,6 +668,7 @@ class WorkflowListItem(BaseValidatorModel):
     metadata: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'put_s3_access_policy' function.
 class PutS3AccessPolicyRequest(BaseValidatorModel):
     s3AccessPointArn: str
     s3AccessPolicy: str
@@ -652,6 +697,7 @@ class StartReferenceImportJobSourceItem(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'start_run' function.
 class StartRunRequest(BaseValidatorModel):
     roleArn: str
     requestId: str
@@ -711,17 +757,20 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_annotation_store' function.
 class UpdateAnnotationStoreRequest(BaseValidatorModel):
     name: str
     description: Optional[str] = None
 
 
+# This class is the input for the 'update_annotation_store_version' function.
 class UpdateAnnotationStoreVersionRequest(BaseValidatorModel):
     name: str
     versionName: str
     description: Optional[str] = None
 
 
+# This class is the input for the 'update_run_cache' function.
 class UpdateRunCacheRequest(BaseValidatorModel):
     id: str
     cacheBehavior: Optional[CacheBehaviorType] = None
@@ -729,6 +778,7 @@ class UpdateRunCacheRequest(BaseValidatorModel):
     name: Optional[str] = None
 
 
+# This class is the input for the 'update_run_group' function.
 class UpdateRunGroupRequest(BaseValidatorModel):
     id: str
     name: Optional[str] = None
@@ -738,27 +788,32 @@ class UpdateRunGroupRequest(BaseValidatorModel):
     maxGpus: Optional[int] = None
 
 
+# This class is the input for the 'update_variant_store' function.
 class UpdateVariantStoreRequest(BaseValidatorModel):
     name: str
     description: Optional[str] = None
 
 
+# This class is the input for the 'update_workflow' function.
 class UpdateWorkflowRequest(BaseValidatorModel):
     id: str
     name: Optional[str] = None
     description: Optional[str] = None
 
 
+# This class is the output for the 'accept_share' function.
 class AcceptShareResponse(BaseValidatorModel):
     status: ShareStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'complete_multipart_read_set_upload' function.
 class CompleteMultipartReadSetUploadResponse(BaseValidatorModel):
     readSetId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_multipart_read_set_upload' function.
 class CreateMultipartReadSetUploadResponse(BaseValidatorModel):
     sequenceStoreId: str
     uploadId: str
@@ -774,6 +829,7 @@ class CreateMultipartReadSetUploadResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_run_cache' function.
 class CreateRunCacheResponse(BaseValidatorModel):
     arn: str
     id: str
@@ -782,6 +838,7 @@ class CreateRunCacheResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_run_group' function.
 class CreateRunGroupResponse(BaseValidatorModel):
     arn: str
     id: str
@@ -789,6 +846,7 @@ class CreateRunGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_share' function.
 class CreateShareResponse(BaseValidatorModel):
     shareId: str
     status: ShareStatusType
@@ -796,6 +854,7 @@ class CreateShareResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_workflow' function.
 class CreateWorkflowResponse(BaseValidatorModel):
     arn: str
     id: str
@@ -804,35 +863,42 @@ class CreateWorkflowResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_annotation_store' function.
 class DeleteAnnotationStoreResponse(BaseValidatorModel):
     status: StoreStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_share' function.
 class DeleteShareResponse(BaseValidatorModel):
     status: ShareStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_variant_store' function.
 class DeleteVariantStoreResponse(BaseValidatorModel):
     status: StoreStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_workflow' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_read_set' function.
 class GetReadSetResponse(BaseValidatorModel):
     payload: StreamingBody
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_reference' function.
 class GetReferenceResponse(BaseValidatorModel):
     payload: StreamingBody
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_run_cache' function.
 class GetRunCacheResponse(BaseValidatorModel):
     arn: str
     cacheBehavior: CacheBehaviorType
@@ -847,6 +913,7 @@ class GetRunCacheResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_run_group' function.
 class GetRunGroupResponse(BaseValidatorModel):
     arn: str
     id: str
@@ -860,6 +927,7 @@ class GetRunGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_run_task' function.
 class GetRunTaskResponse(BaseValidatorModel):
     taskId: str
     status: TaskStatusType
@@ -879,6 +947,7 @@ class GetRunTaskResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_s3_access_policy' function.
 class GetS3AccessPolicyResponse(BaseValidatorModel):
     s3AccessPointArn: str
     storeId: str
@@ -888,11 +957,13 @@ class GetS3AccessPolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_s3_access_policy' function.
 class PutS3AccessPolicyResponse(BaseValidatorModel):
     s3AccessPointArn: str
     storeId: str
@@ -900,11 +971,13 @@ class PutS3AccessPolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_annotation_import_job' function.
 class StartAnnotationImportResponse(BaseValidatorModel):
     jobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_read_set_activation_job' function.
 class StartReadSetActivationJobResponse(BaseValidatorModel):
     id: str
     sequenceStoreId: str
@@ -913,6 +986,7 @@ class StartReadSetActivationJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_read_set_export_job' function.
 class StartReadSetExportJobResponse(BaseValidatorModel):
     id: str
     sequenceStoreId: str
@@ -922,6 +996,7 @@ class StartReadSetExportJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_read_set_import_job' function.
 class StartReadSetImportJobResponse(BaseValidatorModel):
     id: str
     sequenceStoreId: str
@@ -931,6 +1006,7 @@ class StartReadSetImportJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_reference_import_job' function.
 class StartReferenceImportJobResponse(BaseValidatorModel):
     id: str
     referenceStoreId: str
@@ -940,6 +1016,7 @@ class StartReferenceImportJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_run' function.
 class StartRunResponse(BaseValidatorModel):
     arn: str
     id: str
@@ -950,11 +1027,13 @@ class StartRunResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_variant_import_job' function.
 class StartVariantImportResponse(BaseValidatorModel):
     jobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_annotation_store_version' function.
 class UpdateAnnotationStoreVersionResponse(BaseValidatorModel):
     storeId: str
     id: str
@@ -967,6 +1046,7 @@ class UpdateAnnotationStoreVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'upload_read_set_part' function.
 class UploadReadSetPartResponse(BaseValidatorModel):
     checksum: str
     ResponseMetadata: ResponseMetadata
@@ -1035,12 +1115,14 @@ class SequenceStoreFilter(BaseValidatorModel):
     updatedBefore: Optional[Timestamp] = None
 
 
+# This class is the output for the 'list_read_set_activation_jobs' function.
 class ListReadSetActivationJobsResponse(BaseValidatorModel):
     activationJobs: List[ActivateReadSetJobItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_read_set_activation_job' function.
 class GetReadSetActivationJobResponse(BaseValidatorModel):
     id: str
     sequenceStoreId: str
@@ -1052,12 +1134,14 @@ class GetReadSetActivationJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_annotation_import_jobs' function.
 class ListAnnotationImportJobsResponse(BaseValidatorModel):
     annotationImportJobs: List[AnnotationImportJobItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_variant_store' function.
 class CreateVariantStoreResponse(BaseValidatorModel):
     id: str
     reference: ReferenceItem
@@ -1067,6 +1151,7 @@ class CreateVariantStoreResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_variant_store' function.
 class UpdateVariantStoreResponse(BaseValidatorModel):
     id: str
     reference: ReferenceItem
@@ -1093,6 +1178,7 @@ class AnnotationStoreItem(BaseValidatorModel):
     storeSizeBytes: int
 
 
+# This class is the input for the 'create_reference_store' function.
 class CreateReferenceStoreRequest(BaseValidatorModel):
     name: str
     description: Optional[str] = None
@@ -1101,6 +1187,7 @@ class CreateReferenceStoreRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the output for the 'create_reference_store' function.
 class CreateReferenceStoreResponse(BaseValidatorModel):
     id: str
     arn: str
@@ -1111,6 +1198,7 @@ class CreateReferenceStoreResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_variant_store' function.
 class CreateVariantStoreRequest(BaseValidatorModel):
     reference: ReferenceItem
     name: Optional[str] = None
@@ -1119,6 +1207,7 @@ class CreateVariantStoreRequest(BaseValidatorModel):
     sseConfig: Optional[SseConfig] = None
 
 
+# This class is the output for the 'get_reference_store' function.
 class GetReferenceStoreResponse(BaseValidatorModel):
     id: str
     arn: str
@@ -1129,6 +1218,7 @@ class GetReferenceStoreResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_variant_store' function.
 class GetVariantStoreResponse(BaseValidatorModel):
     id: str
     reference: ReferenceItem
@@ -1182,17 +1272,20 @@ class VariantStoreItem(BaseValidatorModel):
     storeSizeBytes: int
 
 
+# This class is the output for the 'list_annotation_store_versions' function.
 class ListAnnotationStoreVersionsResponse(BaseValidatorModel):
     annotationStoreVersions: List[AnnotationStoreVersionItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'batch_delete_read_set' function.
 class BatchDeleteReadSetResponse(BaseValidatorModel):
     errors: List[ReadSetBatchError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'upload_read_set_part' function.
 class UploadReadSetPartRequest(BaseValidatorModel):
     sequenceStoreId: str
     uploadId: str
@@ -1201,12 +1294,14 @@ class UploadReadSetPartRequest(BaseValidatorModel):
     payload: Blob
 
 
+# This class is the input for the 'complete_multipart_read_set_upload' function.
 class CompleteMultipartReadSetUploadRequest(BaseValidatorModel):
     sequenceStoreId: str
     uploadId: str
     parts: List[CompleteReadSetUploadPartListItem]
 
 
+# This class is the input for the 'create_sequence_store' function.
 class CreateSequenceStoreRequest(BaseValidatorModel):
     name: str
     description: Optional[str] = None
@@ -1219,6 +1314,7 @@ class CreateSequenceStoreRequest(BaseValidatorModel):
     s3AccessConfig: Optional[S3AccessConfig] = None
 
 
+# This class is the input for the 'update_sequence_store' function.
 class UpdateSequenceStoreRequest(BaseValidatorModel):
     id: str
     name: Optional[str] = None
@@ -1229,6 +1325,7 @@ class UpdateSequenceStoreRequest(BaseValidatorModel):
     s3AccessConfig: Optional[S3AccessConfig] = None
 
 
+# This class is the output for the 'create_sequence_store' function.
 class CreateSequenceStoreResponse(BaseValidatorModel):
     id: str
     arn: str
@@ -1245,6 +1342,7 @@ class CreateSequenceStoreResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_sequence_store' function.
 class GetSequenceStoreResponse(BaseValidatorModel):
     id: str
     arn: str
@@ -1262,6 +1360,7 @@ class GetSequenceStoreResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_sequence_store' function.
 class UpdateSequenceStoreResponse(BaseValidatorModel):
     id: str
     arn: str
@@ -1279,6 +1378,7 @@ class UpdateSequenceStoreResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_workflow' function.
 class CreateWorkflowRequest(BaseValidatorModel):
     requestId: str
     name: Optional[str] = None
@@ -1293,6 +1393,7 @@ class CreateWorkflowRequest(BaseValidatorModel):
     accelerators: Optional[Literal['GPU']] = None
 
 
+# This class is the output for the 'get_workflow' function.
 class GetWorkflowResponse(BaseValidatorModel):
     arn: str
     id: str
@@ -1314,11 +1415,13 @@ class GetWorkflowResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_annotation_store_versions' function.
 class DeleteAnnotationStoreVersionsResponse(BaseValidatorModel):
     errors: List[VersionDeleteError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_read_set_export_job' function.
 class GetReadSetExportJobResponse(BaseValidatorModel):
     id: str
     sequenceStoreId: str
@@ -1331,12 +1434,14 @@ class GetReadSetExportJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_read_set_export_jobs' function.
 class ListReadSetExportJobsResponse(BaseValidatorModel):
     exportJobs: List[ExportReadSetJobDetail]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'start_read_set_export_job' function.
 class StartReadSetExportJobRequest(BaseValidatorModel):
     sequenceStoreId: str
     destination: str
@@ -1352,6 +1457,7 @@ class FileInformation(BaseValidatorModel):
     s3Access: Optional[ReadSetS3Access] = None
 
 
+# This class is the input for the 'list_shares' function.
 class ListSharesRequest(BaseValidatorModel):
     resourceOwner: ResourceOwnerType
     filter: Optional[Filter] = None
@@ -1475,6 +1581,7 @@ class ReadSetListItem(BaseValidatorModel):
     etag: Optional[ETag] = None
 
 
+# This class is the output for the 'get_reference_import_job' function.
 class GetReferenceImportJobResponse(BaseValidatorModel):
     id: str
     referenceStoreId: str
@@ -1487,6 +1594,7 @@ class GetReferenceImportJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_run' function.
 class GetRunResponse(BaseValidatorModel):
     arn: str
     id: str
@@ -1525,17 +1633,20 @@ class GetRunResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_share' function.
 class GetShareResponse(BaseValidatorModel):
     share: ShareDetails
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_shares' function.
 class ListSharesResponse(BaseValidatorModel):
     shares: List[ShareDetails]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_variant_import_job' function.
 class GetVariantImportResponse(BaseValidatorModel):
     id: str
     destinationName: str
@@ -1551,6 +1662,7 @@ class GetVariantImportResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_read_set_import_jobs' function.
 class ListReadSetImportJobsResponse(BaseValidatorModel):
     importJobs: List[ImportReadSetJobItem]
     ResponseMetadata: ResponseMetadata
@@ -1584,12 +1696,14 @@ class StartReadSetImportJobSourceItem(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'list_reference_import_jobs' function.
 class ListReferenceImportJobsResponse(BaseValidatorModel):
     importJobs: List[ImportReferenceJobItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_annotation_import_jobs' function.
 class ListAnnotationImportJobsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     ids: Optional[List[str]] = None
@@ -1648,6 +1762,7 @@ class ListAnnotationStoreVersionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_annotation_store_versions' function.
 class ListAnnotationStoreVersionsRequest(BaseValidatorModel):
     name: str
     maxResults: Optional[int] = None
@@ -1661,6 +1776,7 @@ class ListAnnotationStoresRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_annotation_stores' function.
 class ListAnnotationStoresRequest(BaseValidatorModel):
     ids: Optional[List[str]] = None
     maxResults: Optional[int] = None
@@ -1668,42 +1784,49 @@ class ListAnnotationStoresRequest(BaseValidatorModel):
     filter: Optional[ListAnnotationStoresFilter] = None
 
 
+# This class is the output for the 'list_multipart_read_set_uploads' function.
 class ListMultipartReadSetUploadsResponse(BaseValidatorModel):
     uploads: List[MultipartReadSetUploadListItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_read_set_upload_parts' function.
 class ListReadSetUploadPartsResponse(BaseValidatorModel):
     parts: List[ReadSetUploadPartListItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_references' function.
 class ListReferencesResponse(BaseValidatorModel):
     references: List[ReferenceListItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_run_caches' function.
 class ListRunCachesResponse(BaseValidatorModel):
     items: List[RunCacheListItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_run_groups' function.
 class ListRunGroupsResponse(BaseValidatorModel):
     items: List[RunGroupListItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_run_tasks' function.
 class ListRunTasksResponse(BaseValidatorModel):
     items: List[TaskListItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_runs' function.
 class ListRunsResponse(BaseValidatorModel):
     items: List[RunListItem]
     ResponseMetadata: ResponseMetadata
@@ -1716,6 +1839,7 @@ class ListVariantImportJobsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_variant_import_jobs' function.
 class ListVariantImportJobsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     ids: Optional[List[str]] = None
@@ -1723,6 +1847,7 @@ class ListVariantImportJobsRequest(BaseValidatorModel):
     filter: Optional[ListVariantImportJobsFilter] = None
 
 
+# This class is the output for the 'list_variant_import_jobs' function.
 class ListVariantImportJobsResponse(BaseValidatorModel):
     variantImportJobs: List[VariantImportJobItem]
     ResponseMetadata: ResponseMetadata
@@ -1735,6 +1860,7 @@ class ListVariantStoresRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_variant_stores' function.
 class ListVariantStoresRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     ids: Optional[List[str]] = None
@@ -1742,6 +1868,7 @@ class ListVariantStoresRequest(BaseValidatorModel):
     filter: Optional[ListVariantStoresFilter] = None
 
 
+# This class is the output for the 'list_workflows' function.
 class ListWorkflowsResponse(BaseValidatorModel):
     items: List[WorkflowListItem]
     ResponseMetadata: ResponseMetadata
@@ -1752,12 +1879,14 @@ class TsvOptions(BaseValidatorModel):
     readOptions: Optional[ReadOptions] = None
 
 
+# This class is the input for the 'start_read_set_activation_job' function.
 class StartReadSetActivationJobRequest(BaseValidatorModel):
     sequenceStoreId: str
     sources: List[StartReadSetActivationJobSourceItem]
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'start_reference_import_job' function.
 class StartReferenceImportJobRequest(BaseValidatorModel):
     referenceStoreId: str
     roleArn: str
@@ -1765,6 +1894,7 @@ class StartReferenceImportJobRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'start_variant_import_job' function.
 class StartVariantImportRequest(BaseValidatorModel):
     destinationName: str
     roleArn: str
@@ -1795,6 +1925,7 @@ class ListReadSetActivationJobsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_read_set_activation_jobs' function.
 class ListReadSetActivationJobsRequest(BaseValidatorModel):
     sequenceStoreId: str
     maxResults: Optional[int] = None
@@ -1808,6 +1939,7 @@ class ListReadSetExportJobsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_read_set_export_jobs' function.
 class ListReadSetExportJobsRequest(BaseValidatorModel):
     sequenceStoreId: str
     maxResults: Optional[int] = None
@@ -1821,6 +1953,7 @@ class ListReadSetImportJobsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_read_set_import_jobs' function.
 class ListReadSetImportJobsRequest(BaseValidatorModel):
     sequenceStoreId: str
     maxResults: Optional[int] = None
@@ -1834,6 +1967,7 @@ class ListReferenceImportJobsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_reference_import_jobs' function.
 class ListReferenceImportJobsRequest(BaseValidatorModel):
     referenceStoreId: str
     maxResults: Optional[int] = None
@@ -1847,6 +1981,7 @@ class ListReadSetsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_read_sets' function.
 class ListReadSetsRequest(BaseValidatorModel):
     sequenceStoreId: str
     maxResults: Optional[int] = None
@@ -1862,6 +1997,7 @@ class ListReadSetUploadPartsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_read_set_upload_parts' function.
 class ListReadSetUploadPartsRequest(BaseValidatorModel):
     sequenceStoreId: str
     uploadId: str
@@ -1877,6 +2013,7 @@ class ListReferencesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_references' function.
 class ListReferencesRequest(BaseValidatorModel):
     referenceStoreId: str
     maxResults: Optional[int] = None
@@ -1889,6 +2026,7 @@ class ListReferenceStoresRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_reference_stores' function.
 class ListReferenceStoresRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -1900,30 +2038,35 @@ class ListSequenceStoresRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_sequence_stores' function.
 class ListSequenceStoresRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     filter: Optional[SequenceStoreFilter] = None
 
 
+# This class is the output for the 'list_annotation_stores' function.
 class ListAnnotationStoresResponse(BaseValidatorModel):
     annotationStores: List[AnnotationStoreItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_reference_stores' function.
 class ListReferenceStoresResponse(BaseValidatorModel):
     referenceStores: List[ReferenceStoreDetail]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_sequence_stores' function.
 class ListSequenceStoresResponse(BaseValidatorModel):
     sequenceStores: List[SequenceStoreDetail]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_variant_stores' function.
 class ListVariantStoresResponse(BaseValidatorModel):
     variantStores: List[VariantStoreItem]
     ResponseMetadata: ResponseMetadata
@@ -1941,12 +2084,14 @@ class ReferenceFiles(BaseValidatorModel):
     index: Optional[FileInformation] = None
 
 
+# This class is the output for the 'list_read_sets' function.
 class ListReadSetsResponse(BaseValidatorModel):
     readSets: List[ReadSetListItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_read_set_import_job' function.
 class GetReadSetImportJobResponse(BaseValidatorModel):
     id: str
     sequenceStoreId: str
@@ -1959,6 +2104,7 @@ class GetReadSetImportJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_read_set_import_job' function.
 class StartReadSetImportJobRequest(BaseValidatorModel):
     sequenceStoreId: str
     roleArn: str
@@ -1971,6 +2117,7 @@ class FormatOptions(BaseValidatorModel):
     vcfOptions: Optional[VcfOptions] = None
 
 
+# This class is the output for the 'create_annotation_store' function.
 class CreateAnnotationStoreResponse(BaseValidatorModel):
     id: str
     reference: ReferenceItem
@@ -1983,6 +2130,7 @@ class CreateAnnotationStoreResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_annotation_store' function.
 class GetAnnotationStoreResponse(BaseValidatorModel):
     id: str
     reference: ReferenceItem
@@ -2002,6 +2150,7 @@ class GetAnnotationStoreResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_annotation_store' function.
 class UpdateAnnotationStoreResponse(BaseValidatorModel):
     id: str
     reference: ReferenceItem
@@ -2017,6 +2166,7 @@ class UpdateAnnotationStoreResponse(BaseValidatorModel):
 StoreOptionsUnion = Union[StoreOptions, StoreOptionsOutput]
 
 
+# This class is the output for the 'create_annotation_store_version' function.
 class CreateAnnotationStoreVersionResponse(BaseValidatorModel):
     id: str
     versionName: str
@@ -2028,6 +2178,7 @@ class CreateAnnotationStoreVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_annotation_store_version' function.
 class GetAnnotationStoreVersionResponse(BaseValidatorModel):
     storeId: str
     id: str
@@ -2047,6 +2198,7 @@ class GetAnnotationStoreVersionResponse(BaseValidatorModel):
 VersionOptionsUnion = Union[VersionOptions, VersionOptionsOutput]
 
 
+# This class is the output for the 'get_read_set_metadata' function.
 class GetReadSetMetadataResponse(BaseValidatorModel):
     id: str
     arn: str
@@ -2068,6 +2220,7 @@ class GetReadSetMetadataResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_reference_metadata' function.
 class GetReferenceMetadataResponse(BaseValidatorModel):
     id: str
     arn: str
@@ -2084,6 +2237,7 @@ class GetReferenceMetadataResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_annotation_import_job' function.
 class GetAnnotationImportResponse(BaseValidatorModel):
     id: str
     destinationName: str
@@ -2101,6 +2255,7 @@ class GetAnnotationImportResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_annotation_import_job' function.
 class StartAnnotationImportRequest(BaseValidatorModel):
     destinationName: str
     roleArn: str
@@ -2111,6 +2266,7 @@ class StartAnnotationImportRequest(BaseValidatorModel):
     annotationFields: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_annotation_store' function.
 class CreateAnnotationStoreRequest(BaseValidatorModel):
     storeFormat: StoreFormatType
     reference: Optional[ReferenceItem] = None
@@ -2122,6 +2278,7 @@ class CreateAnnotationStoreRequest(BaseValidatorModel):
     storeOptions: Optional[StoreOptionsUnion] = None
 
 
+# This class is the input for the 'create_annotation_store_version' function.
 class CreateAnnotationStoreVersionRequest(BaseValidatorModel):
     name: str
     versionName: str

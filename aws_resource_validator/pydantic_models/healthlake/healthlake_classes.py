@@ -39,19 +39,23 @@ class ErrorCause(BaseValidatorModel):
     ErrorCategory: Optional[ErrorCategoryType] = None
 
 
+# This class is the input for the 'delete_fhir_datastore' function.
 class DeleteFHIRDatastoreRequest(BaseValidatorModel):
     DatastoreId: str
 
 
+# This class is the input for the 'describe_fhir_datastore' function.
 class DescribeFHIRDatastoreRequest(BaseValidatorModel):
     DatastoreId: str
 
 
+# This class is the input for the 'describe_fhir_export_job' function.
 class DescribeFHIRExportJobRequest(BaseValidatorModel):
     DatastoreId: str
     JobId: str
 
 
+# This class is the input for the 'describe_fhir_import_job' function.
 class DescribeFHIRImportJobRequest(BaseValidatorModel):
     DatastoreId: str
     JobId: str
@@ -77,6 +81,7 @@ class KmsEncryptionConfig(BaseValidatorModel):
     KmsKeyId: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
@@ -96,6 +101,7 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the output for the 'create_fhir_datastore' function.
 class CreateFHIRDatastoreResponse(BaseValidatorModel):
     DatastoreId: str
     DatastoreArn: str
@@ -104,6 +110,7 @@ class CreateFHIRDatastoreResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_fhir_datastore' function.
 class DeleteFHIRDatastoreResponse(BaseValidatorModel):
     DatastoreId: str
     DatastoreArn: str
@@ -112,11 +119,13 @@ class DeleteFHIRDatastoreResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_fhir_export_job' function.
 class StartFHIRExportJobResponse(BaseValidatorModel):
     JobId: str
     JobStatus: JobStatusType
@@ -124,6 +133,7 @@ class StartFHIRExportJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_fhir_import_job' function.
 class StartFHIRImportJobResponse(BaseValidatorModel):
     JobId: str
     JobStatus: JobStatusType
@@ -138,6 +148,7 @@ class DatastoreFilter(BaseValidatorModel):
     CreatedAfter: Optional[Timestamp] = None
 
 
+# This class is the input for the 'list_fhir_export_jobs' function.
 class ListFHIRExportJobsRequest(BaseValidatorModel):
     DatastoreId: str
     NextToken: Optional[str] = None
@@ -148,6 +159,7 @@ class ListFHIRExportJobsRequest(BaseValidatorModel):
     SubmittedAfter: Optional[Timestamp] = None
 
 
+# This class is the input for the 'list_fhir_import_jobs' function.
 class ListFHIRImportJobsRequest(BaseValidatorModel):
     DatastoreId: str
     NextToken: Optional[str] = None
@@ -166,12 +178,14 @@ class OutputDataConfig(BaseValidatorModel):
     S3Configuration: Optional[S3Configuration] = None
 
 
+# This class is the input for the 'list_fhir_datastores' function.
 class ListFHIRDatastoresRequest(BaseValidatorModel):
     Filter: Optional[DatastoreFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'create_fhir_datastore' function.
 class CreateFHIRDatastoreRequest(BaseValidatorModel):
     DatastoreTypeVersion: Literal['R4']
     DatastoreName: Optional[str] = None
@@ -222,6 +236,7 @@ class ImportJobProperties(BaseValidatorModel):
     Message: Optional[str] = None
 
 
+# This class is the input for the 'start_fhir_export_job' function.
 class StartFHIRExportJobRequest(BaseValidatorModel):
     OutputDataConfig: OutputDataConfig
     DatastoreId: str
@@ -230,6 +245,7 @@ class StartFHIRExportJobRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'start_fhir_import_job' function.
 class StartFHIRImportJobRequest(BaseValidatorModel):
     InputDataConfig: InputDataConfig
     JobOutputDataConfig: OutputDataConfig
@@ -239,33 +255,39 @@ class StartFHIRImportJobRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_fhir_datastore' function.
 class DescribeFHIRDatastoreResponse(BaseValidatorModel):
     DatastoreProperties: DatastoreProperties
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_fhir_datastores' function.
 class ListFHIRDatastoresResponse(BaseValidatorModel):
     DatastorePropertiesList: List[DatastoreProperties]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_fhir_export_job' function.
 class DescribeFHIRExportJobResponse(BaseValidatorModel):
     ExportJobProperties: ExportJobProperties
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_fhir_export_jobs' function.
 class ListFHIRExportJobsResponse(BaseValidatorModel):
     ExportJobPropertiesList: List[ExportJobProperties]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_fhir_import_job' function.
 class DescribeFHIRImportJobResponse(BaseValidatorModel):
     ImportJobProperties: ImportJobProperties
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_fhir_import_jobs' function.
 class ListFHIRImportJobsResponse(BaseValidatorModel):
     ImportJobPropertiesList: List[ImportJobProperties]
     ResponseMetadata: ResponseMetadata

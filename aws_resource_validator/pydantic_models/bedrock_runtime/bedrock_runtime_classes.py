@@ -143,6 +143,7 @@ class DocumentSourceOutput(BaseValidatorModel):
     bytes: Optional[bytes] = None
 
 
+# This class is the input for the 'get_async_invoke' function.
 class GetAsyncInvokeRequest(BaseValidatorModel):
     invocationArn: str
 
@@ -269,6 +270,7 @@ class ToolUseBlock(BaseValidatorModel):
     input: Dict[str, Any]
 
 
+# This class is the output for the 'invoke_model' function.
 class InvokeModelResponse(BaseValidatorModel):
     body: StreamingBody
     contentType: str
@@ -276,6 +278,7 @@ class InvokeModelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_async_invoke' function.
 class StartAsyncInvokeResponse(BaseValidatorModel):
     invocationArn: str
     ResponseMetadata: ResponseMetadata
@@ -301,6 +304,7 @@ class ImageSource(BaseValidatorModel):
     bytes: Optional[Blob] = None
 
 
+# This class is the input for the 'invoke_model' function.
 class InvokeModelRequest(BaseValidatorModel):
     modelId: str
     body: Optional[Blob] = None
@@ -312,6 +316,7 @@ class InvokeModelRequest(BaseValidatorModel):
     performanceConfigLatency: Optional[PerformanceConfigLatencyType] = None
 
 
+# This class is the input for the 'invoke_model_with_response_stream' function.
 class InvokeModelWithResponseStreamRequest(BaseValidatorModel):
     modelId: str
     body: Optional[Blob] = None
@@ -387,6 +392,7 @@ class ListAsyncInvokesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_async_invokes' function.
 class ListAsyncInvokesRequest(BaseValidatorModel):
     submitTimeAfter: Optional[Timestamp] = None
     submitTimeBefore: Optional[Timestamp] = None
@@ -453,6 +459,7 @@ class AsyncInvokeSummary(BaseValidatorModel):
     endTime: Optional[datetime] = None
 
 
+# This class is the output for the 'get_async_invoke' function.
 class GetAsyncInvokeResponse(BaseValidatorModel):
     invocationArn: str
     modelArn: str
@@ -466,6 +473,7 @@ class GetAsyncInvokeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_async_invoke' function.
 class StartAsyncInvokeRequest(BaseValidatorModel):
     modelId: str
     modelInput: Dict[str, Any]
@@ -506,6 +514,7 @@ class GuardrailInvocationMetrics(BaseValidatorModel):
     guardrailCoverage: Optional[GuardrailCoverage] = None
 
 
+# This class is the output for the 'invoke_model_with_response_stream' function.
 class InvokeModelWithResponseStreamResponse(BaseValidatorModel):
     body: EventStream[ResponseStream]
     contentType: str
@@ -526,6 +535,7 @@ class Tool(BaseValidatorModel):
     toolSpec: Optional[ToolSpecification] = None
 
 
+# This class is the output for the 'list_async_invokes' function.
 class ListAsyncInvokesResponse(BaseValidatorModel):
     asyncInvokeSummaries: List[AsyncInvokeSummary]
     ResponseMetadata: ResponseMetadata
@@ -584,6 +594,7 @@ DocumentBlockUnion = Union[DocumentBlock, DocumentBlockOutput]
 GuardrailConverseImageBlockUnion = Union[GuardrailConverseImageBlock, GuardrailConverseImageBlockOutput]
 
 
+# This class is the input for the 'apply_guardrail' function.
 class ApplyGuardrailRequest(BaseValidatorModel):
     guardrailIdentifier: str
     guardrailVersion: str
@@ -593,6 +604,7 @@ class ApplyGuardrailRequest(BaseValidatorModel):
 ImageBlockUnion = Union[ImageBlock, ImageBlockOutput]
 
 
+# This class is the output for the 'apply_guardrail' function.
 class ApplyGuardrailResponse(BaseValidatorModel):
     usage: GuardrailUsage
     action: GuardrailActionType
@@ -695,11 +707,13 @@ class ToolResultBlock(BaseValidatorModel):
     status: Optional[ToolResultStatusType] = None
 
 
+# This class is the output for the 'converse_stream' function.
 class ConverseStreamResponse(BaseValidatorModel):
     stream: EventStream[ConverseStreamOutput]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'converse' function.
 class ConverseResponse(BaseValidatorModel):
     output: ConverseOutput
     stopReason: StopReasonType
@@ -733,6 +747,7 @@ class Message(BaseValidatorModel):
 MessageUnion = Union[Message, MessageOutput]
 
 
+# This class is the input for the 'converse' function.
 class ConverseRequest(BaseValidatorModel):
     modelId: str
     messages: Optional[List[MessageUnion]] = None
@@ -747,6 +762,7 @@ class ConverseRequest(BaseValidatorModel):
     performanceConfig: Optional[PerformanceConfiguration] = None
 
 
+# This class is the input for the 'converse_stream' function.
 class ConverseStreamRequest(BaseValidatorModel):
     modelId: str
     messages: Optional[List[MessageUnion]] = None

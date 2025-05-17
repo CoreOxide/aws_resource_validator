@@ -62,6 +62,7 @@ class ValidationSettings(BaseValidatorModel):
     mode: ValidationModeType
 
 
+# This class is the input for the 'create_policy_template' function.
 class CreatePolicyTemplateInput(BaseValidatorModel):
     policyStoreId: str
     statement: str
@@ -88,6 +89,7 @@ class DeletePolicyTemplateInput(BaseValidatorModel):
     policyTemplateId: str
 
 
+# This class is the input for the 'get_identity_source' function.
 class GetIdentitySourceInput(BaseValidatorModel):
     policyStoreId: str
     identitySourceId: str
@@ -100,20 +102,24 @@ class IdentitySourceDetails(BaseValidatorModel):
     openIdIssuer: Optional[Literal['COGNITO']] = None
 
 
+# This class is the input for the 'get_policy' function.
 class GetPolicyInput(BaseValidatorModel):
     policyStoreId: str
     policyId: str
 
 
+# This class is the input for the 'get_policy_store' function.
 class GetPolicyStoreInput(BaseValidatorModel):
     policyStoreId: str
 
 
+# This class is the input for the 'get_policy_template' function.
 class GetPolicyTemplateInput(BaseValidatorModel):
     policyStoreId: str
     policyTemplateId: str
 
 
+# This class is the input for the 'get_schema' function.
 class GetSchemaInput(BaseValidatorModel):
     policyStoreId: str
 
@@ -135,6 +141,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_policy_stores' function.
 class ListPolicyStoresInput(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -148,6 +155,7 @@ class PolicyStoreItem(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'list_policy_templates' function.
 class ListPolicyTemplatesInput(BaseValidatorModel):
     policyStoreId: str
     nextToken: Optional[str] = None
@@ -249,6 +257,7 @@ class UpdateStaticPolicyDefinition(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'update_policy_template' function.
 class UpdatePolicyTemplateInput(BaseValidatorModel):
     policyStoreId: str
     policyTemplateId: str
@@ -301,10 +310,12 @@ class TemplateLinkedPolicyDefinition(BaseValidatorModel):
     resource: Optional[EntityIdentifier] = None
 
 
+# This class is the input for the 'batch_get_policy' function.
 class BatchGetPolicyInput(BaseValidatorModel):
     requests: List[BatchGetPolicyInputItem]
 
 
+# This class is the output for the 'create_identity_source' function.
 class CreateIdentitySourceOutput(BaseValidatorModel):
     createdDate: datetime
     identitySourceId: str
@@ -313,6 +324,7 @@ class CreateIdentitySourceOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_policy' function.
 class CreatePolicyOutput(BaseValidatorModel):
     policyStoreId: str
     policyId: str
@@ -326,6 +338,7 @@ class CreatePolicyOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_policy_store' function.
 class CreatePolicyStoreOutput(BaseValidatorModel):
     policyStoreId: str
     arn: str
@@ -334,6 +347,7 @@ class CreatePolicyStoreOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_policy_template' function.
 class CreatePolicyTemplateOutput(BaseValidatorModel):
     policyStoreId: str
     policyTemplateId: str
@@ -342,6 +356,7 @@ class CreatePolicyTemplateOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_policy_template' function.
 class GetPolicyTemplateOutput(BaseValidatorModel):
     policyStoreId: str
     policyTemplateId: str
@@ -352,6 +367,7 @@ class GetPolicyTemplateOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_schema' function.
 class GetSchemaOutput(BaseValidatorModel):
     policyStoreId: str
     schema: str
@@ -361,6 +377,7 @@ class GetSchemaOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_schema' function.
 class PutSchemaOutput(BaseValidatorModel):
     policyStoreId: str
     namespaces: List[str]
@@ -369,6 +386,7 @@ class PutSchemaOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_identity_source' function.
 class UpdateIdentitySourceOutput(BaseValidatorModel):
     createdDate: datetime
     identitySourceId: str
@@ -377,6 +395,7 @@ class UpdateIdentitySourceOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_policy' function.
 class UpdatePolicyOutput(BaseValidatorModel):
     policyStoreId: str
     policyId: str
@@ -390,6 +409,7 @@ class UpdatePolicyOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_policy_store' function.
 class UpdatePolicyStoreOutput(BaseValidatorModel):
     policyStoreId: str
     arn: str
@@ -398,6 +418,7 @@ class UpdatePolicyStoreOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_policy_template' function.
 class UpdatePolicyTemplateOutput(BaseValidatorModel):
     policyStoreId: str
     policyTemplateId: str
@@ -406,6 +427,7 @@ class UpdatePolicyTemplateOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'is_authorized' function.
 class IsAuthorizedOutput(BaseValidatorModel):
     decision: DecisionType
     determiningPolicies: List[DeterminingPolicyItem]
@@ -413,6 +435,7 @@ class IsAuthorizedOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'is_authorized_with_token' function.
 class IsAuthorizedWithTokenOutput(BaseValidatorModel):
     decision: DecisionType
     determiningPolicies: List[DeterminingPolicyItem]
@@ -441,12 +464,14 @@ class CognitoUserPoolConfiguration(BaseValidatorModel):
     groupConfiguration: Optional[CognitoGroupConfiguration] = None
 
 
+# This class is the input for the 'create_policy_store' function.
 class CreatePolicyStoreInput(BaseValidatorModel):
     validationSettings: ValidationSettings
     clientToken: Optional[str] = None
     description: Optional[str] = None
 
 
+# This class is the output for the 'get_policy_store' function.
 class GetPolicyStoreOutput(BaseValidatorModel):
     policyStoreId: str
     arn: str
@@ -457,12 +482,14 @@ class GetPolicyStoreOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_policy_store' function.
 class UpdatePolicyStoreInput(BaseValidatorModel):
     policyStoreId: str
     validationSettings: ValidationSettings
     description: Optional[str] = None
 
 
+# This class is the input for the 'list_identity_sources' function.
 class ListIdentitySourcesInput(BaseValidatorModel):
     policyStoreId: str
     nextToken: Optional[str] = None
@@ -485,12 +512,14 @@ class ListPolicyTemplatesInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_policy_stores' function.
 class ListPolicyStoresOutput(BaseValidatorModel):
     policyStores: List[PolicyStoreItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_policy_templates' function.
 class ListPolicyTemplatesOutput(BaseValidatorModel):
     policyTemplates: List[PolicyTemplateItem]
     ResponseMetadata: ResponseMetadata
@@ -512,6 +541,7 @@ class OpenIdConnectTokenSelection(BaseValidatorModel):
     identityTokenOnly: Optional[OpenIdConnectIdentityTokenConfiguration] = None
 
 
+# This class is the input for the 'put_schema' function.
 class PutSchemaInput(BaseValidatorModel):
     policyStoreId: str
     definition: SchemaDefinition
@@ -589,6 +619,7 @@ class UpdateOpenIdConnectConfiguration(BaseValidatorModel):
     groupConfiguration: Optional[UpdateOpenIdConnectGroupConfiguration] = None
 
 
+# This class is the input for the 'update_policy' function.
 class UpdatePolicyInput(BaseValidatorModel):
     policyStoreId: str
     policyId: str
@@ -625,6 +656,7 @@ class ListPoliciesInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_policies' function.
 class ListPoliciesInput(BaseValidatorModel):
     policyStoreId: str
     nextToken: Optional[str] = None
@@ -641,6 +673,7 @@ class BatchGetPolicyOutputItem(BaseValidatorModel):
     lastUpdatedDate: datetime
 
 
+# This class is the output for the 'get_policy' function.
 class GetPolicyOutput(BaseValidatorModel):
     policyStoreId: str
     policyId: str
@@ -668,6 +701,7 @@ class PolicyItem(BaseValidatorModel):
     effect: Optional[PolicyEffectType] = None
 
 
+# This class is the input for the 'create_policy' function.
 class CreatePolicyInput(BaseValidatorModel):
     policyStoreId: str
     definition: PolicyDefinition
@@ -715,18 +749,21 @@ class EntitiesDefinition(BaseValidatorModel):
     cedarJson: Optional[str] = None
 
 
+# This class is the output for the 'batch_get_policy' function.
 class BatchGetPolicyOutput(BaseValidatorModel):
     results: List[BatchGetPolicyOutputItem]
     errors: List[BatchGetPolicyErrorItem]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_policies' function.
 class ListPoliciesOutput(BaseValidatorModel):
     policies: List[PolicyItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_identity_source' function.
 class GetIdentitySourceOutput(BaseValidatorModel):
     createdDate: datetime
     details: IdentitySourceDetails
@@ -748,6 +785,7 @@ class IdentitySourceItem(BaseValidatorModel):
     configuration: Optional[ConfigurationItem] = None
 
 
+# This class is the input for the 'create_identity_source' function.
 class CreateIdentitySourceInput(BaseValidatorModel):
     policyStoreId: str
     configuration: Configuration
@@ -755,6 +793,7 @@ class CreateIdentitySourceInput(BaseValidatorModel):
     principalEntityType: Optional[str] = None
 
 
+# This class is the input for the 'update_identity_source' function.
 class UpdateIdentitySourceInput(BaseValidatorModel):
     policyStoreId: str
     identitySourceId: str
@@ -762,11 +801,13 @@ class UpdateIdentitySourceInput(BaseValidatorModel):
     principalEntityType: Optional[str] = None
 
 
+# This class is the output for the 'batch_is_authorized' function.
 class BatchIsAuthorizedOutput(BaseValidatorModel):
     results: List[BatchIsAuthorizedOutputItem]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_is_authorized_with_token' function.
 class BatchIsAuthorizedWithTokenOutput(BaseValidatorModel):
     principal: EntityIdentifier
     results: List[BatchIsAuthorizedWithTokenOutputItem]
@@ -786,6 +827,7 @@ class BatchIsAuthorizedWithTokenInputItem(BaseValidatorModel):
     context: Optional[ContextDefinitionUnion] = None
 
 
+# This class is the input for the 'is_authorized' function.
 class IsAuthorizedInput(BaseValidatorModel):
     policyStoreId: str
     principal: Optional[EntityIdentifier] = None
@@ -795,6 +837,7 @@ class IsAuthorizedInput(BaseValidatorModel):
     entities: Optional[EntitiesDefinition] = None
 
 
+# This class is the input for the 'is_authorized_with_token' function.
 class IsAuthorizedWithTokenInput(BaseValidatorModel):
     policyStoreId: str
     identityToken: Optional[str] = None
@@ -805,6 +848,7 @@ class IsAuthorizedWithTokenInput(BaseValidatorModel):
     entities: Optional[EntitiesDefinition] = None
 
 
+# This class is the output for the 'list_identity_sources' function.
 class ListIdentitySourcesOutput(BaseValidatorModel):
     identitySources: List[IdentitySourceItem]
     ResponseMetadata: ResponseMetadata
@@ -815,12 +859,14 @@ BatchIsAuthorizedInputItemUnion = Union[BatchIsAuthorizedInputItem, BatchIsAutho
 BatchIsAuthorizedWithTokenInputItemUnion = Union[BatchIsAuthorizedWithTokenInputItem, BatchIsAuthorizedWithTokenInputItemOutput]
 
 
+# This class is the input for the 'batch_is_authorized' function.
 class BatchIsAuthorizedInput(BaseValidatorModel):
     policyStoreId: str
     requests: List[BatchIsAuthorizedInputItemUnion]
     entities: Optional[EntitiesDefinition] = None
 
 
+# This class is the input for the 'batch_is_authorized_with_token' function.
 class BatchIsAuthorizedWithTokenInput(BaseValidatorModel):
     policyStoreId: str
     requests: List[BatchIsAuthorizedWithTokenInputItemUnion]

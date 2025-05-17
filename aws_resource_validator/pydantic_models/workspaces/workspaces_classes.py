@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'accept_account_link_invitation' function.
 class AcceptAccountLinkInvitationRequest(BaseValidatorModel):
     LinkId: str
     ClientToken: Optional[str] = None
@@ -58,6 +59,7 @@ class ApplicationSettingsResponse(BaseValidatorModel):
     S3BucketName: Optional[str] = None
 
 
+# This class is the input for the 'associate_connection_alias' function.
 class AssociateConnectionAliasRequest(BaseValidatorModel):
     AliasId: str
     ResourceId: str
@@ -68,6 +70,7 @@ class AssociateIpGroupsRequest(BaseValidatorModel):
     GroupIds: List[str]
 
 
+# This class is the input for the 'associate_workspace_application' function.
 class AssociateWorkspaceApplicationRequest(BaseValidatorModel):
     WorkspaceId: str
     ApplicationId: str
@@ -129,11 +132,13 @@ class Tag(BaseValidatorModel):
     Value: Optional[str] = None
 
 
+# This class is the input for the 'create_account_link_invitation' function.
 class CreateAccountLinkInvitationRequest(BaseValidatorModel):
     TargetAccountId: str
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'create_connect_client_add_in' function.
 class CreateConnectClientAddInRequest(BaseValidatorModel):
     ResourceId: str
     Name: str
@@ -188,6 +193,7 @@ class DefaultWorkspaceCreationProperties(BaseValidatorModel):
     InstanceIamRoleArn: Optional[str] = None
 
 
+# This class is the input for the 'delete_account_link_invitation' function.
 class DeleteAccountLinkInvitationRequest(BaseValidatorModel):
     LinkId: str
     ClientToken: Optional[str] = None
@@ -224,6 +230,7 @@ class DeleteWorkspaceImageRequest(BaseValidatorModel):
     ImageId: str
 
 
+# This class is the input for the 'deploy_workspace_applications' function.
 class DeployWorkspaceApplicationsRequest(BaseValidatorModel):
     WorkspaceId: str
     Force: Optional[bool] = None
@@ -239,10 +246,12 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_account_modifications' function.
 class DescribeAccountModificationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_application_associations' function.
 class DescribeApplicationAssociationsRequest(BaseValidatorModel):
     ApplicationId: str
     AssociatedResourceTypes: List[ApplicationAssociatedResourceTypeType]
@@ -250,6 +259,7 @@ class DescribeApplicationAssociationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_applications' function.
 class DescribeApplicationsRequest(BaseValidatorModel):
     ApplicationIds: Optional[List[str]] = None
     ComputeTypeNames: Optional[List[ComputeType]] = None
@@ -272,11 +282,13 @@ class WorkSpaceApplication(BaseValidatorModel):
     SupportedOperatingSystemNames: Optional[List[OperatingSystemNameType]] = None
 
 
+# This class is the input for the 'describe_bundle_associations' function.
 class DescribeBundleAssociationsRequest(BaseValidatorModel):
     BundleId: str
     AssociatedResourceTypes: List[Literal['APPLICATION']]
 
 
+# This class is the input for the 'describe_client_branding' function.
 class DescribeClientBrandingRequest(BaseValidatorModel):
     ResourceId: str
 
@@ -291,22 +303,26 @@ class IosClientBrandingAttributes(BaseValidatorModel):
     LoginMessage: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'describe_client_properties' function.
 class DescribeClientPropertiesRequest(BaseValidatorModel):
     ResourceIds: List[str]
 
 
+# This class is the input for the 'describe_connect_client_add_ins' function.
 class DescribeConnectClientAddInsRequest(BaseValidatorModel):
     ResourceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_connection_alias_permissions' function.
 class DescribeConnectionAliasPermissionsRequest(BaseValidatorModel):
     AliasId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_connection_aliases' function.
 class DescribeConnectionAliasesRequest(BaseValidatorModel):
     AliasIds: Optional[List[str]] = None
     ResourceId: Optional[str] = None
@@ -314,26 +330,31 @@ class DescribeConnectionAliasesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_image_associations' function.
 class DescribeImageAssociationsRequest(BaseValidatorModel):
     ImageId: str
     AssociatedResourceTypes: List[Literal['APPLICATION']]
 
 
+# This class is the input for the 'describe_ip_groups' function.
 class DescribeIpGroupsRequest(BaseValidatorModel):
     GroupIds: Optional[List[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_tags' function.
 class DescribeTagsRequest(BaseValidatorModel):
     ResourceId: str
 
 
+# This class is the input for the 'describe_workspace_associations' function.
 class DescribeWorkspaceAssociationsRequest(BaseValidatorModel):
     WorkspaceId: str
     AssociatedResourceTypes: List[Literal['APPLICATION']]
 
 
+# This class is the input for the 'describe_workspace_bundles' function.
 class DescribeWorkspaceBundlesRequest(BaseValidatorModel):
     BundleIds: Optional[List[str]] = None
     Owner: Optional[str] = None
@@ -345,6 +366,7 @@ class DescribeWorkspaceDirectoriesFilter(BaseValidatorModel):
     Values: List[str]
 
 
+# This class is the input for the 'describe_workspace_image_permissions' function.
 class DescribeWorkspaceImagePermissionsRequest(BaseValidatorModel):
     ImageId: str
     NextToken: Optional[str] = None
@@ -355,6 +377,7 @@ class ImagePermission(BaseValidatorModel):
     SharedAccountId: Optional[str] = None
 
 
+# This class is the input for the 'describe_workspace_images' function.
 class DescribeWorkspaceImagesRequest(BaseValidatorModel):
     ImageIds: Optional[List[str]] = None
     ImageType: Optional[ImageTypeType] = None
@@ -362,6 +385,7 @@ class DescribeWorkspaceImagesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_workspace_snapshots' function.
 class DescribeWorkspaceSnapshotsRequest(BaseValidatorModel):
     WorkspaceId: str
 
@@ -370,6 +394,7 @@ class Snapshot(BaseValidatorModel):
     SnapshotTime: Optional[datetime] = None
 
 
+# This class is the input for the 'describe_workspaces_connection_status' function.
 class DescribeWorkspacesConnectionStatusRequest(BaseValidatorModel):
     WorkspaceIds: Optional[List[str]] = None
     NextToken: Optional[str] = None
@@ -382,6 +407,7 @@ class WorkspaceConnectionStatus(BaseValidatorModel):
     LastKnownUserConnectionTimestamp: Optional[datetime] = None
 
 
+# This class is the input for the 'describe_workspaces_pool_sessions' function.
 class DescribeWorkspacesPoolSessionsRequest(BaseValidatorModel):
     PoolId: str
     UserId: Optional[str] = None
@@ -395,6 +421,7 @@ class DescribeWorkspacesPoolsFilter(BaseValidatorModel):
     Operator: DescribeWorkspacesPoolsFilterOperatorType
 
 
+# This class is the input for the 'describe_workspaces' function.
 class DescribeWorkspacesRequest(BaseValidatorModel):
     WorkspaceIds: Optional[List[str]] = None
     DirectoryId: Optional[str] = None
@@ -414,6 +441,7 @@ class DisassociateIpGroupsRequest(BaseValidatorModel):
     GroupIds: List[str]
 
 
+# This class is the input for the 'disassociate_workspace_application' function.
 class DisassociateWorkspaceApplicationRequest(BaseValidatorModel):
     WorkspaceId: str
     ApplicationId: str
@@ -430,6 +458,7 @@ class FailedWorkspaceChangeRequest(BaseValidatorModel):
     ErrorMessage: Optional[str] = None
 
 
+# This class is the input for the 'get_account_link' function.
 class GetAccountLinkRequest(BaseValidatorModel):
     LinkId: Optional[str] = None
     LinkedAccountId: Optional[str] = None
@@ -450,12 +479,14 @@ class IDCConfig(BaseValidatorModel):
     ApplicationArn: Optional[str] = None
 
 
+# This class is the input for the 'list_account_links' function.
 class ListAccountLinksRequest(BaseValidatorModel):
     LinkStatusFilter: Optional[List[AccountLinkStatusEnumType]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_available_management_cidr_ranges' function.
 class ListAvailableManagementCidrRangesRequest(BaseValidatorModel):
     ManagementCidrRangeConstraint: str
     MaxResults: Optional[int] = None
@@ -467,6 +498,7 @@ class MicrosoftEntraConfig(BaseValidatorModel):
     ApplicationConfigSecretArn: Optional[str] = None
 
 
+# This class is the input for the 'migrate_workspace' function.
 class MigrateWorkspaceRequest(BaseValidatorModel):
     SourceWorkspaceId: str
     BundleId: str
@@ -541,6 +573,7 @@ class RebuildRequest(BaseValidatorModel):
     WorkspaceId: str
 
 
+# This class is the input for the 'reject_account_link_invitation' function.
 class RejectAccountLinkInvitationRequest(BaseValidatorModel):
     LinkId: str
     ClientToken: Optional[str] = None
@@ -635,46 +668,55 @@ class WorkspacesPoolError(BaseValidatorModel):
     ErrorMessage: Optional[str] = None
 
 
+# This class is the output for the 'accept_account_link_invitation' function.
 class AcceptAccountLinkInvitationResult(BaseValidatorModel):
     AccountLink: AccountLink
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_connection_alias' function.
 class AssociateConnectionAliasResult(BaseValidatorModel):
     ConnectionIdentifier: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'copy_workspace_image' function.
 class CopyWorkspaceImageResult(BaseValidatorModel):
     ImageId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_account_link_invitation' function.
 class CreateAccountLinkInvitationResult(BaseValidatorModel):
     AccountLink: AccountLink
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_connect_client_add_in' function.
 class CreateConnectClientAddInResult(BaseValidatorModel):
     AddInId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_connection_alias' function.
 class CreateConnectionAliasResult(BaseValidatorModel):
     AliasId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_ip_group' function.
 class CreateIpGroupResult(BaseValidatorModel):
     GroupId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_updated_workspace_image' function.
 class CreateUpdatedWorkspaceImageResult(BaseValidatorModel):
     ImageId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_account_link_invitation' function.
 class DeleteAccountLinkInvitationResult(BaseValidatorModel):
     AccountLink: AccountLink
     ResponseMetadata: ResponseMetadata
@@ -687,45 +729,53 @@ class DescribeAccountResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_account_link' function.
 class GetAccountLinkResult(BaseValidatorModel):
     AccountLink: AccountLink
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_workspace_image' function.
 class ImportWorkspaceImageResult(BaseValidatorModel):
     ImageId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_account_links' function.
 class ListAccountLinksResult(BaseValidatorModel):
     AccountLinks: List[AccountLink]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_available_management_cidr_ranges' function.
 class ListAvailableManagementCidrRangesResult(BaseValidatorModel):
     ManagementCidrRanges: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'migrate_workspace' function.
 class MigrateWorkspaceResult(BaseValidatorModel):
     SourceWorkspaceId: str
     TargetWorkspaceId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_workspace_directory' function.
 class RegisterWorkspaceDirectoryResult(BaseValidatorModel):
     DirectoryId: str
     State: WorkspaceDirectoryStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reject_account_link_invitation' function.
 class RejectAccountLinkInvitationResult(BaseValidatorModel):
     AccountLink: AccountLink
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_account_modifications' function.
 class DescribeAccountModificationsResult(BaseValidatorModel):
     AccountModifications: List[AccountModification]
     ResponseMetadata: ResponseMetadata
@@ -823,6 +873,7 @@ class ModifyClientPropertiesRequest(BaseValidatorModel):
     ClientProperties: ClientProperties
 
 
+# This class is the output for the 'describe_connect_client_add_ins' function.
 class DescribeConnectClientAddInsResult(BaseValidatorModel):
     AddIns: List[ConnectClientAddIn]
     ResponseMetadata: ResponseMetadata
@@ -837,6 +888,7 @@ class ConnectionAlias(BaseValidatorModel):
     Associations: Optional[List[ConnectionAliasAssociation]] = None
 
 
+# This class is the output for the 'describe_connection_alias_permissions' function.
 class DescribeConnectionAliasPermissionsResult(BaseValidatorModel):
     AliasId: str
     ConnectionAliasPermissions: List[ConnectionAliasPermission]
@@ -849,6 +901,7 @@ class UpdateConnectionAliasPermissionRequest(BaseValidatorModel):
     ConnectionAliasPermission: ConnectionAliasPermission
 
 
+# This class is the input for the 'copy_workspace_image' function.
 class CopyWorkspaceImageRequest(BaseValidatorModel):
     Name: str
     SourceImageId: str
@@ -857,11 +910,13 @@ class CopyWorkspaceImageRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_connection_alias' function.
 class CreateConnectionAliasRequest(BaseValidatorModel):
     ConnectionString: str
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_ip_group' function.
 class CreateIpGroupRequest(BaseValidatorModel):
     GroupName: str
     GroupDesc: Optional[str] = None
@@ -874,6 +929,7 @@ class CreateTagsRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the input for the 'create_updated_workspace_image' function.
 class CreateUpdatedWorkspaceImageRequest(BaseValidatorModel):
     Name: str
     Description: str
@@ -881,6 +937,7 @@ class CreateUpdatedWorkspaceImageRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_workspace_image' function.
 class CreateWorkspaceImageRequest(BaseValidatorModel):
     Name: str
     Description: str
@@ -888,11 +945,13 @@ class CreateWorkspaceImageRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'describe_tags' function.
 class DescribeTagsResult(BaseValidatorModel):
     TagList: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'import_workspace_image' function.
 class ImportWorkspaceImageRequest(BaseValidatorModel):
     Ec2ImageId: str
     IngestionProcess: WorkspaceImageIngestionProcessType
@@ -918,6 +977,7 @@ class StandbyWorkspace(BaseValidatorModel):
     DataReplication: Optional[DataReplicationType] = None
 
 
+# This class is the input for the 'create_workspace_bundle' function.
 class CreateWorkspaceBundleRequest(BaseValidatorModel):
     BundleName: str
     BundleDescription: str
@@ -943,6 +1003,7 @@ class WorkspaceBundle(BaseValidatorModel):
     BundleType: Optional[BundleTypeType] = None
 
 
+# This class is the output for the 'create_workspace_image' function.
 class CreateWorkspaceImageResult(BaseValidatorModel):
     ImageId: str
     Name: str
@@ -955,6 +1016,7 @@ class CreateWorkspaceImageResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_workspaces_pool' function.
 class CreateWorkspacesPoolRequest(BaseValidatorModel):
     PoolName: str
     Description: str
@@ -966,6 +1028,7 @@ class CreateWorkspacesPoolRequest(BaseValidatorModel):
     TimeoutSettings: Optional[TimeoutSettings] = None
 
 
+# This class is the input for the 'update_workspaces_pool' function.
 class UpdateWorkspacesPoolRequest(BaseValidatorModel):
     PoolId: str
     Description: Optional[str] = None
@@ -1021,12 +1084,14 @@ class ListAvailableManagementCidrRangesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'describe_applications' function.
 class DescribeApplicationsResult(BaseValidatorModel):
     Applications: List[WorkSpaceApplication]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_client_branding' function.
 class DescribeClientBrandingResult(BaseValidatorModel):
     DeviceTypeWindows: DefaultClientBrandingAttributes
     DeviceTypeOsx: DefaultClientBrandingAttributes
@@ -1037,6 +1102,7 @@ class DescribeClientBrandingResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_client_branding' function.
 class ImportClientBrandingResult(BaseValidatorModel):
     DeviceTypeWindows: DefaultClientBrandingAttributes
     DeviceTypeOsx: DefaultClientBrandingAttributes
@@ -1055,6 +1121,7 @@ class DescribeWorkspaceDirectoriesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_workspace_directories' function.
 class DescribeWorkspaceDirectoriesRequest(BaseValidatorModel):
     DirectoryIds: Optional[List[str]] = None
     WorkspaceDirectoryNames: Optional[List[str]] = None
@@ -1063,6 +1130,7 @@ class DescribeWorkspaceDirectoriesRequest(BaseValidatorModel):
     Filters: Optional[List[DescribeWorkspaceDirectoriesFilter]] = None
 
 
+# This class is the output for the 'describe_workspace_image_permissions' function.
 class DescribeWorkspaceImagePermissionsResult(BaseValidatorModel):
     ImageId: str
     ImagePermissions: List[ImagePermission]
@@ -1070,18 +1138,21 @@ class DescribeWorkspaceImagePermissionsResult(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_workspace_snapshots' function.
 class DescribeWorkspaceSnapshotsResult(BaseValidatorModel):
     RebuildSnapshots: List[Snapshot]
     RestoreSnapshots: List[Snapshot]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_workspaces_connection_status' function.
 class DescribeWorkspacesConnectionStatusResult(BaseValidatorModel):
     WorkspacesConnectionStatus: List[WorkspaceConnectionStatus]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_workspaces_pools' function.
 class DescribeWorkspacesPoolsRequest(BaseValidatorModel):
     PoolIds: Optional[List[str]] = None
     Filters: Optional[List[DescribeWorkspacesPoolsFilter]] = None
@@ -1089,26 +1160,31 @@ class DescribeWorkspacesPoolsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'reboot_workspaces' function.
 class RebootWorkspacesResult(BaseValidatorModel):
     FailedRequests: List[FailedWorkspaceChangeRequest]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'rebuild_workspaces' function.
 class RebuildWorkspacesResult(BaseValidatorModel):
     FailedRequests: List[FailedWorkspaceChangeRequest]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_workspaces' function.
 class StartWorkspacesResult(BaseValidatorModel):
     FailedRequests: List[FailedWorkspaceChangeRequest]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_workspaces' function.
 class StopWorkspacesResult(BaseValidatorModel):
     FailedRequests: List[FailedWorkspaceChangeRequest]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'terminate_workspaces' function.
 class TerminateWorkspacesResult(BaseValidatorModel):
     FailedRequests: List[FailedWorkspaceChangeRequest]
     ResponseMetadata: ResponseMetadata
@@ -1136,6 +1212,7 @@ class WorkspaceProperties(BaseValidatorModel):
     GlobalAccelerator: Optional[GlobalAcceleratorForWorkSpace] = None
 
 
+# This class is the input for the 'register_workspace_directory' function.
 class RegisterWorkspaceDirectoryRequest(BaseValidatorModel):
     DirectoryId: Optional[str] = None
     SubnetIds: Optional[List[str]] = None
@@ -1185,18 +1262,22 @@ class WorkspacesPoolSession(BaseValidatorModel):
     StartTime: Optional[datetime] = None
 
 
+# This class is the input for the 'reboot_workspaces' function.
 class RebootWorkspacesRequest(BaseValidatorModel):
     RebootWorkspaceRequests: List[RebootRequest]
 
 
+# This class is the input for the 'rebuild_workspaces' function.
 class RebuildWorkspacesRequest(BaseValidatorModel):
     RebuildWorkspaceRequests: List[RebuildRequest]
 
 
+# This class is the input for the 'start_workspaces' function.
 class StartWorkspacesRequest(BaseValidatorModel):
     StartWorkspaceRequests: List[StartRequest]
 
 
+# This class is the input for the 'stop_workspaces' function.
 class StopWorkspacesRequest(BaseValidatorModel):
     StopWorkspaceRequests: List[StopRequest]
 
@@ -1215,6 +1296,7 @@ class StreamingProperties(BaseValidatorModel):
     GlobalAccelerator: Optional[GlobalAcceleratorForDirectory] = None
 
 
+# This class is the input for the 'terminate_workspaces' function.
 class TerminateWorkspacesRequest(BaseValidatorModel):
     TerminateWorkspaceRequests: List[TerminateRequest]
 
@@ -1249,32 +1331,38 @@ class WorkspacesPool(BaseValidatorModel):
     TimeoutSettings: Optional[TimeoutSettings] = None
 
 
+# This class is the output for the 'describe_application_associations' function.
 class DescribeApplicationAssociationsResult(BaseValidatorModel):
     Associations: List[ApplicationResourceAssociation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_bundle_associations' function.
 class DescribeBundleAssociationsResult(BaseValidatorModel):
     Associations: List[BundleResourceAssociation]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_image_associations' function.
 class DescribeImageAssociationsResult(BaseValidatorModel):
     Associations: List[ImageResourceAssociation]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_workspace_application' function.
 class AssociateWorkspaceApplicationResult(BaseValidatorModel):
     Association: WorkspaceResourceAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_workspace_associations' function.
 class DescribeWorkspaceAssociationsResult(BaseValidatorModel):
     Associations: List[WorkspaceResourceAssociation]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_workspace_application' function.
 class DisassociateWorkspaceApplicationResult(BaseValidatorModel):
     Association: WorkspaceResourceAssociation
     ResponseMetadata: ResponseMetadata
@@ -1284,12 +1372,14 @@ class WorkSpaceApplicationDeployment(BaseValidatorModel):
     Associations: Optional[List[WorkspaceResourceAssociation]] = None
 
 
+# This class is the output for the 'describe_ip_groups' function.
 class DescribeIpGroupsResult(BaseValidatorModel):
     Result: List[WorkspacesIpGroup]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'import_client_branding' function.
 class ImportClientBrandingRequest(BaseValidatorModel):
     ResourceId: str
     DeviceTypeWindows: Optional[DefaultImportClientBrandingAttributes] = None
@@ -1300,11 +1390,13 @@ class ImportClientBrandingRequest(BaseValidatorModel):
     DeviceTypeWeb: Optional[DefaultImportClientBrandingAttributes] = None
 
 
+# This class is the output for the 'describe_client_properties' function.
 class DescribeClientPropertiesResult(BaseValidatorModel):
     ClientPropertiesList: List[ClientPropertiesResult]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_connection_aliases' function.
 class DescribeConnectionAliasesResult(BaseValidatorModel):
     ConnectionAliases: List[ConnectionAlias]
     ResponseMetadata: ResponseMetadata
@@ -1319,11 +1411,13 @@ class FailedCreateStandbyWorkspacesRequest(BaseValidatorModel):
 StandbyWorkspaceUnion = Union[StandbyWorkspace, StandbyWorkspaceOutput]
 
 
+# This class is the output for the 'create_workspace_bundle' function.
 class CreateWorkspaceBundleResult(BaseValidatorModel):
     WorkspaceBundle: WorkspaceBundle
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_workspace_bundles' function.
 class DescribeWorkspaceBundlesResult(BaseValidatorModel):
     Bundles: List[WorkspaceBundle]
     ResponseMetadata: ResponseMetadata
@@ -1366,6 +1460,7 @@ class Workspace(BaseValidatorModel):
 WorkspacePropertiesUnion = Union[WorkspaceProperties, WorkspacePropertiesOutput]
 
 
+# This class is the output for the 'describe_workspaces_pool_sessions' function.
 class DescribeWorkspacesPoolSessionsResult(BaseValidatorModel):
     Sessions: List[WorkspacesPoolSession]
     ResponseMetadata: ResponseMetadata
@@ -1405,39 +1500,46 @@ class WorkspaceDirectory(BaseValidatorModel):
 StreamingPropertiesUnion = Union[StreamingProperties, StreamingPropertiesOutput]
 
 
+# This class is the output for the 'describe_workspace_images' function.
 class DescribeWorkspaceImagesResult(BaseValidatorModel):
     Images: List[WorkspaceImage]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_workspaces_pool' function.
 class CreateWorkspacesPoolResult(BaseValidatorModel):
     WorkspacesPool: WorkspacesPool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_workspaces_pools' function.
 class DescribeWorkspacesPoolsResult(BaseValidatorModel):
     WorkspacesPools: List[WorkspacesPool]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_workspaces_pool' function.
 class UpdateWorkspacesPoolResult(BaseValidatorModel):
     WorkspacesPool: WorkspacesPool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'deploy_workspace_applications' function.
 class DeployWorkspaceApplicationsResult(BaseValidatorModel):
     Deployment: WorkSpaceApplicationDeployment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_standby_workspaces' function.
 class CreateStandbyWorkspacesResult(BaseValidatorModel):
     FailedStandbyRequests: List[FailedCreateStandbyWorkspacesRequest]
     PendingStandbyRequests: List[PendingCreateStandbyWorkspacesRequest]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_standby_workspaces' function.
 class CreateStandbyWorkspacesRequest(BaseValidatorModel):
     PrimaryRegion: str
     StandbyWorkspaces: List[StandbyWorkspaceUnion]
@@ -1449,6 +1551,7 @@ class FailedCreateWorkspaceRequest(BaseValidatorModel):
     ErrorMessage: Optional[str] = None
 
 
+# This class is the output for the 'describe_workspaces' function.
 class DescribeWorkspacesResult(BaseValidatorModel):
     Workspaces: List[Workspace]
     ResponseMetadata: ResponseMetadata
@@ -1473,6 +1576,7 @@ class WorkspaceRequest(BaseValidatorModel):
     WorkspaceName: Optional[str] = None
 
 
+# This class is the output for the 'describe_workspace_directories' function.
 class DescribeWorkspaceDirectoriesResult(BaseValidatorModel):
     Directories: List[WorkspaceDirectory]
     ResponseMetadata: ResponseMetadata
@@ -1484,6 +1588,7 @@ class ModifyStreamingPropertiesRequest(BaseValidatorModel):
     StreamingProperties: Optional[StreamingPropertiesUnion] = None
 
 
+# This class is the output for the 'create_workspaces' function.
 class CreateWorkspacesResult(BaseValidatorModel):
     FailedRequests: List[FailedCreateWorkspaceRequest]
     PendingRequests: List[Workspace]
@@ -1492,5 +1597,6 @@ class CreateWorkspacesResult(BaseValidatorModel):
 WorkspaceRequestUnion = Union[WorkspaceRequest, WorkspaceRequestOutput]
 
 
+# This class is the input for the 'create_workspaces' function.
 class CreateWorkspacesRequest(BaseValidatorModel):
     Workspaces: List[WorkspaceRequestUnion]

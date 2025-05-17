@@ -83,6 +83,7 @@ class BatchDeleteRumMetricDefinitionsError(BaseValidatorModel):
     MetricDefinitionId: str
 
 
+# This class is the input for the 'batch_delete_rum_metric_definitions' function.
 class BatchDeleteRumMetricDefinitionsRequest(BaseValidatorModel):
     AppMonitorName: str
     Destination: MetricDestinationType
@@ -96,6 +97,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'batch_get_rum_metric_definitions' function.
 class BatchGetRumMetricDefinitionsRequest(BaseValidatorModel):
     AppMonitorName: str
     Destination: MetricDestinationType
@@ -113,6 +115,7 @@ class DeleteAppMonitorRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'delete_resource_policy' function.
 class DeleteResourcePolicyRequest(BaseValidatorModel):
     Name: str
     PolicyRevisionId: Optional[str] = None
@@ -134,19 +137,23 @@ class TimeRange(BaseValidatorModel):
     Before: Optional[int] = None
 
 
+# This class is the input for the 'get_app_monitor' function.
 class GetAppMonitorRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'get_resource_policy' function.
 class GetResourcePolicyRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'list_app_monitors' function.
 class ListAppMonitorsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_rum_metrics_destinations' function.
 class ListRumMetricsDestinationsRequest(BaseValidatorModel):
     AppMonitorName: str
     MaxResults: Optional[int] = None
@@ -159,6 +166,7 @@ class MetricDestinationSummary(BaseValidatorModel):
     IamRoleArn: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -172,6 +180,7 @@ class MetricDefinitionRequest(BaseValidatorModel):
     ValueKey: Optional[str] = None
 
 
+# This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyRequest(BaseValidatorModel):
     Name: str
     PolicyDocument: str
@@ -210,52 +219,61 @@ class BatchCreateRumMetricDefinitionsError(BaseValidatorModel):
     MetricDefinition: MetricDefinitionRequestOutput
 
 
+# This class is the output for the 'batch_get_rum_metric_definitions' function.
 class BatchGetRumMetricDefinitionsResponse(BaseValidatorModel):
     MetricDefinitions: List[MetricDefinition]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_app_monitor' function.
 class CreateAppMonitorResponse(BaseValidatorModel):
     Id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_resource_policy' function.
 class DeleteResourcePolicyResponse(BaseValidatorModel):
     PolicyRevisionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_app_monitor_data' function.
 class GetAppMonitorDataResponse(BaseValidatorModel):
     Events: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_resource_policy' function.
 class GetResourcePolicyResponse(BaseValidatorModel):
     PolicyDocument: str
     PolicyRevisionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_app_monitors' function.
 class ListAppMonitorsResponse(BaseValidatorModel):
     AppMonitorSummaries: List[AppMonitorSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     ResourceArn: str
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_resource_policy' function.
 class PutResourcePolicyResponse(BaseValidatorModel):
     PolicyDocument: str
     PolicyRevisionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_delete_rum_metric_definitions' function.
 class BatchDeleteRumMetricDefinitionsResponse(BaseValidatorModel):
     Errors: List[BatchDeleteRumMetricDefinitionsError]
     MetricDefinitionIds: List[str]
@@ -289,6 +307,7 @@ class GetAppMonitorDataRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_app_monitor_data' function.
 class GetAppMonitorDataRequest(BaseValidatorModel):
     Name: str
     TimeRange: TimeRange
@@ -297,6 +316,7 @@ class GetAppMonitorDataRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_rum_metrics_destinations' function.
 class ListRumMetricsDestinationsResponse(BaseValidatorModel):
     Destinations: List[MetricDestinationSummary]
     ResponseMetadata: ResponseMetadata
@@ -313,6 +333,7 @@ class RumEvent(BaseValidatorModel):
     metadata: Optional[str] = None
 
 
+# This class is the input for the 'create_app_monitor' function.
 class CreateAppMonitorRequest(BaseValidatorModel):
     Domain: str
     Name: str
@@ -330,6 +351,7 @@ class UpdateAppMonitorRequest(BaseValidatorModel):
     Domain: Optional[str] = None
 
 
+# This class is the output for the 'batch_create_rum_metric_definitions' function.
 class BatchCreateRumMetricDefinitionsResponse(BaseValidatorModel):
     Errors: List[BatchCreateRumMetricDefinitionsError]
     MetricDefinitions: List[MetricDefinition]
@@ -349,6 +371,7 @@ class AppMonitor(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'batch_create_rum_metric_definitions' function.
 class BatchCreateRumMetricDefinitionsRequest(BaseValidatorModel):
     AppMonitorName: str
     Destination: MetricDestinationType
@@ -373,6 +396,7 @@ class PutRumEventsRequest(BaseValidatorModel):
     Alias: Optional[str] = None
 
 
+# This class is the output for the 'get_app_monitor' function.
 class GetAppMonitorResponse(BaseValidatorModel):
     AppMonitor: AppMonitor
     ResponseMetadata: ResponseMetadata

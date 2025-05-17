@@ -60,6 +60,7 @@ class ApplicationSettings(BaseValidatorModel):
     SettingsGroup: Optional[str] = None
 
 
+# This class is the input for the 'associate_app_block_builder_app_block' function.
 class AssociateAppBlockBuilderAppBlockRequest(BaseValidatorModel):
     AppBlockArn: str
     AppBlockBuilderName: str
@@ -73,6 +74,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'associate_application_fleet' function.
 class AssociateApplicationFleetRequest(BaseValidatorModel):
     FleetName: str
     ApplicationArn: str
@@ -117,6 +119,7 @@ class ComputeCapacity(BaseValidatorModel):
     DesiredSessions: Optional[int] = None
 
 
+# This class is the input for the 'copy_image' function.
 class CopyImageRequest(BaseValidatorModel):
     SourceImageName: str
     DestinationImageName: str
@@ -124,6 +127,7 @@ class CopyImageRequest(BaseValidatorModel):
     DestinationImageDescription: Optional[str] = None
 
 
+# This class is the input for the 'create_app_block_builder_streaming_url' function.
 class CreateAppBlockBuilderStreamingURLRequest(BaseValidatorModel):
     AppBlockBuilderName: str
     Validity: Optional[int] = None
@@ -144,6 +148,7 @@ class DomainJoinInfo(BaseValidatorModel):
     OrganizationalUnitDistinguishedName: Optional[str] = None
 
 
+# This class is the input for the 'create_image_builder_streaming_url' function.
 class CreateImageBuilderStreamingURLRequest(BaseValidatorModel):
     Name: str
     Validity: Optional[int] = None
@@ -159,6 +164,7 @@ class UserSetting(BaseValidatorModel):
     MaximumLength: Optional[int] = None
 
 
+# This class is the input for the 'create_streaming_url' function.
 class CreateStreamingURLRequest(BaseValidatorModel):
     StackName: str
     FleetName: str
@@ -173,6 +179,7 @@ class ThemeFooterLink(BaseValidatorModel):
     FooterLinkURL: Optional[str] = None
 
 
+# This class is the input for the 'create_updated_image' function.
 class CreateUpdatedImageRequest(BaseValidatorModel):
     existingImageName: str
     newImageName: str
@@ -215,6 +222,7 @@ class DeleteFleetRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'delete_image_builder' function.
 class DeleteImageBuilderRequest(BaseValidatorModel):
     Name: str
 
@@ -224,6 +232,7 @@ class DeleteImagePermissionsRequest(BaseValidatorModel):
     SharedAccountId: str
 
 
+# This class is the input for the 'delete_image' function.
 class DeleteImageRequest(BaseValidatorModel):
     Name: str
 
@@ -241,6 +250,7 @@ class DeleteUserRequest(BaseValidatorModel):
     AuthenticationType: AuthenticationTypeType
 
 
+# This class is the input for the 'describe_app_block_builder_app_block_associations' function.
 class DescribeAppBlockBuilderAppBlockAssociationsRequest(BaseValidatorModel):
     AppBlockArn: Optional[str] = None
     AppBlockBuilderName: Optional[str] = None
@@ -248,18 +258,21 @@ class DescribeAppBlockBuilderAppBlockAssociationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_app_block_builders' function.
 class DescribeAppBlockBuildersRequest(BaseValidatorModel):
     Names: Optional[List[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_app_blocks' function.
 class DescribeAppBlocksRequest(BaseValidatorModel):
     Arns: Optional[List[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_application_fleet_associations' function.
 class DescribeApplicationFleetAssociationsRequest(BaseValidatorModel):
     FleetName: Optional[str] = None
     ApplicationArn: Optional[str] = None
@@ -267,6 +280,7 @@ class DescribeApplicationFleetAssociationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_applications' function.
 class DescribeApplicationsRequest(BaseValidatorModel):
     Arns: Optional[List[str]] = None
     NextToken: Optional[str] = None
@@ -279,12 +293,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_directory_configs' function.
 class DescribeDirectoryConfigsRequest(BaseValidatorModel):
     DirectoryNames: Optional[List[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_entitlements' function.
 class DescribeEntitlementsRequest(BaseValidatorModel):
     StackName: str
     Name: Optional[str] = None
@@ -292,6 +308,7 @@ class DescribeEntitlementsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_fleets' function.
 class DescribeFleetsRequest(BaseValidatorModel):
     Names: Optional[List[str]] = None
     NextToken: Optional[str] = None
@@ -302,12 +319,14 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'describe_image_builders' function.
 class DescribeImageBuildersRequest(BaseValidatorModel):
     Names: Optional[List[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_image_permissions' function.
 class DescribeImagePermissionsRequest(BaseValidatorModel):
     Name: str
     MaxResults: Optional[int] = None
@@ -315,6 +334,7 @@ class DescribeImagePermissionsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_images' function.
 class DescribeImagesRequest(BaseValidatorModel):
     Names: Optional[List[str]] = None
     Arns: Optional[List[str]] = None
@@ -323,6 +343,7 @@ class DescribeImagesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_sessions' function.
 class DescribeSessionsRequest(BaseValidatorModel):
     StackName: str
     FleetName: str
@@ -333,20 +354,24 @@ class DescribeSessionsRequest(BaseValidatorModel):
     InstanceId: Optional[str] = None
 
 
+# This class is the input for the 'describe_stacks' function.
 class DescribeStacksRequest(BaseValidatorModel):
     Names: Optional[List[str]] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_theme_for_stack' function.
 class DescribeThemeForStackRequest(BaseValidatorModel):
     StackName: str
 
 
+# This class is the input for the 'describe_usage_report_subscriptions' function.
 class DescribeUsageReportSubscriptionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_user_stack_associations' function.
 class DescribeUserStackAssociationsRequest(BaseValidatorModel):
     StackName: Optional[str] = None
     UserName: Optional[str] = None
@@ -355,6 +380,7 @@ class DescribeUserStackAssociationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_users' function.
 class DescribeUsersRequest(BaseValidatorModel):
     AuthenticationType: AuthenticationTypeType
     MaxResults: Optional[int] = None
@@ -441,16 +467,19 @@ class LastReportGenerationExecutionError(BaseValidatorModel):
     ErrorMessage: Optional[str] = None
 
 
+# This class is the input for the 'list_associated_fleets' function.
 class ListAssociatedFleetsRequest(BaseValidatorModel):
     StackName: str
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_associated_stacks' function.
 class ListAssociatedStacksRequest(BaseValidatorModel):
     FleetName: str
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_entitled_applications' function.
 class ListEntitledApplicationsRequest(BaseValidatorModel):
     StackName: str
     EntitlementName: str
@@ -458,6 +487,7 @@ class ListEntitledApplicationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -474,6 +504,7 @@ class StorageConnectorOutput(BaseValidatorModel):
     DomainsRequireAdminConsent: Optional[List[str]] = None
 
 
+# This class is the input for the 'start_app_block_builder' function.
 class StartAppBlockBuilderRequest(BaseValidatorModel):
     Name: str
 
@@ -482,11 +513,13 @@ class StartFleetRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'start_image_builder' function.
 class StartImageBuilderRequest(BaseValidatorModel):
     Name: str
     AppstreamAgentVersion: Optional[str] = None
 
 
+# This class is the input for the 'stop_app_block_builder' function.
 class StopAppBlockBuilderRequest(BaseValidatorModel):
     Name: str
 
@@ -495,6 +528,7 @@ class StopFleetRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'stop_image_builder' function.
 class StopImageBuilderRequest(BaseValidatorModel):
     Name: str
 
@@ -556,6 +590,7 @@ class Application(BaseValidatorModel):
     CreatedTime: Optional[datetime] = None
 
 
+# This class is the input for the 'create_application' function.
 class CreateApplicationRequest(BaseValidatorModel):
     Name: str
     IconS3Location: S3Location
@@ -577,6 +612,7 @@ class ScriptDetails(BaseValidatorModel):
     ExecutableParameters: Optional[str] = None
 
 
+# This class is the input for the 'update_application' function.
 class UpdateApplicationRequest(BaseValidatorModel):
     Name: str
     DisplayName: Optional[str] = None
@@ -589,33 +625,39 @@ class UpdateApplicationRequest(BaseValidatorModel):
     AttributesToDelete: Optional[List[ApplicationAttributeType]] = None
 
 
+# This class is the output for the 'associate_app_block_builder_app_block' function.
 class AssociateAppBlockBuilderAppBlockResult(BaseValidatorModel):
     AppBlockBuilderAppBlockAssociation: AppBlockBuilderAppBlockAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_application_fleet' function.
 class AssociateApplicationFleetResult(BaseValidatorModel):
     ApplicationFleetAssociation: ApplicationFleetAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'copy_image' function.
 class CopyImageResponse(BaseValidatorModel):
     DestinationImageName: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_app_block_builder_streaming_url' function.
 class CreateAppBlockBuilderStreamingURLResult(BaseValidatorModel):
     StreamingURL: str
     Expires: datetime
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_image_builder_streaming_url' function.
 class CreateImageBuilderStreamingURLResult(BaseValidatorModel):
     StreamingURL: str
     Expires: datetime
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_streaming_url' function.
 class CreateStreamingURLResult(BaseValidatorModel):
     StreamingURL: str
     Expires: datetime
@@ -628,43 +670,51 @@ class CreateUsageReportSubscriptionResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_app_block_builder_app_block_associations' function.
 class DescribeAppBlockBuilderAppBlockAssociationsResult(BaseValidatorModel):
     AppBlockBuilderAppBlockAssociations: List[AppBlockBuilderAppBlockAssociation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_application_fleet_associations' function.
 class DescribeApplicationFleetAssociationsResult(BaseValidatorModel):
     ApplicationFleetAssociations: List[ApplicationFleetAssociation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_associated_fleets' function.
 class ListAssociatedFleetsResult(BaseValidatorModel):
     Names: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_associated_stacks' function.
 class ListAssociatedStacksResult(BaseValidatorModel):
     Names: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'batch_associate_user_stack' function.
 class BatchAssociateUserStackRequest(BaseValidatorModel):
     UserStackAssociations: List[UserStackAssociation]
 
 
+# This class is the input for the 'batch_disassociate_user_stack' function.
 class BatchDisassociateUserStackRequest(BaseValidatorModel):
     UserStackAssociations: List[UserStackAssociation]
 
 
+# This class is the output for the 'describe_user_stack_associations' function.
 class DescribeUserStackAssociationsResult(BaseValidatorModel):
     UserStackAssociations: List[UserStackAssociation]
     ResponseMetadata: ResponseMetadata
@@ -677,6 +727,7 @@ class UserStackAssociationError(BaseValidatorModel):
     ErrorMessage: Optional[str] = None
 
 
+# This class is the input for the 'create_directory_config' function.
 class CreateDirectoryConfigRequest(BaseValidatorModel):
     DirectoryName: str
     OrganizationalUnitDistinguishedNames: List[str]
@@ -692,6 +743,7 @@ class DirectoryConfig(BaseValidatorModel):
     CertificateBasedAuthProperties: Optional[CertificateBasedAuthProperties] = None
 
 
+# This class is the input for the 'update_directory_config' function.
 class UpdateDirectoryConfigRequest(BaseValidatorModel):
     DirectoryName: str
     OrganizationalUnitDistinguishedNames: Optional[List[str]] = None
@@ -699,6 +751,7 @@ class UpdateDirectoryConfigRequest(BaseValidatorModel):
     CertificateBasedAuthProperties: Optional[CertificateBasedAuthProperties] = None
 
 
+# This class is the input for the 'create_entitlement' function.
 class CreateEntitlementRequest(BaseValidatorModel):
     Name: str
     StackName: str
@@ -717,6 +770,7 @@ class Entitlement(BaseValidatorModel):
     LastModifiedTime: Optional[datetime] = None
 
 
+# This class is the input for the 'update_entitlement' function.
 class UpdateEntitlementRequest(BaseValidatorModel):
     Name: str
     StackName: str
@@ -725,6 +779,7 @@ class UpdateEntitlementRequest(BaseValidatorModel):
     Attributes: Optional[List[EntitlementAttribute]] = None
 
 
+# This class is the input for the 'create_theme_for_stack' function.
 class CreateThemeForStackRequest(BaseValidatorModel):
     StackName: str
     TitleText: str
@@ -745,6 +800,7 @@ class Theme(BaseValidatorModel):
     CreatedTime: Optional[datetime] = None
 
 
+# This class is the input for the 'update_theme_for_stack' function.
 class UpdateThemeForStackRequest(BaseValidatorModel):
     StackName: str
     FooterLinks: Optional[List[ThemeFooterLink]] = None
@@ -826,12 +882,14 @@ class DescribeFleetsRequestWait(BaseValidatorModel):
     WaiterConfig: Optional[WaiterConfig] = None
 
 
+# This class is the output for the 'describe_users' function.
 class DescribeUsersResult(BaseValidatorModel):
     Users: List[User]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_entitled_applications' function.
 class ListEntitledApplicationsResult(BaseValidatorModel):
     EntitledApplications: List[EntitledApplication]
     ResponseMetadata: ResponseMetadata
@@ -941,37 +999,44 @@ StorageConnectorUnion = Union[StorageConnector, StorageConnectorOutput]
 VpcConfigUnion = Union[VpcConfig, VpcConfigOutput]
 
 
+# This class is the output for the 'create_app_block_builder' function.
 class CreateAppBlockBuilderResult(BaseValidatorModel):
     AppBlockBuilder: AppBlockBuilder
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_app_block_builders' function.
 class DescribeAppBlockBuildersResult(BaseValidatorModel):
     AppBlockBuilders: List[AppBlockBuilder]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_app_block_builder' function.
 class StartAppBlockBuilderResult(BaseValidatorModel):
     AppBlockBuilder: AppBlockBuilder
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_app_block_builder' function.
 class StopAppBlockBuilderResult(BaseValidatorModel):
     AppBlockBuilder: AppBlockBuilder
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_app_block_builder' function.
 class UpdateAppBlockBuilderResult(BaseValidatorModel):
     AppBlockBuilder: AppBlockBuilder
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_application' function.
 class CreateApplicationResult(BaseValidatorModel):
     Application: Application
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_applications' function.
 class DescribeApplicationsResult(BaseValidatorModel):
     Applications: List[Application]
     ResponseMetadata: ResponseMetadata
@@ -1002,6 +1067,7 @@ class Image(BaseValidatorModel):
     ImageSharedWithOthers: Optional[ImageSharedWithOthersType] = None
 
 
+# This class is the output for the 'update_application' function.
 class UpdateApplicationResult(BaseValidatorModel):
     Application: Application
     ResponseMetadata: ResponseMetadata
@@ -1021,6 +1087,7 @@ class AppBlock(BaseValidatorModel):
     AppBlockErrors: Optional[List[ErrorDetails]] = None
 
 
+# This class is the input for the 'create_app_block' function.
 class CreateAppBlockRequest(BaseValidatorModel):
     Name: str
     SourceS3Location: S3Location
@@ -1032,111 +1099,132 @@ class CreateAppBlockRequest(BaseValidatorModel):
     PackagingType: Optional[PackagingTypeType] = None
 
 
+# This class is the output for the 'batch_associate_user_stack' function.
 class BatchAssociateUserStackResult(BaseValidatorModel):
     errors: List[UserStackAssociationError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_disassociate_user_stack' function.
 class BatchDisassociateUserStackResult(BaseValidatorModel):
     errors: List[UserStackAssociationError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_directory_config' function.
 class CreateDirectoryConfigResult(BaseValidatorModel):
     DirectoryConfig: DirectoryConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_directory_configs' function.
 class DescribeDirectoryConfigsResult(BaseValidatorModel):
     DirectoryConfigs: List[DirectoryConfig]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_directory_config' function.
 class UpdateDirectoryConfigResult(BaseValidatorModel):
     DirectoryConfig: DirectoryConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_entitlement' function.
 class CreateEntitlementResult(BaseValidatorModel):
     Entitlement: Entitlement
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_entitlements' function.
 class DescribeEntitlementsResult(BaseValidatorModel):
     Entitlements: List[Entitlement]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_entitlement' function.
 class UpdateEntitlementResult(BaseValidatorModel):
     Entitlement: Entitlement
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_theme_for_stack' function.
 class CreateThemeForStackResult(BaseValidatorModel):
     Theme: Theme
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_theme_for_stack' function.
 class DescribeThemeForStackResult(BaseValidatorModel):
     Theme: Theme
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_theme_for_stack' function.
 class UpdateThemeForStackResult(BaseValidatorModel):
     Theme: Theme
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_fleet' function.
 class CreateFleetResult(BaseValidatorModel):
     Fleet: Fleet
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_fleets' function.
 class DescribeFleetsResult(BaseValidatorModel):
     Fleets: List[Fleet]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_fleet' function.
 class UpdateFleetResult(BaseValidatorModel):
     Fleet: Fleet
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_image_builder' function.
 class CreateImageBuilderResult(BaseValidatorModel):
     ImageBuilder: ImageBuilder
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_image_builder' function.
 class DeleteImageBuilderResult(BaseValidatorModel):
     ImageBuilder: ImageBuilder
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_image_builders' function.
 class DescribeImageBuildersResult(BaseValidatorModel):
     ImageBuilders: List[ImageBuilder]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_image_builder' function.
 class StartImageBuilderResult(BaseValidatorModel):
     ImageBuilder: ImageBuilder
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_image_builder' function.
 class StopImageBuilderResult(BaseValidatorModel):
     ImageBuilder: ImageBuilder
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_sessions' function.
 class DescribeSessionsResult(BaseValidatorModel):
     Sessions: List[Session]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_image_permissions' function.
 class DescribeImagePermissionsResult(BaseValidatorModel):
     Name: str
     SharedImagePermissionsList: List[SharedImagePermissions]
@@ -1144,28 +1232,33 @@ class DescribeImagePermissionsResult(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_usage_report_subscriptions' function.
 class DescribeUsageReportSubscriptionsResult(BaseValidatorModel):
     UsageReportSubscriptions: List[UsageReportSubscription]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_stack' function.
 class CreateStackResult(BaseValidatorModel):
     Stack: Stack
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_stacks' function.
 class DescribeStacksResult(BaseValidatorModel):
     Stacks: List[Stack]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_stack' function.
 class UpdateStackResult(BaseValidatorModel):
     Stack: Stack
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_stack' function.
 class CreateStackRequest(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
@@ -1181,6 +1274,7 @@ class CreateStackRequest(BaseValidatorModel):
     StreamingExperienceSettings: Optional[StreamingExperienceSettings] = None
 
 
+# This class is the input for the 'update_stack' function.
 class UpdateStackRequest(BaseValidatorModel):
     Name: str
     DisplayName: Optional[str] = None
@@ -1197,6 +1291,7 @@ class UpdateStackRequest(BaseValidatorModel):
     StreamingExperienceSettings: Optional[StreamingExperienceSettings] = None
 
 
+# This class is the input for the 'create_app_block_builder' function.
 class CreateAppBlockBuilderRequest(BaseValidatorModel):
     Name: str
     Platform: Literal['WINDOWS_SERVER_2019']
@@ -1210,6 +1305,7 @@ class CreateAppBlockBuilderRequest(BaseValidatorModel):
     AccessEndpoints: Optional[List[AccessEndpoint]] = None
 
 
+# This class is the input for the 'create_fleet' function.
 class CreateFleetRequest(BaseValidatorModel):
     Name: str
     InstanceType: str
@@ -1235,6 +1331,7 @@ class CreateFleetRequest(BaseValidatorModel):
     MaxSessionsPerInstance: Optional[int] = None
 
 
+# This class is the input for the 'create_image_builder' function.
 class CreateImageBuilderRequest(BaseValidatorModel):
     Name: str
     InstanceType: str
@@ -1251,6 +1348,7 @@ class CreateImageBuilderRequest(BaseValidatorModel):
     AccessEndpoints: Optional[List[AccessEndpoint]] = None
 
 
+# This class is the input for the 'update_app_block_builder' function.
 class UpdateAppBlockBuilderRequest(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
@@ -1264,6 +1362,7 @@ class UpdateAppBlockBuilderRequest(BaseValidatorModel):
     AttributesToDelete: Optional[List[AppBlockBuilderAttributeType]] = None
 
 
+# This class is the input for the 'update_fleet' function.
 class UpdateFleetRequest(BaseValidatorModel):
     ImageName: Optional[str] = None
     ImageArn: Optional[str] = None
@@ -1289,28 +1388,33 @@ class UpdateFleetRequest(BaseValidatorModel):
     MaxSessionsPerInstance: Optional[int] = None
 
 
+# This class is the output for the 'create_updated_image' function.
 class CreateUpdatedImageResult(BaseValidatorModel):
     image: Image
     canUpdateImage: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_image' function.
 class DeleteImageResult(BaseValidatorModel):
     Image: Image
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_images' function.
 class DescribeImagesResult(BaseValidatorModel):
     Images: List[Image]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_app_block' function.
 class CreateAppBlockResult(BaseValidatorModel):
     AppBlock: AppBlock
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_app_blocks' function.
 class DescribeAppBlocksResult(BaseValidatorModel):
     AppBlocks: List[AppBlock]
     ResponseMetadata: ResponseMetadata

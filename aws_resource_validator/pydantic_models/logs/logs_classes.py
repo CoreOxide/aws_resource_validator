@@ -50,6 +50,7 @@ class PatternToken(BaseValidatorModel):
     inferredTokenName: Optional[str] = None
 
 
+# This class is the input for the 'associate_kms_key' function.
 class AssociateKmsKeyRequest(BaseValidatorModel):
     kmsKeyId: str
     logGroupName: Optional[str] = None
@@ -70,6 +71,7 @@ class CSV(BaseValidatorModel):
     source: Optional[str] = None
 
 
+# This class is the input for the 'cancel_export_task' function.
 class CancelExportTaskRequest(BaseValidatorModel):
     taskId: str
 
@@ -98,6 +100,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_export_task' function.
 class CreateExportTaskRequest(BaseValidatorModel):
     logGroupName: str
     fromTime: int
@@ -108,6 +111,7 @@ class CreateExportTaskRequest(BaseValidatorModel):
     destinationPrefix: Optional[str] = None
 
 
+# This class is the input for the 'create_log_anomaly_detector' function.
 class CreateLogAnomalyDetectorRequest(BaseValidatorModel):
     logGroupArnList: List[str]
     detectorName: Optional[str] = None
@@ -118,6 +122,7 @@ class CreateLogAnomalyDetectorRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_log_group' function.
 class CreateLogGroupRequest(BaseValidatorModel):
     logGroupName: str
     kmsKeyId: Optional[str] = None
@@ -125,6 +130,7 @@ class CreateLogGroupRequest(BaseValidatorModel):
     logGroupClass: Optional[LogGroupClassType] = None
 
 
+# This class is the input for the 'create_log_stream' function.
 class CreateLogStreamRequest(BaseValidatorModel):
     logGroupName: str
     logStreamName: str
@@ -150,31 +156,38 @@ class DateTimeConverter(BaseValidatorModel):
     locale: Optional[str] = None
 
 
+# This class is the input for the 'delete_account_policy' function.
 class DeleteAccountPolicyRequest(BaseValidatorModel):
     policyName: str
     policyType: PolicyTypeType
 
 
+# This class is the input for the 'delete_data_protection_policy' function.
 class DeleteDataProtectionPolicyRequest(BaseValidatorModel):
     logGroupIdentifier: str
 
 
+# This class is the input for the 'delete_delivery_destination_policy' function.
 class DeleteDeliveryDestinationPolicyRequest(BaseValidatorModel):
     deliveryDestinationName: str
 
 
+# This class is the input for the 'delete_delivery_destination' function.
 class DeleteDeliveryDestinationRequest(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'delete_delivery' function.
 class DeleteDeliveryRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'delete_delivery_source' function.
 class DeleteDeliverySourceRequest(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'delete_destination' function.
 class DeleteDestinationRequest(BaseValidatorModel):
     destinationName: str
 
@@ -196,41 +209,50 @@ class DeleteKeys(BaseValidatorModel):
     withKeys: List[str]
 
 
+# This class is the input for the 'delete_log_anomaly_detector' function.
 class DeleteLogAnomalyDetectorRequest(BaseValidatorModel):
     anomalyDetectorArn: str
 
 
+# This class is the input for the 'delete_log_group' function.
 class DeleteLogGroupRequest(BaseValidatorModel):
     logGroupName: str
 
 
+# This class is the input for the 'delete_log_stream' function.
 class DeleteLogStreamRequest(BaseValidatorModel):
     logGroupName: str
     logStreamName: str
 
 
+# This class is the input for the 'delete_metric_filter' function.
 class DeleteMetricFilterRequest(BaseValidatorModel):
     logGroupName: str
     filterName: str
 
 
+# This class is the input for the 'delete_query_definition' function.
 class DeleteQueryDefinitionRequest(BaseValidatorModel):
     queryDefinitionId: str
 
 
+# This class is the input for the 'delete_resource_policy' function.
 class DeleteResourcePolicyRequest(BaseValidatorModel):
     policyName: Optional[str] = None
 
 
+# This class is the input for the 'delete_retention_policy' function.
 class DeleteRetentionPolicyRequest(BaseValidatorModel):
     logGroupName: str
 
 
+# This class is the input for the 'delete_subscription_filter' function.
 class DeleteSubscriptionFilterRequest(BaseValidatorModel):
     logGroupName: str
     filterName: str
 
 
+# This class is the input for the 'delete_transformer' function.
 class DeleteTransformerRequest(BaseValidatorModel):
     logGroupIdentifier: str
 
@@ -248,6 +270,7 @@ class DeliverySource(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'describe_account_policies' function.
 class DescribeAccountPoliciesRequest(BaseValidatorModel):
     policyType: PolicyTypeType
     policyName: Optional[str] = None
@@ -261,6 +284,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_configuration_templates' function.
 class DescribeConfigurationTemplatesRequest(BaseValidatorModel):
     service: Optional[str] = None
     logTypes: Optional[List[str]] = None
@@ -270,21 +294,25 @@ class DescribeConfigurationTemplatesRequest(BaseValidatorModel):
     limit: Optional[int] = None
 
 
+# This class is the input for the 'describe_deliveries' function.
 class DescribeDeliveriesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     limit: Optional[int] = None
 
 
+# This class is the input for the 'describe_delivery_destinations' function.
 class DescribeDeliveryDestinationsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     limit: Optional[int] = None
 
 
+# This class is the input for the 'describe_delivery_sources' function.
 class DescribeDeliverySourcesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     limit: Optional[int] = None
 
 
+# This class is the input for the 'describe_destinations' function.
 class DescribeDestinationsRequest(BaseValidatorModel):
     DestinationNamePrefix: Optional[str] = None
     nextToken: Optional[str] = None
@@ -300,6 +328,7 @@ class Destination(BaseValidatorModel):
     creationTime: Optional[int] = None
 
 
+# This class is the input for the 'describe_export_tasks' function.
 class DescribeExportTasksRequest(BaseValidatorModel):
     taskId: Optional[str] = None
     statusCode: Optional[ExportTaskStatusCodeType] = None
@@ -307,6 +336,7 @@ class DescribeExportTasksRequest(BaseValidatorModel):
     limit: Optional[int] = None
 
 
+# This class is the input for the 'describe_field_indexes' function.
 class DescribeFieldIndexesRequest(BaseValidatorModel):
     logGroupIdentifiers: List[str]
     nextToken: Optional[str] = None
@@ -320,6 +350,7 @@ class FieldIndex(BaseValidatorModel):
     lastEventTime: Optional[int] = None
 
 
+# This class is the input for the 'describe_index_policies' function.
 class DescribeIndexPoliciesRequest(BaseValidatorModel):
     logGroupIdentifiers: List[str]
     nextToken: Optional[str] = None
@@ -333,6 +364,7 @@ class IndexPolicy(BaseValidatorModel):
     source: Optional[IndexSourceType] = None
 
 
+# This class is the input for the 'describe_log_groups' function.
 class DescribeLogGroupsRequest(BaseValidatorModel):
     accountIdentifiers: Optional[List[str]] = None
     logGroupNamePrefix: Optional[str] = None
@@ -357,6 +389,7 @@ class LogGroup(BaseValidatorModel):
     logGroupArn: Optional[str] = None
 
 
+# This class is the input for the 'describe_log_streams' function.
 class DescribeLogStreamsRequest(BaseValidatorModel):
     logGroupName: Optional[str] = None
     logGroupIdentifier: Optional[str] = None
@@ -378,6 +411,7 @@ class LogStream(BaseValidatorModel):
     storedBytes: Optional[int] = None
 
 
+# This class is the input for the 'describe_metric_filters' function.
 class DescribeMetricFiltersRequest(BaseValidatorModel):
     logGroupName: Optional[str] = None
     filterNamePrefix: Optional[str] = None
@@ -387,6 +421,7 @@ class DescribeMetricFiltersRequest(BaseValidatorModel):
     metricNamespace: Optional[str] = None
 
 
+# This class is the input for the 'describe_queries' function.
 class DescribeQueriesRequest(BaseValidatorModel):
     logGroupName: Optional[str] = None
     status: Optional[QueryStatusType] = None
@@ -404,6 +439,7 @@ class QueryInfo(BaseValidatorModel):
     logGroupName: Optional[str] = None
 
 
+# This class is the input for the 'describe_query_definitions' function.
 class DescribeQueryDefinitionsRequest(BaseValidatorModel):
     queryLanguage: Optional[QueryLanguageType] = None
     queryDefinitionNamePrefix: Optional[str] = None
@@ -420,6 +456,7 @@ class QueryDefinition(BaseValidatorModel):
     logGroupNames: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_resource_policies' function.
 class DescribeResourcePoliciesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     limit: Optional[int] = None
@@ -431,6 +468,7 @@ class ResourcePolicy(BaseValidatorModel):
     lastUpdatedTime: Optional[int] = None
 
 
+# This class is the input for the 'describe_subscription_filters' function.
 class DescribeSubscriptionFiltersRequest(BaseValidatorModel):
     logGroupName: str
     filterNamePrefix: Optional[str] = None
@@ -449,6 +487,7 @@ class SubscriptionFilter(BaseValidatorModel):
     creationTime: Optional[int] = None
 
 
+# This class is the input for the 'disassociate_kms_key' function.
 class DisassociateKmsKeyRequest(BaseValidatorModel):
     logGroupName: Optional[str] = None
     resourceIdentifier: Optional[str] = None
@@ -469,6 +508,7 @@ class ExportTaskStatus(BaseValidatorModel):
     message: Optional[str] = None
 
 
+# This class is the input for the 'filter_log_events' function.
 class FilterLogEventsRequest(BaseValidatorModel):
     logGroupName: Optional[str] = None
     logGroupIdentifier: Optional[str] = None
@@ -496,10 +536,12 @@ class SearchedLogStream(BaseValidatorModel):
     searchedCompletely: Optional[bool] = None
 
 
+# This class is the input for the 'get_data_protection_policy' function.
 class GetDataProtectionPolicyRequest(BaseValidatorModel):
     logGroupIdentifier: str
 
 
+# This class is the input for the 'get_delivery_destination_policy' function.
 class GetDeliveryDestinationPolicyRequest(BaseValidatorModel):
     deliveryDestinationName: str
 
@@ -508,26 +550,32 @@ class Policy(BaseValidatorModel):
     deliveryDestinationPolicy: Optional[str] = None
 
 
+# This class is the input for the 'get_delivery_destination' function.
 class GetDeliveryDestinationRequest(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'get_delivery' function.
 class GetDeliveryRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'get_delivery_source' function.
 class GetDeliverySourceRequest(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'get_integration' function.
 class GetIntegrationRequest(BaseValidatorModel):
     integrationName: str
 
 
+# This class is the input for the 'get_log_anomaly_detector' function.
 class GetLogAnomalyDetectorRequest(BaseValidatorModel):
     anomalyDetectorArn: str
 
 
+# This class is the input for the 'get_log_events' function.
 class GetLogEventsRequest(BaseValidatorModel):
     logStreamName: str
     logGroupName: Optional[str] = None
@@ -546,6 +594,7 @@ class OutputLogEvent(BaseValidatorModel):
     ingestionTime: Optional[int] = None
 
 
+# This class is the input for the 'get_log_group_fields' function.
 class GetLogGroupFieldsRequest(BaseValidatorModel):
     logGroupName: Optional[str] = None
     time: Optional[int] = None
@@ -557,11 +606,13 @@ class LogGroupField(BaseValidatorModel):
     percent: Optional[int] = None
 
 
+# This class is the input for the 'get_log_record' function.
 class GetLogRecordRequest(BaseValidatorModel):
     logRecordPointer: str
     unmask: Optional[bool] = None
 
 
+# This class is the input for the 'get_query_results' function.
 class GetQueryResultsRequest(BaseValidatorModel):
     queryId: str
 
@@ -580,6 +631,7 @@ class ResultField(BaseValidatorModel):
     value: Optional[str] = None
 
 
+# This class is the input for the 'get_transformer' function.
 class GetTransformerRequest(BaseValidatorModel):
     logGroupIdentifier: str
 
@@ -600,6 +652,7 @@ class IntegrationSummary(BaseValidatorModel):
     integrationStatus: Optional[IntegrationStatusType] = None
 
 
+# This class is the input for the 'list_anomalies' function.
 class ListAnomaliesRequest(BaseValidatorModel):
     anomalyDetectorArn: Optional[str] = None
     suppressionState: Optional[SuppressionStateType] = None
@@ -607,28 +660,33 @@ class ListAnomaliesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_integrations' function.
 class ListIntegrationsRequest(BaseValidatorModel):
     integrationNamePrefix: Optional[str] = None
     integrationType: Optional[Literal['OPENSEARCH']] = None
     integrationStatus: Optional[IntegrationStatusType] = None
 
 
+# This class is the input for the 'list_log_anomaly_detectors' function.
 class ListLogAnomalyDetectorsRequest(BaseValidatorModel):
     filterLogGroupArn: Optional[str] = None
     limit: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_log_groups_for_query' function.
 class ListLogGroupsForQueryRequest(BaseValidatorModel):
     queryId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'list_tags_log_group' function.
 class ListTagsLogGroupRequest(BaseValidatorModel):
     logGroupName: str
 
@@ -757,6 +815,7 @@ class UpperCaseStringOutput(BaseValidatorModel):
     withKeys: List[str]
 
 
+# This class is the input for the 'put_account_policy' function.
 class PutAccountPolicyRequest(BaseValidatorModel):
     policyName: str
     policyDocument: str
@@ -765,16 +824,19 @@ class PutAccountPolicyRequest(BaseValidatorModel):
     selectionCriteria: Optional[str] = None
 
 
+# This class is the input for the 'put_data_protection_policy' function.
 class PutDataProtectionPolicyRequest(BaseValidatorModel):
     logGroupIdentifier: str
     policyDocument: str
 
 
+# This class is the input for the 'put_delivery_destination_policy' function.
 class PutDeliveryDestinationPolicyRequest(BaseValidatorModel):
     deliveryDestinationName: str
     deliveryDestinationPolicy: str
 
 
+# This class is the input for the 'put_delivery_source' function.
 class PutDeliverySourceRequest(BaseValidatorModel):
     name: str
     resourceArn: str
@@ -782,12 +844,14 @@ class PutDeliverySourceRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'put_destination_policy' function.
 class PutDestinationPolicyRequest(BaseValidatorModel):
     destinationName: str
     accessPolicy: str
     forceUpdate: Optional[bool] = None
 
 
+# This class is the input for the 'put_destination' function.
 class PutDestinationRequest(BaseValidatorModel):
     destinationName: str
     targetArn: str
@@ -795,6 +859,7 @@ class PutDestinationRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'put_index_policy' function.
 class PutIndexPolicyRequest(BaseValidatorModel):
     logGroupIdentifier: str
     policyDocument: str
@@ -810,6 +875,7 @@ class RejectedLogEventsInfo(BaseValidatorModel):
     expiredLogEventEndIndex: Optional[int] = None
 
 
+# This class is the input for the 'put_query_definition' function.
 class PutQueryDefinitionRequest(BaseValidatorModel):
     name: str
     queryString: str
@@ -819,16 +885,19 @@ class PutQueryDefinitionRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyRequest(BaseValidatorModel):
     policyName: Optional[str] = None
     policyDocument: Optional[str] = None
 
 
+# This class is the input for the 'put_retention_policy' function.
 class PutRetentionPolicyRequest(BaseValidatorModel):
     logGroupName: str
     retentionInDays: int
 
 
+# This class is the input for the 'put_subscription_filter' function.
 class PutSubscriptionFilterRequest(BaseValidatorModel):
     logGroupName: str
     filterName: str
@@ -858,6 +927,7 @@ class SplitStringEntry(BaseValidatorModel):
     delimiter: str
 
 
+# This class is the input for the 'start_live_tail' function.
 class StartLiveTailRequest(BaseValidatorModel):
     logGroupIdentifiers: List[str]
     logStreamNames: Optional[List[str]] = None
@@ -865,6 +935,7 @@ class StartLiveTailRequest(BaseValidatorModel):
     logEventFilterPattern: Optional[str] = None
 
 
+# This class is the input for the 'start_query' function.
 class StartQueryRequest(BaseValidatorModel):
     startTime: int
     endTime: int
@@ -876,6 +947,7 @@ class StartQueryRequest(BaseValidatorModel):
     limit: Optional[int] = None
 
 
+# This class is the input for the 'stop_query' function.
 class StopQueryRequest(BaseValidatorModel):
     queryId: str
 
@@ -891,16 +963,19 @@ class SuppressionPeriod(BaseValidatorModel):
     suppressionUnit: Optional[SuppressionUnitType] = None
 
 
+# This class is the input for the 'tag_log_group' function.
 class TagLogGroupRequest(BaseValidatorModel):
     logGroupName: str
     tags: Dict[str, str]
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Dict[str, str]
 
 
+# This class is the input for the 'test_metric_filter' function.
 class TestMetricFilterRequest(BaseValidatorModel):
     filterPattern: str
     logEventMessages: List[str]
@@ -921,16 +996,19 @@ class TypeConverterEntry(BaseValidatorModel):
     type: TypeType
 
 
+# This class is the input for the 'untag_log_group' function.
 class UntagLogGroupRequest(BaseValidatorModel):
     logGroupName: str
     tags: List[str]
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_log_anomaly_detector' function.
 class UpdateLogAnomalyDetectorRequest(BaseValidatorModel):
     anomalyDetectorArn: str
     enabled: bool
@@ -981,6 +1059,7 @@ class ConfigurationTemplateDeliveryConfigValues(BaseValidatorModel):
     s3DeliveryConfiguration: Optional[S3DeliveryConfiguration] = None
 
 
+# This class is the input for the 'create_delivery' function.
 class CreateDeliveryRequest(BaseValidatorModel):
     deliverySourceName: str
     deliveryDestinationArn: str
@@ -1017,31 +1096,37 @@ class CopyValue(BaseValidatorModel):
     entries: List[CopyValueEntry]
 
 
+# This class is the output for the 'create_export_task' function.
 class CreateExportTaskResponse(BaseValidatorModel):
     taskId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_log_anomaly_detector' function.
 class CreateLogAnomalyDetectorResponse(BaseValidatorModel):
     anomalyDetectorArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_query_definition' function.
 class DeleteQueryDefinitionResponse(BaseValidatorModel):
     success: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_account_policies' function.
 class DescribeAccountPoliciesResponse(BaseValidatorModel):
     accountPolicies: List[AccountPolicy]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_log_anomaly_detector' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_data_protection_policy' function.
 class GetDataProtectionPolicyResponse(BaseValidatorModel):
     logGroupIdentifier: str
     policyDocument: str
@@ -1049,6 +1134,7 @@ class GetDataProtectionPolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_log_anomaly_detector' function.
 class GetLogAnomalyDetectorResponse(BaseValidatorModel):
     detectorName: str
     logGroupArnList: List[str]
@@ -1062,38 +1148,45 @@ class GetLogAnomalyDetectorResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_log_record' function.
 class GetLogRecordResponse(BaseValidatorModel):
     logRecord: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_log_anomaly_detectors' function.
 class ListLogAnomalyDetectorsResponse(BaseValidatorModel):
     anomalyDetectors: List[AnomalyDetector]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_log_groups_for_query' function.
 class ListLogGroupsForQueryResponse(BaseValidatorModel):
     logGroupIdentifiers: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_log_group' function.
 class ListTagsLogGroupResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_account_policy' function.
 class PutAccountPolicyResponse(BaseValidatorModel):
     accountPolicy: AccountPolicy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_data_protection_policy' function.
 class PutDataProtectionPolicyResponse(BaseValidatorModel):
     logGroupIdentifier: str
     policyDocument: str
@@ -1101,22 +1194,26 @@ class PutDataProtectionPolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_integration' function.
 class PutIntegrationResponse(BaseValidatorModel):
     integrationName: str
     integrationStatus: IntegrationStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_query_definition' function.
 class PutQueryDefinitionResponse(BaseValidatorModel):
     queryDefinitionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_query' function.
 class StartQueryResponse(BaseValidatorModel):
     queryId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_query' function.
 class StopQueryResponse(BaseValidatorModel):
     success: bool
     ResponseMetadata: ResponseMetadata
@@ -1135,6 +1232,7 @@ class DeliveryDestination(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'put_delivery_destination' function.
 class PutDeliveryDestinationRequest(BaseValidatorModel):
     name: str
     deliveryDestinationConfiguration: DeliveryDestinationConfiguration
@@ -1142,17 +1240,20 @@ class PutDeliveryDestinationRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'describe_delivery_sources' function.
 class DescribeDeliverySourcesResponse(BaseValidatorModel):
     deliverySources: List[DeliverySource]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_delivery_source' function.
 class GetDeliverySourceResponse(BaseValidatorModel):
     deliverySource: DeliverySource
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_delivery_source' function.
 class PutDeliverySourceResponse(BaseValidatorModel):
     deliverySource: DeliverySource
     ResponseMetadata: ResponseMetadata
@@ -1261,69 +1362,81 @@ class ListLogGroupsForQueryRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'describe_destinations' function.
 class DescribeDestinationsResponse(BaseValidatorModel):
     destinations: List[Destination]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'put_destination' function.
 class PutDestinationResponse(BaseValidatorModel):
     destination: Destination
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_field_indexes' function.
 class DescribeFieldIndexesResponse(BaseValidatorModel):
     fieldIndexes: List[FieldIndex]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_index_policies' function.
 class DescribeIndexPoliciesResponse(BaseValidatorModel):
     indexPolicies: List[IndexPolicy]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'put_index_policy' function.
 class PutIndexPolicyResponse(BaseValidatorModel):
     indexPolicy: IndexPolicy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_log_groups' function.
 class DescribeLogGroupsResponse(BaseValidatorModel):
     logGroups: List[LogGroup]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_log_streams' function.
 class DescribeLogStreamsResponse(BaseValidatorModel):
     logStreams: List[LogStream]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_queries' function.
 class DescribeQueriesResponse(BaseValidatorModel):
     queries: List[QueryInfo]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_query_definitions' function.
 class DescribeQueryDefinitionsResponse(BaseValidatorModel):
     queryDefinitions: List[QueryDefinition]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_resource_policies' function.
 class DescribeResourcePoliciesResponse(BaseValidatorModel):
     resourcePolicies: List[ResourcePolicy]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'put_resource_policy' function.
 class PutResourcePolicyResponse(BaseValidatorModel):
     resourcePolicy: ResourcePolicy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_subscription_filters' function.
 class DescribeSubscriptionFiltersResponse(BaseValidatorModel):
     subscriptionFilters: List[SubscriptionFilter]
     ResponseMetadata: ResponseMetadata
@@ -1342,6 +1455,7 @@ class ExportTask(BaseValidatorModel):
     executionInfo: Optional[ExportTaskExecutionInfo] = None
 
 
+# This class is the output for the 'filter_log_events' function.
 class FilterLogEventsResponse(BaseValidatorModel):
     events: List[FilteredLogEvent]
     searchedLogStreams: List[SearchedLogStream]
@@ -1349,16 +1463,19 @@ class FilterLogEventsResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_delivery_destination_policy' function.
 class GetDeliveryDestinationPolicyResponse(BaseValidatorModel):
     policy: Policy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_delivery_destination_policy' function.
 class PutDeliveryDestinationPolicyResponse(BaseValidatorModel):
     policy: Policy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_log_events' function.
 class GetLogEventsResponse(BaseValidatorModel):
     events: List[OutputLogEvent]
     nextForwardToken: str
@@ -1366,11 +1483,13 @@ class GetLogEventsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_log_group_fields' function.
 class GetLogGroupFieldsResponse(BaseValidatorModel):
     logGroupFields: List[LogGroupField]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_query_results' function.
 class GetQueryResultsResponse(BaseValidatorModel):
     queryLanguage: QueryLanguageType
     results: List[List[ResultField]]
@@ -1380,6 +1499,7 @@ class GetQueryResultsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_log_events' function.
 class PutLogEventsRequest(BaseValidatorModel):
     logGroupName: str
     logStreamName: str
@@ -1388,6 +1508,7 @@ class PutLogEventsRequest(BaseValidatorModel):
     entity: Optional[Entity] = None
 
 
+# This class is the output for the 'list_integrations' function.
 class ListIntegrationsResponse(BaseValidatorModel):
     integrationSummaries: List[IntegrationSummary]
     ResponseMetadata: ResponseMetadata
@@ -1400,6 +1521,7 @@ class LiveTailSessionUpdate(BaseValidatorModel):
 LowerCaseStringUnion = Union[LowerCaseString, LowerCaseStringOutput]
 
 
+# This class is the output for the 'test_metric_filter' function.
 class TestMetricFilterResponse(BaseValidatorModel):
     matches: List[MetricFilterMatchRecord]
     ResponseMetadata: ResponseMetadata
@@ -1471,6 +1593,7 @@ class ResourceConfig(BaseValidatorModel):
     openSearchResourceConfig: Optional[OpenSearchResourceConfig] = None
 
 
+# This class is the output for the 'put_log_events' function.
 class PutLogEventsResponse(BaseValidatorModel):
     nextSequenceToken: str
     rejectedLogEventsInfo: RejectedLogEventsInfo
@@ -1502,6 +1625,7 @@ class SubstituteString(BaseValidatorModel):
     entries: List[SubstituteStringEntry]
 
 
+# This class is the input for the 'update_anomaly' function.
 class UpdateAnomalyRequest(BaseValidatorModel):
     anomalyDetectorArn: str
     anomalyId: Optional[str] = None
@@ -1511,6 +1635,7 @@ class UpdateAnomalyRequest(BaseValidatorModel):
     baseline: Optional[bool] = None
 
 
+# This class is the output for the 'test_transformer' function.
 class TestTransformerResponse(BaseValidatorModel):
     transformedLogs: List[TransformedLogRecord]
     ResponseMetadata: ResponseMetadata
@@ -1530,6 +1655,7 @@ UpperCaseStringUnion = Union[UpperCaseString, UpperCaseStringOutput]
 AddKeysUnion = Union[AddKeys, AddKeysOutput]
 
 
+# This class is the output for the 'list_anomalies' function.
 class ListAnomaliesResponse(BaseValidatorModel):
     anomalies: List[Anomaly]
     ResponseMetadata: ResponseMetadata
@@ -1549,17 +1675,20 @@ class ConfigurationTemplate(BaseValidatorModel):
     allowedSuffixPathFields: Optional[List[str]] = None
 
 
+# This class is the output for the 'create_delivery' function.
 class CreateDeliveryResponse(BaseValidatorModel):
     delivery: Delivery
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_deliveries' function.
 class DescribeDeliveriesResponse(BaseValidatorModel):
     deliveries: List[Delivery]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_delivery' function.
 class GetDeliveryResponse(BaseValidatorModel):
     delivery: Delivery
     ResponseMetadata: ResponseMetadata
@@ -1567,22 +1696,26 @@ class GetDeliveryResponse(BaseValidatorModel):
 CopyValueUnion = Union[CopyValue, CopyValueOutput]
 
 
+# This class is the output for the 'describe_delivery_destinations' function.
 class DescribeDeliveryDestinationsResponse(BaseValidatorModel):
     deliveryDestinations: List[DeliveryDestination]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_delivery_destination' function.
 class GetDeliveryDestinationResponse(BaseValidatorModel):
     deliveryDestination: DeliveryDestination
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_delivery_destination' function.
 class PutDeliveryDestinationResponse(BaseValidatorModel):
     deliveryDestination: DeliveryDestination
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_export_tasks' function.
 class DescribeExportTasksResponse(BaseValidatorModel):
     exportTasks: List[ExportTask]
     ResponseMetadata: ResponseMetadata
@@ -1596,12 +1729,14 @@ class StartLiveTailResponseStream(BaseValidatorModel):
     SessionStreamingException: Optional[SessionStreamingException] = None
 
 
+# This class is the output for the 'describe_metric_filters' function.
 class DescribeMetricFiltersResponse(BaseValidatorModel):
     metricFilters: List[MetricFilter]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'put_metric_filter' function.
 class PutMetricFilterRequest(BaseValidatorModel):
     logGroupName: str
     filterName: str
@@ -1623,6 +1758,7 @@ class OpenSearchIntegrationDetails(BaseValidatorModel):
     lifecyclePolicy: Optional[OpenSearchLifecyclePolicy] = None
 
 
+# This class is the input for the 'put_integration' function.
 class PutIntegrationRequest(BaseValidatorModel):
     integrationName: str
     resourceConfig: ResourceConfig
@@ -1662,12 +1798,14 @@ class ProcessorOutput(BaseValidatorModel):
 TypeConverterUnion = Union[TypeConverter, TypeConverterOutput]
 
 
+# This class is the output for the 'describe_configuration_templates' function.
 class DescribeConfigurationTemplatesResponse(BaseValidatorModel):
     configurationTemplates: List[ConfigurationTemplate]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_live_tail' function.
 class StartLiveTailResponse(BaseValidatorModel):
     responseStream: EventStream[StartLiveTailResponseStream]
     ResponseMetadata: ResponseMetadata
@@ -1677,6 +1815,7 @@ class IntegrationDetails(BaseValidatorModel):
     openSearchIntegrationDetails: Optional[OpenSearchIntegrationDetails] = None
 
 
+# This class is the output for the 'get_transformer' function.
 class GetTransformerResponse(BaseValidatorModel):
     logGroupIdentifier: str
     creationTime: int
@@ -1710,6 +1849,7 @@ class Processor(BaseValidatorModel):
     upperCaseString: Optional[UpperCaseStringUnion] = None
 
 
+# This class is the output for the 'get_integration' function.
 class GetIntegrationResponse(BaseValidatorModel):
     integrationName: str
     integrationType: Literal['OPENSEARCH']
@@ -1720,11 +1860,13 @@ class GetIntegrationResponse(BaseValidatorModel):
 ProcessorUnion = Union[Processor, ProcessorOutput]
 
 
+# This class is the input for the 'put_transformer' function.
 class PutTransformerRequest(BaseValidatorModel):
     logGroupIdentifier: str
     transformerConfig: List[ProcessorUnion]
 
 
+# This class is the input for the 'test_transformer' function.
 class TestTransformerRequest(BaseValidatorModel):
     transformerConfig: List[ProcessorUnion]
     logEventMessages: List[str]

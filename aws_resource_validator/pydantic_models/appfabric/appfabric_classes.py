@@ -36,6 +36,7 @@ class AuthRequest(BaseValidatorModel):
     code: str
 
 
+# This class is the input for the 'batch_get_user_access_tasks' function.
 class BatchGetUserAccessTasksRequest(BaseValidatorModel):
     appBundleIdentifier: str
     taskIdList: List[str]
@@ -99,21 +100,25 @@ class S3Bucket(BaseValidatorModel):
     prefix: Optional[str] = None
 
 
+# This class is the input for the 'get_app_authorization' function.
 class GetAppAuthorizationRequest(BaseValidatorModel):
     appBundleIdentifier: str
     appAuthorizationIdentifier: str
 
 
+# This class is the input for the 'get_app_bundle' function.
 class GetAppBundleRequest(BaseValidatorModel):
     appBundleIdentifier: str
 
 
+# This class is the input for the 'get_ingestion_destination' function.
 class GetIngestionDestinationRequest(BaseValidatorModel):
     appBundleIdentifier: str
     ingestionIdentifier: str
     ingestionDestinationIdentifier: str
 
 
+# This class is the input for the 'get_ingestion' function.
 class GetIngestionRequest(BaseValidatorModel):
     appBundleIdentifier: str
     ingestionIdentifier: str
@@ -136,17 +141,20 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_app_authorizations' function.
 class ListAppAuthorizationsRequest(BaseValidatorModel):
     appBundleIdentifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_app_bundles' function.
 class ListAppBundlesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_ingestion_destinations' function.
 class ListIngestionDestinationsRequest(BaseValidatorModel):
     appBundleIdentifier: str
     ingestionIdentifier: str
@@ -154,12 +162,14 @@ class ListIngestionDestinationsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_ingestions' function.
 class ListIngestionsRequest(BaseValidatorModel):
     appBundleIdentifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -169,6 +179,7 @@ class StartIngestionRequest(BaseValidatorModel):
     appBundleIdentifier: str
 
 
+# This class is the input for the 'start_user_access_tasks' function.
 class StartUserAccessTasksRequest(BaseValidatorModel):
     appBundleIdentifier: str
     email: str
@@ -215,34 +226,40 @@ class ProcessingConfiguration(BaseValidatorModel):
     auditLog: Optional[AuditLogProcessingConfiguration] = None
 
 
+# This class is the input for the 'connect_app_authorization' function.
 class ConnectAppAuthorizationRequest(BaseValidatorModel):
     appBundleIdentifier: str
     appAuthorizationIdentifier: str
     authRequest: Optional[AuthRequest] = None
 
 
+# This class is the output for the 'create_app_bundle' function.
 class CreateAppBundleResponse(BaseValidatorModel):
     appBundle: AppBundle
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_app_bundle' function.
 class GetAppBundleResponse(BaseValidatorModel):
     appBundle: AppBundle
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_app_bundles' function.
 class ListAppBundlesResponse(BaseValidatorModel):
     appBundleSummaryList: List[AppBundleSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_app_bundle' function.
 class CreateAppBundleRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
     customerManagedKeyIdentifier: Optional[str] = None
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_ingestion' function.
 class CreateIngestionRequest(BaseValidatorModel):
     appBundleIdentifier: str
     app: str
@@ -252,6 +269,7 @@ class CreateIngestionRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -262,11 +280,13 @@ class TagResourceRequest(BaseValidatorModel):
     tags: List[Tag]
 
 
+# This class is the output for the 'create_ingestion' function.
 class CreateIngestionResponse(BaseValidatorModel):
     ingestion: Ingestion
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_ingestion' function.
 class GetIngestionResponse(BaseValidatorModel):
     ingestion: Ingestion
     ResponseMetadata: ResponseMetadata
@@ -282,12 +302,14 @@ class Destination(BaseValidatorModel):
     firehoseStream: Optional[FirehoseStream] = None
 
 
+# This class is the output for the 'list_ingestion_destinations' function.
 class ListIngestionDestinationsResponse(BaseValidatorModel):
     ingestionDestinations: List[IngestionDestinationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_ingestions' function.
 class ListIngestionsResponse(BaseValidatorModel):
     ingestions: List[IngestionSummary]
     ResponseMetadata: ResponseMetadata
@@ -336,32 +358,38 @@ class UserAccessTaskItem(BaseValidatorModel):
     error: Optional[TaskError] = None
 
 
+# This class is the output for the 'connect_app_authorization' function.
 class ConnectAppAuthorizationResponse(BaseValidatorModel):
     appAuthorizationSummary: AppAuthorizationSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_app_authorizations' function.
 class ListAppAuthorizationsResponse(BaseValidatorModel):
     appAuthorizationSummaryList: List[AppAuthorizationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_app_authorization' function.
 class CreateAppAuthorizationResponse(BaseValidatorModel):
     appAuthorization: AppAuthorization
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_app_authorization' function.
 class GetAppAuthorizationResponse(BaseValidatorModel):
     appAuthorization: AppAuthorization
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_app_authorization' function.
 class UpdateAppAuthorizationResponse(BaseValidatorModel):
     appAuthorization: AppAuthorization
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_app_authorization' function.
 class CreateAppAuthorizationRequest(BaseValidatorModel):
     appBundleIdentifier: str
     app: str
@@ -372,6 +400,7 @@ class CreateAppAuthorizationRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_app_authorization' function.
 class UpdateAppAuthorizationRequest(BaseValidatorModel):
     appBundleIdentifier: str
     appAuthorizationIdentifier: str
@@ -383,11 +412,13 @@ class AuditLogDestinationConfiguration(BaseValidatorModel):
     destination: Destination
 
 
+# This class is the output for the 'batch_get_user_access_tasks' function.
 class BatchGetUserAccessTasksResponse(BaseValidatorModel):
     userAccessResultsList: List[UserAccessResultItem]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_user_access_tasks' function.
 class StartUserAccessTasksResponse(BaseValidatorModel):
     userAccessTasksList: List[UserAccessTaskItem]
     ResponseMetadata: ResponseMetadata
@@ -397,6 +428,7 @@ class DestinationConfiguration(BaseValidatorModel):
     auditLog: Optional[AuditLogDestinationConfiguration] = None
 
 
+# This class is the input for the 'create_ingestion_destination' function.
 class CreateIngestionDestinationRequest(BaseValidatorModel):
     appBundleIdentifier: str
     ingestionIdentifier: str
@@ -417,6 +449,7 @@ class IngestionDestination(BaseValidatorModel):
     updatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'update_ingestion_destination' function.
 class UpdateIngestionDestinationRequest(BaseValidatorModel):
     appBundleIdentifier: str
     ingestionIdentifier: str
@@ -424,16 +457,19 @@ class UpdateIngestionDestinationRequest(BaseValidatorModel):
     destinationConfiguration: DestinationConfiguration
 
 
+# This class is the output for the 'create_ingestion_destination' function.
 class CreateIngestionDestinationResponse(BaseValidatorModel):
     ingestionDestination: IngestionDestination
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_ingestion_destination' function.
 class GetIngestionDestinationResponse(BaseValidatorModel):
     ingestionDestination: IngestionDestination
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_ingestion_destination' function.
 class UpdateIngestionDestinationResponse(BaseValidatorModel):
     ingestionDestination: IngestionDestination
     ResponseMetadata: ResponseMetadata

@@ -20,6 +20,7 @@ class Tag(BaseValidatorModel):
     ResourceArn: Optional[str] = None
 
 
+# This class is the input for the 'apply_pending_maintenance_action' function.
 class ApplyPendingMaintenanceActionMessage(BaseValidatorModel):
     ReplicationInstanceArn: str
     ApplyAction: str
@@ -46,6 +47,7 @@ class BatchStartRecommendationsErrorEntry(BaseValidatorModel):
 Blob = Union[str, bytes, IO[Any], StreamingBody]
 
 
+# This class is the input for the 'cancel_replication_task_assessment_run' function.
 class CancelReplicationTaskAssessmentRunMessage(BaseValidatorModel):
     ReplicationTaskAssessmentRunArn: str
 
@@ -436,6 +438,7 @@ class EventSubscription(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
+# This class is the input for the 'create_fleet_advisor_collector' function.
 class CreateFleetAdvisorCollectorRequest(BaseValidatorModel):
     CollectorName: str
     ServiceAccessRoleArn: str
@@ -618,51 +621,63 @@ class DefaultErrorDetails(BaseValidatorModel):
     Message: Optional[str] = None
 
 
+# This class is the input for the 'delete_certificate' function.
 class DeleteCertificateMessage(BaseValidatorModel):
     CertificateArn: str
 
 
+# This class is the input for the 'delete_fleet_advisor_collector' function.
 class DeleteCollectorRequest(BaseValidatorModel):
     CollectorReferencedId: str
 
 
+# This class is the input for the 'delete_connection' function.
 class DeleteConnectionMessage(BaseValidatorModel):
     EndpointArn: str
     ReplicationInstanceArn: str
 
 
+# This class is the input for the 'delete_data_migration' function.
 class DeleteDataMigrationMessage(BaseValidatorModel):
     DataMigrationIdentifier: str
 
 
+# This class is the input for the 'delete_data_provider' function.
 class DeleteDataProviderMessage(BaseValidatorModel):
     DataProviderIdentifier: str
 
 
+# This class is the input for the 'delete_endpoint' function.
 class DeleteEndpointMessage(BaseValidatorModel):
     EndpointArn: str
 
 
+# This class is the input for the 'delete_event_subscription' function.
 class DeleteEventSubscriptionMessage(BaseValidatorModel):
     SubscriptionName: str
 
 
+# This class is the input for the 'delete_fleet_advisor_databases' function.
 class DeleteFleetAdvisorDatabasesRequest(BaseValidatorModel):
     DatabaseIds: List[str]
 
 
+# This class is the input for the 'delete_instance_profile' function.
 class DeleteInstanceProfileMessage(BaseValidatorModel):
     InstanceProfileIdentifier: str
 
 
+# This class is the input for the 'delete_migration_project' function.
 class DeleteMigrationProjectMessage(BaseValidatorModel):
     MigrationProjectIdentifier: str
 
 
+# This class is the input for the 'delete_replication_config' function.
 class DeleteReplicationConfigMessage(BaseValidatorModel):
     ReplicationConfigArn: str
 
 
+# This class is the input for the 'delete_replication_instance' function.
 class DeleteReplicationInstanceMessage(BaseValidatorModel):
     ReplicationInstanceArn: str
 
@@ -671,14 +686,17 @@ class DeleteReplicationSubnetGroupMessage(BaseValidatorModel):
     ReplicationSubnetGroupIdentifier: str
 
 
+# This class is the input for the 'delete_replication_task_assessment_run' function.
 class DeleteReplicationTaskAssessmentRunMessage(BaseValidatorModel):
     ReplicationTaskAssessmentRunArn: str
 
 
+# This class is the input for the 'delete_replication_task' function.
 class DeleteReplicationTaskMessage(BaseValidatorModel):
     ReplicationTaskArn: str
 
 
+# This class is the input for the 'describe_applicable_individual_assessments' function.
 class DescribeApplicableIndividualAssessmentsMessage(BaseValidatorModel):
     ReplicationTaskArn: Optional[str] = None
     ReplicationInstanceArn: Optional[str] = None
@@ -706,10 +724,12 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'describe_conversion_configuration' function.
 class DescribeConversionConfigurationMessage(BaseValidatorModel):
     MigrationProjectIdentifier: str
 
 
+# This class is the input for the 'describe_endpoint_settings' function.
 class DescribeEndpointSettingsMessage(BaseValidatorModel):
     EngineName: str
     MaxRecords: Optional[int] = None
@@ -736,6 +756,7 @@ class SupportedEndpointType(BaseValidatorModel):
     EngineDisplayName: Optional[str] = None
 
 
+# This class is the input for the 'describe_engine_versions' function.
 class DescribeEngineVersionsMessage(BaseValidatorModel):
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
@@ -765,6 +786,7 @@ class Event(BaseValidatorModel):
     Date: Optional[datetime] = None
 
 
+# This class is the input for the 'describe_fleet_advisor_lsa_analysis' function.
 class DescribeFleetAdvisorLsaAnalysisRequest(BaseValidatorModel):
     MaxRecords: Optional[int] = None
     NextToken: Optional[str] = None
@@ -783,6 +805,7 @@ class FleetAdvisorSchemaObjectResponse(BaseValidatorModel):
     CodeSize: Optional[int] = None
 
 
+# This class is the input for the 'describe_orderable_replication_instances' function.
 class DescribeOrderableReplicationInstancesMessage(BaseValidatorModel):
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
@@ -809,6 +832,7 @@ class Limitation(BaseValidatorModel):
     Type: Optional[str] = None
 
 
+# This class is the input for the 'describe_refresh_schemas_status' function.
 class DescribeRefreshSchemasStatusMessage(BaseValidatorModel):
     EndpointArn: str
 
@@ -821,6 +845,7 @@ class RefreshSchemasStatus(BaseValidatorModel):
     LastFailureMessage: Optional[str] = None
 
 
+# This class is the input for the 'describe_replication_instance_task_logs' function.
 class DescribeReplicationInstanceTaskLogsMessage(BaseValidatorModel):
     ReplicationInstanceArn: str
     MaxRecords: Optional[int] = None
@@ -859,6 +884,7 @@ class TableStatistics(BaseValidatorModel):
     ValidationStateDetails: Optional[str] = None
 
 
+# This class is the input for the 'describe_replication_task_assessment_results' function.
 class DescribeReplicationTaskAssessmentResultsMessage(BaseValidatorModel):
     ReplicationTaskArn: Optional[str] = None
     MaxRecords: Optional[int] = None
@@ -883,6 +909,7 @@ class ReplicationTaskIndividualAssessment(BaseValidatorModel):
     ReplicationTaskIndividualAssessmentStartDate: Optional[datetime] = None
 
 
+# This class is the input for the 'describe_schemas' function.
 class DescribeSchemasMessage(BaseValidatorModel):
     EndpointArn: str
     MaxRecords: Optional[int] = None
@@ -936,6 +963,7 @@ class OracleSettingsOutput(BaseValidatorModel):
     AuthenticationMethod: Optional[OracleAuthenticationMethodType] = None
 
 
+# This class is the input for the 'export_metadata_model_assessment' function.
 class ExportMetadataModelAssessmentMessage(BaseValidatorModel):
     MigrationProjectIdentifier: str
     SelectionRules: str
@@ -953,16 +981,19 @@ class ExportSqlDetails(BaseValidatorModel):
     ObjectURL: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceMessage(BaseValidatorModel):
     ResourceArn: Optional[str] = None
     ResourceArnList: Optional[List[str]] = None
 
 
+# This class is the input for the 'modify_conversion_configuration' function.
 class ModifyConversionConfigurationMessage(BaseValidatorModel):
     MigrationProjectIdentifier: str
     ConversionConfiguration: str
 
 
+# This class is the input for the 'modify_event_subscription' function.
 class ModifyEventSubscriptionMessage(BaseValidatorModel):
     SubscriptionName: str
     SnsTopicArn: Optional[str] = None
@@ -971,6 +1002,7 @@ class ModifyEventSubscriptionMessage(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
+# This class is the input for the 'modify_instance_profile' function.
 class ModifyInstanceProfileMessage(BaseValidatorModel):
     InstanceProfileIdentifier: str
     AvailabilityZone: Optional[str] = None
@@ -983,12 +1015,14 @@ class ModifyInstanceProfileMessage(BaseValidatorModel):
     VpcSecurityGroups: Optional[List[str]] = None
 
 
+# This class is the input for the 'modify_replication_subnet_group' function.
 class ModifyReplicationSubnetGroupMessage(BaseValidatorModel):
     ReplicationSubnetGroupIdentifier: str
     SubnetIds: List[str]
     ReplicationSubnetGroupDescription: Optional[str] = None
 
 
+# This class is the input for the 'move_replication_task' function.
 class MoveReplicationTaskMessage(BaseValidatorModel):
     ReplicationTaskArn: str
     TargetReplicationInstanceArn: str
@@ -1095,6 +1129,7 @@ class RdsRequirements(BaseValidatorModel):
     EngineVersion: Optional[str] = None
 
 
+# This class is the input for the 'reboot_replication_instance' function.
 class RebootReplicationInstanceMessage(BaseValidatorModel):
     ReplicationInstanceArn: str
     ForceFailover: Optional[bool] = None
@@ -1106,6 +1141,7 @@ class RecommendationSettings(BaseValidatorModel):
     WorkloadType: str
 
 
+# This class is the input for the 'refresh_schemas' function.
 class RefreshSchemasMessage(BaseValidatorModel):
     EndpointArn: str
     ReplicationInstanceArn: str
@@ -1170,25 +1206,30 @@ class SchemaShortInfoResponse(BaseValidatorModel):
     DatabaseIpAddress: Optional[str] = None
 
 
+# This class is the input for the 'start_data_migration' function.
 class StartDataMigrationMessage(BaseValidatorModel):
     DataMigrationIdentifier: str
     StartType: StartReplicationMigrationTypeValueType
 
 
+# This class is the input for the 'start_extension_pack_association' function.
 class StartExtensionPackAssociationMessage(BaseValidatorModel):
     MigrationProjectIdentifier: str
 
 
+# This class is the input for the 'start_metadata_model_assessment' function.
 class StartMetadataModelAssessmentMessage(BaseValidatorModel):
     MigrationProjectIdentifier: str
     SelectionRules: str
 
 
+# This class is the input for the 'start_metadata_model_conversion' function.
 class StartMetadataModelConversionMessage(BaseValidatorModel):
     MigrationProjectIdentifier: str
     SelectionRules: str
 
 
+# This class is the input for the 'start_metadata_model_export_as_script' function.
 class StartMetadataModelExportAsScriptMessage(BaseValidatorModel):
     MigrationProjectIdentifier: str
     SelectionRules: str
@@ -1196,12 +1237,14 @@ class StartMetadataModelExportAsScriptMessage(BaseValidatorModel):
     FileName: Optional[str] = None
 
 
+# This class is the input for the 'start_metadata_model_export_to_target' function.
 class StartMetadataModelExportToTargetMessage(BaseValidatorModel):
     MigrationProjectIdentifier: str
     SelectionRules: str
     OverwriteExtensionPack: Optional[bool] = None
 
 
+# This class is the input for the 'start_metadata_model_import' function.
 class StartMetadataModelImportMessage(BaseValidatorModel):
     MigrationProjectIdentifier: str
     SelectionRules: str
@@ -1209,27 +1252,33 @@ class StartMetadataModelImportMessage(BaseValidatorModel):
     Refresh: Optional[bool] = None
 
 
+# This class is the input for the 'start_replication_task_assessment' function.
 class StartReplicationTaskAssessmentMessage(BaseValidatorModel):
     ReplicationTaskArn: str
 
 
+# This class is the input for the 'stop_data_migration' function.
 class StopDataMigrationMessage(BaseValidatorModel):
     DataMigrationIdentifier: str
 
 
+# This class is the input for the 'stop_replication' function.
 class StopReplicationMessage(BaseValidatorModel):
     ReplicationConfigArn: str
 
 
+# This class is the input for the 'stop_replication_task' function.
 class StopReplicationTaskMessage(BaseValidatorModel):
     ReplicationTaskArn: str
 
 
+# This class is the input for the 'test_connection' function.
 class TestConnectionMessage(BaseValidatorModel):
     ReplicationInstanceArn: str
     EndpointArn: str
 
 
+# This class is the input for the 'update_subscriptions_to_event_bridge' function.
 class UpdateSubscriptionsToEventBridgeMessage(BaseValidatorModel):
     ForceMove: Optional[bool] = None
 
@@ -1239,6 +1288,7 @@ class AddTagsToResourceMessage(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the input for the 'create_event_subscription' function.
 class CreateEventSubscriptionMessage(BaseValidatorModel):
     SubscriptionName: str
     SnsTopicArn: str
@@ -1249,6 +1299,7 @@ class CreateEventSubscriptionMessage(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_instance_profile' function.
 class CreateInstanceProfileMessage(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
     KmsKeyArn: Optional[str] = None
@@ -1261,6 +1312,7 @@ class CreateInstanceProfileMessage(BaseValidatorModel):
     VpcSecurityGroups: Optional[List[str]] = None
 
 
+# This class is the input for the 'create_replication_subnet_group' function.
 class CreateReplicationSubnetGroupMessage(BaseValidatorModel):
     ReplicationSubnetGroupIdentifier: str
     ReplicationSubnetGroupDescription: str
@@ -1268,6 +1320,7 @@ class CreateReplicationSubnetGroupMessage(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'start_replication_task_assessment_run' function.
 class StartReplicationTaskAssessmentRunMessage(BaseValidatorModel):
     ReplicationTaskArn: str
     ServiceAccessRoleArn: str
@@ -1281,6 +1334,7 @@ class StartReplicationTaskAssessmentRunMessage(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'create_fleet_advisor_collector' function.
 class CreateFleetAdvisorCollectorResponse(BaseValidatorModel):
     CollectorReferencedId: str
     CollectorName: str
@@ -1290,6 +1344,7 @@ class CreateFleetAdvisorCollectorResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_fleet_advisor_databases' function.
 class DeleteFleetAdvisorDatabasesResponse(BaseValidatorModel):
     DatabaseIds: List[str]
     ResponseMetadata: ResponseMetadata
@@ -1301,43 +1356,51 @@ class DescribeAccountAttributesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_applicable_individual_assessments' function.
 class DescribeApplicableIndividualAssessmentsResponse(BaseValidatorModel):
     IndividualAssessmentNames: List[str]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_conversion_configuration' function.
 class DescribeConversionConfigurationResponse(BaseValidatorModel):
     MigrationProjectIdentifier: str
     ConversionConfiguration: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_schemas' function.
 class DescribeSchemasResponse(BaseValidatorModel):
     Marker: str
     Schemas: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_recommendations' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     TagList: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_conversion_configuration' function.
 class ModifyConversionConfigurationResponse(BaseValidatorModel):
     MigrationProjectIdentifier: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reload_replication_tables' function.
 class ReloadReplicationTablesResponse(BaseValidatorModel):
     ReplicationConfigArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reload_tables' function.
 class ReloadTablesResponse(BaseValidatorModel):
     ReplicationTaskArn: str
     ResponseMetadata: ResponseMetadata
@@ -1349,36 +1412,43 @@ class RunFleetAdvisorLsaAnalysisResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_extension_pack_association' function.
 class StartExtensionPackAssociationResponse(BaseValidatorModel):
     RequestIdentifier: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_metadata_model_assessment' function.
 class StartMetadataModelAssessmentResponse(BaseValidatorModel):
     RequestIdentifier: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_metadata_model_conversion' function.
 class StartMetadataModelConversionResponse(BaseValidatorModel):
     RequestIdentifier: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_metadata_model_export_as_script' function.
 class StartMetadataModelExportAsScriptResponse(BaseValidatorModel):
     RequestIdentifier: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_metadata_model_export_to_target' function.
 class StartMetadataModelExportToTargetResponse(BaseValidatorModel):
     RequestIdentifier: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_metadata_model_import' function.
 class StartMetadataModelImportResponse(BaseValidatorModel):
     RequestIdentifier: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_subscriptions_to_event_bridge' function.
 class UpdateSubscriptionsToEventBridgeResponse(BaseValidatorModel):
     Result: str
     ResponseMetadata: ResponseMetadata
@@ -1390,11 +1460,13 @@ class Subnet(BaseValidatorModel):
     SubnetStatus: Optional[str] = None
 
 
+# This class is the output for the 'batch_start_recommendations' function.
 class BatchStartRecommendationsResponse(BaseValidatorModel):
     ErrorEntries: List[BatchStartRecommendationsErrorEntry]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'import_certificate' function.
 class ImportCertificateMessage(BaseValidatorModel):
     CertificateIdentifier: str
     CertificatePem: Optional[str] = None
@@ -1402,17 +1474,20 @@ class ImportCertificateMessage(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'delete_certificate' function.
 class DeleteCertificateResponse(BaseValidatorModel):
     Certificate: Certificate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_certificates' function.
 class DescribeCertificatesResponse(BaseValidatorModel):
     Marker: str
     Certificates: List[Certificate]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_certificate' function.
 class ImportCertificateResponse(BaseValidatorModel):
     Certificate: Certificate
     ResponseMetadata: ResponseMetadata
@@ -1450,64 +1525,76 @@ class ReplicationConfig(BaseValidatorModel):
 ComputeConfigUnion = Union[ComputeConfig, ComputeConfigOutput]
 
 
+# This class is the output for the 'delete_connection' function.
 class DeleteConnectionResponse(BaseValidatorModel):
     Connection: Connection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_connections' function.
 class DescribeConnectionsResponse(BaseValidatorModel):
     Marker: str
     Connections: List[Connection]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'test_connection' function.
 class TestConnectionResponse(BaseValidatorModel):
     Connection: Connection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_event_subscription' function.
 class CreateEventSubscriptionResponse(BaseValidatorModel):
     EventSubscription: EventSubscription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_event_subscription' function.
 class DeleteEventSubscriptionResponse(BaseValidatorModel):
     EventSubscription: EventSubscription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_event_subscriptions' function.
 class DescribeEventSubscriptionsResponse(BaseValidatorModel):
     Marker: str
     EventSubscriptionsList: List[EventSubscription]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_event_subscription' function.
 class ModifyEventSubscriptionResponse(BaseValidatorModel):
     EventSubscription: EventSubscription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_instance_profile' function.
 class CreateInstanceProfileResponse(BaseValidatorModel):
     InstanceProfile: InstanceProfile
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_instance_profile' function.
 class DeleteInstanceProfileResponse(BaseValidatorModel):
     InstanceProfile: InstanceProfile
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_instance_profiles' function.
 class DescribeInstanceProfilesResponse(BaseValidatorModel):
     Marker: str
     InstanceProfiles: List[InstanceProfile]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_instance_profile' function.
 class ModifyInstanceProfileResponse(BaseValidatorModel):
     InstanceProfile: InstanceProfile
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_migration_project' function.
 class CreateMigrationProjectMessage(BaseValidatorModel):
     SourceDataProviderDescriptors: List[DataProviderDescriptorDefinition]
     TargetDataProviderDescriptors: List[DataProviderDescriptorDefinition]
@@ -1519,6 +1606,7 @@ class CreateMigrationProjectMessage(BaseValidatorModel):
     SchemaConversionApplicationAttributes: Optional[SCApplicationAttributes] = None
 
 
+# This class is the input for the 'modify_migration_project' function.
 class ModifyMigrationProjectMessage(BaseValidatorModel):
     MigrationProjectIdentifier: str
     MigrationProjectName: Optional[str] = None
@@ -1530,6 +1618,7 @@ class ModifyMigrationProjectMessage(BaseValidatorModel):
     SchemaConversionApplicationAttributes: Optional[SCApplicationAttributes] = None
 
 
+# This class is the input for the 'create_replication_instance' function.
 class CreateReplicationInstanceMessage(BaseValidatorModel):
     ReplicationInstanceIdentifier: str
     ReplicationInstanceClass: str
@@ -1550,6 +1639,7 @@ class CreateReplicationInstanceMessage(BaseValidatorModel):
     KerberosAuthenticationSettings: Optional[KerberosAuthenticationSettings] = None
 
 
+# This class is the input for the 'modify_replication_instance' function.
 class ModifyReplicationInstanceMessage(BaseValidatorModel):
     ReplicationInstanceArn: str
     AllocatedStorage: Optional[int] = None
@@ -1566,6 +1656,7 @@ class ModifyReplicationInstanceMessage(BaseValidatorModel):
     KerberosAuthenticationSettings: Optional[KerberosAuthenticationSettings] = None
 
 
+# This class is the input for the 'create_replication_task' function.
 class CreateReplicationTaskMessage(BaseValidatorModel):
     ReplicationTaskIdentifier: str
     SourceEndpointArn: str
@@ -1582,6 +1673,7 @@ class CreateReplicationTaskMessage(BaseValidatorModel):
     ResourceIdentifier: Optional[str] = None
 
 
+# This class is the input for the 'modify_replication_task' function.
 class ModifyReplicationTaskMessage(BaseValidatorModel):
     ReplicationTaskArn: str
     ReplicationTaskIdentifier: Optional[str] = None
@@ -1601,6 +1693,7 @@ class SourceDataSetting(BaseValidatorModel):
     SlotName: Optional[str] = None
 
 
+# This class is the input for the 'start_replication' function.
 class StartReplicationMessage(BaseValidatorModel):
     ReplicationConfigArn: str
     StartReplicationType: str
@@ -1610,6 +1703,7 @@ class StartReplicationMessage(BaseValidatorModel):
     CdcStopPosition: Optional[str] = None
 
 
+# This class is the input for the 'start_replication_task' function.
 class StartReplicationTaskMessage(BaseValidatorModel):
     ReplicationTaskArn: str
     StartReplicationTaskType: StartReplicationTaskTypeValueType
@@ -1678,18 +1772,21 @@ class ErrorDetails(BaseValidatorModel):
     defaultErrorDetails: Optional[DefaultErrorDetails] = None
 
 
+# This class is the input for the 'describe_certificates' function.
 class DescribeCertificatesMessage(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_connections' function.
 class DescribeConnectionsMessage(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_data_migrations' function.
 class DescribeDataMigrationsMessage(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxRecords: Optional[int] = None
@@ -1698,29 +1795,34 @@ class DescribeDataMigrationsMessage(BaseValidatorModel):
     WithoutStatistics: Optional[bool] = None
 
 
+# This class is the input for the 'describe_data_providers' function.
 class DescribeDataProvidersMessage(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_endpoint_types' function.
 class DescribeEndpointTypesMessage(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_endpoints' function.
 class DescribeEndpointsMessage(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_event_categories' function.
 class DescribeEventCategoriesMessage(BaseValidatorModel):
     SourceType: Optional[str] = None
     Filters: Optional[List[Filter]] = None
 
 
+# This class is the input for the 'describe_event_subscriptions' function.
 class DescribeEventSubscriptionsMessage(BaseValidatorModel):
     SubscriptionName: Optional[str] = None
     Filters: Optional[List[Filter]] = None
@@ -1728,6 +1830,7 @@ class DescribeEventSubscriptionsMessage(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_events' function.
 class DescribeEventsMessage(BaseValidatorModel):
     SourceIdentifier: Optional[str] = None
     SourceType: Optional[Literal['replication-instance']] = None
@@ -1740,6 +1843,7 @@ class DescribeEventsMessage(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_extension_pack_associations' function.
 class DescribeExtensionPackAssociationsMessage(BaseValidatorModel):
     MigrationProjectIdentifier: str
     Filters: Optional[List[Filter]] = None
@@ -1747,36 +1851,42 @@ class DescribeExtensionPackAssociationsMessage(BaseValidatorModel):
     MaxRecords: Optional[int] = None
 
 
+# This class is the input for the 'describe_fleet_advisor_collectors' function.
 class DescribeFleetAdvisorCollectorsRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxRecords: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_fleet_advisor_databases' function.
 class DescribeFleetAdvisorDatabasesRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxRecords: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_fleet_advisor_schema_object_summary' function.
 class DescribeFleetAdvisorSchemaObjectSummaryRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxRecords: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_fleet_advisor_schemas' function.
 class DescribeFleetAdvisorSchemasRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxRecords: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_instance_profiles' function.
 class DescribeInstanceProfilesMessage(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_metadata_model_assessments' function.
 class DescribeMetadataModelAssessmentsMessage(BaseValidatorModel):
     MigrationProjectIdentifier: str
     Filters: Optional[List[Filter]] = None
@@ -1784,6 +1894,7 @@ class DescribeMetadataModelAssessmentsMessage(BaseValidatorModel):
     MaxRecords: Optional[int] = None
 
 
+# This class is the input for the 'describe_metadata_model_conversions' function.
 class DescribeMetadataModelConversionsMessage(BaseValidatorModel):
     MigrationProjectIdentifier: str
     Filters: Optional[List[Filter]] = None
@@ -1791,6 +1902,7 @@ class DescribeMetadataModelConversionsMessage(BaseValidatorModel):
     MaxRecords: Optional[int] = None
 
 
+# This class is the input for the 'describe_metadata_model_exports_as_script' function.
 class DescribeMetadataModelExportsAsScriptMessage(BaseValidatorModel):
     MigrationProjectIdentifier: str
     Filters: Optional[List[Filter]] = None
@@ -1798,6 +1910,7 @@ class DescribeMetadataModelExportsAsScriptMessage(BaseValidatorModel):
     MaxRecords: Optional[int] = None
 
 
+# This class is the input for the 'describe_metadata_model_exports_to_target' function.
 class DescribeMetadataModelExportsToTargetMessage(BaseValidatorModel):
     MigrationProjectIdentifier: str
     Filters: Optional[List[Filter]] = None
@@ -1805,6 +1918,7 @@ class DescribeMetadataModelExportsToTargetMessage(BaseValidatorModel):
     MaxRecords: Optional[int] = None
 
 
+# This class is the input for the 'describe_metadata_model_imports' function.
 class DescribeMetadataModelImportsMessage(BaseValidatorModel):
     MigrationProjectIdentifier: str
     Filters: Optional[List[Filter]] = None
@@ -1812,12 +1926,14 @@ class DescribeMetadataModelImportsMessage(BaseValidatorModel):
     MaxRecords: Optional[int] = None
 
 
+# This class is the input for the 'describe_migration_projects' function.
 class DescribeMigrationProjectsMessage(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_pending_maintenance_actions' function.
 class DescribePendingMaintenanceActionsMessage(BaseValidatorModel):
     ReplicationInstanceArn: Optional[str] = None
     Filters: Optional[List[Filter]] = None
@@ -1825,36 +1941,42 @@ class DescribePendingMaintenanceActionsMessage(BaseValidatorModel):
     MaxRecords: Optional[int] = None
 
 
+# This class is the input for the 'describe_recommendation_limitations' function.
 class DescribeRecommendationLimitationsRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxRecords: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_recommendations' function.
 class DescribeRecommendationsRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxRecords: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_replication_configs' function.
 class DescribeReplicationConfigsMessage(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_replication_instances' function.
 class DescribeReplicationInstancesMessage(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_replication_subnet_groups' function.
 class DescribeReplicationSubnetGroupsMessage(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_replication_table_statistics' function.
 class DescribeReplicationTableStatisticsMessage(BaseValidatorModel):
     ReplicationConfigArn: str
     MaxRecords: Optional[int] = None
@@ -1862,18 +1984,21 @@ class DescribeReplicationTableStatisticsMessage(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
 
 
+# This class is the input for the 'describe_replication_task_assessment_runs' function.
 class DescribeReplicationTaskAssessmentRunsMessage(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_replication_task_individual_assessments' function.
 class DescribeReplicationTaskIndividualAssessmentsMessage(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_replication_tasks' function.
 class DescribeReplicationTasksMessage(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxRecords: Optional[int] = None
@@ -1881,12 +2006,14 @@ class DescribeReplicationTasksMessage(BaseValidatorModel):
     WithoutSettings: Optional[bool] = None
 
 
+# This class is the input for the 'describe_replications' function.
 class DescribeReplicationsMessage(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_table_statistics' function.
 class DescribeTableStatisticsMessage(BaseValidatorModel):
     ReplicationTaskArn: str
     MaxRecords: Optional[int] = None
@@ -2034,69 +2161,81 @@ class DescribeReplicationTasksMessageWait(BaseValidatorModel):
     WaiterConfig: Optional[WaiterConfig] = None
 
 
+# This class is the output for the 'describe_endpoint_settings' function.
 class DescribeEndpointSettingsResponse(BaseValidatorModel):
     Marker: str
     EndpointSettings: List[EndpointSetting]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_endpoint_types' function.
 class DescribeEndpointTypesResponse(BaseValidatorModel):
     Marker: str
     SupportedEndpointTypes: List[SupportedEndpointType]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_engine_versions' function.
 class DescribeEngineVersionsResponse(BaseValidatorModel):
     EngineVersions: List[EngineVersion]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_event_categories' function.
 class DescribeEventCategoriesResponse(BaseValidatorModel):
     EventCategoryGroupList: List[EventCategoryGroup]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_events' function.
 class DescribeEventsResponse(BaseValidatorModel):
     Marker: str
     Events: List[Event]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_fleet_advisor_lsa_analysis' function.
 class DescribeFleetAdvisorLsaAnalysisResponse(BaseValidatorModel):
     Analysis: List[FleetAdvisorLsaAnalysisResponse]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_fleet_advisor_schema_object_summary' function.
 class DescribeFleetAdvisorSchemaObjectSummaryResponse(BaseValidatorModel):
     FleetAdvisorSchemaObjects: List[FleetAdvisorSchemaObjectResponse]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_orderable_replication_instances' function.
 class DescribeOrderableReplicationInstancesResponse(BaseValidatorModel):
     OrderableReplicationInstances: List[OrderableReplicationInstance]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_recommendation_limitations' function.
 class DescribeRecommendationLimitationsResponse(BaseValidatorModel):
     Limitations: List[Limitation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_refresh_schemas_status' function.
 class DescribeRefreshSchemasStatusResponse(BaseValidatorModel):
     RefreshSchemasStatus: RefreshSchemasStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'refresh_schemas' function.
 class RefreshSchemasResponse(BaseValidatorModel):
     RefreshSchemasStatus: RefreshSchemasStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_replication_instance_task_logs' function.
 class DescribeReplicationInstanceTaskLogsResponse(BaseValidatorModel):
     ReplicationInstanceArn: str
     ReplicationInstanceTaskLogs: List[ReplicationInstanceTaskLog]
@@ -2104,6 +2243,7 @@ class DescribeReplicationInstanceTaskLogsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_replication_table_statistics' function.
 class DescribeReplicationTableStatisticsResponse(BaseValidatorModel):
     ReplicationConfigArn: str
     Marker: str
@@ -2111,6 +2251,7 @@ class DescribeReplicationTableStatisticsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_table_statistics' function.
 class DescribeTableStatisticsResponse(BaseValidatorModel):
     ReplicationTaskArn: str
     TableStatistics: List[TableStatistics]
@@ -2118,6 +2259,7 @@ class DescribeTableStatisticsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_replication_task_assessment_results' function.
 class DescribeReplicationTaskAssessmentResultsResponse(BaseValidatorModel):
     Marker: str
     BucketName: str
@@ -2125,6 +2267,7 @@ class DescribeReplicationTaskAssessmentResultsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_replication_task_individual_assessments' function.
 class DescribeReplicationTaskIndividualAssessmentsResponse(BaseValidatorModel):
     Marker: str
     ReplicationTaskIndividualAssessments: List[ReplicationTaskIndividualAssessment]
@@ -2170,6 +2313,7 @@ class Endpoint(BaseValidatorModel):
     TimestreamSettings: Optional[TimestreamSettings] = None
 
 
+# This class is the output for the 'export_metadata_model_assessment' function.
 class ExportMetadataModelAssessmentResponse(BaseValidatorModel):
     PdfReport: ExportMetadataModelAssessmentResultEntry
     CsvReport: ExportMetadataModelAssessmentResultEntry
@@ -2224,17 +2368,20 @@ class StartRecommendationsRequestEntry(BaseValidatorModel):
     Settings: RecommendationSettings
 
 
+# This class is the input for the 'start_recommendations' function.
 class StartRecommendationsRequest(BaseValidatorModel):
     DatabaseId: str
     Settings: RecommendationSettings
 
 
+# This class is the input for the 'reload_replication_tables' function.
 class ReloadReplicationTablesMessage(BaseValidatorModel):
     ReplicationConfigArn: str
     TablesToReload: List[TableToReload]
     ReloadOption: Optional[ReloadOptionValueType] = None
 
 
+# This class is the input for the 'reload_tables' function.
 class ReloadTablesMessage(BaseValidatorModel):
     ReplicationTaskArn: str
     TablesToReload: List[TableToReload]
@@ -2284,33 +2431,39 @@ class ReplicationSubnetGroup(BaseValidatorModel):
     SupportedNetworkTypes: Optional[List[str]] = None
 
 
+# This class is the output for the 'describe_fleet_advisor_collectors' function.
 class DescribeFleetAdvisorCollectorsResponse(BaseValidatorModel):
     Collectors: List[CollectorResponse]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_replication_config' function.
 class CreateReplicationConfigResponse(BaseValidatorModel):
     ReplicationConfig: ReplicationConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_replication_config' function.
 class DeleteReplicationConfigResponse(BaseValidatorModel):
     ReplicationConfig: ReplicationConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_replication_configs' function.
 class DescribeReplicationConfigsResponse(BaseValidatorModel):
     Marker: str
     ReplicationConfigs: List[ReplicationConfig]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_replication_config' function.
 class ModifyReplicationConfigResponse(BaseValidatorModel):
     ReplicationConfig: ReplicationConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_replication_config' function.
 class CreateReplicationConfigMessage(BaseValidatorModel):
     ReplicationConfigIdentifier: str
     SourceEndpointArn: str
@@ -2324,6 +2477,7 @@ class CreateReplicationConfigMessage(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'modify_replication_config' function.
 class ModifyReplicationConfigMessage(BaseValidatorModel):
     ReplicationConfigArn: str
     ReplicationConfigIdentifier: Optional[str] = None
@@ -2338,58 +2492,69 @@ class ModifyReplicationConfigMessage(BaseValidatorModel):
 SourceDataSettingUnion = Union[SourceDataSetting, SourceDataSettingOutput]
 
 
+# This class is the output for the 'create_data_migration' function.
 class CreateDataMigrationResponse(BaseValidatorModel):
     DataMigration: DataMigration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_data_migration' function.
 class DeleteDataMigrationResponse(BaseValidatorModel):
     DataMigration: DataMigration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_data_migrations' function.
 class DescribeDataMigrationsResponse(BaseValidatorModel):
     DataMigrations: List[DataMigration]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_data_migration' function.
 class ModifyDataMigrationResponse(BaseValidatorModel):
     DataMigration: DataMigration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_data_migration' function.
 class StartDataMigrationResponse(BaseValidatorModel):
     DataMigration: DataMigration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_data_migration' function.
 class StopDataMigrationResponse(BaseValidatorModel):
     DataMigration: DataMigration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_migration_project' function.
 class CreateMigrationProjectResponse(BaseValidatorModel):
     MigrationProject: MigrationProject
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_migration_project' function.
 class DeleteMigrationProjectResponse(BaseValidatorModel):
     MigrationProject: MigrationProject
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_migration_projects' function.
 class DescribeMigrationProjectsResponse(BaseValidatorModel):
     Marker: str
     MigrationProjects: List[MigrationProject]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_migration_project' function.
 class ModifyMigrationProjectResponse(BaseValidatorModel):
     MigrationProject: MigrationProject
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_data_provider' function.
 class CreateDataProviderMessage(BaseValidatorModel):
     Engine: str
     Settings: DataProviderSettings
@@ -2407,6 +2572,7 @@ class DataProvider(BaseValidatorModel):
     Settings: Optional[DataProviderSettings] = None
 
 
+# This class is the input for the 'modify_data_provider' function.
 class ModifyDataProviderMessage(BaseValidatorModel):
     DataProviderIdentifier: str
     DataProviderName: Optional[str] = None
@@ -2416,6 +2582,7 @@ class ModifyDataProviderMessage(BaseValidatorModel):
     Settings: Optional[DataProviderSettings] = None
 
 
+# This class is the output for the 'describe_fleet_advisor_databases' function.
 class DescribeFleetAdvisorDatabasesResponse(BaseValidatorModel):
     Databases: List[DatabaseResponse]
     ResponseMetadata: ResponseMetadata
@@ -2430,27 +2597,32 @@ class SchemaConversionRequest(BaseValidatorModel):
     ExportSqlDetails: Optional[ExportSqlDetails] = None
 
 
+# This class is the output for the 'create_endpoint' function.
 class CreateEndpointResponse(BaseValidatorModel):
     Endpoint: Endpoint
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_endpoint' function.
 class DeleteEndpointResponse(BaseValidatorModel):
     Endpoint: Endpoint
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_endpoints' function.
 class DescribeEndpointsResponse(BaseValidatorModel):
     Marker: str
     Endpoints: List[Endpoint]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_endpoint' function.
 class ModifyEndpointResponse(BaseValidatorModel):
     Endpoint: Endpoint
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_endpoint' function.
 class CreateEndpointMessage(BaseValidatorModel):
     EndpointIdentifier: str
     EndpointType: ReplicationEndpointTypeValueType
@@ -2489,6 +2661,7 @@ class CreateEndpointMessage(BaseValidatorModel):
     TimestreamSettings: Optional[TimestreamSettings] = None
 
 
+# This class is the input for the 'modify_endpoint' function.
 class ModifyEndpointMessage(BaseValidatorModel):
     EndpointArn: str
     EndpointIdentifier: Optional[str] = None
@@ -2526,11 +2699,13 @@ class ModifyEndpointMessage(BaseValidatorModel):
     TimestreamSettings: Optional[TimestreamSettings] = None
 
 
+# This class is the output for the 'apply_pending_maintenance_action' function.
 class ApplyPendingMaintenanceActionResponse(BaseValidatorModel):
     ResourcePendingMaintenanceActions: ResourcePendingMaintenanceActions
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_pending_maintenance_actions' function.
 class DescribePendingMaintenanceActionsResponse(BaseValidatorModel):
     PendingMaintenanceActions: List[ResourcePendingMaintenanceActions]
     Marker: str
@@ -2560,22 +2735,26 @@ class Replication(BaseValidatorModel):
     ReplicationDeprovisionTime: Optional[datetime] = None
 
 
+# This class is the output for the 'cancel_replication_task_assessment_run' function.
 class CancelReplicationTaskAssessmentRunResponse(BaseValidatorModel):
     ReplicationTaskAssessmentRun: ReplicationTaskAssessmentRun
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_replication_task_assessment_run' function.
 class DeleteReplicationTaskAssessmentRunResponse(BaseValidatorModel):
     ReplicationTaskAssessmentRun: ReplicationTaskAssessmentRun
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_replication_task_assessment_runs' function.
 class DescribeReplicationTaskAssessmentRunsResponse(BaseValidatorModel):
     Marker: str
     ReplicationTaskAssessmentRuns: List[ReplicationTaskAssessmentRun]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_replication_task_assessment_run' function.
 class StartReplicationTaskAssessmentRunResponse(BaseValidatorModel):
     ReplicationTaskAssessmentRun: ReplicationTaskAssessmentRun
     ResponseMetadata: ResponseMetadata
@@ -2585,68 +2764,81 @@ class RecommendationData(BaseValidatorModel):
     RdsEngine: Optional[RdsRecommendation] = None
 
 
+# This class is the input for the 'batch_start_recommendations' function.
 class BatchStartRecommendationsRequest(BaseValidatorModel):
     Data: Optional[List[StartRecommendationsRequestEntry]] = None
 
 
+# This class is the output for the 'create_replication_task' function.
 class CreateReplicationTaskResponse(BaseValidatorModel):
     ReplicationTask: ReplicationTask
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_replication_task' function.
 class DeleteReplicationTaskResponse(BaseValidatorModel):
     ReplicationTask: ReplicationTask
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_replication_tasks' function.
 class DescribeReplicationTasksResponse(BaseValidatorModel):
     Marker: str
     ReplicationTasks: List[ReplicationTask]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_replication_task' function.
 class ModifyReplicationTaskResponse(BaseValidatorModel):
     ReplicationTask: ReplicationTask
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'move_replication_task' function.
 class MoveReplicationTaskResponse(BaseValidatorModel):
     ReplicationTask: ReplicationTask
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_replication_task_assessment' function.
 class StartReplicationTaskAssessmentResponse(BaseValidatorModel):
     ReplicationTask: ReplicationTask
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_replication_task' function.
 class StartReplicationTaskResponse(BaseValidatorModel):
     ReplicationTask: ReplicationTask
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_replication_task' function.
 class StopReplicationTaskResponse(BaseValidatorModel):
     ReplicationTask: ReplicationTask
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_fleet_advisor_schemas' function.
 class DescribeFleetAdvisorSchemasResponse(BaseValidatorModel):
     FleetAdvisorSchemas: List[SchemaResponse]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_replication_subnet_group' function.
 class CreateReplicationSubnetGroupResponse(BaseValidatorModel):
     ReplicationSubnetGroup: ReplicationSubnetGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_replication_subnet_groups' function.
 class DescribeReplicationSubnetGroupsResponse(BaseValidatorModel):
     Marker: str
     ReplicationSubnetGroups: List[ReplicationSubnetGroup]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_replication_subnet_group' function.
 class ModifyReplicationSubnetGroupResponse(BaseValidatorModel):
     ReplicationSubnetGroup: ReplicationSubnetGroup
     ResponseMetadata: ResponseMetadata
@@ -2681,6 +2873,7 @@ class ReplicationInstance(BaseValidatorModel):
     KerberosAuthenticationSettings: Optional[KerberosAuthenticationSettings] = None
 
 
+# This class is the input for the 'create_data_migration' function.
 class CreateDataMigrationMessage(BaseValidatorModel):
     MigrationProjectIdentifier: str
     DataMigrationType: MigrationTypeValueType
@@ -2694,6 +2887,7 @@ class CreateDataMigrationMessage(BaseValidatorModel):
     SelectionRules: Optional[str] = None
 
 
+# This class is the input for the 'modify_data_migration' function.
 class ModifyDataMigrationMessage(BaseValidatorModel):
     DataMigrationIdentifier: str
     DataMigrationName: Optional[str] = None
@@ -2706,74 +2900,87 @@ class ModifyDataMigrationMessage(BaseValidatorModel):
     SelectionRules: Optional[str] = None
 
 
+# This class is the output for the 'create_data_provider' function.
 class CreateDataProviderResponse(BaseValidatorModel):
     DataProvider: DataProvider
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_data_provider' function.
 class DeleteDataProviderResponse(BaseValidatorModel):
     DataProvider: DataProvider
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_data_providers' function.
 class DescribeDataProvidersResponse(BaseValidatorModel):
     Marker: str
     DataProviders: List[DataProvider]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_data_provider' function.
 class ModifyDataProviderResponse(BaseValidatorModel):
     DataProvider: DataProvider
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_extension_pack_associations' function.
 class DescribeExtensionPackAssociationsResponse(BaseValidatorModel):
     Marker: str
     Requests: List[SchemaConversionRequest]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_metadata_model_assessments' function.
 class DescribeMetadataModelAssessmentsResponse(BaseValidatorModel):
     Marker: str
     Requests: List[SchemaConversionRequest]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_metadata_model_conversions' function.
 class DescribeMetadataModelConversionsResponse(BaseValidatorModel):
     Marker: str
     Requests: List[SchemaConversionRequest]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_metadata_model_exports_as_script' function.
 class DescribeMetadataModelExportsAsScriptResponse(BaseValidatorModel):
     Marker: str
     Requests: List[SchemaConversionRequest]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_metadata_model_exports_to_target' function.
 class DescribeMetadataModelExportsToTargetResponse(BaseValidatorModel):
     Marker: str
     Requests: List[SchemaConversionRequest]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_metadata_model_imports' function.
 class DescribeMetadataModelImportsResponse(BaseValidatorModel):
     Marker: str
     Requests: List[SchemaConversionRequest]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_replications' function.
 class DescribeReplicationsResponse(BaseValidatorModel):
     Marker: str
     Replications: List[Replication]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_replication' function.
 class StartReplicationResponse(BaseValidatorModel):
     Replication: Replication
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_replication' function.
 class StopReplicationResponse(BaseValidatorModel):
     Replication: Replication
     ResponseMetadata: ResponseMetadata
@@ -2789,32 +2996,38 @@ class Recommendation(BaseValidatorModel):
     Data: Optional[RecommendationData] = None
 
 
+# This class is the output for the 'create_replication_instance' function.
 class CreateReplicationInstanceResponse(BaseValidatorModel):
     ReplicationInstance: ReplicationInstance
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_replication_instance' function.
 class DeleteReplicationInstanceResponse(BaseValidatorModel):
     ReplicationInstance: ReplicationInstance
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_replication_instances' function.
 class DescribeReplicationInstancesResponse(BaseValidatorModel):
     Marker: str
     ReplicationInstances: List[ReplicationInstance]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_replication_instance' function.
 class ModifyReplicationInstanceResponse(BaseValidatorModel):
     ReplicationInstance: ReplicationInstance
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reboot_replication_instance' function.
 class RebootReplicationInstanceResponse(BaseValidatorModel):
     ReplicationInstance: ReplicationInstance
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_recommendations' function.
 class DescribeRecommendationsResponse(BaseValidatorModel):
     Recommendations: List[Recommendation]
     ResponseMetadata: ResponseMetadata

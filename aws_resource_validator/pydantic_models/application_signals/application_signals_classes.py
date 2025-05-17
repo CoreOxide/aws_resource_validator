@@ -49,6 +49,7 @@ class Dimension(BaseValidatorModel):
     Value: str
 
 
+# This class is the input for the 'get_service_level_objective' function.
 class GetServiceLevelObjectiveInput(BaseValidatorModel):
     Id: str
 
@@ -64,6 +65,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_service_level_objectives' function.
 class ListServiceLevelObjectivesInput(BaseValidatorModel):
     KeyAttributes: Optional[Dict[str, str]] = None
     OperationName: Optional[str] = None
@@ -81,6 +83,7 @@ class ServiceLevelObjectiveSummary(BaseValidatorModel):
     CreatedTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -90,6 +93,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'batch_get_service_level_objective_budget_report' function.
 class BatchGetServiceLevelObjectiveBudgetReportInput(BaseValidatorModel):
     Timestamp: Timestamp
     SloIds: List[str]
@@ -101,12 +105,14 @@ class CalendarInterval(BaseValidatorModel):
     Duration: int
 
 
+# This class is the input for the 'get_service' function.
 class GetServiceInput(BaseValidatorModel):
     StartTime: Timestamp
     EndTime: Timestamp
     KeyAttributes: Dict[str, str]
 
 
+# This class is the input for the 'list_service_dependencies' function.
 class ListServiceDependenciesInput(BaseValidatorModel):
     StartTime: Timestamp
     EndTime: Timestamp
@@ -115,6 +121,7 @@ class ListServiceDependenciesInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_service_dependents' function.
 class ListServiceDependentsInput(BaseValidatorModel):
     StartTime: Timestamp
     EndTime: Timestamp
@@ -123,6 +130,7 @@ class ListServiceDependentsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_service_operations' function.
 class ListServiceOperationsInput(BaseValidatorModel):
     StartTime: Timestamp
     EndTime: Timestamp
@@ -131,6 +139,7 @@ class ListServiceOperationsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_services' function.
 class ListServicesInput(BaseValidatorModel):
     StartTime: Timestamp
     EndTime: Timestamp
@@ -140,6 +149,7 @@ class ListServicesInput(BaseValidatorModel):
     AwsAccountId: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -212,6 +222,7 @@ class ListServicesInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_service_level_objectives' function.
 class ListServiceLevelObjectivesOutput(BaseValidatorModel):
     SloSummaries: List[ServiceLevelObjectiveSummary]
     ResponseMetadata: ResponseMetadata
@@ -286,6 +297,7 @@ class MetricDataQueryOutput(BaseValidatorModel):
     AccountId: Optional[str] = None
 
 
+# This class is the output for the 'list_service_dependencies' function.
 class ListServiceDependenciesOutput(BaseValidatorModel):
     StartTime: datetime
     EndTime: datetime
@@ -294,6 +306,7 @@ class ListServiceDependenciesOutput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_service_dependents' function.
 class ListServiceDependentsOutput(BaseValidatorModel):
     StartTime: datetime
     EndTime: datetime
@@ -302,6 +315,7 @@ class ListServiceDependentsOutput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_service_operations' function.
 class ListServiceOperationsOutput(BaseValidatorModel):
     StartTime: datetime
     EndTime: datetime
@@ -310,6 +324,7 @@ class ListServiceOperationsOutput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_services' function.
 class ListServicesOutput(BaseValidatorModel):
     StartTime: datetime
     EndTime: datetime
@@ -318,6 +333,7 @@ class ListServicesOutput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_service' function.
 class GetServiceOutput(BaseValidatorModel):
     Service: Service
     StartTime: datetime
@@ -423,6 +439,7 @@ class ServiceLevelIndicatorMetricConfig(BaseValidatorModel):
     MetricDataQueries: Optional[List[MetricDataQueryUnion]] = None
 
 
+# This class is the output for the 'batch_get_service_level_objective_budget_report' function.
 class BatchGetServiceLevelObjectiveBudgetReportOutput(BaseValidatorModel):
     Timestamp: datetime
     Reports: List[ServiceLevelObjectiveBudgetReport]
@@ -430,16 +447,19 @@ class BatchGetServiceLevelObjectiveBudgetReportOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_service_level_objective' function.
 class CreateServiceLevelObjectiveOutput(BaseValidatorModel):
     Slo: ServiceLevelObjective
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_service_level_objective' function.
 class GetServiceLevelObjectiveOutput(BaseValidatorModel):
     Slo: ServiceLevelObjective
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_service_level_objective' function.
 class UpdateServiceLevelObjectiveOutput(BaseValidatorModel):
     Slo: ServiceLevelObjective
     ResponseMetadata: ResponseMetadata
@@ -467,6 +487,7 @@ class RequestBasedServiceLevelIndicatorConfig(BaseValidatorModel):
     ComparisonOperator: Optional[ServiceLevelIndicatorComparisonOperatorType] = None
 
 
+# This class is the input for the 'create_service_level_objective' function.
 class CreateServiceLevelObjectiveInput(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
@@ -477,6 +498,7 @@ class CreateServiceLevelObjectiveInput(BaseValidatorModel):
     BurnRateConfigurations: Optional[List[BurnRateConfiguration]] = None
 
 
+# This class is the input for the 'update_service_level_objective' function.
 class UpdateServiceLevelObjectiveInput(BaseValidatorModel):
     Id: str
     Description: Optional[str] = None

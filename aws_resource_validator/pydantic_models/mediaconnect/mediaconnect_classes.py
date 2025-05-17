@@ -123,27 +123,33 @@ class GatewayNetwork(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'delete_bridge' function.
 class DeleteBridgeRequest(BaseValidatorModel):
     BridgeArn: str
 
 
+# This class is the input for the 'delete_flow' function.
 class DeleteFlowRequest(BaseValidatorModel):
     FlowArn: str
 
 
+# This class is the input for the 'delete_gateway' function.
 class DeleteGatewayRequest(BaseValidatorModel):
     GatewayArn: str
 
 
+# This class is the input for the 'deregister_gateway_instance' function.
 class DeregisterGatewayInstanceRequest(BaseValidatorModel):
     GatewayInstanceArn: str
     Force: Optional[bool] = None
 
 
+# This class is the input for the 'describe_bridge' function.
 class DescribeBridgeRequest(BaseValidatorModel):
     BridgeArn: str
 
 
+# This class is the input for the 'describe_flow' function.
 class DescribeFlowRequest(BaseValidatorModel):
     FlowArn: str
 
@@ -157,26 +163,32 @@ class Messages(BaseValidatorModel):
     Errors: List[str]
 
 
+# This class is the input for the 'describe_flow_source_metadata' function.
 class DescribeFlowSourceMetadataRequest(BaseValidatorModel):
     FlowArn: str
 
 
+# This class is the input for the 'describe_flow_source_thumbnail' function.
 class DescribeFlowSourceThumbnailRequest(BaseValidatorModel):
     FlowArn: str
 
 
+# This class is the input for the 'describe_gateway_instance' function.
 class DescribeGatewayInstanceRequest(BaseValidatorModel):
     GatewayInstanceArn: str
 
 
+# This class is the input for the 'describe_gateway' function.
 class DescribeGatewayRequest(BaseValidatorModel):
     GatewayArn: str
 
 
+# This class is the input for the 'describe_offering' function.
 class DescribeOfferingRequest(BaseValidatorModel):
     OfferingArn: str
 
 
+# This class is the input for the 'describe_reservation' function.
 class DescribeReservationRequest(BaseValidatorModel):
     ReservationArn: str
 
@@ -246,6 +258,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_bridges' function.
 class ListBridgesRequest(BaseValidatorModel):
     FilterArn: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -260,6 +273,7 @@ class ListedBridge(BaseValidatorModel):
     PlacementArn: str
 
 
+# This class is the input for the 'list_entitlements' function.
 class ListEntitlementsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -271,11 +285,13 @@ class ListedEntitlement(BaseValidatorModel):
     DataTransferSubscriberFeePercent: Optional[int] = None
 
 
+# This class is the input for the 'list_flows' function.
 class ListFlowsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_gateway_instances' function.
 class ListGatewayInstancesRequest(BaseValidatorModel):
     FilterArn: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -289,6 +305,7 @@ class ListedGatewayInstance(BaseValidatorModel):
     InstanceState: Optional[InstanceStateType] = None
 
 
+# This class is the input for the 'list_gateways' function.
 class ListGatewaysRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -300,16 +317,19 @@ class ListedGateway(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'list_offerings' function.
 class ListOfferingsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_reservations' function.
 class ListReservationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -335,60 +355,72 @@ class Transport(BaseValidatorModel):
     StreamId: Optional[str] = None
 
 
+# This class is the input for the 'purchase_offering' function.
 class PurchaseOfferingRequest(BaseValidatorModel):
     OfferingArn: str
     ReservationName: str
     Start: str
 
 
+# This class is the input for the 'remove_bridge_output' function.
 class RemoveBridgeOutputRequest(BaseValidatorModel):
     BridgeArn: str
     OutputName: str
 
 
+# This class is the input for the 'remove_bridge_source' function.
 class RemoveBridgeSourceRequest(BaseValidatorModel):
     BridgeArn: str
     SourceName: str
 
 
+# This class is the input for the 'remove_flow_media_stream' function.
 class RemoveFlowMediaStreamRequest(BaseValidatorModel):
     FlowArn: str
     MediaStreamName: str
 
 
+# This class is the input for the 'remove_flow_output' function.
 class RemoveFlowOutputRequest(BaseValidatorModel):
     FlowArn: str
     OutputArn: str
 
 
+# This class is the input for the 'remove_flow_source' function.
 class RemoveFlowSourceRequest(BaseValidatorModel):
     FlowArn: str
     SourceArn: str
 
 
+# This class is the input for the 'remove_flow_vpc_interface' function.
 class RemoveFlowVpcInterfaceRequest(BaseValidatorModel):
     FlowArn: str
     VpcInterfaceName: str
 
 
+# This class is the input for the 'revoke_flow_entitlement' function.
 class RevokeFlowEntitlementRequest(BaseValidatorModel):
     EntitlementArn: str
     FlowArn: str
 
 
+# This class is the input for the 'start_flow' function.
 class StartFlowRequest(BaseValidatorModel):
     FlowArn: str
 
 
+# This class is the input for the 'stop_flow' function.
 class StopFlowRequest(BaseValidatorModel):
     FlowArn: str
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Dict[str, str]
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: List[str]
@@ -411,6 +443,7 @@ class UpdateIngressGatewayBridgeRequest(BaseValidatorModel):
     MaxOutputs: Optional[int] = None
 
 
+# This class is the input for the 'update_bridge_state' function.
 class UpdateBridgeStateRequest(BaseValidatorModel):
     BridgeArn: str
     DesiredState: DesiredStateType
@@ -434,6 +467,7 @@ class UpdateMaintenance(BaseValidatorModel):
     MaintenanceStartHour: Optional[str] = None
 
 
+# This class is the input for the 'update_gateway_instance' function.
 class UpdateGatewayInstanceRequest(BaseValidatorModel):
     GatewayInstanceArn: str
     BridgePlacement: Optional[BridgePlacementType] = None
@@ -502,67 +536,79 @@ class UpdateBridgeNetworkSourceRequest(BaseValidatorModel):
     Protocol: Optional[ProtocolType] = None
 
 
+# This class is the output for the 'delete_bridge' function.
 class DeleteBridgeResponse(BaseValidatorModel):
     BridgeArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_flow' function.
 class DeleteFlowResponse(BaseValidatorModel):
     FlowArn: str
     Status: StatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_gateway' function.
 class DeleteGatewayResponse(BaseValidatorModel):
     GatewayArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'deregister_gateway_instance' function.
 class DeregisterGatewayInstanceResponse(BaseValidatorModel):
     GatewayInstanceArn: str
     InstanceState: InstanceStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'untag_resource' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'remove_bridge_output' function.
 class RemoveBridgeOutputResponse(BaseValidatorModel):
     BridgeArn: str
     OutputName: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'remove_bridge_source' function.
 class RemoveBridgeSourceResponse(BaseValidatorModel):
     BridgeArn: str
     SourceName: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'remove_flow_media_stream' function.
 class RemoveFlowMediaStreamResponse(BaseValidatorModel):
     FlowArn: str
     MediaStreamName: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'remove_flow_output' function.
 class RemoveFlowOutputResponse(BaseValidatorModel):
     FlowArn: str
     OutputArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'remove_flow_source' function.
 class RemoveFlowSourceResponse(BaseValidatorModel):
     FlowArn: str
     SourceArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'remove_flow_vpc_interface' function.
 class RemoveFlowVpcInterfaceResponse(BaseValidatorModel):
     FlowArn: str
     NonDeletedNetworkInterfaceIds: List[str]
@@ -570,41 +616,48 @@ class RemoveFlowVpcInterfaceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'revoke_flow_entitlement' function.
 class RevokeFlowEntitlementResponse(BaseValidatorModel):
     EntitlementArn: str
     FlowArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_flow' function.
 class StartFlowResponse(BaseValidatorModel):
     FlowArn: str
     Status: StatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_flow' function.
 class StopFlowResponse(BaseValidatorModel):
     FlowArn: str
     Status: StatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_bridge_state' function.
 class UpdateBridgeStateResponse(BaseValidatorModel):
     BridgeArn: str
     DesiredState: DesiredStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_gateway_instance' function.
 class UpdateGatewayInstanceResponse(BaseValidatorModel):
     BridgePlacement: BridgePlacementType
     GatewayInstanceArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'add_flow_vpc_interfaces' function.
 class AddFlowVpcInterfacesRequest(BaseValidatorModel):
     FlowArn: str
     VpcInterfaces: List[VpcInterfaceRequest]
 
 
+# This class is the output for the 'add_flow_vpc_interfaces' function.
 class AddFlowVpcInterfacesResponse(BaseValidatorModel):
     FlowArn: str
     VpcInterfaces: List[VpcInterface]
@@ -658,6 +711,7 @@ class ThumbnailDetails(BaseValidatorModel):
     Timestamp: Optional[datetime] = None
 
 
+# This class is the input for the 'create_gateway' function.
 class CreateGatewayRequest(BaseValidatorModel):
     EgressCidrBlocks: List[str]
     Name: str
@@ -792,24 +846,28 @@ class ListReservationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_bridges' function.
 class ListBridgesResponse(BaseValidatorModel):
     Bridges: List[ListedBridge]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_entitlements' function.
 class ListEntitlementsResponse(BaseValidatorModel):
     Entitlements: List[ListedEntitlement]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_gateway_instances' function.
 class ListGatewayInstancesResponse(BaseValidatorModel):
     Instances: List[ListedGatewayInstance]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_gateways' function.
 class ListGatewaysResponse(BaseValidatorModel):
     Gateways: List[ListedGateway]
     ResponseMetadata: ResponseMetadata
@@ -843,12 +901,14 @@ class Reservation(BaseValidatorModel):
     Start: str
 
 
+# This class is the input for the 'update_bridge_output' function.
 class UpdateBridgeOutputRequest(BaseValidatorModel):
     BridgeArn: str
     OutputName: str
     NetworkOutput: Optional[UpdateBridgeNetworkOutputRequest] = None
 
 
+# This class is the input for the 'update_flow_entitlement' function.
 class UpdateFlowEntitlementRequest(BaseValidatorModel):
     EntitlementArn: str
     FlowArn: str
@@ -858,6 +918,7 @@ class UpdateFlowEntitlementRequest(BaseValidatorModel):
     Subscribers: Optional[List[str]] = None
 
 
+# This class is the input for the 'add_bridge_outputs' function.
 class AddBridgeOutputsRequest(BaseValidatorModel):
     BridgeArn: str
     Outputs: List[AddBridgeOutputRequest]
@@ -873,6 +934,7 @@ class BridgeSource(BaseValidatorModel):
     NetworkSource: Optional[BridgeNetworkSource] = None
 
 
+# This class is the input for the 'update_bridge_source' function.
 class UpdateBridgeSourceRequest(BaseValidatorModel):
     BridgeArn: str
     SourceName: str
@@ -880,50 +942,59 @@ class UpdateBridgeSourceRequest(BaseValidatorModel):
     NetworkSource: Optional[UpdateBridgeNetworkSourceRequest] = None
 
 
+# This class is the output for the 'grant_flow_entitlements' function.
 class GrantFlowEntitlementsResponse(BaseValidatorModel):
     Entitlements: List[Entitlement]
     FlowArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_flow_entitlement' function.
 class UpdateFlowEntitlementResponse(BaseValidatorModel):
     Entitlement: Entitlement
     FlowArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'grant_flow_entitlements' function.
 class GrantFlowEntitlementsRequest(BaseValidatorModel):
     Entitlements: List[GrantEntitlementRequest]
     FlowArn: str
 
 
+# This class is the output for the 'add_bridge_outputs' function.
 class AddBridgeOutputsResponse(BaseValidatorModel):
     BridgeArn: str
     Outputs: List[BridgeOutput]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_bridge_output' function.
 class UpdateBridgeOutputResponse(BaseValidatorModel):
     BridgeArn: str
     Output: BridgeOutput
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_gateway_instance' function.
 class DescribeGatewayInstanceResponse(BaseValidatorModel):
     GatewayInstance: GatewayInstance
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_flow_source_thumbnail' function.
 class DescribeFlowSourceThumbnailResponse(BaseValidatorModel):
     ThumbnailDetails: ThumbnailDetails
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_gateway' function.
 class CreateGatewayResponse(BaseValidatorModel):
     Gateway: Gateway
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_gateway' function.
 class DescribeGatewayResponse(BaseValidatorModel):
     Gateway: Gateway
     ResponseMetadata: ResponseMetadata
@@ -955,6 +1026,7 @@ class MediaStreamSourceConfiguration(BaseValidatorModel):
     InputConfigurations: Optional[List[InputConfiguration]] = None
 
 
+# This class is the input for the 'update_bridge' function.
 class UpdateBridgeRequest(BaseValidatorModel):
     BridgeArn: str
     EgressGatewayBridge: Optional[UpdateEgressGatewayBridgeRequest] = None
@@ -962,6 +1034,7 @@ class UpdateBridgeRequest(BaseValidatorModel):
     SourceFailoverConfig: Optional[UpdateFailoverConfig] = None
 
 
+# This class is the output for the 'list_flows' function.
 class ListFlowsResponse(BaseValidatorModel):
     Flows: List[ListedFlow]
     ResponseMetadata: ResponseMetadata
@@ -978,6 +1051,7 @@ class AddMediaStreamRequest(BaseValidatorModel):
     VideoFormat: Optional[str] = None
 
 
+# This class is the input for the 'update_flow_media_stream' function.
 class UpdateFlowMediaStreamRequest(BaseValidatorModel):
     FlowArn: str
     MediaStreamName: str
@@ -1021,38 +1095,45 @@ class MonitoringConfig(BaseValidatorModel):
     VideoMonitoringSettings: Optional[List[VideoMonitoringSetting]] = None
 
 
+# This class is the output for the 'describe_offering' function.
 class DescribeOfferingResponse(BaseValidatorModel):
     Offering: Offering
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_offerings' function.
 class ListOfferingsResponse(BaseValidatorModel):
     Offerings: List[Offering]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_reservation' function.
 class DescribeReservationResponse(BaseValidatorModel):
     Reservation: Reservation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_reservations' function.
 class ListReservationsResponse(BaseValidatorModel):
     Reservations: List[Reservation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'purchase_offering' function.
 class PurchaseOfferingResponse(BaseValidatorModel):
     Reservation: Reservation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'add_bridge_sources' function.
 class AddBridgeSourcesRequest(BaseValidatorModel):
     BridgeArn: str
     Sources: List[AddBridgeSourceRequest]
 
 
+# This class is the input for the 'create_bridge' function.
 class CreateBridgeRequest(BaseValidatorModel):
     Name: str
     PlacementArn: str
@@ -1063,6 +1144,7 @@ class CreateBridgeRequest(BaseValidatorModel):
     SourceFailoverConfig: Optional[FailoverConfig] = None
 
 
+# This class is the output for the 'add_bridge_sources' function.
 class AddBridgeSourcesResponse(BaseValidatorModel):
     BridgeArn: str
     Sources: List[BridgeSource]
@@ -1082,6 +1164,7 @@ class Bridge(BaseValidatorModel):
     Sources: Optional[List[BridgeSource]] = None
 
 
+# This class is the output for the 'update_bridge_source' function.
 class UpdateBridgeSourceResponse(BaseValidatorModel):
     BridgeArn: str
     Source: BridgeSource
@@ -1107,6 +1190,7 @@ class AddOutputRequest(BaseValidatorModel):
     OutputStatus: Optional[OutputStatusType] = None
 
 
+# This class is the input for the 'update_flow_output' function.
 class UpdateFlowOutputRequest(BaseValidatorModel):
     FlowArn: str
     OutputArn: str
@@ -1150,6 +1234,7 @@ class SetSourceRequest(BaseValidatorModel):
     GatewayBridgeSource: Optional[SetGatewayBridgeSourceRequest] = None
 
 
+# This class is the input for the 'update_flow_source' function.
 class UpdateFlowSourceRequest(BaseValidatorModel):
     FlowArn: str
     SourceArn: str
@@ -1210,17 +1295,20 @@ class Source(BaseValidatorModel):
     GatewayBridgeSource: Optional[GatewayBridgeSource] = None
 
 
+# This class is the input for the 'add_flow_media_streams' function.
 class AddFlowMediaStreamsRequest(BaseValidatorModel):
     FlowArn: str
     MediaStreams: List[AddMediaStreamRequest]
 
 
+# This class is the output for the 'add_flow_media_streams' function.
 class AddFlowMediaStreamsResponse(BaseValidatorModel):
     FlowArn: str
     MediaStreams: List[MediaStream]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_flow_media_stream' function.
 class UpdateFlowMediaStreamResponse(BaseValidatorModel):
     FlowArn: str
     MediaStream: MediaStream
@@ -1233,43 +1321,51 @@ class TransportMediaInfo(BaseValidatorModel):
 MonitoringConfigUnion = Union[MonitoringConfig, MonitoringConfigOutput]
 
 
+# This class is the output for the 'create_bridge' function.
 class CreateBridgeResponse(BaseValidatorModel):
     Bridge: Bridge
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_bridge' function.
 class DescribeBridgeResponse(BaseValidatorModel):
     Bridge: Bridge
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_bridge' function.
 class UpdateBridgeResponse(BaseValidatorModel):
     Bridge: Bridge
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'add_flow_outputs' function.
 class AddFlowOutputsRequest(BaseValidatorModel):
     FlowArn: str
     Outputs: List[AddOutputRequest]
 
 
+# This class is the input for the 'add_flow_sources' function.
 class AddFlowSourcesRequest(BaseValidatorModel):
     FlowArn: str
     Sources: List[SetSourceRequest]
 
 
+# This class is the output for the 'add_flow_outputs' function.
 class AddFlowOutputsResponse(BaseValidatorModel):
     FlowArn: str
     Outputs: List[Output]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_flow_output' function.
 class UpdateFlowOutputResponse(BaseValidatorModel):
     FlowArn: str
     Output: Output
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'add_flow_sources' function.
 class AddFlowSourcesResponse(BaseValidatorModel):
     FlowArn: str
     Sources: List[Source]
@@ -1294,12 +1390,14 @@ class Flow(BaseValidatorModel):
     SourceMonitoringConfig: Optional[MonitoringConfigOutput] = None
 
 
+# This class is the output for the 'update_flow_source' function.
 class UpdateFlowSourceResponse(BaseValidatorModel):
     FlowArn: str
     Source: Source
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_flow_source_metadata' function.
 class DescribeFlowSourceMetadataResponse(BaseValidatorModel):
     FlowArn: str
     Messages: List[MessageDetail]
@@ -1308,6 +1406,7 @@ class DescribeFlowSourceMetadataResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_flow' function.
 class CreateFlowRequest(BaseValidatorModel):
     Name: str
     AvailabilityZone: Optional[str] = None
@@ -1322,6 +1421,7 @@ class CreateFlowRequest(BaseValidatorModel):
     SourceMonitoringConfig: Optional[MonitoringConfigUnion] = None
 
 
+# This class is the input for the 'update_flow' function.
 class UpdateFlowRequest(BaseValidatorModel):
     FlowArn: str
     SourceFailoverConfig: Optional[UpdateFailoverConfig] = None
@@ -1329,17 +1429,20 @@ class UpdateFlowRequest(BaseValidatorModel):
     SourceMonitoringConfig: Optional[MonitoringConfigUnion] = None
 
 
+# This class is the output for the 'create_flow' function.
 class CreateFlowResponse(BaseValidatorModel):
     Flow: Flow
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_flow' function.
 class DescribeFlowResponse(BaseValidatorModel):
     Flow: Flow
     Messages: Messages
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_flow' function.
 class UpdateFlowResponse(BaseValidatorModel):
     Flow: Flow
     ResponseMetadata: ResponseMetadata

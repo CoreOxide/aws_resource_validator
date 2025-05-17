@@ -58,6 +58,7 @@ class CancelUpdateStackInputStackCancelUpdate(BaseValidatorModel):
     ClientRequestToken: Optional[str] = None
 
 
+# This class is the input for the 'cancel_update_stack' function.
 class CancelUpdateStackInput(BaseValidatorModel):
     StackName: str
     ClientRequestToken: Optional[str] = None
@@ -142,6 +143,7 @@ class DeleteChangeSetInput(BaseValidatorModel):
     StackName: Optional[str] = None
 
 
+# This class is the input for the 'delete_generated_template' function.
 class DeleteGeneratedTemplateInput(BaseValidatorModel):
     GeneratedTemplateName: str
 
@@ -153,6 +155,7 @@ class DeleteStackInputStackDelete(BaseValidatorModel):
     DeletionMode: Optional[DeletionModeType] = None
 
 
+# This class is the input for the 'delete_stack' function.
 class DeleteStackInput(BaseValidatorModel):
     StackName: str
     RetainResources: Optional[List[str]] = None
@@ -193,10 +196,12 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_account_limits' function.
 class DescribeAccountLimitsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_change_set_hooks' function.
 class DescribeChangeSetHooksInput(BaseValidatorModel):
     ChangeSetName: str
     StackName: Optional[str] = None
@@ -204,6 +209,7 @@ class DescribeChangeSetHooksInput(BaseValidatorModel):
     LogicalResourceId: Optional[str] = None
 
 
+# This class is the input for the 'describe_change_set' function.
 class DescribeChangeSetInput(BaseValidatorModel):
     ChangeSetName: str
     StackName: Optional[str] = None
@@ -216,6 +222,7 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'describe_generated_template' function.
 class DescribeGeneratedTemplateInput(BaseValidatorModel):
     GeneratedTemplateName: str
 
@@ -227,22 +234,27 @@ class TemplateProgress(BaseValidatorModel):
     ResourcesPending: Optional[int] = None
 
 
+# This class is the input for the 'describe_organizations_access' function.
 class DescribeOrganizationsAccessInput(BaseValidatorModel):
     CallAs: Optional[CallAsType] = None
 
 
+# This class is the input for the 'describe_publisher' function.
 class DescribePublisherInput(BaseValidatorModel):
     PublisherId: Optional[str] = None
 
 
+# This class is the input for the 'describe_resource_scan' function.
 class DescribeResourceScanInput(BaseValidatorModel):
     ResourceScanId: str
 
 
+# This class is the input for the 'describe_stack_drift_detection_status' function.
 class DescribeStackDriftDetectionStatusInput(BaseValidatorModel):
     StackDriftDetectionId: str
 
 
+# This class is the input for the 'describe_stack_events' function.
 class DescribeStackEventsInput(BaseValidatorModel):
     StackName: Optional[str] = None
     NextToken: Optional[str] = None
@@ -268,6 +280,7 @@ class StackEvent(BaseValidatorModel):
     DetailedStatus: Optional[DetailedStatusType] = None
 
 
+# This class is the input for the 'describe_stack_instance' function.
 class DescribeStackInstanceInput(BaseValidatorModel):
     StackSetName: str
     StackInstanceAccount: str
@@ -275,10 +288,12 @@ class DescribeStackInstanceInput(BaseValidatorModel):
     CallAs: Optional[CallAsType] = None
 
 
+# This class is the input for the 'describe_stack_refactor' function.
 class DescribeStackRefactorInput(BaseValidatorModel):
     StackRefactorId: str
 
 
+# This class is the input for the 'describe_stack_resource_drifts' function.
 class DescribeStackResourceDriftsInput(BaseValidatorModel):
     StackName: str
     StackResourceDriftStatusFilters: Optional[List[StackResourceDriftStatusType]] = None
@@ -286,33 +301,39 @@ class DescribeStackResourceDriftsInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_stack_resource' function.
 class DescribeStackResourceInput(BaseValidatorModel):
     StackName: str
     LogicalResourceId: str
 
 
+# This class is the input for the 'describe_stack_resources' function.
 class DescribeStackResourcesInput(BaseValidatorModel):
     StackName: Optional[str] = None
     LogicalResourceId: Optional[str] = None
     PhysicalResourceId: Optional[str] = None
 
 
+# This class is the input for the 'describe_stack_set' function.
 class DescribeStackSetInput(BaseValidatorModel):
     StackSetName: str
     CallAs: Optional[CallAsType] = None
 
 
+# This class is the input for the 'describe_stack_set_operation' function.
 class DescribeStackSetOperationInput(BaseValidatorModel):
     StackSetName: str
     OperationId: str
     CallAs: Optional[CallAsType] = None
 
 
+# This class is the input for the 'describe_stacks' function.
 class DescribeStacksInput(BaseValidatorModel):
     StackName: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_type' function.
 class DescribeTypeInput(BaseValidatorModel):
     Type: Optional[RegistryTypeType] = None
     TypeName: Optional[str] = None
@@ -329,15 +350,18 @@ class RequiredActivatedType(BaseValidatorModel):
     SupportedMajorVersions: Optional[List[int]] = None
 
 
+# This class is the input for the 'describe_type_registration' function.
 class DescribeTypeRegistrationInput(BaseValidatorModel):
     RegistrationToken: str
 
 
+# This class is the input for the 'detect_stack_drift' function.
 class DetectStackDriftInput(BaseValidatorModel):
     StackName: str
     LogicalResourceIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'detect_stack_resource_drift' function.
 class DetectStackResourceDriftInput(BaseValidatorModel):
     StackName: str
     LogicalResourceId: str
@@ -351,6 +375,7 @@ class ExecuteChangeSetInput(BaseValidatorModel):
     RetainExceptOnCreate: Optional[bool] = None
 
 
+# This class is the input for the 'execute_stack_refactor' function.
 class ExecuteStackRefactorInput(BaseValidatorModel):
     StackRefactorId: str
 
@@ -361,15 +386,18 @@ class Export(BaseValidatorModel):
     Value: Optional[str] = None
 
 
+# This class is the input for the 'get_generated_template' function.
 class GetGeneratedTemplateInput(BaseValidatorModel):
     GeneratedTemplateName: str
     Format: Optional[TemplateFormatType] = None
 
 
+# This class is the input for the 'get_stack_policy' function.
 class GetStackPolicyInput(BaseValidatorModel):
     StackName: str
 
 
+# This class is the input for the 'get_template' function.
 class GetTemplateInput(BaseValidatorModel):
     StackName: Optional[str] = None
     ChangeSetName: Optional[str] = None
@@ -400,15 +428,18 @@ class HookResultSummary(BaseValidatorModel):
     HookStatusReason: Optional[str] = None
 
 
+# This class is the input for the 'list_change_sets' function.
 class ListChangeSetsInput(BaseValidatorModel):
     StackName: str
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_exports' function.
 class ListExportsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_generated_templates' function.
 class ListGeneratedTemplatesInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -424,12 +455,14 @@ class TemplateSummary(BaseValidatorModel):
     NumberOfResources: Optional[int] = None
 
 
+# This class is the input for the 'list_hook_results' function.
 class ListHookResultsInput(BaseValidatorModel):
     TargetType: ListHookResultsTargetTypeType
     TargetId: str
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_imports' function.
 class ListImportsInput(BaseValidatorModel):
     ExportName: str
     NextToken: Optional[str] = None
@@ -446,6 +479,7 @@ class ScannedResource(BaseValidatorModel):
     ManagedByStack: Optional[bool] = None
 
 
+# This class is the input for the 'list_resource_scan_resources' function.
 class ListResourceScanResourcesInput(BaseValidatorModel):
     ResourceScanId: str
     ResourceIdentifier: Optional[str] = None
@@ -456,6 +490,7 @@ class ListResourceScanResourcesInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_resource_scans' function.
 class ListResourceScansInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -470,6 +505,7 @@ class ResourceScanSummary(BaseValidatorModel):
     PercentageCompleted: Optional[float] = None
 
 
+# This class is the input for the 'list_stack_instance_resource_drifts' function.
 class ListStackInstanceResourceDriftsInput(BaseValidatorModel):
     StackSetName: str
     StackInstanceAccount: str
@@ -486,12 +522,14 @@ class StackInstanceFilter(BaseValidatorModel):
     Values: Optional[str] = None
 
 
+# This class is the input for the 'list_stack_refactor_actions' function.
 class ListStackRefactorActionsInput(BaseValidatorModel):
     StackRefactorId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_stack_refactors' function.
 class ListStackRefactorsInput(BaseValidatorModel):
     ExecutionStatusFilter: Optional[List[StackRefactorExecutionStatusType]] = None
     NextToken: Optional[str] = None
@@ -507,11 +545,13 @@ class StackRefactorSummary(BaseValidatorModel):
     StatusReason: Optional[str] = None
 
 
+# This class is the input for the 'list_stack_resources' function.
 class ListStackResourcesInput(BaseValidatorModel):
     StackName: str
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_stack_set_auto_deployment_targets' function.
 class ListStackSetAutoDeploymentTargetsInput(BaseValidatorModel):
     StackSetName: str
     NextToken: Optional[str] = None
@@ -529,6 +569,7 @@ class OperationResultFilter(BaseValidatorModel):
     Values: Optional[str] = None
 
 
+# This class is the input for the 'list_stack_set_operations' function.
 class ListStackSetOperationsInput(BaseValidatorModel):
     StackSetName: str
     NextToken: Optional[str] = None
@@ -536,6 +577,7 @@ class ListStackSetOperationsInput(BaseValidatorModel):
     CallAs: Optional[CallAsType] = None
 
 
+# This class is the input for the 'list_stack_sets' function.
 class ListStackSetsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -543,11 +585,13 @@ class ListStackSetsInput(BaseValidatorModel):
     CallAs: Optional[CallAsType] = None
 
 
+# This class is the input for the 'list_stacks' function.
 class ListStacksInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     StackStatusFilter: Optional[List[StackStatusType]] = None
 
 
+# This class is the input for the 'list_type_registrations' function.
 class ListTypeRegistrationsInput(BaseValidatorModel):
     Type: Optional[RegistryTypeType] = None
     TypeName: Optional[str] = None
@@ -557,6 +601,7 @@ class ListTypeRegistrationsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_type_versions' function.
 class ListTypeVersionsInput(BaseValidatorModel):
     Type: Optional[RegistryTypeType] = None
     TypeName: Optional[str] = None
@@ -628,6 +673,7 @@ class PropertyDifference(BaseValidatorModel):
     DifferenceType: DifferenceTypeType
 
 
+# This class is the input for the 'publish_type' function.
 class PublishTypeInput(BaseValidatorModel):
     Type: Optional[ThirdPartyTypeType] = None
     Arn: Optional[str] = None
@@ -645,6 +691,7 @@ class RecordHandlerProgressInput(BaseValidatorModel):
     ClientRequestToken: Optional[str] = None
 
 
+# This class is the input for the 'register_publisher' function.
 class RegisterPublisherInput(BaseValidatorModel):
     AcceptTermsAndConditions: Optional[bool] = None
     ConnectionArn: Optional[str] = None
@@ -670,6 +717,7 @@ class RollbackTrigger(BaseValidatorModel):
     Type: str
 
 
+# This class is the input for the 'rollback_stack' function.
 class RollbackStackInput(BaseValidatorModel):
     StackName: str
     RoleARN: Optional[str] = None
@@ -677,12 +725,14 @@ class RollbackStackInput(BaseValidatorModel):
     RetainExceptOnCreate: Optional[bool] = None
 
 
+# This class is the input for the 'set_stack_policy' function.
 class SetStackPolicyInput(BaseValidatorModel):
     StackName: str
     StackPolicyBody: Optional[str] = None
     StackPolicyURL: Optional[str] = None
 
 
+# This class is the input for the 'set_type_configuration' function.
 class SetTypeConfigurationInput(BaseValidatorModel):
     Configuration: str
     TypeArn: Optional[str] = None
@@ -698,6 +748,7 @@ class SetaultVersionInput(BaseValidatorModel):
     VersionId: Optional[str] = None
 
 
+# This class is the input for the 'signal_resource' function.
 class SignalResourceInput(BaseValidatorModel):
     StackName: str
     LogicalResourceId: str
@@ -764,6 +815,7 @@ class StackSetOperationStatusDetails(BaseValidatorModel):
     FailedStackInstancesCount: Optional[int] = None
 
 
+# This class is the input for the 'start_resource_scan' function.
 class StartResourceScanInput(BaseValidatorModel):
     ClientRequestToken: Optional[str] = None
 
@@ -781,6 +833,7 @@ class TemplateParameter(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'test_type' function.
 class TestTypeInput(BaseValidatorModel):
     Arn: Optional[str] = None
     Type: Optional[ThirdPartyTypeType] = None
@@ -789,11 +842,13 @@ class TestTypeInput(BaseValidatorModel):
     LogDeliveryBucket: Optional[str] = None
 
 
+# This class is the input for the 'update_termination_protection' function.
 class UpdateTerminationProtectionInput(BaseValidatorModel):
     EnableTerminationProtection: bool
     StackName: str
 
 
+# This class is the input for the 'validate_template' function.
 class ValidateTemplateInput(BaseValidatorModel):
     TemplateBody: Optional[str] = None
     TemplateURL: Optional[str] = None
@@ -814,6 +869,7 @@ class StackSetOperationResultSummary(BaseValidatorModel):
     OrganizationalUnitId: Optional[str] = None
 
 
+# This class is the input for the 'activate_type' function.
 class ActivateTypeInput(BaseValidatorModel):
     Type: Optional[ThirdPartyTypeType] = None
     PublicTypeArn: Optional[str] = None
@@ -827,6 +883,7 @@ class ActivateTypeInput(BaseValidatorModel):
     MajorVersion: Optional[int] = None
 
 
+# This class is the input for the 'register_type' function.
 class RegisterTypeInput(BaseValidatorModel):
     TypeName: str
     SchemaHandlerPackage: str
@@ -836,58 +893,69 @@ class RegisterTypeInput(BaseValidatorModel):
     ClientRequestToken: Optional[str] = None
 
 
+# This class is the output for the 'activate_type' function.
 class ActivateTypeOutput(BaseValidatorModel):
     Arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_change_set' function.
 class CreateChangeSetOutput(BaseValidatorModel):
     Id: str
     StackId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_generated_template' function.
 class CreateGeneratedTemplateOutput(BaseValidatorModel):
     GeneratedTemplateId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_stack_instances' function.
 class CreateStackInstancesOutput(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_stack' function.
 class CreateStackOutput(BaseValidatorModel):
     StackId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_stack_refactor' function.
 class CreateStackRefactorOutput(BaseValidatorModel):
     StackRefactorId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_stack_set' function.
 class CreateStackSetOutput(BaseValidatorModel):
     StackSetId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_stack_instances' function.
 class DeleteStackInstancesOutput(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_account_limits' function.
 class DescribeAccountLimitsOutput(BaseValidatorModel):
     AccountLimits: List[AccountLimit]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_organizations_access' function.
 class DescribeOrganizationsAccessOutput(BaseValidatorModel):
     Status: OrganizationStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_publisher' function.
 class DescribePublisherOutput(BaseValidatorModel):
     PublisherId: str
     PublisherStatus: PublisherStatusType
@@ -896,6 +964,7 @@ class DescribePublisherOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_resource_scan' function.
 class DescribeResourceScanOutput(BaseValidatorModel):
     ResourceScanId: str
     Status: ResourceScanStatusType
@@ -909,6 +978,7 @@ class DescribeResourceScanOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_stack_drift_detection_status' function.
 class DescribeStackDriftDetectionStatusOutput(BaseValidatorModel):
     StackId: str
     StackDriftDetectionId: str
@@ -920,6 +990,7 @@ class DescribeStackDriftDetectionStatusOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_stack_refactor' function.
 class DescribeStackRefactorOutput(BaseValidatorModel):
     Description: str
     StackRefactorId: str
@@ -931,6 +1002,7 @@ class DescribeStackRefactorOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_type_registration' function.
 class DescribeTypeRegistrationOutput(BaseValidatorModel):
     ProgressStatus: RegistrationStatusType
     Description: str
@@ -939,114 +1011,136 @@ class DescribeTypeRegistrationOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'detect_stack_drift' function.
 class DetectStackDriftOutput(BaseValidatorModel):
     StackDriftDetectionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'detect_stack_set_drift' function.
 class DetectStackSetDriftOutput(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'signal_resource' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'estimate_template_cost' function.
 class EstimateTemplateCostOutput(BaseValidatorModel):
     Url: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_generated_template' function.
 class GetGeneratedTemplateOutput(BaseValidatorModel):
     Status: GeneratedTemplateStatusType
     TemplateBody: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_stack_policy' function.
 class GetStackPolicyOutput(BaseValidatorModel):
     StackPolicyBody: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_template' function.
 class GetTemplateOutput(BaseValidatorModel):
     TemplateBody: Dict[str, Any]
     StagesAvailable: List[TemplateStageType]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_stacks_to_stack_set' function.
 class ImportStacksToStackSetOutput(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_imports' function.
 class ListImportsOutput(BaseValidatorModel):
     Imports: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_type_registrations' function.
 class ListTypeRegistrationsOutput(BaseValidatorModel):
     RegistrationTokenList: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'publish_type' function.
 class PublishTypeOutput(BaseValidatorModel):
     PublicTypeArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_publisher' function.
 class RegisterPublisherOutput(BaseValidatorModel):
     PublisherId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_type' function.
 class RegisterTypeOutput(BaseValidatorModel):
     RegistrationToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'rollback_stack' function.
 class RollbackStackOutput(BaseValidatorModel):
     StackId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'set_type_configuration' function.
 class SetTypeConfigurationOutput(BaseValidatorModel):
     ConfigurationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_resource_scan' function.
 class StartResourceScanOutput(BaseValidatorModel):
     ResourceScanId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'test_type' function.
 class TestTypeOutput(BaseValidatorModel):
     TypeVersionArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_generated_template' function.
 class UpdateGeneratedTemplateOutput(BaseValidatorModel):
     GeneratedTemplateId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_stack_instances' function.
 class UpdateStackInstancesOutput(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_stack' function.
 class UpdateStackOutput(BaseValidatorModel):
     StackId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_stack_set' function.
 class UpdateStackSetOutput(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_termination_protection' function.
 class UpdateTerminationProtectionOutput(BaseValidatorModel):
     StackId: str
     ResponseMetadata: ResponseMetadata
@@ -1058,6 +1152,7 @@ class BatchDescribeTypeConfigurationsError(BaseValidatorModel):
     TypeConfigurationIdentifier: Optional[TypeConfigurationIdentifier] = None
 
 
+# This class is the input for the 'batch_describe_type_configurations' function.
 class BatchDescribeTypeConfigurationsInput(BaseValidatorModel):
     TypeConfigurationIdentifiers: List[TypeConfigurationIdentifier]
 
@@ -1067,18 +1162,21 @@ class ChangeSetHookTargetDetails(BaseValidatorModel):
     ResourceTargetDetails: Optional[ChangeSetHookResourceTargetDetails] = None
 
 
+# This class is the output for the 'list_change_sets' function.
 class ListChangeSetsOutput(BaseValidatorModel):
     Summaries: List[ChangeSetSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'estimate_template_cost' function.
 class EstimateTemplateCostInput(BaseValidatorModel):
     TemplateBody: Optional[str] = None
     TemplateURL: Optional[str] = None
     Parameters: Optional[List[Parameter]] = None
 
 
+# This class is the input for the 'create_generated_template' function.
 class CreateGeneratedTemplateInput(BaseValidatorModel):
     GeneratedTemplateName: str
     Resources: Optional[List[ResourceDefinition]] = None
@@ -1086,6 +1184,7 @@ class CreateGeneratedTemplateInput(BaseValidatorModel):
     TemplateConfiguration: Optional[TemplateConfiguration] = None
 
 
+# This class is the input for the 'update_generated_template' function.
 class UpdateGeneratedTemplateInput(BaseValidatorModel):
     GeneratedTemplateName: str
     NewGeneratedTemplateName: Optional[str] = None
@@ -1095,6 +1194,7 @@ class UpdateGeneratedTemplateInput(BaseValidatorModel):
     TemplateConfiguration: Optional[TemplateConfiguration] = None
 
 
+# This class is the input for the 'create_stack_set' function.
 class CreateStackSetInput(BaseValidatorModel):
     StackSetName: str
     Description: Optional[str] = None
@@ -1270,12 +1370,14 @@ class DescribeTypeRegistrationInputWait(BaseValidatorModel):
     WaiterConfig: Optional[WaiterConfig] = None
 
 
+# This class is the output for the 'describe_stack_events' function.
 class DescribeStackEventsOutput(BaseValidatorModel):
     StackEvents: List[StackEvent]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_type' function.
 class DescribeTypeOutput(BaseValidatorModel):
     Arn: str
     Type: RegistryTypeType
@@ -1307,12 +1409,14 @@ class DescribeTypeOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_exports' function.
 class ListExportsOutput(BaseValidatorModel):
     Exports: List[Export]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_template_summary' function.
 class GetTemplateSummaryInput(BaseValidatorModel):
     TemplateBody: Optional[str] = None
     TemplateURL: Optional[str] = None
@@ -1322,6 +1426,7 @@ class GetTemplateSummaryInput(BaseValidatorModel):
     TemplateSummaryConfig: Optional[TemplateSummaryConfig] = None
 
 
+# This class is the output for the 'list_hook_results' function.
 class ListHookResultsOutput(BaseValidatorModel):
     TargetType: ListHookResultsTargetTypeType
     TargetId: str
@@ -1330,6 +1435,7 @@ class ListHookResultsOutput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_generated_templates' function.
 class ListGeneratedTemplatesOutput(BaseValidatorModel):
     Summaries: List[TemplateSummary]
     ResponseMetadata: ResponseMetadata
@@ -1342,6 +1448,7 @@ class ListResourceScanRelatedResourcesInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_resource_scan_related_resources' function.
 class ListResourceScanRelatedResourcesInput(BaseValidatorModel):
     ResourceScanId: str
     Resources: List[ScannedResourceIdentifier]
@@ -1349,18 +1456,21 @@ class ListResourceScanRelatedResourcesInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the output for the 'list_resource_scan_related_resources' function.
 class ListResourceScanRelatedResourcesOutput(BaseValidatorModel):
     RelatedResources: List[ScannedResource]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_resource_scan_resources' function.
 class ListResourceScanResourcesOutput(BaseValidatorModel):
     Resources: List[ScannedResource]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_resource_scans' function.
 class ListResourceScansOutput(BaseValidatorModel):
     ResourceScanSummaries: List[ResourceScanSummary]
     ResponseMetadata: ResponseMetadata
@@ -1376,6 +1486,7 @@ class ListStackInstancesInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_stack_instances' function.
 class ListStackInstancesInput(BaseValidatorModel):
     StackSetName: str
     NextToken: Optional[str] = None
@@ -1386,12 +1497,14 @@ class ListStackInstancesInput(BaseValidatorModel):
     CallAs: Optional[CallAsType] = None
 
 
+# This class is the output for the 'list_stack_refactors' function.
 class ListStackRefactorsOutput(BaseValidatorModel):
     StackRefactorSummaries: List[StackRefactorSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_stack_set_auto_deployment_targets' function.
 class ListStackSetAutoDeploymentTargetsOutput(BaseValidatorModel):
     Summaries: List[StackSetAutoDeploymentTargetSummary]
     ResponseMetadata: ResponseMetadata
@@ -1406,6 +1519,7 @@ class ListStackSetOperationResultsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_stack_set_operation_results' function.
 class ListStackSetOperationResultsInput(BaseValidatorModel):
     StackSetName: str
     OperationId: str
@@ -1415,6 +1529,7 @@ class ListStackSetOperationResultsInput(BaseValidatorModel):
     Filters: Optional[List[OperationResultFilter]] = None
 
 
+# This class is the output for the 'list_type_versions' function.
 class ListTypeVersionsOutput(BaseValidatorModel):
     TypeVersionSummaries: List[TypeVersionSummary]
     ResponseMetadata: ResponseMetadata
@@ -1430,6 +1545,7 @@ class ListTypesInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_types' function.
 class ListTypesInput(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
     ProvisioningType: Optional[ProvisioningTypeType] = None
@@ -1440,6 +1556,7 @@ class ListTypesInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_types' function.
 class ListTypesOutput(BaseValidatorModel):
     TypeSummaries: List[TypeSummary]
     ResponseMetadata: ResponseMetadata
@@ -1635,6 +1752,7 @@ class StackSetOperation(BaseValidatorModel):
     StatusDetails: Optional[StackSetOperationStatusDetails] = None
 
 
+# This class is the output for the 'validate_template' function.
 class ValidateTemplateOutput(BaseValidatorModel):
     Parameters: List[TemplateParameter]
     Description: str
@@ -1649,12 +1767,14 @@ class WarningDetail(BaseValidatorModel):
     Properties: Optional[List[WarningProperty]] = None
 
 
+# This class is the output for the 'list_stack_set_operation_results' function.
 class ListStackSetOperationResultsOutput(BaseValidatorModel):
     Summaries: List[StackSetOperationResultSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'batch_describe_type_configurations' function.
 class BatchDescribeTypeConfigurationsOutput(BaseValidatorModel):
     Errors: List[BatchDescribeTypeConfigurationsError]
     UnprocessedTypeConfigurations: List[TypeConfigurationIdentifier]
@@ -1671,12 +1791,14 @@ class ChangeSetHook(BaseValidatorModel):
     TargetDetails: Optional[ChangeSetHookTargetDetails] = None
 
 
+# This class is the output for the 'list_stack_sets' function.
 class ListStackSetsOutput(BaseValidatorModel):
     Summaries: List[StackSetSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_template_summary' function.
 class GetTemplateSummaryOutput(BaseValidatorModel):
     Parameters: List[ParameterDeclaration]
     Description: str
@@ -1691,18 +1813,21 @@ class GetTemplateSummaryOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_stack_instance_resource_drifts' function.
 class ListStackInstanceResourceDriftsOutput(BaseValidatorModel):
     Summaries: List[StackInstanceResourceDriftsSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_stack_resource_drifts' function.
 class DescribeStackResourceDriftsOutput(BaseValidatorModel):
     StackResourceDrifts: List[StackResourceDrift]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'detect_stack_resource_drift' function.
 class DetectStackResourceDriftOutput(BaseValidatorModel):
     StackResourceDrift: StackResourceDrift
     ResponseMetadata: ResponseMetadata
@@ -1723,6 +1848,7 @@ class ResourceChange(BaseValidatorModel):
     AfterContext: Optional[str] = None
 
 
+# This class is the input for the 'create_stack_refactor' function.
 class CreateStackRefactorInput(BaseValidatorModel):
     StackDefinitions: List[StackDefinition]
     Description: Optional[str] = None
@@ -1773,44 +1899,52 @@ class Stack(BaseValidatorModel):
 RollbackConfigurationUnion = Union[RollbackConfiguration, RollbackConfigurationOutput]
 
 
+# This class is the output for the 'list_stacks' function.
 class ListStacksOutput(BaseValidatorModel):
     StackSummaries: List[StackSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_stack_instances' function.
 class ListStackInstancesOutput(BaseValidatorModel):
     Summaries: List[StackInstanceSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_stack_instance' function.
 class DescribeStackInstanceOutput(BaseValidatorModel):
     StackInstance: StackInstance
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_stack_resource' function.
 class DescribeStackResourceOutput(BaseValidatorModel):
     StackResourceDetail: StackResourceDetail
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_stack_resources' function.
 class DescribeStackResourcesOutput(BaseValidatorModel):
     StackResources: List[StackResource]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_stack_resources' function.
 class ListStackResourcesOutput(BaseValidatorModel):
     StackResourceSummaries: List[StackResourceSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_stack_set' function.
 class DescribeStackSetOutput(BaseValidatorModel):
     StackSet: StackSet
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_stack_instances' function.
 class CreateStackInstancesInput(BaseValidatorModel):
     StackSetName: str
     Regions: List[str]
@@ -1822,6 +1956,7 @@ class CreateStackInstancesInput(BaseValidatorModel):
     CallAs: Optional[CallAsType] = None
 
 
+# This class is the input for the 'delete_stack_instances' function.
 class DeleteStackInstancesInput(BaseValidatorModel):
     StackSetName: str
     Regions: List[str]
@@ -1833,6 +1968,7 @@ class DeleteStackInstancesInput(BaseValidatorModel):
     CallAs: Optional[CallAsType] = None
 
 
+# This class is the input for the 'detect_stack_set_drift' function.
 class DetectStackSetDriftInput(BaseValidatorModel):
     StackSetName: str
     OperationPreferences: Optional[StackSetOperationPreferencesUnion] = None
@@ -1840,6 +1976,7 @@ class DetectStackSetDriftInput(BaseValidatorModel):
     CallAs: Optional[CallAsType] = None
 
 
+# This class is the input for the 'import_stacks_to_stack_set' function.
 class ImportStacksToStackSetInput(BaseValidatorModel):
     StackSetName: str
     StackIds: Optional[List[str]] = None
@@ -1850,6 +1987,7 @@ class ImportStacksToStackSetInput(BaseValidatorModel):
     CallAs: Optional[CallAsType] = None
 
 
+# This class is the input for the 'update_stack_instances' function.
 class UpdateStackInstancesInput(BaseValidatorModel):
     StackSetName: str
     Regions: List[str]
@@ -1861,6 +1999,7 @@ class UpdateStackInstancesInput(BaseValidatorModel):
     CallAs: Optional[CallAsType] = None
 
 
+# This class is the input for the 'update_stack_set' function.
 class UpdateStackSetInput(BaseValidatorModel):
     StackSetName: str
     Description: Optional[str] = None
@@ -1883,12 +2022,14 @@ class UpdateStackSetInput(BaseValidatorModel):
     ManagedExecution: Optional[ManagedExecution] = None
 
 
+# This class is the output for the 'list_stack_set_operations' function.
 class ListStackSetOperationsOutput(BaseValidatorModel):
     Summaries: List[StackSetOperationSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_stack_set_operation' function.
 class DescribeStackSetOperationOutput(BaseValidatorModel):
     StackSetOperation: StackSetOperation
     ResponseMetadata: ResponseMetadata
@@ -1903,6 +2044,7 @@ class ResourceDetail(BaseValidatorModel):
     Warnings: Optional[List[WarningDetail]] = None
 
 
+# This class is the output for the 'describe_change_set_hooks' function.
 class DescribeChangeSetHooksOutput(BaseValidatorModel):
     ChangeSetId: str
     ChangeSetName: str
@@ -1920,18 +2062,21 @@ class Change(BaseValidatorModel):
     ResourceChange: Optional[ResourceChange] = None
 
 
+# This class is the output for the 'list_stack_refactor_actions' function.
 class ListStackRefactorActionsOutput(BaseValidatorModel):
     StackRefactorActions: List[StackRefactorAction]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_stacks' function.
 class DescribeStacksOutput(BaseValidatorModel):
     Stacks: List[Stack]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_change_set' function.
 class CreateChangeSetInput(BaseValidatorModel):
     StackName: str
     ChangeSetName: str
@@ -1975,6 +2120,7 @@ class CreateStackInputServiceResourceCreateStack(BaseValidatorModel):
     RetainExceptOnCreate: Optional[bool] = None
 
 
+# This class is the input for the 'create_stack' function.
 class CreateStackInput(BaseValidatorModel):
     StackName: str
     TemplateBody: Optional[str] = None
@@ -2016,6 +2162,7 @@ class UpdateStackInputStackUpdate(BaseValidatorModel):
     RetainExceptOnCreate: Optional[bool] = None
 
 
+# This class is the input for the 'update_stack' function.
 class UpdateStackInput(BaseValidatorModel):
     StackName: str
     TemplateBody: Optional[str] = None
@@ -2037,6 +2184,7 @@ class UpdateStackInput(BaseValidatorModel):
     RetainExceptOnCreate: Optional[bool] = None
 
 
+# This class is the output for the 'describe_generated_template' function.
 class DescribeGeneratedTemplateOutput(BaseValidatorModel):
     GeneratedTemplateId: str
     GeneratedTemplateName: str
@@ -2052,6 +2200,7 @@ class DescribeGeneratedTemplateOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_change_set' function.
 class DescribeChangeSetOutput(BaseValidatorModel):
     ChangeSetName: str
     ChangeSetId: str

@@ -18,6 +18,7 @@ class ResponseMetadata(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the output for the 'get_media' function.
 class GetMediaOutput(BaseValidatorModel):
     ContentType: str
     Payload: StreamingBody
@@ -31,6 +32,7 @@ class StartSelector(BaseValidatorModel):
     ContinuationToken: Optional[str] = None
 
 
+# This class is the input for the 'get_media' function.
 class GetMediaInput(BaseValidatorModel):
     StartSelector: StartSelector
     StreamName: Optional[str] = None

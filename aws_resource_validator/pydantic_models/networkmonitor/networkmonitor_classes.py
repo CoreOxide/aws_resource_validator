@@ -43,6 +43,7 @@ class DeleteProbeInput(BaseValidatorModel):
     probeId: str
 
 
+# This class is the input for the 'get_monitor' function.
 class GetMonitorInput(BaseValidatorModel):
     monitorName: str
 
@@ -63,6 +64,7 @@ class Probe(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'get_probe' function.
 class GetProbeInput(BaseValidatorModel):
     monitorName: str
     probeId: str
@@ -74,6 +76,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_monitors' function.
 class ListMonitorsInput(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -88,6 +91,7 @@ class MonitorSummary(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInput(BaseValidatorModel):
     resourceArn: str
 
@@ -102,11 +106,13 @@ class UntagResourceInput(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_monitor' function.
 class UpdateMonitorInput(BaseValidatorModel):
     monitorName: str
     aggregationPeriod: int
 
 
+# This class is the input for the 'update_probe' function.
 class UpdateProbeInput(BaseValidatorModel):
     monitorName: str
     probeId: str
@@ -117,6 +123,7 @@ class UpdateProbeInput(BaseValidatorModel):
     packetSize: Optional[int] = None
 
 
+# This class is the input for the 'create_monitor' function.
 class CreateMonitorInput(BaseValidatorModel):
     monitorName: str
     probes: Optional[List[CreateMonitorProbeInput]] = None
@@ -125,6 +132,7 @@ class CreateMonitorInput(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_monitor' function.
 class CreateMonitorOutput(BaseValidatorModel):
     monitorArn: str
     monitorName: str
@@ -134,6 +142,7 @@ class CreateMonitorOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_probe' function.
 class CreateProbeOutput(BaseValidatorModel):
     probeId: str
     probeArn: str
@@ -151,6 +160,7 @@ class CreateProbeOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_probe' function.
 class GetProbeOutput(BaseValidatorModel):
     probeId: str
     probeArn: str
@@ -168,11 +178,13 @@ class GetProbeOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceOutput(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_monitor' function.
 class UpdateMonitorOutput(BaseValidatorModel):
     monitorArn: str
     monitorName: str
@@ -182,6 +194,7 @@ class UpdateMonitorOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_probe' function.
 class UpdateProbeOutput(BaseValidatorModel):
     probeId: str
     probeArn: str
@@ -199,6 +212,7 @@ class UpdateProbeOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_probe' function.
 class CreateProbeInput(BaseValidatorModel):
     monitorName: str
     probe: ProbeInput
@@ -206,6 +220,7 @@ class CreateProbeInput(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'get_monitor' function.
 class GetMonitorOutput(BaseValidatorModel):
     monitorArn: str
     monitorName: str
@@ -223,6 +238,7 @@ class ListMonitorsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_monitors' function.
 class ListMonitorsOutput(BaseValidatorModel):
     monitors: List[MonitorSummary]
     ResponseMetadata: ResponseMetadata

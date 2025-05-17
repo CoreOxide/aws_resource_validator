@@ -48,6 +48,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'delete_configuration_manager' function.
 class DeleteConfigurationManagerInput(BaseValidatorModel):
     ManagerArn: str
 
@@ -57,10 +58,12 @@ class Filter(BaseValidatorModel):
     Values: List[str]
 
 
+# This class is the input for the 'get_configuration' function.
 class GetConfigurationInput(BaseValidatorModel):
     ConfigurationId: str
 
 
+# This class is the input for the 'get_configuration_manager' function.
 class GetConfigurationManagerInput(BaseValidatorModel):
     ManagerArn: str
 
@@ -80,6 +83,7 @@ class QuickSetupTypeOutput(BaseValidatorModel):
     Type: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -89,16 +93,19 @@ class TagEntry(BaseValidatorModel):
     Value: Optional[str] = None
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceInput(BaseValidatorModel):
     ResourceArn: str
     Tags: Dict[str, str]
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceInput(BaseValidatorModel):
     ResourceArn: str
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_configuration_definition' function.
 class UpdateConfigurationDefinitionInput(BaseValidatorModel):
     Id: str
     ManagerArn: str
@@ -108,16 +115,19 @@ class UpdateConfigurationDefinitionInput(BaseValidatorModel):
     TypeVersion: Optional[str] = None
 
 
+# This class is the input for the 'update_configuration_manager' function.
 class UpdateConfigurationManagerInput(BaseValidatorModel):
     ManagerArn: str
     Description: Optional[str] = None
     Name: Optional[str] = None
 
 
+# This class is the input for the 'update_service_settings' function.
 class UpdateServiceSettingsInput(BaseValidatorModel):
     ExplorerEnablingRoleArn: Optional[str] = None
 
 
+# This class is the input for the 'create_configuration_manager' function.
 class CreateConfigurationManagerInput(BaseValidatorModel):
     ConfigurationDefinitions: List[ConfigurationDefinitionInput]
     Description: Optional[str] = None
@@ -146,15 +156,18 @@ class ConfigurationSummary(BaseValidatorModel):
     TypeVersion: Optional[str] = None
 
 
+# This class is the output for the 'create_configuration_manager' function.
 class CreateConfigurationManagerOutput(BaseValidatorModel):
     ManagerArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_service_settings' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_configuration_manager' function.
 class GetConfigurationManagerOutput(BaseValidatorModel):
     ConfigurationDefinitions: List[ConfigurationDefinition]
     CreatedAt: datetime
@@ -167,6 +180,7 @@ class GetConfigurationManagerOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_configuration' function.
 class GetConfigurationOutput(BaseValidatorModel):
     Account: str
     ConfigurationDefinitionId: str
@@ -182,12 +196,14 @@ class GetConfigurationOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'list_configuration_managers' function.
 class ListConfigurationManagersInput(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxItems: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_configurations' function.
 class ListConfigurationsInput(BaseValidatorModel):
     ConfigurationDefinitionId: Optional[str] = None
     Filters: Optional[List[Filter]] = None
@@ -218,17 +234,20 @@ class ListQuickSetupTypesOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[TagEntry]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_configuration_managers' function.
 class ListConfigurationManagersOutput(BaseValidatorModel):
     ConfigurationManagersList: List[ConfigurationManagerSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_configurations' function.
 class ListConfigurationsOutput(BaseValidatorModel):
     ConfigurationsList: List[ConfigurationSummary]
     ResponseMetadata: ResponseMetadata

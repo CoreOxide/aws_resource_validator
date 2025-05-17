@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'get_latest_configuration' function.
 class GetLatestConfigurationRequest(BaseValidatorModel):
     ConfigurationToken: str
 
@@ -20,6 +21,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'start_configuration_session' function.
 class StartConfigurationSessionRequest(BaseValidatorModel):
     ApplicationIdentifier: str
     EnvironmentIdentifier: str
@@ -27,6 +29,7 @@ class StartConfigurationSessionRequest(BaseValidatorModel):
     RequiredMinimumPollIntervalInSeconds: Optional[int] = None
 
 
+# This class is the output for the 'get_latest_configuration' function.
 class GetLatestConfigurationResponse(BaseValidatorModel):
     NextPollConfigurationToken: str
     NextPollIntervalInSeconds: int
@@ -36,6 +39,7 @@ class GetLatestConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_configuration_session' function.
 class StartConfigurationSessionResponse(BaseValidatorModel):
     InitialConfigurationToken: str
     ResponseMetadata: ResponseMetadata

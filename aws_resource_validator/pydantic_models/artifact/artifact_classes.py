@@ -36,6 +36,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'get_report_metadata' function.
 class GetReportMetadataRequest(BaseValidatorModel):
     reportId: str
     reportVersion: Optional[int] = None
@@ -64,12 +65,14 @@ class ReportDetail(BaseValidatorModel):
     statusMessage: Optional[str] = None
 
 
+# This class is the input for the 'get_report' function.
 class GetReportRequest(BaseValidatorModel):
     reportId: str
     termToken: str
     reportVersion: Optional[int] = None
 
 
+# This class is the input for the 'get_term_for_report' function.
 class GetTermForReportRequest(BaseValidatorModel):
     reportId: str
     reportVersion: Optional[int] = None
@@ -81,11 +84,13 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_customer_agreements' function.
 class ListCustomerAgreementsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_reports' function.
 class ListReportsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -109,6 +114,7 @@ class ReportSummary(BaseValidatorModel):
     acceptanceType: Optional[AcceptanceTypeType] = None
 
 
+# This class is the input for the 'put_account_settings' function.
 class PutAccountSettingsRequest(BaseValidatorModel):
     notificationSubscriptionStatus: Optional[NotificationSubscriptionStatusType] = None
 
@@ -118,28 +124,33 @@ class GetAccountSettingsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_report' function.
 class GetReportResponse(BaseValidatorModel):
     documentPresignedUrl: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_term_for_report' function.
 class GetTermForReportResponse(BaseValidatorModel):
     documentPresignedUrl: str
     termToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_customer_agreements' function.
 class ListCustomerAgreementsResponse(BaseValidatorModel):
     customerAgreements: List[CustomerAgreementSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'put_account_settings' function.
 class PutAccountSettingsResponse(BaseValidatorModel):
     accountSettings: AccountSettings
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_report_metadata' function.
 class GetReportMetadataResponse(BaseValidatorModel):
     reportDetails: ReportDetail
     ResponseMetadata: ResponseMetadata
@@ -153,6 +164,7 @@ class ListReportsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_reports' function.
 class ListReportsResponse(BaseValidatorModel):
     reports: List[ReportSummary]
     ResponseMetadata: ResponseMetadata

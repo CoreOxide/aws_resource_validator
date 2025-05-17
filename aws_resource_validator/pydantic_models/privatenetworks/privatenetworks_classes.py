@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'acknowledge_order_receipt' function.
 class AcknowledgeOrderReceiptRequest(BaseValidatorModel):
     orderArn: str
 
@@ -20,6 +21,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'activate_device_identifier' function.
 class ActivateDeviceIdentifierRequest(BaseValidatorModel):
     deviceIdentifierArn: str
     clientToken: Optional[str] = None
@@ -64,6 +66,7 @@ class Position(BaseValidatorModel):
     longitude: Optional[float] = None
 
 
+# This class is the input for the 'create_network' function.
 class CreateNetworkRequest(BaseValidatorModel):
     networkName: str
     clientToken: Optional[str] = None
@@ -80,37 +83,45 @@ class Network(BaseValidatorModel):
     statusReason: Optional[str] = None
 
 
+# This class is the input for the 'deactivate_device_identifier' function.
 class DeactivateDeviceIdentifierRequest(BaseValidatorModel):
     deviceIdentifierArn: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_network' function.
 class DeleteNetworkRequest(BaseValidatorModel):
     networkArn: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_network_site' function.
 class DeleteNetworkSiteRequest(BaseValidatorModel):
     networkSiteArn: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'get_device_identifier' function.
 class GetDeviceIdentifierRequest(BaseValidatorModel):
     deviceIdentifierArn: str
 
 
+# This class is the input for the 'get_network' function.
 class GetNetworkRequest(BaseValidatorModel):
     networkArn: str
 
 
+# This class is the input for the 'get_network_resource' function.
 class GetNetworkResourceRequest(BaseValidatorModel):
     networkResourceArn: str
 
 
+# This class is the input for the 'get_network_site' function.
 class GetNetworkSiteRequest(BaseValidatorModel):
     networkSiteArn: str
 
 
+# This class is the input for the 'get_order' function.
 class GetOrderRequest(BaseValidatorModel):
     orderArn: str
 
@@ -121,6 +132,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_device_identifiers' function.
 class ListDeviceIdentifiersRequest(BaseValidatorModel):
     networkArn: str
     filters: Optional[Dict[DeviceIdentifierFilterKeysType, List[str]]] = None
@@ -128,6 +140,7 @@ class ListDeviceIdentifiersRequest(BaseValidatorModel):
     startToken: Optional[str] = None
 
 
+# This class is the input for the 'list_network_resources' function.
 class ListNetworkResourcesRequest(BaseValidatorModel):
     networkArn: str
     filters: Optional[Dict[NetworkResourceFilterKeysType, List[str]]] = None
@@ -135,6 +148,7 @@ class ListNetworkResourcesRequest(BaseValidatorModel):
     startToken: Optional[str] = None
 
 
+# This class is the input for the 'list_network_sites' function.
 class ListNetworkSitesRequest(BaseValidatorModel):
     networkArn: str
     filters: Optional[Dict[Literal['STATUS'], List[str]]] = None
@@ -142,12 +156,14 @@ class ListNetworkSitesRequest(BaseValidatorModel):
     startToken: Optional[str] = None
 
 
+# This class is the input for the 'list_networks' function.
 class ListNetworksRequest(BaseValidatorModel):
     filters: Optional[Dict[Literal['STATUS'], List[str]]] = None
     maxResults: Optional[int] = None
     startToken: Optional[str] = None
 
 
+# This class is the input for the 'list_orders' function.
 class ListOrdersRequest(BaseValidatorModel):
     networkArn: str
     filters: Optional[Dict[OrderFilterKeysType, List[str]]] = None
@@ -155,6 +171,7 @@ class ListOrdersRequest(BaseValidatorModel):
     startToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -178,12 +195,14 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_network_site' function.
 class UpdateNetworkSiteRequest(BaseValidatorModel):
     networkSiteArn: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
@@ -194,23 +213,27 @@ class PingResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'activate_device_identifier' function.
 class ActivateDeviceIdentifierResponse(BaseValidatorModel):
     deviceIdentifier: DeviceIdentifier
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'deactivate_device_identifier' function.
 class DeactivateDeviceIdentifierResponse(BaseValidatorModel):
     deviceIdentifier: DeviceIdentifier
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_device_identifier' function.
 class GetDeviceIdentifierResponse(BaseValidatorModel):
     deviceIdentifier: DeviceIdentifier
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_device_identifiers' function.
 class ListDeviceIdentifiersResponse(BaseValidatorModel):
     deviceIdentifiers: List[DeviceIdentifier]
     ResponseMetadata: ResponseMetadata
@@ -224,6 +247,7 @@ class ReturnInformation(BaseValidatorModel):
     shippingLabel: Optional[str] = None
 
 
+# This class is the input for the 'activate_network_site' function.
 class ActivateNetworkSiteRequest(BaseValidatorModel):
     networkSiteArn: str
     shippingAddress: Address
@@ -243,6 +267,7 @@ class OrderedResourceDefinition(BaseValidatorModel):
     commitmentConfiguration: Optional[CommitmentConfiguration] = None
 
 
+# This class is the input for the 'start_network_resource_update' function.
 class StartNetworkResourceUpdateRequest(BaseValidatorModel):
     networkResourceArn: str
     updateType: UpdateTypeType
@@ -251,6 +276,7 @@ class StartNetworkResourceUpdateRequest(BaseValidatorModel):
     shippingAddress: Optional[Address] = None
 
 
+# This class is the input for the 'configure_access_point' function.
 class ConfigureAccessPointRequest(BaseValidatorModel):
     accessPointArn: str
     cpiSecretKey: Optional[str] = None
@@ -260,23 +286,27 @@ class ConfigureAccessPointRequest(BaseValidatorModel):
     position: Optional[Position] = None
 
 
+# This class is the output for the 'create_network' function.
 class CreateNetworkResponse(BaseValidatorModel):
     network: Network
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_network' function.
 class DeleteNetworkResponse(BaseValidatorModel):
     network: Network
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_network' function.
 class GetNetworkResponse(BaseValidatorModel):
     network: Network
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_networks' function.
 class ListNetworksResponse(BaseValidatorModel):
     networks: List[Network]
     ResponseMetadata: ResponseMetadata
@@ -365,39 +395,46 @@ class SitePlan(BaseValidatorModel):
     resourceDefinitions: Optional[List[NetworkResourceDefinition]] = None
 
 
+# This class is the output for the 'configure_access_point' function.
 class ConfigureAccessPointResponse(BaseValidatorModel):
     accessPoint: NetworkResource
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_network_resource' function.
 class GetNetworkResourceResponse(BaseValidatorModel):
     networkResource: NetworkResource
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_network_resources' function.
 class ListNetworkResourcesResponse(BaseValidatorModel):
     networkResources: List[NetworkResource]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_network_resource_update' function.
 class StartNetworkResourceUpdateResponse(BaseValidatorModel):
     networkResource: NetworkResource
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'acknowledge_order_receipt' function.
 class AcknowledgeOrderReceiptResponse(BaseValidatorModel):
     order: Order
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_order' function.
 class GetOrderResponse(BaseValidatorModel):
     order: Order
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_orders' function.
 class ListOrdersResponse(BaseValidatorModel):
     orders: List[Order]
     ResponseMetadata: ResponseMetadata
@@ -420,40 +457,47 @@ class NetworkSite(BaseValidatorModel):
 SitePlanUnion = Union[SitePlan, SitePlanOutput]
 
 
+# This class is the output for the 'activate_network_site' function.
 class ActivateNetworkSiteResponse(BaseValidatorModel):
     networkSite: NetworkSite
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_network_site' function.
 class CreateNetworkSiteResponse(BaseValidatorModel):
     networkSite: NetworkSite
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_network_site' function.
 class DeleteNetworkSiteResponse(BaseValidatorModel):
     networkSite: NetworkSite
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_network_site' function.
 class GetNetworkSiteResponse(BaseValidatorModel):
     networkSite: NetworkSite
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_network_sites' function.
 class ListNetworkSitesResponse(BaseValidatorModel):
     networkSites: List[NetworkSite]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_network_site_plan' function.
 class UpdateNetworkSiteResponse(BaseValidatorModel):
     networkSite: NetworkSite
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_network_site' function.
 class CreateNetworkSiteRequest(BaseValidatorModel):
     networkArn: str
     networkSiteName: str
@@ -465,6 +509,7 @@ class CreateNetworkSiteRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_network_site_plan' function.
 class UpdateNetworkSitePlanRequest(BaseValidatorModel):
     networkSiteArn: str
     pendingPlan: SitePlanUnion

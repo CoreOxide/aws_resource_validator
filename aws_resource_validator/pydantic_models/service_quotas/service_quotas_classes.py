@@ -19,6 +19,7 @@ class ErrorReason(BaseValidatorModel):
     ErrorMessage: Optional[str] = None
 
 
+# This class is the input for the 'get_aws_default_service_quota' function.
 class GetAWSDefaultServiceQuotaRequest(BaseValidatorModel):
     ServiceCode: str
     QuotaCode: str
@@ -32,10 +33,12 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'get_requested_service_quota_change' function.
 class GetRequestedServiceQuotaChangeRequest(BaseValidatorModel):
     RequestId: str
 
 
+# This class is the input for the 'get_service_quota_increase_request_from_template' function.
 class GetServiceQuotaIncreaseRequestFromTemplateRequest(BaseValidatorModel):
     ServiceCode: str
     QuotaCode: str
@@ -53,6 +56,7 @@ class ServiceQuotaIncreaseRequestInTemplate(BaseValidatorModel):
     GlobalQuota: Optional[bool] = None
 
 
+# This class is the input for the 'get_service_quota' function.
 class GetServiceQuotaRequest(BaseValidatorModel):
     ServiceCode: str
     QuotaCode: str
@@ -65,12 +69,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_aws_default_service_quotas' function.
 class ListAWSDefaultServiceQuotasRequest(BaseValidatorModel):
     ServiceCode: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_requested_service_quota_change_history_by_quota' function.
 class ListRequestedServiceQuotaChangeHistoryByQuotaRequest(BaseValidatorModel):
     ServiceCode: str
     QuotaCode: str
@@ -80,6 +86,7 @@ class ListRequestedServiceQuotaChangeHistoryByQuotaRequest(BaseValidatorModel):
     QuotaRequestedAtLevel: Optional[AppliedLevelEnumType] = None
 
 
+# This class is the input for the 'list_requested_service_quota_change_history' function.
 class ListRequestedServiceQuotaChangeHistoryRequest(BaseValidatorModel):
     ServiceCode: Optional[str] = None
     Status: Optional[RequestStatusType] = None
@@ -88,6 +95,7 @@ class ListRequestedServiceQuotaChangeHistoryRequest(BaseValidatorModel):
     QuotaRequestedAtLevel: Optional[AppliedLevelEnumType] = None
 
 
+# This class is the input for the 'list_service_quota_increase_requests_in_template' function.
 class ListServiceQuotaIncreaseRequestsInTemplateRequest(BaseValidatorModel):
     ServiceCode: Optional[str] = None
     AwsRegion: Optional[str] = None
@@ -95,6 +103,7 @@ class ListServiceQuotaIncreaseRequestsInTemplateRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_service_quotas' function.
 class ListServiceQuotasRequest(BaseValidatorModel):
     ServiceCode: str
     NextToken: Optional[str] = None
@@ -103,6 +112,7 @@ class ListServiceQuotasRequest(BaseValidatorModel):
     QuotaAppliedAtLevel: Optional[AppliedLevelEnumType] = None
 
 
+# This class is the input for the 'list_services' function.
 class ListServicesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -113,6 +123,7 @@ class ServiceInfo(BaseValidatorModel):
     ServiceName: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
@@ -129,6 +140,7 @@ class MetricInfo(BaseValidatorModel):
     MetricStatisticRecommendation: Optional[str] = None
 
 
+# This class is the input for the 'put_service_quota_increase_request_into_template' function.
 class PutServiceQuotaIncreaseRequestIntoTemplateRequest(BaseValidatorModel):
     QuotaCode: str
     ServiceCode: str
@@ -147,6 +159,7 @@ class QuotaPeriod(BaseValidatorModel):
     PeriodUnit: Optional[PeriodUnitType] = None
 
 
+# This class is the input for the 'request_service_quota_increase' function.
 class RequestServiceQuotaIncreaseRequest(BaseValidatorModel):
     ServiceCode: str
     QuotaCode: str
@@ -164,17 +177,20 @@ class GetAssociationForServiceQuotaTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_service_quota_increase_request_from_template' function.
 class GetServiceQuotaIncreaseRequestFromTemplateResponse(BaseValidatorModel):
     ServiceQuotaIncreaseRequestInTemplate: ServiceQuotaIncreaseRequestInTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_service_quota_increase_requests_in_template' function.
 class ListServiceQuotaIncreaseRequestsInTemplateResponse(BaseValidatorModel):
     ServiceQuotaIncreaseRequestInTemplateList: List[ServiceQuotaIncreaseRequestInTemplate]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'put_service_quota_increase_request_into_template' function.
 class PutServiceQuotaIncreaseRequestIntoTemplateResponse(BaseValidatorModel):
     ServiceQuotaIncreaseRequestInTemplate: ServiceQuotaIncreaseRequestInTemplate
     ResponseMetadata: ResponseMetadata
@@ -217,12 +233,14 @@ class ListServicesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_services' function.
 class ListServicesResponse(BaseValidatorModel):
     Services: List[ServiceInfo]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -269,44 +287,52 @@ class ServiceQuota(BaseValidatorModel):
     QuotaContext: Optional[QuotaContextInfo] = None
 
 
+# This class is the output for the 'get_requested_service_quota_change' function.
 class GetRequestedServiceQuotaChangeResponse(BaseValidatorModel):
     RequestedQuota: RequestedServiceQuotaChange
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_requested_service_quota_change_history_by_quota' function.
 class ListRequestedServiceQuotaChangeHistoryByQuotaResponse(BaseValidatorModel):
     RequestedQuotas: List[RequestedServiceQuotaChange]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_requested_service_quota_change_history' function.
 class ListRequestedServiceQuotaChangeHistoryResponse(BaseValidatorModel):
     RequestedQuotas: List[RequestedServiceQuotaChange]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'request_service_quota_increase' function.
 class RequestServiceQuotaIncreaseResponse(BaseValidatorModel):
     RequestedQuota: RequestedServiceQuotaChange
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_aws_default_service_quota' function.
 class GetAWSDefaultServiceQuotaResponse(BaseValidatorModel):
     Quota: ServiceQuota
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_service_quota' function.
 class GetServiceQuotaResponse(BaseValidatorModel):
     Quota: ServiceQuota
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_aws_default_service_quotas' function.
 class ListAWSDefaultServiceQuotasResponse(BaseValidatorModel):
     Quotas: List[ServiceQuota]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_service_quotas' function.
 class ListServiceQuotasResponse(BaseValidatorModel):
     Quotas: List[ServiceQuota]
     ResponseMetadata: ResponseMetadata

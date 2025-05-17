@@ -21,6 +21,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'delete_notification_rule' function.
 class DeleteNotificationRuleRequest(BaseValidatorModel):
     Arn: str
 
@@ -30,6 +31,7 @@ class DeleteTargetRequest(BaseValidatorModel):
     ForceUnsubscribeAll: Optional[bool] = None
 
 
+# This class is the input for the 'describe_notification_rule' function.
 class DescribeNotificationRuleRequest(BaseValidatorModel):
     Arn: str
 
@@ -68,6 +70,7 @@ class NotificationRuleSummary(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     Arn: str
 
@@ -77,11 +80,13 @@ class ListTargetsFilter(BaseValidatorModel):
     Value: str
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     Arn: str
     Tags: Dict[str, str]
 
 
+# This class is the input for the 'unsubscribe' function.
 class UnsubscribeRequest(BaseValidatorModel):
     Arn: str
     TargetAddress: str
@@ -92,6 +97,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'create_notification_rule' function.
 class CreateNotificationRuleRequest(BaseValidatorModel):
     Name: str
     EventTypeIds: List[str]
@@ -103,6 +109,7 @@ class CreateNotificationRuleRequest(BaseValidatorModel):
     Status: Optional[NotificationRuleStatusType] = None
 
 
+# This class is the input for the 'subscribe' function.
 class SubscribeRequest(BaseValidatorModel):
     Arn: str
     Target: Target
@@ -118,42 +125,50 @@ class UpdateNotificationRuleRequest(BaseValidatorModel):
     DetailType: Optional[DetailTypeType] = None
 
 
+# This class is the output for the 'create_notification_rule' function.
 class CreateNotificationRuleResult(BaseValidatorModel):
     Arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_notification_rule' function.
 class DeleteNotificationRuleResult(BaseValidatorModel):
     Arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResult(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'subscribe' function.
 class SubscribeResult(BaseValidatorModel):
     Arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'tag_resource' function.
 class TagResourceResult(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'unsubscribe' function.
 class UnsubscribeResult(BaseValidatorModel):
     Arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_event_types' function.
 class ListEventTypesResult(BaseValidatorModel):
     EventTypes: List[EventTypeSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_notification_rule' function.
 class DescribeNotificationRuleResult(BaseValidatorModel):
     Arn: str
     Name: str
@@ -169,12 +184,14 @@ class DescribeNotificationRuleResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_targets' function.
 class ListTargetsResult(BaseValidatorModel):
     Targets: List[TargetSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_event_types' function.
 class ListEventTypesRequest(BaseValidatorModel):
     Filters: Optional[List[ListEventTypesFilter]] = None
     NextToken: Optional[str] = None
@@ -191,12 +208,14 @@ class ListNotificationRulesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_notification_rules' function.
 class ListNotificationRulesRequest(BaseValidatorModel):
     Filters: Optional[List[ListNotificationRulesFilter]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the output for the 'list_notification_rules' function.
 class ListNotificationRulesResult(BaseValidatorModel):
     NotificationRules: List[NotificationRuleSummary]
     ResponseMetadata: ResponseMetadata
@@ -208,6 +227,7 @@ class ListTargetsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_targets' function.
 class ListTargetsRequest(BaseValidatorModel):
     Filters: Optional[List[ListTargetsFilter]] = None
     NextToken: Optional[str] = None

@@ -27,6 +27,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_logging_configuration' function.
 class CreateLoggingConfigurationRequest(BaseValidatorModel):
     logGroupArn: str
     workspaceId: str
@@ -52,6 +53,7 @@ class ScraperStatus(BaseValidatorModel):
     statusCode: ScraperStatusCodeType
 
 
+# This class is the input for the 'create_workspace' function.
 class CreateWorkspaceRequest(BaseValidatorModel):
     alias: Optional[str] = None
     clientToken: Optional[str] = None
@@ -63,45 +65,54 @@ class WorkspaceStatus(BaseValidatorModel):
     statusCode: WorkspaceStatusCodeType
 
 
+# This class is the input for the 'delete_alert_manager_definition' function.
 class DeleteAlertManagerDefinitionRequest(BaseValidatorModel):
     workspaceId: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_logging_configuration' function.
 class DeleteLoggingConfigurationRequest(BaseValidatorModel):
     workspaceId: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_rule_groups_namespace' function.
 class DeleteRuleGroupsNamespaceRequest(BaseValidatorModel):
     name: str
     workspaceId: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_scraper' function.
 class DeleteScraperRequest(BaseValidatorModel):
     scraperId: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_workspace' function.
 class DeleteWorkspaceRequest(BaseValidatorModel):
     workspaceId: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_alert_manager_definition' function.
 class DescribeAlertManagerDefinitionRequest(BaseValidatorModel):
     workspaceId: str
 
 
+# This class is the input for the 'describe_logging_configuration' function.
 class DescribeLoggingConfigurationRequest(BaseValidatorModel):
     workspaceId: str
 
 
+# This class is the input for the 'describe_rule_groups_namespace' function.
 class DescribeRuleGroupsNamespaceRequest(BaseValidatorModel):
     name: str
     workspaceId: str
 
 
+# This class is the input for the 'describe_scraper' function.
 class DescribeScraperRequest(BaseValidatorModel):
     scraperId: str
 
@@ -111,6 +122,7 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'describe_workspace' function.
 class DescribeWorkspaceRequest(BaseValidatorModel):
     workspaceId: str
 
@@ -133,6 +145,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_rule_groups_namespaces' function.
 class ListRuleGroupsNamespacesRequest(BaseValidatorModel):
     workspaceId: str
     maxResults: Optional[int] = None
@@ -140,16 +153,19 @@ class ListRuleGroupsNamespacesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_scrapers' function.
 class ListScrapersRequest(BaseValidatorModel):
     filters: Optional[Dict[str, List[str]]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'list_workspaces' function.
 class ListWorkspacesRequest(BaseValidatorModel):
     alias: Optional[str] = None
     maxResults: Optional[int] = None
@@ -170,12 +186,14 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_logging_configuration' function.
 class UpdateLoggingConfigurationRequest(BaseValidatorModel):
     logGroupArn: str
     workspaceId: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'update_workspace_alias' function.
 class UpdateWorkspaceAliasRequest(BaseValidatorModel):
     workspaceId: str
     alias: Optional[str] = None
@@ -193,12 +211,14 @@ class Destination(BaseValidatorModel):
     ampConfiguration: Optional[AmpConfiguration] = None
 
 
+# This class is the input for the 'create_alert_manager_definition' function.
 class CreateAlertManagerDefinitionRequest(BaseValidatorModel):
     data: Blob
     workspaceId: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'create_rule_groups_namespace' function.
 class CreateRuleGroupsNamespaceRequest(BaseValidatorModel):
     data: Blob
     name: str
@@ -207,12 +227,14 @@ class CreateRuleGroupsNamespaceRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'put_alert_manager_definition' function.
 class PutAlertManagerDefinitionRequest(BaseValidatorModel):
     data: Blob
     workspaceId: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'put_rule_groups_namespace' function.
 class PutRuleGroupsNamespaceRequest(BaseValidatorModel):
     data: Blob
     name: str
@@ -224,11 +246,13 @@ class ScrapeConfiguration(BaseValidatorModel):
     configurationBlob: Optional[Blob] = None
 
 
+# This class is the output for the 'create_alert_manager_definition' function.
 class CreateAlertManagerDefinitionResponse(BaseValidatorModel):
     status: AlertManagerDefinitionStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_workspace_alias' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
@@ -238,16 +262,19 @@ class GetDefaultScraperConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_alert_manager_definition' function.
 class PutAlertManagerDefinitionResponse(BaseValidatorModel):
     status: AlertManagerDefinitionStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_logging_configuration' function.
 class CreateLoggingConfigurationResponse(BaseValidatorModel):
     status: LoggingConfigurationStatus
     ResponseMetadata: ResponseMetadata
@@ -261,11 +288,13 @@ class LoggingConfigurationMetadata(BaseValidatorModel):
     workspace: str
 
 
+# This class is the output for the 'update_logging_configuration' function.
 class UpdateLoggingConfigurationResponse(BaseValidatorModel):
     status: LoggingConfigurationStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_rule_groups_namespace' function.
 class CreateRuleGroupsNamespaceResponse(BaseValidatorModel):
     arn: str
     name: str
@@ -274,6 +303,7 @@ class CreateRuleGroupsNamespaceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_rule_groups_namespace' function.
 class PutRuleGroupsNamespaceResponse(BaseValidatorModel):
     arn: str
     name: str
@@ -301,6 +331,7 @@ class RuleGroupsNamespaceSummary(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_scraper' function.
 class CreateScraperResponse(BaseValidatorModel):
     arn: str
     scraperId: str
@@ -309,12 +340,14 @@ class CreateScraperResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_scraper' function.
 class DeleteScraperResponse(BaseValidatorModel):
     scraperId: str
     status: ScraperStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_scraper' function.
 class UpdateScraperResponse(BaseValidatorModel):
     arn: str
     scraperId: str
@@ -323,6 +356,7 @@ class UpdateScraperResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_workspace' function.
 class CreateWorkspaceResponse(BaseValidatorModel):
     arn: str
     kmsKeyArn: str
@@ -397,6 +431,7 @@ class ListWorkspacesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'describe_alert_manager_definition' function.
 class DescribeAlertManagerDefinitionResponse(BaseValidatorModel):
     alertManagerDefinition: AlertManagerDefinitionDescription
     ResponseMetadata: ResponseMetadata
@@ -404,27 +439,32 @@ class DescribeAlertManagerDefinitionResponse(BaseValidatorModel):
 ScrapeConfigurationUnion = Union[ScrapeConfiguration, ScrapeConfigurationOutput]
 
 
+# This class is the output for the 'describe_logging_configuration' function.
 class DescribeLoggingConfigurationResponse(BaseValidatorModel):
     loggingConfiguration: LoggingConfigurationMetadata
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_rule_groups_namespace' function.
 class DescribeRuleGroupsNamespaceResponse(BaseValidatorModel):
     ruleGroupsNamespace: RuleGroupsNamespaceDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_rule_groups_namespaces' function.
 class ListRuleGroupsNamespacesResponse(BaseValidatorModel):
     ruleGroupsNamespaces: List[RuleGroupsNamespaceSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_workspace' function.
 class DescribeWorkspaceResponse(BaseValidatorModel):
     workspace: WorkspaceDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_workspaces' function.
 class ListWorkspacesResponse(BaseValidatorModel):
     workspaces: List[WorkspaceSummary]
     ResponseMetadata: ResponseMetadata
@@ -464,6 +504,7 @@ class ScraperSummary(BaseValidatorModel):
 SourceUnion = Union[Source, SourceOutput]
 
 
+# This class is the input for the 'update_scraper' function.
 class UpdateScraperRequest(BaseValidatorModel):
     scraperId: str
     alias: Optional[str] = None
@@ -473,17 +514,20 @@ class UpdateScraperRequest(BaseValidatorModel):
     scrapeConfiguration: Optional[ScrapeConfigurationUnion] = None
 
 
+# This class is the output for the 'describe_scraper' function.
 class DescribeScraperResponse(BaseValidatorModel):
     scraper: ScraperDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_scrapers' function.
 class ListScrapersResponse(BaseValidatorModel):
     scrapers: List[ScraperSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_scraper' function.
 class CreateScraperRequest(BaseValidatorModel):
     destination: Destination
     scrapeConfiguration: ScrapeConfigurationUnion

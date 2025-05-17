@@ -69,6 +69,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'associate_agent_knowledge_base' function.
 class AssociateAgentKnowledgeBaseRequest(BaseValidatorModel):
     agentId: str
     agentVersion: str
@@ -135,12 +136,14 @@ class FlowAliasRoutingConfigurationListItem(BaseValidatorModel):
     flowVersion: Optional[str] = None
 
 
+# This class is the input for the 'create_flow_version' function.
 class CreateFlowVersionRequest(BaseValidatorModel):
     flowIdentifier: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
 
 
+# This class is the input for the 'create_prompt_version' function.
 class CreatePromptVersionRequest(BaseValidatorModel):
     promptIdentifier: str
     clientToken: Optional[str] = None
@@ -198,47 +201,56 @@ class DeleteAgentActionGroupRequest(BaseValidatorModel):
     skipResourceInUseCheck: Optional[bool] = None
 
 
+# This class is the input for the 'delete_agent_alias' function.
 class DeleteAgentAliasRequest(BaseValidatorModel):
     agentAliasId: str
     agentId: str
 
 
+# This class is the input for the 'delete_agent' function.
 class DeleteAgentRequest(BaseValidatorModel):
     agentId: str
     skipResourceInUseCheck: Optional[bool] = None
 
 
+# This class is the input for the 'delete_agent_version' function.
 class DeleteAgentVersionRequest(BaseValidatorModel):
     agentId: str
     agentVersion: str
     skipResourceInUseCheck: Optional[bool] = None
 
 
+# This class is the input for the 'delete_data_source' function.
 class DeleteDataSourceRequest(BaseValidatorModel):
     dataSourceId: str
     knowledgeBaseId: str
 
 
+# This class is the input for the 'delete_flow_alias' function.
 class DeleteFlowAliasRequest(BaseValidatorModel):
     aliasIdentifier: str
     flowIdentifier: str
 
 
+# This class is the input for the 'delete_flow' function.
 class DeleteFlowRequest(BaseValidatorModel):
     flowIdentifier: str
     skipResourceInUseCheck: Optional[bool] = None
 
 
+# This class is the input for the 'delete_flow_version' function.
 class DeleteFlowVersionRequest(BaseValidatorModel):
     flowIdentifier: str
     flowVersion: str
     skipResourceInUseCheck: Optional[bool] = None
 
 
+# This class is the input for the 'delete_knowledge_base' function.
 class DeleteKnowledgeBaseRequest(BaseValidatorModel):
     knowledgeBaseId: str
 
 
+# This class is the input for the 'delete_prompt' function.
 class DeletePromptRequest(BaseValidatorModel):
     promptIdentifier: str
     promptVersion: Optional[str] = None
@@ -422,67 +434,80 @@ class ParameterDetail(BaseValidatorModel):
     required: Optional[bool] = None
 
 
+# This class is the input for the 'get_agent_action_group' function.
 class GetAgentActionGroupRequest(BaseValidatorModel):
     actionGroupId: str
     agentId: str
     agentVersion: str
 
 
+# This class is the input for the 'get_agent_alias' function.
 class GetAgentAliasRequest(BaseValidatorModel):
     agentAliasId: str
     agentId: str
 
 
+# This class is the input for the 'get_agent_collaborator' function.
 class GetAgentCollaboratorRequest(BaseValidatorModel):
     agentId: str
     agentVersion: str
     collaboratorId: str
 
 
+# This class is the input for the 'get_agent_knowledge_base' function.
 class GetAgentKnowledgeBaseRequest(BaseValidatorModel):
     agentId: str
     agentVersion: str
     knowledgeBaseId: str
 
 
+# This class is the input for the 'get_agent' function.
 class GetAgentRequest(BaseValidatorModel):
     agentId: str
 
 
+# This class is the input for the 'get_agent_version' function.
 class GetAgentVersionRequest(BaseValidatorModel):
     agentId: str
     agentVersion: str
 
 
+# This class is the input for the 'get_data_source' function.
 class GetDataSourceRequest(BaseValidatorModel):
     dataSourceId: str
     knowledgeBaseId: str
 
 
+# This class is the input for the 'get_flow_alias' function.
 class GetFlowAliasRequest(BaseValidatorModel):
     aliasIdentifier: str
     flowIdentifier: str
 
 
+# This class is the input for the 'get_flow' function.
 class GetFlowRequest(BaseValidatorModel):
     flowIdentifier: str
 
 
+# This class is the input for the 'get_flow_version' function.
 class GetFlowVersionRequest(BaseValidatorModel):
     flowIdentifier: str
     flowVersion: str
 
 
+# This class is the input for the 'get_ingestion_job' function.
 class GetIngestionJobRequest(BaseValidatorModel):
     dataSourceId: str
     ingestionJobId: str
     knowledgeBaseId: str
 
 
+# This class is the input for the 'get_knowledge_base' function.
 class GetKnowledgeBaseRequest(BaseValidatorModel):
     knowledgeBaseId: str
 
 
+# This class is the input for the 'get_prompt' function.
 class GetPromptRequest(BaseValidatorModel):
     promptIdentifier: str
     promptVersion: Optional[str] = None
@@ -551,6 +576,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_agent_action_groups' function.
 class ListAgentActionGroupsRequest(BaseValidatorModel):
     agentId: str
     agentVersion: str
@@ -558,12 +584,14 @@ class ListAgentActionGroupsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_agent_aliases' function.
 class ListAgentAliasesRequest(BaseValidatorModel):
     agentId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_agent_collaborators' function.
 class ListAgentCollaboratorsRequest(BaseValidatorModel):
     agentId: str
     agentVersion: str
@@ -571,6 +599,7 @@ class ListAgentCollaboratorsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_agent_knowledge_bases' function.
 class ListAgentKnowledgeBasesRequest(BaseValidatorModel):
     agentId: str
     agentVersion: str
@@ -578,40 +607,47 @@ class ListAgentKnowledgeBasesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_agent_versions' function.
 class ListAgentVersionsRequest(BaseValidatorModel):
     agentId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_agents' function.
 class ListAgentsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_data_sources' function.
 class ListDataSourcesRequest(BaseValidatorModel):
     knowledgeBaseId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_flow_aliases' function.
 class ListFlowAliasesRequest(BaseValidatorModel):
     flowIdentifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_flow_versions' function.
 class ListFlowVersionsRequest(BaseValidatorModel):
     flowIdentifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_flows' function.
 class ListFlowsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_knowledge_base_documents' function.
 class ListKnowledgeBaseDocumentsRequest(BaseValidatorModel):
     dataSourceId: str
     knowledgeBaseId: str
@@ -619,11 +655,13 @@ class ListKnowledgeBaseDocumentsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_knowledge_bases' function.
 class ListKnowledgeBasesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_prompts' function.
 class ListPromptsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -640,6 +678,7 @@ class PromptSummary(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -690,10 +729,12 @@ class PineconeFieldMapping(BaseValidatorModel):
     textField: str
 
 
+# This class is the input for the 'prepare_agent' function.
 class PrepareAgentRequest(BaseValidatorModel):
     agentId: str
 
 
+# This class is the input for the 'prepare_flow' function.
 class PrepareFlowRequest(BaseValidatorModel):
     flowIdentifier: str
 
@@ -803,6 +844,7 @@ class SpecificToolChoice(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'start_ingestion_job' function.
 class StartIngestionJobRequest(BaseValidatorModel):
     dataSourceId: str
     knowledgeBaseId: str
@@ -810,6 +852,7 @@ class StartIngestionJobRequest(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'stop_ingestion_job' function.
 class StopIngestionJobRequest(BaseValidatorModel):
     dataSourceId: str
     ingestionJobId: str
@@ -842,6 +885,7 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_agent_knowledge_base' function.
 class UpdateAgentKnowledgeBaseRequest(BaseValidatorModel):
     agentId: str
     agentVersion: str
@@ -876,6 +920,7 @@ class AgentAliasSummary(BaseValidatorModel):
     routingConfiguration: Optional[List[AgentAliasRoutingConfigurationListItem]] = None
 
 
+# This class is the input for the 'create_agent_alias' function.
 class CreateAgentAliasRequest(BaseValidatorModel):
     agentAliasName: str
     agentId: str
@@ -885,6 +930,7 @@ class CreateAgentAliasRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_agent_alias' function.
 class UpdateAgentAliasRequest(BaseValidatorModel):
     agentAliasId: str
     agentAliasName: str
@@ -918,6 +964,7 @@ class AgentCollaborator(BaseValidatorModel):
     relayConversationHistory: Optional[RelayConversationHistoryType] = None
 
 
+# This class is the input for the 'associate_agent_collaborator' function.
 class AssociateAgentCollaboratorRequest(BaseValidatorModel):
     agentDescriptor: AgentDescriptor
     agentId: str
@@ -928,6 +975,7 @@ class AssociateAgentCollaboratorRequest(BaseValidatorModel):
     relayConversationHistory: Optional[RelayConversationHistoryType] = None
 
 
+# This class is the input for the 'update_agent_collaborator' function.
 class UpdateAgentCollaboratorRequest(BaseValidatorModel):
     agentDescriptor: AgentDescriptor
     agentId: str
@@ -964,11 +1012,13 @@ class KnowledgeBaseFlowNodeConfiguration(BaseValidatorModel):
     modelId: Optional[str] = None
 
 
+# This class is the output for the 'associate_agent_knowledge_base' function.
 class AssociateAgentKnowledgeBaseResponse(BaseValidatorModel):
     agentKnowledgeBase: AgentKnowledgeBase
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_agent_alias' function.
 class DeleteAgentAliasResponse(BaseValidatorModel):
     agentAliasId: str
     agentAliasStatus: AgentAliasStatusType
@@ -976,12 +1026,14 @@ class DeleteAgentAliasResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_agent' function.
 class DeleteAgentResponse(BaseValidatorModel):
     agentId: str
     agentStatus: AgentStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_agent_version' function.
 class DeleteAgentVersionResponse(BaseValidatorModel):
     agentId: str
     agentStatus: AgentStatusType
@@ -989,6 +1041,7 @@ class DeleteAgentVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_data_source' function.
 class DeleteDataSourceResponse(BaseValidatorModel):
     dataSourceId: str
     knowledgeBaseId: str
@@ -996,57 +1049,67 @@ class DeleteDataSourceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_flow_alias' function.
 class DeleteFlowAliasResponse(BaseValidatorModel):
     flowId: str
     id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_flow' function.
 class DeleteFlowResponse(BaseValidatorModel):
     id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_flow_version' function.
 class DeleteFlowVersionResponse(BaseValidatorModel):
     id: str
     version: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_knowledge_base' function.
 class DeleteKnowledgeBaseResponse(BaseValidatorModel):
     knowledgeBaseId: str
     status: KnowledgeBaseStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_prompt' function.
 class DeletePromptResponse(BaseValidatorModel):
     id: str
     version: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_agent_knowledge_base' function.
 class GetAgentKnowledgeBaseResponse(BaseValidatorModel):
     agentKnowledgeBase: AgentKnowledgeBase
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_agent_action_groups' function.
 class ListAgentActionGroupsResponse(BaseValidatorModel):
     actionGroupSummaries: List[ActionGroupSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_agent_knowledge_bases' function.
 class ListAgentKnowledgeBasesResponse(BaseValidatorModel):
     agentKnowledgeBaseSummaries: List[AgentKnowledgeBaseSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'prepare_agent' function.
 class PrepareAgentResponse(BaseValidatorModel):
     agentId: str
     agentStatus: AgentStatusType
@@ -1055,12 +1118,14 @@ class PrepareAgentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'prepare_flow' function.
 class PrepareFlowResponse(BaseValidatorModel):
     id: str
     status: FlowStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_agent_knowledge_base' function.
 class UpdateAgentKnowledgeBaseResponse(BaseValidatorModel):
     agentKnowledgeBase: AgentKnowledgeBase
     ResponseMetadata: ResponseMetadata
@@ -1116,6 +1181,7 @@ class ConditionFlowNodeConfiguration(BaseValidatorModel):
     conditions: List[FlowCondition]
 
 
+# This class is the input for the 'create_flow_alias' function.
 class CreateFlowAliasRequest(BaseValidatorModel):
     flowIdentifier: str
     name: str
@@ -1125,6 +1191,7 @@ class CreateFlowAliasRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_flow_alias' function.
 class CreateFlowAliasResponse(BaseValidatorModel):
     arn: str
     createdAt: datetime
@@ -1148,6 +1215,7 @@ class FlowAliasSummary(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the output for the 'get_flow_alias' function.
 class GetFlowAliasResponse(BaseValidatorModel):
     arn: str
     createdAt: datetime
@@ -1160,6 +1228,7 @@ class GetFlowAliasResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_flow_alias' function.
 class UpdateFlowAliasRequest(BaseValidatorModel):
     aliasIdentifier: str
     flowIdentifier: str
@@ -1168,6 +1237,7 @@ class UpdateFlowAliasRequest(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the output for the 'update_flow_alias' function.
 class UpdateFlowAliasResponse(BaseValidatorModel):
     arn: str
     createdAt: datetime
@@ -1184,6 +1254,7 @@ class CustomOrchestration(BaseValidatorModel):
     executor: Optional[OrchestrationExecutor] = None
 
 
+# This class is the output for the 'list_data_sources' function.
 class ListDataSourcesResponse(BaseValidatorModel):
     dataSourceSummaries: List[DataSourceSummary]
     ResponseMetadata: ResponseMetadata
@@ -1214,6 +1285,7 @@ class FlowConnectionConfiguration(BaseValidatorModel):
     data: Optional[FlowDataConnectionConfiguration] = None
 
 
+# This class is the output for the 'list_flows' function.
 class ListFlowsResponse(BaseValidatorModel):
     flowSummaries: List[FlowSummary]
     ResponseMetadata: ResponseMetadata
@@ -1250,6 +1322,7 @@ class FlowValidationDetails(BaseValidatorModel):
     unspecified: Optional[Dict[str, Any]] = None
 
 
+# This class is the output for the 'list_flow_versions' function.
 class ListFlowVersionsResponse(BaseValidatorModel):
     flowVersionSummaries: List[FlowVersionSummary]
     ResponseMetadata: ResponseMetadata
@@ -1302,6 +1375,7 @@ class PromptConfiguration(BaseValidatorModel):
     promptType: Optional[PromptTypeType] = None
 
 
+# This class is the input for the 'list_ingestion_jobs' function.
 class ListIngestionJobsRequest(BaseValidatorModel):
     dataSourceId: str
     knowledgeBaseId: str
@@ -1334,6 +1408,7 @@ class IngestionJob(BaseValidatorModel):
     statistics: Optional[IngestionJobStatistics] = None
 
 
+# This class is the output for the 'list_knowledge_bases' function.
 class ListKnowledgeBasesResponse(BaseValidatorModel):
     knowledgeBaseSummaries: List[KnowledgeBaseSummary]
     ResponseMetadata: ResponseMetadata
@@ -1414,6 +1489,7 @@ class ListPromptsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_prompts' function.
 class ListPromptsResponse(BaseValidatorModel):
     promptSummaries: List[PromptSummary]
     ResponseMetadata: ResponseMetadata
@@ -1607,39 +1683,46 @@ class AgentAlias(BaseValidatorModel):
     failureReasons: Optional[List[str]] = None
 
 
+# This class is the output for the 'list_agent_aliases' function.
 class ListAgentAliasesResponse(BaseValidatorModel):
     agentAliasSummaries: List[AgentAliasSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_agent_collaborators' function.
 class ListAgentCollaboratorsResponse(BaseValidatorModel):
     agentCollaboratorSummaries: List[AgentCollaboratorSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'associate_agent_collaborator' function.
 class AssociateAgentCollaboratorResponse(BaseValidatorModel):
     agentCollaborator: AgentCollaborator
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_agent_collaborator' function.
 class GetAgentCollaboratorResponse(BaseValidatorModel):
     agentCollaborator: AgentCollaborator
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_agent_collaborator' function.
 class UpdateAgentCollaboratorResponse(BaseValidatorModel):
     agentCollaborator: AgentCollaborator
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_agents' function.
 class ListAgentsResponse(BaseValidatorModel):
     agentSummaries: List[AgentSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_agent_versions' function.
 class ListAgentVersionsResponse(BaseValidatorModel):
     agentVersionSummaries: List[AgentVersionSummary]
     ResponseMetadata: ResponseMetadata
@@ -1675,12 +1758,14 @@ class Message(BaseValidatorModel):
 TextPromptTemplateConfigurationUnion = Union[TextPromptTemplateConfiguration, TextPromptTemplateConfigurationOutput]
 
 
+# This class is the output for the 'list_flow_aliases' function.
 class ListFlowAliasesResponse(BaseValidatorModel):
     flowAliasSummaries: List[FlowAliasSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_knowledge_base_documents' function.
 class DeleteKnowledgeBaseDocumentsRequest(BaseValidatorModel):
     dataSourceId: str
     documentIdentifiers: List[DocumentIdentifier]
@@ -1688,6 +1773,7 @@ class DeleteKnowledgeBaseDocumentsRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'get_knowledge_base_documents' function.
 class GetKnowledgeBaseDocumentsRequest(BaseValidatorModel):
     dataSourceId: str
     documentIdentifiers: List[DocumentIdentifier]
@@ -1758,22 +1844,26 @@ class PromptOverrideConfiguration(BaseValidatorModel):
     overrideLambda: Optional[str] = None
 
 
+# This class is the output for the 'list_ingestion_jobs' function.
 class ListIngestionJobsResponse(BaseValidatorModel):
     ingestionJobSummaries: List[IngestionJobSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_ingestion_job' function.
 class GetIngestionJobResponse(BaseValidatorModel):
     ingestionJob: IngestionJob
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_ingestion_job' function.
 class StartIngestionJobResponse(BaseValidatorModel):
     ingestionJob: IngestionJob
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_ingestion_job' function.
 class StopIngestionJobResponse(BaseValidatorModel):
     ingestionJob: IngestionJob
     ResponseMetadata: ResponseMetadata
@@ -1861,16 +1951,19 @@ class Transformation(BaseValidatorModel):
     transformationFunction: TransformationFunction
 
 
+# This class is the output for the 'create_agent_alias' function.
 class CreateAgentAliasResponse(BaseValidatorModel):
     agentAlias: AgentAlias
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_agent_alias' function.
 class GetAgentAliasResponse(BaseValidatorModel):
     agentAlias: AgentAlias
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_agent_alias' function.
 class UpdateAgentAliasResponse(BaseValidatorModel):
     agentAlias: AgentAlias
     ResponseMetadata: ResponseMetadata
@@ -1885,21 +1978,25 @@ class CustomContent(BaseValidatorModel):
 MessageUnion = Union[Message, MessageOutput]
 
 
+# This class is the output for the 'delete_knowledge_base_documents' function.
 class DeleteKnowledgeBaseDocumentsResponse(BaseValidatorModel):
     documentDetails: List[KnowledgeBaseDocumentDetail]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_knowledge_base_documents' function.
 class GetKnowledgeBaseDocumentsResponse(BaseValidatorModel):
     documentDetails: List[KnowledgeBaseDocumentDetail]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'ingest_knowledge_base_documents' function.
 class IngestKnowledgeBaseDocumentsResponse(BaseValidatorModel):
     documentDetails: List[KnowledgeBaseDocumentDetail]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_knowledge_base_documents' function.
 class ListKnowledgeBaseDocumentsResponse(BaseValidatorModel):
     documentDetails: List[KnowledgeBaseDocumentDetail]
     ResponseMetadata: ResponseMetadata
@@ -1918,6 +2015,7 @@ class VectorKnowledgeBaseConfiguration(BaseValidatorModel):
     supplementalDataStorageConfiguration: Optional[SupplementalDataStorageConfiguration] = None
 
 
+# This class is the output for the 'validate_flow_definition' function.
 class ValidateFlowDefinitionResponse(BaseValidatorModel):
     validations: List[FlowValidation]
     ResponseMetadata: ResponseMetadata
@@ -2061,21 +2159,25 @@ class DocumentContent(BaseValidatorModel):
     s3: Optional[S3Content] = None
 
 
+# This class is the output for the 'create_agent_action_group' function.
 class CreateAgentActionGroupResponse(BaseValidatorModel):
     agentActionGroup: AgentActionGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_agent_action_group' function.
 class GetAgentActionGroupResponse(BaseValidatorModel):
     agentActionGroup: AgentActionGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_agent_action_group' function.
 class UpdateAgentActionGroupResponse(BaseValidatorModel):
     agentActionGroup: AgentActionGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_agent_action_group' function.
 class CreateAgentActionGroupRequest(BaseValidatorModel):
     actionGroupName: str
     agentId: str
@@ -2090,6 +2192,7 @@ class CreateAgentActionGroupRequest(BaseValidatorModel):
     parentActionGroupSignatureParams: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_agent_action_group' function.
 class UpdateAgentActionGroupRequest(BaseValidatorModel):
     actionGroupId: str
     actionGroupName: str
@@ -2104,26 +2207,31 @@ class UpdateAgentActionGroupRequest(BaseValidatorModel):
     parentActionGroupSignatureParams: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_agent' function.
 class CreateAgentResponse(BaseValidatorModel):
     agent: Agent
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_agent' function.
 class GetAgentResponse(BaseValidatorModel):
     agent: Agent
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_agent' function.
 class UpdateAgentResponse(BaseValidatorModel):
     agent: Agent
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_agent_version' function.
 class GetAgentVersionResponse(BaseValidatorModel):
     agentVersion: AgentVersion
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_agent' function.
 class CreateAgentRequest(BaseValidatorModel):
     agentName: str
     agentCollaboration: Optional[AgentCollaborationType] = None
@@ -2142,6 +2250,7 @@ class CreateAgentRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_agent' function.
 class UpdateAgentRequest(BaseValidatorModel):
     agentId: str
     agentName: str
@@ -2269,6 +2378,7 @@ ToolUnion = Union[Tool, ToolOutput]
 VectorIngestionConfigurationUnion = Union[VectorIngestionConfiguration, VectorIngestionConfigurationOutput]
 
 
+# This class is the input for the 'ingest_knowledge_base_documents' function.
 class IngestKnowledgeBaseDocumentsRequest(BaseValidatorModel):
     dataSourceId: str
     documents: List[KnowledgeBaseDocument]
@@ -2331,21 +2441,25 @@ class ToolConfiguration(BaseValidatorModel):
     toolChoice: Optional[ToolChoiceUnion] = None
 
 
+# This class is the output for the 'create_data_source' function.
 class CreateDataSourceResponse(BaseValidatorModel):
     dataSource: DataSource
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_data_source' function.
 class GetDataSourceResponse(BaseValidatorModel):
     dataSource: DataSource
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_data_source' function.
 class UpdateDataSourceResponse(BaseValidatorModel):
     dataSource: DataSource
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_data_source' function.
 class CreateDataSourceRequest(BaseValidatorModel):
     dataSourceConfiguration: DataSourceConfigurationUnion
     knowledgeBaseId: str
@@ -2357,6 +2471,7 @@ class CreateDataSourceRequest(BaseValidatorModel):
     vectorIngestionConfiguration: Optional[VectorIngestionConfigurationUnion] = None
 
 
+# This class is the input for the 'update_data_source' function.
 class UpdateDataSourceRequest(BaseValidatorModel):
     dataSourceConfiguration: DataSourceConfigurationUnion
     dataSourceId: str
@@ -2389,6 +2504,7 @@ class PromptFlowNodeSourceConfigurationOutput(BaseValidatorModel):
     resource: Optional[PromptFlowNodeResourceConfiguration] = None
 
 
+# This class is the output for the 'create_prompt' function.
 class CreatePromptResponse(BaseValidatorModel):
     arn: str
     createdAt: datetime
@@ -2403,6 +2519,7 @@ class CreatePromptResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_prompt_version' function.
 class CreatePromptVersionResponse(BaseValidatorModel):
     arn: str
     createdAt: datetime
@@ -2417,6 +2534,7 @@ class CreatePromptVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_prompt' function.
 class GetPromptResponse(BaseValidatorModel):
     arn: str
     createdAt: datetime
@@ -2431,6 +2549,7 @@ class GetPromptResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_prompt' function.
 class UpdatePromptResponse(BaseValidatorModel):
     arn: str
     createdAt: datetime
@@ -2447,21 +2566,25 @@ class UpdatePromptResponse(BaseValidatorModel):
 ToolConfigurationUnion = Union[ToolConfiguration, ToolConfigurationOutput]
 
 
+# This class is the output for the 'create_knowledge_base' function.
 class CreateKnowledgeBaseResponse(BaseValidatorModel):
     knowledgeBase: KnowledgeBase
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_knowledge_base' function.
 class GetKnowledgeBaseResponse(BaseValidatorModel):
     knowledgeBase: KnowledgeBase
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_knowledge_base' function.
 class UpdateKnowledgeBaseResponse(BaseValidatorModel):
     knowledgeBase: KnowledgeBase
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_knowledge_base' function.
 class CreateKnowledgeBaseRequest(BaseValidatorModel):
     knowledgeBaseConfiguration: KnowledgeBaseConfigurationUnion
     name: str
@@ -2472,6 +2595,7 @@ class CreateKnowledgeBaseRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_knowledge_base' function.
 class UpdateKnowledgeBaseRequest(BaseValidatorModel):
     knowledgeBaseConfiguration: KnowledgeBaseConfigurationUnion
     knowledgeBaseId: str
@@ -2538,6 +2662,7 @@ class PromptFlowNodeInlineConfiguration(BaseValidatorModel):
 PromptTemplateConfigurationUnion = Union[PromptTemplateConfiguration, PromptTemplateConfigurationOutput]
 
 
+# This class is the output for the 'create_flow' function.
 class CreateFlowResponse(BaseValidatorModel):
     arn: str
     createdAt: datetime
@@ -2553,6 +2678,7 @@ class CreateFlowResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_flow_version' function.
 class CreateFlowVersionResponse(BaseValidatorModel):
     arn: str
     createdAt: datetime
@@ -2567,6 +2693,7 @@ class CreateFlowVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_flow' function.
 class GetFlowResponse(BaseValidatorModel):
     arn: str
     createdAt: datetime
@@ -2583,6 +2710,7 @@ class GetFlowResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_flow_version' function.
 class GetFlowVersionResponse(BaseValidatorModel):
     arn: str
     createdAt: datetime
@@ -2597,6 +2725,7 @@ class GetFlowVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_flow' function.
 class UpdateFlowResponse(BaseValidatorModel):
     arn: str
     createdAt: datetime
@@ -2650,6 +2779,7 @@ class FlowNodeConfiguration(BaseValidatorModel):
     storage: Optional[StorageFlowNodeConfiguration] = None
 
 
+# This class is the input for the 'create_prompt' function.
 class CreatePromptRequest(BaseValidatorModel):
     name: str
     clientToken: Optional[str] = None
@@ -2660,6 +2790,7 @@ class CreatePromptRequest(BaseValidatorModel):
     variants: Optional[List[PromptVariantUnion]] = None
 
 
+# This class is the input for the 'update_prompt' function.
 class UpdatePromptRequest(BaseValidatorModel):
     name: str
     promptIdentifier: str
@@ -2684,6 +2815,7 @@ class FlowDefinition(BaseValidatorModel):
 FlowDefinitionUnion = Union[FlowDefinition, FlowDefinitionOutput]
 
 
+# This class is the input for the 'create_flow' function.
 class CreateFlowRequest(BaseValidatorModel):
     executionRoleArn: str
     name: str
@@ -2694,6 +2826,7 @@ class CreateFlowRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_flow' function.
 class UpdateFlowRequest(BaseValidatorModel):
     executionRoleArn: str
     flowIdentifier: str
@@ -2703,5 +2836,6 @@ class UpdateFlowRequest(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'validate_flow_definition' function.
 class ValidateFlowDefinitionRequest(BaseValidatorModel):
     definition: FlowDefinitionUnion

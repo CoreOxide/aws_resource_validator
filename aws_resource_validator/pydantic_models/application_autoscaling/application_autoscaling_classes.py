@@ -49,6 +49,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_scalable_targets' function.
 class DescribeScalableTargetsRequest(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
     ResourceIds: Optional[List[str]] = None
@@ -65,6 +66,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'describe_scaling_activities' function.
 class DescribeScalingActivitiesRequest(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
     ResourceId: Optional[str] = None
@@ -74,6 +76,7 @@ class DescribeScalingActivitiesRequest(BaseValidatorModel):
     IncludeNotScaledActivities: Optional[bool] = None
 
 
+# This class is the input for the 'describe_scaling_policies' function.
 class DescribeScalingPoliciesRequest(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
     PolicyNames: Optional[List[str]] = None
@@ -83,6 +86,7 @@ class DescribeScalingPoliciesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_scheduled_actions' function.
 class DescribeScheduledActionsRequest(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
     ScheduledActionNames: Optional[List[str]] = None
@@ -94,6 +98,7 @@ class DescribeScheduledActionsRequest(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
@@ -193,22 +198,26 @@ class DescribeScheduledActionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_scaling_policy' function.
 class PutScalingPolicyResponse(BaseValidatorModel):
     PolicyARN: str
     Alarms: List[Alarm]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_scalable_target' function.
 class RegisterScalableTargetResponse(BaseValidatorModel):
     ScalableTargetARN: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'get_predictive_scaling_forecast' function.
 class GetPredictiveScalingForecastRequest(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
     ResourceId: str
@@ -271,6 +280,7 @@ class ScheduledAction(BaseValidatorModel):
     ScalableTargetAction: Optional[ScalableTargetAction] = None
 
 
+# This class is the input for the 'register_scalable_target' function.
 class RegisterScalableTargetRequest(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
     ResourceId: str
@@ -323,6 +333,7 @@ class TargetTrackingMetric(BaseValidatorModel):
     Namespace: Optional[str] = None
 
 
+# This class is the output for the 'describe_scaling_activities' function.
 class DescribeScalingActivitiesResponse(BaseValidatorModel):
     ScalingActivities: List[ScalingActivity]
     ResponseMetadata: ResponseMetadata
@@ -341,12 +352,14 @@ class PredictiveScalingMetricStat(BaseValidatorModel):
     Unit: Optional[str] = None
 
 
+# This class is the output for the 'describe_scheduled_actions' function.
 class DescribeScheduledActionsResponse(BaseValidatorModel):
     ScheduledActions: List[ScheduledAction]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_scalable_targets' function.
 class DescribeScalableTargetsResponse(BaseValidatorModel):
     ScalableTargets: List[ScalableTarget]
     ResponseMetadata: ResponseMetadata
@@ -487,6 +500,7 @@ class PredictiveScalingPolicyConfiguration(BaseValidatorModel):
 TargetTrackingScalingPolicyConfigurationUnion = Union[TargetTrackingScalingPolicyConfiguration, TargetTrackingScalingPolicyConfigurationOutput]
 
 
+# This class is the output for the 'get_predictive_scaling_forecast' function.
 class GetPredictiveScalingForecastResponse(BaseValidatorModel):
     LoadForecast: List[LoadForecast]
     CapacityForecast: CapacityForecast
@@ -510,12 +524,14 @@ class ScalingPolicy(BaseValidatorModel):
 PredictiveScalingPolicyConfigurationUnion = Union[PredictiveScalingPolicyConfiguration, PredictiveScalingPolicyConfigurationOutput]
 
 
+# This class is the output for the 'describe_scaling_policies' function.
 class DescribeScalingPoliciesResponse(BaseValidatorModel):
     ScalingPolicies: List[ScalingPolicy]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'put_scaling_policy' function.
 class PutScalingPolicyRequest(BaseValidatorModel):
     PolicyName: str
     ServiceNamespace: ServiceNamespaceType

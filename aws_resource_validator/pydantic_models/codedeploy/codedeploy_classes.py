@@ -55,29 +55,35 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'batch_get_applications' function.
 class BatchGetApplicationsInput(BaseValidatorModel):
     applicationNames: List[str]
 
 
+# This class is the input for the 'batch_get_deployment_groups' function.
 class BatchGetDeploymentGroupsInput(BaseValidatorModel):
     applicationName: str
     deploymentGroupNames: List[str]
 
 
+# This class is the input for the 'batch_get_deployment_instances' function.
 class BatchGetDeploymentInstancesInput(BaseValidatorModel):
     deploymentId: str
     instanceIds: List[str]
 
 
+# This class is the input for the 'batch_get_deployment_targets' function.
 class BatchGetDeploymentTargetsInput(BaseValidatorModel):
     deploymentId: str
     targetIds: List[str]
 
 
+# This class is the input for the 'batch_get_deployments' function.
 class BatchGetDeploymentsInput(BaseValidatorModel):
     deploymentIds: List[str]
 
 
+# This class is the input for the 'batch_get_on_premises_instances' function.
 class BatchGetOnPremisesInstancesInput(BaseValidatorModel):
     instanceNames: List[str]
 
@@ -96,6 +102,7 @@ class GreenFleetProvisioningOption(BaseValidatorModel):
     action: Optional[GreenFleetProvisioningActionType] = None
 
 
+# This class is the input for the 'continue_deployment' function.
 class ContinueDeploymentInput(BaseValidatorModel):
     deploymentId: Optional[str] = None
     deploymentWaitType: Optional[DeploymentWaitTypeType] = None
@@ -128,19 +135,23 @@ class TagFilter(BaseValidatorModel):
     Type: Optional[TagFilterTypeType] = None
 
 
+# This class is the input for the 'delete_application' function.
 class DeleteApplicationInput(BaseValidatorModel):
     applicationName: str
 
 
+# This class is the input for the 'delete_deployment_config' function.
 class DeleteDeploymentConfigInput(BaseValidatorModel):
     deploymentConfigName: str
 
 
+# This class is the input for the 'delete_deployment_group' function.
 class DeleteDeploymentGroupInput(BaseValidatorModel):
     applicationName: str
     deploymentGroupName: str
 
 
+# This class is the input for the 'delete_git_hub_account_token' function.
 class DeleteGitHubAccountTokenInput(BaseValidatorModel):
     tokenName: Optional[str] = None
 
@@ -187,6 +198,7 @@ class RollbackInfo(BaseValidatorModel):
     rollbackMessage: Optional[str] = None
 
 
+# This class is the input for the 'deregister_on_premises_instance' function.
 class DeregisterOnPremisesInstanceInput(BaseValidatorModel):
     instanceName: str
 
@@ -214,19 +226,23 @@ class GenericRevisionInfo(BaseValidatorModel):
     registerTime: Optional[datetime] = None
 
 
+# This class is the input for the 'get_application' function.
 class GetApplicationInput(BaseValidatorModel):
     applicationName: str
 
 
+# This class is the input for the 'get_deployment_config' function.
 class GetDeploymentConfigInput(BaseValidatorModel):
     deploymentConfigName: str
 
 
+# This class is the input for the 'get_deployment_group' function.
 class GetDeploymentGroupInput(BaseValidatorModel):
     applicationName: str
     deploymentGroupName: str
 
 
+# This class is the input for the 'get_deployment' function.
 class GetDeploymentInput(BaseValidatorModel):
     deploymentId: str
 
@@ -236,16 +252,19 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'get_deployment_instance' function.
 class GetDeploymentInstanceInput(BaseValidatorModel):
     deploymentId: str
     instanceId: str
 
 
+# This class is the input for the 'get_deployment_target' function.
 class GetDeploymentTargetInput(BaseValidatorModel):
     deploymentId: str
     targetId: str
 
 
+# This class is the input for the 'get_on_premises_instance' function.
 class GetOnPremisesInstanceInput(BaseValidatorModel):
     instanceName: str
 
@@ -269,6 +288,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_application_revisions' function.
 class ListApplicationRevisionsInput(BaseValidatorModel):
     applicationName: str
     sortBy: Optional[ApplicationRevisionSortByType] = None
@@ -279,19 +299,23 @@ class ListApplicationRevisionsInput(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_applications' function.
 class ListApplicationsInput(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_deployment_configs' function.
 class ListDeploymentConfigsInput(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_deployment_groups' function.
 class ListDeploymentGroupsInput(BaseValidatorModel):
     applicationName: str
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_deployment_instances' function.
 class ListDeploymentInstancesInput(BaseValidatorModel):
     deploymentId: str
     nextToken: Optional[str] = None
@@ -299,16 +323,19 @@ class ListDeploymentInstancesInput(BaseValidatorModel):
     instanceTypeFilter: Optional[List[InstanceTypeType]] = None
 
 
+# This class is the input for the 'list_deployment_targets' function.
 class ListDeploymentTargetsInput(BaseValidatorModel):
     deploymentId: str
     nextToken: Optional[str] = None
     targetFilters: Optional[Dict[TargetFilterNameType, List[str]]] = None
 
 
+# This class is the input for the 'list_git_hub_account_token_names' function.
 class ListGitHubAccountTokenNamesInput(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInput(BaseValidatorModel):
     ResourceArn: str
     NextToken: Optional[str] = None
@@ -319,6 +346,7 @@ class MinimumHealthyHostsPerZone(BaseValidatorModel):
     value: Optional[int] = None
 
 
+# This class is the input for the 'put_lifecycle_event_hook_execution_status' function.
 class PutLifecycleEventHookExecutionStatusInput(BaseValidatorModel):
     deploymentId: Optional[str] = None
     lifecycleEventHookExecutionId: Optional[str] = None
@@ -330,6 +358,7 @@ class RawString(BaseValidatorModel):
     sha256: Optional[str] = None
 
 
+# This class is the input for the 'register_on_premises_instance' function.
 class RegisterOnPremisesInstanceInput(BaseValidatorModel):
     instanceName: str
     iamSessionArn: Optional[str] = None
@@ -344,10 +373,12 @@ class S3Location(BaseValidatorModel):
     eTag: Optional[str] = None
 
 
+# This class is the input for the 'skip_wait_time_for_instance_termination' function.
 class SkipWaitTimeForInstanceTerminationInput(BaseValidatorModel):
     deploymentId: Optional[str] = None
 
 
+# This class is the input for the 'stop_deployment' function.
 class StopDeploymentInput(BaseValidatorModel):
     deploymentId: str
     autoRollbackEnabled: Optional[bool] = None
@@ -384,16 +415,19 @@ class UntagResourceInput(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_application' function.
 class UpdateApplicationInput(BaseValidatorModel):
     applicationName: Optional[str] = None
     newApplicationName: Optional[str] = None
 
 
+# This class is the input for the 'add_tags_to_on_premises_instances' function.
 class AddTagsToOnPremisesInstancesInput(BaseValidatorModel):
     tags: List[Tag]
     instanceNames: List[str]
 
 
+# This class is the input for the 'create_application' function.
 class CreateApplicationInput(BaseValidatorModel):
     applicationName: str
     computePlatform: Optional[ComputePlatformType] = None
@@ -410,6 +444,7 @@ class InstanceInfo(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'remove_tags_from_on_premises_instances' function.
 class RemoveTagsFromOnPremisesInstancesInput(BaseValidatorModel):
     tags: List[Tag]
     instanceNames: List[str]
@@ -434,62 +469,74 @@ class AlarmConfiguration(BaseValidatorModel):
 AutoRollbackConfigurationUnion = Union[AutoRollbackConfiguration, AutoRollbackConfigurationOutput]
 
 
+# This class is the output for the 'batch_get_applications' function.
 class BatchGetApplicationsOutput(BaseValidatorModel):
     applicationsInfo: List[ApplicationInfo]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_application' function.
 class CreateApplicationOutput(BaseValidatorModel):
     applicationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_deployment_config' function.
 class CreateDeploymentConfigOutput(BaseValidatorModel):
     deploymentConfigId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_deployment_group' function.
 class CreateDeploymentGroupOutput(BaseValidatorModel):
     deploymentGroupId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_deployment' function.
 class CreateDeploymentOutput(BaseValidatorModel):
     deploymentId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_deployment_group' function.
 class DeleteDeploymentGroupOutput(BaseValidatorModel):
     hooksNotCleanedUp: List[AutoScalingGroup]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_git_hub_account_token' function.
 class DeleteGitHubAccountTokenOutput(BaseValidatorModel):
     tokenName: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_application' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_application' function.
 class GetApplicationOutput(BaseValidatorModel):
     application: ApplicationInfo
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_applications' function.
 class ListApplicationsOutput(BaseValidatorModel):
     applications: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_deployment_configs' function.
 class ListDeploymentConfigsOutput(BaseValidatorModel):
     deploymentConfigsList: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_deployment_groups' function.
 class ListDeploymentGroupsOutput(BaseValidatorModel):
     applicationName: str
     deploymentGroups: List[str]
@@ -497,53 +544,62 @@ class ListDeploymentGroupsOutput(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_deployment_instances' function.
 class ListDeploymentInstancesOutput(BaseValidatorModel):
     instancesList: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_deployment_targets' function.
 class ListDeploymentTargetsOutput(BaseValidatorModel):
     targetIds: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_deployments' function.
 class ListDeploymentsOutput(BaseValidatorModel):
     deployments: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_git_hub_account_token_names' function.
 class ListGitHubAccountTokenNamesOutput(BaseValidatorModel):
     tokenNameList: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_on_premises_instances' function.
 class ListOnPremisesInstancesOutput(BaseValidatorModel):
     instanceNames: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceOutput(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'put_lifecycle_event_hook_execution_status' function.
 class PutLifecycleEventHookExecutionStatusOutput(BaseValidatorModel):
     lifecycleEventHookExecutionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_deployment' function.
 class StopDeploymentOutput(BaseValidatorModel):
     status: StopStatusType
     statusMessage: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_deployment_group' function.
 class UpdateDeploymentGroupOutput(BaseValidatorModel):
     hooksNotCleanedUp: List[AutoScalingGroup]
     ResponseMetadata: ResponseMetadata
@@ -563,6 +619,7 @@ class EC2TagSet(BaseValidatorModel):
     ec2TagSetList: Optional[List[List[EC2TagFilter]]] = None
 
 
+# This class is the input for the 'list_on_premises_instances' function.
 class ListOnPremisesInstancesInput(BaseValidatorModel):
     registrationStatus: Optional[RegistrationStatusType] = None
     tagFilters: Optional[List[TagFilter]] = None
@@ -686,11 +743,13 @@ class TimeRange(BaseValidatorModel):
 TriggerConfigUnion = Union[TriggerConfig, TriggerConfigOutput]
 
 
+# This class is the output for the 'batch_get_on_premises_instances' function.
 class BatchGetOnPremisesInstancesOutput(BaseValidatorModel):
     instanceInfos: List[InstanceInfo]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_on_premises_instance' function.
 class GetOnPremisesInstanceOutput(BaseValidatorModel):
     instanceInfo: InstanceInfo
     ResponseMetadata: ResponseMetadata
@@ -763,16 +822,19 @@ class ECSTarget(BaseValidatorModel):
     taskSetsInfo: Optional[List[ECSTaskSet]] = None
 
 
+# This class is the input for the 'batch_get_application_revisions' function.
 class BatchGetApplicationRevisionsInput(BaseValidatorModel):
     applicationName: str
     revisions: List[RevisionLocation]
 
 
+# This class is the input for the 'get_application_revision' function.
 class GetApplicationRevisionInput(BaseValidatorModel):
     applicationName: str
     revision: RevisionLocation
 
 
+# This class is the output for the 'get_application_revision' function.
 class GetApplicationRevisionOutput(BaseValidatorModel):
     applicationName: str
     revision: RevisionLocation
@@ -780,12 +842,14 @@ class GetApplicationRevisionOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_application_revisions' function.
 class ListApplicationRevisionsOutput(BaseValidatorModel):
     revisions: List[RevisionLocation]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'register_application_revision' function.
 class RegisterApplicationRevisionInput(BaseValidatorModel):
     applicationName: str
     revision: RevisionLocation
@@ -809,6 +873,7 @@ class LoadBalancerInfo(BaseValidatorModel):
     targetGroupPairInfoList: Optional[List[TargetGroupPairInfo]] = None
 
 
+# This class is the input for the 'create_deployment_config' function.
 class CreateDeploymentConfigInput(BaseValidatorModel):
     deploymentConfigName: str
     minimumHealthyHosts: Optional[MinimumHealthyHosts] = None
@@ -836,6 +901,7 @@ class ListDeploymentsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_deployments' function.
 class ListDeploymentsInput(BaseValidatorModel):
     applicationName: Optional[str] = None
     deploymentGroupName: Optional[str] = None
@@ -847,12 +913,14 @@ class ListDeploymentsInput(BaseValidatorModel):
 TargetInstancesUnion = Union[TargetInstances, TargetInstancesOutput]
 
 
+# This class is the output for the 'batch_get_deployment_instances' function.
 class BatchGetDeploymentInstancesOutput(BaseValidatorModel):
     instancesSummary: List[InstanceSummary]
     errorMessage: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_deployment_instance' function.
 class GetDeploymentInstanceOutput(BaseValidatorModel):
     instanceSummary: InstanceSummary
     ResponseMetadata: ResponseMetadata
@@ -866,6 +934,7 @@ class DeploymentTarget(BaseValidatorModel):
     cloudFormationTarget: Optional[CloudFormationTarget] = None
 
 
+# This class is the output for the 'batch_get_application_revisions' function.
 class BatchGetApplicationRevisionsOutput(BaseValidatorModel):
     applicationName: str
     errorMessage: str
@@ -934,11 +1003,13 @@ class DeploymentInfo(BaseValidatorModel):
 LoadBalancerInfoUnion = Union[LoadBalancerInfo, LoadBalancerInfoOutput]
 
 
+# This class is the output for the 'get_deployment_config' function.
 class GetDeploymentConfigOutput(BaseValidatorModel):
     deploymentConfigInfo: DeploymentConfigInfo
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_deployment' function.
 class CreateDeploymentInput(BaseValidatorModel):
     applicationName: str
     deploymentGroupName: Optional[str] = None
@@ -953,37 +1024,44 @@ class CreateDeploymentInput(BaseValidatorModel):
     overrideAlarmConfiguration: Optional[AlarmConfigurationUnion] = None
 
 
+# This class is the output for the 'batch_get_deployment_targets' function.
 class BatchGetDeploymentTargetsOutput(BaseValidatorModel):
     deploymentTargets: List[DeploymentTarget]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_deployment_target' function.
 class GetDeploymentTargetOutput(BaseValidatorModel):
     deploymentTarget: DeploymentTarget
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_get_deployment_groups' function.
 class BatchGetDeploymentGroupsOutput(BaseValidatorModel):
     deploymentGroupsInfo: List[DeploymentGroupInfo]
     errorMessage: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_deployment_group' function.
 class GetDeploymentGroupOutput(BaseValidatorModel):
     deploymentGroupInfo: DeploymentGroupInfo
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_get_deployments' function.
 class BatchGetDeploymentsOutput(BaseValidatorModel):
     deploymentsInfo: List[DeploymentInfo]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_deployment' function.
 class GetDeploymentOutput(BaseValidatorModel):
     deploymentInfo: DeploymentInfo
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_deployment_group' function.
 class CreateDeploymentGroupInput(BaseValidatorModel):
     applicationName: str
     deploymentGroupName: str
@@ -1006,6 +1084,7 @@ class CreateDeploymentGroupInput(BaseValidatorModel):
     terminationHookEnabled: Optional[bool] = None
 
 
+# This class is the input for the 'update_deployment_group' function.
 class UpdateDeploymentGroupInput(BaseValidatorModel):
     applicationName: str
     currentDeploymentGroupName: str

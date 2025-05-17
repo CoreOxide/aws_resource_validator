@@ -414,6 +414,7 @@ class BotVersionSummary(BaseValidatorModel):
     creationDateTime: Optional[datetime] = None
 
 
+# This class is the input for the 'build_bot_locale' function.
 class BuildBotLocaleRequest(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -496,6 +497,7 @@ class SentimentAnalysisSettings(BaseValidatorModel):
     detectSentiment: bool
 
 
+# This class is the input for the 'create_bot_replica' function.
 class CreateBotReplicaRequest(BaseValidatorModel):
     botId: str
     replicaRegion: str
@@ -525,6 +527,7 @@ class SampleUtterance(BaseValidatorModel):
     utterance: str
 
 
+# This class is the input for the 'create_resource_policy' function.
 class CreateResourcePolicyRequest(BaseValidatorModel):
     resourceArn: str
     policy: str
@@ -571,48 +574,57 @@ class DateRangeFilterOutput(BaseValidatorModel):
     endDateTime: datetime
 
 
+# This class is the input for the 'delete_bot_alias' function.
 class DeleteBotAliasRequest(BaseValidatorModel):
     botAliasId: str
     botId: str
     skipResourceInUseCheck: Optional[bool] = None
 
 
+# This class is the input for the 'delete_bot_locale' function.
 class DeleteBotLocaleRequest(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
 
 
+# This class is the input for the 'delete_bot_replica' function.
 class DeleteBotReplicaRequest(BaseValidatorModel):
     botId: str
     replicaRegion: str
 
 
+# This class is the input for the 'delete_bot' function.
 class DeleteBotRequest(BaseValidatorModel):
     botId: str
     skipResourceInUseCheck: Optional[bool] = None
 
 
+# This class is the input for the 'delete_bot_version' function.
 class DeleteBotVersionRequest(BaseValidatorModel):
     botId: str
     botVersion: str
     skipResourceInUseCheck: Optional[bool] = None
 
 
+# This class is the input for the 'delete_custom_vocabulary' function.
 class DeleteCustomVocabularyRequest(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
 
 
+# This class is the input for the 'delete_export' function.
 class DeleteExportRequest(BaseValidatorModel):
     exportId: str
 
 
+# This class is the input for the 'delete_import' function.
 class DeleteImportRequest(BaseValidatorModel):
     importId: str
 
 
+# This class is the input for the 'delete_intent' function.
 class DeleteIntentRequest(BaseValidatorModel):
     intentId: str
     botId: str
@@ -620,17 +632,20 @@ class DeleteIntentRequest(BaseValidatorModel):
     localeId: str
 
 
+# This class is the input for the 'delete_resource_policy' function.
 class DeleteResourcePolicyRequest(BaseValidatorModel):
     resourceArn: str
     expectedRevisionId: Optional[str] = None
 
 
+# This class is the input for the 'delete_resource_policy_statement' function.
 class DeleteResourcePolicyStatementRequest(BaseValidatorModel):
     resourceArn: str
     statementId: str
     expectedRevisionId: Optional[str] = None
 
 
+# This class is the input for the 'delete_slot' function.
 class DeleteSlotRequest(BaseValidatorModel):
     slotId: str
     botId: str
@@ -639,6 +654,7 @@ class DeleteSlotRequest(BaseValidatorModel):
     intentId: str
 
 
+# This class is the input for the 'delete_slot_type' function.
 class DeleteSlotTypeRequest(BaseValidatorModel):
     slotTypeId: str
     botId: str
@@ -647,6 +663,7 @@ class DeleteSlotTypeRequest(BaseValidatorModel):
     skipResourceInUseCheck: Optional[bool] = None
 
 
+# This class is the input for the 'delete_test_set' function.
 class DeleteTestSetRequest(BaseValidatorModel):
     testSetId: str
 
@@ -657,6 +674,7 @@ class DeleteUtterancesRequest(BaseValidatorModel):
     sessionId: Optional[str] = None
 
 
+# This class is the input for the 'describe_bot_alias' function.
 class DescribeBotAliasRequest(BaseValidatorModel):
     botAliasId: str
     botId: str
@@ -672,12 +690,14 @@ class ParentBotNetwork(BaseValidatorModel):
     botVersion: str
 
 
+# This class is the input for the 'describe_bot_locale' function.
 class DescribeBotLocaleRequest(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
 
 
+# This class is the input for the 'describe_bot_recommendation' function.
 class DescribeBotRecommendationRequest(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -691,15 +711,18 @@ class EncryptionSetting(BaseValidatorModel):
     associatedTranscriptsPassword: Optional[str] = None
 
 
+# This class is the input for the 'describe_bot_replica' function.
 class DescribeBotReplicaRequest(BaseValidatorModel):
     botId: str
     replicaRegion: str
 
 
+# This class is the input for the 'describe_bot' function.
 class DescribeBotRequest(BaseValidatorModel):
     botId: str
 
 
+# This class is the input for the 'describe_bot_resource_generation' function.
 class DescribeBotResourceGenerationRequest(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -707,25 +730,30 @@ class DescribeBotResourceGenerationRequest(BaseValidatorModel):
     generationId: str
 
 
+# This class is the input for the 'describe_bot_version' function.
 class DescribeBotVersionRequest(BaseValidatorModel):
     botId: str
     botVersion: str
 
 
+# This class is the input for the 'describe_custom_vocabulary_metadata' function.
 class DescribeCustomVocabularyMetadataRequest(BaseValidatorModel):
     botId: str
     botVersion: str
     localeId: str
 
 
+# This class is the input for the 'describe_export' function.
 class DescribeExportRequest(BaseValidatorModel):
     exportId: str
 
 
+# This class is the input for the 'describe_import' function.
 class DescribeImportRequest(BaseValidatorModel):
     importId: str
 
 
+# This class is the input for the 'describe_intent' function.
 class DescribeIntentRequest(BaseValidatorModel):
     intentId: str
     botId: str
@@ -738,10 +766,12 @@ class SlotPriority(BaseValidatorModel):
     slotId: str
 
 
+# This class is the input for the 'describe_resource_policy' function.
 class DescribeResourcePolicyRequest(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'describe_slot' function.
 class DescribeSlotRequest(BaseValidatorModel):
     slotId: str
     botId: str
@@ -750,6 +780,7 @@ class DescribeSlotRequest(BaseValidatorModel):
     intentId: str
 
 
+# This class is the input for the 'describe_slot_type' function.
 class DescribeSlotTypeRequest(BaseValidatorModel):
     slotTypeId: str
     botId: str
@@ -757,14 +788,17 @@ class DescribeSlotTypeRequest(BaseValidatorModel):
     localeId: str
 
 
+# This class is the input for the 'describe_test_execution' function.
 class DescribeTestExecutionRequest(BaseValidatorModel):
     testExecutionId: str
 
 
+# This class is the input for the 'describe_test_set_discrepancy_report' function.
 class DescribeTestSetDiscrepancyReportRequest(BaseValidatorModel):
     testSetDiscrepancyReportId: str
 
 
+# This class is the input for the 'describe_test_set_generation' function.
 class DescribeTestSetGenerationRequest(BaseValidatorModel):
     testSetGenerationId: str
 
@@ -775,6 +809,7 @@ class TestSetStorageLocation(BaseValidatorModel):
     kmsKeyArn: Optional[str] = None
 
 
+# This class is the input for the 'describe_test_set' function.
 class DescribeTestSetRequest(BaseValidatorModel):
     testSetId: str
 
@@ -810,6 +845,7 @@ class ExportSortBy(BaseValidatorModel):
     order: SortOrderType
 
 
+# This class is the input for the 'generate_bot_element' function.
 class GenerateBotElementRequest(BaseValidatorModel):
     intentId: str
     botId: str
@@ -829,6 +865,7 @@ class GenerationSummary(BaseValidatorModel):
     lastUpdatedDateTime: Optional[datetime] = None
 
 
+# This class is the input for the 'get_test_execution_artifacts_url' function.
 class GetTestExecutionArtifactsUrlRequest(BaseValidatorModel):
     testExecutionId: str
 
@@ -882,6 +919,7 @@ class InvokedIntentSample(BaseValidatorModel):
     intentName: Optional[str] = None
 
 
+# This class is the input for the 'list_bot_alias_replicas' function.
 class ListBotAliasReplicasRequest(BaseValidatorModel):
     botId: str
     replicaRegion: str
@@ -889,12 +927,14 @@ class ListBotAliasReplicasRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_bot_aliases' function.
 class ListBotAliasesRequest(BaseValidatorModel):
     botId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_bot_recommendations' function.
 class ListBotRecommendationsRequest(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -903,10 +943,12 @@ class ListBotRecommendationsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_bot_replicas' function.
 class ListBotReplicasRequest(BaseValidatorModel):
     botId: str
 
 
+# This class is the input for the 'list_custom_vocabulary_items' function.
 class ListCustomVocabularyItemsRequest(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -915,6 +957,7 @@ class ListCustomVocabularyItemsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_recommended_intents' function.
 class ListRecommendedIntentsRequest(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -966,6 +1009,7 @@ class SlotSortBy(BaseValidatorModel):
     order: SortOrderType
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceARN: str
 
@@ -975,6 +1019,7 @@ class TestExecutionSortBy(BaseValidatorModel):
     order: SortOrderType
 
 
+# This class is the input for the 'list_test_set_records' function.
 class ListTestSetRecordsRequest(BaseValidatorModel):
     testSetId: str
     maxResults: Optional[int] = None
@@ -1053,6 +1098,7 @@ class SlotValueRegexFilter(BaseValidatorModel):
     pattern: str
 
 
+# This class is the input for the 'start_bot_resource_generation' function.
 class StartBotResourceGenerationRequest(BaseValidatorModel):
     generationInputPrompt: str
     botId: str
@@ -1060,6 +1106,7 @@ class StartBotResourceGenerationRequest(BaseValidatorModel):
     localeId: str
 
 
+# This class is the input for the 'stop_bot_recommendation' function.
 class StopBotRecommendationRequest(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -1099,17 +1146,20 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_export' function.
 class UpdateExportRequest(BaseValidatorModel):
     exportId: str
     filePassword: Optional[str] = None
 
 
+# This class is the input for the 'update_resource_policy' function.
 class UpdateResourcePolicyRequest(BaseValidatorModel):
     resourceArn: str
     policy: str
     expectedRevisionId: Optional[str] = None
 
 
+# This class is the input for the 'update_test_set' function.
 class UpdateTestSetRequest(BaseValidatorModel):
     testSetId: str
     testSetName: str
@@ -1159,6 +1209,7 @@ class AnalyticsUtteranceResult(BaseValidatorModel):
     attributeResults: Optional[List[AnalyticsUtteranceAttributeResult]] = None
 
 
+# This class is the input for the 'search_associated_transcripts' function.
 class SearchAssociatedTranscriptsRequest(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -1180,6 +1231,7 @@ class AudioLogDestination(BaseValidatorModel):
     s3Bucket: S3BucketLogDestination
 
 
+# This class is the input for the 'batch_create_custom_vocabulary_item' function.
 class BatchCreateCustomVocabularyItemRequest(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -1187,6 +1239,7 @@ class BatchCreateCustomVocabularyItemRequest(BaseValidatorModel):
     customVocabularyItemList: List[NewCustomVocabularyItem]
 
 
+# This class is the input for the 'batch_update_custom_vocabulary_item' function.
 class BatchUpdateCustomVocabularyItemRequest(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -1194,6 +1247,7 @@ class BatchUpdateCustomVocabularyItemRequest(BaseValidatorModel):
     customVocabularyItemList: List[CustomVocabularyItem]
 
 
+# This class is the output for the 'batch_create_custom_vocabulary_item' function.
 class BatchCreateCustomVocabularyItemResponse(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -1203,6 +1257,7 @@ class BatchCreateCustomVocabularyItemResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_delete_custom_vocabulary_item' function.
 class BatchDeleteCustomVocabularyItemResponse(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -1212,6 +1267,7 @@ class BatchDeleteCustomVocabularyItemResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_update_custom_vocabulary_item' function.
 class BatchUpdateCustomVocabularyItemResponse(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -1221,6 +1277,7 @@ class BatchUpdateCustomVocabularyItemResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'build_bot_locale' function.
 class BuildBotLocaleResponse(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -1230,6 +1287,7 @@ class BuildBotLocaleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_bot_replica' function.
 class CreateBotReplicaResponse(BaseValidatorModel):
     botId: str
     replicaRegion: str
@@ -1239,12 +1297,14 @@ class CreateBotReplicaResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_resource_policy' function.
 class CreateResourcePolicyResponse(BaseValidatorModel):
     resourceArn: str
     revisionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_resource_policy_statement' function.
 class CreateResourcePolicyStatementResponse(BaseValidatorModel):
     resourceArn: str
     revisionId: str
@@ -1257,6 +1317,7 @@ class CreateUploadUrlResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_bot_alias' function.
 class DeleteBotAliasResponse(BaseValidatorModel):
     botAliasId: str
     botId: str
@@ -1264,6 +1325,7 @@ class DeleteBotAliasResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_bot_locale' function.
 class DeleteBotLocaleResponse(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -1272,6 +1334,7 @@ class DeleteBotLocaleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_bot_replica' function.
 class DeleteBotReplicaResponse(BaseValidatorModel):
     botId: str
     replicaRegion: str
@@ -1279,12 +1342,14 @@ class DeleteBotReplicaResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_bot' function.
 class DeleteBotResponse(BaseValidatorModel):
     botId: str
     botStatus: BotStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_bot_version' function.
 class DeleteBotVersionResponse(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -1292,6 +1357,7 @@ class DeleteBotVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_custom_vocabulary' function.
 class DeleteCustomVocabularyResponse(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -1300,30 +1366,35 @@ class DeleteCustomVocabularyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_export' function.
 class DeleteExportResponse(BaseValidatorModel):
     exportId: str
     exportStatus: ExportStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_import' function.
 class DeleteImportResponse(BaseValidatorModel):
     importId: str
     importStatus: ImportStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_resource_policy' function.
 class DeleteResourcePolicyResponse(BaseValidatorModel):
     resourceArn: str
     revisionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_resource_policy_statement' function.
 class DeleteResourcePolicyStatementResponse(BaseValidatorModel):
     resourceArn: str
     revisionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_bot_replica' function.
 class DescribeBotReplicaResponse(BaseValidatorModel):
     botId: str
     replicaRegion: str
@@ -1334,6 +1405,7 @@ class DescribeBotReplicaResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_bot_resource_generation' function.
 class DescribeBotResourceGenerationResponse(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -1349,6 +1421,7 @@ class DescribeBotResourceGenerationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_custom_vocabulary_metadata' function.
 class DescribeCustomVocabularyMetadataResponse(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -1359,6 +1432,7 @@ class DescribeCustomVocabularyMetadataResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_resource_policy' function.
 class DescribeResourcePolicyResponse(BaseValidatorModel):
     resourceArn: str
     policy: str
@@ -1366,16 +1440,19 @@ class DescribeResourcePolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_test_set' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_test_execution_artifacts_url' function.
 class GetTestExecutionArtifactsUrlResponse(BaseValidatorModel):
     testExecutionId: str
     downloadArtifactsUrl: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_custom_vocabulary_items' function.
 class ListCustomVocabularyItemsResponse(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -1385,16 +1462,19 @@ class ListCustomVocabularyItemsResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_intent_paths' function.
 class ListIntentPathsResponse(BaseValidatorModel):
     nodeSummaries: List[AnalyticsIntentNodeSummary]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_associated_transcripts' function.
 class SearchAssociatedTranscriptsResponse(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -1406,6 +1486,7 @@ class SearchAssociatedTranscriptsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_bot_resource_generation' function.
 class StartBotResourceGenerationResponse(BaseValidatorModel):
     generationInputPrompt: str
     generationId: str
@@ -1417,6 +1498,7 @@ class StartBotResourceGenerationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_bot_recommendation' function.
 class StopBotRecommendationResponse(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -1426,12 +1508,14 @@ class StopBotRecommendationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_resource_policy' function.
 class UpdateResourcePolicyResponse(BaseValidatorModel):
     resourceArn: str
     revisionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'batch_delete_custom_vocabulary_item' function.
 class BatchDeleteCustomVocabularyItemRequest(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -1452,6 +1536,7 @@ class BedrockKnowledgeStoreConfiguration(BaseValidatorModel):
     exactResponseFields: Optional[BedrockKnowledgeStoreExactResponseFields] = None
 
 
+# This class is the output for the 'list_bot_alias_replicas' function.
 class ListBotAliasReplicasResponse(BaseValidatorModel):
     botId: str
     sourceRegion: str
@@ -1461,6 +1546,7 @@ class ListBotAliasReplicasResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_bot_aliases' function.
 class ListBotAliasesResponse(BaseValidatorModel):
     botAliasSummaries: List[BotAliasSummary]
     botId: str
@@ -1498,6 +1584,7 @@ class BotLocaleImportSpecification(BaseValidatorModel):
     voiceSettings: Optional[VoiceSettings] = None
 
 
+# This class is the input for the 'list_bot_locales' function.
 class ListBotLocalesRequest(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -1507,6 +1594,7 @@ class ListBotLocalesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_bot_locales' function.
 class ListBotLocalesResponse(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -1515,6 +1603,7 @@ class ListBotLocalesResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_bot' function.
 class CreateBotRequest(BaseValidatorModel):
     botName: str
     roleArn: str
@@ -1527,6 +1616,7 @@ class CreateBotRequest(BaseValidatorModel):
     botMembers: Optional[List[BotMember]] = None
 
 
+# This class is the output for the 'create_bot' function.
 class CreateBotResponse(BaseValidatorModel):
     botId: str
     botName: str
@@ -1543,6 +1633,7 @@ class CreateBotResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_bot' function.
 class DescribeBotResponse(BaseValidatorModel):
     botId: str
     botName: str
@@ -1559,6 +1650,7 @@ class DescribeBotResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_bot' function.
 class UpdateBotRequest(BaseValidatorModel):
     botId: str
     botName: str
@@ -1570,6 +1662,7 @@ class UpdateBotRequest(BaseValidatorModel):
     botMembers: Optional[List[BotMember]] = None
 
 
+# This class is the output for the 'update_bot' function.
 class UpdateBotResponse(BaseValidatorModel):
     botId: str
     botName: str
@@ -1590,6 +1683,7 @@ class BotRecommendationResultStatistics(BaseValidatorModel):
     slotTypes: Optional[SlotTypeStatistics] = None
 
 
+# This class is the output for the 'list_bot_recommendations' function.
 class ListBotRecommendationsResponse(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -1599,6 +1693,7 @@ class ListBotRecommendationsResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_bot_replicas' function.
 class ListBotReplicasResponse(BaseValidatorModel):
     botId: str
     sourceRegion: str
@@ -1606,6 +1701,7 @@ class ListBotReplicasResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'list_bots' function.
 class ListBotsRequest(BaseValidatorModel):
     sortBy: Optional[BotSortBy] = None
     filters: Optional[List[BotFilter]] = None
@@ -1613,18 +1709,21 @@ class ListBotsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_bots' function.
 class ListBotsResponse(BaseValidatorModel):
     botSummaries: List[BotSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_bot_version' function.
 class CreateBotVersionRequest(BaseValidatorModel):
     botId: str
     botVersionLocaleSpecification: Dict[str, BotVersionLocaleDetails]
     description: Optional[str] = None
 
 
+# This class is the output for the 'create_bot_version' function.
 class CreateBotVersionResponse(BaseValidatorModel):
     botId: str
     description: str
@@ -1635,6 +1734,7 @@ class CreateBotVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'list_bot_version_replicas' function.
 class ListBotVersionReplicasRequest(BaseValidatorModel):
     botId: str
     replicaRegion: str
@@ -1643,6 +1743,7 @@ class ListBotVersionReplicasRequest(BaseValidatorModel):
     sortBy: Optional[BotVersionReplicaSortBy] = None
 
 
+# This class is the output for the 'list_bot_version_replicas' function.
 class ListBotVersionReplicasResponse(BaseValidatorModel):
     botId: str
     sourceRegion: str
@@ -1652,6 +1753,7 @@ class ListBotVersionReplicasResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_bot_versions' function.
 class ListBotVersionsRequest(BaseValidatorModel):
     botId: str
     sortBy: Optional[BotVersionSortBy] = None
@@ -1659,6 +1761,7 @@ class ListBotVersionsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_bot_versions' function.
 class ListBotVersionsResponse(BaseValidatorModel):
     botId: str
     botVersionSummaries: List[BotVersionSummary]
@@ -1666,6 +1769,7 @@ class ListBotVersionsResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_built_in_intents' function.
 class ListBuiltInIntentsRequest(BaseValidatorModel):
     localeId: str
     sortBy: Optional[BuiltInIntentSortBy] = None
@@ -1673,6 +1777,7 @@ class ListBuiltInIntentsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_built_in_intents' function.
 class ListBuiltInIntentsResponse(BaseValidatorModel):
     builtInIntentSummaries: List[BuiltInIntentSummary]
     localeId: str
@@ -1680,6 +1785,7 @@ class ListBuiltInIntentsResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_built_in_slot_types' function.
 class ListBuiltInSlotTypesRequest(BaseValidatorModel):
     localeId: str
     sortBy: Optional[BuiltInSlotTypeSortBy] = None
@@ -1687,6 +1793,7 @@ class ListBuiltInSlotTypesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_built_in_slot_types' function.
 class ListBuiltInSlotTypesResponse(BaseValidatorModel):
     builtInSlotTypeSummaries: List[BuiltInSlotTypeSummary]
     localeId: str
@@ -1755,6 +1862,7 @@ class DateRangeFilter(BaseValidatorModel):
     endDateTime: Timestamp
 
 
+# This class is the input for the 'list_intent_metrics' function.
 class ListIntentMetricsRequest(BaseValidatorModel):
     botId: str
     startDateTime: Timestamp
@@ -1767,6 +1875,7 @@ class ListIntentMetricsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_intent_paths' function.
 class ListIntentPathsRequest(BaseValidatorModel):
     botId: str
     startDateTime: Timestamp
@@ -1775,6 +1884,7 @@ class ListIntentPathsRequest(BaseValidatorModel):
     filters: Optional[List[AnalyticsPathFilter]] = None
 
 
+# This class is the input for the 'list_intent_stage_metrics' function.
 class ListIntentStageMetricsRequest(BaseValidatorModel):
     botId: str
     startDateTime: Timestamp
@@ -1787,6 +1897,7 @@ class ListIntentStageMetricsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_session_metrics' function.
 class ListSessionMetricsRequest(BaseValidatorModel):
     botId: str
     startDateTime: Timestamp
@@ -1799,6 +1910,7 @@ class ListSessionMetricsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_utterance_metrics' function.
 class ListUtteranceMetricsRequest(BaseValidatorModel):
     botId: str
     startDateTime: Timestamp
@@ -1822,6 +1934,7 @@ class IntentSummary(BaseValidatorModel):
     lastUpdatedDateTime: Optional[datetime] = None
 
 
+# This class is the output for the 'generate_bot_element' function.
 class GenerateBotElementResponse(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -1831,6 +1944,7 @@ class GenerateBotElementResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_resource_policy_statement' function.
 class CreateResourcePolicyStatementRequest(BaseValidatorModel):
     resourceArn: str
     statementId: str
@@ -1893,6 +2007,7 @@ class DescribeImportRequestWait(BaseValidatorModel):
     WaiterConfig: Optional[WaiterConfig] = None
 
 
+# This class is the output for the 'describe_bot_version' function.
 class DescribeBotVersionResponse(BaseValidatorModel):
     botId: str
     botName: str
@@ -1910,6 +2025,7 @@ class DescribeBotVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_bot_recommendation' function.
 class UpdateBotRecommendationRequest(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -1918,6 +2034,7 @@ class UpdateBotRecommendationRequest(BaseValidatorModel):
     encryptionSetting: EncryptionSetting
 
 
+# This class is the output for the 'describe_test_set' function.
 class DescribeTestSetResponse(BaseValidatorModel):
     testSetId: str
     testSetName: str
@@ -1945,6 +2062,7 @@ class TestSetSummary(BaseValidatorModel):
     lastUpdatedDateTime: Optional[datetime] = None
 
 
+# This class is the output for the 'update_test_set' function.
 class UpdateTestSetResponse(BaseValidatorModel):
     testSetId: str
     testSetName: str
@@ -1982,6 +2100,7 @@ class ExportResourceSpecification(BaseValidatorModel):
     testSetExportSpecification: Optional[TestSetExportSpecification] = None
 
 
+# This class is the input for the 'list_exports' function.
 class ListExportsRequest(BaseValidatorModel):
     botId: Optional[str] = None
     botVersion: Optional[str] = None
@@ -1992,6 +2111,7 @@ class ListExportsRequest(BaseValidatorModel):
     localeId: Optional[str] = None
 
 
+# This class is the input for the 'list_bot_resource_generations' function.
 class ListBotResourceGenerationsRequest(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -2001,6 +2121,7 @@ class ListBotResourceGenerationsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_bot_resource_generations' function.
 class ListBotResourceGenerationsResponse(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -2014,6 +2135,7 @@ class GrammarSlotTypeSetting(BaseValidatorModel):
     source: Optional[GrammarSlotTypeSource] = None
 
 
+# This class is the input for the 'list_imports' function.
 class ListImportsRequest(BaseValidatorModel):
     botId: Optional[str] = None
     botVersion: Optional[str] = None
@@ -2024,6 +2146,7 @@ class ListImportsRequest(BaseValidatorModel):
     localeId: Optional[str] = None
 
 
+# This class is the output for the 'list_imports' function.
 class ListImportsResponse(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -2039,6 +2162,7 @@ class IntentClassificationTestResultItem(BaseValidatorModel):
     resultCounts: IntentClassificationTestResultItemCounts
 
 
+# This class is the input for the 'list_intents' function.
 class ListIntentsRequest(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -2065,6 +2189,7 @@ class SessionSpecification(BaseValidatorModel):
     originatingRequestId: Optional[str] = None
 
 
+# This class is the output for the 'list_recommended_intents' function.
 class ListRecommendedIntentsResponse(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -2075,6 +2200,7 @@ class ListRecommendedIntentsResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_session_analytics_data' function.
 class ListSessionAnalyticsDataRequest(BaseValidatorModel):
     botId: str
     startDateTime: Timestamp
@@ -2085,6 +2211,7 @@ class ListSessionAnalyticsDataRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_slot_types' function.
 class ListSlotTypesRequest(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -2095,6 +2222,7 @@ class ListSlotTypesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_slot_types' function.
 class ListSlotTypesResponse(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -2104,6 +2232,7 @@ class ListSlotTypesResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_slots' function.
 class ListSlotsRequest(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -2115,18 +2244,21 @@ class ListSlotsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_test_executions' function.
 class ListTestExecutionsRequest(BaseValidatorModel):
     sortBy: Optional[TestExecutionSortBy] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_test_sets' function.
 class ListTestSetsRequest(BaseValidatorModel):
     sortBy: Optional[TestSetSortBy] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_utterance_analytics_data' function.
 class ListUtteranceAnalyticsDataRequest(BaseValidatorModel):
     botId: str
     startDateTime: Timestamp
@@ -2230,6 +2362,7 @@ class UtteranceInputSpecification(BaseValidatorModel):
     audioInput: Optional[UtteranceAudioInputSpecification] = None
 
 
+# This class is the output for the 'list_intent_metrics' function.
 class ListIntentMetricsResponse(BaseValidatorModel):
     botId: str
     results: List[AnalyticsIntentResult]
@@ -2237,6 +2370,7 @@ class ListIntentMetricsResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_intent_stage_metrics' function.
 class ListIntentStageMetricsResponse(BaseValidatorModel):
     botId: str
     results: List[AnalyticsIntentStageResult]
@@ -2244,6 +2378,7 @@ class ListIntentStageMetricsResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_session_metrics' function.
 class ListSessionMetricsResponse(BaseValidatorModel):
     botId: str
     results: List[AnalyticsSessionResult]
@@ -2251,6 +2386,7 @@ class ListSessionMetricsResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_utterance_metrics' function.
 class ListUtteranceMetricsResponse(BaseValidatorModel):
     botId: str
     results: List[AnalyticsUtteranceResult]
@@ -2286,6 +2422,7 @@ class SlotResolutionImprovementSpecification(BaseValidatorModel):
     bedrockModelSpecification: Optional[BedrockModelSpecification] = None
 
 
+# This class is the output for the 'describe_test_execution' function.
 class DescribeTestExecutionResponse(BaseValidatorModel):
     testExecutionId: str
     creationDateTime: datetime
@@ -2300,6 +2437,7 @@ class DescribeTestExecutionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_test_execution' function.
 class StartTestExecutionRequest(BaseValidatorModel):
     testSetId: str
     target: TestExecutionTarget
@@ -2307,6 +2445,7 @@ class StartTestExecutionRequest(BaseValidatorModel):
     testExecutionModality: Optional[TestExecutionModalityType] = None
 
 
+# This class is the output for the 'start_test_execution' function.
 class StartTestExecutionResponse(BaseValidatorModel):
     testExecutionId: str
     creationDateTime: datetime
@@ -2372,6 +2511,7 @@ class ConversationLevelTestResults(BaseValidatorModel):
     items: List[ConversationLevelTestResultItem]
 
 
+# This class is the input for the 'list_test_execution_result_items' function.
 class ListTestExecutionResultItemsRequest(BaseValidatorModel):
     testExecutionId: str
     resultFilterBy: TestExecutionResultFilterBy
@@ -2394,6 +2534,7 @@ class LexTranscriptFilter(BaseValidatorModel):
     dateRangeFilter: Optional[DateRangeFilter] = None
 
 
+# This class is the output for the 'list_intents' function.
 class ListIntentsResponse(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -2407,6 +2548,7 @@ class TranscriptFilterOutput(BaseValidatorModel):
     lexTranscriptFilter: Optional[LexTranscriptFilterOutput] = None
 
 
+# This class is the output for the 'list_test_sets' function.
 class ListTestSetsResponse(BaseValidatorModel):
     testSets: List[TestSetSummary]
     ResponseMetadata: ResponseMetadata
@@ -2425,12 +2567,14 @@ class DataSourceConfiguration(BaseValidatorModel):
     bedrockKnowledgeStoreConfiguration: Optional[BedrockKnowledgeStoreConfiguration] = None
 
 
+# This class is the input for the 'create_export' function.
 class CreateExportRequest(BaseValidatorModel):
     resourceSpecification: ExportResourceSpecification
     fileFormat: ImportExportFileFormatType
     filePassword: Optional[str] = None
 
 
+# This class is the output for the 'create_export' function.
 class CreateExportResponse(BaseValidatorModel):
     exportId: str
     resourceSpecification: ExportResourceSpecification
@@ -2440,6 +2584,7 @@ class CreateExportResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_export' function.
 class DescribeExportResponse(BaseValidatorModel):
     exportId: str
     resourceSpecification: ExportResourceSpecification
@@ -2461,6 +2606,7 @@ class ExportSummary(BaseValidatorModel):
     lastUpdatedDateTime: Optional[datetime] = None
 
 
+# This class is the output for the 'update_export' function.
 class UpdateExportResponse(BaseValidatorModel):
     exportId: str
     resourceSpecification: ExportResourceSpecification
@@ -2479,6 +2625,7 @@ class IntentClassificationTestResults(BaseValidatorModel):
     items: List[IntentClassificationTestResultItem]
 
 
+# This class is the output for the 'list_session_analytics_data' function.
 class ListSessionAnalyticsDataResponse(BaseValidatorModel):
     botId: str
     sessions: List[SessionSpecification]
@@ -2486,6 +2633,7 @@ class ListSessionAnalyticsDataResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_aggregated_utterances' function.
 class ListAggregatedUtterancesRequest(BaseValidatorModel):
     botId: str
     localeId: str
@@ -2498,6 +2646,7 @@ class ListAggregatedUtterancesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_aggregated_utterances' function.
 class ListAggregatedUtterancesResponse(BaseValidatorModel):
     botId: str
     botAliasId: str
@@ -2534,11 +2683,13 @@ class IntentOverride(BaseValidatorModel):
     slots: Optional[Dict[str, SlotValueOverride]] = None
 
 
+# This class is the input for the 'create_test_set_discrepancy_report' function.
 class CreateTestSetDiscrepancyReportRequest(BaseValidatorModel):
     testSetId: str
     target: TestSetDiscrepancyReportResourceTarget
 
 
+# This class is the output for the 'create_test_set_discrepancy_report' function.
 class CreateTestSetDiscrepancyReportResponse(BaseValidatorModel):
     testSetDiscrepancyReportId: str
     creationDateTime: datetime
@@ -2547,6 +2698,7 @@ class CreateTestSetDiscrepancyReportResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_test_set_discrepancy_report' function.
 class DescribeTestSetDiscrepancyReportResponse(BaseValidatorModel):
     testSetDiscrepancyReportId: str
     testSetId: str
@@ -2589,6 +2741,7 @@ class RuntimeSettings(BaseValidatorModel):
     slotResolutionImprovement: Optional[SlotResolutionImprovementSpecification] = None
 
 
+# This class is the output for the 'list_test_executions' function.
 class ListTestExecutionsResponse(BaseValidatorModel):
     testExecutions: List[TestExecutionSummary]
     ResponseMetadata: ResponseMetadata
@@ -2640,6 +2793,7 @@ class ConversationLogSettings(BaseValidatorModel):
     audioLogSettings: Optional[List[AudioLogSetting]] = None
 
 
+# This class is the output for the 'describe_test_set_generation' function.
 class DescribeTestSetGenerationResponse(BaseValidatorModel):
     testSetGenerationId: str
     testSetGenerationStatus: TestSetGenerationStatusType
@@ -2655,6 +2809,7 @@ class DescribeTestSetGenerationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_test_set_generation' function.
 class StartTestSetGenerationResponse(BaseValidatorModel):
     testSetGenerationId: str
     creationDateTime: datetime
@@ -2694,6 +2849,7 @@ class QnAIntentConfiguration(BaseValidatorModel):
     bedrockModelConfiguration: Optional[BedrockModelSpecification] = None
 
 
+# This class is the output for the 'list_exports' function.
 class ListExportsResponse(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -2703,6 +2859,7 @@ class ListExportsResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_slot_type' function.
 class CreateSlotTypeResponse(BaseValidatorModel):
     slotTypeId: str
     slotTypeName: str
@@ -2719,6 +2876,7 @@ class CreateSlotTypeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_slot_type' function.
 class DescribeSlotTypeResponse(BaseValidatorModel):
     slotTypeId: str
     slotTypeName: str
@@ -2736,6 +2894,7 @@ class DescribeSlotTypeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_slot_type' function.
 class UpdateSlotTypeResponse(BaseValidatorModel):
     slotTypeId: str
     slotTypeName: str
@@ -2759,6 +2918,7 @@ class InputSessionStateSpecification(BaseValidatorModel):
     runtimeHints: Optional[RuntimeHints] = None
 
 
+# This class is the input for the 'create_slot_type' function.
 class CreateSlotTypeRequest(BaseValidatorModel):
     slotTypeName: str
     botId: str
@@ -2772,6 +2932,7 @@ class CreateSlotTypeRequest(BaseValidatorModel):
     compositeSlotTypeSetting: Optional[CompositeSlotTypeSettingUnion] = None
 
 
+# This class is the input for the 'update_slot_type' function.
 class UpdateSlotTypeRequest(BaseValidatorModel):
     slotTypeId: str
     slotTypeName: str
@@ -2802,6 +2963,7 @@ class DialogState(BaseValidatorModel):
     sessionAttributes: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'describe_import' function.
 class DescribeImportResponse(BaseValidatorModel):
     importId: str
     resourceSpecification: ImportResourceSpecificationOutput
@@ -2815,6 +2977,7 @@ class DescribeImportResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_import' function.
 class StartImportResponse(BaseValidatorModel):
     importId: str
     resourceSpecification: ImportResourceSpecificationOutput
@@ -2863,6 +3026,7 @@ class StillWaitingResponseSpecificationOutput(BaseValidatorModel):
     allowInterrupt: Optional[bool] = None
 
 
+# This class is the output for the 'list_utterance_analytics_data' function.
 class ListUtteranceAnalyticsDataResponse(BaseValidatorModel):
     botId: str
     utterances: List[UtteranceSpecification]
@@ -2902,6 +3066,7 @@ class StillWaitingResponseSpecification(BaseValidatorModel):
     allowInterrupt: Optional[bool] = None
 
 
+# This class is the output for the 'create_bot_alias' function.
 class CreateBotAliasResponse(BaseValidatorModel):
     botAliasId: str
     botAliasName: str
@@ -2917,6 +3082,7 @@ class CreateBotAliasResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_bot_alias' function.
 class DescribeBotAliasResponse(BaseValidatorModel):
     botAliasId: str
     botAliasName: str
@@ -2934,6 +3100,7 @@ class DescribeBotAliasResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_bot_alias' function.
 class UpdateBotAliasResponse(BaseValidatorModel):
     botAliasId: str
     botAliasName: str
@@ -2973,6 +3140,7 @@ class UserTurnInputSpecification(BaseValidatorModel):
     sessionState: Optional[InputSessionStateSpecification] = None
 
 
+# This class is the input for the 'start_import' function.
 class StartImportRequest(BaseValidatorModel):
     importId: str
     resourceSpecification: ImportResourceSpecificationUnion
@@ -2980,6 +3148,7 @@ class StartImportRequest(BaseValidatorModel):
     filePassword: Optional[str] = None
 
 
+# This class is the input for the 'create_bot_locale' function.
 class CreateBotLocaleRequest(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -2990,6 +3159,7 @@ class CreateBotLocaleRequest(BaseValidatorModel):
     generativeAISettings: Optional[GenerativeAISettings] = None
 
 
+# This class is the output for the 'create_bot_locale' function.
 class CreateBotLocaleResponse(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -3004,6 +3174,7 @@ class CreateBotLocaleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_bot_locale' function.
 class DescribeBotLocaleResponse(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -3025,6 +3196,7 @@ class DescribeBotLocaleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_bot_locale' function.
 class UpdateBotLocaleRequest(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -3035,6 +3207,7 @@ class UpdateBotLocaleRequest(BaseValidatorModel):
     generativeAISettings: Optional[GenerativeAISettings] = None
 
 
+# This class is the output for the 'update_bot_locale' function.
 class UpdateBotLocaleResponse(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -3114,6 +3287,7 @@ class WaitAndContinueSpecification(BaseValidatorModel):
     active: Optional[bool] = None
 
 
+# This class is the input for the 'create_bot_alias' function.
 class CreateBotAliasRequest(BaseValidatorModel):
     botAliasName: str
     botId: str
@@ -3125,6 +3299,7 @@ class CreateBotAliasRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_bot_alias' function.
 class UpdateBotAliasRequest(BaseValidatorModel):
     botAliasId: str
     botAliasName: str
@@ -3136,6 +3311,7 @@ class UpdateBotAliasRequest(BaseValidatorModel):
     sentimentAnalysisSettings: Optional[SentimentAnalysisSettings] = None
 
 
+# This class is the input for the 'start_test_set_generation' function.
 class StartTestSetGenerationRequest(BaseValidatorModel):
     testSetName: str
     storageLocation: TestSetStorageLocation
@@ -3149,6 +3325,7 @@ class TranscriptSourceSetting(BaseValidatorModel):
     s3BucketTranscriptSource: Optional[S3BucketTranscriptSource] = None
 
 
+# This class is the output for the 'describe_bot_recommendation' function.
 class DescribeBotRecommendationResponse(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -3164,6 +3341,7 @@ class DescribeBotRecommendationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_bot_recommendation' function.
 class StartBotRecommendationResponse(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -3176,6 +3354,7 @@ class StartBotRecommendationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_bot_recommendation' function.
 class UpdateBotRecommendationResponse(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -3206,6 +3385,7 @@ class UserTurnSpecification(BaseValidatorModel):
     expected: UserTurnOutputSpecification
 
 
+# This class is the output for the 'list_slots' function.
 class ListSlotsResponse(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -3326,6 +3506,7 @@ class Specifications(BaseValidatorModel):
     valueElicitationSetting: SubSlotValueElicitationSetting
 
 
+# This class is the input for the 'start_bot_recommendation' function.
 class StartBotRecommendationRequest(BaseValidatorModel):
     botId: str
     botVersion: str
@@ -3391,6 +3572,7 @@ class UtteranceLevelTestResults(BaseValidatorModel):
     items: List[UtteranceLevelTestResultItem]
 
 
+# This class is the output for the 'list_test_set_records' function.
 class ListTestSetRecordsResponse(BaseValidatorModel):
     testSetRecords: List[TestSetTurnRecord]
     ResponseMetadata: ResponseMetadata
@@ -3477,6 +3659,7 @@ class TestExecutionResultItems(BaseValidatorModel):
     utteranceLevelTestResults: Optional[UtteranceLevelTestResults] = None
 
 
+# This class is the output for the 'create_intent' function.
 class CreateIntentResponse(BaseValidatorModel):
     intentId: str
     intentName: str
@@ -3499,6 +3682,7 @@ class CreateIntentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_intent' function.
 class DescribeIntentResponse(BaseValidatorModel):
     intentId: str
     intentName: str
@@ -3523,6 +3707,7 @@ class DescribeIntentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_intent' function.
 class UpdateIntentResponse(BaseValidatorModel):
     intentId: str
     intentName: str
@@ -3571,12 +3756,14 @@ class SlotValueElicitationSetting(BaseValidatorModel):
     slotResolutionSetting: Optional[SlotResolutionSetting] = None
 
 
+# This class is the output for the 'list_test_execution_result_items' function.
 class ListTestExecutionResultItemsResponse(BaseValidatorModel):
     testExecutionResults: TestExecutionResultItems
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_slot' function.
 class CreateSlotResponse(BaseValidatorModel):
     slotId: str
     slotName: str
@@ -3594,6 +3781,7 @@ class CreateSlotResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_slot' function.
 class DescribeSlotResponse(BaseValidatorModel):
     slotId: str
     slotName: str
@@ -3612,6 +3800,7 @@ class DescribeSlotResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_slot' function.
 class UpdateSlotResponse(BaseValidatorModel):
     slotId: str
     slotName: str
@@ -3630,6 +3819,7 @@ class UpdateSlotResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_intent' function.
 class CreateIntentRequest(BaseValidatorModel):
     intentName: str
     botId: str
@@ -3649,6 +3839,7 @@ class CreateIntentRequest(BaseValidatorModel):
     qnAIntentConfiguration: Optional[QnAIntentConfigurationUnion] = None
 
 
+# This class is the input for the 'update_intent' function.
 class UpdateIntentRequest(BaseValidatorModel):
     intentId: str
     intentName: str
@@ -3672,6 +3863,7 @@ class UpdateIntentRequest(BaseValidatorModel):
 SlotValueElicitationSettingUnion = Union[SlotValueElicitationSetting, SlotValueElicitationSettingOutput]
 
 
+# This class is the input for the 'create_slot' function.
 class CreateSlotRequest(BaseValidatorModel):
     slotName: str
     valueElicitationSetting: SlotValueElicitationSettingUnion
@@ -3686,6 +3878,7 @@ class CreateSlotRequest(BaseValidatorModel):
     subSlotSetting: Optional[SubSlotSettingUnion] = None
 
 
+# This class is the input for the 'update_slot' function.
 class UpdateSlotRequest(BaseValidatorModel):
     slotId: str
     slotName: str

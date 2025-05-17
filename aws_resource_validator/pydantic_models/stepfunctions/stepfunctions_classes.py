@@ -98,15 +98,18 @@ class DeleteStateMachineVersionInput(BaseValidatorModel):
     stateMachineVersionArn: str
 
 
+# This class is the input for the 'describe_activity' function.
 class DescribeActivityInput(BaseValidatorModel):
     activityArn: str
 
 
+# This class is the input for the 'describe_execution' function.
 class DescribeExecutionInput(BaseValidatorModel):
     executionArn: str
     includedData: Optional[IncludedDataType] = None
 
 
+# This class is the input for the 'describe_map_run' function.
 class DescribeMapRunInput(BaseValidatorModel):
     mapRunArn: str
 
@@ -137,15 +140,18 @@ class MapRunItemCounts(BaseValidatorModel):
     pendingRedrive: Optional[int] = None
 
 
+# This class is the input for the 'describe_state_machine_alias' function.
 class DescribeStateMachineAliasInput(BaseValidatorModel):
     stateMachineAliasArn: str
 
 
+# This class is the input for the 'describe_state_machine_for_execution' function.
 class DescribeStateMachineForExecutionInput(BaseValidatorModel):
     executionArn: str
     includedData: Optional[IncludedDataType] = None
 
 
+# This class is the input for the 'describe_state_machine' function.
 class DescribeStateMachineInput(BaseValidatorModel):
     stateMachineArn: str
     includedData: Optional[IncludedDataType] = None
@@ -192,6 +198,7 @@ class ExecutionTimedOutEventDetails(BaseValidatorModel):
     cause: Optional[str] = None
 
 
+# This class is the input for the 'get_activity_task' function.
 class GetActivityTaskInput(BaseValidatorModel):
     activityArn: str
     workerName: Optional[str] = None
@@ -203,6 +210,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'get_execution_history' function.
 class GetExecutionHistoryInput(BaseValidatorModel):
     executionArn: str
     maxResults: Optional[int] = None
@@ -307,11 +315,13 @@ class TaskCredentials(BaseValidatorModel):
     roleArn: Optional[str] = None
 
 
+# This class is the input for the 'list_activities' function.
 class ListActivitiesInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_executions' function.
 class ListExecutionsInput(BaseValidatorModel):
     stateMachineArn: Optional[str] = None
     statusFilter: Optional[ExecutionStatusType] = None
@@ -321,6 +331,7 @@ class ListExecutionsInput(BaseValidatorModel):
     redriveFilter: Optional[ExecutionRedriveFilterType] = None
 
 
+# This class is the input for the 'list_map_runs' function.
 class ListMapRunsInput(BaseValidatorModel):
     executionArn: str
     maxResults: Optional[int] = None
@@ -335,6 +346,7 @@ class MapRunListItem(BaseValidatorModel):
     stopDate: Optional[datetime] = None
 
 
+# This class is the input for the 'list_state_machine_aliases' function.
 class ListStateMachineAliasesInput(BaseValidatorModel):
     stateMachineArn: str
     nextToken: Optional[str] = None
@@ -346,6 +358,7 @@ class StateMachineAliasListItem(BaseValidatorModel):
     creationDate: datetime
 
 
+# This class is the input for the 'list_state_machine_versions' function.
 class ListStateMachineVersionsInput(BaseValidatorModel):
     stateMachineArn: str
     nextToken: Optional[str] = None
@@ -357,6 +370,7 @@ class StateMachineVersionListItem(BaseValidatorModel):
     creationDate: datetime
 
 
+# This class is the input for the 'list_state_machines' function.
 class ListStateMachinesInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -369,16 +383,19 @@ class StateMachineListItem(BaseValidatorModel):
     creationDate: datetime
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInput(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'publish_state_machine_version' function.
 class PublishStateMachineVersionInput(BaseValidatorModel):
     stateMachineArn: str
     revisionId: Optional[str] = None
     description: Optional[str] = None
 
 
+# This class is the input for the 'redrive_execution' function.
 class RedriveExecutionInput(BaseValidatorModel):
     executionArn: str
     clientToken: Optional[str] = None
@@ -399,6 +416,7 @@ class SendTaskSuccessInput(BaseValidatorModel):
     output: str
 
 
+# This class is the input for the 'start_execution' function.
 class StartExecutionInput(BaseValidatorModel):
     stateMachineArn: str
     name: Optional[str] = None
@@ -406,6 +424,7 @@ class StartExecutionInput(BaseValidatorModel):
     traceHeader: Optional[str] = None
 
 
+# This class is the input for the 'start_sync_execution' function.
 class StartSyncExecutionInput(BaseValidatorModel):
     stateMachineArn: str
     name: Optional[str] = None
@@ -414,12 +433,14 @@ class StartSyncExecutionInput(BaseValidatorModel):
     includedData: Optional[IncludedDataType] = None
 
 
+# This class is the input for the 'stop_execution' function.
 class StopExecutionInput(BaseValidatorModel):
     executionArn: str
     error: Optional[str] = None
     cause: Optional[str] = None
 
 
+# This class is the input for the 'test_state' function.
 class TestStateInput(BaseValidatorModel):
     definition: str
     roleArn: Optional[str] = None
@@ -448,6 +469,7 @@ class ValidateStateMachineDefinitionDiagnostic(BaseValidatorModel):
     location: Optional[str] = None
 
 
+# This class is the input for the 'validate_state_machine_definition' function.
 class ValidateStateMachineDefinitionInput(BaseValidatorModel):
     definition: str
     type: Optional[StateMachineTypeType] = None
@@ -518,6 +540,7 @@ class LogDestination(BaseValidatorModel):
     cloudWatchLogsLogGroup: Optional[CloudWatchLogsLogGroup] = None
 
 
+# This class is the input for the 'create_activity' function.
 class CreateActivityInput(BaseValidatorModel):
     name: str
     tags: Optional[List[Tag]] = None
@@ -529,18 +552,21 @@ class TagResourceInput(BaseValidatorModel):
     tags: List[Tag]
 
 
+# This class is the output for the 'create_activity' function.
 class CreateActivityOutput(BaseValidatorModel):
     activityArn: str
     creationDate: datetime
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_state_machine_alias' function.
 class CreateStateMachineAliasOutput(BaseValidatorModel):
     stateMachineAliasArn: str
     creationDate: datetime
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_state_machine' function.
 class CreateStateMachineOutput(BaseValidatorModel):
     stateMachineArn: str
     creationDate: datetime
@@ -548,6 +574,7 @@ class CreateStateMachineOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_activity' function.
 class DescribeActivityOutput(BaseValidatorModel):
     activityArn: str
     name: str
@@ -556,6 +583,7 @@ class DescribeActivityOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_execution' function.
 class DescribeExecutionOutput(BaseValidatorModel):
     executionArn: str
     stateMachineArn: str
@@ -580,40 +608,47 @@ class DescribeExecutionOutput(BaseValidatorModel):
     redriveStatusReason: Optional[str] = None
 
 
+# This class is the output for the 'get_activity_task' function.
 class GetActivityTaskOutput(BaseValidatorModel):
     taskToken: str
     input: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_activities' function.
 class ListActivitiesOutput(BaseValidatorModel):
     activities: List[ActivityListItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceOutput(BaseValidatorModel):
     tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'publish_state_machine_version' function.
 class PublishStateMachineVersionOutput(BaseValidatorModel):
     creationDate: datetime
     stateMachineVersionArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'redrive_execution' function.
 class RedriveExecutionOutput(BaseValidatorModel):
     redriveDate: datetime
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_execution' function.
 class StartExecutionOutput(BaseValidatorModel):
     executionArn: str
     startDate: datetime
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_sync_execution' function.
 class StartSyncExecutionOutput(BaseValidatorModel):
     executionArn: str
     stateMachineArn: str
@@ -632,16 +667,19 @@ class StartSyncExecutionOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_execution' function.
 class StopExecutionOutput(BaseValidatorModel):
     stopDate: datetime
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_state_machine_alias' function.
 class UpdateStateMachineAliasOutput(BaseValidatorModel):
     updateDate: datetime
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_state_machine' function.
 class UpdateStateMachineOutput(BaseValidatorModel):
     updateDate: datetime
     revisionId: str
@@ -649,12 +687,14 @@ class UpdateStateMachineOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_state_machine_alias' function.
 class CreateStateMachineAliasInput(BaseValidatorModel):
     name: str
     routingConfiguration: List[RoutingConfigurationListItem]
     description: Optional[str] = None
 
 
+# This class is the output for the 'describe_state_machine_alias' function.
 class DescribeStateMachineAliasOutput(BaseValidatorModel):
     stateMachineAliasArn: str
     name: str
@@ -665,12 +705,14 @@ class DescribeStateMachineAliasOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_state_machine_alias' function.
 class UpdateStateMachineAliasInput(BaseValidatorModel):
     stateMachineAliasArn: str
     description: Optional[str] = None
     routingConfiguration: Optional[List[RoutingConfigurationListItem]] = None
 
 
+# This class is the output for the 'describe_map_run' function.
 class DescribeMapRunOutput(BaseValidatorModel):
     mapRunArn: str
     executionArn: str
@@ -687,6 +729,7 @@ class DescribeMapRunOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_executions' function.
 class ListExecutionsOutput(BaseValidatorModel):
     executions: List[ExecutionListItem]
     ResponseMetadata: ResponseMetadata
@@ -752,30 +795,35 @@ class TaskScheduledEventDetails(BaseValidatorModel):
     taskCredentials: Optional[TaskCredentials] = None
 
 
+# This class is the output for the 'list_map_runs' function.
 class ListMapRunsOutput(BaseValidatorModel):
     mapRuns: List[MapRunListItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_state_machine_aliases' function.
 class ListStateMachineAliasesOutput(BaseValidatorModel):
     stateMachineAliases: List[StateMachineAliasListItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_state_machine_versions' function.
 class ListStateMachineVersionsOutput(BaseValidatorModel):
     stateMachineVersions: List[StateMachineVersionListItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_state_machines' function.
 class ListStateMachinesOutput(BaseValidatorModel):
     stateMachines: List[StateMachineListItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'validate_state_machine_definition' function.
 class ValidateStateMachineDefinitionOutput(BaseValidatorModel):
     result: ValidateStateMachineDefinitionResultCodeType
     diagnostics: List[ValidateStateMachineDefinitionDiagnostic]
@@ -795,6 +843,7 @@ class LoggingConfiguration(BaseValidatorModel):
     destinations: Optional[List[LogDestination]] = None
 
 
+# This class is the output for the 'test_state' function.
 class TestStateOutput(BaseValidatorModel):
     output: str
     error: str
@@ -849,6 +898,7 @@ class HistoryEvent(BaseValidatorModel):
     evaluationFailedEventDetails: Optional[EvaluationFailedEventDetails] = None
 
 
+# This class is the output for the 'describe_state_machine_for_execution' function.
 class DescribeStateMachineForExecutionOutput(BaseValidatorModel):
     stateMachineArn: str
     name: str
@@ -865,6 +915,7 @@ class DescribeStateMachineForExecutionOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_state_machine' function.
 class DescribeStateMachineOutput(BaseValidatorModel):
     stateMachineArn: str
     name: str
@@ -885,12 +936,14 @@ class DescribeStateMachineOutput(BaseValidatorModel):
 LoggingConfigurationUnion = Union[LoggingConfiguration, LoggingConfigurationOutput]
 
 
+# This class is the output for the 'get_execution_history' function.
 class GetExecutionHistoryOutput(BaseValidatorModel):
     events: List[HistoryEvent]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_state_machine' function.
 class CreateStateMachineInput(BaseValidatorModel):
     name: str
     definition: str
@@ -904,6 +957,7 @@ class CreateStateMachineInput(BaseValidatorModel):
     encryptionConfiguration: Optional[EncryptionConfiguration] = None
 
 
+# This class is the input for the 'update_state_machine' function.
 class UpdateStateMachineInput(BaseValidatorModel):
     stateMachineArn: str
     definition: Optional[str] = None

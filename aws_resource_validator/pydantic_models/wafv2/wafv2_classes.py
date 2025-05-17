@@ -96,6 +96,7 @@ class CookieMatchPattern(BaseValidatorModel):
     ExcludedCookies: Optional[List[str]] = None
 
 
+# This class is the input for the 'create_api_key' function.
 class CreateAPIKeyRequest(BaseValidatorModel):
     Scope: ScopeType
     TokenDomains: List[str]
@@ -173,6 +174,7 @@ class DeleteAPIKeyRequest(BaseValidatorModel):
     APIKey: str
 
 
+# This class is the input for the 'delete_firewall_manager_rule_groups' function.
 class DeleteFirewallManagerRuleGroupsRequest(BaseValidatorModel):
     WebACLArn: str
     WebACLLockToken: str
@@ -216,6 +218,7 @@ class DeleteWebACLRequest(BaseValidatorModel):
     LockToken: str
 
 
+# This class is the input for the 'describe_all_managed_products' function.
 class DescribeAllManagedProductsRequest(BaseValidatorModel):
     Scope: ScopeType
 
@@ -232,11 +235,13 @@ class ManagedProductDescriptor(BaseValidatorModel):
     IsAdvancedManagedRuleSet: Optional[bool] = None
 
 
+# This class is the input for the 'describe_managed_products_by_vendor' function.
 class DescribeManagedProductsByVendorRequest(BaseValidatorModel):
     VendorName: str
     Scope: ScopeType
 
 
+# This class is the input for the 'describe_managed_rule_group' function.
 class DescribeManagedRuleGroupRequest(BaseValidatorModel):
     VendorName: str
     Name: str
@@ -285,16 +290,19 @@ class ForwardedIPConfig(BaseValidatorModel):
     FallbackBehavior: FallbackBehaviorType
 
 
+# This class is the input for the 'generate_mobile_sdk_release_url' function.
 class GenerateMobileSdkReleaseUrlRequest(BaseValidatorModel):
     Platform: PlatformType
     ReleaseVersion: str
 
 
+# This class is the input for the 'get_decrypted_api_key' function.
 class GetDecryptedAPIKeyRequest(BaseValidatorModel):
     Scope: ScopeType
     APIKey: str
 
 
+# This class is the input for the 'get_ip_set' function.
 class GetIPSetRequest(BaseValidatorModel):
     Name: str
     Scope: ScopeType
@@ -310,27 +318,32 @@ class IPSet(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'get_logging_configuration' function.
 class GetLoggingConfigurationRequest(BaseValidatorModel):
     ResourceArn: str
     LogType: Optional[Literal['WAF_LOGS']] = None
     LogScope: Optional[LogScopeType] = None
 
 
+# This class is the input for the 'get_managed_rule_set' function.
 class GetManagedRuleSetRequest(BaseValidatorModel):
     Name: str
     Scope: ScopeType
     Id: str
 
 
+# This class is the input for the 'get_mobile_sdk_release' function.
 class GetMobileSdkReleaseRequest(BaseValidatorModel):
     Platform: PlatformType
     ReleaseVersion: str
 
 
+# This class is the input for the 'get_permission_policy' function.
 class GetPermissionPolicyRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'get_rate_based_statement_managed_keys' function.
 class GetRateBasedStatementManagedKeysRequest(BaseValidatorModel):
     Scope: ScopeType
     WebACLName: str
@@ -344,12 +357,14 @@ class RateBasedStatementManagedKeysIPSet(BaseValidatorModel):
     Addresses: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_regex_pattern_set' function.
 class GetRegexPatternSetRequest(BaseValidatorModel):
     Name: str
     Scope: ScopeType
     Id: str
 
 
+# This class is the input for the 'get_rule_group' function.
 class GetRuleGroupRequest(BaseValidatorModel):
     Name: Optional[str] = None
     Scope: Optional[ScopeType] = None
@@ -362,10 +377,12 @@ class TimeWindowOutput(BaseValidatorModel):
     EndTime: datetime
 
 
+# This class is the input for the 'get_web_acl_for_resource' function.
 class GetWebACLForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'get_web_acl' function.
 class GetWebACLRequest(BaseValidatorModel):
     Name: str
     Scope: ScopeType
@@ -414,12 +431,14 @@ class Label(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'list_api_keys' function.
 class ListAPIKeysRequest(BaseValidatorModel):
     Scope: ScopeType
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'list_available_managed_rule_group_versions' function.
 class ListAvailableManagedRuleGroupVersionsRequest(BaseValidatorModel):
     VendorName: str
     Name: str
@@ -433,6 +452,7 @@ class ManagedRuleGroupVersion(BaseValidatorModel):
     LastUpdateTimestamp: Optional[datetime] = None
 
 
+# This class is the input for the 'list_available_managed_rule_groups' function.
 class ListAvailableManagedRuleGroupsRequest(BaseValidatorModel):
     Scope: ScopeType
     NextMarker: Optional[str] = None
@@ -446,12 +466,14 @@ class ManagedRuleGroupSummary(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'list_ip_sets' function.
 class ListIPSetsRequest(BaseValidatorModel):
     Scope: ScopeType
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'list_logging_configurations' function.
 class ListLoggingConfigurationsRequest(BaseValidatorModel):
     Scope: ScopeType
     NextMarker: Optional[str] = None
@@ -459,6 +481,7 @@ class ListLoggingConfigurationsRequest(BaseValidatorModel):
     LogScope: Optional[LogScopeType] = None
 
 
+# This class is the input for the 'list_managed_rule_sets' function.
 class ListManagedRuleSetsRequest(BaseValidatorModel):
     Scope: ScopeType
     NextMarker: Optional[str] = None
@@ -474,6 +497,7 @@ class ManagedRuleSetSummary(BaseValidatorModel):
     LabelNamespace: Optional[str] = None
 
 
+# This class is the input for the 'list_mobile_sdk_releases' function.
 class ListMobileSdkReleasesRequest(BaseValidatorModel):
     Platform: PlatformType
     NextMarker: Optional[str] = None
@@ -485,29 +509,34 @@ class ReleaseSummary(BaseValidatorModel):
     Timestamp: Optional[datetime] = None
 
 
+# This class is the input for the 'list_regex_pattern_sets' function.
 class ListRegexPatternSetsRequest(BaseValidatorModel):
     Scope: ScopeType
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'list_resources_for_web_acl' function.
 class ListResourcesForWebACLRequest(BaseValidatorModel):
     WebACLArn: str
     ResourceType: Optional[ResourceTypeType] = None
 
 
+# This class is the input for the 'list_rule_groups' function.
 class ListRuleGroupsRequest(BaseValidatorModel):
     Scope: ScopeType
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'list_web_acls' function.
 class ListWebACLsRequest(BaseValidatorModel):
     Scope: ScopeType
     NextMarker: Optional[str] = None
@@ -624,6 +653,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_ip_set' function.
 class UpdateIPSetRequest(BaseValidatorModel):
     Name: str
     Scope: ScopeType
@@ -697,37 +727,44 @@ class ChallengeConfig(BaseValidatorModel):
     ImmunityTimeProperty: Optional[ImmunityTimeProperty] = None
 
 
+# This class is the output for the 'check_capacity' function.
 class CheckCapacityResponse(BaseValidatorModel):
     Capacity: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_api_key' function.
 class CreateAPIKeyResponse(BaseValidatorModel):
     APIKey: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_firewall_manager_rule_groups' function.
 class DeleteFirewallManagerRuleGroupsResponse(BaseValidatorModel):
     NextWebACLLockToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'generate_mobile_sdk_release_url' function.
 class GenerateMobileSdkReleaseUrlResponse(BaseValidatorModel):
     Url: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_decrypted_api_key' function.
 class GetDecryptedAPIKeyResponse(BaseValidatorModel):
     TokenDomains: List[str]
     CreationTimestamp: datetime
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_permission_policy' function.
 class GetPermissionPolicyResponse(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_api_keys' function.
 class ListAPIKeysResponse(BaseValidatorModel):
     NextMarker: str
     APIKeySummaries: List[APIKeySummary]
@@ -735,21 +772,25 @@ class ListAPIKeysResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_resources_for_web_acl' function.
 class ListResourcesForWebACLResponse(BaseValidatorModel):
     ResourceArns: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_managed_rule_set_versions' function.
 class PutManagedRuleSetVersionsResponse(BaseValidatorModel):
     NextLockToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_ip_set' function.
 class UpdateIPSetResponse(BaseValidatorModel):
     NextLockToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_managed_rule_set_version_expiry_date' function.
 class UpdateManagedRuleSetVersionExpiryDateResponse(BaseValidatorModel):
     ExpiringVersion: str
     ExpiryTimestamp: datetime
@@ -757,16 +798,19 @@ class UpdateManagedRuleSetVersionExpiryDateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_regex_pattern_set' function.
 class UpdateRegexPatternSetResponse(BaseValidatorModel):
     NextLockToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_rule_group' function.
 class UpdateRuleGroupResponse(BaseValidatorModel):
     NextLockToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_web_acl' function.
 class UpdateWebACLResponse(BaseValidatorModel):
     NextLockToken: str
     ResponseMetadata: ResponseMetadata
@@ -785,6 +829,7 @@ class CookiesOutput(BaseValidatorModel):
 CookieMatchPatternUnion = Union[CookieMatchPattern, CookieMatchPatternOutput]
 
 
+# This class is the input for the 'create_ip_set' function.
 class CreateIPSetRequest(BaseValidatorModel):
     Name: str
     Scope: ScopeType
@@ -811,17 +856,20 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the output for the 'create_ip_set' function.
 class CreateIPSetResponse(BaseValidatorModel):
     Summary: IPSetSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_ip_sets' function.
 class ListIPSetsResponse(BaseValidatorModel):
     NextMarker: str
     IPSets: List[IPSetSummary]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_regex_pattern_set' function.
 class CreateRegexPatternSetRequest(BaseValidatorModel):
     Name: str
     Scope: ScopeType
@@ -838,6 +886,7 @@ class RegexPatternSet(BaseValidatorModel):
     RegularExpressionList: Optional[List[Regex]] = None
 
 
+# This class is the input for the 'update_regex_pattern_set' function.
 class UpdateRegexPatternSetRequest(BaseValidatorModel):
     Name: str
     Scope: ScopeType
@@ -847,33 +896,39 @@ class UpdateRegexPatternSetRequest(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the output for the 'create_regex_pattern_set' function.
 class CreateRegexPatternSetResponse(BaseValidatorModel):
     Summary: RegexPatternSetSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_regex_pattern_sets' function.
 class ListRegexPatternSetsResponse(BaseValidatorModel):
     NextMarker: str
     RegexPatternSets: List[RegexPatternSetSummary]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_rule_group' function.
 class CreateRuleGroupResponse(BaseValidatorModel):
     Summary: RuleGroupSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_rule_groups' function.
 class ListRuleGroupsResponse(BaseValidatorModel):
     NextMarker: str
     RuleGroups: List[RuleGroupSummary]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_web_acl' function.
 class CreateWebACLResponse(BaseValidatorModel):
     Summary: WebACLSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_web_acls' function.
 class ListWebACLsResponse(BaseValidatorModel):
     NextMarker: str
     WebACLs: List[WebACLSummary]
@@ -914,11 +969,13 @@ class DataProtection(BaseValidatorModel):
     ExcludeRateBasedDetails: Optional[bool] = None
 
 
+# This class is the output for the 'describe_all_managed_products' function.
 class DescribeAllManagedProductsResponse(BaseValidatorModel):
     ManagedProducts: List[ManagedProductDescriptor]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_managed_products_by_vendor' function.
 class DescribeManagedProductsByVendorResponse(BaseValidatorModel):
     ManagedProducts: List[ManagedProductDescriptor]
     ResponseMetadata: ResponseMetadata
@@ -934,12 +991,14 @@ class GeoMatchStatement(BaseValidatorModel):
     ForwardedIPConfig: Optional[ForwardedIPConfig] = None
 
 
+# This class is the output for the 'get_ip_set' function.
 class GetIPSetResponse(BaseValidatorModel):
     IPSet: IPSet
     LockToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_rate_based_statement_managed_keys' function.
 class GetRateBasedStatementManagedKeysResponse(BaseValidatorModel):
     ManagedKeysIPV4: RateBasedStatementManagedKeysIPSet
     ManagedKeysIPV6: RateBasedStatementManagedKeysIPSet
@@ -977,6 +1036,7 @@ class JsonBodyOutput(BaseValidatorModel):
 JsonMatchPatternUnion = Union[JsonMatchPattern, JsonMatchPatternOutput]
 
 
+# This class is the output for the 'list_available_managed_rule_group_versions' function.
 class ListAvailableManagedRuleGroupVersionsResponse(BaseValidatorModel):
     NextMarker: str
     Versions: List[ManagedRuleGroupVersion]
@@ -984,18 +1044,21 @@ class ListAvailableManagedRuleGroupVersionsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_available_managed_rule_groups' function.
 class ListAvailableManagedRuleGroupsResponse(BaseValidatorModel):
     NextMarker: str
     ManagedRuleGroups: List[ManagedRuleGroupSummary]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_managed_rule_sets' function.
 class ListManagedRuleSetsResponse(BaseValidatorModel):
     NextMarker: str
     ManagedRuleSets: List[ManagedRuleSetSummary]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_mobile_sdk_releases' function.
 class ListMobileSdkReleasesResponse(BaseValidatorModel):
     ReleaseSummaries: List[ReleaseSummary]
     NextMarker: str
@@ -1040,6 +1103,7 @@ class RequestInspectionACFP(BaseValidatorModel):
     AddressFields: Optional[List[AddressField]] = None
 
 
+# This class is the input for the 'put_managed_rule_set_versions' function.
 class PutManagedRuleSetVersionsRequest(BaseValidatorModel):
     Name: str
     Scope: ScopeType
@@ -1069,6 +1133,7 @@ class TimeWindow(BaseValidatorModel):
     EndTime: Timestamp
 
 
+# This class is the input for the 'update_managed_rule_set_version_expiry_date' function.
 class UpdateManagedRuleSetVersionExpiryDateRequest(BaseValidatorModel):
     Name: str
     Scope: ScopeType
@@ -1122,17 +1187,20 @@ class Cookies(BaseValidatorModel):
     OversizeHandling: OversizeHandlingType
 
 
+# This class is the output for the 'get_mobile_sdk_release' function.
 class GetMobileSdkReleaseResponse(BaseValidatorModel):
     MobileSdkRelease: MobileSdkRelease
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     NextMarker: str
     TagInfoForResource: TagInfoForResource
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_regex_pattern_set' function.
 class GetRegexPatternSetResponse(BaseValidatorModel):
     RegexPatternSet: RegexPatternSet
     LockToken: str
@@ -1216,6 +1284,7 @@ class JsonBody(BaseValidatorModel):
     OversizeHandling: Optional[OversizeHandlingType] = None
 
 
+# This class is the output for the 'get_managed_rule_set' function.
 class GetManagedRuleSetResponse(BaseValidatorModel):
     ManagedRuleSet: ManagedRuleSet
     LockToken: str
@@ -1323,6 +1392,7 @@ class BlockAction(BaseValidatorModel):
 DataProtectionConfigUnion = Union[DataProtectionConfig, DataProtectionConfigOutput]
 
 
+# This class is the output for the 'get_sampled_requests' function.
 class GetSampledRequestsResponse(BaseValidatorModel):
     SampledRequests: List[SampledHTTPRequest]
     PopulationSize: int
@@ -1383,6 +1453,7 @@ class ManagedRuleGroupConfigOutput(BaseValidatorModel):
 ResponseInspectionUnion = Union[ResponseInspection, ResponseInspectionOutput]
 
 
+# This class is the input for the 'get_sampled_requests' function.
 class GetSampledRequestsRequest(BaseValidatorModel):
     WebAclArn: str
     RuleMetricName: str
@@ -1468,17 +1539,20 @@ class RateBasedStatement(BaseValidatorModel):
     CustomKeys: Optional[List[RateBasedStatementCustomKeyUnion]] = None
 
 
+# This class is the output for the 'get_logging_configuration' function.
 class GetLoggingConfigurationResponse(BaseValidatorModel):
     LoggingConfiguration: LoggingConfigurationOutput
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_logging_configurations' function.
 class ListLoggingConfigurationsResponse(BaseValidatorModel):
     LoggingConfigurations: List[LoggingConfigurationOutput]
     NextMarker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_logging_configuration' function.
 class PutLoggingConfigurationResponse(BaseValidatorModel):
     LoggingConfiguration: LoggingConfigurationOutput
     ResponseMetadata: ResponseMetadata
@@ -1505,6 +1579,7 @@ class RuleGroupReferenceStatementOutput(BaseValidatorModel):
     RuleActionOverrides: Optional[List[RuleActionOverrideOutput]] = None
 
 
+# This class is the output for the 'describe_managed_rule_group' function.
 class DescribeManagedRuleGroupResponse(BaseValidatorModel):
     VersionName: str
     SnsTopicArn: str
@@ -1657,6 +1732,7 @@ SqliMatchStatementUnion = Union[SqliMatchStatement, SqliMatchStatementOutput]
 XssMatchStatementUnion = Union[XssMatchStatement, XssMatchStatementOutput]
 
 
+# This class is the input for the 'put_logging_configuration' function.
 class PutLoggingConfigurationRequest(BaseValidatorModel):
     LoggingConfiguration: LoggingConfigurationUnion
 
@@ -1701,17 +1777,20 @@ class WebACL(BaseValidatorModel):
 RuleActionOverrideUnion = Union[RuleActionOverride, RuleActionOverrideOutput]
 
 
+# This class is the output for the 'get_rule_group' function.
 class GetRuleGroupResponse(BaseValidatorModel):
     RuleGroup: RuleGroup
     LockToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_web_acl_for_resource' function.
 class GetWebACLForResourceResponse(BaseValidatorModel):
     WebACL: WebACL
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_web_acl' function.
 class GetWebACLResponse(BaseValidatorModel):
     WebACL: WebACL
     LockToken: str
@@ -1773,11 +1852,13 @@ class Rule(BaseValidatorModel):
 RuleUnion = Union[Rule, RuleOutput]
 
 
+# This class is the input for the 'check_capacity' function.
 class CheckCapacityRequest(BaseValidatorModel):
     Scope: ScopeType
     Rules: List[RuleUnion]
 
 
+# This class is the input for the 'create_rule_group' function.
 class CreateRuleGroupRequest(BaseValidatorModel):
     Name: str
     Scope: ScopeType
@@ -1789,6 +1870,7 @@ class CreateRuleGroupRequest(BaseValidatorModel):
     CustomResponseBodies: Optional[Dict[str, CustomResponseBody]] = None
 
 
+# This class is the input for the 'create_web_acl' function.
 class CreateWebACLRequest(BaseValidatorModel):
     Name: str
     Scope: ScopeType
@@ -1805,6 +1887,7 @@ class CreateWebACLRequest(BaseValidatorModel):
     AssociationConfig: Optional[AssociationConfigUnion] = None
 
 
+# This class is the input for the 'update_rule_group' function.
 class UpdateRuleGroupRequest(BaseValidatorModel):
     Name: str
     Scope: ScopeType
@@ -1816,6 +1899,7 @@ class UpdateRuleGroupRequest(BaseValidatorModel):
     CustomResponseBodies: Optional[Dict[str, CustomResponseBody]] = None
 
 
+# This class is the input for the 'update_web_acl' function.
 class UpdateWebACLRequest(BaseValidatorModel):
     Name: str
     Scope: ScopeType

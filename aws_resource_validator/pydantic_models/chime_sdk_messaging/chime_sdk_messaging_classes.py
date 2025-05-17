@@ -14,6 +14,7 @@ class AppInstanceUserMembershipSummary(BaseValidatorModel):
     SubChannelId: Optional[str] = None
 
 
+# This class is the input for the 'associate_channel_flow' function.
 class AssociateChannelFlowRequest(BaseValidatorModel):
     ChannelArn: str
     ChannelFlowArn: str
@@ -31,6 +32,7 @@ class BatchCreateChannelMembershipError(BaseValidatorModel):
     ErrorMessage: Optional[str] = None
 
 
+# This class is the input for the 'batch_create_channel_membership' function.
 class BatchCreateChannelMembershipRequest(BaseValidatorModel):
     ChannelArn: str
     MemberArns: List[str]
@@ -99,6 +101,7 @@ class ExpirationSettings(BaseValidatorModel):
     ExpirationCriterion: ExpirationCriterionType
 
 
+# This class is the input for the 'create_channel_ban' function.
 class CreateChannelBanRequest(BaseValidatorModel):
     ChannelArn: str
     MemberArn: str
@@ -110,6 +113,7 @@ class Tag(BaseValidatorModel):
     Value: str
 
 
+# This class is the input for the 'create_channel_membership' function.
 class CreateChannelMembershipRequest(BaseValidatorModel):
     ChannelArn: str
     MemberArn: str
@@ -118,22 +122,26 @@ class CreateChannelMembershipRequest(BaseValidatorModel):
     SubChannelId: Optional[str] = None
 
 
+# This class is the input for the 'create_channel_moderator' function.
 class CreateChannelModeratorRequest(BaseValidatorModel):
     ChannelArn: str
     ChannelModeratorArn: str
     ChimeBearer: str
 
 
+# This class is the input for the 'delete_channel_ban' function.
 class DeleteChannelBanRequest(BaseValidatorModel):
     ChannelArn: str
     MemberArn: str
     ChimeBearer: str
 
 
+# This class is the input for the 'delete_channel_flow' function.
 class DeleteChannelFlowRequest(BaseValidatorModel):
     ChannelFlowArn: str
 
 
+# This class is the input for the 'delete_channel_membership' function.
 class DeleteChannelMembershipRequest(BaseValidatorModel):
     ChannelArn: str
     MemberArn: str
@@ -141,6 +149,7 @@ class DeleteChannelMembershipRequest(BaseValidatorModel):
     SubChannelId: Optional[str] = None
 
 
+# This class is the input for the 'delete_channel_message' function.
 class DeleteChannelMessageRequest(BaseValidatorModel):
     ChannelArn: str
     MessageId: str
@@ -148,37 +157,44 @@ class DeleteChannelMessageRequest(BaseValidatorModel):
     SubChannelId: Optional[str] = None
 
 
+# This class is the input for the 'delete_channel_moderator' function.
 class DeleteChannelModeratorRequest(BaseValidatorModel):
     ChannelArn: str
     ChannelModeratorArn: str
     ChimeBearer: str
 
 
+# This class is the input for the 'delete_channel' function.
 class DeleteChannelRequest(BaseValidatorModel):
     ChannelArn: str
     ChimeBearer: str
 
 
+# This class is the input for the 'delete_messaging_streaming_configurations' function.
 class DeleteMessagingStreamingConfigurationsRequest(BaseValidatorModel):
     AppInstanceArn: str
 
 
+# This class is the input for the 'describe_channel_ban' function.
 class DescribeChannelBanRequest(BaseValidatorModel):
     ChannelArn: str
     MemberArn: str
     ChimeBearer: str
 
 
+# This class is the input for the 'describe_channel_flow' function.
 class DescribeChannelFlowRequest(BaseValidatorModel):
     ChannelFlowArn: str
 
 
+# This class is the input for the 'describe_channel_membership_for_app_instance_user' function.
 class DescribeChannelMembershipForAppInstanceUserRequest(BaseValidatorModel):
     ChannelArn: str
     AppInstanceUserArn: str
     ChimeBearer: str
 
 
+# This class is the input for the 'describe_channel_membership' function.
 class DescribeChannelMembershipRequest(BaseValidatorModel):
     ChannelArn: str
     MemberArn: str
@@ -186,35 +202,41 @@ class DescribeChannelMembershipRequest(BaseValidatorModel):
     SubChannelId: Optional[str] = None
 
 
+# This class is the input for the 'describe_channel_moderated_by_app_instance_user' function.
 class DescribeChannelModeratedByAppInstanceUserRequest(BaseValidatorModel):
     ChannelArn: str
     AppInstanceUserArn: str
     ChimeBearer: str
 
 
+# This class is the input for the 'describe_channel_moderator' function.
 class DescribeChannelModeratorRequest(BaseValidatorModel):
     ChannelArn: str
     ChannelModeratorArn: str
     ChimeBearer: str
 
 
+# This class is the input for the 'describe_channel' function.
 class DescribeChannelRequest(BaseValidatorModel):
     ChannelArn: str
     ChimeBearer: str
 
 
+# This class is the input for the 'disassociate_channel_flow' function.
 class DisassociateChannelFlowRequest(BaseValidatorModel):
     ChannelArn: str
     ChannelFlowArn: str
     ChimeBearer: str
 
 
+# This class is the input for the 'get_channel_membership_preferences' function.
 class GetChannelMembershipPreferencesRequest(BaseValidatorModel):
     ChannelArn: str
     MemberArn: str
     ChimeBearer: str
 
 
+# This class is the input for the 'get_channel_message' function.
 class GetChannelMessageRequest(BaseValidatorModel):
     ChannelArn: str
     MessageId: str
@@ -222,6 +244,7 @@ class GetChannelMessageRequest(BaseValidatorModel):
     SubChannelId: Optional[str] = None
 
 
+# This class is the input for the 'get_channel_message_status' function.
 class GetChannelMessageStatusRequest(BaseValidatorModel):
     ChannelArn: str
     MessageId: str
@@ -233,6 +256,7 @@ class MessagingSessionEndpoint(BaseValidatorModel):
     Url: Optional[str] = None
 
 
+# This class is the input for the 'get_messaging_streaming_configurations' function.
 class GetMessagingStreamingConfigurationsRequest(BaseValidatorModel):
     AppInstanceArn: str
 
@@ -247,6 +271,7 @@ class LambdaConfiguration(BaseValidatorModel):
     InvocationType: Literal['ASYNC']
 
 
+# This class is the input for the 'list_channel_bans' function.
 class ListChannelBansRequest(BaseValidatorModel):
     ChannelArn: str
     ChimeBearer: str
@@ -254,12 +279,14 @@ class ListChannelBansRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_channel_flows' function.
 class ListChannelFlowsRequest(BaseValidatorModel):
     AppInstanceArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_channel_memberships_for_app_instance_user' function.
 class ListChannelMembershipsForAppInstanceUserRequest(BaseValidatorModel):
     ChimeBearer: str
     AppInstanceUserArn: Optional[str] = None
@@ -267,6 +294,7 @@ class ListChannelMembershipsForAppInstanceUserRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_channel_memberships' function.
 class ListChannelMembershipsRequest(BaseValidatorModel):
     ChannelArn: str
     ChimeBearer: str
@@ -278,6 +306,7 @@ class ListChannelMembershipsRequest(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'list_channel_moderators' function.
 class ListChannelModeratorsRequest(BaseValidatorModel):
     ChannelArn: str
     ChimeBearer: str
@@ -285,12 +314,14 @@ class ListChannelModeratorsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_channels_associated_with_channel_flow' function.
 class ListChannelsAssociatedWithChannelFlowRequest(BaseValidatorModel):
     ChannelFlowArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_channels_moderated_by_app_instance_user' function.
 class ListChannelsModeratedByAppInstanceUserRequest(BaseValidatorModel):
     ChimeBearer: str
     AppInstanceUserArn: Optional[str] = None
@@ -298,6 +329,7 @@ class ListChannelsModeratedByAppInstanceUserRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_channels' function.
 class ListChannelsRequest(BaseValidatorModel):
     AppInstanceArn: str
     ChimeBearer: str
@@ -306,6 +338,7 @@ class ListChannelsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_sub_channels' function.
 class ListSubChannelsRequest(BaseValidatorModel):
     ChannelArn: str
     ChimeBearer: str
@@ -318,6 +351,7 @@ class SubChannelSummary(BaseValidatorModel):
     MembershipCount: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
@@ -326,6 +360,7 @@ class MessageAttributeValue(BaseValidatorModel):
     StringValues: Optional[List[str]] = None
 
 
+# This class is the input for the 'redact_channel_message' function.
 class RedactChannelMessageRequest(BaseValidatorModel):
     ChannelArn: str
     MessageId: str
@@ -339,11 +374,13 @@ class SearchField(BaseValidatorModel):
     Operator: SearchFieldOperatorType
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     ResourceARN: str
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_channel_message' function.
 class UpdateChannelMessageRequest(BaseValidatorModel):
     ChannelArn: str
     MessageId: str
@@ -354,11 +391,13 @@ class UpdateChannelMessageRequest(BaseValidatorModel):
     ContentType: Optional[str] = None
 
 
+# This class is the input for the 'update_channel_read_marker' function.
 class UpdateChannelReadMarkerRequest(BaseValidatorModel):
     ChannelArn: str
     ChimeBearer: str
 
 
+# This class is the input for the 'update_channel' function.
 class UpdateChannelRequest(BaseValidatorModel):
     ChannelArn: str
     ChimeBearer: str
@@ -411,23 +450,27 @@ class ChannelModerator(BaseValidatorModel):
     CreatedBy: Optional[Identity] = None
 
 
+# This class is the output for the 'channel_flow_callback' function.
 class ChannelFlowCallbackResponse(BaseValidatorModel):
     ChannelArn: str
     CallbackId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_channel_ban' function.
 class CreateChannelBanResponse(BaseValidatorModel):
     ChannelArn: str
     Member: Identity
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_channel_flow' function.
 class CreateChannelFlowResponse(BaseValidatorModel):
     ChannelFlowArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_channel_membership' function.
 class CreateChannelMembershipResponse(BaseValidatorModel):
     ChannelArn: str
     Member: Identity
@@ -435,21 +478,25 @@ class CreateChannelMembershipResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_channel_moderator' function.
 class CreateChannelModeratorResponse(BaseValidatorModel):
     ChannelArn: str
     ChannelModerator: Identity
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_channel' function.
 class CreateChannelResponse(BaseValidatorModel):
     ChannelArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'untag_resource' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'redact_channel_message' function.
 class RedactChannelMessageResponse(BaseValidatorModel):
     ChannelArn: str
     MessageId: str
@@ -457,21 +504,25 @@ class RedactChannelMessageResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_channel_flow' function.
 class UpdateChannelFlowResponse(BaseValidatorModel):
     ChannelFlowArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_channel_read_marker' function.
 class UpdateChannelReadMarkerResponse(BaseValidatorModel):
     ChannelArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_channel' function.
 class UpdateChannelResponse(BaseValidatorModel):
     ChannelArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_channels_associated_with_channel_flow' function.
 class ListChannelsAssociatedWithChannelFlowResponse(BaseValidatorModel):
     Channels: List[ChannelAssociatedWithFlowSummary]
     ResponseMetadata: ResponseMetadata
@@ -487,12 +538,14 @@ class ChannelModeratedByAppInstanceUserSummary(BaseValidatorModel):
     ChannelSummary: Optional[ChannelSummary] = None
 
 
+# This class is the output for the 'list_channels' function.
 class ListChannelsResponse(BaseValidatorModel):
     Channels: List[ChannelSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'search_channels' function.
 class SearchChannelsResponse(BaseValidatorModel):
     Channels: List[ChannelSummary]
     ResponseMetadata: ResponseMetadata
@@ -503,11 +556,13 @@ class ChannelMembershipPreferences(BaseValidatorModel):
     PushNotifications: Optional[PushNotificationPreferences] = None
 
 
+# This class is the output for the 'get_channel_message_status' function.
 class GetChannelMessageStatusResponse(BaseValidatorModel):
     Status: ChannelMessageStatusStructure
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'send_channel_message' function.
 class SendChannelMessageResponse(BaseValidatorModel):
     ChannelArn: str
     MessageId: str
@@ -516,6 +571,7 @@ class SendChannelMessageResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_channel_message' function.
 class UpdateChannelMessageResponse(BaseValidatorModel):
     ChannelArn: str
     MessageId: str
@@ -574,18 +630,21 @@ class Channel(BaseValidatorModel):
     ExpirationSettings: Optional[ExpirationSettings] = None
 
 
+# This class is the input for the 'put_channel_expiration_settings' function.
 class PutChannelExpirationSettingsRequest(BaseValidatorModel):
     ChannelArn: str
     ChimeBearer: Optional[str] = None
     ExpirationSettings: Optional[ExpirationSettings] = None
 
 
+# This class is the output for the 'put_channel_expiration_settings' function.
 class PutChannelExpirationSettingsResponse(BaseValidatorModel):
     ChannelArn: str
     ExpirationSettings: ExpirationSettings
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_channel' function.
 class CreateChannelRequest(BaseValidatorModel):
     AppInstanceArn: str
     Name: str
@@ -602,11 +661,13 @@ class CreateChannelRequest(BaseValidatorModel):
     ExpirationSettings: Optional[ExpirationSettings] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     ResourceARN: str
     Tags: List[Tag]
@@ -617,16 +678,19 @@ class GetMessagingSessionEndpointResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_messaging_streaming_configurations' function.
 class GetMessagingStreamingConfigurationsResponse(BaseValidatorModel):
     StreamingConfigurations: List[StreamingConfiguration]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_messaging_streaming_configurations' function.
 class PutMessagingStreamingConfigurationsRequest(BaseValidatorModel):
     AppInstanceArn: str
     StreamingConfigurations: List[StreamingConfiguration]
 
 
+# This class is the output for the 'put_messaging_streaming_configurations' function.
 class PutMessagingStreamingConfigurationsResponse(BaseValidatorModel):
     StreamingConfigurations: List[StreamingConfiguration]
     ResponseMetadata: ResponseMetadata
@@ -636,6 +700,7 @@ class ProcessorConfiguration(BaseValidatorModel):
     Lambda: LambdaConfiguration
 
 
+# This class is the input for the 'list_channel_messages' function.
 class ListChannelMessagesRequest(BaseValidatorModel):
     ChannelArn: str
     ChimeBearer: str
@@ -647,6 +712,7 @@ class ListChannelMessagesRequest(BaseValidatorModel):
     SubChannelId: Optional[str] = None
 
 
+# This class is the output for the 'list_sub_channels' function.
 class ListSubChannelsResponse(BaseValidatorModel):
     ChannelArn: str
     SubChannels: List[SubChannelSummary]
@@ -656,6 +722,7 @@ class ListSubChannelsResponse(BaseValidatorModel):
 MessageAttributeValueUnion = Union[MessageAttributeValue, MessageAttributeValueOutput]
 
 
+# This class is the input for the 'search_channels' function.
 class SearchChannelsRequest(BaseValidatorModel):
     Fields: List[SearchField]
     ChimeBearer: Optional[str] = None
@@ -663,12 +730,14 @@ class SearchChannelsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'batch_create_channel_membership' function.
 class BatchCreateChannelMembershipResponse(BaseValidatorModel):
     BatchChannelMemberships: BatchChannelMemberships
     Errors: List[BatchCreateChannelMembershipError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_channel_bans' function.
 class ListChannelBansResponse(BaseValidatorModel):
     ChannelArn: str
     ChannelBans: List[ChannelBanSummary]
@@ -676,11 +745,13 @@ class ListChannelBansResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_channel_ban' function.
 class DescribeChannelBanResponse(BaseValidatorModel):
     ChannelBan: ChannelBan
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_channel_memberships' function.
 class ListChannelMembershipsResponse(BaseValidatorModel):
     ChannelArn: str
     ChannelMemberships: List[ChannelMembershipSummary]
@@ -688,11 +759,13 @@ class ListChannelMembershipsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_channel_membership' function.
 class DescribeChannelMembershipResponse(BaseValidatorModel):
     ChannelMembership: ChannelMembership
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_channel_moderators' function.
 class ListChannelModeratorsResponse(BaseValidatorModel):
     ChannelArn: str
     ChannelModerators: List[ChannelModeratorSummary]
@@ -700,33 +773,39 @@ class ListChannelModeratorsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_channel_moderator' function.
 class DescribeChannelModeratorResponse(BaseValidatorModel):
     ChannelModerator: ChannelModerator
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_channel_membership_for_app_instance_user' function.
 class DescribeChannelMembershipForAppInstanceUserResponse(BaseValidatorModel):
     ChannelMembership: ChannelMembershipForAppInstanceUserSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_channel_memberships_for_app_instance_user' function.
 class ListChannelMembershipsForAppInstanceUserResponse(BaseValidatorModel):
     ChannelMemberships: List[ChannelMembershipForAppInstanceUserSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_channel_moderated_by_app_instance_user' function.
 class DescribeChannelModeratedByAppInstanceUserResponse(BaseValidatorModel):
     Channel: ChannelModeratedByAppInstanceUserSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_channels_moderated_by_app_instance_user' function.
 class ListChannelsModeratedByAppInstanceUserResponse(BaseValidatorModel):
     Channels: List[ChannelModeratedByAppInstanceUserSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_channel_membership_preferences' function.
 class GetChannelMembershipPreferencesResponse(BaseValidatorModel):
     ChannelArn: str
     Member: Identity
@@ -734,6 +813,7 @@ class GetChannelMembershipPreferencesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_channel_membership_preferences' function.
 class PutChannelMembershipPreferencesRequest(BaseValidatorModel):
     ChannelArn: str
     MemberArn: str
@@ -741,6 +821,7 @@ class PutChannelMembershipPreferencesRequest(BaseValidatorModel):
     Preferences: ChannelMembershipPreferences
 
 
+# This class is the output for the 'put_channel_membership_preferences' function.
 class PutChannelMembershipPreferencesResponse(BaseValidatorModel):
     ChannelArn: str
     Member: Identity
@@ -748,6 +829,7 @@ class PutChannelMembershipPreferencesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_channel_messages' function.
 class ListChannelMessagesResponse(BaseValidatorModel):
     ChannelArn: str
     ChannelMessages: List[ChannelMessageSummary]
@@ -756,11 +838,13 @@ class ListChannelMessagesResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_channel_message' function.
 class GetChannelMessageResponse(BaseValidatorModel):
     ChannelMessage: ChannelMessage
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_channel' function.
 class DescribeChannelResponse(BaseValidatorModel):
     Channel: Channel
     ResponseMetadata: ResponseMetadata
@@ -783,6 +867,7 @@ class ChannelMessageCallback(BaseValidatorModel):
     ContentType: Optional[str] = None
 
 
+# This class is the input for the 'send_channel_message' function.
 class SendChannelMessageRequest(BaseValidatorModel):
     ChannelArn: str
     Content: str
@@ -812,6 +897,7 @@ class ChannelFlow(BaseValidatorModel):
     LastUpdatedTimestamp: Optional[datetime] = None
 
 
+# This class is the input for the 'create_channel_flow' function.
 class CreateChannelFlowRequest(BaseValidatorModel):
     AppInstanceArn: str
     Processors: List[Processor]
@@ -820,12 +906,14 @@ class CreateChannelFlowRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_channel_flow' function.
 class UpdateChannelFlowRequest(BaseValidatorModel):
     ChannelFlowArn: str
     Processors: List[Processor]
     Name: str
 
 
+# This class is the input for the 'channel_flow_callback' function.
 class ChannelFlowCallbackRequest(BaseValidatorModel):
     CallbackId: str
     ChannelArn: str
@@ -833,12 +921,14 @@ class ChannelFlowCallbackRequest(BaseValidatorModel):
     DeleteResource: Optional[bool] = None
 
 
+# This class is the output for the 'list_channel_flows' function.
 class ListChannelFlowsResponse(BaseValidatorModel):
     ChannelFlows: List[ChannelFlowSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_channel_flow' function.
 class DescribeChannelFlowResponse(BaseValidatorModel):
     ChannelFlow: ChannelFlow
     ResponseMetadata: ResponseMetadata

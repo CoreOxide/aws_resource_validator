@@ -90,6 +90,7 @@ class AssociateMemberToQueueRequest(BaseValidatorModel):
     membershipLevel: MembershipLevelType
 
 
+# This class is the input for the 'assume_fleet_role_for_read' function.
 class AssumeFleetRoleForReadRequest(BaseValidatorModel):
     farmId: str
     fleetId: str
@@ -110,22 +111,26 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'assume_fleet_role_for_worker' function.
 class AssumeFleetRoleForWorkerRequest(BaseValidatorModel):
     farmId: str
     fleetId: str
     workerId: str
 
 
+# This class is the input for the 'assume_queue_role_for_read' function.
 class AssumeQueueRoleForReadRequest(BaseValidatorModel):
     farmId: str
     queueId: str
 
 
+# This class is the input for the 'assume_queue_role_for_user' function.
 class AssumeQueueRoleForUserRequest(BaseValidatorModel):
     farmId: str
     queueId: str
 
 
+# This class is the input for the 'assume_queue_role_for_worker' function.
 class AssumeQueueRoleForWorkerRequest(BaseValidatorModel):
     farmId: str
     fleetId: str
@@ -180,6 +185,7 @@ class S3Location(BaseValidatorModel):
     key: str
 
 
+# This class is the input for the 'create_farm' function.
 class CreateFarmRequest(BaseValidatorModel):
     displayName: str
     clientToken: Optional[str] = None
@@ -195,6 +201,7 @@ class JobParameter(BaseValidatorModel):
     path: Optional[str] = None
 
 
+# This class is the input for the 'create_license_endpoint' function.
 class CreateLicenseEndpointRequest(BaseValidatorModel):
     vpcId: str
     subnetIds: List[str]
@@ -203,6 +210,7 @@ class CreateLicenseEndpointRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_limit' function.
 class CreateLimitRequest(BaseValidatorModel):
     displayName: str
     amountRequirementName: str
@@ -212,6 +220,7 @@ class CreateLimitRequest(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'create_monitor' function.
 class CreateMonitorRequest(BaseValidatorModel):
     displayName: str
     identityCenterInstanceArn: str
@@ -220,6 +229,7 @@ class CreateMonitorRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'create_queue_environment' function.
 class CreateQueueEnvironmentRequest(BaseValidatorModel):
     farmId: str
     queueId: str
@@ -451,6 +461,7 @@ class FleetMember(BaseValidatorModel):
     membershipLevel: MembershipLevelType
 
 
+# This class is the input for the 'get_budget' function.
 class GetBudgetRequest(BaseValidatorModel):
     farmId: str
     budgetId: str
@@ -462,10 +473,12 @@ class ResponseBudgetAction(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'get_farm' function.
 class GetFarmRequest(BaseValidatorModel):
     farmId: str
 
 
+# This class is the input for the 'get_fleet' function.
 class GetFleetRequest(BaseValidatorModel):
     farmId: str
     fleetId: str
@@ -495,48 +508,57 @@ class StepDetailsError(BaseValidatorModel):
     message: str
 
 
+# This class is the input for the 'get_job' function.
 class GetJobRequest(BaseValidatorModel):
     farmId: str
     queueId: str
     jobId: str
 
 
+# This class is the input for the 'get_license_endpoint' function.
 class GetLicenseEndpointRequest(BaseValidatorModel):
     licenseEndpointId: str
 
 
+# This class is the input for the 'get_limit' function.
 class GetLimitRequest(BaseValidatorModel):
     farmId: str
     limitId: str
 
 
+# This class is the input for the 'get_monitor' function.
 class GetMonitorRequest(BaseValidatorModel):
     monitorId: str
 
 
+# This class is the input for the 'get_queue_environment' function.
 class GetQueueEnvironmentRequest(BaseValidatorModel):
     farmId: str
     queueId: str
     queueEnvironmentId: str
 
 
+# This class is the input for the 'get_queue_fleet_association' function.
 class GetQueueFleetAssociationRequest(BaseValidatorModel):
     farmId: str
     queueId: str
     fleetId: str
 
 
+# This class is the input for the 'get_queue_limit_association' function.
 class GetQueueLimitAssociationRequest(BaseValidatorModel):
     farmId: str
     queueId: str
     limitId: str
 
 
+# This class is the input for the 'get_queue' function.
 class GetQueueRequest(BaseValidatorModel):
     farmId: str
     queueId: str
 
 
+# This class is the input for the 'get_session_action' function.
 class GetSessionActionRequest(BaseValidatorModel):
     farmId: str
     queueId: str
@@ -544,6 +566,7 @@ class GetSessionActionRequest(BaseValidatorModel):
     sessionActionId: str
 
 
+# This class is the input for the 'get_session' function.
 class GetSessionRequest(BaseValidatorModel):
     farmId: str
     queueId: str
@@ -557,6 +580,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'get_sessions_statistics_aggregation' function.
 class GetSessionsStatisticsAggregationRequest(BaseValidatorModel):
     farmId: str
     aggregationId: str
@@ -564,6 +588,7 @@ class GetSessionsStatisticsAggregationRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_step' function.
 class GetStepRequest(BaseValidatorModel):
     farmId: str
     queueId: str
@@ -571,17 +596,20 @@ class GetStepRequest(BaseValidatorModel):
     stepId: str
 
 
+# This class is the input for the 'get_storage_profile_for_queue' function.
 class GetStorageProfileForQueueRequest(BaseValidatorModel):
     farmId: str
     queueId: str
     storageProfileId: str
 
 
+# This class is the input for the 'get_storage_profile' function.
 class GetStorageProfileRequest(BaseValidatorModel):
     farmId: str
     storageProfileId: str
 
 
+# This class is the input for the 'get_task' function.
 class GetTaskRequest(BaseValidatorModel):
     farmId: str
     queueId: str
@@ -590,6 +618,7 @@ class GetTaskRequest(BaseValidatorModel):
     taskId: str
 
 
+# This class is the input for the 'get_worker' function.
 class GetWorkerRequest(BaseValidatorModel):
     farmId: str
     fleetId: str
@@ -694,6 +723,7 @@ class LimitSummary(BaseValidatorModel):
     updatedBy: Optional[str] = None
 
 
+# This class is the input for the 'list_available_metered_products' function.
 class ListAvailableMeteredProductsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -706,6 +736,7 @@ class MeteredProductSummary(BaseValidatorModel):
     port: int
 
 
+# This class is the input for the 'list_budgets' function.
 class ListBudgetsRequest(BaseValidatorModel):
     farmId: str
     nextToken: Optional[str] = None
@@ -713,18 +744,21 @@ class ListBudgetsRequest(BaseValidatorModel):
     status: Optional[BudgetStatusType] = None
 
 
+# This class is the input for the 'list_farm_members' function.
 class ListFarmMembersRequest(BaseValidatorModel):
     farmId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_farms' function.
 class ListFarmsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     principalId: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_fleet_members' function.
 class ListFleetMembersRequest(BaseValidatorModel):
     farmId: str
     fleetId: str
@@ -732,6 +766,7 @@ class ListFleetMembersRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_fleets' function.
 class ListFleetsRequest(BaseValidatorModel):
     farmId: str
     principalId: Optional[str] = None
@@ -741,6 +776,7 @@ class ListFleetsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_job_members' function.
 class ListJobMembersRequest(BaseValidatorModel):
     farmId: str
     queueId: str
@@ -749,6 +785,7 @@ class ListJobMembersRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_job_parameter_definitions' function.
 class ListJobParameterDefinitionsRequest(BaseValidatorModel):
     farmId: str
     jobId: str
@@ -757,6 +794,7 @@ class ListJobParameterDefinitionsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_jobs' function.
 class ListJobsRequest(BaseValidatorModel):
     farmId: str
     queueId: str
@@ -765,23 +803,27 @@ class ListJobsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_license_endpoints' function.
 class ListLicenseEndpointsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_limits' function.
 class ListLimitsRequest(BaseValidatorModel):
     farmId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_metered_products' function.
 class ListMeteredProductsRequest(BaseValidatorModel):
     licenseEndpointId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_monitors' function.
 class ListMonitorsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -801,6 +843,7 @@ class MonitorSummary(BaseValidatorModel):
     updatedBy: Optional[str] = None
 
 
+# This class is the input for the 'list_queue_environments' function.
 class ListQueueEnvironmentsRequest(BaseValidatorModel):
     farmId: str
     queueId: str
@@ -814,6 +857,7 @@ class QueueEnvironmentSummary(BaseValidatorModel):
     priority: int
 
 
+# This class is the input for the 'list_queue_fleet_associations' function.
 class ListQueueFleetAssociationsRequest(BaseValidatorModel):
     farmId: str
     queueId: Optional[str] = None
@@ -832,6 +876,7 @@ class QueueFleetAssociationSummary(BaseValidatorModel):
     updatedBy: Optional[str] = None
 
 
+# This class is the input for the 'list_queue_limit_associations' function.
 class ListQueueLimitAssociationsRequest(BaseValidatorModel):
     farmId: str
     queueId: Optional[str] = None
@@ -850,6 +895,7 @@ class QueueLimitAssociationSummary(BaseValidatorModel):
     updatedBy: Optional[str] = None
 
 
+# This class is the input for the 'list_queue_members' function.
 class ListQueueMembersRequest(BaseValidatorModel):
     farmId: str
     queueId: str
@@ -866,6 +912,7 @@ class QueueMember(BaseValidatorModel):
     membershipLevel: MembershipLevelType
 
 
+# This class is the input for the 'list_queues' function.
 class ListQueuesRequest(BaseValidatorModel):
     farmId: str
     principalId: Optional[str] = None
@@ -887,6 +934,7 @@ class QueueSummary(BaseValidatorModel):
     updatedBy: Optional[str] = None
 
 
+# This class is the input for the 'list_session_actions' function.
 class ListSessionActionsRequest(BaseValidatorModel):
     farmId: str
     queueId: str
@@ -897,6 +945,7 @@ class ListSessionActionsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_sessions_for_worker' function.
 class ListSessionsForWorkerRequest(BaseValidatorModel):
     farmId: str
     fleetId: str
@@ -915,6 +964,7 @@ class WorkerSessionSummary(BaseValidatorModel):
     targetLifecycleStatus: Optional[Literal['ENDED']] = None
 
 
+# This class is the input for the 'list_sessions' function.
 class ListSessionsRequest(BaseValidatorModel):
     farmId: str
     queueId: str
@@ -935,6 +985,7 @@ class SessionSummary(BaseValidatorModel):
     targetLifecycleStatus: Optional[Literal['ENDED']] = None
 
 
+# This class is the input for the 'list_step_consumers' function.
 class ListStepConsumersRequest(BaseValidatorModel):
     farmId: str
     queueId: str
@@ -949,6 +1000,7 @@ class StepConsumer(BaseValidatorModel):
     status: DependencyConsumerResolutionStatusType
 
 
+# This class is the input for the 'list_step_dependencies' function.
 class ListStepDependenciesRequest(BaseValidatorModel):
     farmId: str
     queueId: str
@@ -963,6 +1015,7 @@ class StepDependency(BaseValidatorModel):
     status: DependencyConsumerResolutionStatusType
 
 
+# This class is the input for the 'list_steps' function.
 class ListStepsRequest(BaseValidatorModel):
     farmId: str
     queueId: str
@@ -971,6 +1024,7 @@ class ListStepsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_storage_profiles_for_queue' function.
 class ListStorageProfilesForQueueRequest(BaseValidatorModel):
     farmId: str
     queueId: str
@@ -984,16 +1038,19 @@ class StorageProfileSummary(BaseValidatorModel):
     osFamily: StorageProfileOperatingSystemFamilyType
 
 
+# This class is the input for the 'list_storage_profiles' function.
 class ListStorageProfilesRequest(BaseValidatorModel):
     farmId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'list_tasks' function.
 class ListTasksRequest(BaseValidatorModel):
     farmId: str
     queueId: str
@@ -1003,6 +1060,7 @@ class ListTasksRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_workers' function.
 class ListWorkersRequest(BaseValidatorModel):
     farmId: str
     fleetId: str
@@ -1243,92 +1301,110 @@ class TaskSummary(BaseValidatorModel):
     latestSessionActionId: Optional[str] = None
 
 
+# This class is the output for the 'assume_fleet_role_for_read' function.
 class AssumeFleetRoleForReadResponse(BaseValidatorModel):
     credentials: AwsCredentials
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'assume_fleet_role_for_worker' function.
 class AssumeFleetRoleForWorkerResponse(BaseValidatorModel):
     credentials: AwsCredentials
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'assume_queue_role_for_read' function.
 class AssumeQueueRoleForReadResponse(BaseValidatorModel):
     credentials: AwsCredentials
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'assume_queue_role_for_user' function.
 class AssumeQueueRoleForUserResponse(BaseValidatorModel):
     credentials: AwsCredentials
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'assume_queue_role_for_worker' function.
 class AssumeQueueRoleForWorkerResponse(BaseValidatorModel):
     credentials: AwsCredentials
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'copy_job_template' function.
 class CopyJobTemplateResponse(BaseValidatorModel):
     templateType: JobTemplateTypeType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_budget' function.
 class CreateBudgetResponse(BaseValidatorModel):
     budgetId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_farm' function.
 class CreateFarmResponse(BaseValidatorModel):
     farmId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_fleet' function.
 class CreateFleetResponse(BaseValidatorModel):
     fleetId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_job' function.
 class CreateJobResponse(BaseValidatorModel):
     jobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_license_endpoint' function.
 class CreateLicenseEndpointResponse(BaseValidatorModel):
     licenseEndpointId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_limit' function.
 class CreateLimitResponse(BaseValidatorModel):
     limitId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_monitor' function.
 class CreateMonitorResponse(BaseValidatorModel):
     monitorId: str
     identityCenterApplicationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_queue_environment' function.
 class CreateQueueEnvironmentResponse(BaseValidatorModel):
     queueEnvironmentId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_queue' function.
 class CreateQueueResponse(BaseValidatorModel):
     queueId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_storage_profile' function.
 class CreateStorageProfileResponse(BaseValidatorModel):
     storageProfileId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_worker' function.
 class CreateWorkerResponse(BaseValidatorModel):
     workerId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_farm' function.
 class GetFarmResponse(BaseValidatorModel):
     farmId: str
     displayName: str
@@ -1341,6 +1417,7 @@ class GetFarmResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_license_endpoint' function.
 class GetLicenseEndpointResponse(BaseValidatorModel):
     licenseEndpointId: str
     status: LicenseEndpointStatusType
@@ -1352,6 +1429,7 @@ class GetLicenseEndpointResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_limit' function.
 class GetLimitResponse(BaseValidatorModel):
     displayName: str
     amountRequirementName: str
@@ -1367,6 +1445,7 @@ class GetLimitResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_monitor' function.
 class GetMonitorResponse(BaseValidatorModel):
     monitorId: str
     displayName: str
@@ -1382,6 +1461,7 @@ class GetMonitorResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_queue_environment' function.
 class GetQueueEnvironmentResponse(BaseValidatorModel):
     queueEnvironmentId: str
     name: str
@@ -1395,6 +1475,7 @@ class GetQueueEnvironmentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_queue_fleet_association' function.
 class GetQueueFleetAssociationResponse(BaseValidatorModel):
     queueId: str
     fleetId: str
@@ -1406,6 +1487,7 @@ class GetQueueFleetAssociationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_queue_limit_association' function.
 class GetQueueLimitAssociationResponse(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
@@ -1417,6 +1499,7 @@ class GetQueueLimitAssociationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_task' function.
 class GetTaskResponse(BaseValidatorModel):
     taskId: str
     createdAt: datetime
@@ -1433,22 +1516,26 @@ class GetTaskResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_job_parameter_definitions' function.
 class ListJobParameterDefinitionsResponse(BaseValidatorModel):
     jobParameterDefinitions: List[Dict[str, Any]]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_sessions_statistics_aggregation' function.
 class StartSessionsStatisticsAggregationResponse(BaseValidatorModel):
     aggregationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_worker' function.
 class UpdateWorkerResponse(BaseValidatorModel):
     log: LogConfiguration
     ResponseMetadata: ResponseMetadata
@@ -1482,6 +1569,7 @@ class BudgetSummary(BaseValidatorModel):
     updatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'copy_job_template' function.
 class CopyJobTemplateRequest(BaseValidatorModel):
     farmId: str
     jobId: str
@@ -1510,6 +1598,7 @@ class JobSearchSummary(BaseValidatorModel):
     sourceJobId: Optional[str] = None
 
 
+# This class is the input for the 'create_storage_profile' function.
 class CreateStorageProfileRequest(BaseValidatorModel):
     farmId: str
     displayName: str
@@ -1518,6 +1607,7 @@ class CreateStorageProfileRequest(BaseValidatorModel):
     fileSystemLocations: Optional[List[FileSystemLocation]] = None
 
 
+# This class is the output for the 'get_storage_profile_for_queue' function.
 class GetStorageProfileForQueueResponse(BaseValidatorModel):
     storageProfileId: str
     displayName: str
@@ -1526,6 +1616,7 @@ class GetStorageProfileForQueueResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_storage_profile' function.
 class GetStorageProfileResponse(BaseValidatorModel):
     storageProfileId: str
     displayName: str
@@ -1615,18 +1706,21 @@ class StepSummary(BaseValidatorModel):
     dependencyCounts: Optional[DependencyCounts] = None
 
 
+# This class is the output for the 'list_farm_members' function.
 class ListFarmMembersResponse(BaseValidatorModel):
     members: List[FarmMember]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_farms' function.
 class ListFarmsResponse(BaseValidatorModel):
     farms: List[FarmSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_fleet_members' function.
 class ListFleetMembersResponse(BaseValidatorModel):
     members: List[FleetMember]
     ResponseMetadata: ResponseMetadata
@@ -1888,6 +1982,7 @@ class JobEntityIdentifiersUnion(BaseValidatorModel):
     environmentDetails: Optional[EnvironmentDetailsIdentifiers] = None
 
 
+# This class is the output for the 'list_job_members' function.
 class ListJobMembersResponse(BaseValidatorModel):
     members: List[JobMember]
     ResponseMetadata: ResponseMetadata
@@ -1900,102 +1995,119 @@ class JobRunAsUser(BaseValidatorModel):
     windows: Optional[WindowsUser] = None
 
 
+# This class is the output for the 'list_jobs' function.
 class ListJobsResponse(BaseValidatorModel):
     jobs: List[JobSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_license_endpoints' function.
 class ListLicenseEndpointsResponse(BaseValidatorModel):
     licenseEndpoints: List[LicenseEndpointSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_limits' function.
 class ListLimitsResponse(BaseValidatorModel):
     limits: List[LimitSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_available_metered_products' function.
 class ListAvailableMeteredProductsResponse(BaseValidatorModel):
     meteredProducts: List[MeteredProductSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_metered_products' function.
 class ListMeteredProductsResponse(BaseValidatorModel):
     meteredProducts: List[MeteredProductSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_monitors' function.
 class ListMonitorsResponse(BaseValidatorModel):
     monitors: List[MonitorSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_queue_environments' function.
 class ListQueueEnvironmentsResponse(BaseValidatorModel):
     environments: List[QueueEnvironmentSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_queue_fleet_associations' function.
 class ListQueueFleetAssociationsResponse(BaseValidatorModel):
     queueFleetAssociations: List[QueueFleetAssociationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_queue_limit_associations' function.
 class ListQueueLimitAssociationsResponse(BaseValidatorModel):
     queueLimitAssociations: List[QueueLimitAssociationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_queue_members' function.
 class ListQueueMembersResponse(BaseValidatorModel):
     members: List[QueueMember]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_queues' function.
 class ListQueuesResponse(BaseValidatorModel):
     queues: List[QueueSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_sessions_for_worker' function.
 class ListSessionsForWorkerResponse(BaseValidatorModel):
     sessions: List[WorkerSessionSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_sessions' function.
 class ListSessionsResponse(BaseValidatorModel):
     sessions: List[SessionSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_step_consumers' function.
 class ListStepConsumersResponse(BaseValidatorModel):
     consumers: List[StepConsumer]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_step_dependencies' function.
 class ListStepDependenciesResponse(BaseValidatorModel):
     dependencies: List[StepDependency]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_storage_profiles_for_queue' function.
 class ListStorageProfilesForQueueResponse(BaseValidatorModel):
     storageProfiles: List[StorageProfileSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_storage_profiles' function.
 class ListStorageProfilesResponse(BaseValidatorModel):
     storageProfiles: List[StorageProfileSummary]
     ResponseMetadata: ResponseMetadata
@@ -2020,6 +2132,7 @@ class SessionActionDefinitionSummary(BaseValidatorModel):
     syncInputJobAttachments: Optional[SyncInputJobAttachmentsSessionActionDefinitionSummary] = None
 
 
+# This class is the input for the 'start_sessions_statistics_aggregation' function.
 class StartSessionsStatisticsAggregationRequest(BaseValidatorModel):
     farmId: str
     resourceIds: SessionsStatisticsResources
@@ -2097,6 +2210,7 @@ class SessionActionDefinition(BaseValidatorModel):
     syncInputJobAttachments: Optional[SyncInputJobAttachmentsSessionActionDefinition] = None
 
 
+# This class is the output for the 'search_tasks' function.
 class SearchTasksResponse(BaseValidatorModel):
     tasks: List[TaskSearchSummary]
     nextItemOffset: int
@@ -2104,12 +2218,14 @@ class SearchTasksResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tasks' function.
 class ListTasksResponse(BaseValidatorModel):
     tasks: List[TaskSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_job' function.
 class GetJobResponse(BaseValidatorModel):
     jobId: str
     name: str
@@ -2143,6 +2259,7 @@ class JobAttachmentDetailsEntity(BaseValidatorModel):
 AttachmentsUnion = Union[Attachments, AttachmentsOutput]
 
 
+# This class is the output for the 'get_budget' function.
 class GetBudgetResponse(BaseValidatorModel):
     budgetId: str
     usageTrackingResource: UsageTrackingResource
@@ -2161,12 +2278,14 @@ class GetBudgetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_budgets' function.
 class ListBudgetsResponse(BaseValidatorModel):
     budgets: List[BudgetSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'search_jobs' function.
 class SearchJobsResponse(BaseValidatorModel):
     jobs: List[JobSearchSummary]
     nextItemOffset: int
@@ -2198,6 +2317,7 @@ class BudgetSchedule(BaseValidatorModel):
     fixed: Optional[FixedBudgetSchedule] = None
 
 
+# This class is the input for the 'update_worker_schedule' function.
 class UpdateWorkerScheduleRequest(BaseValidatorModel):
     farmId: str
     fleetId: str
@@ -2205,12 +2325,14 @@ class UpdateWorkerScheduleRequest(BaseValidatorModel):
     updatedSessionActions: Optional[Dict[str, UpdatedSessionActionInfo]] = None
 
 
+# This class is the output for the 'list_steps' function.
 class ListStepsResponse(BaseValidatorModel):
     steps: List[StepSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_session' function.
 class GetSessionResponse(BaseValidatorModel):
     sessionId: str
     fleetId: str
@@ -2227,6 +2349,7 @@ class GetSessionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_worker' function.
 class GetWorkerResponse(BaseValidatorModel):
     farmId: str
     fleetId: str
@@ -2270,6 +2393,7 @@ class HostPropertiesRequest(BaseValidatorModel):
     hostName: Optional[str] = None
 
 
+# This class is the input for the 'batch_get_job_entity' function.
 class BatchGetJobEntityRequest(BaseValidatorModel):
     farmId: str
     fleetId: str
@@ -2277,6 +2401,7 @@ class BatchGetJobEntityRequest(BaseValidatorModel):
     identifiers: List[JobEntityIdentifiersUnion]
 
 
+# This class is the input for the 'create_queue' function.
 class CreateQueueRequest(BaseValidatorModel):
     farmId: str
     displayName: str
@@ -2291,6 +2416,7 @@ class CreateQueueRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'get_queue' function.
 class GetQueueResponse(BaseValidatorModel):
     queueId: str
     displayName: str
@@ -2364,6 +2490,7 @@ class SessionActionSummary(BaseValidatorModel):
     progressPercent: Optional[float] = None
 
 
+# This class is the output for the 'get_sessions_statistics_aggregation' function.
 class GetSessionsStatisticsAggregationResponse(BaseValidatorModel):
     statistics: List[Statistics]
     status: SessionsStatisticsAggregationStatusType
@@ -2372,6 +2499,7 @@ class GetSessionsStatisticsAggregationResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_step' function.
 class GetStepResponse(BaseValidatorModel):
     stepId: str
     name: str
@@ -2408,6 +2536,7 @@ class AssignedSessionAction(BaseValidatorModel):
     definition: AssignedSessionActionDefinition
 
 
+# This class is the output for the 'get_session_action' function.
 class GetSessionActionResponse(BaseValidatorModel):
     sessionActionId: str
     status: SessionActionStatusType
@@ -2423,6 +2552,7 @@ class GetSessionActionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_job' function.
 class CreateJobRequest(BaseValidatorModel):
     farmId: str
     queueId: str
@@ -2447,6 +2577,7 @@ class SearchGroupedFilterExpressions(BaseValidatorModel):
 BudgetScheduleUnion = Union[BudgetSchedule, BudgetScheduleOutput]
 
 
+# This class is the output for the 'search_workers' function.
 class SearchWorkersResponse(BaseValidatorModel):
     workers: List[WorkerSearchSummary]
     nextItemOffset: int
@@ -2454,12 +2585,14 @@ class SearchWorkersResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_workers' function.
 class ListWorkersResponse(BaseValidatorModel):
     workers: List[WorkerSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_worker' function.
 class CreateWorkerRequest(BaseValidatorModel):
     farmId: str
     fleetId: str
@@ -2467,6 +2600,7 @@ class CreateWorkerRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'update_worker' function.
 class UpdateWorkerRequest(BaseValidatorModel):
     farmId: str
     fleetId: str
@@ -2483,6 +2617,7 @@ class JobEntity(BaseValidatorModel):
     environmentDetails: Optional[EnvironmentDetailsEntity] = None
 
 
+# This class is the output for the 'search_steps' function.
 class SearchStepsResponse(BaseValidatorModel):
     steps: List[StepSearchSummary]
     nextItemOffset: int
@@ -2490,6 +2625,7 @@ class SearchStepsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_session_actions' function.
 class ListSessionActionsResponse(BaseValidatorModel):
     sessionActions: List[SessionActionSummary]
     ResponseMetadata: ResponseMetadata
@@ -2513,6 +2649,7 @@ class AssignedSession(BaseValidatorModel):
     logConfiguration: LogConfiguration
 
 
+# This class is the input for the 'search_jobs' function.
 class SearchJobsRequest(BaseValidatorModel):
     farmId: str
     queueIds: List[str]
@@ -2522,6 +2659,7 @@ class SearchJobsRequest(BaseValidatorModel):
     pageSize: Optional[int] = None
 
 
+# This class is the input for the 'search_steps' function.
 class SearchStepsRequest(BaseValidatorModel):
     farmId: str
     queueIds: List[str]
@@ -2532,6 +2670,7 @@ class SearchStepsRequest(BaseValidatorModel):
     pageSize: Optional[int] = None
 
 
+# This class is the input for the 'search_tasks' function.
 class SearchTasksRequest(BaseValidatorModel):
     farmId: str
     queueIds: List[str]
@@ -2542,6 +2681,7 @@ class SearchTasksRequest(BaseValidatorModel):
     pageSize: Optional[int] = None
 
 
+# This class is the input for the 'search_workers' function.
 class SearchWorkersRequest(BaseValidatorModel):
     farmId: str
     fleetIds: List[str]
@@ -2551,6 +2691,7 @@ class SearchWorkersRequest(BaseValidatorModel):
     pageSize: Optional[int] = None
 
 
+# This class is the input for the 'create_budget' function.
 class CreateBudgetRequest(BaseValidatorModel):
     farmId: str
     usageTrackingResource: UsageTrackingResource
@@ -2575,6 +2716,7 @@ class UpdateBudgetRequest(BaseValidatorModel):
     schedule: Optional[BudgetScheduleUnion] = None
 
 
+# This class is the output for the 'batch_get_job_entity' function.
 class BatchGetJobEntityResponse(BaseValidatorModel):
     entities: List[JobEntity]
     errors: List[GetJobEntityError]
@@ -2598,6 +2740,7 @@ class FleetSummary(BaseValidatorModel):
     updatedBy: Optional[str] = None
 
 
+# This class is the output for the 'get_fleet' function.
 class GetFleetResponse(BaseValidatorModel):
     fleetId: str
     farmId: str
@@ -2621,6 +2764,7 @@ class GetFleetResponse(BaseValidatorModel):
 FleetConfigurationUnion = Union[FleetConfiguration, FleetConfigurationOutput]
 
 
+# This class is the output for the 'update_worker_schedule' function.
 class UpdateWorkerScheduleResponse(BaseValidatorModel):
     assignedSessions: Dict[str, AssignedSession]
     cancelSessionActions: Dict[str, List[str]]
@@ -2629,12 +2773,14 @@ class UpdateWorkerScheduleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_fleets' function.
 class ListFleetsResponse(BaseValidatorModel):
     fleets: List[FleetSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_fleet' function.
 class CreateFleetRequest(BaseValidatorModel):
     farmId: str
     displayName: str

@@ -16,11 +16,13 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'scan_sbom' function.
 class ScanSbomRequest(BaseValidatorModel):
     sbom: Dict[str, Any]
     outputFormat: Optional[OutputFormatType] = None
 
 
+# This class is the output for the 'scan_sbom' function.
 class ScanSbomResponse(BaseValidatorModel):
     sbom: Dict[str, Any]
     ResponseMetadata: ResponseMetadata

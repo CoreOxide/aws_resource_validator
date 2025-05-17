@@ -18,6 +18,7 @@ class AssociateClientDeviceWithCoreDeviceErrorEntry(BaseValidatorModel):
     message: Optional[str] = None
 
 
+# This class is the input for the 'associate_service_role_to_account' function.
 class AssociateServiceRoleToAccountRequest(BaseValidatorModel):
     roleArn: str
 
@@ -47,6 +48,7 @@ class DisassociateClientDeviceFromCoreDeviceErrorEntry(BaseValidatorModel):
 Blob = Union[str, bytes, IO[Any], StreamingBody]
 
 
+# This class is the input for the 'cancel_deployment' function.
 class CancelDeploymentRequest(BaseValidatorModel):
     deploymentId: str
 
@@ -117,14 +119,17 @@ class CoreDevice(BaseValidatorModel):
     runtime: Optional[str] = None
 
 
+# This class is the input for the 'delete_component' function.
 class DeleteComponentRequest(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'delete_core_device' function.
 class DeleteCoreDeviceRequest(BaseValidatorModel):
     coreDeviceThingName: str
 
 
+# This class is the input for the 'delete_deployment' function.
 class DeleteDeploymentRequest(BaseValidatorModel):
     deploymentId: str
 
@@ -153,6 +158,7 @@ class Deployment(BaseValidatorModel):
     parentTargetArn: Optional[str] = None
 
 
+# This class is the input for the 'describe_component' function.
 class DescribeComponentRequest(BaseValidatorModel):
     arn: str
 
@@ -162,11 +168,13 @@ class EffectiveDeploymentStatusDetails(BaseValidatorModel):
     errorTypes: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_component' function.
 class GetComponentRequest(BaseValidatorModel):
     arn: str
     recipeOutputFormat: Optional[RecipeOutputFormatType] = None
 
 
+# This class is the input for the 'get_component_version_artifact' function.
 class GetComponentVersionArtifactRequest(BaseValidatorModel):
     arn: str
     artifactName: str
@@ -174,14 +182,17 @@ class GetComponentVersionArtifactRequest(BaseValidatorModel):
     iotEndpointType: Optional[IotEndpointTypeType] = None
 
 
+# This class is the input for the 'get_connectivity_info' function.
 class GetConnectivityInfoRequest(BaseValidatorModel):
     thingName: str
 
 
+# This class is the input for the 'get_core_device' function.
 class GetCoreDeviceRequest(BaseValidatorModel):
     coreDeviceThingName: str
 
 
+# This class is the input for the 'get_deployment' function.
 class GetDeploymentRequest(BaseValidatorModel):
     deploymentId: str
 
@@ -234,24 +245,28 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_client_devices_associated_with_core_device' function.
 class ListClientDevicesAssociatedWithCoreDeviceRequest(BaseValidatorModel):
     coreDeviceThingName: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_component_versions' function.
 class ListComponentVersionsRequest(BaseValidatorModel):
     arn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_components' function.
 class ListComponentsRequest(BaseValidatorModel):
     scope: Optional[ComponentVisibilityScopeType] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_core_devices' function.
 class ListCoreDevicesRequest(BaseValidatorModel):
     thingGroupArn: Optional[str] = None
     status: Optional[CoreDeviceStatusType] = None
@@ -260,6 +275,7 @@ class ListCoreDevicesRequest(BaseValidatorModel):
     runtime: Optional[str] = None
 
 
+# This class is the input for the 'list_deployments' function.
 class ListDeploymentsRequest(BaseValidatorModel):
     targetArn: Optional[str] = None
     historyFilter: Optional[DeploymentHistoryFilterType] = None
@@ -268,12 +284,14 @@ class ListDeploymentsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_effective_deployments' function.
 class ListEffectiveDeploymentsRequest(BaseValidatorModel):
     coreDeviceThingName: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_installed_components' function.
 class ListInstalledComponentsRequest(BaseValidatorModel):
     coreDeviceThingName: str
     maxResults: Optional[int] = None
@@ -281,6 +299,7 @@ class ListInstalledComponentsRequest(BaseValidatorModel):
     topologyFilter: Optional[InstalledComponentTopologyFilterType] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -304,26 +323,31 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'batch_associate_client_device_with_core_device' function.
 class BatchAssociateClientDeviceWithCoreDeviceRequest(BaseValidatorModel):
     coreDeviceThingName: str
     entries: Optional[List[AssociateClientDeviceWithCoreDeviceEntry]] = None
 
 
+# This class is the output for the 'associate_service_role_to_account' function.
 class AssociateServiceRoleToAccountResponse(BaseValidatorModel):
     associatedAt: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_associate_client_device_with_core_device' function.
 class BatchAssociateClientDeviceWithCoreDeviceResponse(BaseValidatorModel):
     errorEntries: List[AssociateClientDeviceWithCoreDeviceErrorEntry]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_deployment' function.
 class CancelDeploymentResponse(BaseValidatorModel):
     message: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_deployment' function.
 class CreateDeploymentResponse(BaseValidatorModel):
     deploymentId: str
     iotJobId: str
@@ -336,10 +360,12 @@ class DisassociateServiceRoleFromAccountResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_deployment' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_component' function.
 class GetComponentResponse(BaseValidatorModel):
     recipeOutputFormat: RecipeOutputFormatType
     recipe: bytes
@@ -347,11 +373,13 @@ class GetComponentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_component_version_artifact' function.
 class GetComponentVersionArtifactResponse(BaseValidatorModel):
     preSignedUrl: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_core_device' function.
 class GetCoreDeviceResponse(BaseValidatorModel):
     coreDeviceThingName: str
     coreVersion: str
@@ -370,33 +398,39 @@ class GetServiceRoleForAccountResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_connectivity_info' function.
 class UpdateConnectivityInfoResponse(BaseValidatorModel):
     version: str
     message: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_client_devices_associated_with_core_device' function.
 class ListClientDevicesAssociatedWithCoreDeviceResponse(BaseValidatorModel):
     associatedClientDevices: List[AssociatedClientDevice]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'batch_disassociate_client_device_from_core_device' function.
 class BatchDisassociateClientDeviceFromCoreDeviceRequest(BaseValidatorModel):
     coreDeviceThingName: str
     entries: Optional[List[DisassociateClientDeviceFromCoreDeviceEntry]] = None
 
 
+# This class is the output for the 'batch_disassociate_client_device_from_core_device' function.
 class BatchDisassociateClientDeviceFromCoreDeviceResponse(BaseValidatorModel):
     errorEntries: List[DisassociateClientDeviceFromCoreDeviceErrorEntry]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_component_version' function.
 class CreateComponentVersionResponse(BaseValidatorModel):
     arn: str
     componentName: str
@@ -417,6 +451,7 @@ class ComponentLatestVersion(BaseValidatorModel):
     platforms: Optional[List[ComponentPlatformOutput]] = None
 
 
+# This class is the output for the 'describe_component' function.
 class DescribeComponentResponse(BaseValidatorModel):
     arn: str
     componentName: str
@@ -438,23 +473,27 @@ class ComponentRunWith(BaseValidatorModel):
     windowsUser: Optional[str] = None
 
 
+# This class is the output for the 'list_component_versions' function.
 class ListComponentVersionsResponse(BaseValidatorModel):
     componentVersions: List[ComponentVersionListItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_connectivity_info' function.
 class GetConnectivityInfoResponse(BaseValidatorModel):
     connectivityInfo: List[ConnectivityInfo]
     message: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_connectivity_info' function.
 class UpdateConnectivityInfoRequest(BaseValidatorModel):
     thingName: str
     connectivityInfo: List[ConnectivityInfo]
 
 
+# This class is the output for the 'list_core_devices' function.
 class ListCoreDevicesResponse(BaseValidatorModel):
     coreDevices: List[CoreDevice]
     ResponseMetadata: ResponseMetadata
@@ -467,6 +506,7 @@ class DeploymentPolicies(BaseValidatorModel):
     configurationValidationPolicy: Optional[DeploymentConfigurationValidationPolicy] = None
 
 
+# This class is the output for the 'list_deployments' function.
 class ListDeploymentsResponse(BaseValidatorModel):
     deployments: List[Deployment]
     ResponseMetadata: ResponseMetadata
@@ -487,6 +527,7 @@ class EffectiveDeployment(BaseValidatorModel):
     statusDetails: Optional[EffectiveDeploymentStatusDetails] = None
 
 
+# This class is the output for the 'list_installed_components' function.
 class ListInstalledComponentsResponse(BaseValidatorModel):
     installedComponents: List[InstalledComponent]
     ResponseMetadata: ResponseMetadata
@@ -554,6 +595,7 @@ class ListInstalledComponentsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'resolve_component_candidates' function.
 class ResolveComponentCandidatesResponse(BaseValidatorModel):
     resolvedComponentVersions: List[ResolvedComponentVersion]
     ResponseMetadata: ResponseMetadata
@@ -565,6 +607,7 @@ class Component(BaseValidatorModel):
     latestVersion: Optional[ComponentLatestVersion] = None
 
 
+# This class is the input for the 'resolve_component_candidates' function.
 class ResolveComponentCandidatesRequest(BaseValidatorModel):
     platform: Optional[ComponentPlatformUnion] = None
     componentCandidates: Optional[List[ComponentCandidate]] = None
@@ -582,6 +625,7 @@ class ComponentDeploymentSpecification(BaseValidatorModel):
     runWith: Optional[ComponentRunWith] = None
 
 
+# This class is the output for the 'list_effective_deployments' function.
 class ListEffectiveDeploymentsResponse(BaseValidatorModel):
     effectiveDeployments: List[EffectiveDeployment]
     ResponseMetadata: ResponseMetadata
@@ -598,6 +642,7 @@ class LambdaLinuxProcessParams(BaseValidatorModel):
     containerParams: Optional[LambdaContainerParams] = None
 
 
+# This class is the output for the 'list_components' function.
 class ListComponentsResponse(BaseValidatorModel):
     components: List[Component]
     ResponseMetadata: ResponseMetadata
@@ -632,6 +677,7 @@ class LambdaExecutionParameters(BaseValidatorModel):
     linuxProcessParams: Optional[LambdaLinuxProcessParams] = None
 
 
+# This class is the output for the 'get_deployment' function.
 class GetDeploymentResponse(BaseValidatorModel):
     targetArn: str
     revisionId: str
@@ -661,6 +707,7 @@ class LambdaFunctionRecipeSource(BaseValidatorModel):
     componentLambdaParameters: Optional[LambdaExecutionParameters] = None
 
 
+# This class is the input for the 'create_deployment' function.
 class CreateDeploymentRequest(BaseValidatorModel):
     targetArn: str
     deploymentName: Optional[str] = None
@@ -672,6 +719,7 @@ class CreateDeploymentRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'create_component_version' function.
 class CreateComponentVersionRequest(BaseValidatorModel):
     inlineRecipe: Optional[Blob] = None
     lambdaFunction: Optional[LambdaFunctionRecipeSource] = None

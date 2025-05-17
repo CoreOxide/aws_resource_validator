@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'create_namespace' function.
 class CreateNamespaceRequest(BaseValidatorModel):
     tableBucketARN: str
     namespace: List[str]
@@ -21,29 +22,35 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_table_bucket' function.
 class CreateTableBucketRequest(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'delete_namespace' function.
 class DeleteNamespaceRequest(BaseValidatorModel):
     tableBucketARN: str
     namespace: str
 
 
+# This class is the input for the 'delete_table_bucket_policy' function.
 class DeleteTableBucketPolicyRequest(BaseValidatorModel):
     tableBucketARN: str
 
 
+# This class is the input for the 'delete_table_bucket' function.
 class DeleteTableBucketRequest(BaseValidatorModel):
     tableBucketARN: str
 
 
+# This class is the input for the 'delete_table_policy' function.
 class DeleteTablePolicyRequest(BaseValidatorModel):
     tableBucketARN: str
     namespace: str
     name: str
 
 
+# This class is the input for the 'delete_table' function.
 class DeleteTableRequest(BaseValidatorModel):
     tableBucketARN: str
     namespace: str
@@ -51,29 +58,35 @@ class DeleteTableRequest(BaseValidatorModel):
     versionToken: Optional[str] = None
 
 
+# This class is the input for the 'get_namespace' function.
 class GetNamespaceRequest(BaseValidatorModel):
     tableBucketARN: str
     namespace: str
 
 
+# This class is the input for the 'get_table_bucket_maintenance_configuration' function.
 class GetTableBucketMaintenanceConfigurationRequest(BaseValidatorModel):
     tableBucketARN: str
 
 
+# This class is the input for the 'get_table_bucket_policy' function.
 class GetTableBucketPolicyRequest(BaseValidatorModel):
     tableBucketARN: str
 
 
+# This class is the input for the 'get_table_bucket' function.
 class GetTableBucketRequest(BaseValidatorModel):
     tableBucketARN: str
 
 
+# This class is the input for the 'get_table_maintenance_configuration' function.
 class GetTableMaintenanceConfigurationRequest(BaseValidatorModel):
     tableBucketARN: str
     namespace: str
     name: str
 
 
+# This class is the input for the 'get_table_maintenance_job_status' function.
 class GetTableMaintenanceJobStatusRequest(BaseValidatorModel):
     tableBucketARN: str
     namespace: str
@@ -86,18 +99,21 @@ class TableMaintenanceJobStatusValue(BaseValidatorModel):
     failureMessage: Optional[str] = None
 
 
+# This class is the input for the 'get_table_metadata_location' function.
 class GetTableMetadataLocationRequest(BaseValidatorModel):
     tableBucketARN: str
     namespace: str
     name: str
 
 
+# This class is the input for the 'get_table_policy' function.
 class GetTablePolicyRequest(BaseValidatorModel):
     tableBucketARN: str
     namespace: str
     name: str
 
 
+# This class is the input for the 'get_table' function.
 class GetTableRequest(BaseValidatorModel):
     tableBucketARN: str
     namespace: str
@@ -130,6 +146,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_namespaces' function.
 class ListNamespacesRequest(BaseValidatorModel):
     tableBucketARN: str
     prefix: Optional[str] = None
@@ -144,6 +161,7 @@ class NamespaceSummary(BaseValidatorModel):
     ownerAccountId: str
 
 
+# This class is the input for the 'list_table_buckets' function.
 class ListTableBucketsRequest(BaseValidatorModel):
     prefix: Optional[str] = None
     continuationToken: Optional[str] = None
@@ -157,6 +175,7 @@ class TableBucketSummary(BaseValidatorModel):
     createdAt: datetime
 
 
+# This class is the input for the 'list_tables' function.
 class ListTablesRequest(BaseValidatorModel):
     tableBucketARN: str
     namespace: Optional[str] = None
@@ -174,11 +193,13 @@ class TableSummary(BaseValidatorModel):
     modifiedAt: datetime
 
 
+# This class is the input for the 'put_table_bucket_policy' function.
 class PutTableBucketPolicyRequest(BaseValidatorModel):
     tableBucketARN: str
     resourcePolicy: str
 
 
+# This class is the input for the 'put_table_policy' function.
 class PutTablePolicyRequest(BaseValidatorModel):
     tableBucketARN: str
     namespace: str
@@ -186,6 +207,7 @@ class PutTablePolicyRequest(BaseValidatorModel):
     resourcePolicy: str
 
 
+# This class is the input for the 'rename_table' function.
 class RenameTableRequest(BaseValidatorModel):
     tableBucketARN: str
     namespace: str
@@ -195,6 +217,7 @@ class RenameTableRequest(BaseValidatorModel):
     versionToken: Optional[str] = None
 
 
+# This class is the input for the 'update_table_metadata_location' function.
 class UpdateTableMetadataLocationRequest(BaseValidatorModel):
     tableBucketARN: str
     namespace: str
@@ -203,27 +226,32 @@ class UpdateTableMetadataLocationRequest(BaseValidatorModel):
     metadataLocation: str
 
 
+# This class is the output for the 'create_namespace' function.
 class CreateNamespaceResponse(BaseValidatorModel):
     tableBucketARN: str
     namespace: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_table_bucket' function.
 class CreateTableBucketResponse(BaseValidatorModel):
     arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_table' function.
 class CreateTableResponse(BaseValidatorModel):
     tableARN: str
     versionToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'rename_table' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_namespace' function.
 class GetNamespaceResponse(BaseValidatorModel):
     namespace: List[str]
     createdAt: datetime
@@ -232,11 +260,13 @@ class GetNamespaceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_table_bucket_policy' function.
 class GetTableBucketPolicyResponse(BaseValidatorModel):
     resourcePolicy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_table_bucket' function.
 class GetTableBucketResponse(BaseValidatorModel):
     arn: str
     name: str
@@ -245,6 +275,7 @@ class GetTableBucketResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_table_metadata_location' function.
 class GetTableMetadataLocationResponse(BaseValidatorModel):
     versionToken: str
     metadataLocation: str
@@ -252,11 +283,13 @@ class GetTableMetadataLocationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_table_policy' function.
 class GetTablePolicyResponse(BaseValidatorModel):
     resourcePolicy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_table' function.
 class GetTableResponse(BaseValidatorModel):
     name: str
     type: TableTypeType
@@ -275,6 +308,7 @@ class GetTableResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_table_metadata_location' function.
 class UpdateTableMetadataLocationResponse(BaseValidatorModel):
     name: str
     tableARN: str
@@ -284,6 +318,7 @@ class UpdateTableMetadataLocationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_table_maintenance_job_status' function.
 class GetTableMaintenanceJobStatusResponse(BaseValidatorModel):
     tableARN: str
     status: Dict[TableMaintenanceJobTypeType, TableMaintenanceJobStatusValue]
@@ -321,18 +356,21 @@ class ListTablesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_namespaces' function.
 class ListNamespacesResponse(BaseValidatorModel):
     namespaces: List[NamespaceSummary]
     continuationToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_table_buckets' function.
 class ListTableBucketsResponse(BaseValidatorModel):
     tableBuckets: List[TableBucketSummary]
     continuationToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tables' function.
 class ListTablesResponse(BaseValidatorModel):
     tables: List[TableSummary]
     continuationToken: str
@@ -357,12 +395,14 @@ class TableMetadata(BaseValidatorModel):
     iceberg: Optional[IcebergMetadata] = None
 
 
+# This class is the output for the 'get_table_maintenance_configuration' function.
 class GetTableMaintenanceConfigurationResponse(BaseValidatorModel):
     tableARN: str
     configuration: Dict[TableMaintenanceTypeType, TableMaintenanceConfigurationValue]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_table_maintenance_configuration' function.
 class PutTableMaintenanceConfigurationRequest(BaseValidatorModel):
     tableBucketARN: str
     namespace: str
@@ -371,18 +411,21 @@ class PutTableMaintenanceConfigurationRequest(BaseValidatorModel):
     value: TableMaintenanceConfigurationValue
 
 
+# This class is the output for the 'get_table_bucket_maintenance_configuration' function.
 class GetTableBucketMaintenanceConfigurationResponse(BaseValidatorModel):
     tableBucketARN: str
     configuration: Dict[Literal['icebergUnreferencedFileRemoval'], TableBucketMaintenanceConfigurationValue]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_table_bucket_maintenance_configuration' function.
 class PutTableBucketMaintenanceConfigurationRequest(BaseValidatorModel):
     tableBucketARN: str
     type: Literal['icebergUnreferencedFileRemoval']
     value: TableBucketMaintenanceConfigurationValue
 
 
+# This class is the input for the 'create_table' function.
 class CreateTableRequest(BaseValidatorModel):
     tableBucketARN: str
     namespace: str

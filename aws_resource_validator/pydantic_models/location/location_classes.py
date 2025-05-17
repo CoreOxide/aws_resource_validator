@@ -34,6 +34,7 @@ class BatchItemError(BaseValidatorModel):
     Message: Optional[str] = None
 
 
+# This class is the input for the 'batch_delete_device_position_history' function.
 class BatchDeleteDevicePositionHistoryRequest(BaseValidatorModel):
     TrackerName: str
     DeviceIds: List[str]
@@ -47,11 +48,13 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'batch_delete_geofence' function.
 class BatchDeleteGeofenceRequest(BaseValidatorModel):
     CollectionName: str
     GeofenceIds: List[str]
 
 
+# This class is the input for the 'batch_get_device_position' function.
 class BatchGetDevicePositionRequest(BaseValidatorModel):
     TrackerName: str
     DeviceIds: List[str]
@@ -109,6 +112,7 @@ class Circle(BaseValidatorModel):
     Radius: float
 
 
+# This class is the input for the 'create_geofence_collection' function.
 class CreateGeofenceCollectionRequest(BaseValidatorModel):
     CollectionName: str
     PricingPlan: Optional[PricingPlanType] = None
@@ -122,6 +126,7 @@ class DataSourceConfiguration(BaseValidatorModel):
     IntendedUse: Optional[IntendedUseType] = None
 
 
+# This class is the input for the 'create_route_calculator' function.
 class CreateRouteCalculatorRequest(BaseValidatorModel):
     CalculatorName: str
     DataSource: str
@@ -130,6 +135,7 @@ class CreateRouteCalculatorRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_tracker' function.
 class CreateTrackerRequest(BaseValidatorModel):
     TrackerName: str
     PricingPlan: Optional[PricingPlanType] = None
@@ -167,14 +173,17 @@ class DeleteTrackerRequest(BaseValidatorModel):
     TrackerName: str
 
 
+# This class is the input for the 'describe_geofence_collection' function.
 class DescribeGeofenceCollectionRequest(BaseValidatorModel):
     CollectionName: str
 
 
+# This class is the input for the 'describe_key' function.
 class DescribeKeyRequest(BaseValidatorModel):
     KeyName: str
 
 
+# This class is the input for the 'describe_map' function.
 class DescribeMapRequest(BaseValidatorModel):
     MapName: str
 
@@ -185,14 +194,17 @@ class MapConfigurationOutput(BaseValidatorModel):
     CustomLayers: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_place_index' function.
 class DescribePlaceIndexRequest(BaseValidatorModel):
     IndexName: str
 
 
+# This class is the input for the 'describe_route_calculator' function.
 class DescribeRouteCalculatorRequest(BaseValidatorModel):
     CalculatorName: str
 
 
+# This class is the input for the 'describe_tracker' function.
 class DescribeTrackerRequest(BaseValidatorModel):
     TrackerName: str
 
@@ -232,16 +244,19 @@ class ForecastedEvent(BaseValidatorModel):
     GeofenceProperties: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'get_device_position' function.
 class GetDevicePositionRequest(BaseValidatorModel):
     TrackerName: str
     DeviceId: str
 
 
+# This class is the input for the 'get_geofence' function.
 class GetGeofenceRequest(BaseValidatorModel):
     CollectionName: str
     GeofenceId: str
 
 
+# This class is the input for the 'get_map_glyphs' function.
 class GetMapGlyphsRequest(BaseValidatorModel):
     MapName: str
     FontStack: str
@@ -249,17 +264,20 @@ class GetMapGlyphsRequest(BaseValidatorModel):
     Key: Optional[str] = None
 
 
+# This class is the input for the 'get_map_sprites' function.
 class GetMapSpritesRequest(BaseValidatorModel):
     MapName: str
     FileName: str
     Key: Optional[str] = None
 
 
+# This class is the input for the 'get_map_style_descriptor' function.
 class GetMapStyleDescriptorRequest(BaseValidatorModel):
     MapName: str
     Key: Optional[str] = None
 
 
+# This class is the input for the 'get_map_tile' function.
 class GetMapTileRequest(BaseValidatorModel):
     MapName: str
     Z: str
@@ -268,6 +286,7 @@ class GetMapTileRequest(BaseValidatorModel):
     Key: Optional[str] = None
 
 
+# This class is the input for the 'get_place' function.
 class GetPlaceRequest(BaseValidatorModel):
     IndexName: str
     PlaceId: str
@@ -291,6 +310,7 @@ class TrackingFilterGeometry(BaseValidatorModel):
     Polygon: Optional[List[List[List[float]]]] = None
 
 
+# This class is the input for the 'list_geofence_collections' function.
 class ListGeofenceCollectionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -305,12 +325,14 @@ class ListGeofenceCollectionsResponseEntry(BaseValidatorModel):
     PricingPlanDataSource: Optional[str] = None
 
 
+# This class is the input for the 'list_geofences' function.
 class ListGeofencesRequest(BaseValidatorModel):
     CollectionName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_maps' function.
 class ListMapsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -325,6 +347,7 @@ class ListMapsResponseEntry(BaseValidatorModel):
     PricingPlan: Optional[PricingPlanType] = None
 
 
+# This class is the input for the 'list_place_indexes' function.
 class ListPlaceIndexesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -339,6 +362,7 @@ class ListPlaceIndexesResponseEntry(BaseValidatorModel):
     PricingPlan: Optional[PricingPlanType] = None
 
 
+# This class is the input for the 'list_route_calculators' function.
 class ListRouteCalculatorsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -353,16 +377,19 @@ class ListRouteCalculatorsResponseEntry(BaseValidatorModel):
     PricingPlan: Optional[PricingPlanType] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'list_tracker_consumers' function.
 class ListTrackerConsumersRequest(BaseValidatorModel):
     TrackerName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_trackers' function.
 class ListTrackersRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -422,6 +449,7 @@ class SearchForSuggestionsResult(BaseValidatorModel):
     SupplementalCategories: Optional[List[str]] = None
 
 
+# This class is the input for the 'search_place_index_for_position' function.
 class SearchPlaceIndexForPositionRequest(BaseValidatorModel):
     IndexName: str
     Position: List[float]
@@ -437,6 +465,7 @@ class SearchPlaceIndexForPositionSummary(BaseValidatorModel):
     Language: Optional[str] = None
 
 
+# This class is the input for the 'search_place_index_for_suggestions' function.
 class SearchPlaceIndexForSuggestionsRequest(BaseValidatorModel):
     IndexName: str
     Text: str
@@ -460,6 +489,7 @@ class SearchPlaceIndexForSuggestionsSummary(BaseValidatorModel):
     FilterCategories: Optional[List[str]] = None
 
 
+# This class is the input for the 'search_place_index_for_text' function.
 class SearchPlaceIndexForTextRequest(BaseValidatorModel):
     IndexName: str
     Text: str
@@ -494,6 +524,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_geofence_collection' function.
 class UpdateGeofenceCollectionRequest(BaseValidatorModel):
     CollectionName: str
     PricingPlan: Optional[PricingPlanType] = None
@@ -501,12 +532,14 @@ class UpdateGeofenceCollectionRequest(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'update_route_calculator' function.
 class UpdateRouteCalculatorRequest(BaseValidatorModel):
     CalculatorName: str
     PricingPlan: Optional[PricingPlanType] = None
     Description: Optional[str] = None
 
 
+# This class is the input for the 'update_tracker' function.
 class UpdateTrackerRequest(BaseValidatorModel):
     TrackerName: str
     PricingPlan: Optional[PricingPlanType] = None
@@ -517,6 +550,7 @@ class UpdateTrackerRequest(BaseValidatorModel):
     KmsKeyEnableGeospatialQueries: Optional[bool] = None
 
 
+# This class is the input for the 'list_keys' function.
 class ListKeysRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -566,6 +600,7 @@ class BatchUpdateDevicePositionError(BaseValidatorModel):
     Error: BatchItemError
 
 
+# This class is the output for the 'create_geofence_collection' function.
 class CreateGeofenceCollectionResponse(BaseValidatorModel):
     CollectionName: str
     CollectionArn: str
@@ -573,6 +608,7 @@ class CreateGeofenceCollectionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_key' function.
 class CreateKeyResponse(BaseValidatorModel):
     Key: str
     KeyArn: str
@@ -581,6 +617,7 @@ class CreateKeyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_map' function.
 class CreateMapResponse(BaseValidatorModel):
     MapName: str
     MapArn: str
@@ -588,6 +625,7 @@ class CreateMapResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_place_index' function.
 class CreatePlaceIndexResponse(BaseValidatorModel):
     IndexName: str
     IndexArn: str
@@ -595,6 +633,7 @@ class CreatePlaceIndexResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_route_calculator' function.
 class CreateRouteCalculatorResponse(BaseValidatorModel):
     CalculatorName: str
     CalculatorArn: str
@@ -602,6 +641,7 @@ class CreateRouteCalculatorResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_tracker' function.
 class CreateTrackerResponse(BaseValidatorModel):
     TrackerName: str
     TrackerArn: str
@@ -609,6 +649,7 @@ class CreateTrackerResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_geofence_collection' function.
 class DescribeGeofenceCollectionResponse(BaseValidatorModel):
     CollectionName: str
     CollectionArn: str
@@ -623,6 +664,7 @@ class DescribeGeofenceCollectionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_key' function.
 class DescribeKeyResponse(BaseValidatorModel):
     Key: str
     KeyArn: str
@@ -636,6 +678,7 @@ class DescribeKeyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_route_calculator' function.
 class DescribeRouteCalculatorResponse(BaseValidatorModel):
     CalculatorName: str
     CalculatorArn: str
@@ -648,6 +691,7 @@ class DescribeRouteCalculatorResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_tracker' function.
 class DescribeTrackerResponse(BaseValidatorModel):
     TrackerName: str
     TrackerArn: str
@@ -664,6 +708,7 @@ class DescribeTrackerResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_map_glyphs' function.
 class GetMapGlyphsResponse(BaseValidatorModel):
     Blob: StreamingBody
     ContentType: str
@@ -671,6 +716,7 @@ class GetMapGlyphsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_map_sprites' function.
 class GetMapSpritesResponse(BaseValidatorModel):
     Blob: StreamingBody
     ContentType: str
@@ -678,6 +724,7 @@ class GetMapSpritesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_map_style_descriptor' function.
 class GetMapStyleDescriptorResponse(BaseValidatorModel):
     Blob: StreamingBody
     ContentType: str
@@ -685,6 +732,7 @@ class GetMapStyleDescriptorResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_map_tile' function.
 class GetMapTileResponse(BaseValidatorModel):
     Blob: StreamingBody
     ContentType: str
@@ -692,17 +740,20 @@ class GetMapTileResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tracker_consumers' function.
 class ListTrackerConsumersResponse(BaseValidatorModel):
     ConsumerArns: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'put_geofence' function.
 class PutGeofenceResponse(BaseValidatorModel):
     GeofenceId: str
     CreateTime: datetime
@@ -710,6 +761,7 @@ class PutGeofenceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_geofence_collection' function.
 class UpdateGeofenceCollectionResponse(BaseValidatorModel):
     CollectionName: str
     CollectionArn: str
@@ -717,6 +769,7 @@ class UpdateGeofenceCollectionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_key' function.
 class UpdateKeyResponse(BaseValidatorModel):
     KeyArn: str
     KeyName: str
@@ -724,6 +777,7 @@ class UpdateKeyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_map' function.
 class UpdateMapResponse(BaseValidatorModel):
     MapName: str
     MapArn: str
@@ -731,6 +785,7 @@ class UpdateMapResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_place_index' function.
 class UpdatePlaceIndexResponse(BaseValidatorModel):
     IndexName: str
     IndexArn: str
@@ -738,6 +793,7 @@ class UpdatePlaceIndexResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_route_calculator' function.
 class UpdateRouteCalculatorResponse(BaseValidatorModel):
     CalculatorName: str
     CalculatorArn: str
@@ -745,6 +801,7 @@ class UpdateRouteCalculatorResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_tracker' function.
 class UpdateTrackerResponse(BaseValidatorModel):
     TrackerName: str
     TrackerArn: str
@@ -752,6 +809,7 @@ class UpdateTrackerResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'get_device_position_history' function.
 class GetDevicePositionHistoryRequest(BaseValidatorModel):
     TrackerName: str
     DeviceId: str
@@ -776,6 +834,7 @@ class GeofenceGeometryOutput(BaseValidatorModel):
 CircleUnion = Union[Circle, CircleOutput]
 
 
+# This class is the input for the 'create_place_index' function.
 class CreatePlaceIndexRequest(BaseValidatorModel):
     IndexName: str
     DataSource: str
@@ -785,6 +844,7 @@ class CreatePlaceIndexRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'describe_place_index' function.
 class DescribePlaceIndexResponse(BaseValidatorModel):
     IndexName: str
     IndexArn: str
@@ -798,6 +858,7 @@ class DescribePlaceIndexResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_place_index' function.
 class UpdatePlaceIndexRequest(BaseValidatorModel):
     IndexName: str
     PricingPlan: Optional[PricingPlanType] = None
@@ -805,6 +866,7 @@ class UpdatePlaceIndexRequest(BaseValidatorModel):
     DataSourceConfiguration: Optional[DataSourceConfiguration] = None
 
 
+# This class is the output for the 'describe_map' function.
 class DescribeMapResponse(BaseValidatorModel):
     MapName: str
     MapArn: str
@@ -835,6 +897,7 @@ class DevicePositionUpdate(BaseValidatorModel):
     PositionProperties: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'get_device_position' function.
 class GetDevicePositionResponse(BaseValidatorModel):
     DeviceId: str
     SampleTime: datetime
@@ -860,6 +923,7 @@ class ListDevicePositionsResponseEntry(BaseValidatorModel):
     PositionProperties: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'forecast_geofence_events' function.
 class ForecastGeofenceEventsRequest(BaseValidatorModel):
     CollectionName: str
     DeviceState: ForecastGeofenceEventsDeviceState
@@ -922,6 +986,7 @@ class ListTrackersRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'forecast_geofence_events' function.
 class ForecastGeofenceEventsResponse(BaseValidatorModel):
     ForecastedEvents: List[ForecastedEvent]
     DistanceUnit: DistanceUnitType
@@ -945,6 +1010,7 @@ class ListDevicePositionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_device_positions' function.
 class ListDevicePositionsRequest(BaseValidatorModel):
     TrackerName: str
     MaxResults: Optional[int] = None
@@ -952,30 +1018,35 @@ class ListDevicePositionsRequest(BaseValidatorModel):
     FilterGeometry: Optional[TrackingFilterGeometry] = None
 
 
+# This class is the output for the 'list_geofence_collections' function.
 class ListGeofenceCollectionsResponse(BaseValidatorModel):
     Entries: List[ListGeofenceCollectionsResponseEntry]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_maps' function.
 class ListMapsResponse(BaseValidatorModel):
     Entries: List[ListMapsResponseEntry]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_place_indexes' function.
 class ListPlaceIndexesResponse(BaseValidatorModel):
     Entries: List[ListPlaceIndexesResponseEntry]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_route_calculators' function.
 class ListRouteCalculatorsResponse(BaseValidatorModel):
     Entries: List[ListRouteCalculatorsResponseEntry]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_trackers' function.
 class ListTrackersResponse(BaseValidatorModel):
     Entries: List[ListTrackersResponseEntry]
     ResponseMetadata: ResponseMetadata
@@ -997,6 +1068,7 @@ class LteCellDetails(BaseValidatorModel):
 MapConfigurationUnion = Union[MapConfiguration, MapConfigurationOutput]
 
 
+# This class is the input for the 'update_map' function.
 class UpdateMapRequest(BaseValidatorModel):
     MapName: str
     PricingPlan: Optional[PricingPlanType] = None
@@ -1030,18 +1102,21 @@ class RouteMatrixEntry(BaseValidatorModel):
     Error: Optional[RouteMatrixEntryError] = None
 
 
+# This class is the output for the 'search_place_index_for_suggestions' function.
 class SearchPlaceIndexForSuggestionsResponse(BaseValidatorModel):
     Summary: SearchPlaceIndexForSuggestionsSummary
     Results: List[SearchForSuggestionsResult]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_keys' function.
 class ListKeysResponse(BaseValidatorModel):
     Entries: List[ListKeysResponseEntry]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_key' function.
 class CreateKeyRequest(BaseValidatorModel):
     KeyName: str
     Restrictions: ApiKeyRestrictionsUnion
@@ -1051,6 +1126,7 @@ class CreateKeyRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_key' function.
 class UpdateKeyRequest(BaseValidatorModel):
     KeyName: str
     Description: Optional[str] = None
@@ -1060,32 +1136,38 @@ class UpdateKeyRequest(BaseValidatorModel):
     Restrictions: Optional[ApiKeyRestrictionsUnion] = None
 
 
+# This class is the output for the 'batch_delete_device_position_history' function.
 class BatchDeleteDevicePositionHistoryResponse(BaseValidatorModel):
     Errors: List[BatchDeleteDevicePositionHistoryError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_delete_geofence' function.
 class BatchDeleteGeofenceResponse(BaseValidatorModel):
     Errors: List[BatchDeleteGeofenceError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_evaluate_geofences' function.
 class BatchEvaluateGeofencesResponse(BaseValidatorModel):
     Errors: List[BatchEvaluateGeofencesError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_put_geofence' function.
 class BatchPutGeofenceResponse(BaseValidatorModel):
     Successes: List[BatchPutGeofenceSuccess]
     Errors: List[BatchPutGeofenceError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_update_device_position' function.
 class BatchUpdateDevicePositionResponse(BaseValidatorModel):
     Errors: List[BatchUpdateDevicePositionError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'calculate_route_matrix' function.
 class CalculateRouteMatrixRequest(BaseValidatorModel):
     CalculatorName: str
     DeparturePositions: List[List[float]]
@@ -1099,6 +1181,7 @@ class CalculateRouteMatrixRequest(BaseValidatorModel):
     Key: Optional[str] = None
 
 
+# This class is the input for the 'calculate_route' function.
 class CalculateRouteRequest(BaseValidatorModel):
     CalculatorName: str
     DeparturePosition: List[float]
@@ -1116,6 +1199,7 @@ class CalculateRouteRequest(BaseValidatorModel):
     Key: Optional[str] = None
 
 
+# This class is the output for the 'get_geofence' function.
 class GetGeofenceResponse(BaseValidatorModel):
     GeofenceId: str
     Geometry: GeofenceGeometryOutput
@@ -1141,28 +1225,33 @@ class GeofenceGeometry(BaseValidatorModel):
     Geobuf: Optional[Blob] = None
 
 
+# This class is the output for the 'batch_get_device_position' function.
 class BatchGetDevicePositionResponse(BaseValidatorModel):
     Errors: List[BatchGetDevicePositionError]
     DevicePositions: List[DevicePosition]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_device_position_history' function.
 class GetDevicePositionHistoryResponse(BaseValidatorModel):
     DevicePositions: List[DevicePosition]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'batch_evaluate_geofences' function.
 class BatchEvaluateGeofencesRequest(BaseValidatorModel):
     CollectionName: str
     DevicePositionUpdates: List[DevicePositionUpdate]
 
 
+# This class is the input for the 'batch_update_device_position' function.
 class BatchUpdateDevicePositionRequest(BaseValidatorModel):
     TrackerName: str
     Updates: List[DevicePositionUpdate]
 
 
+# This class is the output for the 'verify_device_position' function.
 class VerifyDevicePositionResponse(BaseValidatorModel):
     InferredState: InferredState
     DeviceId: str
@@ -1172,12 +1261,14 @@ class VerifyDevicePositionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_device_positions' function.
 class ListDevicePositionsResponse(BaseValidatorModel):
     Entries: List[ListDevicePositionsResponseEntry]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'calculate_route' function.
 class CalculateRouteResponse(BaseValidatorModel):
     Legs: List[Leg]
     Summary: CalculateRouteSummary
@@ -1188,6 +1279,7 @@ class CellSignals(BaseValidatorModel):
     LteCellDetails: List[LteCellDetails]
 
 
+# This class is the input for the 'create_map' function.
 class CreateMapRequest(BaseValidatorModel):
     MapName: str
     Configuration: MapConfigurationUnion
@@ -1196,6 +1288,7 @@ class CreateMapRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'get_place' function.
 class GetPlaceResponse(BaseValidatorModel):
     Place: Place
     ResponseMetadata: ResponseMetadata
@@ -1214,6 +1307,7 @@ class SearchForTextResult(BaseValidatorModel):
     PlaceId: Optional[str] = None
 
 
+# This class is the output for the 'calculate_route_matrix' function.
 class CalculateRouteMatrixResponse(BaseValidatorModel):
     RouteMatrix: List[List[RouteMatrixEntry]]
     SnappedDeparturePositions: List[List[float]]
@@ -1222,6 +1316,7 @@ class CalculateRouteMatrixResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_geofences' function.
 class ListGeofencesResponse(BaseValidatorModel):
     Entries: List[ListGeofenceResponseEntry]
     ResponseMetadata: ResponseMetadata
@@ -1240,12 +1335,14 @@ class DeviceState(BaseValidatorModel):
     CellSignals: Optional[CellSignals] = None
 
 
+# This class is the output for the 'search_place_index_for_position' function.
 class SearchPlaceIndexForPositionResponse(BaseValidatorModel):
     Summary: SearchPlaceIndexForPositionSummary
     Results: List[SearchForPositionResult]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_place_index_for_text' function.
 class SearchPlaceIndexForTextResponse(BaseValidatorModel):
     Summary: SearchPlaceIndexForTextSummary
     Results: List[SearchForTextResult]
@@ -1258,6 +1355,7 @@ class BatchPutGeofenceRequestEntry(BaseValidatorModel):
     GeofenceProperties: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'put_geofence' function.
 class PutGeofenceRequest(BaseValidatorModel):
     CollectionName: str
     GeofenceId: str
@@ -1265,12 +1363,14 @@ class PutGeofenceRequest(BaseValidatorModel):
     GeofenceProperties: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'verify_device_position' function.
 class VerifyDevicePositionRequest(BaseValidatorModel):
     TrackerName: str
     DeviceState: DeviceState
     DistanceUnit: Optional[DistanceUnitType] = None
 
 
+# This class is the input for the 'batch_put_geofence' function.
 class BatchPutGeofenceRequest(BaseValidatorModel):
     CollectionName: str
     Entries: List[BatchPutGeofenceRequestEntry]

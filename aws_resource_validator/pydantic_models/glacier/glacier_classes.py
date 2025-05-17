@@ -8,17 +8,20 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'abort_multipart_upload' function.
 class AbortMultipartUploadInput(BaseValidatorModel):
     vaultName: str
     uploadId: str
     accountId: Optional[str] = None
 
 
+# This class is the input for the 'abort_vault_lock' function.
 class AbortVaultLockInput(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
 
 
+# This class is the input for the 'add_tags_to_vault' function.
 class AddTagsToVaultInput(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
@@ -57,6 +60,7 @@ class CompleteMultipartUploadInputMultipartUploadComplete(BaseValidatorModel):
     checksum: Optional[str] = None
 
 
+# This class is the input for the 'complete_multipart_upload' function.
 class CompleteMultipartUploadInput(BaseValidatorModel):
     vaultName: str
     uploadId: str
@@ -65,6 +69,7 @@ class CompleteMultipartUploadInput(BaseValidatorModel):
     checksum: Optional[str] = None
 
 
+# This class is the input for the 'complete_vault_lock' function.
 class CompleteVaultLockInput(BaseValidatorModel):
     vaultName: str
     lockId: str
@@ -80,6 +85,7 @@ class CreateVaultInputServiceResourceCreateVault(BaseValidatorModel):
     accountId: Optional[str] = None
 
 
+# This class is the input for the 'create_vault' function.
 class CreateVaultInput(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
@@ -90,33 +96,39 @@ class DataRetrievalRule(BaseValidatorModel):
     BytesPerHour: Optional[int] = None
 
 
+# This class is the input for the 'delete_archive' function.
 class DeleteArchiveInput(BaseValidatorModel):
     vaultName: str
     archiveId: str
     accountId: Optional[str] = None
 
 
+# This class is the input for the 'delete_vault_access_policy' function.
 class DeleteVaultAccessPolicyInput(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
 
 
+# This class is the input for the 'delete_vault' function.
 class DeleteVaultInput(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
 
 
+# This class is the input for the 'delete_vault_notifications' function.
 class DeleteVaultNotificationsInput(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
 
 
+# This class is the input for the 'describe_job' function.
 class DescribeJobInput(BaseValidatorModel):
     vaultName: str
     jobId: str
     accountId: Optional[str] = None
 
 
+# This class is the input for the 'describe_vault' function.
 class DescribeVaultInput(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
@@ -142,6 +154,7 @@ class Encryption(BaseValidatorModel):
     KMSContext: Optional[str] = None
 
 
+# This class is the input for the 'get_data_retrieval_policy' function.
 class GetDataRetrievalPolicyInput(BaseValidatorModel):
     accountId: Optional[str] = None
 
@@ -150,6 +163,7 @@ class GetJobOutputInputJobGetOutput(BaseValidatorModel):
     range: Optional[str] = None
 
 
+# This class is the input for the 'get_job_output' function.
 class GetJobOutputInput(BaseValidatorModel):
     vaultName: str
     jobId: str
@@ -157,6 +171,7 @@ class GetJobOutputInput(BaseValidatorModel):
     range: Optional[str] = None
 
 
+# This class is the input for the 'get_vault_access_policy' function.
 class GetVaultAccessPolicyInput(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
@@ -166,11 +181,13 @@ class VaultAccessPolicy(BaseValidatorModel):
     Policy: Optional[str] = None
 
 
+# This class is the input for the 'get_vault_lock' function.
 class GetVaultLockInput(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
 
 
+# This class is the input for the 'get_vault_notifications' function.
 class GetVaultNotificationsInput(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
@@ -197,6 +214,7 @@ class Grantee(BaseValidatorModel):
     EmailAddress: Optional[str] = None
 
 
+# This class is the input for the 'initiate_multipart_upload' function.
 class InitiateMultipartUploadInput(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
@@ -226,6 +244,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_jobs' function.
 class ListJobsInput(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
@@ -235,6 +254,7 @@ class ListJobsInput(BaseValidatorModel):
     completed: Optional[str] = None
 
 
+# This class is the input for the 'list_multipart_uploads' function.
 class ListMultipartUploadsInput(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
@@ -255,6 +275,7 @@ class ListPartsInputMultipartUploadParts(BaseValidatorModel):
     limit: Optional[str] = None
 
 
+# This class is the input for the 'list_parts' function.
 class ListPartsInput(BaseValidatorModel):
     vaultName: str
     uploadId: str
@@ -268,6 +289,7 @@ class PartListElement(BaseValidatorModel):
     SHA256TreeHash: Optional[str] = None
 
 
+# This class is the input for the 'list_provisioned_capacity' function.
 class ListProvisionedCapacityInput(BaseValidatorModel):
     accountId: Optional[str] = None
 
@@ -278,21 +300,25 @@ class ProvisionedCapacityDescription(BaseValidatorModel):
     ExpirationDate: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_vault' function.
 class ListTagsForVaultInput(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
 
 
+# This class is the input for the 'list_vaults' function.
 class ListVaultsInput(BaseValidatorModel):
     accountId: Optional[str] = None
     marker: Optional[str] = None
     limit: Optional[str] = None
 
 
+# This class is the input for the 'purchase_provisioned_capacity' function.
 class PurchaseProvisionedCapacityInput(BaseValidatorModel):
     accountId: Optional[str] = None
 
 
+# This class is the input for the 'remove_tags_from_vault' function.
 class RemoveTagsFromVaultInput(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
@@ -304,6 +330,7 @@ class VaultNotificationConfig(BaseValidatorModel):
     Events: Optional[List[str]] = None
 
 
+# This class is the output for the 'upload_archive' function.
 class ArchiveCreationOutput(BaseValidatorModel):
     location: str
     checksum: str
@@ -311,11 +338,13 @@ class ArchiveCreationOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_vault' function.
 class CreateVaultOutput(BaseValidatorModel):
     location: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_vault' function.
 class DescribeVaultResponse(BaseValidatorModel):
     VaultARN: str
     VaultName: str
@@ -326,10 +355,12 @@ class DescribeVaultResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'set_vault_notifications' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_job_output' function.
 class GetJobOutputOutput(BaseValidatorModel):
     body: StreamingBody
     checksum: str
@@ -341,6 +372,7 @@ class GetJobOutputOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_vault_lock' function.
 class GetVaultLockOutput(BaseValidatorModel):
     Policy: str
     State: str
@@ -349,6 +381,7 @@ class GetVaultLockOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'initiate_job' function.
 class InitiateJobOutput(BaseValidatorModel):
     location: str
     jobId: str
@@ -356,32 +389,38 @@ class InitiateJobOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'initiate_multipart_upload' function.
 class InitiateMultipartUploadOutput(BaseValidatorModel):
     location: str
     uploadId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'initiate_vault_lock' function.
 class InitiateVaultLockOutput(BaseValidatorModel):
     lockId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_vault' function.
 class ListTagsForVaultOutput(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'purchase_provisioned_capacity' function.
 class PurchaseProvisionedCapacityOutput(BaseValidatorModel):
     capacityId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'upload_multipart_part' function.
 class UploadMultipartPartOutput(BaseValidatorModel):
     checksum: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'upload_archive' function.
 class UploadArchiveInput(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
@@ -402,6 +441,7 @@ class UploadMultipartPartInputMultipartUploadUploadPart(BaseValidatorModel):
     body: Optional[Blob] = None
 
 
+# This class is the input for the 'upload_multipart_part' function.
 class UploadMultipartPartInput(BaseValidatorModel):
     vaultName: str
     uploadId: str
@@ -439,23 +479,27 @@ class DescribeVaultInputWait(BaseValidatorModel):
     WaiterConfig: Optional[WaiterConfig] = None
 
 
+# This class is the output for the 'list_vaults' function.
 class ListVaultsOutput(BaseValidatorModel):
     VaultList: List[DescribeVaultOutput]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_vault_access_policy' function.
 class GetVaultAccessPolicyOutput(BaseValidatorModel):
     policy: VaultAccessPolicy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'set_vault_access_policy' function.
 class SetVaultAccessPolicyInput(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
     policy: Optional[VaultAccessPolicy] = None
 
 
+# This class is the output for the 'get_vault_notifications' function.
 class GetVaultNotificationsOutput(BaseValidatorModel):
     vaultNotificationConfig: VaultNotificationConfigOutput
     ResponseMetadata: ResponseMetadata
@@ -466,6 +510,7 @@ class Grant(BaseValidatorModel):
     Permission: Optional[PermissionType] = None
 
 
+# This class is the input for the 'initiate_vault_lock' function.
 class InitiateVaultLockInput(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
@@ -498,12 +543,14 @@ class ListVaultsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_multipart_uploads' function.
 class ListMultipartUploadsOutput(BaseValidatorModel):
     UploadsList: List[UploadListElement]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_parts' function.
 class ListPartsOutput(BaseValidatorModel):
     MultipartUploadId: str
     VaultARN: str
@@ -515,6 +562,7 @@ class ListPartsOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_provisioned_capacity' function.
 class ListProvisionedCapacityOutput(BaseValidatorModel):
     ProvisionedCapacityList: List[ProvisionedCapacityDescription]
     ResponseMetadata: ResponseMetadata
@@ -529,6 +577,7 @@ class SelectParameters(BaseValidatorModel):
     OutputSerialization: Optional[OutputSerialization] = None
 
 
+# This class is the output for the 'get_data_retrieval_policy' function.
 class GetDataRetrievalPolicyOutput(BaseValidatorModel):
     Policy: DataRetrievalPolicyOutput
     ResponseMetadata: ResponseMetadata
@@ -562,12 +611,14 @@ class SetVaultNotificationsInputNotificationSet(BaseValidatorModel):
     vaultNotificationConfig: Optional[VaultNotificationConfigUnion] = None
 
 
+# This class is the input for the 'set_vault_notifications' function.
 class SetVaultNotificationsInput(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None
     vaultNotificationConfig: Optional[VaultNotificationConfigUnion] = None
 
 
+# This class is the input for the 'set_data_retrieval_policy' function.
 class SetDataRetrievalPolicyInput(BaseValidatorModel):
     accountId: Optional[str] = None
     Policy: Optional[DataRetrievalPolicyUnion] = None
@@ -579,6 +630,7 @@ class OutputLocationOutput(BaseValidatorModel):
 S3LocationUnion = Union[S3Location, S3LocationOutput]
 
 
+# This class is the output for the 'describe_job' function.
 class GlacierJobDescriptionResponse(BaseValidatorModel):
     JobId: str
     JobDescription: str
@@ -632,6 +684,7 @@ class OutputLocation(BaseValidatorModel):
     S3: Optional[S3LocationUnion] = None
 
 
+# This class is the output for the 'list_jobs' function.
 class ListJobsOutput(BaseValidatorModel):
     JobList: List[GlacierJobDescription]
     Marker: str
@@ -653,6 +706,7 @@ class JobParameters(BaseValidatorModel):
     OutputLocation: Optional[OutputLocationUnion] = None
 
 
+# This class is the input for the 'initiate_job' function.
 class InitiateJobInput(BaseValidatorModel):
     vaultName: str
     accountId: Optional[str] = None

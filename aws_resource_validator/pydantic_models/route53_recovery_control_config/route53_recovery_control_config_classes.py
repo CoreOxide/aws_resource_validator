@@ -35,6 +35,7 @@ class ControlPanel(BaseValidatorModel):
     Owner: Optional[str] = None
 
 
+# This class is the input for the 'create_cluster' function.
 class CreateClusterRequest(BaseValidatorModel):
     ClusterName: str
     ClientToken: Optional[str] = None
@@ -49,6 +50,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_control_panel' function.
 class CreateControlPanelRequest(BaseValidatorModel):
     ClusterArn: str
     ControlPanelName: str
@@ -56,6 +58,7 @@ class CreateControlPanelRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_routing_control' function.
 class CreateRoutingControlRequest(BaseValidatorModel):
     ClusterArn: str
     RoutingControlName: str
@@ -87,6 +90,7 @@ class DeleteSafetyRuleRequest(BaseValidatorModel):
     SafetyRuleArn: str
 
 
+# This class is the input for the 'describe_cluster' function.
 class DescribeClusterRequest(BaseValidatorModel):
     ClusterArn: str
 
@@ -96,14 +100,17 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'describe_control_panel' function.
 class DescribeControlPanelRequest(BaseValidatorModel):
     ControlPanelArn: str
 
 
+# This class is the input for the 'describe_routing_control' function.
 class DescribeRoutingControlRequest(BaseValidatorModel):
     RoutingControlArn: str
 
 
+# This class is the input for the 'describe_safety_rule' function.
 class DescribeSafetyRuleRequest(BaseValidatorModel):
     SafetyRuleArn: str
 
@@ -114,6 +121,7 @@ class GatingRuleUpdate(BaseValidatorModel):
     WaitPeriodMs: int
 
 
+# This class is the input for the 'get_resource_policy' function.
 class GetResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -124,35 +132,41 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_associated_route53_health_checks' function.
 class ListAssociatedRoute53HealthChecksRequest(BaseValidatorModel):
     RoutingControlArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_clusters' function.
 class ListClustersRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_control_panels' function.
 class ListControlPanelsRequest(BaseValidatorModel):
     ClusterArn: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_routing_controls' function.
 class ListRoutingControlsRequest(BaseValidatorModel):
     ControlPanelArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_safety_rules' function.
 class ListSafetyRulesRequest(BaseValidatorModel):
     ControlPanelArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -167,11 +181,13 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_control_panel' function.
 class UpdateControlPanelRequest(BaseValidatorModel):
     ControlPanelArn: str
     ControlPanelName: str
 
 
+# This class is the input for the 'update_routing_control' function.
 class UpdateRoutingControlRequest(BaseValidatorModel):
     RoutingControlArn: str
     RoutingControlName: str
@@ -225,59 +241,70 @@ class Cluster(BaseValidatorModel):
     Owner: Optional[str] = None
 
 
+# This class is the output for the 'create_control_panel' function.
 class CreateControlPanelResponse(BaseValidatorModel):
     ControlPanel: ControlPanel
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_control_panel' function.
 class DescribeControlPanelResponse(BaseValidatorModel):
     ControlPanel: ControlPanel
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_policy' function.
 class GetResourcePolicyResponse(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_associated_route53_health_checks' function.
 class ListAssociatedRoute53HealthChecksResponse(BaseValidatorModel):
     HealthCheckIds: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_control_panels' function.
 class ListControlPanelsResponse(BaseValidatorModel):
     ControlPanels: List[ControlPanel]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_control_panel' function.
 class UpdateControlPanelResponse(BaseValidatorModel):
     ControlPanel: ControlPanel
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_routing_control' function.
 class CreateRoutingControlResponse(BaseValidatorModel):
     RoutingControl: RoutingControl
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_routing_control' function.
 class DescribeRoutingControlResponse(BaseValidatorModel):
     RoutingControl: RoutingControl
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_routing_controls' function.
 class ListRoutingControlsResponse(BaseValidatorModel):
     RoutingControls: List[RoutingControl]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_routing_control' function.
 class UpdateRoutingControlResponse(BaseValidatorModel):
     RoutingControl: RoutingControl
     ResponseMetadata: ResponseMetadata
@@ -313,6 +340,7 @@ class DescribeRoutingControlRequestWait(BaseValidatorModel):
     WaiterConfig: Optional[WaiterConfig] = None
 
 
+# This class is the input for the 'update_safety_rule' function.
 class UpdateSafetyRuleRequest(BaseValidatorModel):
     AssertionRuleUpdate: Optional[AssertionRuleUpdate] = None
     GatingRuleUpdate: Optional[GatingRuleUpdate] = None
@@ -342,12 +370,14 @@ class ListSafetyRulesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'create_safety_rule' function.
 class CreateSafetyRuleResponse(BaseValidatorModel):
     AssertionRule: AssertionRule
     GatingRule: GatingRule
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_safety_rule' function.
 class DescribeSafetyRuleResponse(BaseValidatorModel):
     AssertionRule: AssertionRule
     GatingRule: GatingRule
@@ -359,12 +389,14 @@ class Rule(BaseValidatorModel):
     GATING: Optional[GatingRule] = None
 
 
+# This class is the output for the 'update_safety_rule' function.
 class UpdateSafetyRuleResponse(BaseValidatorModel):
     AssertionRule: AssertionRule
     GatingRule: GatingRule
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_safety_rule' function.
 class CreateSafetyRuleRequest(BaseValidatorModel):
     AssertionRule: Optional[NewAssertionRule] = None
     ClientToken: Optional[str] = None
@@ -372,22 +404,26 @@ class CreateSafetyRuleRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_cluster' function.
 class CreateClusterResponse(BaseValidatorModel):
     Cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_cluster' function.
 class DescribeClusterResponse(BaseValidatorModel):
     Cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_clusters' function.
 class ListClustersResponse(BaseValidatorModel):
     Clusters: List[Cluster]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_safety_rules' function.
 class ListSafetyRulesResponse(BaseValidatorModel):
     SafetyRules: List[Rule]
     ResponseMetadata: ResponseMetadata

@@ -62,6 +62,7 @@ class SchedulerConfiguration(BaseValidatorModel):
     maxConcurrentRuns: Optional[int] = None
 
 
+# This class is the input for the 'cancel_job_run' function.
 class CancelJobRunRequest(BaseValidatorModel):
     applicationId: str
     jobRunId: str
@@ -105,10 +106,12 @@ class DeleteApplicationRequest(BaseValidatorModel):
     applicationId: str
 
 
+# This class is the input for the 'get_application' function.
 class GetApplicationRequest(BaseValidatorModel):
     applicationId: str
 
 
+# This class is the input for the 'get_dashboard_for_job_run' function.
 class GetDashboardForJobRunRequest(BaseValidatorModel):
     applicationId: str
     jobRunId: str
@@ -116,6 +119,7 @@ class GetDashboardForJobRunRequest(BaseValidatorModel):
     accessSystemProfileLogs: Optional[bool] = None
 
 
+# This class is the input for the 'get_job_run' function.
 class GetJobRunRequest(BaseValidatorModel):
     applicationId: str
     jobRunId: str
@@ -207,12 +211,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_applications' function.
 class ListApplicationsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     states: Optional[List[ApplicationStateType]] = None
 
 
+# This class is the input for the 'list_job_run_attempts' function.
 class ListJobRunAttemptsRequest(BaseValidatorModel):
     applicationId: str
     jobRunId: str
@@ -222,6 +228,7 @@ class ListJobRunAttemptsRequest(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -267,12 +274,14 @@ class WorkerTypeSpecification(BaseValidatorModel):
     imageConfiguration: Optional[ImageConfiguration] = None
 
 
+# This class is the output for the 'cancel_job_run' function.
 class CancelJobRunResponse(BaseValidatorModel):
     applicationId: str
     jobRunId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_application' function.
 class CreateApplicationResponse(BaseValidatorModel):
     applicationId: str
     name: str
@@ -280,22 +289,26 @@ class CreateApplicationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_dashboard_for_job_run' function.
 class GetDashboardForJobRunResponse(BaseValidatorModel):
     url: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_applications' function.
 class ListApplicationsResponse(BaseValidatorModel):
     applications: List[ApplicationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_job_run' function.
 class StartJobRunResponse(BaseValidatorModel):
     applicationId: str
     jobRunId: str
@@ -324,12 +337,14 @@ class JobDriver(BaseValidatorModel):
     hive: Optional[Hive] = None
 
 
+# This class is the output for the 'list_job_run_attempts' function.
 class ListJobRunAttemptsResponse(BaseValidatorModel):
     jobRunAttempts: List[JobRunAttemptSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_job_runs' function.
 class ListJobRunsResponse(BaseValidatorModel):
     jobRuns: List[JobRunSummary]
     ResponseMetadata: ResponseMetadata
@@ -356,6 +371,7 @@ class ListJobRunsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_job_runs' function.
 class ListJobRunsRequest(BaseValidatorModel):
     applicationId: str
     nextToken: Optional[str] = None
@@ -421,11 +437,13 @@ class ConfigurationOverrides(BaseValidatorModel):
 MonitoringConfigurationUnion = Union[MonitoringConfiguration, MonitoringConfigurationOutput]
 
 
+# This class is the output for the 'get_application' function.
 class GetApplicationResponse(BaseValidatorModel):
     application: Application
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_application' function.
 class UpdateApplicationResponse(BaseValidatorModel):
     application: Application
     ResponseMetadata: ResponseMetadata
@@ -463,6 +481,7 @@ class JobRun(BaseValidatorModel):
 ConfigurationOverridesUnion = Union[ConfigurationOverrides, ConfigurationOverridesOutput]
 
 
+# This class is the input for the 'create_application' function.
 class CreateApplicationRequest(BaseValidatorModel):
     releaseLabel: str
     type: str
@@ -483,6 +502,7 @@ class CreateApplicationRequest(BaseValidatorModel):
     schedulerConfiguration: Optional[SchedulerConfiguration] = None
 
 
+# This class is the input for the 'update_application' function.
 class UpdateApplicationRequest(BaseValidatorModel):
     applicationId: str
     clientToken: str
@@ -501,11 +521,13 @@ class UpdateApplicationRequest(BaseValidatorModel):
     schedulerConfiguration: Optional[SchedulerConfiguration] = None
 
 
+# This class is the output for the 'get_job_run' function.
 class GetJobRunResponse(BaseValidatorModel):
     jobRun: JobRun
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_job_run' function.
 class StartJobRunRequest(BaseValidatorModel):
     applicationId: str
     clientToken: str

@@ -8,12 +8,14 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'abort_document_version_upload' function.
 class AbortDocumentVersionUploadRequest(BaseValidatorModel):
     DocumentId: str
     VersionId: str
     AuthenticationToken: Optional[str] = None
 
 
+# This class is the input for the 'activate_user' function.
 class ActivateUserRequest(BaseValidatorModel):
     UserId: str
     AuthenticationToken: Optional[str] = None
@@ -55,6 +57,7 @@ class ShareResult(BaseValidatorModel):
     StatusMessage: Optional[str] = None
 
 
+# This class is the input for the 'create_comment' function.
 class CreateCommentRequest(BaseValidatorModel):
     DocumentId: str
     VersionId: str
@@ -73,6 +76,7 @@ class CreateCustomMetadataRequest(BaseValidatorModel):
     VersionId: Optional[str] = None
 
 
+# This class is the input for the 'create_folder' function.
 class CreateFolderRequest(BaseValidatorModel):
     ParentFolderId: str
     AuthenticationToken: Optional[str] = None
@@ -99,6 +103,7 @@ class CreateLabelsRequest(BaseValidatorModel):
     AuthenticationToken: Optional[str] = None
 
 
+# This class is the input for the 'create_notification_subscription' function.
 class CreateNotificationSubscriptionRequest(BaseValidatorModel):
     OrganizationId: str
     Endpoint: str
@@ -119,11 +124,13 @@ class StorageRuleType(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'deactivate_user' function.
 class DeactivateUserRequest(BaseValidatorModel):
     UserId: str
     AuthenticationToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_comment' function.
 class DeleteCommentRequest(BaseValidatorModel):
     DocumentId: str
     VersionId: str
@@ -139,11 +146,13 @@ class DeleteCustomMetadataRequest(BaseValidatorModel):
     DeleteAll: Optional[bool] = None
 
 
+# This class is the input for the 'delete_document' function.
 class DeleteDocumentRequest(BaseValidatorModel):
     DocumentId: str
     AuthenticationToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_document_version' function.
 class DeleteDocumentVersionRequest(BaseValidatorModel):
     DocumentId: str
     VersionId: str
@@ -151,11 +160,13 @@ class DeleteDocumentVersionRequest(BaseValidatorModel):
     AuthenticationToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_folder_contents' function.
 class DeleteFolderContentsRequest(BaseValidatorModel):
     FolderId: str
     AuthenticationToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_folder' function.
 class DeleteFolderRequest(BaseValidatorModel):
     FolderId: str
     AuthenticationToken: Optional[str] = None
@@ -168,11 +179,13 @@ class DeleteLabelsRequest(BaseValidatorModel):
     DeleteAll: Optional[bool] = None
 
 
+# This class is the input for the 'delete_notification_subscription' function.
 class DeleteNotificationSubscriptionRequest(BaseValidatorModel):
     SubscriptionId: str
     OrganizationId: str
 
 
+# This class is the input for the 'delete_user' function.
 class DeleteUserRequest(BaseValidatorModel):
     UserId: str
     AuthenticationToken: Optional[str] = None
@@ -184,6 +197,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_comments' function.
 class DescribeCommentsRequest(BaseValidatorModel):
     DocumentId: str
     VersionId: str
@@ -192,6 +206,7 @@ class DescribeCommentsRequest(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_document_versions' function.
 class DescribeDocumentVersionsRequest(BaseValidatorModel):
     DocumentId: str
     AuthenticationToken: Optional[str] = None
@@ -217,6 +232,7 @@ class DocumentVersionMetadata(BaseValidatorModel):
     Source: Optional[Dict[DocumentSourceTypeType, str]] = None
 
 
+# This class is the input for the 'describe_folder_contents' function.
 class DescribeFolderContentsRequest(BaseValidatorModel):
     FolderId: str
     AuthenticationToken: Optional[str] = None
@@ -228,6 +244,7 @@ class DescribeFolderContentsRequest(BaseValidatorModel):
     Include: Optional[str] = None
 
 
+# This class is the input for the 'describe_groups' function.
 class DescribeGroupsRequest(BaseValidatorModel):
     SearchQuery: str
     AuthenticationToken: Optional[str] = None
@@ -241,12 +258,14 @@ class GroupMetadata(BaseValidatorModel):
     Name: Optional[str] = None
 
 
+# This class is the input for the 'describe_notification_subscriptions' function.
 class DescribeNotificationSubscriptionsRequest(BaseValidatorModel):
     OrganizationId: str
     Marker: Optional[str] = None
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'describe_resource_permissions' function.
 class DescribeResourcePermissionsRequest(BaseValidatorModel):
     ResourceId: str
     AuthenticationToken: Optional[str] = None
@@ -255,12 +274,14 @@ class DescribeResourcePermissionsRequest(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_root_folders' function.
 class DescribeRootFoldersRequest(BaseValidatorModel):
     AuthenticationToken: str
     Limit: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_users' function.
 class DescribeUsersRequest(BaseValidatorModel):
     AuthenticationToken: Optional[str] = None
     OrganizationId: Optional[str] = None
@@ -284,10 +305,12 @@ class SearchPrincipalType(BaseValidatorModel):
     Roles: Optional[List[PrincipalRoleTypeType]] = None
 
 
+# This class is the input for the 'get_current_user' function.
 class GetCurrentUserRequest(BaseValidatorModel):
     AuthenticationToken: str
 
 
+# This class is the input for the 'get_document_path' function.
 class GetDocumentPathRequest(BaseValidatorModel):
     DocumentId: str
     AuthenticationToken: Optional[str] = None
@@ -296,12 +319,14 @@ class GetDocumentPathRequest(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'get_document' function.
 class GetDocumentRequest(BaseValidatorModel):
     DocumentId: str
     AuthenticationToken: Optional[str] = None
     IncludeCustomMetadata: Optional[bool] = None
 
 
+# This class is the input for the 'get_document_version' function.
 class GetDocumentVersionRequest(BaseValidatorModel):
     DocumentId: str
     VersionId: str
@@ -310,6 +335,7 @@ class GetDocumentVersionRequest(BaseValidatorModel):
     IncludeCustomMetadata: Optional[bool] = None
 
 
+# This class is the input for the 'get_folder_path' function.
 class GetFolderPathRequest(BaseValidatorModel):
     FolderId: str
     AuthenticationToken: Optional[str] = None
@@ -318,12 +344,14 @@ class GetFolderPathRequest(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'get_folder' function.
 class GetFolderRequest(BaseValidatorModel):
     FolderId: str
     AuthenticationToken: Optional[str] = None
     IncludeCustomMetadata: Optional[bool] = None
 
 
+# This class is the input for the 'get_resources' function.
 class GetResourcesRequest(BaseValidatorModel):
     AuthenticationToken: Optional[str] = None
     UserId: Optional[str] = None
@@ -342,11 +370,13 @@ class PermissionInfo(BaseValidatorModel):
     Type: Optional[RolePermissionTypeType] = None
 
 
+# This class is the input for the 'remove_all_resource_permissions' function.
 class RemoveAllResourcePermissionsRequest(BaseValidatorModel):
     ResourceId: str
     AuthenticationToken: Optional[str] = None
 
 
+# This class is the input for the 'remove_resource_permission' function.
 class RemoveResourcePermissionRequest(BaseValidatorModel):
     ResourceId: str
     PrincipalId: str
@@ -359,6 +389,7 @@ class ResourcePathComponent(BaseValidatorModel):
     Name: Optional[str] = None
 
 
+# This class is the input for the 'restore_document_versions' function.
 class RestoreDocumentVersionsRequest(BaseValidatorModel):
     DocumentId: str
     AuthenticationToken: Optional[str] = None
@@ -369,6 +400,7 @@ class SearchSortResult(BaseValidatorModel):
     Order: Optional[SortOrderType] = None
 
 
+# This class is the input for the 'update_document' function.
 class UpdateDocumentRequest(BaseValidatorModel):
     DocumentId: str
     AuthenticationToken: Optional[str] = None
@@ -377,6 +409,7 @@ class UpdateDocumentRequest(BaseValidatorModel):
     ResourceState: Optional[ResourceStateTypeType] = None
 
 
+# This class is the input for the 'update_document_version' function.
 class UpdateDocumentVersionRequest(BaseValidatorModel):
     DocumentId: str
     VersionId: str
@@ -384,6 +417,7 @@ class UpdateDocumentVersionRequest(BaseValidatorModel):
     VersionStatus: Optional[Literal['ACTIVE']] = None
 
 
+# This class is the input for the 'update_folder' function.
 class UpdateFolderRequest(BaseValidatorModel):
     FolderId: str
     AuthenticationToken: Optional[str] = None
@@ -392,6 +426,7 @@ class UpdateFolderRequest(BaseValidatorModel):
     ResourceState: Optional[ResourceStateTypeType] = None
 
 
+# This class is the output for the 'update_folder' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
@@ -406,6 +441,7 @@ class ResourceMetadata(BaseValidatorModel):
     ParentId: Optional[str] = None
 
 
+# This class is the input for the 'add_resource_permissions' function.
 class AddResourcePermissionsRequest(BaseValidatorModel):
     ResourceId: str
     Principals: List[SharePrincipal]
@@ -413,39 +449,46 @@ class AddResourcePermissionsRequest(BaseValidatorModel):
     NotificationOptions: Optional[NotificationOptions] = None
 
 
+# This class is the output for the 'add_resource_permissions' function.
 class AddResourcePermissionsResponse(BaseValidatorModel):
     ShareResults: List[ShareResult]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_folder' function.
 class CreateFolderResponse(BaseValidatorModel):
     Metadata: FolderMetadata
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_root_folders' function.
 class DescribeRootFoldersResponse(BaseValidatorModel):
     Folders: List[FolderMetadata]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_folder' function.
 class GetFolderResponse(BaseValidatorModel):
     Metadata: FolderMetadata
     CustomMetadata: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_notification_subscription' function.
 class CreateNotificationSubscriptionResponse(BaseValidatorModel):
     Subscription: Subscription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_notification_subscriptions' function.
 class DescribeNotificationSubscriptionsResponse(BaseValidatorModel):
     Subscriptions: List[Subscription]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_user' function.
 class CreateUserRequest(BaseValidatorModel):
     Username: str
     GivenName: str
@@ -458,6 +501,7 @@ class CreateUserRequest(BaseValidatorModel):
     AuthenticationToken: Optional[str] = None
 
 
+# This class is the input for the 'update_user' function.
 class UpdateUserRequest(BaseValidatorModel):
     UserId: str
     AuthenticationToken: Optional[str] = None
@@ -480,6 +524,7 @@ class DateRangeType(BaseValidatorModel):
     EndValue: Optional[Timestamp] = None
 
 
+# This class is the input for the 'describe_activities' function.
 class DescribeActivitiesRequest(BaseValidatorModel):
     AuthenticationToken: Optional[str] = None
     StartTime: Optional[Timestamp] = None
@@ -493,6 +538,7 @@ class DescribeActivitiesRequest(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'initiate_document_version_upload' function.
 class InitiateDocumentVersionUploadRequest(BaseValidatorModel):
     AuthenticationToken: Optional[str] = None
     Id: Optional[str] = None
@@ -577,6 +623,7 @@ class DescribeUsersRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'describe_document_versions' function.
 class DescribeDocumentVersionsResponse(BaseValidatorModel):
     DocumentVersions: List[DocumentVersionMetadata]
     Marker: str
@@ -594,12 +641,14 @@ class DocumentMetadata(BaseValidatorModel):
     Labels: Optional[List[str]] = None
 
 
+# This class is the output for the 'get_document_version' function.
 class GetDocumentVersionResponse(BaseValidatorModel):
     Metadata: DocumentVersionMetadata
     CustomMetadata: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_groups' function.
 class DescribeGroupsResponse(BaseValidatorModel):
     Groups: List[GroupMetadata]
     Marker: str
@@ -652,6 +701,7 @@ class Filters(BaseValidatorModel):
     ModifiedRange: Optional[DateRangeType] = None
 
 
+# This class is the output for the 'describe_folder_contents' function.
 class DescribeFolderContentsResponse(BaseValidatorModel):
     Folders: List[FolderMetadata]
     Documents: List[DocumentMetadata]
@@ -659,12 +709,14 @@ class DescribeFolderContentsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_document' function.
 class GetDocumentResponse(BaseValidatorModel):
     Metadata: DocumentMetadata
     CustomMetadata: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resources' function.
 class GetResourcesResponse(BaseValidatorModel):
     Folders: List[FolderMetadata]
     Documents: List[DocumentMetadata]
@@ -672,28 +724,33 @@ class GetResourcesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'initiate_document_version_upload' function.
 class InitiateDocumentVersionUploadResponse(BaseValidatorModel):
     Metadata: DocumentMetadata
     UploadMetadata: UploadMetadata
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_resource_permissions' function.
 class DescribeResourcePermissionsResponse(BaseValidatorModel):
     Principals: List[Principal]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_document_path' function.
 class GetDocumentPathResponse(BaseValidatorModel):
     Path: ResourcePath
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_folder_path' function.
 class GetFolderPathResponse(BaseValidatorModel):
     Path: ResourcePath
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'activate_user' function.
 class ActivateUserResponse(BaseValidatorModel):
     User: User
     ResponseMetadata: ResponseMetadata
@@ -720,11 +777,13 @@ class Comment(BaseValidatorModel):
     RecipientId: Optional[str] = None
 
 
+# This class is the output for the 'create_user' function.
 class CreateUserResponse(BaseValidatorModel):
     User: User
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_users' function.
 class DescribeUsersResponse(BaseValidatorModel):
     Users: List[User]
     TotalNumberOfUsers: int
@@ -732,11 +791,13 @@ class DescribeUsersResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_current_user' function.
 class GetCurrentUserResponse(BaseValidatorModel):
     User: User
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_user' function.
 class UpdateUserResponse(BaseValidatorModel):
     User: User
     ResponseMetadata: ResponseMetadata
@@ -753,6 +814,7 @@ class SearchResourcesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_resources' function.
 class SearchResourcesRequest(BaseValidatorModel):
     AuthenticationToken: Optional[str] = None
     QueryText: Optional[str] = None
@@ -786,23 +848,27 @@ class ResponseItem(BaseValidatorModel):
     DocumentVersionMetadata: Optional[DocumentVersionMetadata] = None
 
 
+# This class is the output for the 'create_comment' function.
 class CreateCommentResponse(BaseValidatorModel):
     Comment: Comment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_comments' function.
 class DescribeCommentsResponse(BaseValidatorModel):
     Comments: List[Comment]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_activities' function.
 class DescribeActivitiesResponse(BaseValidatorModel):
     UserActivities: List[Activity]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_resources' function.
 class SearchResourcesResponse(BaseValidatorModel):
     Items: List[ResponseItem]
     Marker: str

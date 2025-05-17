@@ -21,6 +21,7 @@ class ChangedBlock(BaseValidatorModel):
     SecondBlockToken: Optional[str] = None
 
 
+# This class is the input for the 'complete_snapshot' function.
 class CompleteSnapshotRequest(BaseValidatorModel):
     SnapshotId: str
     ChangedBlocksCount: int
@@ -37,12 +38,14 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'get_snapshot_block' function.
 class GetSnapshotBlockRequest(BaseValidatorModel):
     SnapshotId: str
     BlockIndex: int
     BlockToken: str
 
 
+# This class is the input for the 'list_changed_blocks' function.
 class ListChangedBlocksRequest(BaseValidatorModel):
     SecondSnapshotId: str
     FirstSnapshotId: Optional[str] = None
@@ -51,6 +54,7 @@ class ListChangedBlocksRequest(BaseValidatorModel):
     StartingBlockIndex: Optional[int] = None
 
 
+# This class is the input for the 'list_snapshot_blocks' function.
 class ListSnapshotBlocksRequest(BaseValidatorModel):
     SnapshotId: str
     NextToken: Optional[str] = None
@@ -63,6 +67,7 @@ class Tag(BaseValidatorModel):
     Value: Optional[str] = None
 
 
+# This class is the input for the 'put_snapshot_block' function.
 class PutSnapshotBlockRequest(BaseValidatorModel):
     SnapshotId: str
     BlockIndex: int
@@ -73,11 +78,13 @@ class PutSnapshotBlockRequest(BaseValidatorModel):
     Progress: Optional[int] = None
 
 
+# This class is the output for the 'complete_snapshot' function.
 class CompleteSnapshotResponse(BaseValidatorModel):
     Status: StatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_snapshot_block' function.
 class GetSnapshotBlockResponse(BaseValidatorModel):
     DataLength: int
     BlockData: StreamingBody
@@ -86,6 +93,7 @@ class GetSnapshotBlockResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_changed_blocks' function.
 class ListChangedBlocksResponse(BaseValidatorModel):
     ChangedBlocks: List[ChangedBlock]
     ExpiryTime: datetime
@@ -95,6 +103,7 @@ class ListChangedBlocksResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_snapshot_blocks' function.
 class ListSnapshotBlocksResponse(BaseValidatorModel):
     Blocks: List[Block]
     ExpiryTime: datetime
@@ -104,12 +113,14 @@ class ListSnapshotBlocksResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'put_snapshot_block' function.
 class PutSnapshotBlockResponse(BaseValidatorModel):
     Checksum: str
     ChecksumAlgorithm: Literal['SHA256']
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_snapshot' function.
 class StartSnapshotRequest(BaseValidatorModel):
     VolumeSize: int
     ParentSnapshotId: Optional[str] = None
@@ -121,6 +132,7 @@ class StartSnapshotRequest(BaseValidatorModel):
     Timeout: Optional[int] = None
 
 
+# This class is the output for the 'start_snapshot' function.
 class StartSnapshotResponse(BaseValidatorModel):
     Description: str
     SnapshotId: str

@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'get_buyer_dashboard' function.
 class GetBuyerDashboardInput(BaseValidatorModel):
     dashboardIdentifier: str
     embeddingDomains: List[str]
@@ -21,6 +22,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the output for the 'get_buyer_dashboard' function.
 class GetBuyerDashboardOutput(BaseValidatorModel):
     embedUrl: str
     dashboardIdentifier: str

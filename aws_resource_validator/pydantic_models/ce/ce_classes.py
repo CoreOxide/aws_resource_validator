@@ -135,10 +135,12 @@ class DeleteAnomalySubscriptionRequest(BaseValidatorModel):
     SubscriptionArn: str
 
 
+# This class is the input for the 'delete_cost_category_definition' function.
 class DeleteCostCategoryDefinitionRequest(BaseValidatorModel):
     CostCategoryArn: str
 
 
+# This class is the input for the 'describe_cost_category_definition' function.
 class DescribeCostCategoryDefinitionRequest(BaseValidatorModel):
     CostCategoryArn: str
     EffectiveOn: Optional[str] = None
@@ -245,12 +247,14 @@ class TotalImpactFilter(BaseValidatorModel):
     EndValue: Optional[float] = None
 
 
+# This class is the input for the 'get_anomaly_monitors' function.
 class GetAnomalyMonitorsRequest(BaseValidatorModel):
     MonitorArnList: Optional[List[str]] = None
     NextPageToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_anomaly_subscriptions' function.
 class GetAnomalySubscriptionsRequest(BaseValidatorModel):
     SubscriptionArnList: Optional[List[str]] = None
     MonitorArn: Optional[str] = None
@@ -258,12 +262,14 @@ class GetAnomalySubscriptionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_approximate_usage_records' function.
 class GetApproximateUsageRecordsRequest(BaseValidatorModel):
     Granularity: GranularityType
     ApproximationDimension: ApproximationDimensionType
     Services: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_commitment_purchase_analysis' function.
 class GetCommitmentPurchaseAnalysisRequest(BaseValidatorModel):
     AnalysisId: str
 
@@ -328,6 +334,7 @@ class RightsizingRecommendationSummary(BaseValidatorModel):
     SavingsPercentage: Optional[str] = None
 
 
+# This class is the input for the 'get_savings_plan_purchase_recommendation_details' function.
 class GetSavingsPlanPurchaseRecommendationDetailsRequest(BaseValidatorModel):
     RecommendationDetailId: str
 
@@ -366,6 +373,7 @@ class RedshiftInstanceDetails(BaseValidatorModel):
     SizeFlexEligible: Optional[bool] = None
 
 
+# This class is the input for the 'list_commitment_purchase_analyses' function.
 class ListCommitmentPurchaseAnalysesRequest(BaseValidatorModel):
     AnalysisStatus: Optional[AnalysisStatusType] = None
     NextPageToken: Optional[str] = None
@@ -373,11 +381,13 @@ class ListCommitmentPurchaseAnalysesRequest(BaseValidatorModel):
     AnalysisIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_cost_allocation_tag_backfill_history' function.
 class ListCostAllocationTagBackfillHistoryRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_cost_allocation_tags' function.
 class ListCostAllocationTagsRequest(BaseValidatorModel):
     Status: Optional[CostAllocationTagStatusType] = None
     TagKeys: Optional[List[str]] = None
@@ -386,12 +396,14 @@ class ListCostAllocationTagsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_cost_category_definitions' function.
 class ListCostCategoryDefinitionsRequest(BaseValidatorModel):
     EffectiveOn: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_savings_plans_purchase_recommendation_generation' function.
 class ListSavingsPlansPurchaseRecommendationGenerationRequest(BaseValidatorModel):
     GenerationStatus: Optional[GenerationStatusType] = None
     RecommendationIds: Optional[List[str]] = None
@@ -399,10 +411,12 @@ class ListSavingsPlansPurchaseRecommendationGenerationRequest(BaseValidatorModel
     NextPageToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'provide_anomaly_feedback' function.
 class ProvideAnomalyFeedbackRequest(BaseValidatorModel):
     AnomalyId: str
     Feedback: AnomalyFeedbackTypeType
@@ -486,6 +500,7 @@ class SavingsPlansUtilization(BaseValidatorModel):
     UtilizationPercentage: Optional[str] = None
 
 
+# This class is the input for the 'start_cost_allocation_tag_backfill' function.
 class StartCostAllocationTagBackfillRequest(BaseValidatorModel):
     BackfillFrom: str
 
@@ -501,6 +516,7 @@ class UntagResourceRequest(BaseValidatorModel):
     ResourceTagKeys: List[str]
 
 
+# This class is the input for the 'update_anomaly_monitor' function.
 class UpdateAnomalyMonitorRequest(BaseValidatorModel):
     MonitorArn: str
     MonitorName: Optional[str] = None
@@ -512,6 +528,7 @@ class UpdateCostAllocationTagsStatusError(BaseValidatorModel):
     Message: Optional[str] = None
 
 
+# This class is the input for the 'update_cost_allocation_tags_status' function.
 class UpdateCostAllocationTagsStatusRequest(BaseValidatorModel):
     CostAllocationTagsStatus: List[CostAllocationTagStatusEntry]
 
@@ -556,28 +573,33 @@ class TagResourceRequest(BaseValidatorModel):
     ResourceTags: List[ResourceTag]
 
 
+# This class is the output for the 'create_anomaly_monitor' function.
 class CreateAnomalyMonitorResponse(BaseValidatorModel):
     MonitorArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_anomaly_subscription' function.
 class CreateAnomalySubscriptionResponse(BaseValidatorModel):
     SubscriptionArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_cost_category_definition' function.
 class CreateCostCategoryDefinitionResponse(BaseValidatorModel):
     CostCategoryArn: str
     EffectiveStart: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_cost_category_definition' function.
 class DeleteCostCategoryDefinitionResponse(BaseValidatorModel):
     CostCategoryArn: str
     EffectiveEnd: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_approximate_usage_records' function.
 class GetApproximateUsageRecordsResponse(BaseValidatorModel):
     Services: Dict[str, int]
     TotalRecords: int
@@ -585,6 +607,7 @@ class GetApproximateUsageRecordsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_cost_categories' function.
 class GetCostCategoriesResponse(BaseValidatorModel):
     NextPageToken: str
     CostCategoryNames: List[str]
@@ -594,6 +617,7 @@ class GetCostCategoriesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_tags' function.
 class GetTagsResponse(BaseValidatorModel):
     NextPageToken: str
     Tags: List[str]
@@ -602,28 +626,33 @@ class GetTagsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_cost_allocation_tag_backfill_history' function.
 class ListCostAllocationTagBackfillHistoryResponse(BaseValidatorModel):
     BackfillRequests: List[CostAllocationTagBackfillRequest]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_cost_allocation_tags' function.
 class ListCostAllocationTagsResponse(BaseValidatorModel):
     CostAllocationTags: List[CostAllocationTag]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     ResourceTags: List[ResourceTag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'provide_anomaly_feedback' function.
 class ProvideAnomalyFeedbackResponse(BaseValidatorModel):
     AnomalyId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_commitment_purchase_analysis' function.
 class StartCommitmentPurchaseAnalysisResponse(BaseValidatorModel):
     AnalysisId: str
     AnalysisStartedTime: str
@@ -631,6 +660,7 @@ class StartCommitmentPurchaseAnalysisResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_cost_allocation_tag_backfill' function.
 class StartCostAllocationTagBackfillResponse(BaseValidatorModel):
     BackfillRequest: CostAllocationTagBackfillRequest
     ResponseMetadata: ResponseMetadata
@@ -643,16 +673,19 @@ class StartSavingsPlansPurchaseRecommendationGenerationResponse(BaseValidatorMod
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_anomaly_monitor' function.
 class UpdateAnomalyMonitorResponse(BaseValidatorModel):
     MonitorArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_anomaly_subscription' function.
 class UpdateAnomalySubscriptionResponse(BaseValidatorModel):
     SubscriptionArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_cost_category_definition' function.
 class UpdateCostCategoryDefinitionResponse(BaseValidatorModel):
     CostCategoryArn: str
     EffectiveStart: str
@@ -670,6 +703,7 @@ class ExpressionOutput(BaseValidatorModel):
 DimensionValuesUnion = Union[DimensionValues, DimensionValuesOutput]
 
 
+# This class is the output for the 'get_dimension_values' function.
 class GetDimensionValuesResponse(BaseValidatorModel):
     DimensionValues: List[DimensionValuesWithAttributes]
     ReturnSize: int
@@ -699,12 +733,14 @@ class ServiceSpecification(BaseValidatorModel):
     EC2Specification: Optional[EC2Specification] = None
 
 
+# This class is the output for the 'list_savings_plans_purchase_recommendation_generation' function.
 class ListSavingsPlansPurchaseRecommendationGenerationResponse(BaseValidatorModel):
     GenerationSummaryList: List[GenerationSummary]
     NextPageToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'get_anomalies' function.
 class GetAnomaliesRequest(BaseValidatorModel):
     DateInterval: AnomalyDateInterval
     MonitorArn: Optional[str] = None
@@ -868,11 +904,13 @@ class SavingsPlansUtilizationDetail(BaseValidatorModel):
 TagValuesUnion = Union[TagValues, TagValuesOutput]
 
 
+# This class is the output for the 'update_cost_allocation_tags_status' function.
 class UpdateCostAllocationTagsStatusResponse(BaseValidatorModel):
     Errors: List[UpdateCostAllocationTagsStatusError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_cost_category_definitions' function.
 class ListCostCategoryDefinitionsResponse(BaseValidatorModel):
     CostCategoryReferences: List[CostCategoryReference]
     ResponseMetadata: ResponseMetadata
@@ -886,12 +924,14 @@ class CostCategorySplitChargeRule(BaseValidatorModel):
     Parameters: Optional[List[CostCategorySplitChargeRuleParameterUnion]] = None
 
 
+# This class is the output for the 'get_cost_forecast' function.
 class GetCostForecastResponse(BaseValidatorModel):
     Total: MetricValue
     ForecastResultsByTime: List[ForecastResult]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_usage_forecast' function.
 class GetUsageForecastResponse(BaseValidatorModel):
     Total: MetricValue
     ForecastResultsByTime: List[ForecastResult]
@@ -977,6 +1017,7 @@ class ReservationPurchaseRecommendationDetail(BaseValidatorModel):
     AverageNumberOfCapacityUnitsUsedPerHour: Optional[str] = None
 
 
+# This class is the output for the 'get_savings_plan_purchase_recommendation_details' function.
 class GetSavingsPlanPurchaseRecommendationDetailsResponse(BaseValidatorModel):
     RecommendationDetailId: str
     RecommendationDetailData: RecommendationDetailData
@@ -999,6 +1040,7 @@ class Anomaly(BaseValidatorModel):
     Feedback: Optional[AnomalyFeedbackTypeType] = None
 
 
+# This class is the output for the 'get_savings_plans_coverage' function.
 class GetSavingsPlansCoverageResponse(BaseValidatorModel):
     SavingsPlansCoverages: List[SavingsPlansCoverage]
     ResponseMetadata: ResponseMetadata
@@ -1023,12 +1065,14 @@ class CommitmentPurchaseAnalysisConfiguration(BaseValidatorModel):
     SavingsPlansPurchaseAnalysisConfiguration: Optional[SavingsPlansPurchaseAnalysisConfiguration] = None
 
 
+# This class is the output for the 'get_savings_plans_utilization' function.
 class GetSavingsPlansUtilizationResponse(BaseValidatorModel):
     SavingsPlansUtilizationsByTime: List[SavingsPlansUtilizationByTime]
     Total: SavingsPlansUtilizationAggregates
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_savings_plans_utilization_details' function.
 class GetSavingsPlansUtilizationDetailsResponse(BaseValidatorModel):
     SavingsPlansUtilizationDetails: List[SavingsPlansUtilizationDetail]
     Total: SavingsPlansUtilizationAggregates
@@ -1054,12 +1098,14 @@ class CoverageByTime(BaseValidatorModel):
     Total: Optional[Coverage] = None
 
 
+# This class is the output for the 'get_anomaly_monitors' function.
 class GetAnomalyMonitorsResponse(BaseValidatorModel):
     AnomalyMonitors: List[AnomalyMonitorOutput]
     NextPageToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_anomaly_subscriptions' function.
 class GetAnomalySubscriptionsResponse(BaseValidatorModel):
     AnomalySubscriptions: List[AnomalySubscriptionOutput]
     NextPageToken: str
@@ -1102,6 +1148,7 @@ class TargetInstance(BaseValidatorModel):
     PlatformDifferences: Optional[List[PlatformDifferenceType]] = None
 
 
+# This class is the output for the 'get_cost_and_usage' function.
 class GetCostAndUsageResponse(BaseValidatorModel):
     NextPageToken: str
     GroupDefinitions: List[GroupDefinition]
@@ -1110,6 +1157,7 @@ class GetCostAndUsageResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_cost_and_usage_with_resources' function.
 class GetCostAndUsageWithResourcesResponse(BaseValidatorModel):
     NextPageToken: str
     GroupDefinitions: List[GroupDefinition]
@@ -1118,6 +1166,7 @@ class GetCostAndUsageWithResourcesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_reservation_utilization' function.
 class GetReservationUtilizationResponse(BaseValidatorModel):
     UtilizationsByTime: List[UtilizationByTime]
     Total: ReservationAggregates
@@ -1135,12 +1184,14 @@ class ReservationPurchaseRecommendation(BaseValidatorModel):
     RecommendationSummary: Optional[ReservationPurchaseRecommendationSummary] = None
 
 
+# This class is the output for the 'get_anomalies' function.
 class GetAnomaliesResponse(BaseValidatorModel):
     Anomalies: List[Anomaly]
     NextPageToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_savings_plans_purchase_recommendation' function.
 class GetSavingsPlansPurchaseRecommendationResponse(BaseValidatorModel):
     Metadata: SavingsPlansPurchaseRecommendationMetadata
     SavingsPlansPurchaseRecommendation: SavingsPlansPurchaseRecommendation
@@ -1158,6 +1209,7 @@ class AnalysisSummary(BaseValidatorModel):
     CommitmentPurchaseAnalysisConfiguration: Optional[CommitmentPurchaseAnalysisConfigurationOutput] = None
 
 
+# This class is the output for the 'get_commitment_purchase_analysis' function.
 class GetCommitmentPurchaseAnalysisResponse(BaseValidatorModel):
     EstimatedCompletionTime: str
     AnalysisCompletionTime: str
@@ -1197,6 +1249,7 @@ class AnomalySubscription(BaseValidatorModel):
 ExpressionUnion = Union[Expression, ExpressionOutput]
 
 
+# This class is the output for the 'get_reservation_coverage' function.
 class GetReservationCoverageResponse(BaseValidatorModel):
     CoveragesByTime: List[CoverageByTime]
     Total: Coverage
@@ -1204,6 +1257,7 @@ class GetReservationCoverageResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_cost_category_definition' function.
 class DescribeCostCategoryDefinitionResponse(BaseValidatorModel):
     CostCategory: CostCategory
     ResponseMetadata: ResponseMetadata
@@ -1213,6 +1267,7 @@ class ModifyRecommendationDetail(BaseValidatorModel):
     TargetInstances: Optional[List[TargetInstance]] = None
 
 
+# This class is the output for the 'get_reservation_purchase_recommendation' function.
 class GetReservationPurchaseRecommendationResponse(BaseValidatorModel):
     Metadata: ReservationPurchaseRecommendationMetadata
     Recommendations: List[ReservationPurchaseRecommendation]
@@ -1220,12 +1275,14 @@ class GetReservationPurchaseRecommendationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_commitment_purchase_analyses' function.
 class ListCommitmentPurchaseAnalysesResponse(BaseValidatorModel):
     AnalysisSummaryList: List[AnalysisSummary]
     NextPageToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_commitment_purchase_analysis' function.
 class StartCommitmentPurchaseAnalysisRequest(BaseValidatorModel):
     CommitmentPurchaseAnalysisConfiguration: CommitmentPurchaseAnalysisConfigurationUnion
 
@@ -1241,6 +1298,7 @@ class CostCategoryRule(BaseValidatorModel):
     Type: Optional[CostCategoryRuleTypeType] = None
 
 
+# This class is the input for the 'get_cost_and_usage' function.
 class GetCostAndUsageRequest(BaseValidatorModel):
     TimePeriod: DateInterval
     Granularity: GranularityType
@@ -1251,6 +1309,7 @@ class GetCostAndUsageRequest(BaseValidatorModel):
     NextPageToken: Optional[str] = None
 
 
+# This class is the input for the 'get_cost_and_usage_with_resources' function.
 class GetCostAndUsageWithResourcesRequest(BaseValidatorModel):
     TimePeriod: DateInterval
     Granularity: GranularityType
@@ -1261,6 +1320,7 @@ class GetCostAndUsageWithResourcesRequest(BaseValidatorModel):
     NextPageToken: Optional[str] = None
 
 
+# This class is the input for the 'get_cost_categories' function.
 class GetCostCategoriesRequest(BaseValidatorModel):
     TimePeriod: DateInterval
     SearchString: Optional[str] = None
@@ -1272,6 +1332,7 @@ class GetCostCategoriesRequest(BaseValidatorModel):
     NextPageToken: Optional[str] = None
 
 
+# This class is the input for the 'get_cost_forecast' function.
 class GetCostForecastRequest(BaseValidatorModel):
     TimePeriod: DateInterval
     Metric: MetricType
@@ -1281,6 +1342,7 @@ class GetCostForecastRequest(BaseValidatorModel):
     PredictionIntervalLevel: Optional[int] = None
 
 
+# This class is the input for the 'get_dimension_values' function.
 class GetDimensionValuesRequest(BaseValidatorModel):
     TimePeriod: DateInterval
     Dimension: DimensionType
@@ -1293,6 +1355,7 @@ class GetDimensionValuesRequest(BaseValidatorModel):
     NextPageToken: Optional[str] = None
 
 
+# This class is the input for the 'get_reservation_coverage' function.
 class GetReservationCoverageRequest(BaseValidatorModel):
     TimePeriod: DateInterval
     GroupBy: Optional[List[GroupDefinition]] = None
@@ -1304,6 +1367,7 @@ class GetReservationCoverageRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_reservation_purchase_recommendation' function.
 class GetReservationPurchaseRecommendationRequest(BaseValidatorModel):
     Service: str
     AccountId: Optional[str] = None
@@ -1317,6 +1381,7 @@ class GetReservationPurchaseRecommendationRequest(BaseValidatorModel):
     NextPageToken: Optional[str] = None
 
 
+# This class is the input for the 'get_reservation_utilization' function.
 class GetReservationUtilizationRequest(BaseValidatorModel):
     TimePeriod: DateInterval
     GroupBy: Optional[List[GroupDefinition]] = None
@@ -1327,6 +1392,7 @@ class GetReservationUtilizationRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_rightsizing_recommendation' function.
 class GetRightsizingRecommendationRequest(BaseValidatorModel):
     Service: str
     Filter: Optional[ExpressionUnion] = None
@@ -1335,6 +1401,7 @@ class GetRightsizingRecommendationRequest(BaseValidatorModel):
     NextPageToken: Optional[str] = None
 
 
+# This class is the input for the 'get_savings_plans_coverage' function.
 class GetSavingsPlansCoverageRequest(BaseValidatorModel):
     TimePeriod: DateInterval
     GroupBy: Optional[List[GroupDefinition]] = None
@@ -1346,6 +1413,7 @@ class GetSavingsPlansCoverageRequest(BaseValidatorModel):
     SortBy: Optional[SortDefinition] = None
 
 
+# This class is the input for the 'get_savings_plans_purchase_recommendation' function.
 class GetSavingsPlansPurchaseRecommendationRequest(BaseValidatorModel):
     SavingsPlansType: SupportedSavingsPlansTypeType
     TermInYears: TermInYearsType
@@ -1357,6 +1425,7 @@ class GetSavingsPlansPurchaseRecommendationRequest(BaseValidatorModel):
     Filter: Optional[ExpressionUnion] = None
 
 
+# This class is the input for the 'get_savings_plans_utilization_details' function.
 class GetSavingsPlansUtilizationDetailsRequest(BaseValidatorModel):
     TimePeriod: DateInterval
     Filter: Optional[ExpressionUnion] = None
@@ -1366,6 +1435,7 @@ class GetSavingsPlansUtilizationDetailsRequest(BaseValidatorModel):
     SortBy: Optional[SortDefinition] = None
 
 
+# This class is the input for the 'get_savings_plans_utilization' function.
 class GetSavingsPlansUtilizationRequest(BaseValidatorModel):
     TimePeriod: DateInterval
     Granularity: Optional[GranularityType] = None
@@ -1373,6 +1443,7 @@ class GetSavingsPlansUtilizationRequest(BaseValidatorModel):
     SortBy: Optional[SortDefinition] = None
 
 
+# This class is the input for the 'get_tags' function.
 class GetTagsRequest(BaseValidatorModel):
     TimePeriod: DateInterval
     SearchString: Optional[str] = None
@@ -1384,6 +1455,7 @@ class GetTagsRequest(BaseValidatorModel):
     NextPageToken: Optional[str] = None
 
 
+# This class is the input for the 'get_usage_forecast' function.
 class GetUsageForecastRequest(BaseValidatorModel):
     TimePeriod: DateInterval
     Metric: MetricType
@@ -1393,6 +1465,7 @@ class GetUsageForecastRequest(BaseValidatorModel):
     PredictionIntervalLevel: Optional[int] = None
 
 
+# This class is the input for the 'update_anomaly_subscription' function.
 class UpdateAnomalySubscriptionRequest(BaseValidatorModel):
     SubscriptionArn: str
     Threshold: Optional[float] = None
@@ -1412,11 +1485,13 @@ class RightsizingRecommendation(BaseValidatorModel):
     FindingReasonCodes: Optional[List[FindingReasonCodeType]] = None
 
 
+# This class is the input for the 'create_anomaly_monitor' function.
 class CreateAnomalyMonitorRequest(BaseValidatorModel):
     AnomalyMonitor: AnomalyMonitorUnion
     ResourceTags: Optional[List[ResourceTag]] = None
 
 
+# This class is the input for the 'create_anomaly_subscription' function.
 class CreateAnomalySubscriptionRequest(BaseValidatorModel):
     AnomalySubscription: AnomalySubscriptionUnion
     ResourceTags: Optional[List[ResourceTag]] = None
@@ -1424,6 +1499,7 @@ class CreateAnomalySubscriptionRequest(BaseValidatorModel):
 CostCategoryRuleUnion = Union[CostCategoryRule, CostCategoryRuleOutput]
 
 
+# This class is the output for the 'get_rightsizing_recommendation' function.
 class GetRightsizingRecommendationResponse(BaseValidatorModel):
     Metadata: RightsizingRecommendationMetadata
     Summary: RightsizingRecommendationSummary
@@ -1433,6 +1509,7 @@ class GetRightsizingRecommendationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_cost_category_definition' function.
 class CreateCostCategoryDefinitionRequest(BaseValidatorModel):
     Name: str
     RuleVersion: Literal['CostCategoryExpression.v1']
@@ -1443,6 +1520,7 @@ class CreateCostCategoryDefinitionRequest(BaseValidatorModel):
     ResourceTags: Optional[List[ResourceTag]] = None
 
 
+# This class is the input for the 'update_cost_category_definition' function.
 class UpdateCostCategoryDefinitionRequest(BaseValidatorModel):
     CostCategoryArn: str
     RuleVersion: Literal['CostCategoryExpression.v1']

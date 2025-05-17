@@ -20,6 +20,7 @@ class AccessMethod(BaseValidatorModel):
 Blob = Union[str, bytes, IO[Any], StreamingBody]
 
 
+# This class is the input for the 'create_certificate_authority_audit_report' function.
 class CreateCertificateAuthorityAuditReportRequest(BaseValidatorModel):
     CertificateAuthorityArn: str
     S3BucketName: str
@@ -39,6 +40,7 @@ class Tag(BaseValidatorModel):
     Value: Optional[str] = None
 
 
+# This class is the input for the 'create_permission' function.
 class CreatePermissionRequest(BaseValidatorModel):
     CertificateAuthorityArn: str
     Principal: str
@@ -68,21 +70,25 @@ class CustomExtension(BaseValidatorModel):
     Critical: Optional[bool] = None
 
 
+# This class is the input for the 'delete_certificate_authority' function.
 class DeleteCertificateAuthorityRequest(BaseValidatorModel):
     CertificateAuthorityArn: str
     PermanentDeletionTimeInDays: Optional[int] = None
 
 
+# This class is the input for the 'delete_permission' function.
 class DeletePermissionRequest(BaseValidatorModel):
     CertificateAuthorityArn: str
     Principal: str
     SourceAccount: Optional[str] = None
 
 
+# This class is the input for the 'delete_policy' function.
 class DeletePolicyRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'describe_certificate_authority_audit_report' function.
 class DescribeCertificateAuthorityAuditReportRequest(BaseValidatorModel):
     CertificateAuthorityArn: str
     AuditReportId: str
@@ -93,6 +99,7 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'describe_certificate_authority' function.
 class DescribeCertificateAuthorityRequest(BaseValidatorModel):
     CertificateAuthorityArn: str
 
@@ -112,19 +119,23 @@ class OtherName(BaseValidatorModel):
     Value: str
 
 
+# This class is the input for the 'get_certificate_authority_certificate' function.
 class GetCertificateAuthorityCertificateRequest(BaseValidatorModel):
     CertificateAuthorityArn: str
 
 
+# This class is the input for the 'get_certificate_authority_csr' function.
 class GetCertificateAuthorityCsrRequest(BaseValidatorModel):
     CertificateAuthorityArn: str
 
 
+# This class is the input for the 'get_certificate' function.
 class GetCertificateRequest(BaseValidatorModel):
     CertificateAuthorityArn: str
     CertificateArn: str
 
 
+# This class is the input for the 'get_policy' function.
 class GetPolicyRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -140,12 +151,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_certificate_authorities' function.
 class ListCertificateAuthoritiesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     ResourceOwner: Optional[ResourceOwnerType] = None
 
 
+# This class is the input for the 'list_permissions' function.
 class ListPermissionsRequest(BaseValidatorModel):
     CertificateAuthorityArn: str
     MaxResults: Optional[int] = None
@@ -161,6 +174,7 @@ class Permission(BaseValidatorModel):
     Policy: Optional[str] = None
 
 
+# This class is the input for the 'list_tags' function.
 class ListTagsRequest(BaseValidatorModel):
     CertificateAuthorityArn: str
     MaxResults: Optional[int] = None
@@ -176,15 +190,18 @@ class Qualifier(BaseValidatorModel):
     CpsUri: str
 
 
+# This class is the input for the 'put_policy' function.
 class PutPolicyRequest(BaseValidatorModel):
     ResourceArn: str
     Policy: str
 
 
+# This class is the input for the 'restore_certificate_authority' function.
 class RestoreCertificateAuthorityRequest(BaseValidatorModel):
     CertificateAuthorityArn: str
 
 
+# This class is the input for the 'revoke_certificate' function.
 class RevokeCertificateRequest(BaseValidatorModel):
     CertificateAuthorityArn: str
     CertificateSerial: str
@@ -227,23 +244,27 @@ class ASN1Subject(BaseValidatorModel):
     CustomAttributes: Optional[List[CustomAttribute]] = None
 
 
+# This class is the input for the 'import_certificate_authority_certificate' function.
 class ImportCertificateAuthorityCertificateRequest(BaseValidatorModel):
     CertificateAuthorityArn: str
     Certificate: Blob
     CertificateChain: Optional[Blob] = None
 
 
+# This class is the output for the 'create_certificate_authority_audit_report' function.
 class CreateCertificateAuthorityAuditReportResponse(BaseValidatorModel):
     AuditReportId: str
     S3Key: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_certificate_authority' function.
 class CreateCertificateAuthorityResponse(BaseValidatorModel):
     CertificateAuthorityArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_certificate_authority_audit_report' function.
 class DescribeCertificateAuthorityAuditReportResponse(BaseValidatorModel):
     AuditReportStatus: AuditReportStatusType
     S3BucketName: str
@@ -252,48 +273,57 @@ class DescribeCertificateAuthorityAuditReportResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_certificate_authority' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_certificate_authority_certificate' function.
 class GetCertificateAuthorityCertificateResponse(BaseValidatorModel):
     Certificate: str
     CertificateChain: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_certificate_authority_csr' function.
 class GetCertificateAuthorityCsrResponse(BaseValidatorModel):
     Csr: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_certificate' function.
 class GetCertificateResponse(BaseValidatorModel):
     Certificate: str
     CertificateChain: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_policy' function.
 class GetPolicyResponse(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'issue_certificate' function.
 class IssueCertificateResponse(BaseValidatorModel):
     CertificateArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags' function.
 class ListTagsResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'tag_certificate_authority' function.
 class TagCertificateAuthorityRequest(BaseValidatorModel):
     CertificateAuthorityArn: str
     Tags: List[Tag]
 
 
+# This class is the input for the 'untag_certificate_authority' function.
 class UntagCertificateAuthorityRequest(BaseValidatorModel):
     CertificateAuthorityArn: str
     Tags: List[Tag]
@@ -342,6 +372,7 @@ class ListTagsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_permissions' function.
 class ListPermissionsResponse(BaseValidatorModel):
     Permissions: List[Permission]
     ResponseMetadata: ResponseMetadata
@@ -392,6 +423,7 @@ class GeneralName(BaseValidatorModel):
     RegisteredId: Optional[str] = None
 
 
+# This class is the input for the 'update_certificate_authority' function.
 class UpdateCertificateAuthorityRequest(BaseValidatorModel):
     CertificateAuthorityArn: str
     RevocationConfiguration: Optional[RevocationConfiguration] = None
@@ -460,11 +492,13 @@ class ApiPassthrough(BaseValidatorModel):
     Subject: Optional[ASN1SubjectUnion] = None
 
 
+# This class is the output for the 'describe_certificate_authority' function.
 class DescribeCertificateAuthorityResponse(BaseValidatorModel):
     CertificateAuthority: CertificateAuthority
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_certificate_authorities' function.
 class ListCertificateAuthoritiesResponse(BaseValidatorModel):
     CertificateAuthorities: List[CertificateAuthority]
     ResponseMetadata: ResponseMetadata
@@ -473,6 +507,7 @@ class ListCertificateAuthoritiesResponse(BaseValidatorModel):
 CertificateAuthorityConfigurationUnion = Union[CertificateAuthorityConfiguration, CertificateAuthorityConfigurationOutput]
 
 
+# This class is the input for the 'issue_certificate' function.
 class IssueCertificateRequest(BaseValidatorModel):
     CertificateAuthorityArn: str
     Csr: Blob
@@ -484,6 +519,7 @@ class IssueCertificateRequest(BaseValidatorModel):
     IdempotencyToken: Optional[str] = None
 
 
+# This class is the input for the 'create_certificate_authority' function.
 class CreateCertificateAuthorityRequest(BaseValidatorModel):
     CertificateAuthorityConfiguration: CertificateAuthorityConfigurationUnion
     CertificateAuthorityType: CertificateAuthorityTypeType

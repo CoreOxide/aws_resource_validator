@@ -12,6 +12,7 @@ class DeleteKeyRequestListItem(BaseValidatorModel):
     Key: str
 
 
+# This class is the input for the 'delete_key' function.
 class DeleteKeyRequest(BaseValidatorModel):
     KvsARN: str
     Key: str
@@ -26,10 +27,12 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'describe_key_value_store' function.
 class DescribeKeyValueStoreRequest(BaseValidatorModel):
     KvsARN: str
 
 
+# This class is the input for the 'get_key' function.
 class GetKeyRequest(BaseValidatorModel):
     KvsARN: str
     Key: str
@@ -41,6 +44,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_keys' function.
 class ListKeysRequest(BaseValidatorModel):
     KvsARN: str
     NextToken: Optional[str] = None
@@ -57,6 +61,7 @@ class PutKeyRequestListItem(BaseValidatorModel):
     Value: str
 
 
+# This class is the input for the 'put_key' function.
 class PutKeyRequest(BaseValidatorModel):
     Key: str
     Value: str
@@ -64,6 +69,7 @@ class PutKeyRequest(BaseValidatorModel):
     IfMatch: str
 
 
+# This class is the output for the 'delete_key' function.
 class DeleteKeyResponse(BaseValidatorModel):
     ItemCount: int
     TotalSizeInBytes: int
@@ -71,6 +77,7 @@ class DeleteKeyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_key_value_store' function.
 class DescribeKeyValueStoreResponse(BaseValidatorModel):
     ItemCount: int
     TotalSizeInBytes: int
@@ -83,6 +90,7 @@ class DescribeKeyValueStoreResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_key' function.
 class GetKeyResponse(BaseValidatorModel):
     Key: str
     Value: str
@@ -91,6 +99,7 @@ class GetKeyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_key' function.
 class PutKeyResponse(BaseValidatorModel):
     ItemCount: int
     TotalSizeInBytes: int
@@ -98,6 +107,7 @@ class PutKeyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_keys' function.
 class UpdateKeysResponse(BaseValidatorModel):
     ItemCount: int
     TotalSizeInBytes: int
@@ -110,12 +120,14 @@ class ListKeysRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_keys' function.
 class ListKeysResponse(BaseValidatorModel):
     Items: List[ListKeysResponseListItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'update_keys' function.
 class UpdateKeysRequest(BaseValidatorModel):
     KvsARN: str
     IfMatch: str

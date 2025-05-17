@@ -75,6 +75,7 @@ class DeleteApplicationReferenceDataSourceRequest(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'describe_application' function.
 class DescribeApplicationRequest(BaseValidatorModel):
     ApplicationName: str
 
@@ -201,11 +202,13 @@ class LambdaOutputUpdate(BaseValidatorModel):
     RoleARNUpdate: Optional[str] = None
 
 
+# This class is the input for the 'list_applications' function.
 class ListApplicationsRequest(BaseValidatorModel):
     Limit: Optional[int] = None
     ExclusiveStartApplicationName: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
@@ -248,17 +251,20 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the output for the 'create_application' function.
 class CreateApplicationResponse(BaseValidatorModel):
     ApplicationSummary: ApplicationSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_applications' function.
 class ListApplicationsResponse(BaseValidatorModel):
     ApplicationSummaries: List[ApplicationSummary]
     HasMoreApplications: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -329,6 +335,7 @@ class AddApplicationInputProcessingConfigurationRequest(BaseValidatorModel):
     InputProcessingConfiguration: InputProcessingConfiguration
 
 
+# This class is the input for the 'discover_input_schema' function.
 class DiscoverInputSchemaRequest(BaseValidatorModel):
     ResourceARN: Optional[str] = None
     RoleARN: Optional[str] = None
@@ -376,6 +383,7 @@ class InputUpdate(BaseValidatorModel):
     InputParallelismUpdate: Optional[InputParallelismUpdate] = None
 
 
+# This class is the output for the 'discover_input_schema' function.
 class DiscoverInputSchemaResponse(BaseValidatorModel):
     InputSchema: SourceSchemaOutput
     ParsedInputRecords: List[List[str]]
@@ -442,6 +450,7 @@ class ReferenceDataSourceUpdate(BaseValidatorModel):
     ReferenceSchemaUpdate: Optional[SourceSchemaUnion] = None
 
 
+# This class is the output for the 'describe_application' function.
 class DescribeApplicationResponse(BaseValidatorModel):
     ApplicationDetail: ApplicationDetail
     ResponseMetadata: ResponseMetadata
@@ -453,6 +462,7 @@ class AddApplicationInputRequest(BaseValidatorModel):
     Input: Input
 
 
+# This class is the input for the 'create_application' function.
 class CreateApplicationRequest(BaseValidatorModel):
     ApplicationName: str
     ApplicationDescription: Optional[str] = None

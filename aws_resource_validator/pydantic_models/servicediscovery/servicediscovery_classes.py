@@ -31,6 +31,7 @@ class HealthCheckCustomConfig(BaseValidatorModel):
     FailureThreshold: Optional[int] = None
 
 
+# This class is the input for the 'delete_namespace' function.
 class DeleteNamespaceRequest(BaseValidatorModel):
     Id: str
 
@@ -44,11 +45,13 @@ class DeleteServiceRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'deregister_instance' function.
 class DeregisterInstanceRequest(BaseValidatorModel):
     ServiceId: str
     InstanceId: str
 
 
+# This class is the input for the 'discover_instances' function.
 class DiscoverInstancesRequest(BaseValidatorModel):
     NamespaceName: str
     ServiceName: str
@@ -66,6 +69,7 @@ class HttpInstanceSummary(BaseValidatorModel):
     Attributes: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'discover_instances_revision' function.
 class DiscoverInstancesRevisionRequest(BaseValidatorModel):
     NamespaceName: str
     ServiceName: str
@@ -80,6 +84,7 @@ class SOA(BaseValidatorModel):
     TTL: int
 
 
+# This class is the input for the 'get_instance' function.
 class GetInstanceRequest(BaseValidatorModel):
     ServiceId: str
     InstanceId: str
@@ -91,6 +96,7 @@ class Instance(BaseValidatorModel):
     Attributes: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'get_instances_health_status' function.
 class GetInstancesHealthStatusRequest(BaseValidatorModel):
     ServiceId: str
     Instances: Optional[List[str]] = None
@@ -98,10 +104,12 @@ class GetInstancesHealthStatusRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_namespace' function.
 class GetNamespaceRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_operation' function.
 class GetOperationRequest(BaseValidatorModel):
     OperationId: str
 
@@ -117,6 +125,7 @@ class Operation(BaseValidatorModel):
     Targets: Optional[Dict[OperationTargetTypeType, str]] = None
 
 
+# This class is the input for the 'get_service_attributes' function.
 class GetServiceAttributesRequest(BaseValidatorModel):
     ServiceId: str
 
@@ -126,6 +135,7 @@ class ServiceAttributes(BaseValidatorModel):
     Attributes: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'get_service' function.
 class GetServiceRequest(BaseValidatorModel):
     Id: str
 
@@ -149,6 +159,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_instances' function.
 class ListInstancesRequest(BaseValidatorModel):
     ServiceId: str
     NextToken: Optional[str] = None
@@ -178,6 +189,7 @@ class ServiceFilter(BaseValidatorModel):
     Condition: Optional[FilterConditionType] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
@@ -186,6 +198,7 @@ class SOAChange(BaseValidatorModel):
     TTL: int
 
 
+# This class is the input for the 'register_instance' function.
 class RegisterInstanceRequest(BaseValidatorModel):
     ServiceId: str
     InstanceId: str
@@ -198,6 +211,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_instance_custom_health_status' function.
 class UpdateInstanceCustomHealthStatusRequest(BaseValidatorModel):
     ServiceId: str
     InstanceId: str
@@ -209,6 +223,7 @@ class UpdateServiceAttributesRequest(BaseValidatorModel):
     Attributes: Dict[str, str]
 
 
+# This class is the input for the 'create_http_namespace' function.
 class CreateHttpNamespaceRequest(BaseValidatorModel):
     Name: str
     CreatorRequestId: Optional[str] = None
@@ -221,76 +236,91 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the output for the 'create_http_namespace' function.
 class CreateHttpNamespaceResponse(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_private_dns_namespace' function.
 class CreatePrivateDnsNamespaceResponse(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_public_dns_namespace' function.
 class CreatePublicDnsNamespaceResponse(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_namespace' function.
 class DeleteNamespaceResponse(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'deregister_instance' function.
 class DeregisterInstanceResponse(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'discover_instances_revision' function.
 class DiscoverInstancesRevisionResponse(BaseValidatorModel):
     InstancesRevision: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_instance_custom_health_status' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_instances_health_status' function.
 class GetInstancesHealthStatusResponse(BaseValidatorModel):
     Status: Dict[str, HealthStatusType]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_instance' function.
 class RegisterInstanceResponse(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_http_namespace' function.
 class UpdateHttpNamespaceResponse(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_private_dns_namespace' function.
 class UpdatePrivateDnsNamespaceResponse(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_public_dns_namespace' function.
 class UpdatePublicDnsNamespaceResponse(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_service' function.
 class UpdateServiceResponse(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'discover_instances' function.
 class DiscoverInstancesResponse(BaseValidatorModel):
     Instances: List[HttpInstanceSummary]
     InstancesRevision: int
@@ -326,27 +356,32 @@ class PublicDnsPropertiesMutable(BaseValidatorModel):
     SOA: SOA
 
 
+# This class is the output for the 'get_instance' function.
 class GetInstanceResponse(BaseValidatorModel):
     Instance: Instance
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_operation' function.
 class GetOperationResponse(BaseValidatorModel):
     Operation: Operation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_service_attributes' function.
 class GetServiceAttributesResponse(BaseValidatorModel):
     ServiceAttributes: ServiceAttributes
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_http_namespace' function.
 class UpdateHttpNamespaceRequest(BaseValidatorModel):
     Id: str
     Namespace: HttpNamespaceChange
     UpdaterRequestId: Optional[str] = None
 
 
+# This class is the output for the 'list_instances' function.
 class ListInstancesResponse(BaseValidatorModel):
     Instances: List[InstanceSummary]
     ResponseMetadata: ResponseMetadata
@@ -363,6 +398,7 @@ class ListNamespacesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_namespaces' function.
 class ListNamespacesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -374,12 +410,14 @@ class ListOperationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_operations' function.
 class ListOperationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filters: Optional[List[OperationFilter]] = None
 
 
+# This class is the output for the 'list_operations' function.
 class ListOperationsResponse(BaseValidatorModel):
     Operations: List[OperationSummary]
     ResponseMetadata: ResponseMetadata
@@ -391,6 +429,7 @@ class ListServicesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_services' function.
 class ListServicesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -462,27 +501,32 @@ class PublicDnsNamespacePropertiesChange(BaseValidatorModel):
     DnsProperties: PublicDnsPropertiesMutableChange
 
 
+# This class is the input for the 'update_service' function.
 class UpdateServiceRequest(BaseValidatorModel):
     Id: str
     Service: ServiceChange
 
 
+# This class is the output for the 'list_services' function.
 class ListServicesResponse(BaseValidatorModel):
     Services: List[ServiceSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_service' function.
 class CreateServiceResponse(BaseValidatorModel):
     Service: Service
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_service' function.
 class GetServiceResponse(BaseValidatorModel):
     Service: Service
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_service' function.
 class CreateServiceRequest(BaseValidatorModel):
     Name: str
     NamespaceId: Optional[str] = None
@@ -518,6 +562,7 @@ class Namespace(BaseValidatorModel):
     CreatorRequestId: Optional[str] = None
 
 
+# This class is the input for the 'create_private_dns_namespace' function.
 class CreatePrivateDnsNamespaceRequest(BaseValidatorModel):
     Name: str
     Vpc: str
@@ -527,6 +572,7 @@ class CreatePrivateDnsNamespaceRequest(BaseValidatorModel):
     Properties: Optional[PrivateDnsNamespaceProperties] = None
 
 
+# This class is the input for the 'create_public_dns_namespace' function.
 class CreatePublicDnsNamespaceRequest(BaseValidatorModel):
     Name: str
     CreatorRequestId: Optional[str] = None
@@ -545,23 +591,27 @@ class PublicDnsNamespaceChange(BaseValidatorModel):
     Properties: Optional[PublicDnsNamespacePropertiesChange] = None
 
 
+# This class is the output for the 'list_namespaces' function.
 class ListNamespacesResponse(BaseValidatorModel):
     Namespaces: List[NamespaceSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_namespace' function.
 class GetNamespaceResponse(BaseValidatorModel):
     Namespace: Namespace
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_private_dns_namespace' function.
 class UpdatePrivateDnsNamespaceRequest(BaseValidatorModel):
     Id: str
     Namespace: PrivateDnsNamespaceChange
     UpdaterRequestId: Optional[str] = None
 
 
+# This class is the input for the 'update_public_dns_namespace' function.
 class UpdatePublicDnsNamespaceRequest(BaseValidatorModel):
     Id: str
     Namespace: PublicDnsNamespaceChange

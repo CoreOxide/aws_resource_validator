@@ -31,6 +31,7 @@ class ConnectionCredentials(BaseValidatorModel):
     Expiry: Optional[str] = None
 
 
+# This class is the input for the 'create_participant_connection' function.
 class CreateParticipantConnectionRequest(BaseValidatorModel):
     ParticipantToken: str
     Type: Optional[List[ConnectionTypeType]] = None
@@ -50,6 +51,7 @@ class Websocket(BaseValidatorModel):
     ConnectionExpiry: Optional[str] = None
 
 
+# This class is the input for the 'describe_view' function.
 class DescribeViewRequest(BaseValidatorModel):
     ViewToken: str
     ConnectionToken: str
@@ -60,12 +62,14 @@ class DisconnectParticipantRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'get_attachment' function.
 class GetAttachmentRequest(BaseValidatorModel):
     AttachmentId: str
     ConnectionToken: str
     UrlExpiryInSeconds: Optional[int] = None
 
 
+# This class is the input for the 'get_authentication_url' function.
 class GetAuthenticationUrlRequest(BaseValidatorModel):
     SessionId: str
     RedirectUri: str
@@ -84,6 +88,7 @@ class Receipt(BaseValidatorModel):
     RecipientParticipantId: Optional[str] = None
 
 
+# This class is the input for the 'send_event' function.
 class SendEventRequest(BaseValidatorModel):
     ContentType: str
     ConnectionToken: str
@@ -91,6 +96,7 @@ class SendEventRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'send_message' function.
 class SendMessageRequest(BaseValidatorModel):
     ContentType: str
     Content: str
@@ -98,6 +104,7 @@ class SendMessageRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'start_attachment_upload' function.
 class StartAttachmentUploadRequest(BaseValidatorModel):
     ContentType: str
     AttachmentSizeInBytes: int
@@ -118,6 +125,7 @@ class ViewContent(BaseValidatorModel):
     Actions: Optional[List[str]] = None
 
 
+# This class is the output for the 'get_attachment' function.
 class GetAttachmentResponse(BaseValidatorModel):
     Url: str
     UrlExpiry: str
@@ -125,29 +133,34 @@ class GetAttachmentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_authentication_url' function.
 class GetAuthenticationUrlResponse(BaseValidatorModel):
     AuthenticationUrl: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'send_event' function.
 class SendEventResponse(BaseValidatorModel):
     Id: str
     AbsoluteTime: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'send_message' function.
 class SendMessageResponse(BaseValidatorModel):
     Id: str
     AbsoluteTime: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_participant_connection' function.
 class CreateParticipantConnectionResponse(BaseValidatorModel):
     Websocket: Websocket
     ConnectionCredentials: ConnectionCredentials
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'get_transcript' function.
 class GetTranscriptRequest(BaseValidatorModel):
     ConnectionToken: str
     ContactId: Optional[str] = None
@@ -163,6 +176,7 @@ class MessageMetadata(BaseValidatorModel):
     Receipts: Optional[List[Receipt]] = None
 
 
+# This class is the output for the 'start_attachment_upload' function.
 class StartAttachmentUploadResponse(BaseValidatorModel):
     AttachmentId: str
     UploadMetadata: UploadMetadata
@@ -192,11 +206,13 @@ class Item(BaseValidatorModel):
     ContactId: Optional[str] = None
 
 
+# This class is the output for the 'describe_view' function.
 class DescribeViewResponse(BaseValidatorModel):
     View: View
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_transcript' function.
 class GetTranscriptResponse(BaseValidatorModel):
     InitialContactId: str
     Transcript: List[Item]

@@ -14,6 +14,7 @@ class AddPermissionRequestQueueAddPermission(BaseValidatorModel):
     Actions: List[str]
 
 
+# This class is the input for the 'add_permission' function.
 class AddPermissionRequest(BaseValidatorModel):
     QueueUrl: str
     Label: str
@@ -30,6 +31,7 @@ class BatchResultErrorEntry(BaseValidatorModel):
 Blob = Union[str, bytes, IO[Any], StreamingBody]
 
 
+# This class is the input for the 'cancel_message_move_task' function.
 class CancelMessageMoveTaskRequest(BaseValidatorModel):
     TaskHandle: str
 
@@ -56,6 +58,7 @@ class ChangeMessageVisibilityRequestMessageChangeVisibility(BaseValidatorModel):
     VisibilityTimeout: int
 
 
+# This class is the input for the 'change_message_visibility' function.
 class ChangeMessageVisibilityRequest(BaseValidatorModel):
     QueueUrl: str
     ReceiptHandle: str
@@ -68,6 +71,7 @@ class CreateQueueRequestServiceResourceCreateQueue(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_queue' function.
 class CreateQueueRequest(BaseValidatorModel):
     QueueName: str
     Attributes: Optional[Dict[QueueAttributeNameType, str]] = None
@@ -83,15 +87,18 @@ class DeleteMessageBatchResultEntry(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'delete_message' function.
 class DeleteMessageRequest(BaseValidatorModel):
     QueueUrl: str
     ReceiptHandle: str
 
 
+# This class is the input for the 'delete_queue' function.
 class DeleteQueueRequest(BaseValidatorModel):
     QueueUrl: str
 
 
+# This class is the input for the 'get_queue_attributes' function.
 class GetQueueAttributesRequest(BaseValidatorModel):
     QueueUrl: str
     AttributeNames: Optional[List[QueueAttributeFilterType]] = None
@@ -102,6 +109,7 @@ class GetQueueUrlRequestServiceResourceGetQueueByName(BaseValidatorModel):
     QueueOwnerAWSAccountId: Optional[str] = None
 
 
+# This class is the input for the 'get_queue_url' function.
 class GetQueueUrlRequest(BaseValidatorModel):
     QueueName: str
     QueueOwnerAWSAccountId: Optional[str] = None
@@ -113,12 +121,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_dead_letter_source_queues' function.
 class ListDeadLetterSourceQueuesRequest(BaseValidatorModel):
     QueueUrl: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_message_move_tasks' function.
 class ListMessageMoveTasksRequest(BaseValidatorModel):
     SourceArn: str
     MaxResults: Optional[int] = None
@@ -136,10 +146,12 @@ class ListMessageMoveTasksResultEntry(BaseValidatorModel):
     StartedTimestamp: Optional[int] = None
 
 
+# This class is the input for the 'list_queue_tags' function.
 class ListQueueTagsRequest(BaseValidatorModel):
     QueueUrl: str
 
 
+# This class is the input for the 'list_queues' function.
 class ListQueuesRequest(BaseValidatorModel):
     QueueNamePrefix: Optional[str] = None
     NextToken: Optional[str] = None
@@ -154,6 +166,7 @@ class MessageAttributeValueOutput(BaseValidatorModel):
     BinaryListValues: Optional[List[bytes]] = None
 
 
+# This class is the input for the 'purge_queue' function.
 class PurgeQueueRequest(BaseValidatorModel):
     QueueUrl: str
 
@@ -168,6 +181,7 @@ class ReceiveMessageRequestQueueReceiveMessages(BaseValidatorModel):
     ReceiveRequestAttemptId: Optional[str] = None
 
 
+# This class is the input for the 'receive_message' function.
 class ReceiveMessageRequest(BaseValidatorModel):
     QueueUrl: str
     AttributeNames: Optional[List[QueueAttributeFilterType]] = None
@@ -183,6 +197,7 @@ class RemovePermissionRequestQueueRemovePermission(BaseValidatorModel):
     Label: str
 
 
+# This class is the input for the 'remove_permission' function.
 class RemovePermissionRequest(BaseValidatorModel):
     QueueUrl: str
     Label: str
@@ -201,22 +216,26 @@ class SetQueueAttributesRequestQueueSetAttributes(BaseValidatorModel):
     Attributes: Dict[QueueAttributeNameType, str]
 
 
+# This class is the input for the 'set_queue_attributes' function.
 class SetQueueAttributesRequest(BaseValidatorModel):
     QueueUrl: str
     Attributes: Dict[QueueAttributeNameType, str]
 
 
+# This class is the input for the 'start_message_move_task' function.
 class StartMessageMoveTaskRequest(BaseValidatorModel):
     SourceArn: str
     DestinationArn: Optional[str] = None
     MaxNumberOfMessagesPerSecond: Optional[int] = None
 
 
+# This class is the input for the 'tag_queue' function.
 class TagQueueRequest(BaseValidatorModel):
     QueueUrl: str
     Tags: Dict[str, str]
 
 
+# This class is the input for the 'untag_queue' function.
 class UntagQueueRequest(BaseValidatorModel):
     QueueUrl: str
     TagKeys: List[str]
@@ -238,47 +257,56 @@ class MessageSystemAttributeValue(BaseValidatorModel):
     BinaryListValues: Optional[List[Blob]] = None
 
 
+# This class is the output for the 'cancel_message_move_task' function.
 class CancelMessageMoveTaskResult(BaseValidatorModel):
     ApproximateNumberOfMessagesMoved: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_queue' function.
 class CreateQueueResult(BaseValidatorModel):
     QueueUrl: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'untag_queue' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_queue_attributes' function.
 class GetQueueAttributesResult(BaseValidatorModel):
     Attributes: Dict[QueueAttributeNameType, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_queue_url' function.
 class GetQueueUrlResult(BaseValidatorModel):
     QueueUrl: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_dead_letter_source_queues' function.
 class ListDeadLetterSourceQueuesResult(BaseValidatorModel):
     queueUrls: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_queue_tags' function.
 class ListQueueTagsResult(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_queues' function.
 class ListQueuesResult(BaseValidatorModel):
     QueueUrls: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'send_message' function.
 class SendMessageResult(BaseValidatorModel):
     MD5OfMessageBody: str
     MD5OfMessageAttributes: str
@@ -288,6 +316,7 @@ class SendMessageResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_message_move_task' function.
 class StartMessageMoveTaskResult(BaseValidatorModel):
     TaskHandle: str
     ResponseMetadata: ResponseMetadata
@@ -297,11 +326,13 @@ class ChangeMessageVisibilityBatchRequestQueueChangeMessageVisibilityBatch(BaseV
     Entries: List[ChangeMessageVisibilityBatchRequestEntry]
 
 
+# This class is the input for the 'change_message_visibility_batch' function.
 class ChangeMessageVisibilityBatchRequest(BaseValidatorModel):
     QueueUrl: str
     Entries: List[ChangeMessageVisibilityBatchRequestEntry]
 
 
+# This class is the output for the 'change_message_visibility_batch' function.
 class ChangeMessageVisibilityBatchResult(BaseValidatorModel):
     Successful: List[ChangeMessageVisibilityBatchResultEntry]
     Failed: List[BatchResultErrorEntry]
@@ -312,11 +343,13 @@ class DeleteMessageBatchRequestQueueDeleteMessages(BaseValidatorModel):
     Entries: List[DeleteMessageBatchRequestEntry]
 
 
+# This class is the input for the 'delete_message_batch' function.
 class DeleteMessageBatchRequest(BaseValidatorModel):
     QueueUrl: str
     Entries: List[DeleteMessageBatchRequestEntry]
 
 
+# This class is the output for the 'delete_message_batch' function.
 class DeleteMessageBatchResult(BaseValidatorModel):
     Successful: List[DeleteMessageBatchResultEntry]
     Failed: List[BatchResultErrorEntry]
@@ -333,6 +366,7 @@ class ListQueuesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_message_move_tasks' function.
 class ListMessageMoveTasksResult(BaseValidatorModel):
     Results: List[ListMessageMoveTasksResultEntry]
     ResponseMetadata: ResponseMetadata
@@ -348,6 +382,7 @@ class Message(BaseValidatorModel):
     MessageAttributes: Optional[Dict[str, MessageAttributeValueOutput]] = None
 
 
+# This class is the output for the 'send_message_batch' function.
 class SendMessageBatchResult(BaseValidatorModel):
     Successful: List[SendMessageBatchResultEntry]
     Failed: List[BatchResultErrorEntry]
@@ -356,6 +391,7 @@ class SendMessageBatchResult(BaseValidatorModel):
 MessageAttributeValueUnion = Union[MessageAttributeValue, MessageAttributeValueOutput]
 
 
+# This class is the output for the 'receive_message' function.
 class ReceiveMessageResult(BaseValidatorModel):
     Messages: List[Message]
     ResponseMetadata: ResponseMetadata
@@ -380,6 +416,7 @@ class SendMessageRequestQueueSendMessage(BaseValidatorModel):
     MessageGroupId: Optional[str] = None
 
 
+# This class is the input for the 'send_message' function.
 class SendMessageRequest(BaseValidatorModel):
     QueueUrl: str
     MessageBody: str
@@ -394,6 +431,7 @@ class SendMessageBatchRequestQueueSendMessages(BaseValidatorModel):
     Entries: List[SendMessageBatchRequestEntry]
 
 
+# This class is the input for the 'send_message_batch' function.
 class SendMessageBatchRequest(BaseValidatorModel):
     QueueUrl: str
     Entries: List[SendMessageBatchRequestEntry]

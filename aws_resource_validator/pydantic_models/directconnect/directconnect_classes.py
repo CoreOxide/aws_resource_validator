@@ -20,6 +20,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'allocate_connection_on_interconnect' function.
 class AllocateConnectionOnInterconnectRequest(BaseValidatorModel):
     bandwidth: str
     connectionName: str
@@ -33,16 +34,19 @@ class Tag(BaseValidatorModel):
     value: Optional[str] = None
 
 
+# This class is the input for the 'associate_connection_with_lag' function.
 class AssociateConnectionWithLagRequest(BaseValidatorModel):
     connectionId: str
     lagId: str
 
 
+# This class is the input for the 'associate_hosted_connection' function.
 class AssociateHostedConnectionRequest(BaseValidatorModel):
     connectionId: str
     parentConnectionId: str
 
 
+# This class is the input for the 'associate_mac_sec_key' function.
 class AssociateMacSecKeyRequest(BaseValidatorModel):
     connectionId: str
     secretARN: Optional[str] = None
@@ -57,6 +61,7 @@ class MacSecKey(BaseValidatorModel):
     startOn: Optional[str] = None
 
 
+# This class is the input for the 'associate_virtual_interface' function.
 class AssociateVirtualInterfaceRequest(BaseValidatorModel):
     virtualInterfaceId: str
     connectionId: str
@@ -88,24 +93,29 @@ class BGPPeer(BaseValidatorModel):
     awsLogicalDeviceId: Optional[str] = None
 
 
+# This class is the input for the 'confirm_connection' function.
 class ConfirmConnectionRequest(BaseValidatorModel):
     connectionId: str
 
 
+# This class is the input for the 'confirm_customer_agreement' function.
 class ConfirmCustomerAgreementRequest(BaseValidatorModel):
     agreementName: Optional[str] = None
 
 
+# This class is the input for the 'confirm_private_virtual_interface' function.
 class ConfirmPrivateVirtualInterfaceRequest(BaseValidatorModel):
     virtualInterfaceId: str
     virtualGatewayId: Optional[str] = None
     directConnectGatewayId: Optional[str] = None
 
 
+# This class is the input for the 'confirm_public_virtual_interface' function.
 class ConfirmPublicVirtualInterfaceRequest(BaseValidatorModel):
     virtualInterfaceId: str
 
 
+# This class is the input for the 'confirm_transit_virtual_interface' function.
 class ConfirmTransitVirtualInterfaceRequest(BaseValidatorModel):
     virtualInterfaceId: str
     directConnectGatewayId: str
@@ -119,6 +129,7 @@ class NewBGPPeer(BaseValidatorModel):
     customerAddress: Optional[str] = None
 
 
+# This class is the input for the 'create_direct_connect_gateway' function.
 class CreateDirectConnectGatewayRequest(BaseValidatorModel):
     directConnectGatewayName: str
     amazonSideAsn: Optional[int] = None
@@ -138,6 +149,7 @@ class CustomerAgreement(BaseValidatorModel):
     status: Optional[str] = None
 
 
+# This class is the input for the 'delete_bgp_peer' function.
 class DeleteBGPPeerRequest(BaseValidatorModel):
     virtualInterfaceId: Optional[str] = None
     asn: Optional[int] = None
@@ -145,36 +157,44 @@ class DeleteBGPPeerRequest(BaseValidatorModel):
     bgpPeerId: Optional[str] = None
 
 
+# This class is the input for the 'delete_connection' function.
 class DeleteConnectionRequest(BaseValidatorModel):
     connectionId: str
 
 
+# This class is the input for the 'delete_direct_connect_gateway_association_proposal' function.
 class DeleteDirectConnectGatewayAssociationProposalRequest(BaseValidatorModel):
     proposalId: str
 
 
+# This class is the input for the 'delete_direct_connect_gateway_association' function.
 class DeleteDirectConnectGatewayAssociationRequest(BaseValidatorModel):
     associationId: Optional[str] = None
     directConnectGatewayId: Optional[str] = None
     virtualGatewayId: Optional[str] = None
 
 
+# This class is the input for the 'delete_direct_connect_gateway' function.
 class DeleteDirectConnectGatewayRequest(BaseValidatorModel):
     directConnectGatewayId: str
 
 
+# This class is the input for the 'delete_interconnect' function.
 class DeleteInterconnectRequest(BaseValidatorModel):
     interconnectId: str
 
 
+# This class is the input for the 'delete_lag' function.
 class DeleteLagRequest(BaseValidatorModel):
     lagId: str
 
 
+# This class is the input for the 'delete_virtual_interface' function.
 class DeleteVirtualInterfaceRequest(BaseValidatorModel):
     virtualInterfaceId: str
 
 
+# This class is the input for the 'describe_connection_loa' function.
 class DescribeConnectionLoaRequest(BaseValidatorModel):
     connectionId: str
     providerName: Optional[str] = None
@@ -186,14 +206,17 @@ class Loa(BaseValidatorModel):
     loaContentType: Optional[Literal['application/pdf']] = None
 
 
+# This class is the input for the 'describe_connections_on_interconnect' function.
 class DescribeConnectionsOnInterconnectRequest(BaseValidatorModel):
     interconnectId: str
 
 
+# This class is the input for the 'describe_connections' function.
 class DescribeConnectionsRequest(BaseValidatorModel):
     connectionId: Optional[str] = None
 
 
+# This class is the input for the 'describe_direct_connect_gateway_association_proposals' function.
 class DescribeDirectConnectGatewayAssociationProposalsRequest(BaseValidatorModel):
     directConnectGatewayId: Optional[str] = None
     proposalId: Optional[str] = None
@@ -208,6 +231,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_direct_connect_gateway_associations' function.
 class DescribeDirectConnectGatewayAssociationsRequest(BaseValidatorModel):
     associationId: Optional[str] = None
     associatedGatewayId: Optional[str] = None
@@ -217,6 +241,7 @@ class DescribeDirectConnectGatewayAssociationsRequest(BaseValidatorModel):
     virtualGatewayId: Optional[str] = None
 
 
+# This class is the input for the 'describe_direct_connect_gateway_attachments' function.
 class DescribeDirectConnectGatewayAttachmentsRequest(BaseValidatorModel):
     directConnectGatewayId: Optional[str] = None
     virtualInterfaceId: Optional[str] = None
@@ -234,36 +259,43 @@ class DirectConnectGatewayAttachment(BaseValidatorModel):
     stateChangeError: Optional[str] = None
 
 
+# This class is the input for the 'describe_direct_connect_gateways' function.
 class DescribeDirectConnectGatewaysRequest(BaseValidatorModel):
     directConnectGatewayId: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_hosted_connections' function.
 class DescribeHostedConnectionsRequest(BaseValidatorModel):
     connectionId: str
 
 
+# This class is the input for the 'describe_interconnect_loa' function.
 class DescribeInterconnectLoaRequest(BaseValidatorModel):
     interconnectId: str
     providerName: Optional[str] = None
     loaContentType: Optional[Literal['application/pdf']] = None
 
 
+# This class is the input for the 'describe_interconnects' function.
 class DescribeInterconnectsRequest(BaseValidatorModel):
     interconnectId: Optional[str] = None
 
 
+# This class is the input for the 'describe_lags' function.
 class DescribeLagsRequest(BaseValidatorModel):
     lagId: Optional[str] = None
 
 
+# This class is the input for the 'describe_loa' function.
 class DescribeLoaRequest(BaseValidatorModel):
     connectionId: str
     providerName: Optional[str] = None
     loaContentType: Optional[Literal['application/pdf']] = None
 
 
+# This class is the input for the 'describe_router_configuration' function.
 class DescribeRouterConfigurationRequest(BaseValidatorModel):
     virtualInterfaceId: str
     routerTypeIdentifier: Optional[str] = None
@@ -278,25 +310,30 @@ class RouterType(BaseValidatorModel):
     routerTypeIdentifier: Optional[str] = None
 
 
+# This class is the input for the 'describe_tags' function.
 class DescribeTagsRequest(BaseValidatorModel):
     resourceArns: List[str]
 
 
+# This class is the input for the 'describe_virtual_interfaces' function.
 class DescribeVirtualInterfacesRequest(BaseValidatorModel):
     connectionId: Optional[str] = None
     virtualInterfaceId: Optional[str] = None
 
 
+# This class is the input for the 'disassociate_connection_from_lag' function.
 class DisassociateConnectionFromLagRequest(BaseValidatorModel):
     connectionId: str
     lagId: str
 
 
+# This class is the input for the 'disassociate_mac_sec_key' function.
 class DisassociateMacSecKeyRequest(BaseValidatorModel):
     connectionId: str
     secretARN: str
 
 
+# This class is the input for the 'list_virtual_interface_test_history' function.
 class ListVirtualInterfaceTestHistoryRequest(BaseValidatorModel):
     testId: Optional[str] = None
     virtualInterfaceId: Optional[str] = None
@@ -326,12 +363,14 @@ class Location(BaseValidatorModel):
     availableMacSecPortSpeeds: Optional[List[str]] = None
 
 
+# This class is the input for the 'start_bgp_failover_test' function.
 class StartBgpFailoverTestRequest(BaseValidatorModel):
     virtualInterfaceId: str
     bgpPeers: Optional[List[str]] = None
     testDurationInMinutes: Optional[int] = None
 
 
+# This class is the input for the 'stop_bgp_failover_test' function.
 class StopBgpFailoverTestRequest(BaseValidatorModel):
     virtualInterfaceId: str
 
@@ -341,17 +380,20 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_connection' function.
 class UpdateConnectionRequest(BaseValidatorModel):
     connectionId: str
     connectionName: Optional[str] = None
     encryptionMode: Optional[str] = None
 
 
+# This class is the input for the 'update_direct_connect_gateway' function.
 class UpdateDirectConnectGatewayRequest(BaseValidatorModel):
     directConnectGatewayId: str
     newDirectConnectGatewayName: str
 
 
+# This class is the input for the 'update_lag' function.
 class UpdateLagRequest(BaseValidatorModel):
     lagId: str
     lagName: Optional[str] = None
@@ -359,6 +401,7 @@ class UpdateLagRequest(BaseValidatorModel):
     encryptionMode: Optional[str] = None
 
 
+# This class is the input for the 'update_virtual_interface_attributes' function.
 class UpdateVirtualInterfaceAttributesRequest(BaseValidatorModel):
     virtualInterfaceId: str
     mtu: Optional[int] = None
@@ -371,6 +414,7 @@ class VirtualGateway(BaseValidatorModel):
     virtualGatewayState: Optional[str] = None
 
 
+# This class is the input for the 'accept_direct_connect_gateway_association_proposal' function.
 class AcceptDirectConnectGatewayAssociationProposalRequest(BaseValidatorModel):
     directConnectGatewayId: str
     proposalId: str
@@ -378,6 +422,7 @@ class AcceptDirectConnectGatewayAssociationProposalRequest(BaseValidatorModel):
     overrideAllowedPrefixesToDirectConnectGateway: Optional[List[RouteFilterPrefix]] = None
 
 
+# This class is the input for the 'create_direct_connect_gateway_association_proposal' function.
 class CreateDirectConnectGatewayAssociationProposalRequest(BaseValidatorModel):
     directConnectGatewayId: str
     directConnectGatewayOwnerAccount: str
@@ -386,6 +431,7 @@ class CreateDirectConnectGatewayAssociationProposalRequest(BaseValidatorModel):
     removeAllowedPrefixesToDirectConnectGateway: Optional[List[RouteFilterPrefix]] = None
 
 
+# This class is the input for the 'create_direct_connect_gateway_association' function.
 class CreateDirectConnectGatewayAssociationRequest(BaseValidatorModel):
     directConnectGatewayId: str
     gatewayId: Optional[str] = None
@@ -393,53 +439,63 @@ class CreateDirectConnectGatewayAssociationRequest(BaseValidatorModel):
     virtualGatewayId: Optional[str] = None
 
 
+# This class is the input for the 'update_direct_connect_gateway_association' function.
 class UpdateDirectConnectGatewayAssociationRequest(BaseValidatorModel):
     associationId: Optional[str] = None
     addAllowedPrefixesToDirectConnectGateway: Optional[List[RouteFilterPrefix]] = None
     removeAllowedPrefixesToDirectConnectGateway: Optional[List[RouteFilterPrefix]] = None
 
 
+# This class is the output for the 'confirm_connection' function.
 class ConfirmConnectionResponse(BaseValidatorModel):
     connectionState: ConnectionStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'confirm_customer_agreement' function.
 class ConfirmCustomerAgreementResponse(BaseValidatorModel):
     status: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'confirm_private_virtual_interface' function.
 class ConfirmPrivateVirtualInterfaceResponse(BaseValidatorModel):
     virtualInterfaceState: VirtualInterfaceStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'confirm_public_virtual_interface' function.
 class ConfirmPublicVirtualInterfaceResponse(BaseValidatorModel):
     virtualInterfaceState: VirtualInterfaceStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'confirm_transit_virtual_interface' function.
 class ConfirmTransitVirtualInterfaceResponse(BaseValidatorModel):
     virtualInterfaceState: VirtualInterfaceStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_interconnect' function.
 class DeleteInterconnectResponse(BaseValidatorModel):
     interconnectState: InterconnectStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_virtual_interface' function.
 class DeleteVirtualInterfaceResponse(BaseValidatorModel):
     virtualInterfaceState: VirtualInterfaceStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_loa' function.
 class LoaResponse(BaseValidatorModel):
     loaContent: bytes
     loaContentType: Literal['application/pdf']
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'allocate_hosted_connection' function.
 class AllocateHostedConnectionRequest(BaseValidatorModel):
     connectionId: str
     ownerAccount: str
@@ -449,6 +505,7 @@ class AllocateHostedConnectionRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_connection' function.
 class CreateConnectionRequest(BaseValidatorModel):
     location: str
     bandwidth: str
@@ -459,6 +516,7 @@ class CreateConnectionRequest(BaseValidatorModel):
     requestMACSec: Optional[bool] = None
 
 
+# This class is the input for the 'create_interconnect' function.
 class CreateInterconnectRequest(BaseValidatorModel):
     interconnectName: str
     bandwidth: str
@@ -468,6 +526,7 @@ class CreateInterconnectRequest(BaseValidatorModel):
     providerName: Optional[str] = None
 
 
+# This class is the input for the 'create_lag' function.
 class CreateLagRequest(BaseValidatorModel):
     numberOfConnections: int
     location: str
@@ -480,6 +539,7 @@ class CreateLagRequest(BaseValidatorModel):
     requestMACSec: Optional[bool] = None
 
 
+# This class is the output for the 'create_interconnect' function.
 class InterconnectResponse(BaseValidatorModel):
     interconnectId: str
     interconnectName: str
@@ -604,12 +664,14 @@ class TagResourceRequest(BaseValidatorModel):
     tags: List[Tag]
 
 
+# This class is the output for the 'associate_mac_sec_key' function.
 class AssociateMacSecKeyResponse(BaseValidatorModel):
     connectionId: str
     macSecKeys: List[MacSecKey]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_connection' function.
 class ConnectionResponse(BaseValidatorModel):
     ownerAccount: str
     connectionId: str
@@ -661,6 +723,7 @@ class Connection(BaseValidatorModel):
     macSecKeys: Optional[List[MacSecKey]] = None
 
 
+# This class is the output for the 'disassociate_mac_sec_key' function.
 class DisassociateMacSecKeyResponse(BaseValidatorModel):
     connectionId: str
     macSecKeys: List[MacSecKey]
@@ -691,6 +754,7 @@ class DirectConnectGatewayAssociation(BaseValidatorModel):
     virtualGatewayOwnerAccount: Optional[str] = None
 
 
+# This class is the output for the 'update_virtual_interface_attributes' function.
 class VirtualInterfaceResponse(BaseValidatorModel):
     ownerAccount: str
     virtualInterfaceId: str
@@ -750,27 +814,32 @@ class VirtualInterface(BaseValidatorModel):
     siteLinkEnabled: Optional[bool] = None
 
 
+# This class is the input for the 'create_bgp_peer' function.
 class CreateBGPPeerRequest(BaseValidatorModel):
     virtualInterfaceId: Optional[str] = None
     newBGPPeer: Optional[NewBGPPeer] = None
 
 
+# This class is the output for the 'create_direct_connect_gateway' function.
 class CreateDirectConnectGatewayResult(BaseValidatorModel):
     directConnectGateway: DirectConnectGateway
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_direct_connect_gateway' function.
 class DeleteDirectConnectGatewayResult(BaseValidatorModel):
     directConnectGateway: DirectConnectGateway
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_direct_connect_gateways' function.
 class DescribeDirectConnectGatewaysResult(BaseValidatorModel):
     directConnectGateways: List[DirectConnectGateway]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_direct_connect_gateway' function.
 class UpdateDirectConnectGatewayResponse(BaseValidatorModel):
     directConnectGateway: DirectConnectGateway
     ResponseMetadata: ResponseMetadata
@@ -782,11 +851,13 @@ class DescribeCustomerMetadataResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_connection_loa' function.
 class DescribeConnectionLoaResponse(BaseValidatorModel):
     loa: Loa
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_interconnect_loa' function.
 class DescribeInterconnectLoaResponse(BaseValidatorModel):
     loa: Loa
     ResponseMetadata: ResponseMetadata
@@ -811,12 +882,14 @@ class DescribeDirectConnectGatewaysRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'describe_direct_connect_gateway_attachments' function.
 class DescribeDirectConnectGatewayAttachmentsResult(BaseValidatorModel):
     directConnectGatewayAttachments: List[DirectConnectGatewayAttachment]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_router_configuration' function.
 class DescribeRouterConfigurationResponse(BaseValidatorModel):
     customerRouterConfig: str
     router: RouterType
@@ -825,17 +898,20 @@ class DescribeRouterConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_virtual_interface_test_history' function.
 class ListVirtualInterfaceTestHistoryResponse(BaseValidatorModel):
     virtualInterfaceTestHistory: List[VirtualInterfaceTestHistory]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_bgp_failover_test' function.
 class StartBgpFailoverTestResponse(BaseValidatorModel):
     virtualInterfaceTest: VirtualInterfaceTestHistory
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_bgp_failover_test' function.
 class StopBgpFailoverTestResponse(BaseValidatorModel):
     virtualInterfaceTest: VirtualInterfaceTestHistory
     ResponseMetadata: ResponseMetadata
@@ -851,54 +927,64 @@ class VirtualGateways(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_interconnects' function.
 class Interconnects(BaseValidatorModel):
     interconnects: List[Interconnect]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'allocate_private_virtual_interface' function.
 class AllocatePrivateVirtualInterfaceRequest(BaseValidatorModel):
     connectionId: str
     ownerAccount: str
     newPrivateVirtualInterfaceAllocation: NewPrivateVirtualInterfaceAllocation
 
 
+# This class is the input for the 'create_private_virtual_interface' function.
 class CreatePrivateVirtualInterfaceRequest(BaseValidatorModel):
     connectionId: str
     newPrivateVirtualInterface: NewPrivateVirtualInterface
 
 
+# This class is the input for the 'allocate_public_virtual_interface' function.
 class AllocatePublicVirtualInterfaceRequest(BaseValidatorModel):
     connectionId: str
     ownerAccount: str
     newPublicVirtualInterfaceAllocation: NewPublicVirtualInterfaceAllocation
 
 
+# This class is the input for the 'create_public_virtual_interface' function.
 class CreatePublicVirtualInterfaceRequest(BaseValidatorModel):
     connectionId: str
     newPublicVirtualInterface: NewPublicVirtualInterface
 
 
+# This class is the input for the 'allocate_transit_virtual_interface' function.
 class AllocateTransitVirtualInterfaceRequest(BaseValidatorModel):
     connectionId: str
     ownerAccount: str
     newTransitVirtualInterfaceAllocation: NewTransitVirtualInterfaceAllocation
 
 
+# This class is the input for the 'create_transit_virtual_interface' function.
 class CreateTransitVirtualInterfaceRequest(BaseValidatorModel):
     connectionId: str
     newTransitVirtualInterface: NewTransitVirtualInterface
 
 
+# This class is the output for the 'describe_tags' function.
 class DescribeTagsResponse(BaseValidatorModel):
     resourceTags: List[ResourceTag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_hosted_connections' function.
 class Connections(BaseValidatorModel):
     connections: List[Connection]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_lag' function.
 class LagResponse(BaseValidatorModel):
     connectionsBandwidth: str
     numberOfConnections: int
@@ -948,73 +1034,87 @@ class Lag(BaseValidatorModel):
     macSecKeys: Optional[List[MacSecKey]] = None
 
 
+# This class is the output for the 'create_direct_connect_gateway_association_proposal' function.
 class CreateDirectConnectGatewayAssociationProposalResult(BaseValidatorModel):
     directConnectGatewayAssociationProposal: DirectConnectGatewayAssociationProposal
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_direct_connect_gateway_association_proposal' function.
 class DeleteDirectConnectGatewayAssociationProposalResult(BaseValidatorModel):
     directConnectGatewayAssociationProposal: DirectConnectGatewayAssociationProposal
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_direct_connect_gateway_association_proposals' function.
 class DescribeDirectConnectGatewayAssociationProposalsResult(BaseValidatorModel):
     directConnectGatewayAssociationProposals: List[DirectConnectGatewayAssociationProposal]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'accept_direct_connect_gateway_association_proposal' function.
 class AcceptDirectConnectGatewayAssociationProposalResult(BaseValidatorModel):
     directConnectGatewayAssociation: DirectConnectGatewayAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_direct_connect_gateway_association' function.
 class CreateDirectConnectGatewayAssociationResult(BaseValidatorModel):
     directConnectGatewayAssociation: DirectConnectGatewayAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_direct_connect_gateway_association' function.
 class DeleteDirectConnectGatewayAssociationResult(BaseValidatorModel):
     directConnectGatewayAssociation: DirectConnectGatewayAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_direct_connect_gateway_associations' function.
 class DescribeDirectConnectGatewayAssociationsResult(BaseValidatorModel):
     directConnectGatewayAssociations: List[DirectConnectGatewayAssociation]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_direct_connect_gateway_association' function.
 class UpdateDirectConnectGatewayAssociationResult(BaseValidatorModel):
     directConnectGatewayAssociation: DirectConnectGatewayAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'allocate_transit_virtual_interface' function.
 class AllocateTransitVirtualInterfaceResult(BaseValidatorModel):
     virtualInterface: VirtualInterface
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_bgp_peer' function.
 class CreateBGPPeerResponse(BaseValidatorModel):
     virtualInterface: VirtualInterface
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_transit_virtual_interface' function.
 class CreateTransitVirtualInterfaceResult(BaseValidatorModel):
     virtualInterface: VirtualInterface
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_bgp_peer' function.
 class DeleteBGPPeerResponse(BaseValidatorModel):
     virtualInterface: VirtualInterface
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_virtual_interfaces' function.
 class VirtualInterfaces(BaseValidatorModel):
     virtualInterfaces: List[VirtualInterface]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_lags' function.
 class Lags(BaseValidatorModel):
     lags: List[Lag]
     ResponseMetadata: ResponseMetadata

@@ -85,6 +85,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_content' function.
 class CreateContentRequest(BaseValidatorModel):
     knowledgeBaseId: str
     name: str
@@ -104,6 +105,7 @@ class QuickResponseDataProvider(BaseValidatorModel):
     content: Optional[str] = None
 
 
+# This class is the input for the 'create_session' function.
 class CreateSessionRequest(BaseValidatorModel):
     assistantId: str
     name: str
@@ -151,39 +153,47 @@ class Filter(BaseValidatorModel):
     value: str
 
 
+# This class is the input for the 'get_assistant_association' function.
 class GetAssistantAssociationRequest(BaseValidatorModel):
     assistantAssociationId: str
     assistantId: str
 
 
+# This class is the input for the 'get_assistant' function.
 class GetAssistantRequest(BaseValidatorModel):
     assistantId: str
 
 
+# This class is the input for the 'get_content' function.
 class GetContentRequest(BaseValidatorModel):
     contentId: str
     knowledgeBaseId: str
 
 
+# This class is the input for the 'get_content_summary' function.
 class GetContentSummaryRequest(BaseValidatorModel):
     contentId: str
     knowledgeBaseId: str
 
 
+# This class is the input for the 'get_import_job' function.
 class GetImportJobRequest(BaseValidatorModel):
     importJobId: str
     knowledgeBaseId: str
 
 
+# This class is the input for the 'get_knowledge_base' function.
 class GetKnowledgeBaseRequest(BaseValidatorModel):
     knowledgeBaseId: str
 
 
+# This class is the input for the 'get_quick_response' function.
 class GetQuickResponseRequest(BaseValidatorModel):
     knowledgeBaseId: str
     quickResponseId: str
 
 
+# This class is the input for the 'get_recommendations' function.
 class GetRecommendationsRequest(BaseValidatorModel):
     assistantId: str
     sessionId: str
@@ -191,6 +201,7 @@ class GetRecommendationsRequest(BaseValidatorModel):
     waitTimeSeconds: Optional[int] = None
 
 
+# This class is the input for the 'get_session' function.
 class GetSessionRequest(BaseValidatorModel):
     assistantId: str
     sessionId: str
@@ -212,34 +223,40 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_assistant_associations' function.
 class ListAssistantAssociationsRequest(BaseValidatorModel):
     assistantId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_assistants' function.
 class ListAssistantsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_contents' function.
 class ListContentsRequest(BaseValidatorModel):
     knowledgeBaseId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_import_jobs' function.
 class ListImportJobsRequest(BaseValidatorModel):
     knowledgeBaseId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_knowledge_bases' function.
 class ListKnowledgeBasesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_quick_responses' function.
 class ListQuickResponsesRequest(BaseValidatorModel):
     knowledgeBaseId: str
     maxResults: Optional[int] = None
@@ -263,6 +280,7 @@ class QuickResponseSummary(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -272,12 +290,14 @@ class NotifyRecommendationsReceivedError(BaseValidatorModel):
     recommendationId: Optional[str] = None
 
 
+# This class is the input for the 'notify_recommendations_received' function.
 class NotifyRecommendationsReceivedRequest(BaseValidatorModel):
     assistantId: str
     recommendationIds: List[str]
     sessionId: str
 
 
+# This class is the input for the 'query_assistant' function.
 class QueryAssistantRequest(BaseValidatorModel):
     assistantId: str
     queryText: str
@@ -328,6 +348,7 @@ class SessionIntegrationConfiguration(BaseValidatorModel):
     topicIntegrationArn: Optional[str] = None
 
 
+# This class is the input for the 'start_content_upload' function.
 class StartContentUploadRequest(BaseValidatorModel):
     contentType: str
     knowledgeBaseId: str
@@ -344,6 +365,7 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_content' function.
 class UpdateContentRequest(BaseValidatorModel):
     contentId: str
     knowledgeBaseId: str
@@ -355,6 +377,7 @@ class UpdateContentRequest(BaseValidatorModel):
     uploadId: Optional[str] = None
 
 
+# This class is the input for the 'update_knowledge_base_template_uri' function.
 class UpdateKnowledgeBaseTemplateUriRequest(BaseValidatorModel):
     knowledgeBaseId: str
     templateUri: str
@@ -368,6 +391,7 @@ class SourceConfiguration(BaseValidatorModel):
     appIntegrations: Optional[AppIntegrationsConfiguration] = None
 
 
+# This class is the input for the 'create_assistant_association' function.
 class CreateAssistantAssociationRequest(BaseValidatorModel):
     assistantId: str
     association: AssistantAssociationInputData
@@ -404,6 +428,7 @@ class AssistantSummary(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_assistant' function.
 class CreateAssistantRequest(BaseValidatorModel):
     name: str
     type: Literal['AGENT']
@@ -417,38 +442,45 @@ class Configuration(BaseValidatorModel):
     connectConfiguration: Optional[ConnectConfiguration] = None
 
 
+# This class is the output for the 'create_content' function.
 class CreateContentResponse(BaseValidatorModel):
     content: ContentData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_content' function.
 class GetContentResponse(BaseValidatorModel):
     content: ContentData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_content_summary' function.
 class GetContentSummaryResponse(BaseValidatorModel):
     contentSummary: ContentSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_contents' function.
 class ListContentsResponse(BaseValidatorModel):
     contentSummaries: List[ContentSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_content' function.
 class SearchContentResponse(BaseValidatorModel):
     contentSummaries: List[ContentSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_content_upload' function.
 class StartContentUploadResponse(BaseValidatorModel):
     headersToInclude: Dict[str, str]
     uploadId: str
@@ -457,6 +489,7 @@ class StartContentUploadResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_content' function.
 class UpdateContentResponse(BaseValidatorModel):
     content: ContentData
     ResponseMetadata: ResponseMetadata
@@ -507,12 +540,14 @@ class QueryAssistantRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_quick_responses' function.
 class ListQuickResponsesResponse(BaseValidatorModel):
     quickResponseSummaries: List[QuickResponseSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'notify_recommendations_received' function.
 class NotifyRecommendationsReceivedResponse(BaseValidatorModel):
     errors: List[NotifyRecommendationsReceivedError]
     recommendationIds: List[str]
@@ -534,6 +569,7 @@ class QuickResponseSearchExpression(BaseValidatorModel):
     queries: Optional[List[QuickResponseQueryField]] = None
 
 
+# This class is the output for the 'search_sessions' function.
 class SearchSessionsResponse(BaseValidatorModel):
     sessionSummaries: List[SessionSummary]
     ResponseMetadata: ResponseMetadata
@@ -598,16 +634,19 @@ class AssistantAssociationSummary(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_assistant' function.
 class CreateAssistantResponse(BaseValidatorModel):
     assistant: AssistantData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_assistant' function.
 class GetAssistantResponse(BaseValidatorModel):
     assistant: AssistantData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_assistants' function.
 class ListAssistantsResponse(BaseValidatorModel):
     assistantSummaries: List[AssistantSummary]
     ResponseMetadata: ResponseMetadata
@@ -631,6 +670,7 @@ class SearchContentRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_content' function.
 class SearchContentRequest(BaseValidatorModel):
     knowledgeBaseId: str
     searchExpression: SearchExpression
@@ -644,6 +684,7 @@ class SearchSessionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_sessions' function.
 class SearchSessionsRequest(BaseValidatorModel):
     assistantId: str
     searchExpression: SearchExpression
@@ -651,6 +692,7 @@ class SearchSessionsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_quick_response' function.
 class CreateQuickResponseRequest(BaseValidatorModel):
     content: QuickResponseDataProvider
     knowledgeBaseId: str
@@ -666,6 +708,7 @@ class CreateQuickResponseRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_quick_response' function.
 class UpdateQuickResponseRequest(BaseValidatorModel):
     knowledgeBaseId: str
     quickResponseId: str
@@ -742,6 +785,7 @@ class SearchQuickResponsesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_quick_responses' function.
 class SearchQuickResponsesRequest(BaseValidatorModel):
     knowledgeBaseId: str
     searchExpression: QuickResponseSearchExpression
@@ -750,37 +794,44 @@ class SearchQuickResponsesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_session' function.
 class CreateSessionResponse(BaseValidatorModel):
     session: SessionData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_session' function.
 class GetSessionResponse(BaseValidatorModel):
     session: SessionData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_knowledge_base' function.
 class CreateKnowledgeBaseResponse(BaseValidatorModel):
     knowledgeBase: KnowledgeBaseData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_knowledge_base' function.
 class GetKnowledgeBaseResponse(BaseValidatorModel):
     knowledgeBase: KnowledgeBaseData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_knowledge_base_template_uri' function.
 class UpdateKnowledgeBaseTemplateUriResponse(BaseValidatorModel):
     knowledgeBase: KnowledgeBaseData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_knowledge_bases' function.
 class ListKnowledgeBasesResponse(BaseValidatorModel):
     knowledgeBaseSummaries: List[KnowledgeBaseSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_knowledge_base' function.
 class CreateKnowledgeBaseRequest(BaseValidatorModel):
     knowledgeBaseType: KnowledgeBaseTypeType
     name: str
@@ -792,16 +843,19 @@ class CreateKnowledgeBaseRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_assistant_association' function.
 class CreateAssistantAssociationResponse(BaseValidatorModel):
     assistantAssociation: AssistantAssociationData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_assistant_association' function.
 class GetAssistantAssociationResponse(BaseValidatorModel):
     assistantAssociation: AssistantAssociationData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_assistant_associations' function.
 class ListAssistantAssociationsResponse(BaseValidatorModel):
     assistantAssociationSummaries: List[AssistantAssociationSummary]
     ResponseMetadata: ResponseMetadata
@@ -837,6 +891,7 @@ class ImportJobSummary(BaseValidatorModel):
     metadata: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'start_import_job' function.
 class StartImportJobRequest(BaseValidatorModel):
     importJobType: Literal['QUICK_RESPONSES']
     knowledgeBaseId: str
@@ -860,49 +915,58 @@ class ResultData(BaseValidatorModel):
     relevanceScore: Optional[float] = None
 
 
+# This class is the output for the 'create_quick_response' function.
 class CreateQuickResponseResponse(BaseValidatorModel):
     quickResponse: QuickResponseData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_quick_response' function.
 class GetQuickResponseResponse(BaseValidatorModel):
     quickResponse: QuickResponseData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_quick_response' function.
 class UpdateQuickResponseResponse(BaseValidatorModel):
     quickResponse: QuickResponseData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_quick_responses' function.
 class SearchQuickResponsesResponse(BaseValidatorModel):
     results: List[QuickResponseSearchResultData]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_import_job' function.
 class GetImportJobResponse(BaseValidatorModel):
     importJob: ImportJobData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_import_job' function.
 class StartImportJobResponse(BaseValidatorModel):
     importJob: ImportJobData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_import_jobs' function.
 class ListImportJobsResponse(BaseValidatorModel):
     importJobSummaries: List[ImportJobSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_recommendations' function.
 class GetRecommendationsResponse(BaseValidatorModel):
     recommendations: List[RecommendationData]
     triggers: List[RecommendationTrigger]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'query_assistant' function.
 class QueryAssistantResponse(BaseValidatorModel):
     results: List[ResultData]
     ResponseMetadata: ResponseMetadata

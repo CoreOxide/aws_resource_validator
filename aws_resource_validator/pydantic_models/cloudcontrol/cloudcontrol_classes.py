@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'cancel_resource_request' function.
 class CancelResourceRequestInput(BaseValidatorModel):
     RequestToken: str
 
@@ -34,6 +35,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_resource' function.
 class CreateResourceInput(BaseValidatorModel):
     TypeName: str
     DesiredState: str
@@ -42,6 +44,7 @@ class CreateResourceInput(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_resource' function.
 class DeleteResourceInput(BaseValidatorModel):
     TypeName: str
     Identifier: str
@@ -50,6 +53,7 @@ class DeleteResourceInput(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'get_resource' function.
 class GetResourceInput(BaseValidatorModel):
     TypeName: str
     Identifier: str
@@ -62,6 +66,7 @@ class ResourceDescription(BaseValidatorModel):
     Properties: Optional[str] = None
 
 
+# This class is the input for the 'get_resource_request_status' function.
 class GetResourceRequestStatusInput(BaseValidatorModel):
     RequestToken: str
 
@@ -93,6 +98,7 @@ class ResourceRequestStatusFilter(BaseValidatorModel):
     OperationStatuses: Optional[List[OperationStatusType]] = None
 
 
+# This class is the input for the 'list_resources' function.
 class ListResourcesInput(BaseValidatorModel):
     TypeName: str
     TypeVersionId: Optional[str] = None
@@ -102,6 +108,7 @@ class ListResourcesInput(BaseValidatorModel):
     ResourceModel: Optional[str] = None
 
 
+# This class is the input for the 'update_resource' function.
 class UpdateResourceInput(BaseValidatorModel):
     TypeName: str
     Identifier: str
@@ -111,38 +118,45 @@ class UpdateResourceInput(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the output for the 'cancel_resource_request' function.
 class CancelResourceRequestOutput(BaseValidatorModel):
     ProgressEvent: ProgressEvent
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_resource' function.
 class CreateResourceOutput(BaseValidatorModel):
     ProgressEvent: ProgressEvent
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_resource' function.
 class DeleteResourceOutput(BaseValidatorModel):
     ProgressEvent: ProgressEvent
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_resource_requests' function.
 class ListResourceRequestsOutput(BaseValidatorModel):
     ResourceRequestStatusSummaries: List[ProgressEvent]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_resource' function.
 class UpdateResourceOutput(BaseValidatorModel):
     ProgressEvent: ProgressEvent
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource' function.
 class GetResourceOutput(BaseValidatorModel):
     TypeName: str
     ResourceDescription: ResourceDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_resources' function.
 class ListResourcesOutput(BaseValidatorModel):
     TypeName: str
     ResourceDescriptions: List[ResourceDescription]
@@ -155,6 +169,7 @@ class GetResourceRequestStatusInputWait(BaseValidatorModel):
     WaiterConfig: Optional[WaiterConfig] = None
 
 
+# This class is the output for the 'get_resource_request_status' function.
 class GetResourceRequestStatusOutput(BaseValidatorModel):
     ProgressEvent: ProgressEvent
     HooksProgressEvent: List[HookProgressEvent]
@@ -174,6 +189,7 @@ class ListResourceRequestsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_resource_requests' function.
 class ListResourceRequestsInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None

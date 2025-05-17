@@ -18,6 +18,7 @@ class ApplicationSummary(BaseValidatorModel):
     applicationState: Optional[ApplicationStateType] = None
 
 
+# This class is the input for the 'create_application' function.
 class CreateApplicationRequest(BaseValidatorModel):
     applicationName: str
     roleArn: str
@@ -39,6 +40,7 @@ class DeleteApplicationRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_application' function.
 class DescribeApplicationRequest(BaseValidatorModel):
     applicationId: str
 
@@ -49,10 +51,12 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_applications' function.
 class ListApplicationsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -74,12 +78,14 @@ class UpdateApplicationRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the output for the 'create_application' function.
 class CreateApplicationResponse(BaseValidatorModel):
     applicationId: str
     applicationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_application' function.
 class DescribeApplicationResponse(BaseValidatorModel):
     applicationId: str
     applicationArn: str
@@ -96,12 +102,14 @@ class DescribeApplicationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_applications' function.
 class ListApplicationsResponse(BaseValidatorModel):
     applicationSummaries: List[ApplicationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata

@@ -53,6 +53,7 @@ class CommitDiffSourceCodeType(BaseValidatorModel):
     MergeBaseCommit: Optional[str] = None
 
 
+# This class is the input for the 'describe_code_review' function.
 class DescribeCodeReviewRequest(BaseValidatorModel):
     CodeReviewArn: str
 
@@ -62,6 +63,7 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'describe_recommendation_feedback' function.
 class DescribeRecommendationFeedbackRequest(BaseValidatorModel):
     CodeReviewArn: str
     RecommendationId: str
@@ -77,10 +79,12 @@ class RecommendationFeedback(BaseValidatorModel):
     LastUpdatedTimeStamp: Optional[datetime] = None
 
 
+# This class is the input for the 'describe_repository_association' function.
 class DescribeRepositoryAssociationRequest(BaseValidatorModel):
     AssociationArn: str
 
 
+# This class is the input for the 'disassociate_repository' function.
 class DisassociateRepositoryRequest(BaseValidatorModel):
     AssociationArn: str
 
@@ -90,6 +94,7 @@ class EventInfo(BaseValidatorModel):
     State: Optional[str] = None
 
 
+# This class is the input for the 'list_code_reviews' function.
 class ListCodeReviewsRequest(BaseValidatorModel):
     Type: TypeType
     ProviderTypes: Optional[List[ProviderTypeType]] = None
@@ -99,6 +104,7 @@ class ListCodeReviewsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_recommendation_feedback' function.
 class ListRecommendationFeedbackRequest(BaseValidatorModel):
     CodeReviewArn: str
     NextToken: Optional[str] = None
@@ -113,6 +119,7 @@ class RecommendationFeedbackSummary(BaseValidatorModel):
     UserId: Optional[str] = None
 
 
+# This class is the input for the 'list_recommendations' function.
 class ListRecommendationsRequest(BaseValidatorModel):
     CodeReviewArn: str
     NextToken: Optional[str] = None
@@ -125,6 +132,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_repository_associations' function.
 class ListRepositoryAssociationsRequest(BaseValidatorModel):
     ProviderTypes: Optional[List[ProviderTypeType]] = None
     States: Optional[List[RepositoryAssociationStateType]] = None
@@ -145,6 +153,7 @@ class RepositoryAssociationSummary(BaseValidatorModel):
     State: Optional[RepositoryAssociationStateType] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -188,6 +197,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
@@ -208,6 +218,7 @@ class DescribeRepositoryAssociationRequestWait(BaseValidatorModel):
     WaiterConfig: Optional[WaiterConfig] = None
 
 
+# This class is the output for the 'describe_recommendation_feedback' function.
 class DescribeRecommendationFeedbackResponse(BaseValidatorModel):
     RecommendationFeedback: RecommendationFeedback
     ResponseMetadata: ResponseMetadata
@@ -220,6 +231,7 @@ class RequestMetadata(BaseValidatorModel):
     VendorName: Optional[VendorNameType] = None
 
 
+# This class is the output for the 'list_recommendation_feedback' function.
 class ListRecommendationFeedbackResponse(BaseValidatorModel):
     RecommendationFeedbackSummaries: List[RecommendationFeedbackSummary]
     ResponseMetadata: ResponseMetadata
@@ -234,6 +246,7 @@ class ListRepositoryAssociationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_repository_associations' function.
 class ListRepositoryAssociationsResponse(BaseValidatorModel):
     RepositoryAssociationSummaries: List[RepositoryAssociationSummary]
     ResponseMetadata: ResponseMetadata
@@ -278,12 +291,14 @@ class S3BucketRepository(BaseValidatorModel):
     Details: Optional[S3RepositoryDetails] = None
 
 
+# This class is the output for the 'list_recommendations' function.
 class ListRecommendationsResponse(BaseValidatorModel):
     RecommendationSummaries: List[RecommendationSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'associate_repository' function.
 class AssociateRepositoryRequest(BaseValidatorModel):
     Repository: Repository
     ClientRequestToken: Optional[str] = None
@@ -291,18 +306,21 @@ class AssociateRepositoryRequest(BaseValidatorModel):
     KMSKeyDetails: Optional[KMSKeyDetails] = None
 
 
+# This class is the output for the 'associate_repository' function.
 class AssociateRepositoryResponse(BaseValidatorModel):
     RepositoryAssociation: RepositoryAssociation
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_repository_association' function.
 class DescribeRepositoryAssociationResponse(BaseValidatorModel):
     RepositoryAssociation: RepositoryAssociation
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_repository' function.
 class DisassociateRepositoryResponse(BaseValidatorModel):
     RepositoryAssociation: RepositoryAssociation
     Tags: Dict[str, str]
@@ -356,17 +374,20 @@ class RepositoryAnalysis(BaseValidatorModel):
     SourceCodeType: Optional[SourceCodeType] = None
 
 
+# This class is the output for the 'list_code_reviews' function.
 class ListCodeReviewsResponse(BaseValidatorModel):
     CodeReviewSummaries: List[CodeReviewSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_code_review' function.
 class CreateCodeReviewResponse(BaseValidatorModel):
     CodeReview: CodeReview
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_code_review' function.
 class DescribeCodeReviewResponse(BaseValidatorModel):
     CodeReview: CodeReview
     ResponseMetadata: ResponseMetadata
@@ -377,6 +398,7 @@ class CodeReviewType(BaseValidatorModel):
     AnalysisTypes: Optional[List[AnalysisTypeType]] = None
 
 
+# This class is the input for the 'create_code_review' function.
 class CreateCodeReviewRequest(BaseValidatorModel):
     Name: str
     RepositoryAssociationArn: str

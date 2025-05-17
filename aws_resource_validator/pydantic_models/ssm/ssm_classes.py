@@ -27,6 +27,7 @@ class AlarmStateInformation(BaseValidatorModel):
     State: ExternalAlarmStateType
 
 
+# This class is the input for the 'associate_ops_item_related_item' function.
 class AssociateOpsItemRelatedItemRequest(BaseValidatorModel):
     OpsItemId: str
     AssociationType: str
@@ -131,6 +132,7 @@ class CancelCommandRequest(BaseValidatorModel):
     InstanceIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'cancel_maintenance_window_execution' function.
 class CancelMaintenanceWindowExecutionRequest(BaseValidatorModel):
     WindowExecutionId: str
 
@@ -241,6 +243,7 @@ class DeleteDocumentRequest(BaseValidatorModel):
     Force: Optional[bool] = None
 
 
+# This class is the input for the 'delete_inventory' function.
 class DeleteInventoryRequest(BaseValidatorModel):
     TypeName: str
     SchemaDeleteOption: Optional[InventorySchemaDeleteOptionType] = None
@@ -248,6 +251,7 @@ class DeleteInventoryRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_maintenance_window' function.
 class DeleteMaintenanceWindowRequest(BaseValidatorModel):
     WindowId: str
 
@@ -264,10 +268,12 @@ class DeleteParameterRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'delete_parameters' function.
 class DeleteParametersRequest(BaseValidatorModel):
     Names: List[str]
 
 
+# This class is the input for the 'delete_patch_baseline' function.
 class DeletePatchBaselineRequest(BaseValidatorModel):
     BaselineId: str
 
@@ -287,17 +293,20 @@ class DeregisterManagedInstanceRequest(BaseValidatorModel):
     InstanceId: str
 
 
+# This class is the input for the 'deregister_patch_baseline_for_patch_group' function.
 class DeregisterPatchBaselineForPatchGroupRequest(BaseValidatorModel):
     BaselineId: str
     PatchGroup: str
 
 
+# This class is the input for the 'deregister_target_from_maintenance_window' function.
 class DeregisterTargetFromMaintenanceWindowRequest(BaseValidatorModel):
     WindowId: str
     WindowTargetId: str
     Safe: Optional[bool] = None
 
 
+# This class is the input for the 'deregister_task_from_maintenance_window' function.
 class DeregisterTaskFromMaintenanceWindowRequest(BaseValidatorModel):
     WindowId: str
     WindowTaskId: str
@@ -314,6 +323,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_association' function.
 class DescribeAssociationRequest(BaseValidatorModel):
     Name: Optional[str] = None
     InstanceId: Optional[str] = None
@@ -357,6 +367,7 @@ class Patch(BaseValidatorModel):
     Repository: Optional[str] = None
 
 
+# This class is the input for the 'describe_document_permission' function.
 class DescribeDocumentPermissionRequest(BaseValidatorModel):
     Name: str
     PermissionType: Literal['Share']
@@ -364,12 +375,14 @@ class DescribeDocumentPermissionRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_document' function.
 class DescribeDocumentRequest(BaseValidatorModel):
     Name: str
     DocumentVersion: Optional[str] = None
     VersionName: Optional[str] = None
 
 
+# This class is the input for the 'describe_effective_instance_associations' function.
 class DescribeEffectiveInstanceAssociationsRequest(BaseValidatorModel):
     InstanceId: str
     MaxResults: Optional[int] = None
@@ -383,12 +396,14 @@ class InstanceAssociation(BaseValidatorModel):
     AssociationVersion: Optional[str] = None
 
 
+# This class is the input for the 'describe_effective_patches_for_patch_baseline' function.
 class DescribeEffectivePatchesForPatchBaselineRequest(BaseValidatorModel):
     BaselineId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_instance_associations_status' function.
 class DescribeInstanceAssociationsStatusRequest(BaseValidatorModel):
     InstanceId: str
     MaxResults: Optional[int] = None
@@ -436,6 +451,7 @@ class InstancePatchState(BaseValidatorModel):
     OtherNonCompliantCount: Optional[int] = None
 
 
+# This class is the input for the 'describe_instance_patch_states' function.
 class DescribeInstancePatchStatesRequest(BaseValidatorModel):
     InstanceIds: List[str]
     NextToken: Optional[str] = None
@@ -463,6 +479,7 @@ class InstancePropertyStringFilter(BaseValidatorModel):
     Operator: Optional[InstancePropertyFilterOperatorType] = None
 
 
+# This class is the input for the 'describe_inventory_deletions' function.
 class DescribeInventoryDeletionsRequest(BaseValidatorModel):
     DeletionId: Optional[str] = None
     NextToken: Optional[str] = None
@@ -549,10 +566,12 @@ class PatchBaselineIdentity(BaseValidatorModel):
     DefaultBaseline: Optional[bool] = None
 
 
+# This class is the input for the 'describe_patch_group_state' function.
 class DescribePatchGroupStateRequest(BaseValidatorModel):
     PatchGroup: str
 
 
+# This class is the input for the 'describe_patch_properties' function.
 class DescribePatchPropertiesRequest(BaseValidatorModel):
     OperatingSystem: OperatingSystemType
     Property: PatchPropertyType
@@ -630,15 +649,18 @@ class FailureDetails(BaseValidatorModel):
     Details: Optional[Dict[str, List[str]]] = None
 
 
+# This class is the input for the 'get_automation_execution' function.
 class GetAutomationExecutionRequest(BaseValidatorModel):
     AutomationExecutionId: str
 
 
+# This class is the input for the 'get_calendar_state' function.
 class GetCalendarStateRequest(BaseValidatorModel):
     CalendarNames: List[str]
     AtTime: Optional[str] = None
 
 
+# This class is the input for the 'get_command_invocation' function.
 class GetCommandInvocationRequest(BaseValidatorModel):
     CommandId: str
     InstanceId: str
@@ -650,14 +672,17 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'get_connection_status' function.
 class GetConnectionStatusRequest(BaseValidatorModel):
     Target: str
 
 
+# This class is the input for the 'get_default_patch_baseline' function.
 class GetDefaultPatchBaselineRequest(BaseValidatorModel):
     OperatingSystem: Optional[OperatingSystemType] = None
 
 
+# This class is the input for the 'get_document' function.
 class GetDocumentRequest(BaseValidatorModel):
     Name: str
     VersionName: Optional[str] = None
@@ -665,6 +690,7 @@ class GetDocumentRequest(BaseValidatorModel):
     DocumentFormat: Optional[DocumentFormatType] = None
 
 
+# This class is the input for the 'get_execution_preview' function.
 class GetExecutionPreviewRequest(BaseValidatorModel):
     ExecutionPreviewId: str
 
@@ -679,6 +705,7 @@ class ResultAttribute(BaseValidatorModel):
     TypeName: str
 
 
+# This class is the input for the 'get_inventory_schema' function.
 class GetInventorySchemaRequest(BaseValidatorModel):
     TypeName: Optional[str] = None
     NextToken: Optional[str] = None
@@ -687,16 +714,19 @@ class GetInventorySchemaRequest(BaseValidatorModel):
     SubType: Optional[bool] = None
 
 
+# This class is the input for the 'get_maintenance_window_execution' function.
 class GetMaintenanceWindowExecutionRequest(BaseValidatorModel):
     WindowExecutionId: str
 
 
+# This class is the input for the 'get_maintenance_window_execution_task_invocation' function.
 class GetMaintenanceWindowExecutionTaskInvocationRequest(BaseValidatorModel):
     WindowExecutionId: str
     TaskId: str
     InvocationId: str
 
 
+# This class is the input for the 'get_maintenance_window_execution_task' function.
 class GetMaintenanceWindowExecutionTaskRequest(BaseValidatorModel):
     WindowExecutionId: str
     TaskId: str
@@ -706,10 +736,12 @@ class MaintenanceWindowTaskParameterValueExpressionOutput(BaseValidatorModel):
     Values: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_maintenance_window' function.
 class GetMaintenanceWindowRequest(BaseValidatorModel):
     WindowId: str
 
 
+# This class is the input for the 'get_maintenance_window_task' function.
 class GetMaintenanceWindowTaskRequest(BaseValidatorModel):
     WindowId: str
     WindowTaskId: str
@@ -721,11 +753,13 @@ class LoggingInfo(BaseValidatorModel):
     S3KeyPrefix: Optional[str] = None
 
 
+# This class is the input for the 'get_ops_item' function.
 class GetOpsItemRequest(BaseValidatorModel):
     OpsItemId: str
     OpsItemArn: Optional[str] = None
 
 
+# This class is the input for the 'get_ops_metadata' function.
 class GetOpsMetadataRequest(BaseValidatorModel):
     OpsMetadataArn: str
     MaxResults: Optional[int] = None
@@ -742,6 +776,7 @@ class OpsResultAttribute(BaseValidatorModel):
     TypeName: str
 
 
+# This class is the input for the 'get_parameter_history' function.
 class GetParameterHistoryRequest(BaseValidatorModel):
     Name: str
     WithDecryption: Optional[bool] = None
@@ -749,6 +784,7 @@ class GetParameterHistoryRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_parameter' function.
 class GetParameterRequest(BaseValidatorModel):
     Name: str
     WithDecryption: Optional[bool] = None
@@ -766,16 +802,19 @@ class Parameter(BaseValidatorModel):
     DataType: Optional[str] = None
 
 
+# This class is the input for the 'get_parameters' function.
 class GetParametersRequest(BaseValidatorModel):
     Names: List[str]
     WithDecryption: Optional[bool] = None
 
 
+# This class is the input for the 'get_patch_baseline_for_patch_group' function.
 class GetPatchBaselineForPatchGroupRequest(BaseValidatorModel):
     PatchGroup: str
     OperatingSystem: Optional[OperatingSystemType] = None
 
 
+# This class is the input for the 'get_patch_baseline' function.
 class GetPatchBaselineRequest(BaseValidatorModel):
     BaselineId: str
 
@@ -786,6 +825,7 @@ class PatchSourceOutput(BaseValidatorModel):
     Configuration: str
 
 
+# This class is the input for the 'get_resource_policies' function.
 class GetResourcePoliciesRequest(BaseValidatorModel):
     ResourceArn: str
     NextToken: Optional[str] = None
@@ -798,6 +838,7 @@ class GetResourcePoliciesResponseEntry(BaseValidatorModel):
     Policy: Optional[str] = None
 
 
+# This class is the input for the 'get_service_setting' function.
 class GetServiceSettingRequest(BaseValidatorModel):
     SettingId: str
 
@@ -867,18 +908,21 @@ class InventoryResultItem(BaseValidatorModel):
     ContentHash: Optional[str] = None
 
 
+# This class is the input for the 'label_parameter_version' function.
 class LabelParameterVersionRequest(BaseValidatorModel):
     Name: str
     Labels: List[str]
     ParameterVersion: Optional[int] = None
 
 
+# This class is the input for the 'list_association_versions' function.
 class ListAssociationVersionsRequest(BaseValidatorModel):
     AssociationId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_document_metadata_history' function.
 class ListDocumentMetadataHistoryRequest(BaseValidatorModel):
     Name: str
     Metadata: Literal['DocumentReviews']
@@ -887,6 +931,7 @@ class ListDocumentMetadataHistoryRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_document_versions' function.
 class ListDocumentVersionsRequest(BaseValidatorModel):
     Name: str
     MaxResults: Optional[int] = None
@@ -938,12 +983,14 @@ class OpsMetadata(BaseValidatorModel):
     CreationDate: Optional[datetime] = None
 
 
+# This class is the input for the 'list_resource_data_sync' function.
 class ListResourceDataSyncRequest(BaseValidatorModel):
     SyncType: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceType: ResourceTypeForTaggingType
     ResourceId: str
@@ -1033,6 +1080,7 @@ class PatchSource(BaseValidatorModel):
     Configuration: str
 
 
+# This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
     Policy: str
@@ -1040,10 +1088,12 @@ class PutResourcePolicyRequest(BaseValidatorModel):
     PolicyHash: Optional[str] = None
 
 
+# This class is the input for the 'register_default_patch_baseline' function.
 class RegisterDefaultPatchBaselineRequest(BaseValidatorModel):
     BaselineId: str
 
 
+# This class is the input for the 'register_patch_baseline_for_patch_group' function.
 class RegisterPatchBaselineForPatchGroupRequest(BaseValidatorModel):
     BaselineId: str
     PatchGroup: str
@@ -1055,6 +1105,7 @@ class RemoveTagsFromResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'reset_service_setting' function.
 class ResetServiceSettingRequest(BaseValidatorModel):
     SettingId: str
 
@@ -1067,6 +1118,7 @@ class ResourceDataSyncDestinationDataSharing(BaseValidatorModel):
     DestinationDataSharingType: Optional[str] = None
 
 
+# This class is the input for the 'resume_session' function.
 class ResumeSessionRequest(BaseValidatorModel):
     SessionId: str
 
@@ -1086,6 +1138,7 @@ class StartAssociationsOnceRequest(BaseValidatorModel):
     AssociationIds: List[str]
 
 
+# This class is the input for the 'start_session' function.
 class StartSessionRequest(BaseValidatorModel):
     Target: str
     DocumentName: Optional[str] = None
@@ -1103,21 +1156,25 @@ class Target(BaseValidatorModel):
     Values: Optional[List[str]] = None
 
 
+# This class is the input for the 'terminate_session' function.
 class TerminateSessionRequest(BaseValidatorModel):
     SessionId: str
 
 
+# This class is the input for the 'unlabel_parameter_version' function.
 class UnlabelParameterVersionRequest(BaseValidatorModel):
     Name: str
     ParameterVersion: int
     Labels: List[str]
 
 
+# This class is the input for the 'update_document_default_version' function.
 class UpdateDocumentDefaultVersionRequest(BaseValidatorModel):
     Name: str
     DocumentVersion: str
 
 
+# This class is the input for the 'update_maintenance_window' function.
 class UpdateMaintenanceWindowRequest(BaseValidatorModel):
     WindowId: str
     Name: Optional[str] = None
@@ -1163,6 +1220,7 @@ class AddTagsToResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the input for the 'create_maintenance_window' function.
 class CreateMaintenanceWindowRequest(BaseValidatorModel):
     Name: str
     Schedule: str
@@ -1178,6 +1236,7 @@ class CreateMaintenanceWindowRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'put_parameter' function.
 class PutParameterRequest(BaseValidatorModel):
     Name: str
     Value: str
@@ -1202,77 +1261,91 @@ class AlarmConfiguration(BaseValidatorModel):
     IgnorePollAlarmFailure: Optional[bool] = None
 
 
+# This class is the output for the 'associate_ops_item_related_item' function.
 class AssociateOpsItemRelatedItemResponse(BaseValidatorModel):
     AssociationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_maintenance_window_execution' function.
 class CancelMaintenanceWindowExecutionResult(BaseValidatorModel):
     WindowExecutionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_activation' function.
 class CreateActivationResult(BaseValidatorModel):
     ActivationId: str
     ActivationCode: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_maintenance_window' function.
 class CreateMaintenanceWindowResult(BaseValidatorModel):
     WindowId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_ops_item' function.
 class CreateOpsItemResponse(BaseValidatorModel):
     OpsItemId: str
     OpsItemArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_ops_metadata' function.
 class CreateOpsMetadataResult(BaseValidatorModel):
     OpsMetadataArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_patch_baseline' function.
 class CreatePatchBaselineResult(BaseValidatorModel):
     BaselineId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_maintenance_window' function.
 class DeleteMaintenanceWindowResult(BaseValidatorModel):
     WindowId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_parameters' function.
 class DeleteParametersResult(BaseValidatorModel):
     DeletedParameters: List[str]
     InvalidParameters: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_patch_baseline' function.
 class DeletePatchBaselineResult(BaseValidatorModel):
     BaselineId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'deregister_patch_baseline_for_patch_group' function.
 class DeregisterPatchBaselineForPatchGroupResult(BaseValidatorModel):
     BaselineId: str
     PatchGroup: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'deregister_target_from_maintenance_window' function.
 class DeregisterTargetFromMaintenanceWindowResult(BaseValidatorModel):
     WindowId: str
     WindowTargetId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'deregister_task_from_maintenance_window' function.
 class DeregisterTaskFromMaintenanceWindowResult(BaseValidatorModel):
     WindowId: str
     WindowTaskId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_document_permission' function.
 class DescribeDocumentPermissionResponse(BaseValidatorModel):
     AccountIds: List[str]
     AccountSharingInfoList: List[AccountSharingInfo]
@@ -1280,6 +1353,7 @@ class DescribeDocumentPermissionResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_patch_group_state' function.
 class DescribePatchGroupStateResult(BaseValidatorModel):
     Instances: int
     InstancesWithInstalledPatches: int
@@ -1296,12 +1370,14 @@ class DescribePatchGroupStateResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_patch_properties' function.
 class DescribePatchPropertiesResult(BaseValidatorModel):
     Properties: List[Dict[str, str]]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_calendar_state' function.
 class GetCalendarStateResponse(BaseValidatorModel):
     State: CalendarStateType
     AtTime: str
@@ -1309,18 +1385,21 @@ class GetCalendarStateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_connection_status' function.
 class GetConnectionStatusResponse(BaseValidatorModel):
     Target: str
     Status: ConnectionStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_default_patch_baseline' function.
 class GetDefaultPatchBaselineResult(BaseValidatorModel):
     BaselineId: str
     OperatingSystem: OperatingSystemType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_deployable_patch_snapshot_for_instance' function.
 class GetDeployablePatchSnapshotForInstanceResult(BaseValidatorModel):
     InstanceId: str
     SnapshotId: str
@@ -1329,6 +1408,7 @@ class GetDeployablePatchSnapshotForInstanceResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_maintenance_window_execution' function.
 class GetMaintenanceWindowExecutionResult(BaseValidatorModel):
     WindowExecutionId: str
     TaskIds: List[str]
@@ -1339,6 +1419,7 @@ class GetMaintenanceWindowExecutionResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_maintenance_window_execution_task_invocation' function.
 class GetMaintenanceWindowExecutionTaskInvocationResult(BaseValidatorModel):
     WindowExecutionId: str
     TaskExecutionId: str
@@ -1355,6 +1436,7 @@ class GetMaintenanceWindowExecutionTaskInvocationResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_maintenance_window' function.
 class GetMaintenanceWindowResult(BaseValidatorModel):
     WindowId: str
     Name: str
@@ -1374,6 +1456,7 @@ class GetMaintenanceWindowResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_patch_baseline_for_patch_group' function.
 class GetPatchBaselineForPatchGroupResult(BaseValidatorModel):
     BaselineId: str
     PatchGroup: str
@@ -1381,12 +1464,14 @@ class GetPatchBaselineForPatchGroupResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'label_parameter_version' function.
 class LabelParameterVersionResult(BaseValidatorModel):
     InvalidLabels: List[str]
     ParameterVersion: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_inventory_entries' function.
 class ListInventoryEntriesResult(BaseValidatorModel):
     TypeName: str
     InstanceId: str
@@ -1397,55 +1482,65 @@ class ListInventoryEntriesResult(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_nodes_summary' function.
 class ListNodesSummaryResult(BaseValidatorModel):
     Summary: List[Dict[str, str]]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResult(BaseValidatorModel):
     TagList: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_inventory' function.
 class PutInventoryResult(BaseValidatorModel):
     Message: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_parameter' function.
 class PutParameterResult(BaseValidatorModel):
     Version: int
     Tier: ParameterTierType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_resource_policy' function.
 class PutResourcePolicyResponse(BaseValidatorModel):
     PolicyId: str
     PolicyHash: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_default_patch_baseline' function.
 class RegisterDefaultPatchBaselineResult(BaseValidatorModel):
     BaselineId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_patch_baseline_for_patch_group' function.
 class RegisterPatchBaselineForPatchGroupResult(BaseValidatorModel):
     BaselineId: str
     PatchGroup: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_target_with_maintenance_window' function.
 class RegisterTargetWithMaintenanceWindowResult(BaseValidatorModel):
     WindowTargetId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_task_with_maintenance_window' function.
 class RegisterTaskWithMaintenanceWindowResult(BaseValidatorModel):
     WindowTaskId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'resume_session' function.
 class ResumeSessionResponse(BaseValidatorModel):
     SessionId: str
     TokenValue: str
@@ -1453,21 +1548,25 @@ class ResumeSessionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_automation_execution' function.
 class StartAutomationExecutionResult(BaseValidatorModel):
     AutomationExecutionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_change_request_execution' function.
 class StartChangeRequestExecutionResult(BaseValidatorModel):
     AutomationExecutionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_execution_preview' function.
 class StartExecutionPreviewResponse(BaseValidatorModel):
     ExecutionPreviewId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_session' function.
 class StartSessionResponse(BaseValidatorModel):
     SessionId: str
     TokenValue: str
@@ -1475,17 +1574,20 @@ class StartSessionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'terminate_session' function.
 class TerminateSessionResponse(BaseValidatorModel):
     SessionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'unlabel_parameter_version' function.
 class UnlabelParameterVersionResult(BaseValidatorModel):
     RemovedLabels: List[str]
     InvalidLabels: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_maintenance_window' function.
 class UpdateMaintenanceWindowResult(BaseValidatorModel):
     WindowId: str
     Name: str
@@ -1502,6 +1604,7 @@ class UpdateMaintenanceWindowResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_ops_metadata' function.
 class UpdateOpsMetadataResult(BaseValidatorModel):
     OpsMetadataArn: str
     ResponseMetadata: ResponseMetadata
@@ -1533,6 +1636,7 @@ class MaintenanceWindowTarget(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the output for the 'update_maintenance_window_target' function.
 class UpdateMaintenanceWindowTargetResult(BaseValidatorModel):
     WindowId: str
     WindowTargetId: str
@@ -1543,6 +1647,7 @@ class UpdateMaintenanceWindowTargetResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'describe_association_executions' function.
 class DescribeAssociationExecutionsRequest(BaseValidatorModel):
     AssociationId: str
     Filters: Optional[List[AssociationExecutionFilter]] = None
@@ -1562,6 +1667,7 @@ class AssociationExecutionTarget(BaseValidatorModel):
     OutputSource: Optional[OutputSource] = None
 
 
+# This class is the input for the 'describe_association_execution_targets' function.
 class DescribeAssociationExecutionTargetsRequest(BaseValidatorModel):
     AssociationId: str
     ExecutionId: str
@@ -1570,6 +1676,7 @@ class DescribeAssociationExecutionTargetsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_associations' function.
 class ListAssociationsRequest(BaseValidatorModel):
     AssociationFilterList: Optional[List[AssociationFilter]] = None
     MaxResults: Optional[int] = None
@@ -1589,6 +1696,7 @@ class ComplianceExecutionSummary(BaseValidatorModel):
     ExecutionType: Optional[str] = None
 
 
+# This class is the input for the 'update_document' function.
 class UpdateDocumentRequest(BaseValidatorModel):
     Content: str
     Name: str
@@ -1600,6 +1708,7 @@ class UpdateDocumentRequest(BaseValidatorModel):
     TargetType: Optional[str] = None
 
 
+# This class is the input for the 'describe_automation_executions' function.
 class DescribeAutomationExecutionsRequest(BaseValidatorModel):
     Filters: Optional[List[AutomationExecutionFilter]] = None
     MaxResults: Optional[int] = None
@@ -1619,6 +1728,7 @@ class MaintenanceWindowLambdaParameters(BaseValidatorModel):
     Payload: Optional[Blob] = None
 
 
+# This class is the output for the 'get_command_invocation' function.
 class GetCommandInvocationResult(BaseValidatorModel):
     CommandId: str
     InstanceId: str
@@ -1640,6 +1750,7 @@ class GetCommandInvocationResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'list_command_invocations' function.
 class ListCommandInvocationsRequest(BaseValidatorModel):
     CommandId: Optional[str] = None
     InstanceId: Optional[str] = None
@@ -1649,6 +1760,7 @@ class ListCommandInvocationsRequest(BaseValidatorModel):
     Details: Optional[bool] = None
 
 
+# This class is the input for the 'list_commands' function.
 class ListCommandsRequest(BaseValidatorModel):
     CommandId: Optional[str] = None
     InstanceId: Optional[str] = None
@@ -1702,6 +1814,7 @@ class ComplianceItem(BaseValidatorModel):
     Details: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_compliance_items' function.
 class ListComplianceItemsRequest(BaseValidatorModel):
     Filters: Optional[List[ComplianceStringFilter]] = None
     ResourceIds: Optional[List[str]] = None
@@ -1710,12 +1823,14 @@ class ListComplianceItemsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_compliance_summaries' function.
 class ListComplianceSummariesRequest(BaseValidatorModel):
     Filters: Optional[List[ComplianceStringFilter]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_resource_compliance_summaries' function.
 class ListResourceComplianceSummariesRequest(BaseValidatorModel):
     Filters: Optional[List[ComplianceStringFilter]] = None
     NextToken: Optional[str] = None
@@ -1732,6 +1847,7 @@ class NonCompliantSummary(BaseValidatorModel):
     SeveritySummary: Optional[SeveritySummary] = None
 
 
+# This class is the input for the 'create_activation' function.
 class CreateActivationRequest(BaseValidatorModel):
     IamRole: str
     Description: Optional[str] = None
@@ -1742,6 +1858,7 @@ class CreateActivationRequest(BaseValidatorModel):
     RegistrationMetadata: Optional[List[RegistrationMetadataItem]] = None
 
 
+# This class is the input for the 'create_document' function.
 class CreateDocumentRequest(BaseValidatorModel):
     Content: str
     Name: str
@@ -1773,6 +1890,7 @@ class DocumentIdentifier(BaseValidatorModel):
     Author: Optional[str] = None
 
 
+# This class is the output for the 'get_document' function.
 class GetDocumentResult(BaseValidatorModel):
     Name: str
     CreatedDate: datetime
@@ -1810,6 +1928,7 @@ class OpsItemSummary(BaseValidatorModel):
     PlannedEndTime: Optional[datetime] = None
 
 
+# This class is the input for the 'create_ops_item' function.
 class CreateOpsItemRequest(BaseValidatorModel):
     Description: str
     Source: str
@@ -1873,12 +1992,14 @@ class UpdateOpsItemRequest(BaseValidatorModel):
     OpsItemArn: Optional[str] = None
 
 
+# This class is the input for the 'create_ops_metadata' function.
 class CreateOpsMetadataRequest(BaseValidatorModel):
     ResourceId: str
     Metadata: Optional[Dict[str, MetadataValue]] = None
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'get_ops_metadata' function.
 class GetOpsMetadataResult(BaseValidatorModel):
     ResourceId: str
     Metadata: Dict[str, MetadataValue]
@@ -1886,12 +2007,14 @@ class GetOpsMetadataResult(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'update_ops_metadata' function.
 class UpdateOpsMetadataRequest(BaseValidatorModel):
     OpsMetadataArn: str
     MetadataToUpdate: Optional[Dict[str, MetadataValue]] = None
     KeysToDelete: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_activations' function.
 class DescribeActivationsRequest(BaseValidatorModel):
     Filters: Optional[List[DescribeActivationsFilter]] = None
     MaxResults: Optional[int] = None
@@ -2030,6 +2153,7 @@ class DescribeAutomationStepExecutionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_automation_step_executions' function.
 class DescribeAutomationStepExecutionsRequest(BaseValidatorModel):
     AutomationExecutionId: str
     Filters: Optional[List[StepExecutionFilter]] = None
@@ -2043,6 +2167,7 @@ class DescribeAvailablePatchesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_available_patches' function.
 class DescribeAvailablePatchesRequest(BaseValidatorModel):
     Filters: Optional[List[PatchOrchestratorFilter]] = None
     MaxResults: Optional[int] = None
@@ -2055,6 +2180,7 @@ class DescribeInstancePatchesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_instance_patches' function.
 class DescribeInstancePatchesRequest(BaseValidatorModel):
     InstanceId: str
     Filters: Optional[List[PatchOrchestratorFilter]] = None
@@ -2067,6 +2193,7 @@ class DescribePatchBaselinesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_patch_baselines' function.
 class DescribePatchBaselinesRequest(BaseValidatorModel):
     Filters: Optional[List[PatchOrchestratorFilter]] = None
     MaxResults: Optional[int] = None
@@ -2078,18 +2205,21 @@ class DescribePatchGroupsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_patch_groups' function.
 class DescribePatchGroupsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     Filters: Optional[List[PatchOrchestratorFilter]] = None
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_available_patches' function.
 class DescribeAvailablePatchesResult(BaseValidatorModel):
     Patches: List[Patch]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_effective_instance_associations' function.
 class DescribeEffectiveInstanceAssociationsResult(BaseValidatorModel):
     Associations: List[InstanceAssociation]
     ResponseMetadata: ResponseMetadata
@@ -2102,6 +2232,7 @@ class DescribeInstanceInformationRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_instance_information' function.
 class DescribeInstanceInformationRequest(BaseValidatorModel):
     InstanceInformationFilterList: Optional[List[InstanceInformationFilter]] = None
     Filters: Optional[List[InstanceInformationStringFilter]] = None
@@ -2115,6 +2246,7 @@ class DescribeInstancePatchStatesForPatchGroupRequestPaginate(BaseValidatorModel
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_instance_patch_states_for_patch_group' function.
 class DescribeInstancePatchStatesForPatchGroupRequest(BaseValidatorModel):
     PatchGroup: str
     Filters: Optional[List[InstancePatchStateFilter]] = None
@@ -2122,18 +2254,21 @@ class DescribeInstancePatchStatesForPatchGroupRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the output for the 'describe_instance_patch_states_for_patch_group' function.
 class DescribeInstancePatchStatesForPatchGroupResult(BaseValidatorModel):
     InstancePatchStates: List[InstancePatchState]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_instance_patch_states' function.
 class DescribeInstancePatchStatesResult(BaseValidatorModel):
     InstancePatchStates: List[InstancePatchState]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_instance_patches' function.
 class DescribeInstancePatchesResult(BaseValidatorModel):
     Patches: List[PatchComplianceData]
     ResponseMetadata: ResponseMetadata
@@ -2146,6 +2281,7 @@ class DescribeInstancePropertiesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_instance_properties' function.
 class DescribeInstancePropertiesRequest(BaseValidatorModel):
     InstancePropertyFilterList: Optional[List[InstancePropertyFilter]] = None
     FiltersWithOperator: Optional[List[InstancePropertyStringFilter]] = None
@@ -2160,6 +2296,7 @@ class DescribeMaintenanceWindowExecutionTaskInvocationsRequestPaginate(BaseValid
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_maintenance_window_execution_task_invocations' function.
 class DescribeMaintenanceWindowExecutionTaskInvocationsRequest(BaseValidatorModel):
     WindowExecutionId: str
     TaskId: str
@@ -2174,6 +2311,7 @@ class DescribeMaintenanceWindowExecutionTasksRequestPaginate(BaseValidatorModel)
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_maintenance_window_execution_tasks' function.
 class DescribeMaintenanceWindowExecutionTasksRequest(BaseValidatorModel):
     WindowExecutionId: str
     Filters: Optional[List[MaintenanceWindowFilter]] = None
@@ -2187,6 +2325,7 @@ class DescribeMaintenanceWindowExecutionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_maintenance_window_executions' function.
 class DescribeMaintenanceWindowExecutionsRequest(BaseValidatorModel):
     WindowId: str
     Filters: Optional[List[MaintenanceWindowFilter]] = None
@@ -2200,6 +2339,7 @@ class DescribeMaintenanceWindowTargetsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_maintenance_window_targets' function.
 class DescribeMaintenanceWindowTargetsRequest(BaseValidatorModel):
     WindowId: str
     Filters: Optional[List[MaintenanceWindowFilter]] = None
@@ -2213,6 +2353,7 @@ class DescribeMaintenanceWindowTasksRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_maintenance_window_tasks' function.
 class DescribeMaintenanceWindowTasksRequest(BaseValidatorModel):
     WindowId: str
     Filters: Optional[List[MaintenanceWindowFilter]] = None
@@ -2225,36 +2366,42 @@ class DescribeMaintenanceWindowsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_maintenance_windows' function.
 class DescribeMaintenanceWindowsRequest(BaseValidatorModel):
     Filters: Optional[List[MaintenanceWindowFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_maintenance_window_execution_task_invocations' function.
 class DescribeMaintenanceWindowExecutionTaskInvocationsResult(BaseValidatorModel):
     WindowExecutionTaskInvocationIdentities: List[MaintenanceWindowExecutionTaskInvocationIdentity]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_maintenance_window_executions' function.
 class DescribeMaintenanceWindowExecutionsResult(BaseValidatorModel):
     WindowExecutions: List[MaintenanceWindowExecution]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_maintenance_window_schedule' function.
 class DescribeMaintenanceWindowScheduleResult(BaseValidatorModel):
     ScheduledWindowExecutions: List[ScheduledWindowExecution]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_maintenance_windows_for_target' function.
 class DescribeMaintenanceWindowsForTargetResult(BaseValidatorModel):
     WindowIdentities: List[MaintenanceWindowIdentityForTarget]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_maintenance_windows' function.
 class DescribeMaintenanceWindowsResult(BaseValidatorModel):
     WindowIdentities: List[MaintenanceWindowIdentity]
     ResponseMetadata: ResponseMetadata
@@ -2266,6 +2413,7 @@ class DescribeOpsItemsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_ops_items' function.
 class DescribeOpsItemsRequest(BaseValidatorModel):
     OpsItemFilters: Optional[List[OpsItemFilter]] = None
     MaxResults: Optional[int] = None
@@ -2280,6 +2428,7 @@ class GetParametersByPathRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_parameters_by_path' function.
 class GetParametersByPathRequest(BaseValidatorModel):
     Path: str
     Recursive: Optional[bool] = None
@@ -2296,6 +2445,7 @@ class DescribeParametersRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_parameters' function.
 class DescribeParametersRequest(BaseValidatorModel):
     Filters: Optional[List[ParametersFilter]] = None
     ParameterFilters: Optional[List[ParameterStringFilter]] = None
@@ -2304,6 +2454,7 @@ class DescribeParametersRequest(BaseValidatorModel):
     Shared: Optional[bool] = None
 
 
+# This class is the output for the 'describe_patch_baselines' function.
 class DescribePatchBaselinesResult(BaseValidatorModel):
     BaselineIdentities: List[PatchBaselineIdentity]
     ResponseMetadata: ResponseMetadata
@@ -2321,6 +2472,7 @@ class DescribeSessionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_sessions' function.
 class DescribeSessionsRequest(BaseValidatorModel):
     State: SessionStateType
     MaxResults: Optional[int] = None
@@ -2328,6 +2480,7 @@ class DescribeSessionsRequest(BaseValidatorModel):
     Filters: Optional[List[SessionFilter]] = None
 
 
+# This class is the output for the 'update_document_default_version' function.
 class UpdateDocumentDefaultVersionResult(BaseValidatorModel):
     Description: DocumentDefaultVersionDescription
     ResponseMetadata: ResponseMetadata
@@ -2372,6 +2525,7 @@ class ListDocumentsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_documents' function.
 class ListDocumentsRequest(BaseValidatorModel):
     DocumentFilterList: Optional[List[DocumentFilter]] = None
     Filters: Optional[List[DocumentKeyValuesFilter]] = None
@@ -2392,6 +2546,7 @@ class DocumentReviews(BaseValidatorModel):
     Comment: Optional[List[DocumentReviewCommentSource]] = None
 
 
+# This class is the output for the 'list_document_versions' function.
 class ListDocumentVersionsResult(BaseValidatorModel):
     DocumentVersions: List[DocumentVersionInfo]
     ResponseMetadata: ResponseMetadata
@@ -2415,6 +2570,7 @@ class InventoryGroup(BaseValidatorModel):
     Filters: List[InventoryFilter]
 
 
+# This class is the input for the 'list_inventory_entries' function.
 class ListInventoryEntriesRequest(BaseValidatorModel):
     InstanceId: str
     TypeName: str
@@ -2441,34 +2597,40 @@ class OpsAggregator(BaseValidatorModel):
     Aggregators: Optional[List[Dict[str, Any]]] = None
 
 
+# This class is the output for the 'get_parameter' function.
 class GetParameterResult(BaseValidatorModel):
     Parameter: Parameter
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_parameters_by_path' function.
 class GetParametersByPathResult(BaseValidatorModel):
     Parameters: List[Parameter]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_parameters' function.
 class GetParametersResult(BaseValidatorModel):
     Parameters: List[Parameter]
     InvalidParameters: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_policies' function.
 class GetResourcePoliciesResponse(BaseValidatorModel):
     Policies: List[GetResourcePoliciesResponseEntry]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_service_setting' function.
 class GetServiceSettingResult(BaseValidatorModel):
     ServiceSetting: ServiceSetting
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reset_service_setting' function.
 class ResetServiceSettingResult(BaseValidatorModel):
     ServiceSetting: ServiceSetting
     ResponseMetadata: ResponseMetadata
@@ -2552,6 +2714,7 @@ class InventoryItemSchema(BaseValidatorModel):
     DisplayName: Optional[str] = None
 
 
+# This class is the input for the 'put_inventory' function.
 class PutInventoryRequest(BaseValidatorModel):
     InstanceId: str
     Items: List[InventoryItem]
@@ -2568,6 +2731,7 @@ class ListNodesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_nodes' function.
 class ListNodesRequest(BaseValidatorModel):
     SyncName: Optional[str] = None
     Filters: Optional[List[NodeFilter]] = None
@@ -2582,6 +2746,7 @@ class ListNodesSummaryRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_nodes_summary' function.
 class ListNodesSummaryRequest(BaseValidatorModel):
     Aggregators: List[NodeAggregator]
     SyncName: Optional[str] = None
@@ -2595,6 +2760,7 @@ class ListOpsItemEventsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_ops_item_events' function.
 class ListOpsItemEventsRequest(BaseValidatorModel):
     Filters: Optional[List[OpsItemEventFilter]] = None
     MaxResults: Optional[int] = None
@@ -2607,6 +2773,7 @@ class ListOpsItemRelatedItemsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_ops_item_related_items' function.
 class ListOpsItemRelatedItemsRequest(BaseValidatorModel):
     OpsItemId: Optional[str] = None
     Filters: Optional[List[OpsItemRelatedItemsFilter]] = None
@@ -2619,12 +2786,14 @@ class ListOpsMetadataRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_ops_metadata' function.
 class ListOpsMetadataRequest(BaseValidatorModel):
     Filters: Optional[List[OpsMetadataFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_ops_metadata' function.
 class ListOpsMetadataResult(BaseValidatorModel):
     OpsMetadataList: List[OpsMetadata]
     ResponseMetadata: ResponseMetadata
@@ -2750,6 +2919,7 @@ class Session(BaseValidatorModel):
 TargetUnion = Union[Target, TargetOutput]
 
 
+# This class is the output for the 'describe_activations' function.
 class DescribeActivationsResult(BaseValidatorModel):
     ActivationList: List[Activation]
     ResponseMetadata: ResponseMetadata
@@ -2798,6 +2968,7 @@ class Command(BaseValidatorModel):
     TriggeredAlarms: Optional[List[AlarmStateInformation]] = None
 
 
+# This class is the output for the 'get_maintenance_window_execution_task' function.
 class GetMaintenanceWindowExecutionTaskResult(BaseValidatorModel):
     WindowExecutionId: str
     TaskExecutionId: str
@@ -2864,18 +3035,21 @@ class TargetLocationOutput(BaseValidatorModel):
 AlarmConfigurationUnion = Union[AlarmConfiguration, AlarmConfigurationOutput]
 
 
+# This class is the output for the 'list_associations' function.
 class ListAssociationsResult(BaseValidatorModel):
     Associations: List[Association]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_maintenance_window_targets' function.
 class DescribeMaintenanceWindowTargetsResult(BaseValidatorModel):
     Targets: List[MaintenanceWindowTarget]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_association_execution_targets' function.
 class DescribeAssociationExecutionTargetsResult(BaseValidatorModel):
     AssociationExecutionTargets: List[AssociationExecutionTarget]
     ResponseMetadata: ResponseMetadata
@@ -2890,6 +3064,7 @@ class ExecutionPreview(BaseValidatorModel):
     Automation: Optional[AutomationExecutionPreview] = None
 
 
+# This class is the output for the 'list_command_invocations' function.
 class ListCommandInvocationsResult(BaseValidatorModel):
     CommandInvocations: List[CommandInvocation]
     ResponseMetadata: ResponseMetadata
@@ -2903,6 +3078,7 @@ class MaintenanceWindowTaskInvocationParametersOutput(BaseValidatorModel):
     Lambda: Optional[MaintenanceWindowLambdaParametersOutput] = None
 
 
+# This class is the output for the 'list_compliance_items' function.
 class ListComplianceItemsResult(BaseValidatorModel):
     ComplianceItems: List[ComplianceItem]
     ResponseMetadata: ResponseMetadata
@@ -2926,39 +3102,46 @@ class ResourceComplianceSummaryItem(BaseValidatorModel):
     NonCompliantSummary: Optional[NonCompliantSummary] = None
 
 
+# This class is the output for the 'list_documents' function.
 class ListDocumentsResult(BaseValidatorModel):
     DocumentIdentifiers: List[DocumentIdentifier]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_ops_items' function.
 class DescribeOpsItemsResponse(BaseValidatorModel):
     OpsItemSummaries: List[OpsItemSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_ops_item' function.
 class GetOpsItemResponse(BaseValidatorModel):
     OpsItem: OpsItem
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_patch_groups' function.
 class DescribePatchGroupsResult(BaseValidatorModel):
     Mappings: List[PatchGroupPatchBaselineMapping]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_document' function.
 class CreateDocumentResult(BaseValidatorModel):
     DocumentDescription: DocumentDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_document' function.
 class DescribeDocumentResult(BaseValidatorModel):
     Document: DocumentDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_document' function.
 class UpdateDocumentResult(BaseValidatorModel):
     DocumentDescription: DocumentDescription
     ResponseMetadata: ResponseMetadata
@@ -2974,6 +3157,7 @@ class UpdateDocumentMetadataRequest(BaseValidatorModel):
     DocumentVersion: Optional[str] = None
 
 
+# This class is the output for the 'describe_effective_patches_for_patch_baseline' function.
 class DescribeEffectivePatchesForPatchBaselineResult(BaseValidatorModel):
     EffectivePatches: List[EffectivePatch]
     ResponseMetadata: ResponseMetadata
@@ -3000,6 +3184,7 @@ class GetOpsSummaryRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_ops_summary' function.
 class GetOpsSummaryRequest(BaseValidatorModel):
     SyncName: Optional[str] = None
     Filters: Optional[List[OpsFilter]] = None
@@ -3009,12 +3194,14 @@ class GetOpsSummaryRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the output for the 'describe_instance_information' function.
 class DescribeInstanceInformationResult(BaseValidatorModel):
     InstanceInformationList: List[InstanceInformation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_instance_properties' function.
 class DescribeInstancePropertiesResult(BaseValidatorModel):
     InstanceProperties: List[InstanceProperty]
     ResponseMetadata: ResponseMetadata
@@ -3044,6 +3231,7 @@ class Node(BaseValidatorModel):
     NodeType: Optional[NodeType] = None
 
 
+# This class is the output for the 'delete_inventory' function.
 class DeleteInventoryResult(BaseValidatorModel):
     DeletionId: str
     TypeName: str
@@ -3061,12 +3249,14 @@ class InventoryDeletionStatusItem(BaseValidatorModel):
     LastStatusUpdateTime: Optional[datetime] = None
 
 
+# This class is the output for the 'get_inventory_schema' function.
 class GetInventorySchemaResult(BaseValidatorModel):
     Schemas: List[InventoryItemSchema]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_inventory' function.
 class GetInventoryResult(BaseValidatorModel):
     Entities: List[InventoryResultEntity]
     ResponseMetadata: ResponseMetadata
@@ -3080,30 +3270,35 @@ class MaintenanceWindowTaskInvocationParameters(BaseValidatorModel):
     Lambda: Optional[MaintenanceWindowLambdaParameters] = None
 
 
+# This class is the output for the 'get_ops_summary' function.
 class GetOpsSummaryResult(BaseValidatorModel):
     Entities: List[OpsEntity]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_ops_item_events' function.
 class ListOpsItemEventsResponse(BaseValidatorModel):
     Summaries: List[OpsItemEventSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_ops_item_related_items' function.
 class ListOpsItemRelatedItemsResponse(BaseValidatorModel):
     Summaries: List[OpsItemRelatedItemSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_parameter_history' function.
 class GetParameterHistoryResult(BaseValidatorModel):
     Parameters: List[ParameterHistory]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_parameters' function.
 class DescribeParametersResult(BaseValidatorModel):
     Parameters: List[ParameterMetadata]
     ResponseMetadata: ResponseMetadata
@@ -3133,6 +3328,7 @@ class ResourceDataSyncSourceWithState(BaseValidatorModel):
 ResourceDataSyncAwsOrganizationsSourceUnion = Union[ResourceDataSyncAwsOrganizationsSource, ResourceDataSyncAwsOrganizationsSourceOutput]
 
 
+# This class is the output for the 'describe_sessions' function.
 class DescribeSessionsResponse(BaseValidatorModel):
     Sessions: List[Session]
     ResponseMetadata: ResponseMetadata
@@ -3147,6 +3343,7 @@ class DescribeMaintenanceWindowScheduleRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_maintenance_window_schedule' function.
 class DescribeMaintenanceWindowScheduleRequest(BaseValidatorModel):
     WindowId: Optional[str] = None
     Targets: Optional[List[TargetUnion]] = None
@@ -3162,6 +3359,7 @@ class DescribeMaintenanceWindowsForTargetRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_maintenance_windows_for_target' function.
 class DescribeMaintenanceWindowsForTargetRequest(BaseValidatorModel):
     Targets: List[TargetUnion]
     ResourceType: MaintenanceWindowResourceTypeType
@@ -3169,6 +3367,7 @@ class DescribeMaintenanceWindowsForTargetRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'register_target_with_maintenance_window' function.
 class RegisterTargetWithMaintenanceWindowRequest(BaseValidatorModel):
     WindowId: str
     ResourceType: MaintenanceWindowResourceTypeType
@@ -3179,6 +3378,7 @@ class RegisterTargetWithMaintenanceWindowRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'update_maintenance_window_target' function.
 class UpdateMaintenanceWindowTargetRequest(BaseValidatorModel):
     WindowId: str
     WindowTargetId: str
@@ -3189,29 +3389,34 @@ class UpdateMaintenanceWindowTargetRequest(BaseValidatorModel):
     Replace: Optional[bool] = None
 
 
+# This class is the output for the 'describe_association_executions' function.
 class DescribeAssociationExecutionsResult(BaseValidatorModel):
     AssociationExecutions: List[AssociationExecution]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_commands' function.
 class ListCommandsResult(BaseValidatorModel):
     Commands: List[Command]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'send_command' function.
 class SendCommandResult(BaseValidatorModel):
     Command: Command
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_maintenance_window_execution_tasks' function.
 class DescribeMaintenanceWindowExecutionTasksResult(BaseValidatorModel):
     WindowExecutionTaskIdentities: List[MaintenanceWindowExecutionTaskIdentity]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_maintenance_window_tasks' function.
 class DescribeMaintenanceWindowTasksResult(BaseValidatorModel):
     Tasks: List[MaintenanceWindowTask]
     ResponseMetadata: ResponseMetadata
@@ -3335,6 +3540,7 @@ class StepExecution(BaseValidatorModel):
     ParentStepDetails: Optional[ParentStepDetails] = None
 
 
+# This class is the input for the 'send_command' function.
 class SendCommandRequest(BaseValidatorModel):
     DocumentName: str
     InstanceIds: Optional[List[str]] = None
@@ -3370,6 +3576,7 @@ class TargetLocation(BaseValidatorModel):
     TargetsMaxErrors: Optional[str] = None
 
 
+# This class is the input for the 'update_association_status' function.
 class UpdateAssociationStatusRequest(BaseValidatorModel):
     Name: str
     InstanceId: str
@@ -3386,6 +3593,7 @@ class PutComplianceItemsRequest(BaseValidatorModel):
     UploadType: Optional[ComplianceUploadTypeType] = None
 
 
+# This class is the output for the 'get_execution_preview' function.
 class GetExecutionPreviewResponse(BaseValidatorModel):
     ExecutionPreviewId: str
     EndedAt: datetime
@@ -3395,6 +3603,7 @@ class GetExecutionPreviewResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_maintenance_window_task' function.
 class GetMaintenanceWindowTaskResult(BaseValidatorModel):
     WindowId: str
     WindowTaskId: str
@@ -3415,6 +3624,7 @@ class GetMaintenanceWindowTaskResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_maintenance_window_task' function.
 class UpdateMaintenanceWindowTaskResult(BaseValidatorModel):
     WindowId: str
     WindowTaskId: str
@@ -3434,18 +3644,21 @@ class UpdateMaintenanceWindowTaskResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_compliance_summaries' function.
 class ListComplianceSummariesResult(BaseValidatorModel):
     ComplianceSummaryItems: List[ComplianceSummaryItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_resource_compliance_summaries' function.
 class ListResourceComplianceSummariesResult(BaseValidatorModel):
     ResourceComplianceSummaryItems: List[ResourceComplianceSummaryItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_document_metadata_history' function.
 class ListDocumentMetadataHistoryResponse(BaseValidatorModel):
     Name: str
     DocumentVersion: str
@@ -3462,6 +3675,7 @@ class GetInventoryRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_inventory' function.
 class GetInventoryRequest(BaseValidatorModel):
     Filters: Optional[List[InventoryFilter]] = None
     Aggregators: Optional[List[InventoryAggregator]] = None
@@ -3470,18 +3684,21 @@ class GetInventoryRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the output for the 'describe_instance_associations_status' function.
 class DescribeInstanceAssociationsStatusResult(BaseValidatorModel):
     InstanceAssociationStatusInfos: List[InstanceAssociationStatusInfo]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_nodes' function.
 class ListNodesResult(BaseValidatorModel):
     Nodes: List[Node]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_inventory_deletions' function.
 class DescribeInventoryDeletionsResult(BaseValidatorModel):
     InventoryDeletions: List[InventoryDeletionStatusItem]
     ResponseMetadata: ResponseMetadata
@@ -3517,26 +3734,31 @@ class ResourceDataSyncSource(BaseValidatorModel):
     EnableAllOpsDataSources: Optional[bool] = None
 
 
+# This class is the output for the 'create_association' function.
 class CreateAssociationResult(BaseValidatorModel):
     AssociationDescription: AssociationDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_association' function.
 class DescribeAssociationResult(BaseValidatorModel):
     AssociationDescription: AssociationDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_association' function.
 class UpdateAssociationResult(BaseValidatorModel):
     AssociationDescription: AssociationDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_association_status' function.
 class UpdateAssociationStatusResult(BaseValidatorModel):
     AssociationDescription: AssociationDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_association_versions' function.
 class ListAssociationVersionsResult(BaseValidatorModel):
     AssociationVersions: List[AssociationVersionInfo]
     ResponseMetadata: ResponseMetadata
@@ -3621,6 +3843,7 @@ class AutomationExecution(BaseValidatorModel):
     Variables: Optional[Dict[str, List[str]]] = None
 
 
+# This class is the output for the 'describe_automation_step_executions' function.
 class DescribeAutomationStepExecutionsResult(BaseValidatorModel):
     StepExecutions: List[StepExecution]
     ResponseMetadata: ResponseMetadata
@@ -3629,6 +3852,7 @@ class DescribeAutomationStepExecutionsResult(BaseValidatorModel):
 TargetLocationUnion = Union[TargetLocation, TargetLocationOutput]
 
 
+# This class is the input for the 'register_task_with_maintenance_window' function.
 class RegisterTaskWithMaintenanceWindowRequest(BaseValidatorModel):
     WindowId: str
     TaskArn: str
@@ -3648,6 +3872,7 @@ class RegisterTaskWithMaintenanceWindowRequest(BaseValidatorModel):
     AlarmConfiguration: Optional[AlarmConfigurationUnion] = None
 
 
+# This class is the input for the 'update_maintenance_window_task' function.
 class UpdateMaintenanceWindowTaskRequest(BaseValidatorModel):
     WindowId: str
     WindowTaskId: str
@@ -3667,6 +3892,7 @@ class UpdateMaintenanceWindowTaskRequest(BaseValidatorModel):
     AlarmConfiguration: Optional[AlarmConfigurationUnion] = None
 
 
+# This class is the output for the 'get_patch_baseline' function.
 class GetPatchBaselineResult(BaseValidatorModel):
     BaselineId: str
     Name: str
@@ -3686,6 +3912,7 @@ class GetPatchBaselineResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_patch_baseline' function.
 class UpdatePatchBaselineResult(BaseValidatorModel):
     BaselineId: str
     Name: str
@@ -3712,6 +3939,7 @@ class PatchRule(BaseValidatorModel):
     EnableNonSecurity: Optional[bool] = None
 
 
+# This class is the output for the 'list_resource_data_sync' function.
 class ListResourceDataSyncResult(BaseValidatorModel):
     ResourceDataSyncItems: List[ResourceDataSyncItem]
     ResponseMetadata: ResponseMetadata
@@ -3731,18 +3959,21 @@ class UpdateResourceDataSyncRequest(BaseValidatorModel):
     SyncSource: ResourceDataSyncSource
 
 
+# This class is the output for the 'create_association_batch' function.
 class CreateAssociationBatchResult(BaseValidatorModel):
     Successful: List[AssociationDescription]
     Failed: List[FailedCreateAssociation]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_automation_executions' function.
 class DescribeAutomationExecutionsResult(BaseValidatorModel):
     AutomationExecutionMetadataList: List[AutomationExecutionMetadata]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_automation_execution' function.
 class GetAutomationExecutionResult(BaseValidatorModel):
     AutomationExecution: AutomationExecution
     ResponseMetadata: ResponseMetadata
@@ -3780,6 +4011,7 @@ class CreateAssociationBatchRequestEntry(BaseValidatorModel):
     AlarmConfiguration: Optional[AlarmConfigurationUnion] = None
 
 
+# This class is the input for the 'create_association' function.
 class CreateAssociationRequest(BaseValidatorModel):
     Name: str
     DocumentVersion: Optional[str] = None
@@ -3816,6 +4048,7 @@ class Runbook(BaseValidatorModel):
     TargetLocations: Optional[List[TargetLocationUnion]] = None
 
 
+# This class is the input for the 'start_automation_execution' function.
 class StartAutomationExecutionRequest(BaseValidatorModel):
     DocumentName: str
     DocumentVersion: Optional[str] = None
@@ -3833,6 +4066,7 @@ class StartAutomationExecutionRequest(BaseValidatorModel):
     TargetLocationsURL: Optional[str] = None
 
 
+# This class is the input for the 'update_association' function.
 class UpdateAssociationRequest(BaseValidatorModel):
     AssociationId: str
     Parameters: Optional[Dict[str, List[str]]] = None
@@ -3871,16 +4105,19 @@ class PatchRuleGroup(BaseValidatorModel):
     PatchRules: List[PatchRuleUnion]
 
 
+# This class is the input for the 'start_execution_preview' function.
 class StartExecutionPreviewRequest(BaseValidatorModel):
     DocumentName: str
     DocumentVersion: Optional[str] = None
     ExecutionInputs: Optional[ExecutionInputs] = None
 
 
+# This class is the input for the 'create_association_batch' function.
 class CreateAssociationBatchRequest(BaseValidatorModel):
     Entries: List[CreateAssociationBatchRequestEntryUnion]
 
 
+# This class is the input for the 'start_change_request_execution' function.
 class StartChangeRequestExecutionRequest(BaseValidatorModel):
     DocumentName: str
     Runbooks: List[RunbookUnion]
@@ -3909,6 +4146,7 @@ class BaselineOverride(BaseValidatorModel):
     Sources: Optional[List[PatchSourceUnion]] = None
 
 
+# This class is the input for the 'create_patch_baseline' function.
 class CreatePatchBaselineRequest(BaseValidatorModel):
     Name: str
     OperatingSystem: Optional[OperatingSystemType] = None
@@ -3925,6 +4163,7 @@ class CreatePatchBaselineRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_patch_baseline' function.
 class UpdatePatchBaselineRequest(BaseValidatorModel):
     BaselineId: str
     Name: Optional[str] = None
@@ -3940,6 +4179,7 @@ class UpdatePatchBaselineRequest(BaseValidatorModel):
     Replace: Optional[bool] = None
 
 
+# This class is the input for the 'get_deployable_patch_snapshot_for_instance' function.
 class GetDeployablePatchSnapshotForInstanceRequest(BaseValidatorModel):
     InstanceId: str
     SnapshotId: str

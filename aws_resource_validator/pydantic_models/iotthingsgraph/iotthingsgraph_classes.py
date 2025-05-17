@@ -80,6 +80,7 @@ class DependencyRevision(BaseValidatorModel):
     revisionNumber: Optional[int] = None
 
 
+# This class is the input for the 'deploy_system_instance' function.
 class DeploySystemInstanceRequest(BaseValidatorModel):
     id: Optional[str] = None
 
@@ -92,6 +93,7 @@ class DeprecateSystemTemplateRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'describe_namespace' function.
 class DescribeNamespaceRequest(BaseValidatorModel):
     namespaceName: Optional[str] = None
 
@@ -127,11 +129,13 @@ class FlowTemplateFilter(BaseValidatorModel):
     value: List[str]
 
 
+# This class is the input for the 'get_entities' function.
 class GetEntitiesRequest(BaseValidatorModel):
     ids: List[str]
     namespaceVersion: Optional[int] = None
 
 
+# This class is the input for the 'get_flow_template' function.
 class GetFlowTemplateRequest(BaseValidatorModel):
     id: str
     revisionNumber: Optional[int] = None
@@ -143,37 +147,44 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'get_flow_template_revisions' function.
 class GetFlowTemplateRevisionsRequest(BaseValidatorModel):
     id: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_system_instance' function.
 class GetSystemInstanceRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'get_system_template' function.
 class GetSystemTemplateRequest(BaseValidatorModel):
     id: str
     revisionNumber: Optional[int] = None
 
 
+# This class is the input for the 'get_system_template_revisions' function.
 class GetSystemTemplateRevisionsRequest(BaseValidatorModel):
     id: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_upload_status' function.
 class GetUploadStatusRequest(BaseValidatorModel):
     uploadId: str
 
 
+# This class is the input for the 'list_flow_execution_messages' function.
 class ListFlowExecutionMessagesRequest(BaseValidatorModel):
     flowExecutionId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
     maxResults: Optional[int] = None
@@ -192,6 +203,7 @@ class SystemTemplateFilter(BaseValidatorModel):
     value: List[str]
 
 
+# This class is the input for the 'search_things' function.
 class SearchThingsRequest(BaseValidatorModel):
     entityId: str
     nextToken: Optional[str] = None
@@ -204,6 +216,7 @@ class Thing(BaseValidatorModel):
     thingName: Optional[str] = None
 
 
+# This class is the input for the 'undeploy_system_instance' function.
 class UndeploySystemInstanceRequest(BaseValidatorModel):
     id: Optional[str] = None
 
@@ -213,11 +226,13 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'create_flow_template' function.
 class CreateFlowTemplateRequest(BaseValidatorModel):
     definition: DefinitionDocument
     compatibleNamespaceVersion: Optional[int] = None
 
 
+# This class is the input for the 'create_system_template' function.
 class CreateSystemTemplateRequest(BaseValidatorModel):
     definition: DefinitionDocument
     compatibleNamespaceVersion: Optional[int] = None
@@ -231,18 +246,21 @@ class EntityDescription(BaseValidatorModel):
     definition: Optional[DefinitionDocument] = None
 
 
+# This class is the input for the 'update_flow_template' function.
 class UpdateFlowTemplateRequest(BaseValidatorModel):
     id: str
     definition: DefinitionDocument
     compatibleNamespaceVersion: Optional[int] = None
 
 
+# This class is the input for the 'update_system_template' function.
 class UpdateSystemTemplateRequest(BaseValidatorModel):
     id: str
     definition: DefinitionDocument
     compatibleNamespaceVersion: Optional[int] = None
 
 
+# This class is the input for the 'upload_entity_definitions' function.
 class UploadEntityDefinitionsRequest(BaseValidatorModel):
     document: Optional[DefinitionDocument] = None
     syncWithPublicNamespace: Optional[bool] = None
@@ -255,6 +273,7 @@ class FlowTemplateDescription(BaseValidatorModel):
     validatedNamespaceVersion: Optional[int] = None
 
 
+# This class is the output for the 'create_flow_template' function.
 class CreateFlowTemplateResponse(BaseValidatorModel):
     summary: FlowTemplateSummary
     ResponseMetadata: ResponseMetadata
@@ -266,6 +285,7 @@ class DeleteNamespaceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_namespace' function.
 class DescribeNamespaceResponse(BaseValidatorModel):
     namespaceArn: str
     namespaceName: str
@@ -275,6 +295,7 @@ class DescribeNamespaceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_flow_template_revisions' function.
 class GetFlowTemplateRevisionsResponse(BaseValidatorModel):
     summaries: List[FlowTemplateSummary]
     ResponseMetadata: ResponseMetadata
@@ -290,6 +311,7 @@ class GetNamespaceDeletionStatusResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_upload_status' function.
 class GetUploadStatusResponse(BaseValidatorModel):
     uploadId: str
     uploadStatus: UploadStatusType
@@ -301,22 +323,26 @@ class GetUploadStatusResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_flow_templates' function.
 class SearchFlowTemplatesResponse(BaseValidatorModel):
     summaries: List[FlowTemplateSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_flow_template' function.
 class UpdateFlowTemplateResponse(BaseValidatorModel):
     summary: FlowTemplateSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'upload_entity_definitions' function.
 class UploadEntityDefinitionsResponse(BaseValidatorModel):
     uploadId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_system_instance' function.
 class CreateSystemInstanceRequest(BaseValidatorModel):
     definition: DefinitionDocument
     target: DeploymentTargetType
@@ -327,6 +353,7 @@ class CreateSystemInstanceRequest(BaseValidatorModel):
     flowActionsRoleArn: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -338,39 +365,46 @@ class TagResourceRequest(BaseValidatorModel):
     tags: List[Tag]
 
 
+# This class is the output for the 'create_system_instance' function.
 class CreateSystemInstanceResponse(BaseValidatorModel):
     summary: SystemInstanceSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'deploy_system_instance' function.
 class DeploySystemInstanceResponse(BaseValidatorModel):
     summary: SystemInstanceSummary
     greengrassDeploymentId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_system_instances' function.
 class SearchSystemInstancesResponse(BaseValidatorModel):
     summaries: List[SystemInstanceSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'undeploy_system_instance' function.
 class UndeploySystemInstanceResponse(BaseValidatorModel):
     summary: SystemInstanceSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_system_template' function.
 class CreateSystemTemplateResponse(BaseValidatorModel):
     summary: SystemTemplateSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_system_template_revisions' function.
 class GetSystemTemplateRevisionsResponse(BaseValidatorModel):
     summaries: List[SystemTemplateSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'search_system_templates' function.
 class SearchSystemTemplatesResponse(BaseValidatorModel):
     summaries: List[SystemTemplateSummary]
     ResponseMetadata: ResponseMetadata
@@ -383,6 +417,7 @@ class SystemTemplateDescription(BaseValidatorModel):
     validatedNamespaceVersion: Optional[int] = None
 
 
+# This class is the output for the 'update_system_template' function.
 class UpdateSystemTemplateResponse(BaseValidatorModel):
     summary: SystemTemplateSummary
     ResponseMetadata: ResponseMetadata
@@ -398,6 +433,7 @@ class SystemInstanceDescription(BaseValidatorModel):
     flowActionsRoleArn: Optional[str] = None
 
 
+# This class is the input for the 'search_entities' function.
 class SearchEntitiesRequest(BaseValidatorModel):
     entityTypes: List[EntityTypeType]
     filters: Optional[List[EntityFilter]] = None
@@ -406,18 +442,21 @@ class SearchEntitiesRequest(BaseValidatorModel):
     namespaceVersion: Optional[int] = None
 
 
+# This class is the output for the 'list_flow_execution_messages' function.
 class ListFlowExecutionMessagesResponse(BaseValidatorModel):
     messages: List[FlowExecutionMessage]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'search_flow_executions' function.
 class SearchFlowExecutionsResponse(BaseValidatorModel):
     summaries: List[FlowExecutionSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'search_flow_templates' function.
 class SearchFlowTemplatesRequest(BaseValidatorModel):
     filters: Optional[List[FlowTemplateFilter]] = None
     nextToken: Optional[str] = None
@@ -470,6 +509,7 @@ class SearchFlowExecutionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_flow_executions' function.
 class SearchFlowExecutionsRequest(BaseValidatorModel):
     systemInstanceId: str
     flowExecutionId: Optional[str] = None
@@ -484,6 +524,7 @@ class SearchSystemInstancesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_system_instances' function.
 class SearchSystemInstancesRequest(BaseValidatorModel):
     filters: Optional[List[SystemInstanceFilter]] = None
     nextToken: Optional[str] = None
@@ -495,39 +536,46 @@ class SearchSystemTemplatesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_system_templates' function.
 class SearchSystemTemplatesRequest(BaseValidatorModel):
     filters: Optional[List[SystemTemplateFilter]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the output for the 'search_things' function.
 class SearchThingsResponse(BaseValidatorModel):
     things: List[Thing]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_entities' function.
 class GetEntitiesResponse(BaseValidatorModel):
     descriptions: List[EntityDescription]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_entities' function.
 class SearchEntitiesResponse(BaseValidatorModel):
     descriptions: List[EntityDescription]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_flow_template' function.
 class GetFlowTemplateResponse(BaseValidatorModel):
     description: FlowTemplateDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_system_template' function.
 class GetSystemTemplateResponse(BaseValidatorModel):
     description: SystemTemplateDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_system_instance' function.
 class GetSystemInstanceResponse(BaseValidatorModel):
     description: SystemInstanceDescription
     ResponseMetadata: ResponseMetadata

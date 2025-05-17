@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'accept_primary_email_update' function.
 class AcceptPrimaryEmailUpdateRequest(BaseValidatorModel):
     AccountId: str
     Otp: str
@@ -45,34 +46,41 @@ class ContactInformation(BaseValidatorModel):
     WebsiteUrl: Optional[str] = None
 
 
+# This class is the input for the 'delete_alternate_contact' function.
 class DeleteAlternateContactRequest(BaseValidatorModel):
     AlternateContactType: AlternateContactTypeType
     AccountId: Optional[str] = None
 
 
+# This class is the input for the 'disable_region' function.
 class DisableRegionRequest(BaseValidatorModel):
     RegionName: str
     AccountId: Optional[str] = None
 
 
+# This class is the input for the 'enable_region' function.
 class EnableRegionRequest(BaseValidatorModel):
     RegionName: str
     AccountId: Optional[str] = None
 
 
+# This class is the input for the 'get_alternate_contact' function.
 class GetAlternateContactRequest(BaseValidatorModel):
     AlternateContactType: AlternateContactTypeType
     AccountId: Optional[str] = None
 
 
+# This class is the input for the 'get_contact_information' function.
 class GetContactInformationRequest(BaseValidatorModel):
     AccountId: Optional[str] = None
 
 
+# This class is the input for the 'get_primary_email' function.
 class GetPrimaryEmailRequest(BaseValidatorModel):
     AccountId: str
 
 
+# This class is the input for the 'get_region_opt_status' function.
 class GetRegionOptStatusRequest(BaseValidatorModel):
     RegionName: str
     AccountId: Optional[str] = None
@@ -84,6 +92,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_regions' function.
 class ListRegionsRequest(BaseValidatorModel):
     AccountId: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -96,6 +105,7 @@ class Region(BaseValidatorModel):
     RegionOptStatus: Optional[RegionOptStatusType] = None
 
 
+# This class is the input for the 'put_alternate_contact' function.
 class PutAlternateContactRequest(BaseValidatorModel):
     AlternateContactType: AlternateContactTypeType
     EmailAddress: str
@@ -105,46 +115,55 @@ class PutAlternateContactRequest(BaseValidatorModel):
     AccountId: Optional[str] = None
 
 
+# This class is the input for the 'start_primary_email_update' function.
 class StartPrimaryEmailUpdateRequest(BaseValidatorModel):
     AccountId: str
     PrimaryEmail: str
 
 
+# This class is the output for the 'accept_primary_email_update' function.
 class AcceptPrimaryEmailUpdateResponse(BaseValidatorModel):
     Status: PrimaryEmailUpdateStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_contact_information' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_primary_email' function.
 class GetPrimaryEmailResponse(BaseValidatorModel):
     PrimaryEmail: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_region_opt_status' function.
 class GetRegionOptStatusResponse(BaseValidatorModel):
     RegionName: str
     RegionOptStatus: RegionOptStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_primary_email_update' function.
 class StartPrimaryEmailUpdateResponse(BaseValidatorModel):
     Status: PrimaryEmailUpdateStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_alternate_contact' function.
 class GetAlternateContactResponse(BaseValidatorModel):
     AlternateContact: AlternateContact
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_contact_information' function.
 class GetContactInformationResponse(BaseValidatorModel):
     ContactInformation: ContactInformation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_contact_information' function.
 class PutContactInformationRequest(BaseValidatorModel):
     ContactInformation: ContactInformation
     AccountId: Optional[str] = None
@@ -156,6 +175,7 @@ class ListRegionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_regions' function.
 class ListRegionsResponse(BaseValidatorModel):
     Regions: List[Region]
     ResponseMetadata: ResponseMetadata

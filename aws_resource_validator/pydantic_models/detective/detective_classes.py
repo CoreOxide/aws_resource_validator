@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'accept_invitation' function.
 class AcceptInvitationRequest(BaseValidatorModel):
     GraphArn: str
 
@@ -23,6 +24,7 @@ class Administrator(BaseValidatorModel):
     DelegationTime: Optional[datetime] = None
 
 
+# This class is the input for the 'batch_get_graph_member_datasources' function.
 class BatchGetGraphMemberDatasourcesRequest(BaseValidatorModel):
     GraphArn: str
     AccountIds: List[str]
@@ -41,6 +43,7 @@ class UnprocessedAccount(BaseValidatorModel):
     Reason: Optional[str] = None
 
 
+# This class is the input for the 'batch_get_membership_datasources' function.
 class BatchGetMembershipDatasourcesRequest(BaseValidatorModel):
     GraphArns: List[str]
 
@@ -50,6 +53,7 @@ class UnprocessedGraph(BaseValidatorModel):
     Reason: Optional[str] = None
 
 
+# This class is the input for the 'create_graph' function.
 class CreateGraphRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
@@ -65,23 +69,28 @@ class DatasourcePackageUsageInfo(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'delete_graph' function.
 class DeleteGraphRequest(BaseValidatorModel):
     GraphArn: str
 
 
+# This class is the input for the 'delete_members' function.
 class DeleteMembersRequest(BaseValidatorModel):
     GraphArn: str
     AccountIds: List[str]
 
 
+# This class is the input for the 'describe_organization_configuration' function.
 class DescribeOrganizationConfigurationRequest(BaseValidatorModel):
     GraphArn: str
 
 
+# This class is the input for the 'disassociate_membership' function.
 class DisassociateMembershipRequest(BaseValidatorModel):
     GraphArn: str
 
 
+# This class is the input for the 'enable_organization_admin_account' function.
 class EnableOrganizationAdminAccountRequest(BaseValidatorModel):
     AccountId: str
 
@@ -95,11 +104,13 @@ class FlaggedIpAddressDetail(BaseValidatorModel):
     Reason: Optional[Literal['AWS_THREAT_INTELLIGENCE']] = None
 
 
+# This class is the input for the 'get_investigation' function.
 class GetInvestigationRequest(BaseValidatorModel):
     GraphArn: str
     InvestigationId: str
 
 
+# This class is the input for the 'get_members' function.
 class GetMembersRequest(BaseValidatorModel):
     GraphArn: str
     AccountIds: List[str]
@@ -164,17 +175,20 @@ class InvestigationDetail(BaseValidatorModel):
     EntityType: Optional[EntityTypeType] = None
 
 
+# This class is the input for the 'list_datasource_packages' function.
 class ListDatasourcePackagesRequest(BaseValidatorModel):
     GraphArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_graphs' function.
 class ListGraphsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_indicators' function.
 class ListIndicatorsRequest(BaseValidatorModel):
     GraphArn: str
     InvestigationId: str
@@ -188,30 +202,36 @@ class SortCriteria(BaseValidatorModel):
     SortOrder: Optional[SortOrderType] = None
 
 
+# This class is the input for the 'list_invitations' function.
 class ListInvitationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_members' function.
 class ListMembersRequest(BaseValidatorModel):
     GraphArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_organization_admin_accounts' function.
 class ListOrganizationAdminAccountsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'reject_invitation' function.
 class RejectInvitationRequest(BaseValidatorModel):
     GraphArn: str
 
 
+# This class is the input for the 'start_monitoring_member' function.
 class StartMonitoringMemberRequest(BaseValidatorModel):
     GraphArn: str
     AccountId: str
@@ -227,22 +247,26 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_datasource_packages' function.
 class UpdateDatasourcePackagesRequest(BaseValidatorModel):
     GraphArn: str
     DatasourcePackages: List[DatasourcePackageType]
 
 
+# This class is the input for the 'update_investigation_state' function.
 class UpdateInvestigationStateRequest(BaseValidatorModel):
     GraphArn: str
     InvestigationId: str
     State: StateType
 
 
+# This class is the input for the 'update_organization_configuration' function.
 class UpdateOrganizationConfigurationRequest(BaseValidatorModel):
     GraphArn: str
     AutoEnable: Optional[bool] = None
 
 
+# This class is the input for the 'create_members' function.
 class CreateMembersRequest(BaseValidatorModel):
     GraphArn: str
     Accounts: List[Account]
@@ -250,20 +274,24 @@ class CreateMembersRequest(BaseValidatorModel):
     DisableEmailNotification: Optional[bool] = None
 
 
+# This class is the output for the 'create_graph' function.
 class CreateGraphResponse(BaseValidatorModel):
     GraphArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_organization_configuration' function.
 class DescribeOrganizationConfigurationResponse(BaseValidatorModel):
     AutoEnable: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_organization_configuration' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_investigation' function.
 class GetInvestigationResponse(BaseValidatorModel):
     GraphArn: str
     InvestigationId: str
@@ -278,22 +306,26 @@ class GetInvestigationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_organization_admin_accounts' function.
 class ListOrganizationAdminAccountsResponse(BaseValidatorModel):
     Administrators: List[Administrator]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_investigation' function.
 class StartInvestigationResponse(BaseValidatorModel):
     InvestigationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_members' function.
 class DeleteMembersResponse(BaseValidatorModel):
     AccountIds: List[str]
     UnprocessedAccounts: List[UnprocessedAccount]
@@ -335,6 +367,7 @@ class DateFilter(BaseValidatorModel):
     EndInclusive: Timestamp
 
 
+# This class is the input for the 'start_investigation' function.
 class StartInvestigationRequest(BaseValidatorModel):
     GraphArn: str
     EntityArn: str
@@ -342,6 +375,7 @@ class StartInvestigationRequest(BaseValidatorModel):
     ScopeEndTime: Timestamp
 
 
+# This class is the output for the 'list_graphs' function.
 class ListGraphsResponse(BaseValidatorModel):
     GraphList: List[Graph]
     ResponseMetadata: ResponseMetadata
@@ -359,48 +393,56 @@ class IndicatorDetail(BaseValidatorModel):
     RelatedFindingGroupDetail: Optional[RelatedFindingGroupDetail] = None
 
 
+# This class is the output for the 'list_investigations' function.
 class ListInvestigationsResponse(BaseValidatorModel):
     InvestigationDetails: List[InvestigationDetail]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_datasource_packages' function.
 class ListDatasourcePackagesResponse(BaseValidatorModel):
     DatasourcePackages: Dict[DatasourcePackageType, DatasourcePackageIngestDetail]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'batch_get_graph_member_datasources' function.
 class BatchGetGraphMemberDatasourcesResponse(BaseValidatorModel):
     MemberDatasources: List[MembershipDatasources]
     UnprocessedAccounts: List[UnprocessedAccount]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_get_membership_datasources' function.
 class BatchGetMembershipDatasourcesResponse(BaseValidatorModel):
     MembershipDatasources: List[MembershipDatasources]
     UnprocessedGraphs: List[UnprocessedGraph]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_members' function.
 class CreateMembersResponse(BaseValidatorModel):
     Members: List[MemberDetail]
     UnprocessedAccounts: List[UnprocessedAccount]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_members' function.
 class GetMembersResponse(BaseValidatorModel):
     MemberDetails: List[MemberDetail]
     UnprocessedAccounts: List[UnprocessedAccount]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_invitations' function.
 class ListInvitationsResponse(BaseValidatorModel):
     Invitations: List[MemberDetail]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_members' function.
 class ListMembersResponse(BaseValidatorModel):
     MemberDetails: List[MemberDetail]
     ResponseMetadata: ResponseMetadata
@@ -420,6 +462,7 @@ class Indicator(BaseValidatorModel):
     IndicatorDetail: Optional[IndicatorDetail] = None
 
 
+# This class is the input for the 'list_investigations' function.
 class ListInvestigationsRequest(BaseValidatorModel):
     GraphArn: str
     NextToken: Optional[str] = None
@@ -428,6 +471,7 @@ class ListInvestigationsRequest(BaseValidatorModel):
     SortCriteria: Optional[SortCriteria] = None
 
 
+# This class is the output for the 'list_indicators' function.
 class ListIndicatorsResponse(BaseValidatorModel):
     GraphArn: str
     InvestigationId: str

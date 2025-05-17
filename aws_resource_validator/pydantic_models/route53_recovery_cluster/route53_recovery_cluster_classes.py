@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'get_routing_control_state' function.
 class GetRoutingControlStateRequest(BaseValidatorModel):
     RoutingControlArn: str
 
@@ -26,6 +27,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_routing_controls' function.
 class ListRoutingControlsRequest(BaseValidatorModel):
     ControlPanelArn: Optional[str] = None
     NextToken: Optional[str] = None
@@ -52,6 +54,7 @@ class UpdateRoutingControlStateRequest(BaseValidatorModel):
     SafetyRulesToOverride: Optional[List[str]] = None
 
 
+# This class is the output for the 'get_routing_control_state' function.
 class GetRoutingControlStateResponse(BaseValidatorModel):
     RoutingControlArn: str
     RoutingControlState: RoutingControlStateType
@@ -64,6 +67,7 @@ class ListRoutingControlsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_routing_controls' function.
 class ListRoutingControlsResponse(BaseValidatorModel):
     RoutingControls: List[RoutingControl]
     ResponseMetadata: ResponseMetadata

@@ -84,10 +84,12 @@ class DeleteRotationRequest(BaseValidatorModel):
     RotationId: str
 
 
+# This class is the input for the 'describe_engagement' function.
 class DescribeEngagementRequest(BaseValidatorModel):
     EngagementId: str
 
 
+# This class is the input for the 'describe_page' function.
 class DescribePageRequest(BaseValidatorModel):
     PageId: str
 
@@ -101,23 +103,28 @@ class Engagement(BaseValidatorModel):
     StopTime: Optional[datetime] = None
 
 
+# This class is the input for the 'get_contact_channel' function.
 class GetContactChannelRequest(BaseValidatorModel):
     ContactChannelId: str
 
 
+# This class is the input for the 'get_contact_policy' function.
 class GetContactPolicyRequest(BaseValidatorModel):
     ContactArn: str
 
 
+# This class is the input for the 'get_contact' function.
 class GetContactRequest(BaseValidatorModel):
     ContactId: str
 
 
+# This class is the input for the 'get_rotation_override' function.
 class GetRotationOverrideRequest(BaseValidatorModel):
     RotationId: str
     RotationOverrideId: str
 
 
+# This class is the input for the 'get_rotation' function.
 class GetRotationRequest(BaseValidatorModel):
     RotationId: str
 
@@ -128,12 +135,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_contact_channels' function.
 class ListContactChannelsRequest(BaseValidatorModel):
     ContactId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_contacts' function.
 class ListContactsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -141,6 +150,7 @@ class ListContactsRequest(BaseValidatorModel):
     Type: Optional[ContactTypeType] = None
 
 
+# This class is the input for the 'list_page_receipts' function.
 class ListPageReceiptsRequest(BaseValidatorModel):
     PageId: str
     NextToken: Optional[str] = None
@@ -154,6 +164,7 @@ class Receipt(BaseValidatorModel):
     ReceiptInfo: Optional[str] = None
 
 
+# This class is the input for the 'list_page_resolutions' function.
 class ListPageResolutionsRequest(BaseValidatorModel):
     PageId: str
     NextToken: Optional[str] = None
@@ -165,6 +176,7 @@ class ResolutionContact(BaseValidatorModel):
     StageIndex: Optional[int] = None
 
 
+# This class is the input for the 'list_pages_by_contact' function.
 class ListPagesByContactRequest(BaseValidatorModel):
     ContactId: str
     NextToken: Optional[str] = None
@@ -182,6 +194,7 @@ class Page(BaseValidatorModel):
     ReadTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_pages_by_engagement' function.
 class ListPagesByEngagementRequest(BaseValidatorModel):
     EngagementId: str
     NextToken: Optional[str] = None
@@ -196,12 +209,14 @@ class RotationOverride(BaseValidatorModel):
     CreateTime: datetime
 
 
+# This class is the input for the 'list_rotations' function.
 class ListRotationsRequest(BaseValidatorModel):
     RotationNamePrefix: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
@@ -219,6 +234,7 @@ class SendActivationCodeRequest(BaseValidatorModel):
     ContactChannelId: str
 
 
+# This class is the input for the 'start_engagement' function.
 class StartEngagementRequest(BaseValidatorModel):
     ContactId: str
     Sender: str
@@ -249,6 +265,7 @@ class ContactChannel(BaseValidatorModel):
     Type: Optional[ChannelTypeType] = None
 
 
+# This class is the input for the 'create_contact_channel' function.
 class CreateContactChannelRequest(BaseValidatorModel):
     ContactId: str
     Name: str
@@ -284,26 +301,31 @@ class WeeklySetting(BaseValidatorModel):
     HandOffTime: HandOffTime
 
 
+# This class is the output for the 'create_contact_channel' function.
 class CreateContactChannelResult(BaseValidatorModel):
     ContactChannelArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_contact' function.
 class CreateContactResult(BaseValidatorModel):
     ContactArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_rotation_override' function.
 class CreateRotationOverrideResult(BaseValidatorModel):
     RotationOverrideId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_rotation' function.
 class CreateRotationResult(BaseValidatorModel):
     RotationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_engagement' function.
 class DescribeEngagementResult(BaseValidatorModel):
     ContactArn: str
     EngagementArn: str
@@ -318,6 +340,7 @@ class DescribeEngagementResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_page' function.
 class DescribePageResult(BaseValidatorModel):
     PageArn: str
     EngagementArn: str
@@ -334,6 +357,7 @@ class DescribePageResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_contact_channel' function.
 class GetContactChannelResult(BaseValidatorModel):
     ContactArn: str
     ContactChannelArn: str
@@ -344,12 +368,14 @@ class GetContactChannelResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_contact_policy' function.
 class GetContactPolicyResult(BaseValidatorModel):
     ContactArn: str
     Policy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_rotation_override' function.
 class GetRotationOverrideResult(BaseValidatorModel):
     RotationOverrideId: str
     RotationArn: str
@@ -360,17 +386,20 @@ class GetRotationOverrideResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_contacts' function.
 class ListContactsResult(BaseValidatorModel):
     Contacts: List[Contact]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_engagement' function.
 class StartEngagementResult(BaseValidatorModel):
     EngagementArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResult(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -381,6 +410,7 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the input for the 'create_rotation_override' function.
 class CreateRotationOverrideRequest(BaseValidatorModel):
     RotationId: str
     NewContactIds: List[str]
@@ -389,6 +419,7 @@ class CreateRotationOverrideRequest(BaseValidatorModel):
     IdempotencyToken: Optional[str] = None
 
 
+# This class is the input for the 'list_rotation_overrides' function.
 class ListRotationOverridesRequest(BaseValidatorModel):
     RotationId: str
     StartTime: Timestamp
@@ -397,6 +428,7 @@ class ListRotationOverridesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_rotation_shifts' function.
 class ListRotationShiftsRequest(BaseValidatorModel):
     RotationId: str
     EndTime: Timestamp
@@ -416,6 +448,7 @@ class TimeRange(BaseValidatorModel):
     EndTime: Optional[Timestamp] = None
 
 
+# This class is the output for the 'list_engagements' function.
 class ListEngagementsResult(BaseValidatorModel):
     Engagements: List[Engagement]
     ResponseMetadata: ResponseMetadata
@@ -472,30 +505,35 @@ class ListRotationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_page_receipts' function.
 class ListPageReceiptsResult(BaseValidatorModel):
     Receipts: List[Receipt]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_page_resolutions' function.
 class ListPageResolutionsResult(BaseValidatorModel):
     PageResolutions: List[ResolutionContact]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_pages_by_contact' function.
 class ListPagesByContactResult(BaseValidatorModel):
     Pages: List[Page]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_pages_by_engagement' function.
 class ListPagesByEngagementResult(BaseValidatorModel):
     Pages: List[Page]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_rotation_overrides' function.
 class ListRotationOverridesResult(BaseValidatorModel):
     RotationOverrides: List[RotationOverride]
     ResponseMetadata: ResponseMetadata
@@ -510,6 +548,7 @@ class RotationShift(BaseValidatorModel):
     ShiftDetails: Optional[ShiftDetails] = None
 
 
+# This class is the output for the 'list_contact_channels' function.
 class ListContactChannelsResult(BaseValidatorModel):
     ContactChannels: List[ContactChannel]
     ResponseMetadata: ResponseMetadata
@@ -550,6 +589,7 @@ class ListEngagementsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_engagements' function.
 class ListEngagementsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -557,12 +597,14 @@ class ListEngagementsRequest(BaseValidatorModel):
     TimeRangeValue: Optional[TimeRange] = None
 
 
+# This class is the output for the 'list_preview_rotation_shifts' function.
 class ListPreviewRotationShiftsResult(BaseValidatorModel):
     RotationShifts: List[RotationShift]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_rotation_shifts' function.
 class ListRotationShiftsResult(BaseValidatorModel):
     RotationShifts: List[RotationShift]
     ResponseMetadata: ResponseMetadata
@@ -579,6 +621,7 @@ class Plan(BaseValidatorModel):
     RotationIds: Optional[List[str]] = None
 
 
+# This class is the output for the 'get_rotation' function.
 class GetRotationResult(BaseValidatorModel):
     RotationArn: str
     Name: str
@@ -600,6 +643,7 @@ class Rotation(BaseValidatorModel):
 RecurrenceSettingsUnion = Union[RecurrenceSettings, RecurrenceSettingsOutput]
 
 
+# This class is the output for the 'get_contact' function.
 class GetContactResult(BaseValidatorModel):
     ContactArn: str
     Alias: str
@@ -611,12 +655,14 @@ class GetContactResult(BaseValidatorModel):
 PlanUnion = Union[Plan, PlanOutput]
 
 
+# This class is the output for the 'list_rotations' function.
 class ListRotationsResult(BaseValidatorModel):
     Rotations: List[Rotation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_rotation' function.
 class CreateRotationRequest(BaseValidatorModel):
     Name: str
     ContactIds: List[str]
@@ -638,6 +684,7 @@ class ListPreviewRotationShiftsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_preview_rotation_shifts' function.
 class ListPreviewRotationShiftsRequest(BaseValidatorModel):
     EndTime: Timestamp
     Members: List[str]
@@ -658,6 +705,7 @@ class UpdateRotationRequest(BaseValidatorModel):
     TimeZoneId: Optional[str] = None
 
 
+# This class is the input for the 'create_contact' function.
 class CreateContactRequest(BaseValidatorModel):
     Alias: str
     Type: ContactTypeType

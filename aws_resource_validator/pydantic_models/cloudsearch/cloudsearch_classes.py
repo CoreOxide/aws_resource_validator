@@ -24,6 +24,7 @@ class AnalysisOptions(BaseValidatorModel):
     AlgorithmicStemming: Optional[AlgorithmicStemmingType] = None
 
 
+# This class is the input for the 'build_suggesters' function.
 class BuildSuggestersRequest(BaseValidatorModel):
     DomainName: str
 
@@ -36,6 +37,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_domain' function.
 class CreateDomainRequest(BaseValidatorModel):
     DomainName: str
 
@@ -62,71 +64,85 @@ class Expression(BaseValidatorModel):
     ExpressionValue: str
 
 
+# This class is the input for the 'delete_analysis_scheme' function.
 class DeleteAnalysisSchemeRequest(BaseValidatorModel):
     DomainName: str
     AnalysisSchemeName: str
 
 
+# This class is the input for the 'delete_domain' function.
 class DeleteDomainRequest(BaseValidatorModel):
     DomainName: str
 
 
+# This class is the input for the 'delete_expression' function.
 class DeleteExpressionRequest(BaseValidatorModel):
     DomainName: str
     ExpressionName: str
 
 
+# This class is the input for the 'delete_index_field' function.
 class DeleteIndexFieldRequest(BaseValidatorModel):
     DomainName: str
     IndexFieldName: str
 
 
+# This class is the input for the 'delete_suggester' function.
 class DeleteSuggesterRequest(BaseValidatorModel):
     DomainName: str
     SuggesterName: str
 
 
+# This class is the input for the 'describe_analysis_schemes' function.
 class DescribeAnalysisSchemesRequest(BaseValidatorModel):
     DomainName: str
     AnalysisSchemeNames: Optional[List[str]] = None
     Deployed: Optional[bool] = None
 
 
+# This class is the input for the 'describe_availability_options' function.
 class DescribeAvailabilityOptionsRequest(BaseValidatorModel):
     DomainName: str
     Deployed: Optional[bool] = None
 
 
+# This class is the input for the 'describe_domain_endpoint_options' function.
 class DescribeDomainEndpointOptionsRequest(BaseValidatorModel):
     DomainName: str
     Deployed: Optional[bool] = None
 
 
+# This class is the input for the 'describe_domains' function.
 class DescribeDomainsRequest(BaseValidatorModel):
     DomainNames: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_expressions' function.
 class DescribeExpressionsRequest(BaseValidatorModel):
     DomainName: str
     ExpressionNames: Optional[List[str]] = None
     Deployed: Optional[bool] = None
 
 
+# This class is the input for the 'describe_index_fields' function.
 class DescribeIndexFieldsRequest(BaseValidatorModel):
     DomainName: str
     FieldNames: Optional[List[str]] = None
     Deployed: Optional[bool] = None
 
 
+# This class is the input for the 'describe_scaling_parameters' function.
 class DescribeScalingParametersRequest(BaseValidatorModel):
     DomainName: str
 
 
+# This class is the input for the 'describe_service_access_policies' function.
 class DescribeServiceAccessPoliciesRequest(BaseValidatorModel):
     DomainName: str
     Deployed: Optional[bool] = None
 
 
+# This class is the input for the 'describe_suggesters' function.
 class DescribeSuggestersRequest(BaseValidatorModel):
     DomainName: str
     SuggesterNames: Optional[List[str]] = None
@@ -170,6 +186,7 @@ class DoubleOptions(BaseValidatorModel):
     SortEnabled: Optional[bool] = None
 
 
+# This class is the input for the 'index_documents' function.
 class IndexDocumentsRequest(BaseValidatorModel):
     DomainName: str
 
@@ -240,11 +257,13 @@ class ScalingParameters(BaseValidatorModel):
     DesiredPartitionCount: Optional[int] = None
 
 
+# This class is the input for the 'update_availability_options' function.
 class UpdateAvailabilityOptionsRequest(BaseValidatorModel):
     DomainName: str
     MultiAZ: bool
 
 
+# This class is the input for the 'update_service_access_policies' function.
 class UpdateServiceAccessPoliciesRequest(BaseValidatorModel):
     DomainName: str
     AccessPolicies: str
@@ -266,11 +285,13 @@ class AnalysisScheme(BaseValidatorModel):
     AnalysisOptions: Optional[AnalysisOptions] = None
 
 
+# This class is the output for the 'build_suggesters' function.
 class BuildSuggestersResponse(BaseValidatorModel):
     FieldNames: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'index_documents' function.
 class IndexDocumentsResponse(BaseValidatorModel):
     FieldNames: List[str]
     ResponseMetadata: ResponseMetadata
@@ -281,6 +302,7 @@ class ListDomainNamesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'define_expression' function.
 class DefineExpressionRequest(BaseValidatorModel):
     DomainName: str
     Expression: Expression
@@ -301,6 +323,7 @@ class DomainEndpointOptionsStatus(BaseValidatorModel):
     Status: OptionStatus
 
 
+# This class is the input for the 'update_domain_endpoint_options' function.
 class UpdateDomainEndpointOptionsRequest(BaseValidatorModel):
     DomainName: str
     DomainEndpointOptions: DomainEndpointOptions
@@ -343,26 +366,31 @@ class ScalingParametersStatus(BaseValidatorModel):
     Status: OptionStatus
 
 
+# This class is the input for the 'update_scaling_parameters' function.
 class UpdateScalingParametersRequest(BaseValidatorModel):
     DomainName: str
     ScalingParameters: ScalingParameters
 
 
+# This class is the output for the 'describe_service_access_policies' function.
 class DescribeServiceAccessPoliciesResponse(BaseValidatorModel):
     AccessPolicies: AccessPoliciesStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_service_access_policies' function.
 class UpdateServiceAccessPoliciesResponse(BaseValidatorModel):
     AccessPolicies: AccessPoliciesStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_availability_options' function.
 class DescribeAvailabilityOptionsResponse(BaseValidatorModel):
     AvailabilityOptions: AvailabilityOptionsStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_availability_options' function.
 class UpdateAvailabilityOptionsResponse(BaseValidatorModel):
     AvailabilityOptions: AvailabilityOptionsStatus
     ResponseMetadata: ResponseMetadata
@@ -373,26 +401,31 @@ class AnalysisSchemeStatus(BaseValidatorModel):
     Status: OptionStatus
 
 
+# This class is the input for the 'define_analysis_scheme' function.
 class DefineAnalysisSchemeRequest(BaseValidatorModel):
     DomainName: str
     AnalysisScheme: AnalysisScheme
 
 
+# This class is the output for the 'define_expression' function.
 class DefineExpressionResponse(BaseValidatorModel):
     Expression: ExpressionStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_expression' function.
 class DeleteExpressionResponse(BaseValidatorModel):
     Expression: ExpressionStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_expressions' function.
 class DescribeExpressionsResponse(BaseValidatorModel):
     Expressions: List[ExpressionStatus]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'define_suggester' function.
 class DefineSuggesterRequest(BaseValidatorModel):
     DomainName: str
     Suggester: Suggester
@@ -403,31 +436,37 @@ class SuggesterStatus(BaseValidatorModel):
     Status: OptionStatus
 
 
+# This class is the output for the 'describe_domain_endpoint_options' function.
 class DescribeDomainEndpointOptionsResponse(BaseValidatorModel):
     DomainEndpointOptions: DomainEndpointOptionsStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_domain_endpoint_options' function.
 class UpdateDomainEndpointOptionsResponse(BaseValidatorModel):
     DomainEndpointOptions: DomainEndpointOptionsStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_domain' function.
 class CreateDomainResponse(BaseValidatorModel):
     DomainStatus: DomainStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_domain' function.
 class DeleteDomainResponse(BaseValidatorModel):
     DomainStatus: DomainStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_domains' function.
 class DescribeDomainsResponse(BaseValidatorModel):
     DomainStatusList: List[DomainStatus]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'define_index_field' function.
 class DefineIndexFieldRequest(BaseValidatorModel):
     DomainName: str
     IndexField: IndexField
@@ -438,56 +477,67 @@ class IndexFieldStatus(BaseValidatorModel):
     Status: OptionStatus
 
 
+# This class is the output for the 'describe_scaling_parameters' function.
 class DescribeScalingParametersResponse(BaseValidatorModel):
     ScalingParameters: ScalingParametersStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_scaling_parameters' function.
 class UpdateScalingParametersResponse(BaseValidatorModel):
     ScalingParameters: ScalingParametersStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'define_analysis_scheme' function.
 class DefineAnalysisSchemeResponse(BaseValidatorModel):
     AnalysisScheme: AnalysisSchemeStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_analysis_scheme' function.
 class DeleteAnalysisSchemeResponse(BaseValidatorModel):
     AnalysisScheme: AnalysisSchemeStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_analysis_schemes' function.
 class DescribeAnalysisSchemesResponse(BaseValidatorModel):
     AnalysisSchemes: List[AnalysisSchemeStatus]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'define_suggester' function.
 class DefineSuggesterResponse(BaseValidatorModel):
     Suggester: SuggesterStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_suggester' function.
 class DeleteSuggesterResponse(BaseValidatorModel):
     Suggester: SuggesterStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_suggesters' function.
 class DescribeSuggestersResponse(BaseValidatorModel):
     Suggesters: List[SuggesterStatus]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'define_index_field' function.
 class DefineIndexFieldResponse(BaseValidatorModel):
     IndexField: IndexFieldStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_index_field' function.
 class DeleteIndexFieldResponse(BaseValidatorModel):
     IndexField: IndexFieldStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_index_fields' function.
 class DescribeIndexFieldsResponse(BaseValidatorModel):
     IndexFields: List[IndexFieldStatus]
     ResponseMetadata: ResponseMetadata

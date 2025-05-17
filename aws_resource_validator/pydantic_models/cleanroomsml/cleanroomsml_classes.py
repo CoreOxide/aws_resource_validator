@@ -66,11 +66,13 @@ class AudienceSizeConfig(BaseValidatorModel):
     audienceSizeBins: List[int]
 
 
+# This class is the input for the 'cancel_trained_model_inference_job' function.
 class CancelTrainedModelInferenceJobRequest(BaseValidatorModel):
     membershipIdentifier: str
     trainedModelInferenceJobArn: str
 
 
+# This class is the input for the 'cancel_trained_model' function.
 class CancelTrainedModelRequest(BaseValidatorModel):
     membershipIdentifier: str
     trainedModelArn: str
@@ -188,98 +190,120 @@ class GlueDataSource(BaseValidatorModel):
     catalogId: Optional[str] = None
 
 
+# This class is the input for the 'delete_audience_generation_job' function.
 class DeleteAudienceGenerationJobRequest(BaseValidatorModel):
     audienceGenerationJobArn: str
 
 
+# This class is the input for the 'delete_audience_model' function.
 class DeleteAudienceModelRequest(BaseValidatorModel):
     audienceModelArn: str
 
 
+# This class is the input for the 'delete_configured_audience_model_policy' function.
 class DeleteConfiguredAudienceModelPolicyRequest(BaseValidatorModel):
     configuredAudienceModelArn: str
 
 
+# This class is the input for the 'delete_configured_audience_model' function.
 class DeleteConfiguredAudienceModelRequest(BaseValidatorModel):
     configuredAudienceModelArn: str
 
 
+# This class is the input for the 'delete_configured_model_algorithm_association' function.
 class DeleteConfiguredModelAlgorithmAssociationRequest(BaseValidatorModel):
     configuredModelAlgorithmAssociationArn: str
     membershipIdentifier: str
 
 
+# This class is the input for the 'delete_configured_model_algorithm' function.
 class DeleteConfiguredModelAlgorithmRequest(BaseValidatorModel):
     configuredModelAlgorithmArn: str
 
 
+# This class is the input for the 'delete_ml_configuration' function.
 class DeleteMLConfigurationRequest(BaseValidatorModel):
     membershipIdentifier: str
 
 
+# This class is the input for the 'delete_ml_input_channel_data' function.
 class DeleteMLInputChannelDataRequest(BaseValidatorModel):
     mlInputChannelArn: str
     membershipIdentifier: str
 
 
+# This class is the input for the 'delete_trained_model_output' function.
 class DeleteTrainedModelOutputRequest(BaseValidatorModel):
     trainedModelArn: str
     membershipIdentifier: str
 
 
+# This class is the input for the 'delete_training_dataset' function.
 class DeleteTrainingDatasetRequest(BaseValidatorModel):
     trainingDatasetArn: str
 
 
+# This class is the input for the 'get_audience_generation_job' function.
 class GetAudienceGenerationJobRequest(BaseValidatorModel):
     audienceGenerationJobArn: str
 
 
+# This class is the input for the 'get_audience_model' function.
 class GetAudienceModelRequest(BaseValidatorModel):
     audienceModelArn: str
 
 
+# This class is the input for the 'get_collaboration_configured_model_algorithm_association' function.
 class GetCollaborationConfiguredModelAlgorithmAssociationRequest(BaseValidatorModel):
     configuredModelAlgorithmAssociationArn: str
     collaborationIdentifier: str
 
 
+# This class is the input for the 'get_collaboration_ml_input_channel' function.
 class GetCollaborationMLInputChannelRequest(BaseValidatorModel):
     mlInputChannelArn: str
     collaborationIdentifier: str
 
 
+# This class is the input for the 'get_collaboration_trained_model' function.
 class GetCollaborationTrainedModelRequest(BaseValidatorModel):
     trainedModelArn: str
     collaborationIdentifier: str
 
 
+# This class is the input for the 'get_configured_audience_model_policy' function.
 class GetConfiguredAudienceModelPolicyRequest(BaseValidatorModel):
     configuredAudienceModelArn: str
 
 
+# This class is the input for the 'get_configured_audience_model' function.
 class GetConfiguredAudienceModelRequest(BaseValidatorModel):
     configuredAudienceModelArn: str
 
 
+# This class is the input for the 'get_configured_model_algorithm_association' function.
 class GetConfiguredModelAlgorithmAssociationRequest(BaseValidatorModel):
     configuredModelAlgorithmAssociationArn: str
     membershipIdentifier: str
 
 
+# This class is the input for the 'get_configured_model_algorithm' function.
 class GetConfiguredModelAlgorithmRequest(BaseValidatorModel):
     configuredModelAlgorithmArn: str
 
 
+# This class is the input for the 'get_ml_configuration' function.
 class GetMLConfigurationRequest(BaseValidatorModel):
     membershipIdentifier: str
 
 
+# This class is the input for the 'get_ml_input_channel' function.
 class GetMLInputChannelRequest(BaseValidatorModel):
     mlInputChannelArn: str
     membershipIdentifier: str
 
 
+# This class is the input for the 'get_trained_model_inference_job' function.
 class GetTrainedModelInferenceJobRequest(BaseValidatorModel):
     membershipIdentifier: str
     trainedModelInferenceJobArn: str
@@ -298,11 +322,13 @@ class ModelInferenceDataSource(BaseValidatorModel):
     mlInputChannelArn: str
 
 
+# This class is the input for the 'get_trained_model' function.
 class GetTrainedModelRequest(BaseValidatorModel):
     trainedModelArn: str
     membershipIdentifier: str
 
 
+# This class is the input for the 'get_training_dataset' function.
 class GetTrainingDatasetRequest(BaseValidatorModel):
     trainingDatasetArn: str
 
@@ -317,12 +343,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_audience_export_jobs' function.
 class ListAudienceExportJobsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     audienceGenerationJobArn: Optional[str] = None
 
 
+# This class is the input for the 'list_audience_generation_jobs' function.
 class ListAudienceGenerationJobsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -330,23 +358,27 @@ class ListAudienceGenerationJobsRequest(BaseValidatorModel):
     collaborationId: Optional[str] = None
 
 
+# This class is the input for the 'list_audience_models' function.
 class ListAudienceModelsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_collaboration_configured_model_algorithm_associations' function.
 class ListCollaborationConfiguredModelAlgorithmAssociationsRequest(BaseValidatorModel):
     collaborationIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_collaboration_ml_input_channels' function.
 class ListCollaborationMLInputChannelsRequest(BaseValidatorModel):
     collaborationIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_collaboration_trained_model_export_jobs' function.
 class ListCollaborationTrainedModelExportJobsRequest(BaseValidatorModel):
     collaborationIdentifier: str
     trainedModelArn: str
@@ -354,6 +386,7 @@ class ListCollaborationTrainedModelExportJobsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_collaboration_trained_model_inference_jobs' function.
 class ListCollaborationTrainedModelInferenceJobsRequest(BaseValidatorModel):
     collaborationIdentifier: str
     nextToken: Optional[str] = None
@@ -361,28 +394,33 @@ class ListCollaborationTrainedModelInferenceJobsRequest(BaseValidatorModel):
     trainedModelArn: Optional[str] = None
 
 
+# This class is the input for the 'list_collaboration_trained_models' function.
 class ListCollaborationTrainedModelsRequest(BaseValidatorModel):
     collaborationIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_configured_audience_models' function.
 class ListConfiguredAudienceModelsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_configured_model_algorithm_associations' function.
 class ListConfiguredModelAlgorithmAssociationsRequest(BaseValidatorModel):
     membershipIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_configured_model_algorithms' function.
 class ListConfiguredModelAlgorithmsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_ml_input_channels' function.
 class ListMLInputChannelsRequest(BaseValidatorModel):
     membershipIdentifier: str
     nextToken: Optional[str] = None
@@ -402,10 +440,12 @@ class MLInputChannelSummary(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'list_trained_model_inference_jobs' function.
 class ListTrainedModelInferenceJobsRequest(BaseValidatorModel):
     membershipIdentifier: str
     nextToken: Optional[str] = None
@@ -413,6 +453,7 @@ class ListTrainedModelInferenceJobsRequest(BaseValidatorModel):
     trainedModelArn: Optional[str] = None
 
 
+# This class is the input for the 'list_trained_models' function.
 class ListTrainedModelsRequest(BaseValidatorModel):
     membershipIdentifier: str
     nextToken: Optional[str] = None
@@ -431,6 +472,7 @@ class TrainedModelSummary(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'list_training_datasets' function.
 class ListTrainingDatasetsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -459,6 +501,7 @@ class MetricsConfigurationPolicy(BaseValidatorModel):
     noiseLevel: NoiseLevelTypeType
 
 
+# This class is the input for the 'put_configured_audience_model_policy' function.
 class PutConfiguredAudienceModelPolicyRequest(BaseValidatorModel):
     configuredAudienceModelArn: str
     configuredAudienceModelPolicy: str
@@ -503,6 +546,7 @@ class RelevanceMetric(BaseValidatorModel):
     score: Optional[float] = None
 
 
+# This class is the input for the 'start_audience_export_job' function.
 class StartAudienceExportJobRequest(BaseValidatorModel):
     name: str
     audienceGenerationJobArn: str
@@ -544,6 +588,7 @@ class ContainerConfig(BaseValidatorModel):
     metricDefinitions: Optional[List[MetricDefinition]] = None
 
 
+# This class is the input for the 'create_audience_model' function.
 class CreateAudienceModelRequest(BaseValidatorModel):
     name: str
     trainingDatasetArn: str
@@ -554,45 +599,54 @@ class CreateAudienceModelRequest(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the output for the 'create_audience_model' function.
 class CreateAudienceModelResponse(BaseValidatorModel):
     audienceModelArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_configured_audience_model' function.
 class CreateConfiguredAudienceModelResponse(BaseValidatorModel):
     configuredAudienceModelArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_configured_model_algorithm_association' function.
 class CreateConfiguredModelAlgorithmAssociationResponse(BaseValidatorModel):
     configuredModelAlgorithmAssociationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_configured_model_algorithm' function.
 class CreateConfiguredModelAlgorithmResponse(BaseValidatorModel):
     configuredModelAlgorithmArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_ml_input_channel' function.
 class CreateMLInputChannelResponse(BaseValidatorModel):
     mlInputChannelArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_trained_model' function.
 class CreateTrainedModelResponse(BaseValidatorModel):
     trainedModelArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_training_dataset' function.
 class CreateTrainingDatasetResponse(BaseValidatorModel):
     trainingDatasetArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_trained_model_export_job' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_audience_model' function.
 class GetAudienceModelResponse(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
@@ -609,6 +663,7 @@ class GetAudienceModelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_collaboration_ml_input_channel' function.
 class GetCollaborationMLInputChannelResponse(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
@@ -626,6 +681,7 @@ class GetCollaborationMLInputChannelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_configured_audience_model_policy' function.
 class GetConfiguredAudienceModelPolicyResponse(BaseValidatorModel):
     configuredAudienceModelArn: str
     configuredAudienceModelPolicy: str
@@ -633,74 +689,87 @@ class GetConfiguredAudienceModelPolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_audience_generation_jobs' function.
 class ListAudienceGenerationJobsResponse(BaseValidatorModel):
     audienceGenerationJobs: List[AudienceGenerationJobSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_audience_models' function.
 class ListAudienceModelsResponse(BaseValidatorModel):
     audienceModels: List[AudienceModelSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_collaboration_configured_model_algorithm_associations' function.
 class ListCollaborationConfiguredModelAlgorithmAssociationsResponse(BaseValidatorModel):
     collaborationConfiguredModelAlgorithmAssociations: List[CollaborationConfiguredModelAlgorithmAssociationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_collaboration_ml_input_channels' function.
 class ListCollaborationMLInputChannelsResponse(BaseValidatorModel):
     collaborationMLInputChannelsList: List[CollaborationMLInputChannelSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_collaboration_trained_models' function.
 class ListCollaborationTrainedModelsResponse(BaseValidatorModel):
     collaborationTrainedModels: List[CollaborationTrainedModelSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_configured_model_algorithm_associations' function.
 class ListConfiguredModelAlgorithmAssociationsResponse(BaseValidatorModel):
     configuredModelAlgorithmAssociations: List[ConfiguredModelAlgorithmAssociationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_configured_model_algorithms' function.
 class ListConfiguredModelAlgorithmsResponse(BaseValidatorModel):
     configuredModelAlgorithms: List[ConfiguredModelAlgorithmSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_configured_audience_model_policy' function.
 class PutConfiguredAudienceModelPolicyResponse(BaseValidatorModel):
     configuredAudienceModelPolicy: str
     policyHash: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_audience_generation_job' function.
 class StartAudienceGenerationJobResponse(BaseValidatorModel):
     audienceGenerationJobArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_trained_model_inference_job' function.
 class StartTrainedModelInferenceJobResponse(BaseValidatorModel):
     trainedModelInferenceJobArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_configured_audience_model' function.
 class UpdateConfiguredAudienceModelResponse(BaseValidatorModel):
     configuredAudienceModelArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_trained_model' function.
 class CreateTrainedModelRequest(BaseValidatorModel):
     membershipIdentifier: str
     name: str
@@ -715,6 +784,7 @@ class CreateTrainedModelRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'get_collaboration_trained_model' function.
 class GetCollaborationTrainedModelResponse(BaseValidatorModel):
     membershipIdentifier: str
     collaborationIdentifier: str
@@ -737,6 +807,7 @@ class GetCollaborationTrainedModelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_trained_model' function.
 class GetTrainedModelResponse(BaseValidatorModel):
     membershipIdentifier: str
     collaborationIdentifier: str
@@ -852,18 +923,21 @@ class ListTrainingDatasetsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_ml_input_channels' function.
 class ListMLInputChannelsResponse(BaseValidatorModel):
     mlInputChannelsList: List[MLInputChannelSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_trained_models' function.
 class ListTrainedModelsResponse(BaseValidatorModel):
     trainedModels: List[TrainedModelSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_training_datasets' function.
 class ListTrainingDatasetsResponse(BaseValidatorModel):
     trainingDatasets: List[TrainingDatasetSummary]
     ResponseMetadata: ResponseMetadata
@@ -923,6 +997,7 @@ class AudienceQualityMetrics(BaseValidatorModel):
     recallMetric: Optional[float] = None
 
 
+# This class is the output for the 'list_audience_export_jobs' function.
 class ListAudienceExportJobsResponse(BaseValidatorModel):
     audienceExportJobs: List[AudienceExportJobSummary]
     ResponseMetadata: ResponseMetadata
@@ -953,6 +1028,7 @@ class ProtectedQueryInputParameters(BaseValidatorModel):
     computeConfiguration: Optional[ComputeConfiguration] = None
 
 
+# This class is the output for the 'get_configured_model_algorithm' function.
 class GetConfiguredModelAlgorithmResponse(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
@@ -998,6 +1074,7 @@ class CollaborationTrainedModelInferenceJobSummary(BaseValidatorModel):
     logsStatusDetails: Optional[str] = None
 
 
+# This class is the output for the 'get_trained_model_inference_job' function.
 class GetTrainedModelInferenceJobResponse(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
@@ -1083,6 +1160,7 @@ class ConfiguredAudienceModelSummary(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'create_configured_audience_model' function.
 class CreateConfiguredAudienceModelRequest(BaseValidatorModel):
     name: str
     audienceModelArn: str
@@ -1095,6 +1173,7 @@ class CreateConfiguredAudienceModelRequest(BaseValidatorModel):
     childResourceTagOnCreatePolicy: Optional[TagOnCreatePolicyType] = None
 
 
+# This class is the output for the 'get_configured_audience_model' function.
 class GetConfiguredAudienceModelResponse(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
@@ -1112,6 +1191,7 @@ class GetConfiguredAudienceModelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_configured_audience_model' function.
 class UpdateConfiguredAudienceModelRequest(BaseValidatorModel):
     configuredAudienceModelArn: str
     outputConfig: Optional[ConfiguredAudienceModelOutputConfig] = None
@@ -1122,6 +1202,7 @@ class UpdateConfiguredAudienceModelRequest(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the output for the 'get_ml_configuration' function.
 class GetMLConfigurationResponse(BaseValidatorModel):
     membershipIdentifier: str
     defaultOutputLocation: MLOutputConfiguration
@@ -1130,11 +1211,13 @@ class GetMLConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_ml_configuration' function.
 class PutMLConfigurationRequest(BaseValidatorModel):
     membershipIdentifier: str
     defaultOutputLocation: MLOutputConfiguration
 
 
+# This class is the output for the 'get_audience_generation_job' function.
 class GetAudienceGenerationJobResponse(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
@@ -1164,6 +1247,7 @@ class InputChannelDataSource(BaseValidatorModel):
     protectedQueryInputParameters: Optional[ProtectedQueryInputParameters] = None
 
 
+# This class is the input for the 'create_configured_model_algorithm' function.
 class CreateConfiguredModelAlgorithmRequest(BaseValidatorModel):
     name: str
     roleArn: str
@@ -1181,18 +1265,21 @@ class DatasetOutput(BaseValidatorModel):
 DatasetInputConfigUnion = Union[DatasetInputConfig, DatasetInputConfigOutput]
 
 
+# This class is the output for the 'list_collaboration_trained_model_inference_jobs' function.
 class ListCollaborationTrainedModelInferenceJobsResponse(BaseValidatorModel):
     collaborationTrainedModelInferenceJobs: List[CollaborationTrainedModelInferenceJobSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_trained_model_inference_jobs' function.
 class ListTrainedModelInferenceJobsResponse(BaseValidatorModel):
     trainedModelInferenceJobs: List[TrainedModelInferenceJobSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'start_trained_model_inference_job' function.
 class StartTrainedModelInferenceJobRequest(BaseValidatorModel):
     membershipIdentifier: str
     name: str
@@ -1208,12 +1295,14 @@ class StartTrainedModelInferenceJobRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'list_collaboration_trained_model_export_jobs' function.
 class ListCollaborationTrainedModelExportJobsResponse(BaseValidatorModel):
     collaborationTrainedModelExportJobs: List[CollaborationTrainedModelExportJobSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'start_trained_model_export_job' function.
 class StartTrainedModelExportJobRequest(BaseValidatorModel):
     name: str
     trainedModelArn: str
@@ -1230,12 +1319,14 @@ class PrivacyConfiguration(BaseValidatorModel):
     policies: PrivacyConfigurationPolicies
 
 
+# This class is the output for the 'list_configured_audience_models' function.
 class ListConfiguredAudienceModelsResponse(BaseValidatorModel):
     configuredAudienceModels: List[ConfiguredAudienceModelSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'start_audience_generation_job' function.
 class StartAudienceGenerationJobRequest(BaseValidatorModel):
     name: str
     configuredAudienceModelArn: str
@@ -1256,6 +1347,7 @@ class InputChannel(BaseValidatorModel):
     roleArn: str
 
 
+# This class is the output for the 'get_training_dataset' function.
 class GetTrainingDatasetResponse(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
@@ -1274,6 +1366,7 @@ class Dataset(BaseValidatorModel):
     inputConfig: DatasetInputConfigUnion
 
 
+# This class is the output for the 'get_collaboration_configured_model_algorithm_association' function.
 class GetCollaborationConfiguredModelAlgorithmAssociationResponse(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
@@ -1288,6 +1381,7 @@ class GetCollaborationConfiguredModelAlgorithmAssociationResponse(BaseValidatorM
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_configured_model_algorithm_association' function.
 class GetConfiguredModelAlgorithmAssociationResponse(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
@@ -1304,6 +1398,7 @@ class GetConfiguredModelAlgorithmAssociationResponse(BaseValidatorModel):
 PrivacyConfigurationUnion = Union[PrivacyConfiguration, PrivacyConfigurationOutput]
 
 
+# This class is the output for the 'get_ml_input_channel' function.
 class GetMLInputChannelResponse(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
@@ -1330,6 +1425,7 @@ InputChannelUnion = Union[InputChannel, InputChannelOutput]
 DatasetUnion = Union[Dataset, DatasetOutput]
 
 
+# This class is the input for the 'create_configured_model_algorithm_association' function.
 class CreateConfiguredModelAlgorithmAssociationRequest(BaseValidatorModel):
     membershipIdentifier: str
     configuredModelAlgorithmArn: str
@@ -1339,6 +1435,7 @@ class CreateConfiguredModelAlgorithmAssociationRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_ml_input_channel' function.
 class CreateMLInputChannelRequest(BaseValidatorModel):
     membershipIdentifier: str
     configuredModelAlgorithmAssociations: List[str]
@@ -1350,6 +1447,7 @@ class CreateMLInputChannelRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_training_dataset' function.
 class CreateTrainingDatasetRequest(BaseValidatorModel):
     name: str
     roleArn: str
