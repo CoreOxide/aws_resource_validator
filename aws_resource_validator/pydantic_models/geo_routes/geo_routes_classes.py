@@ -635,6 +635,7 @@ class RouteUTurnStepDetails(BaseValidatorModel):
     TurnIntensity: Optional[RouteTurnIntensityType] = None
 
 
+# This class is the output for the 'snap_to_roads' function.
 class SnapToRoadsResponse(BaseValidatorModel):
     Notices: List[RoadSnapNotice]
     PricingBucket: str
@@ -1130,6 +1131,7 @@ class WaypointOptimizationAvoidanceOptions(BaseValidatorModel):
     UTurns: Optional[bool] = None
 
 
+# This class is the output for the 'optimize_waypoints' function.
 class OptimizeWaypointsResponse(BaseValidatorModel):
     Connections: List[WaypointOptimizationConnection]
     Distance: int
@@ -1182,6 +1184,7 @@ class RouteAvoidanceOptions(BaseValidatorModel):
     ZoneCategories: Optional[List[RouteAvoidanceZoneCategory]] = None
 
 
+# This class is the output for the 'calculate_isolines' function.
 class CalculateIsolinesResponse(BaseValidatorModel):
     ArrivalTime: str
     DepartureTime: str
@@ -1193,6 +1196,7 @@ class CalculateIsolinesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'snap_to_roads' function.
 class SnapToRoadsRequest(BaseValidatorModel):
     TracePoints: List[RoadSnapTracePoint]
     Key: Optional[str] = None
@@ -1243,6 +1247,7 @@ class RouteVehicleTravelStep(BaseValidatorModel):
     UTurnStepDetails: Optional[RouteUTurnStepDetails] = None
 
 
+# This class is the output for the 'calculate_route_matrix' function.
 class CalculateRouteMatrixResponse(BaseValidatorModel):
     ErrorCount: int
     PricingBucket: str
@@ -1272,6 +1277,7 @@ class RouteVehicleNotice(BaseValidatorModel):
     Impact: Optional[RouteNoticeImpactType] = None
 
 
+# This class is the input for the 'optimize_waypoints' function.
 class OptimizeWaypointsRequest(BaseValidatorModel):
     Origin: List[float]
     Avoid: Optional[WaypointOptimizationAvoidanceOptions] = None
@@ -1290,6 +1296,7 @@ class OptimizeWaypointsRequest(BaseValidatorModel):
     Waypoints: Optional[List[WaypointOptimizationWaypoint]] = None
 
 
+# This class is the input for the 'calculate_isolines' function.
 class CalculateIsolinesRequest(BaseValidatorModel):
     Thresholds: IsolineThresholds
     Allow: Optional[IsolineAllowOptions] = None
@@ -1311,6 +1318,7 @@ class CalculateIsolinesRequest(BaseValidatorModel):
     TravelModeOptions: Optional[IsolineTravelModeOptions] = None
 
 
+# This class is the input for the 'calculate_routes' function.
 class CalculateRoutesRequest(BaseValidatorModel):
     Destination: List[float]
     Origin: List[float]
@@ -1349,6 +1357,7 @@ class RoutePedestrianLegDetails(BaseValidatorModel):
     Summary: Optional[RoutePedestrianSummary] = None
 
 
+# This class is the input for the 'calculate_route_matrix' function.
 class CalculateRouteMatrixRequest(BaseValidatorModel):
     Destinations: List[RouteMatrixDestination]
     Origins: List[RouteMatrixOrigin]
@@ -1396,6 +1405,7 @@ class Route(BaseValidatorModel):
     Summary: Optional[RouteSummary] = None
 
 
+# This class is the output for the 'calculate_routes' function.
 class CalculateRoutesResponse(BaseValidatorModel):
     LegGeometryFormat: GeometryFormatType
     Notices: List[RouteResponseNotice]

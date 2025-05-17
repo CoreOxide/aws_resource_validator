@@ -31,6 +31,7 @@ class BackupPolicy(BaseValidatorModel):
     Status: StatusType
 
 
+# This class is the input for the 'create_mount_target' function.
 class CreateMountTargetRequest(BaseValidatorModel):
     FileSystemId: str
     SubnetId: str
@@ -52,27 +53,33 @@ class CreationInfo(BaseValidatorModel):
     Permissions: str
 
 
+# This class is the input for the 'delete_access_point' function.
 class DeleteAccessPointRequest(BaseValidatorModel):
     AccessPointId: str
 
 
+# This class is the input for the 'delete_file_system_policy' function.
 class DeleteFileSystemPolicyRequest(BaseValidatorModel):
     FileSystemId: str
 
 
+# This class is the input for the 'delete_file_system' function.
 class DeleteFileSystemRequest(BaseValidatorModel):
     FileSystemId: str
 
 
+# This class is the input for the 'delete_mount_target' function.
 class DeleteMountTargetRequest(BaseValidatorModel):
     MountTargetId: str
 
 
+# This class is the input for the 'delete_replication_configuration' function.
 class DeleteReplicationConfigurationRequest(BaseValidatorModel):
     SourceFileSystemId: str
     DeletionMode: Optional[DeletionModeType] = None
 
 
+# This class is the input for the 'delete_tags' function.
 class DeleteTagsRequest(BaseValidatorModel):
     FileSystemId: str
     TagKeys: List[str]
@@ -84,6 +91,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_access_points' function.
 class DescribeAccessPointsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -91,6 +99,7 @@ class DescribeAccessPointsRequest(BaseValidatorModel):
     FileSystemId: Optional[str] = None
 
 
+# This class is the input for the 'describe_account_preferences' function.
 class DescribeAccountPreferencesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -101,14 +110,17 @@ class ResourceIdPreference(BaseValidatorModel):
     Resources: Optional[List[ResourceType]] = None
 
 
+# This class is the input for the 'describe_backup_policy' function.
 class DescribeBackupPolicyRequest(BaseValidatorModel):
     FileSystemId: str
 
 
+# This class is the input for the 'describe_file_system_policy' function.
 class DescribeFileSystemPolicyRequest(BaseValidatorModel):
     FileSystemId: str
 
 
+# This class is the input for the 'describe_file_systems' function.
 class DescribeFileSystemsRequest(BaseValidatorModel):
     MaxItems: Optional[int] = None
     Marker: Optional[str] = None
@@ -116,14 +128,17 @@ class DescribeFileSystemsRequest(BaseValidatorModel):
     FileSystemId: Optional[str] = None
 
 
+# This class is the input for the 'describe_lifecycle_configuration' function.
 class DescribeLifecycleConfigurationRequest(BaseValidatorModel):
     FileSystemId: str
 
 
+# This class is the input for the 'describe_mount_target_security_groups' function.
 class DescribeMountTargetSecurityGroupsRequest(BaseValidatorModel):
     MountTargetId: str
 
 
+# This class is the input for the 'describe_mount_targets' function.
 class DescribeMountTargetsRequest(BaseValidatorModel):
     MaxItems: Optional[int] = None
     Marker: Optional[str] = None
@@ -145,12 +160,14 @@ class MountTargetDescription(BaseValidatorModel):
     VpcId: Optional[str] = None
 
 
+# This class is the input for the 'describe_replication_configurations' function.
 class DescribeReplicationConfigurationsRequest(BaseValidatorModel):
     FileSystemId: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_tags' function.
 class DescribeTagsRequest(BaseValidatorModel):
     FileSystemId: str
     MaxItems: Optional[int] = None
@@ -185,12 +202,14 @@ class LifecyclePolicy(BaseValidatorModel):
     TransitionToArchive: Optional[TransitionToArchiveRulesType] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'modify_mount_target_security_groups' function.
 class ModifyMountTargetSecurityGroupsRequest(BaseValidatorModel):
     MountTargetId: str
     SecurityGroups: Optional[List[str]] = None
@@ -202,52 +221,62 @@ class PosixUser(BaseValidatorModel):
     SecondaryGids: Optional[List[int]] = None
 
 
+# This class is the input for the 'put_account_preferences' function.
 class PutAccountPreferencesRequest(BaseValidatorModel):
     ResourceIdType: ResourceIdTypeType
 
 
+# This class is the input for the 'put_file_system_policy' function.
 class PutFileSystemPolicyRequest(BaseValidatorModel):
     FileSystemId: str
     Policy: str
     BypassPolicyLockoutSafetyCheck: Optional[bool] = None
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     ResourceId: str
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_file_system_protection' function.
 class UpdateFileSystemProtectionRequest(BaseValidatorModel):
     FileSystemId: str
     ReplicationOverwriteProtection: Optional[ReplicationOverwriteProtectionType] = None
 
 
+# This class is the input for the 'update_file_system' function.
 class UpdateFileSystemRequest(BaseValidatorModel):
     FileSystemId: str
     ThroughputMode: Optional[ThroughputModeType] = None
     ProvisionedThroughputInMibps: Optional[float] = None
 
 
+# This class is the output for the 'describe_mount_target_security_groups' function.
 class DescribeMountTargetSecurityGroupsResponse(BaseValidatorModel):
     SecurityGroups: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'untag_resource' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_file_system_policy' function.
 class FileSystemPolicyDescription(BaseValidatorModel):
     FileSystemId: str
     Policy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_file_system_protection' function.
 class FileSystemProtectionDescriptionResponse(BaseValidatorModel):
     ReplicationOverwriteProtection: ReplicationOverwriteProtectionType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_mount_target' function.
 class MountTargetDescriptionResponse(BaseValidatorModel):
     OwnerId: str
     MountTargetId: str
@@ -262,6 +291,7 @@ class MountTargetDescriptionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_file_system' function.
 class CreateFileSystemRequest(BaseValidatorModel):
     CreationToken: str
     PerformanceMode: Optional[PerformanceModeType] = None
@@ -274,11 +304,13 @@ class CreateFileSystemRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_tags' function.
 class CreateTagsRequest(BaseValidatorModel):
     FileSystemId: str
     Tags: List[Tag]
 
 
+# This class is the output for the 'describe_tags' function.
 class DescribeTagsResponse(BaseValidatorModel):
     Marker: str
     Tags: List[Tag]
@@ -286,27 +318,32 @@ class DescribeTagsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     ResourceId: str
     Tags: List[Tag]
 
 
+# This class is the output for the 'put_backup_policy' function.
 class BackupPolicyDescription(BaseValidatorModel):
     BackupPolicy: BackupPolicy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_backup_policy' function.
 class PutBackupPolicyRequest(BaseValidatorModel):
     FileSystemId: str
     BackupPolicy: BackupPolicy
 
 
+# This class is the input for the 'create_replication_configuration' function.
 class CreateReplicationConfigurationRequest(BaseValidatorModel):
     SourceFileSystemId: str
     Destinations: List[DestinationToCreate]
@@ -346,17 +383,20 @@ class DescribeTagsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'describe_account_preferences' function.
 class DescribeAccountPreferencesResponse(BaseValidatorModel):
     ResourceIdPreference: ResourceIdPreference
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'put_account_preferences' function.
 class PutAccountPreferencesResponse(BaseValidatorModel):
     ResourceIdPreference: ResourceIdPreference
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_mount_targets' function.
 class DescribeMountTargetsResponse(BaseValidatorModel):
     Marker: str
     MountTargets: List[MountTargetDescription]
@@ -364,6 +404,7 @@ class DescribeMountTargetsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_replication_configuration' function.
 class ReplicationConfigurationDescriptionResponse(BaseValidatorModel):
     SourceFileSystemId: str
     SourceFileSystemRegion: str
@@ -385,6 +426,7 @@ class ReplicationConfigurationDescription(BaseValidatorModel):
     SourceFileSystemOwnerId: Optional[str] = None
 
 
+# This class is the output for the 'update_file_system' function.
 class FileSystemDescriptionResponse(BaseValidatorModel):
     OwnerId: str
     CreationToken: str
@@ -428,11 +470,13 @@ class FileSystemDescription(BaseValidatorModel):
     FileSystemProtection: Optional[FileSystemProtectionDescription] = None
 
 
+# This class is the output for the 'put_lifecycle_configuration' function.
 class LifecycleConfigurationDescription(BaseValidatorModel):
     LifecyclePolicies: List[LifecyclePolicy]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_lifecycle_configuration' function.
 class PutLifecycleConfigurationRequest(BaseValidatorModel):
     FileSystemId: str
     LifecyclePolicies: List[LifecyclePolicy]
@@ -440,6 +484,7 @@ class PutLifecycleConfigurationRequest(BaseValidatorModel):
 PosixUserUnion = Union[PosixUser, PosixUserOutput]
 
 
+# This class is the output for the 'create_access_point' function.
 class AccessPointDescriptionResponse(BaseValidatorModel):
     ClientToken: str
     Name: str
@@ -467,12 +512,14 @@ class AccessPointDescription(BaseValidatorModel):
     LifeCycleState: Optional[LifeCycleStateType] = None
 
 
+# This class is the output for the 'describe_replication_configurations' function.
 class DescribeReplicationConfigurationsResponse(BaseValidatorModel):
     Replications: List[ReplicationConfigurationDescription]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_file_systems' function.
 class DescribeFileSystemsResponse(BaseValidatorModel):
     Marker: str
     FileSystems: List[FileSystemDescription]
@@ -480,6 +527,7 @@ class DescribeFileSystemsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_access_point' function.
 class CreateAccessPointRequest(BaseValidatorModel):
     ClientToken: str
     FileSystemId: str
@@ -488,6 +536,7 @@ class CreateAccessPointRequest(BaseValidatorModel):
     RootDirectory: Optional[RootDirectory] = None
 
 
+# This class is the output for the 'describe_access_points' function.
 class DescribeAccessPointsResponse(BaseValidatorModel):
     AccessPoints: List[AccessPointDescription]
     ResponseMetadata: ResponseMetadata

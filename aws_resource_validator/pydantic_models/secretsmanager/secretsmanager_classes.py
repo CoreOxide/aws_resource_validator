@@ -39,6 +39,7 @@ class SecretValueEntry(BaseValidatorModel):
 Blob = Union[str, bytes, IO[Any], StreamingBody]
 
 
+# This class is the input for the 'cancel_rotate_secret' function.
 class CancelRotateSecretRequest(BaseValidatorModel):
     SecretId: str
 
@@ -61,16 +62,19 @@ class ReplicationStatusType(BaseValidatorModel):
     LastAccessedDate: Optional[datetime] = None
 
 
+# This class is the input for the 'delete_resource_policy' function.
 class DeleteResourcePolicyRequest(BaseValidatorModel):
     SecretId: str
 
 
+# This class is the input for the 'delete_secret' function.
 class DeleteSecretRequest(BaseValidatorModel):
     SecretId: str
     RecoveryWindowInDays: Optional[int] = None
     ForceDeleteWithoutRecovery: Optional[bool] = None
 
 
+# This class is the input for the 'describe_secret' function.
 class DescribeSecretRequest(BaseValidatorModel):
     SecretId: str
 
@@ -81,6 +85,7 @@ class RotationRulesType(BaseValidatorModel):
     ScheduleExpression: Optional[str] = None
 
 
+# This class is the input for the 'get_random_password' function.
 class GetRandomPasswordRequest(BaseValidatorModel):
     PasswordLength: Optional[int] = None
     ExcludeCharacters: Optional[str] = None
@@ -92,16 +97,19 @@ class GetRandomPasswordRequest(BaseValidatorModel):
     RequireEachIncludedType: Optional[bool] = None
 
 
+# This class is the input for the 'get_resource_policy' function.
 class GetResourcePolicyRequest(BaseValidatorModel):
     SecretId: str
 
 
+# This class is the input for the 'get_secret_value' function.
 class GetSecretValueRequest(BaseValidatorModel):
     SecretId: str
     VersionId: Optional[str] = None
     VersionStage: Optional[str] = None
 
 
+# This class is the input for the 'list_secret_version_ids' function.
 class ListSecretVersionIdsRequest(BaseValidatorModel):
     SecretId: str
     MaxResults: Optional[int] = None
@@ -123,30 +131,36 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyRequest(BaseValidatorModel):
     SecretId: str
     ResourcePolicy: str
     BlockPublicPolicy: Optional[bool] = None
 
 
+# This class is the input for the 'remove_regions_from_replication' function.
 class RemoveRegionsFromReplicationRequest(BaseValidatorModel):
     SecretId: str
     RemoveReplicaRegions: List[str]
 
 
+# This class is the input for the 'restore_secret' function.
 class RestoreSecretRequest(BaseValidatorModel):
     SecretId: str
 
 
+# This class is the input for the 'stop_replication_to_replica' function.
 class StopReplicationToReplicaRequest(BaseValidatorModel):
     SecretId: str
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     SecretId: str
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_secret_version_stage' function.
 class UpdateSecretVersionStageRequest(BaseValidatorModel):
     SecretId: str
     VersionStage: str
@@ -154,6 +168,7 @@ class UpdateSecretVersionStageRequest(BaseValidatorModel):
     MoveToVersionId: Optional[str] = None
 
 
+# This class is the input for the 'validate_resource_policy' function.
 class ValidateResourcePolicyRequest(BaseValidatorModel):
     ResourcePolicy: str
     SecretId: Optional[str] = None
@@ -164,6 +179,7 @@ class ValidationErrorsEntry(BaseValidatorModel):
     ErrorMessage: Optional[str] = None
 
 
+# This class is the input for the 'batch_get_secret_value' function.
 class BatchGetSecretValueRequest(BaseValidatorModel):
     SecretIdList: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -171,6 +187,7 @@ class BatchGetSecretValueRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_secrets' function.
 class ListSecretsRequest(BaseValidatorModel):
     IncludePlannedDeletion: Optional[bool] = None
     MaxResults: Optional[int] = None
@@ -179,6 +196,7 @@ class ListSecretsRequest(BaseValidatorModel):
     SortOrder: Optional[SortOrderTypeType] = None
 
 
+# This class is the output for the 'cancel_rotate_secret' function.
 class CancelRotateSecretResponse(BaseValidatorModel):
     ARN: str
     Name: str
@@ -186,12 +204,14 @@ class CancelRotateSecretResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_resource_policy' function.
 class DeleteResourcePolicyResponse(BaseValidatorModel):
     ARN: str
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_secret' function.
 class DeleteSecretResponse(BaseValidatorModel):
     ARN: str
     Name: str
@@ -199,15 +219,18 @@ class DeleteSecretResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'untag_resource' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_random_password' function.
 class GetRandomPasswordResponse(BaseValidatorModel):
     RandomPassword: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_policy' function.
 class GetResourcePolicyResponse(BaseValidatorModel):
     ARN: str
     Name: str
@@ -215,6 +238,7 @@ class GetResourcePolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_secret_value' function.
 class GetSecretValueResponse(BaseValidatorModel):
     ARN: str
     Name: str
@@ -226,12 +250,14 @@ class GetSecretValueResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_resource_policy' function.
 class PutResourcePolicyResponse(BaseValidatorModel):
     ARN: str
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_secret_value' function.
 class PutSecretValueResponse(BaseValidatorModel):
     ARN: str
     Name: str
@@ -240,12 +266,14 @@ class PutSecretValueResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'restore_secret' function.
 class RestoreSecretResponse(BaseValidatorModel):
     ARN: str
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'rotate_secret' function.
 class RotateSecretResponse(BaseValidatorModel):
     ARN: str
     Name: str
@@ -253,11 +281,13 @@ class RotateSecretResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_replication_to_replica' function.
 class StopReplicationToReplicaResponse(BaseValidatorModel):
     ARN: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_secret' function.
 class UpdateSecretResponse(BaseValidatorModel):
     ARN: str
     Name: str
@@ -265,12 +295,14 @@ class UpdateSecretResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_secret_version_stage' function.
 class UpdateSecretVersionStageResponse(BaseValidatorModel):
     ARN: str
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_get_secret_value' function.
 class BatchGetSecretValueResponse(BaseValidatorModel):
     SecretValues: List[SecretValueEntry]
     Errors: List[APIErrorType]
@@ -278,6 +310,7 @@ class BatchGetSecretValueResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'put_secret_value' function.
 class PutSecretValueRequest(BaseValidatorModel):
     SecretId: str
     ClientRequestToken: Optional[str] = None
@@ -287,6 +320,7 @@ class PutSecretValueRequest(BaseValidatorModel):
     RotationToken: Optional[str] = None
 
 
+# This class is the input for the 'update_secret' function.
 class UpdateSecretRequest(BaseValidatorModel):
     SecretId: str
     ClientRequestToken: Optional[str] = None
@@ -296,12 +330,14 @@ class UpdateSecretRequest(BaseValidatorModel):
     SecretString: Optional[str] = None
 
 
+# This class is the input for the 'replicate_secret_to_regions' function.
 class ReplicateSecretToRegionsRequest(BaseValidatorModel):
     SecretId: str
     AddReplicaRegions: List[ReplicaRegionType]
     ForceOverwriteReplicaSecret: Optional[bool] = None
 
 
+# This class is the input for the 'create_secret' function.
 class CreateSecretRequest(BaseValidatorModel):
     Name: str
     ClientRequestToken: Optional[str] = None
@@ -314,11 +350,13 @@ class CreateSecretRequest(BaseValidatorModel):
     ForceOverwriteReplicaSecret: Optional[bool] = None
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     SecretId: str
     Tags: List[Tag]
 
 
+# This class is the output for the 'create_secret' function.
 class CreateSecretResponse(BaseValidatorModel):
     ARN: str
     Name: str
@@ -327,18 +365,21 @@ class CreateSecretResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'remove_regions_from_replication' function.
 class RemoveRegionsFromReplicationResponse(BaseValidatorModel):
     ARN: str
     ReplicationStatus: List[ReplicationStatusType]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'replicate_secret_to_regions' function.
 class ReplicateSecretToRegionsResponse(BaseValidatorModel):
     ARN: str
     ReplicationStatus: List[ReplicationStatusType]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_secret' function.
 class DescribeSecretResponse(BaseValidatorModel):
     ARN: str
     Name: str
@@ -361,6 +402,7 @@ class DescribeSecretResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'rotate_secret' function.
 class RotateSecretRequest(BaseValidatorModel):
     SecretId: str
     ClientRequestToken: Optional[str] = None
@@ -389,6 +431,7 @@ class SecretListEntry(BaseValidatorModel):
     PrimaryRegion: Optional[str] = None
 
 
+# This class is the output for the 'list_secret_version_ids' function.
 class ListSecretVersionIdsResponse(BaseValidatorModel):
     Versions: List[SecretVersionsListEntry]
     ARN: str
@@ -404,12 +447,14 @@ class ListSecretsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'validate_resource_policy' function.
 class ValidateResourcePolicyResponse(BaseValidatorModel):
     PolicyValidationPassed: bool
     ValidationErrors: List[ValidationErrorsEntry]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_secrets' function.
 class ListSecretsResponse(BaseValidatorModel):
     SecretList: List[SecretListEntry]
     ResponseMetadata: ResponseMetadata

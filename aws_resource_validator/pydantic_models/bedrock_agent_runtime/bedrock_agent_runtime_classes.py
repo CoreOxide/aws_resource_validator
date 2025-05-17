@@ -94,6 +94,7 @@ class ContentBlock(BaseValidatorModel):
     text: Optional[str] = None
 
 
+# This class is the input for the 'create_invocation' function.
 class CreateInvocationRequest(BaseValidatorModel):
     sessionIdentifier: str
     description: Optional[str] = None
@@ -108,6 +109,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_session' function.
 class CreateSessionRequest(BaseValidatorModel):
     encryptionKeyArn: Optional[str] = None
     sessionMetadata: Optional[Dict[str, str]] = None
@@ -134,6 +136,7 @@ class DependencyFailedException(BaseValidatorModel):
     resourceName: Optional[str] = None
 
 
+# This class is the input for the 'end_session' function.
 class EndSessionRequest(BaseValidatorModel):
     sessionIdentifier: str
 
@@ -256,6 +259,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'get_agent_memory' function.
 class GetAgentMemoryRequest(BaseValidatorModel):
     agentAliasId: str
     agentId: str
@@ -265,12 +269,14 @@ class GetAgentMemoryRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_invocation_step' function.
 class GetInvocationStepRequest(BaseValidatorModel):
     invocationIdentifier: str
     invocationStepId: str
     sessionIdentifier: str
 
 
+# This class is the input for the 'get_session' function.
 class GetSessionRequest(BaseValidatorModel):
     sessionIdentifier: str
 
@@ -383,6 +389,7 @@ class KnowledgeBaseQuery(BaseValidatorModel):
     text: str
 
 
+# This class is the input for the 'list_invocation_steps' function.
 class ListInvocationStepsRequest(BaseValidatorModel):
     sessionIdentifier: str
     invocationIdentifier: Optional[str] = None
@@ -390,12 +397,14 @@ class ListInvocationStepsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_invocations' function.
 class ListInvocationsRequest(BaseValidatorModel):
     sessionIdentifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_sessions' function.
 class ListSessionsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -409,6 +418,7 @@ class SessionSummary(BaseValidatorModel):
     sessionStatus: SessionStatusType
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -541,6 +551,7 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_session' function.
 class UpdateSessionRequest(BaseValidatorModel):
     sessionIdentifier: str
     sessionMetadata: Optional[Dict[str, str]] = None
@@ -601,6 +612,7 @@ class Message(BaseValidatorModel):
     role: ConversationRoleType
 
 
+# This class is the output for the 'create_invocation' function.
 class CreateInvocationResponse(BaseValidatorModel):
     createdAt: datetime
     invocationId: str
@@ -608,6 +620,7 @@ class CreateInvocationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_session' function.
 class CreateSessionResponse(BaseValidatorModel):
     createdAt: datetime
     sessionArn: str
@@ -616,6 +629,7 @@ class CreateSessionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'end_session' function.
 class EndSessionResponse(BaseValidatorModel):
     sessionArn: str
     sessionId: str
@@ -623,6 +637,7 @@ class EndSessionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_session' function.
 class GetSessionResponse(BaseValidatorModel):
     createdAt: datetime
     encryptionKeyArn: str
@@ -634,16 +649,19 @@ class GetSessionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_invocation_step' function.
 class PutInvocationStepResponse(BaseValidatorModel):
     invocationStepId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_session' function.
 class UpdateSessionResponse(BaseValidatorModel):
     createdAt: datetime
     lastUpdatedAt: datetime
@@ -754,6 +772,7 @@ class FunctionInvocationInput(BaseValidatorModel):
     parameters: Optional[List[FunctionParameter]] = None
 
 
+# This class is the output for the 'generate_query' function.
 class GenerateQueryResponse(BaseValidatorModel):
     queries: List[GeneratedQuery]
     ResponseMetadata: ResponseMetadata
@@ -845,18 +864,21 @@ class OptimizedPrompt(BaseValidatorModel):
     textPrompt: Optional[TextPrompt] = None
 
 
+# This class is the output for the 'list_invocation_steps' function.
 class ListInvocationStepsResponse(BaseValidatorModel):
     invocationStepSummaries: List[InvocationStepSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_invocations' function.
 class ListInvocationsResponse(BaseValidatorModel):
     invocationSummaries: List[InvocationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_sessions' function.
 class ListSessionsResponse(BaseValidatorModel):
     sessionSummaries: List[SessionSummary]
     ResponseMetadata: ResponseMetadata
@@ -965,6 +987,7 @@ class MetadataConfigurationForReranking(BaseValidatorModel):
     selectiveModeConfiguration: Optional[RerankingMetadataSelectiveModeConfiguration] = None
 
 
+# This class is the input for the 'invoke_flow' function.
 class InvokeFlowRequest(BaseValidatorModel):
     flowAliasIdentifier: str
     flowIdentifier: str
@@ -1047,6 +1070,7 @@ class PromptConfiguration(BaseValidatorModel):
     promptType: Optional[PromptTypeType] = None
 
 
+# This class is the input for the 'optimize_prompt' function.
 class OptimizePromptRequest(BaseValidatorModel):
     input: InputPrompt
     targetModelId: str
@@ -1056,6 +1080,7 @@ class OptimizedPromptEvent(BaseValidatorModel):
     optimizedPrompt: Optional[OptimizedPrompt] = None
 
 
+# This class is the output for the 'get_agent_memory' function.
 class GetAgentMemoryResponse(BaseValidatorModel):
     memoryContents: List[Memory]
     ResponseMetadata: ResponseMetadata
@@ -1234,6 +1259,7 @@ class PreProcessingTrace(BaseValidatorModel):
     modelInvocationOutput: Optional[PreProcessingModelInvocationOutput] = None
 
 
+# This class is the output for the 'rerank' function.
 class RerankResponse(BaseValidatorModel):
     results: List[RerankResult]
     ResponseMetadata: ResponseMetadata
@@ -1245,6 +1271,7 @@ class RerankSource(BaseValidatorModel):
     type: Literal['INLINE']
 
 
+# This class is the output for the 'retrieve' function.
 class RetrieveResponse(BaseValidatorModel):
     guardrailAction: GuadrailActionType
     retrievalResults: List[KnowledgeBaseRetrievalResult]
@@ -1261,6 +1288,7 @@ class Citation(BaseValidatorModel):
     retrievedReferences: Optional[List[RetrievedReference]] = None
 
 
+# This class is the input for the 'generate_query' function.
 class GenerateQueryRequest(BaseValidatorModel):
     queryGenerationInput: QueryGenerationInput
     transformationConfiguration: TransformationConfiguration
@@ -1295,6 +1323,7 @@ class InvocationStepPayload(BaseValidatorModel):
     contentBlocks: Optional[List[BedrockSessionContentBlock]] = None
 
 
+# This class is the output for the 'optimize_prompt' function.
 class OptimizePromptResponse(BaseValidatorModel):
     optimizedPrompt: EventStream[OptimizedPromptStream]
     ResponseMetadata: ResponseMetadata
@@ -1307,6 +1336,7 @@ class RerankRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'rerank' function.
 class RerankRequest(BaseValidatorModel):
     queries: List[RerankQuery]
     rerankingConfiguration: RerankingConfiguration
@@ -1324,6 +1354,7 @@ class CitationEvent(BaseValidatorModel):
     retrievedReferences: Optional[List[RetrievedReference]] = None
 
 
+# This class is the output for the 'retrieve_and_generate' function.
 class RetrieveAndGenerateResponse(BaseValidatorModel):
     citations: List[Citation]
     guardrailAction: GuadrailActionType
@@ -1435,6 +1466,7 @@ class KnowledgeBaseRetrievalConfiguration(BaseValidatorModel):
     vectorSearchConfiguration: KnowledgeBaseVectorSearchConfiguration
 
 
+# This class is the output for the 'invoke_flow' function.
 class InvokeFlowResponse(BaseValidatorModel):
     executionId: str
     responseStream: EventStream[FlowResponseStream]
@@ -1447,11 +1479,13 @@ class AgentCollaboratorInputPayload(BaseValidatorModel):
     type: Optional[PayloadTypeType] = None
 
 
+# This class is the output for the 'get_invocation_step' function.
 class GetInvocationStepResponse(BaseValidatorModel):
     invocationStep: InvocationStep
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_invocation_step' function.
 class PutInvocationStepRequest(BaseValidatorModel):
     invocationIdentifier: str
     invocationStepTime: Timestamp
@@ -1460,6 +1494,7 @@ class PutInvocationStepRequest(BaseValidatorModel):
     invocationStepId: Optional[str] = None
 
 
+# This class is the output for the 'retrieve_and_generate_stream' function.
 class RetrieveAndGenerateStreamResponse(BaseValidatorModel):
     sessionId: str
     stream: EventStream[RetrieveAndGenerateStreamResponseOutput]
@@ -1519,6 +1554,7 @@ class KnowledgeBase(BaseValidatorModel):
     retrievalConfiguration: Optional[KnowledgeBaseRetrievalConfiguration] = None
 
 
+# This class is the input for the 'retrieve' function.
 class RetrieveRequest(BaseValidatorModel):
     knowledgeBaseId: str
     retrievalQuery: KnowledgeBaseQuery
@@ -1582,6 +1618,7 @@ class InvocationResultMember(BaseValidatorModel):
     functionResult: Optional[FunctionResultUnion] = None
 
 
+# This class is the input for the 'retrieve_and_generate' function.
 class RetrieveAndGenerateRequest(BaseValidatorModel):
     input: RetrieveAndGenerateInput
     retrieveAndGenerateConfiguration: Optional[RetrieveAndGenerateConfiguration] = None
@@ -1589,6 +1626,7 @@ class RetrieveAndGenerateRequest(BaseValidatorModel):
     sessionId: Optional[str] = None
 
 
+# This class is the input for the 'retrieve_and_generate_stream' function.
 class RetrieveAndGenerateStreamRequest(BaseValidatorModel):
     input: RetrieveAndGenerateInput
     retrieveAndGenerateConfiguration: Optional[RetrieveAndGenerateConfiguration] = None
@@ -1658,6 +1696,7 @@ class TracePart(BaseValidatorModel):
     trace: Optional[Trace] = None
 
 
+# This class is the input for the 'invoke_inline_agent' function.
 class InvokeInlineAgentRequest(BaseValidatorModel):
     foundationModel: str
     instruction: str
@@ -1679,6 +1718,7 @@ class InvokeInlineAgentRequest(BaseValidatorModel):
     streamingConfigurations: Optional[StreamingConfigurations] = None
 
 
+# This class is the input for the 'invoke_agent' function.
 class InvokeAgentRequest(BaseValidatorModel):
     agentAliasId: str
     agentId: str
@@ -1726,6 +1766,7 @@ class ResponseStream(BaseValidatorModel):
     validationException: Optional[ValidationException] = None
 
 
+# This class is the output for the 'invoke_inline_agent' function.
 class InvokeInlineAgentResponse(BaseValidatorModel):
     completion: EventStream[InlineAgentResponseStream]
     contentType: str
@@ -1733,6 +1774,7 @@ class InvokeInlineAgentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'invoke_agent' function.
 class InvokeAgentResponse(BaseValidatorModel):
     completion: EventStream[ResponseStream]
     contentType: str

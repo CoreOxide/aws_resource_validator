@@ -21,6 +21,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'get_entitlements' function.
 class GetEntitlementsRequest(BaseValidatorModel):
     ProductCode: str
     Filter: Optional[Dict[GetEntitlementFilterNameType, List[str]]] = None
@@ -50,6 +51,7 @@ class GetEntitlementsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'get_entitlements' function.
 class GetEntitlementsResult(BaseValidatorModel):
     Entitlements: List[Entitlement]
     ResponseMetadata: ResponseMetadata

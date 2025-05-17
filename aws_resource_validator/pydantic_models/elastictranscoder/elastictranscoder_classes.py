@@ -108,23 +108,27 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_jobs_by_pipeline' function.
 class ListJobsByPipelineRequest(BaseValidatorModel):
     PipelineId: str
     Ascending: Optional[str] = None
     PageToken: Optional[str] = None
 
 
+# This class is the input for the 'list_jobs_by_status' function.
 class ListJobsByStatusRequest(BaseValidatorModel):
     Status: str
     Ascending: Optional[str] = None
     PageToken: Optional[str] = None
 
 
+# This class is the input for the 'list_pipelines' function.
 class ListPipelinesRequest(BaseValidatorModel):
     Ascending: Optional[str] = None
     PageToken: Optional[str] = None
 
 
+# This class is the input for the 'list_presets' function.
 class ListPresetsRequest(BaseValidatorModel):
     Ascending: Optional[str] = None
     PageToken: Optional[str] = None
@@ -155,6 +159,7 @@ class PresetWatermark(BaseValidatorModel):
     Target: Optional[str] = None
 
 
+# This class is the input for the 'read_job' function.
 class ReadJobRequest(BaseValidatorModel):
     Id: str
 
@@ -164,14 +169,17 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'read_pipeline' function.
 class ReadPipelineRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'read_preset' function.
 class ReadPresetRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'test_role' function.
 class TestRoleRequest(BaseValidatorModel):
     Role: str
     InputBucket: str
@@ -179,6 +187,7 @@ class TestRoleRequest(BaseValidatorModel):
     Topics: List[str]
 
 
+# This class is the input for the 'update_pipeline_status' function.
 class UpdatePipelineStatusRequest(BaseValidatorModel):
     Id: str
     Status: str
@@ -245,12 +254,14 @@ class Playlist(BaseValidatorModel):
     StatusDetail: Optional[str] = None
 
 
+# This class is the output for the 'test_role' function.
 class TestRoleResponse(BaseValidatorModel):
     Success: str
     Messages: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_pipeline_notifications' function.
 class UpdatePipelineNotificationsRequest(BaseValidatorModel):
     Id: str
     Notifications: Notifications
@@ -436,40 +447,47 @@ class JobInputOutput(BaseValidatorModel):
 InputCaptionsUnion = Union[InputCaptions, InputCaptionsOutput]
 
 
+# This class is the output for the 'create_pipeline' function.
 class CreatePipelineResponse(BaseValidatorModel):
     Pipeline: Pipeline
     Warnings: List[Warning]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_pipelines' function.
 class ListPipelinesResponse(BaseValidatorModel):
     Pipelines: List[Pipeline]
     NextPageToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'read_pipeline' function.
 class ReadPipelineResponse(BaseValidatorModel):
     Pipeline: Pipeline
     Warnings: List[Warning]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_pipeline_notifications' function.
 class UpdatePipelineNotificationsResponse(BaseValidatorModel):
     Pipeline: Pipeline
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_pipeline' function.
 class UpdatePipelineResponse(BaseValidatorModel):
     Pipeline: Pipeline
     Warnings: List[Warning]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_pipeline_status' function.
 class UpdatePipelineStatusResponse(BaseValidatorModel):
     Pipeline: Pipeline
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_pipeline' function.
 class CreatePipelineRequest(BaseValidatorModel):
     Name: str
     InputBucket: str
@@ -481,6 +499,7 @@ class CreatePipelineRequest(BaseValidatorModel):
     ThumbnailConfig: Optional[PipelineOutputConfigUnion] = None
 
 
+# This class is the input for the 'update_pipeline' function.
 class UpdatePipelineRequest(BaseValidatorModel):
     Id: str
     Name: Optional[str] = None
@@ -492,23 +511,27 @@ class UpdatePipelineRequest(BaseValidatorModel):
     ThumbnailConfig: Optional[PipelineOutputConfigUnion] = None
 
 
+# This class is the output for the 'create_preset' function.
 class CreatePresetResponse(BaseValidatorModel):
     Preset: Preset
     Warning: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_presets' function.
 class ListPresetsResponse(BaseValidatorModel):
     Presets: List[Preset]
     NextPageToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'read_preset' function.
 class ReadPresetResponse(BaseValidatorModel):
     Preset: Preset
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_preset' function.
 class CreatePresetRequest(BaseValidatorModel):
     Name: str
     Container: str
@@ -560,23 +583,27 @@ class JobInput(BaseValidatorModel):
     DetectedProperties: Optional[DetectedProperties] = None
 
 
+# This class is the output for the 'create_job' function.
 class CreateJobResponse(BaseValidatorModel):
     Job: Job
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_jobs_by_pipeline' function.
 class ListJobsByPipelineResponse(BaseValidatorModel):
     Jobs: List[Job]
     NextPageToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_jobs_by_status' function.
 class ListJobsByStatusResponse(BaseValidatorModel):
     Jobs: List[Job]
     NextPageToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'read_job' function.
 class ReadJobResponse(BaseValidatorModel):
     Job: Job
     ResponseMetadata: ResponseMetadata
@@ -584,6 +611,7 @@ class ReadJobResponse(BaseValidatorModel):
 JobInputUnion = Union[JobInput, JobInputOutput]
 
 
+# This class is the input for the 'create_job' function.
 class CreateJobRequest(BaseValidatorModel):
     PipelineId: str
     Input: Optional[JobInputUnion] = None

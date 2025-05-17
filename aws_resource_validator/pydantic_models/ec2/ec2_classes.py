@@ -45,6 +45,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'accept_capacity_reservation_billing_ownership' function.
 class AcceptCapacityReservationBillingOwnershipRequest(BaseValidatorModel):
     CapacityReservationId: str
     DryRun: Optional[bool] = None
@@ -55,6 +56,7 @@ class TargetConfigurationRequest(BaseValidatorModel):
     InstanceCount: Optional[int] = None
 
 
+# This class is the input for the 'accept_transit_gateway_multicast_domain_associations' function.
 class AcceptTransitGatewayMulticastDomainAssociationsRequest(BaseValidatorModel):
     TransitGatewayMulticastDomainId: Optional[str] = None
     TransitGatewayAttachmentId: Optional[str] = None
@@ -62,22 +64,26 @@ class AcceptTransitGatewayMulticastDomainAssociationsRequest(BaseValidatorModel)
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'accept_transit_gateway_peering_attachment' function.
 class AcceptTransitGatewayPeeringAttachmentRequest(BaseValidatorModel):
     TransitGatewayAttachmentId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'accept_transit_gateway_vpc_attachment' function.
 class AcceptTransitGatewayVpcAttachmentRequest(BaseValidatorModel):
     TransitGatewayAttachmentId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'accept_vpc_endpoint_connections' function.
 class AcceptVpcEndpointConnectionsRequest(BaseValidatorModel):
     ServiceId: str
     VpcEndpointIds: List[str]
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'accept_vpc_peering_connection' function.
 class AcceptVpcPeeringConnectionRequest(BaseValidatorModel):
     VpcPeeringConnectionId: str
     DryRun: Optional[bool] = None
@@ -145,6 +151,7 @@ class Tag(BaseValidatorModel):
     Value: Optional[str] = None
 
 
+# This class is the input for the 'advertise_byoip_cidr' function.
 class AdvertiseByoipCidrRequest(BaseValidatorModel):
     Cidr: str
     Asn: Optional[str] = None
@@ -152,6 +159,7 @@ class AdvertiseByoipCidrRequest(BaseValidatorModel):
     NetworkBorderGroup: Optional[str] = None
 
 
+# This class is the input for the 'allocate_ipam_pool_cidr' function.
 class AllocateIpamPoolCidrRequest(BaseValidatorModel):
     IpamPoolId: str
     DryRun: Optional[bool] = None
@@ -206,6 +214,7 @@ class AnalysisRouteTableRoute(BaseValidatorModel):
     LocalGatewayId: Optional[str] = None
 
 
+# This class is the input for the 'apply_security_groups_to_client_vpn_target_network' function.
 class ApplySecurityGroupsToClientVpnTargetNetworkRequest(BaseValidatorModel):
     ClientVpnEndpointId: str
     VpcId: str
@@ -225,6 +234,7 @@ class AsnAuthorizationContext(BaseValidatorModel):
     Signature: str
 
 
+# This class is the input for the 'assign_ipv6_addresses' function.
 class AssignIpv6AddressesRequest(BaseValidatorModel):
     NetworkInterfaceId: str
     Ipv6PrefixCount: Optional[int] = None
@@ -241,6 +251,7 @@ class AssignPrivateIpAddressesRequestNetworkInterfaceAssignPrivateIpAddresses(Ba
     AllowReassignment: Optional[bool] = None
 
 
+# This class is the input for the 'assign_private_ip_addresses' function.
 class AssignPrivateIpAddressesRequest(BaseValidatorModel):
     NetworkInterfaceId: str
     Ipv4Prefixes: Optional[List[str]] = None
@@ -258,6 +269,7 @@ class Ipv4PrefixSpecification(BaseValidatorModel):
     Ipv4Prefix: Optional[str] = None
 
 
+# This class is the input for the 'assign_private_nat_gateway_address' function.
 class AssignPrivateNatGatewayAddressRequest(BaseValidatorModel):
     NatGatewayId: str
     PrivateIpAddresses: Optional[List[str]] = None
@@ -285,6 +297,7 @@ class AssociateAddressRequestClassicAddressAssociate(BaseValidatorModel):
     AllowReassociation: Optional[bool] = None
 
 
+# This class is the input for the 'associate_address' function.
 class AssociateAddressRequest(BaseValidatorModel):
     AllocationId: Optional[str] = None
     InstanceId: Optional[str] = None
@@ -304,12 +317,14 @@ class AssociateAddressRequestVpcAddressAssociate(BaseValidatorModel):
     AllowReassociation: Optional[bool] = None
 
 
+# This class is the input for the 'associate_capacity_reservation_billing_owner' function.
 class AssociateCapacityReservationBillingOwnerRequest(BaseValidatorModel):
     CapacityReservationId: str
     UnusedReservationBillingOwnerId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'associate_client_vpn_target_network' function.
 class AssociateClientVpnTargetNetworkRequest(BaseValidatorModel):
     ClientVpnEndpointId: str
     SubnetId: str
@@ -327,6 +342,7 @@ class AssociateDhcpOptionsRequestDhcpOptionsAssociateWithVpc(BaseValidatorModel)
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'associate_dhcp_options' function.
 class AssociateDhcpOptionsRequest(BaseValidatorModel):
     DhcpOptionsId: str
     VpcId: str
@@ -338,6 +354,7 @@ class AssociateDhcpOptionsRequestVpcAssociateDhcpOptions(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'associate_enclave_certificate_iam_role' function.
 class AssociateEnclaveCertificateIamRoleRequest(BaseValidatorModel):
     CertificateArn: str
     RoleArn: str
@@ -349,12 +366,14 @@ class IamInstanceProfileSpecification(BaseValidatorModel):
     Name: Optional[str] = None
 
 
+# This class is the input for the 'associate_ipam_byoasn' function.
 class AssociateIpamByoasnRequest(BaseValidatorModel):
     Asn: str
     Cidr: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'associate_nat_gateway_address' function.
 class AssociateNatGatewayAddressRequest(BaseValidatorModel):
     NatGatewayId: str
     AllocationIds: List[str]
@@ -368,6 +387,7 @@ class AssociateRouteTableRequestRouteTableAssociateWithSubnet(BaseValidatorModel
     SubnetId: Optional[str] = None
 
 
+# This class is the input for the 'associate_route_table' function.
 class AssociateRouteTableRequest(BaseValidatorModel):
     RouteTableId: str
     GatewayId: Optional[str] = None
@@ -380,12 +400,14 @@ class RouteTableAssociationState(BaseValidatorModel):
     StatusMessage: Optional[str] = None
 
 
+# This class is the input for the 'associate_security_group_vpc' function.
 class AssociateSecurityGroupVpcRequest(BaseValidatorModel):
     GroupId: str
     VpcId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'associate_subnet_cidr_block' function.
 class AssociateSubnetCidrBlockRequest(BaseValidatorModel):
     SubnetId: str
     Ipv6IpamPoolId: Optional[str] = None
@@ -393,6 +415,7 @@ class AssociateSubnetCidrBlockRequest(BaseValidatorModel):
     Ipv6CidrBlock: Optional[str] = None
 
 
+# This class is the input for the 'associate_transit_gateway_multicast_domain' function.
 class AssociateTransitGatewayMulticastDomainRequest(BaseValidatorModel):
     TransitGatewayMulticastDomainId: str
     TransitGatewayAttachmentId: str
@@ -400,6 +423,7 @@ class AssociateTransitGatewayMulticastDomainRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'associate_transit_gateway_policy_table' function.
 class AssociateTransitGatewayPolicyTableRequest(BaseValidatorModel):
     TransitGatewayPolicyTableId: str
     TransitGatewayAttachmentId: str
@@ -414,6 +438,7 @@ class TransitGatewayPolicyTableAssociation(BaseValidatorModel):
     State: Optional[TransitGatewayAssociationStateType] = None
 
 
+# This class is the input for the 'associate_transit_gateway_route_table' function.
 class AssociateTransitGatewayRouteTableRequest(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     TransitGatewayAttachmentId: str
@@ -428,6 +453,7 @@ class TransitGatewayAssociation(BaseValidatorModel):
     State: Optional[TransitGatewayAssociationStateType] = None
 
 
+# This class is the input for the 'associate_trunk_interface' function.
 class AssociateTrunkInterfaceRequest(BaseValidatorModel):
     BranchInterfaceId: str
     TrunkInterfaceId: str
@@ -437,6 +463,7 @@ class AssociateTrunkInterfaceRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'associate_vpc_cidr_block' function.
 class AssociateVpcCidrBlockRequest(BaseValidatorModel):
     VpcId: str
     CidrBlock: Optional[str] = None
@@ -470,6 +497,7 @@ class AttachClassicLinkVpcRequestInstanceAttachClassicLinkVpc(BaseValidatorModel
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'attach_classic_link_vpc' function.
 class AttachClassicLinkVpcRequest(BaseValidatorModel):
     InstanceId: str
     VpcId: str
@@ -488,6 +516,7 @@ class AttachInternetGatewayRequestInternetGatewayAttachToVpc(BaseValidatorModel)
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'attach_internet_gateway' function.
 class AttachInternetGatewayRequest(BaseValidatorModel):
     InternetGatewayId: str
     VpcId: str
@@ -499,6 +528,7 @@ class AttachInternetGatewayRequestVpcAttachInternetGateway(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'attach_verified_access_trust_provider' function.
 class AttachVerifiedAccessTrustProviderRequest(BaseValidatorModel):
     VerifiedAccessInstanceId: str
     VerifiedAccessTrustProviderId: str
@@ -512,6 +542,7 @@ class AttachVolumeRequestInstanceAttachVolume(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'attach_volume' function.
 class AttachVolumeRequest(BaseValidatorModel):
     Device: str
     InstanceId: str
@@ -525,6 +556,7 @@ class AttachVolumeRequestVolumeAttachToInstance(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'attach_vpn_gateway' function.
 class AttachVpnGatewayRequest(BaseValidatorModel):
     VpcId: str
     VpnGatewayId: str
@@ -559,6 +591,7 @@ class ClientVpnAuthorizationRuleStatus(BaseValidatorModel):
     Message: Optional[str] = None
 
 
+# This class is the input for the 'authorize_client_vpn_ingress' function.
 class AuthorizeClientVpnIngressRequest(BaseValidatorModel):
     ClientVpnEndpointId: str
     TargetNetworkCidr: str
@@ -630,6 +663,7 @@ class Byoasn(BaseValidatorModel):
     State: Optional[AsnStateType] = None
 
 
+# This class is the input for the 'cancel_bundle_task' function.
 class CancelBundleTaskRequest(BaseValidatorModel):
     BundleId: str
     DryRun: Optional[bool] = None
@@ -640,6 +674,7 @@ class CancelCapacityReservationFleetError(BaseValidatorModel):
     Message: Optional[str] = None
 
 
+# This class is the input for the 'cancel_capacity_reservation_fleets' function.
 class CancelCapacityReservationFleetsRequest(BaseValidatorModel):
     CapacityReservationFleetIds: List[str]
     DryRun: Optional[bool] = None
@@ -651,37 +686,44 @@ class CapacityReservationFleetCancellationState(BaseValidatorModel):
     CapacityReservationFleetId: Optional[str] = None
 
 
+# This class is the input for the 'cancel_capacity_reservation' function.
 class CancelCapacityReservationRequest(BaseValidatorModel):
     CapacityReservationId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'cancel_conversion_task' function.
 class CancelConversionRequest(BaseValidatorModel):
     ConversionTaskId: str
     DryRun: Optional[bool] = None
     ReasonMessage: Optional[str] = None
 
 
+# This class is the input for the 'cancel_declarative_policies_report' function.
 class CancelDeclarativePoliciesReportRequest(BaseValidatorModel):
     ReportId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'cancel_export_task' function.
 class CancelExportTaskRequest(BaseValidatorModel):
     ExportTaskId: str
 
 
+# This class is the input for the 'cancel_image_launch_permission' function.
 class CancelImageLaunchPermissionRequest(BaseValidatorModel):
     ImageId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'cancel_import_task' function.
 class CancelImportTaskRequest(BaseValidatorModel):
     CancelReason: Optional[str] = None
     DryRun: Optional[bool] = None
     ImportTaskId: Optional[str] = None
 
 
+# This class is the input for the 'cancel_reserved_instances_listing' function.
 class CancelReservedInstancesListingRequest(BaseValidatorModel):
     ReservedInstancesListingId: str
 
@@ -691,6 +733,7 @@ class CancelSpotFleetRequestsError(BaseValidatorModel):
     Message: Optional[str] = None
 
 
+# This class is the input for the 'cancel_spot_fleet_requests' function.
 class CancelSpotFleetRequestsRequest(BaseValidatorModel):
     SpotFleetRequestIds: List[str]
     TerminateInstances: bool
@@ -703,6 +746,7 @@ class CancelSpotFleetRequestsSuccessItem(BaseValidatorModel):
     SpotFleetRequestId: Optional[str] = None
 
 
+# This class is the input for the 'cancel_spot_instance_requests' function.
 class CancelSpotInstanceRequestsRequest(BaseValidatorModel):
     SpotInstanceRequestIds: List[str]
     DryRun: Optional[bool] = None
@@ -931,6 +975,7 @@ class CoipCidr(BaseValidatorModel):
     LocalGatewayRouteTableId: Optional[str] = None
 
 
+# This class is the input for the 'confirm_product_instance' function.
 class ConfirmProductInstanceRequest(BaseValidatorModel):
     InstanceId: str
     ProductCode: str
@@ -978,6 +1023,7 @@ class ConnectionTrackingSpecification(BaseValidatorModel):
     UdpStreamTimeout: Optional[int] = None
 
 
+# This class is the input for the 'copy_fpga_image' function.
 class CopyFpgaImageRequest(BaseValidatorModel):
     SourceFpgaImageId: str
     SourceRegion: str
@@ -1017,6 +1063,7 @@ class ReservationFleetInstanceSpecification(BaseValidatorModel):
     Priority: Optional[int] = None
 
 
+# This class is the input for the 'create_client_vpn_route' function.
 class CreateClientVpnRouteRequest(BaseValidatorModel):
     ClientVpnEndpointId: str
     DestinationCidrBlock: str
@@ -1026,18 +1073,21 @@ class CreateClientVpnRouteRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_coip_cidr' function.
 class CreateCoipCidrRequest(BaseValidatorModel):
     Cidr: str
     CoipPoolId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_default_subnet' function.
 class CreateDefaultSubnetRequest(BaseValidatorModel):
     AvailabilityZone: str
     DryRun: Optional[bool] = None
     Ipv6Native: Optional[bool] = None
 
 
+# This class is the input for the 'create_default_vpc' function.
 class CreateDefaultVpcRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
@@ -1096,6 +1146,7 @@ class OperatorRequest(BaseValidatorModel):
     Principal: Optional[str] = None
 
 
+# This class is the input for the 'create_local_gateway_route' function.
 class CreateLocalGatewayRouteRequest(BaseValidatorModel):
     LocalGatewayRouteTableId: str
     DestinationCidrBlock: Optional[str] = None
@@ -1124,6 +1175,7 @@ class IcmpTypeCode(BaseValidatorModel):
     Type: Optional[int] = None
 
 
+# This class is the input for the 'create_network_interface_permission' function.
 class CreateNetworkInterfacePermissionRequest(BaseValidatorModel):
     NetworkInterfaceId: str
     Permission: InterfacePermissionTypeType
@@ -1174,6 +1226,7 @@ class CreateRouteRequestRouteTableCreateRoute(BaseValidatorModel):
     NatGatewayId: Optional[str] = None
 
 
+# This class is the input for the 'create_route' function.
 class CreateRouteRequest(BaseValidatorModel):
     RouteTableId: str
     DestinationPrefixListId: Optional[str] = None
@@ -1199,6 +1252,7 @@ class InstanceSpecification(BaseValidatorModel):
     ExcludeDataVolumeIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'create_spot_datafeed_subscription' function.
 class CreateSpotDatafeedSubscriptionRequest(BaseValidatorModel):
     Bucket: str
     DryRun: Optional[bool] = None
@@ -1233,6 +1287,7 @@ class CreateTransitGatewayPeeringAttachmentRequestOptions(BaseValidatorModel):
     DynamicRouting: Optional[DynamicRoutingValueType] = None
 
 
+# This class is the input for the 'create_transit_gateway_prefix_list_reference' function.
 class CreateTransitGatewayPrefixListReferenceRequest(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     PrefixListId: str
@@ -1253,6 +1308,7 @@ class TransitGatewayRequestOptions(BaseValidatorModel):
     TransitGatewayCidrBlocks: Optional[List[str]] = None
 
 
+# This class is the input for the 'create_transit_gateway_route' function.
 class CreateTransitGatewayRouteRequest(BaseValidatorModel):
     DestinationCidrBlock: str
     TransitGatewayRouteTableId: str
@@ -1319,6 +1375,7 @@ class CreateVolumePermission(BaseValidatorModel):
     Group: Optional[Literal['all']] = None
 
 
+# This class is the input for the 'create_vpc_endpoint_connection_notification' function.
 class CreateVpcEndpointConnectionNotificationRequest(BaseValidatorModel):
     ConnectionNotificationArn: str
     ConnectionEvents: List[str]
@@ -1339,6 +1396,7 @@ class SubnetConfiguration(BaseValidatorModel):
     Ipv6: Optional[str] = None
 
 
+# This class is the input for the 'create_vpn_connection_route' function.
 class CreateVpnConnectionRouteRequest(BaseValidatorModel):
     DestinationCidrBlock: str
     VpnConnectionId: str
@@ -1368,16 +1426,19 @@ class MetricPoint(BaseValidatorModel):
     Status: Optional[str] = None
 
 
+# This class is the input for the 'delete_carrier_gateway' function.
 class DeleteCarrierGatewayRequest(BaseValidatorModel):
     CarrierGatewayId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_client_vpn_endpoint' function.
 class DeleteClientVpnEndpointRequest(BaseValidatorModel):
     ClientVpnEndpointId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_client_vpn_route' function.
 class DeleteClientVpnRouteRequest(BaseValidatorModel):
     ClientVpnEndpointId: str
     DestinationCidrBlock: str
@@ -1385,17 +1446,20 @@ class DeleteClientVpnRouteRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_coip_cidr' function.
 class DeleteCoipCidrRequest(BaseValidatorModel):
     Cidr: str
     CoipPoolId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_coip_pool' function.
 class DeleteCoipPoolRequest(BaseValidatorModel):
     CoipPoolId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_customer_gateway' function.
 class DeleteCustomerGatewayRequest(BaseValidatorModel):
     CustomerGatewayId: str
     DryRun: Optional[bool] = None
@@ -1405,11 +1469,13 @@ class DeleteDhcpOptionsRequestDhcpOptionsDelete(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_dhcp_options' function.
 class DeleteDhcpOptionsRequest(BaseValidatorModel):
     DhcpOptionsId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_egress_only_internet_gateway' function.
 class DeleteEgressOnlyInternetGatewayRequest(BaseValidatorModel):
     EgressOnlyInternetGatewayId: str
     DryRun: Optional[bool] = None
@@ -1426,27 +1492,32 @@ class DeleteFleetSuccessItem(BaseValidatorModel):
     FleetId: Optional[str] = None
 
 
+# This class is the input for the 'delete_fleets' function.
 class DeleteFleetsRequest(BaseValidatorModel):
     FleetIds: List[str]
     TerminateInstances: bool
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_flow_logs' function.
 class DeleteFlowLogsRequest(BaseValidatorModel):
     FlowLogIds: List[str]
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_fpga_image' function.
 class DeleteFpgaImageRequest(BaseValidatorModel):
     FpgaImageId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_instance_connect_endpoint' function.
 class DeleteInstanceConnectEndpointRequest(BaseValidatorModel):
     InstanceConnectEndpointId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_instance_event_window' function.
 class DeleteInstanceEventWindowRequest(BaseValidatorModel):
     InstanceEventWindowId: str
     DryRun: Optional[bool] = None
@@ -1462,33 +1533,39 @@ class DeleteInternetGatewayRequestInternetGatewayDelete(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_internet_gateway' function.
 class DeleteInternetGatewayRequest(BaseValidatorModel):
     InternetGatewayId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_ipam_external_resource_verification_token' function.
 class DeleteIpamExternalResourceVerificationTokenRequest(BaseValidatorModel):
     IpamExternalResourceVerificationTokenId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_ipam_pool' function.
 class DeleteIpamPoolRequest(BaseValidatorModel):
     IpamPoolId: str
     DryRun: Optional[bool] = None
     Cascade: Optional[bool] = None
 
 
+# This class is the input for the 'delete_ipam' function.
 class DeleteIpamRequest(BaseValidatorModel):
     IpamId: str
     DryRun: Optional[bool] = None
     Cascade: Optional[bool] = None
 
 
+# This class is the input for the 'delete_ipam_resource_discovery' function.
 class DeleteIpamResourceDiscoveryRequest(BaseValidatorModel):
     IpamResourceDiscoveryId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_ipam_scope' function.
 class DeleteIpamScopeRequest(BaseValidatorModel):
     IpamScopeId: str
     DryRun: Optional[bool] = None
@@ -1504,18 +1581,21 @@ class DeleteKeyPairRequestKeyPairInfoDelete(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_key_pair' function.
 class DeleteKeyPairRequest(BaseValidatorModel):
     KeyName: Optional[str] = None
     KeyPairId: Optional[str] = None
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_launch_template' function.
 class DeleteLaunchTemplateRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     LaunchTemplateId: Optional[str] = None
     LaunchTemplateName: Optional[str] = None
 
 
+# This class is the input for the 'delete_launch_template_versions' function.
 class DeleteLaunchTemplateVersionsRequest(BaseValidatorModel):
     Versions: List[str]
     DryRun: Optional[bool] = None
@@ -1534,6 +1614,7 @@ class DeleteLaunchTemplateVersionsResponseSuccessItem(BaseValidatorModel):
     VersionNumber: Optional[int] = None
 
 
+# This class is the input for the 'delete_local_gateway_route' function.
 class DeleteLocalGatewayRouteRequest(BaseValidatorModel):
     LocalGatewayRouteTableId: str
     DestinationCidrBlock: Optional[str] = None
@@ -1541,6 +1622,7 @@ class DeleteLocalGatewayRouteRequest(BaseValidatorModel):
     DestinationPrefixListId: Optional[str] = None
 
 
+# This class is the input for the 'delete_local_gateway_route_table' function.
 class DeleteLocalGatewayRouteTableRequest(BaseValidatorModel):
     LocalGatewayRouteTableId: str
     DryRun: Optional[bool] = None
@@ -1551,16 +1633,19 @@ class DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest(BaseVa
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_local_gateway_route_table_vpc_association' function.
 class DeleteLocalGatewayRouteTableVpcAssociationRequest(BaseValidatorModel):
     LocalGatewayRouteTableVpcAssociationId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_managed_prefix_list' function.
 class DeleteManagedPrefixListRequest(BaseValidatorModel):
     PrefixListId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_nat_gateway' function.
 class DeleteNatGatewayRequest(BaseValidatorModel):
     NatGatewayId: str
     DryRun: Optional[bool] = None
@@ -1572,6 +1657,7 @@ class DeleteNetworkAclEntryRequestNetworkAclDeleteEntry(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_network_acl_entry' function.
 class DeleteNetworkAclEntryRequest(BaseValidatorModel):
     NetworkAclId: str
     RuleNumber: int
@@ -1583,31 +1669,37 @@ class DeleteNetworkAclRequestNetworkAclDelete(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_network_acl' function.
 class DeleteNetworkAclRequest(BaseValidatorModel):
     NetworkAclId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_network_insights_access_scope_analysis' function.
 class DeleteNetworkInsightsAccessScopeAnalysisRequest(BaseValidatorModel):
     NetworkInsightsAccessScopeAnalysisId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_network_insights_access_scope' function.
 class DeleteNetworkInsightsAccessScopeRequest(BaseValidatorModel):
     NetworkInsightsAccessScopeId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_network_insights_analysis' function.
 class DeleteNetworkInsightsAnalysisRequest(BaseValidatorModel):
     NetworkInsightsAnalysisId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_network_insights_path' function.
 class DeleteNetworkInsightsPathRequest(BaseValidatorModel):
     NetworkInsightsPathId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_network_interface_permission' function.
 class DeleteNetworkInterfacePermissionRequest(BaseValidatorModel):
     NetworkInterfacePermissionId: str
     Force: Optional[bool] = None
@@ -1618,6 +1710,7 @@ class DeleteNetworkInterfaceRequestNetworkInterfaceDelete(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_network_interface' function.
 class DeleteNetworkInterfaceRequest(BaseValidatorModel):
     NetworkInterfaceId: str
     DryRun: Optional[bool] = None
@@ -1627,11 +1720,13 @@ class DeletePlacementGroupRequestPlacementGroupDelete(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_placement_group' function.
 class DeletePlacementGroupRequest(BaseValidatorModel):
     GroupName: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_public_ipv4_pool' function.
 class DeletePublicIpv4PoolRequest(BaseValidatorModel):
     PoolId: str
     DryRun: Optional[bool] = None
@@ -1643,6 +1738,7 @@ class DeleteQueuedReservedInstancesError(BaseValidatorModel):
     Message: Optional[str] = None
 
 
+# This class is the input for the 'delete_queued_reserved_instances' function.
 class DeleteQueuedReservedInstancesRequest(BaseValidatorModel):
     ReservedInstancesIds: List[str]
     DryRun: Optional[bool] = None
@@ -1658,6 +1754,7 @@ class DeleteRouteRequestRouteDelete(BaseValidatorModel):
     DestinationIpv6CidrBlock: Optional[str] = None
 
 
+# This class is the input for the 'delete_route' function.
 class DeleteRouteRequest(BaseValidatorModel):
     RouteTableId: str
     DestinationPrefixListId: Optional[str] = None
@@ -1670,6 +1767,7 @@ class DeleteRouteTableRequestRouteTableDelete(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_route_table' function.
 class DeleteRouteTableRequest(BaseValidatorModel):
     RouteTableId: str
     DryRun: Optional[bool] = None
@@ -1680,6 +1778,7 @@ class DeleteSecurityGroupRequestSecurityGroupDelete(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_security_group' function.
 class DeleteSecurityGroupRequest(BaseValidatorModel):
     GroupId: Optional[str] = None
     GroupName: Optional[str] = None
@@ -1690,15 +1789,18 @@ class DeleteSnapshotRequestSnapshotDelete(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_snapshot' function.
 class DeleteSnapshotRequest(BaseValidatorModel):
     SnapshotId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_spot_datafeed_subscription' function.
 class DeleteSpotDatafeedSubscriptionRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_subnet_cidr_reservation' function.
 class DeleteSubnetCidrReservationRequest(BaseValidatorModel):
     SubnetCidrReservationId: str
     DryRun: Optional[bool] = None
@@ -1708,6 +1810,7 @@ class DeleteSubnetRequestSubnetDelete(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_subnet' function.
 class DeleteSubnetRequest(BaseValidatorModel):
     SubnetId: str
     DryRun: Optional[bool] = None
@@ -1717,107 +1820,127 @@ class DeleteTagsRequestTagDelete(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_traffic_mirror_filter' function.
 class DeleteTrafficMirrorFilterRequest(BaseValidatorModel):
     TrafficMirrorFilterId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_traffic_mirror_filter_rule' function.
 class DeleteTrafficMirrorFilterRuleRequest(BaseValidatorModel):
     TrafficMirrorFilterRuleId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_traffic_mirror_session' function.
 class DeleteTrafficMirrorSessionRequest(BaseValidatorModel):
     TrafficMirrorSessionId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_traffic_mirror_target' function.
 class DeleteTrafficMirrorTargetRequest(BaseValidatorModel):
     TrafficMirrorTargetId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_transit_gateway_connect_peer' function.
 class DeleteTransitGatewayConnectPeerRequest(BaseValidatorModel):
     TransitGatewayConnectPeerId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_transit_gateway_connect' function.
 class DeleteTransitGatewayConnectRequest(BaseValidatorModel):
     TransitGatewayAttachmentId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_transit_gateway_multicast_domain' function.
 class DeleteTransitGatewayMulticastDomainRequest(BaseValidatorModel):
     TransitGatewayMulticastDomainId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_transit_gateway_peering_attachment' function.
 class DeleteTransitGatewayPeeringAttachmentRequest(BaseValidatorModel):
     TransitGatewayAttachmentId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_transit_gateway_policy_table' function.
 class DeleteTransitGatewayPolicyTableRequest(BaseValidatorModel):
     TransitGatewayPolicyTableId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_transit_gateway_prefix_list_reference' function.
 class DeleteTransitGatewayPrefixListReferenceRequest(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     PrefixListId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_transit_gateway' function.
 class DeleteTransitGatewayRequest(BaseValidatorModel):
     TransitGatewayId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_transit_gateway_route' function.
 class DeleteTransitGatewayRouteRequest(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     DestinationCidrBlock: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_transit_gateway_route_table_announcement' function.
 class DeleteTransitGatewayRouteTableAnnouncementRequest(BaseValidatorModel):
     TransitGatewayRouteTableAnnouncementId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_transit_gateway_route_table' function.
 class DeleteTransitGatewayRouteTableRequest(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_transit_gateway_vpc_attachment' function.
 class DeleteTransitGatewayVpcAttachmentRequest(BaseValidatorModel):
     TransitGatewayAttachmentId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_verified_access_endpoint' function.
 class DeleteVerifiedAccessEndpointRequest(BaseValidatorModel):
     VerifiedAccessEndpointId: str
     ClientToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_verified_access_group' function.
 class DeleteVerifiedAccessGroupRequest(BaseValidatorModel):
     VerifiedAccessGroupId: str
     ClientToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_verified_access_instance' function.
 class DeleteVerifiedAccessInstanceRequest(BaseValidatorModel):
     VerifiedAccessInstanceId: str
     DryRun: Optional[bool] = None
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_verified_access_trust_provider' function.
 class DeleteVerifiedAccessTrustProviderRequest(BaseValidatorModel):
     VerifiedAccessTrustProviderId: str
     DryRun: Optional[bool] = None
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_volume' function.
 class DeleteVolumeRequest(BaseValidatorModel):
     VolumeId: str
     DryRun: Optional[bool] = None
@@ -1827,26 +1950,31 @@ class DeleteVolumeRequestVolumeDelete(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_vpc_block_public_access_exclusion' function.
 class DeleteVpcBlockPublicAccessExclusionRequest(BaseValidatorModel):
     ExclusionId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_vpc_endpoint_connection_notifications' function.
 class DeleteVpcEndpointConnectionNotificationsRequest(BaseValidatorModel):
     ConnectionNotificationIds: List[str]
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_vpc_endpoint_service_configurations' function.
 class DeleteVpcEndpointServiceConfigurationsRequest(BaseValidatorModel):
     ServiceIds: List[str]
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_vpc_endpoints' function.
 class DeleteVpcEndpointsRequest(BaseValidatorModel):
     VpcEndpointIds: List[str]
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_vpc_peering_connection' function.
 class DeleteVpcPeeringConnectionRequest(BaseValidatorModel):
     VpcPeeringConnectionId: str
     DryRun: Optional[bool] = None
@@ -1856,6 +1984,7 @@ class DeleteVpcPeeringConnectionRequestVpcPeeringConnectionDelete(BaseValidatorM
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_vpc' function.
 class DeleteVpcRequest(BaseValidatorModel):
     VpcId: str
     DryRun: Optional[bool] = None
@@ -1865,38 +1994,45 @@ class DeleteVpcRequestVpcDelete(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_vpn_connection' function.
 class DeleteVpnConnectionRequest(BaseValidatorModel):
     VpnConnectionId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_vpn_connection_route' function.
 class DeleteVpnConnectionRouteRequest(BaseValidatorModel):
     DestinationCidrBlock: str
     VpnConnectionId: str
 
 
+# This class is the input for the 'delete_vpn_gateway' function.
 class DeleteVpnGatewayRequest(BaseValidatorModel):
     VpnGatewayId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'deprovision_byoip_cidr' function.
 class DeprovisionByoipCidrRequest(BaseValidatorModel):
     Cidr: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'deprovision_ipam_byoasn' function.
 class DeprovisionIpamByoasnRequest(BaseValidatorModel):
     IpamId: str
     Asn: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'deprovision_ipam_pool_cidr' function.
 class DeprovisionIpamPoolCidrRequest(BaseValidatorModel):
     IpamPoolId: str
     DryRun: Optional[bool] = None
     Cidr: Optional[str] = None
 
 
+# This class is the input for the 'deprovision_public_ipv4_pool_cidr' function.
 class DeprovisionPublicIpv4PoolCidrRequest(BaseValidatorModel):
     PoolId: str
     Cidr: str
@@ -1922,6 +2058,7 @@ class InstanceTagNotificationAttribute(BaseValidatorModel):
     IncludeAllTagsOfInstance: Optional[bool] = None
 
 
+# This class is the input for the 'deregister_transit_gateway_multicast_group_members' function.
 class DeregisterTransitGatewayMulticastGroupMembersRequest(BaseValidatorModel):
     TransitGatewayMulticastDomainId: Optional[str] = None
     GroupIpAddress: Optional[str] = None
@@ -1935,6 +2072,7 @@ class TransitGatewayMulticastDeregisteredGroupMembers(BaseValidatorModel):
     GroupIpAddress: Optional[str] = None
 
 
+# This class is the input for the 'deregister_transit_gateway_multicast_group_sources' function.
 class DeregisterTransitGatewayMulticastGroupSourcesRequest(BaseValidatorModel):
     TransitGatewayMulticastDomainId: Optional[str] = None
     GroupIpAddress: Optional[str] = None
@@ -1948,6 +2086,7 @@ class TransitGatewayMulticastDeregisteredGroupSources(BaseValidatorModel):
     GroupIpAddress: Optional[str] = None
 
 
+# This class is the input for the 'describe_account_attributes' function.
 class DescribeAccountAttributesRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     AttributeNames: Optional[List[AccountAttributeNameType]] = None
@@ -1959,6 +2098,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_address_transfers' function.
 class DescribeAddressTransfersRequest(BaseValidatorModel):
     AllocationIds: Optional[List[str]] = None
     NextToken: Optional[str] = None
@@ -1966,6 +2106,7 @@ class DescribeAddressTransfersRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'describe_addresses_attribute' function.
 class DescribeAddressesAttributeRequest(BaseValidatorModel):
     AllocationIds: Optional[List[str]] = None
     Attribute: Optional[Literal['domain-name']] = None
@@ -1979,6 +2120,7 @@ class Filter(BaseValidatorModel):
     Values: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_aggregate_id_format' function.
 class DescribeAggregateIdFormatRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
@@ -2002,12 +2144,14 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'describe_byoip_cidrs' function.
 class DescribeByoipCidrsRequest(BaseValidatorModel):
     MaxResults: int
     DryRun: Optional[bool] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_capacity_block_extension_offerings' function.
 class DescribeCapacityBlockExtensionOfferingsRequest(BaseValidatorModel):
     CapacityBlockExtensionDurationHours: int
     CapacityReservationId: str
@@ -2016,11 +2160,13 @@ class DescribeCapacityBlockExtensionOfferingsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_conversion_tasks' function.
 class DescribeConversionTasksRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     ConversionTaskIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_declarative_policies_reports' function.
 class DescribeDeclarativePoliciesReportsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     NextToken: Optional[str] = None
@@ -2052,6 +2198,7 @@ class DescribeFastSnapshotRestoreSuccessItem(BaseValidatorModel):
     DisabledTime: Optional[datetime] = None
 
 
+# This class is the input for the 'describe_fpga_image_attribute' function.
 class DescribeFpgaImageAttributeRequest(BaseValidatorModel):
     FpgaImageId: str
     Attribute: FpgaImageAttributeNameType
@@ -2068,10 +2215,12 @@ class HostOffering(BaseValidatorModel):
     UpfrontPrice: Optional[str] = None
 
 
+# This class is the input for the 'describe_id_format' function.
 class DescribeIdFormatRequest(BaseValidatorModel):
     Resource: Optional[str] = None
 
 
+# This class is the input for the 'describe_identity_id_format' function.
 class DescribeIdentityIdFormatRequest(BaseValidatorModel):
     PrincipalArn: str
     Resource: Optional[str] = None
@@ -2082,6 +2231,7 @@ class DescribeImageAttributeRequestImageDescribeAttribute(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'describe_image_attribute' function.
 class DescribeImageAttributeRequest(BaseValidatorModel):
     Attribute: ImageAttributeNameType
     ImageId: str
@@ -2093,6 +2243,7 @@ class DescribeInstanceAttributeRequestInstanceDescribeAttribute(BaseValidatorMod
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'describe_instance_attribute' function.
 class DescribeInstanceAttributeRequest(BaseValidatorModel):
     InstanceId: str
     Attribute: InstanceAttributeNameType
@@ -2104,6 +2255,7 @@ class InstanceCreditSpecification(BaseValidatorModel):
     CpuCredits: Optional[str] = None
 
 
+# This class is the input for the 'describe_instance_event_notification_attributes' function.
 class DescribeInstanceEventNotificationAttributesRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
@@ -2123,6 +2275,7 @@ class InstanceTypeOffering(BaseValidatorModel):
     Location: Optional[str] = None
 
 
+# This class is the input for the 'describe_ipam_byoasn' function.
 class DescribeIpamByoasnRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     MaxResults: Optional[int] = None
@@ -2156,6 +2309,7 @@ class DescribeNetworkInterfaceAttributeRequestNetworkInterfaceDescribeAttribute(
     Attribute: Optional[NetworkInterfaceAttributeType] = None
 
 
+# This class is the input for the 'describe_network_interface_attribute' function.
 class DescribeNetworkInterfaceAttributeRequest(BaseValidatorModel):
     NetworkInterfaceId: str
     DryRun: Optional[bool] = None
@@ -2168,6 +2322,7 @@ class PrefixList(BaseValidatorModel):
     PrefixListName: Optional[str] = None
 
 
+# This class is the input for the 'describe_principal_id_format' function.
 class DescribePrincipalIdFormatRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Resources: Optional[List[str]] = None
@@ -2189,6 +2344,7 @@ class ScheduledInstanceRecurrenceRequest(BaseValidatorModel):
     OccurrenceUnit: Optional[str] = None
 
 
+# This class is the input for the 'describe_security_group_references' function.
 class DescribeSecurityGroupReferencesRequest(BaseValidatorModel):
     GroupId: List[str]
     DryRun: Optional[bool] = None
@@ -2214,6 +2370,7 @@ class DescribeSnapshotAttributeRequestSnapshotDescribeAttribute(BaseValidatorMod
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'describe_snapshot_attribute' function.
 class DescribeSnapshotAttributeRequest(BaseValidatorModel):
     Attribute: SnapshotAttributeNameType
     SnapshotId: str
@@ -2225,10 +2382,12 @@ class ProductCode(BaseValidatorModel):
     ProductCodeType: Optional[ProductCodeValuesType] = None
 
 
+# This class is the input for the 'describe_spot_datafeed_subscription' function.
 class DescribeSpotDatafeedSubscriptionRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'describe_spot_fleet_instances' function.
 class DescribeSpotFleetInstancesRequest(BaseValidatorModel):
     SpotFleetRequestId: str
     DryRun: Optional[bool] = None
@@ -2236,6 +2395,7 @@ class DescribeSpotFleetInstancesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_spot_fleet_requests' function.
 class DescribeSpotFleetRequestsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     SpotFleetRequestIds: Optional[List[str]] = None
@@ -2251,6 +2411,7 @@ class SpotPrice(BaseValidatorModel):
     Timestamp: Optional[datetime] = None
 
 
+# This class is the input for the 'describe_stale_security_groups' function.
 class DescribeStaleSecurityGroupsRequest(BaseValidatorModel):
     VpcId: str
     DryRun: Optional[bool] = None
@@ -2275,6 +2436,7 @@ class TagDescription(BaseValidatorModel):
     Value: Optional[str] = None
 
 
+# This class is the input for the 'describe_volume_attribute' function.
 class DescribeVolumeAttributeRequest(BaseValidatorModel):
     Attribute: VolumeAttributeNameType
     VolumeId: str
@@ -2305,6 +2467,7 @@ class VolumeModification(BaseValidatorModel):
     EndTime: Optional[datetime] = None
 
 
+# This class is the input for the 'describe_vpc_attribute' function.
 class DescribeVpcAttributeRequest(BaseValidatorModel):
     Attribute: VpcAttributeNameType
     VpcId: str
@@ -2316,6 +2479,7 @@ class DescribeVpcAttributeRequestVpcDescribeAttribute(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'describe_vpc_block_public_access_options' function.
 class DescribeVpcBlockPublicAccessOptionsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
@@ -2331,6 +2495,7 @@ class VpcBlockPublicAccessOptions(BaseValidatorModel):
     ExclusionsAllowed: Optional[VpcBlockPublicAccessExclusionsAllowedType] = None
 
 
+# This class is the input for the 'describe_vpc_classic_link_dns_support' function.
 class DescribeVpcClassicLinkDnsSupportRequest(BaseValidatorModel):
     VpcIds: Optional[List[str]] = None
     MaxResults: Optional[int] = None
@@ -2348,6 +2513,7 @@ class DetachClassicLinkVpcRequestInstanceDetachClassicLinkVpc(BaseValidatorModel
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'detach_classic_link_vpc' function.
 class DetachClassicLinkVpcRequest(BaseValidatorModel):
     InstanceId: str
     VpcId: str
@@ -2364,6 +2530,7 @@ class DetachInternetGatewayRequestInternetGatewayDetachFromVpc(BaseValidatorMode
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'detach_internet_gateway' function.
 class DetachInternetGatewayRequest(BaseValidatorModel):
     InternetGatewayId: str
     VpcId: str
@@ -2381,12 +2548,14 @@ class DetachNetworkInterfaceRequestNetworkInterfaceDetach(BaseValidatorModel):
     Force: Optional[bool] = None
 
 
+# This class is the input for the 'detach_network_interface' function.
 class DetachNetworkInterfaceRequest(BaseValidatorModel):
     AttachmentId: str
     DryRun: Optional[bool] = None
     Force: Optional[bool] = None
 
 
+# This class is the input for the 'detach_verified_access_trust_provider' function.
 class DetachVerifiedAccessTrustProviderRequest(BaseValidatorModel):
     VerifiedAccessInstanceId: str
     VerifiedAccessTrustProviderId: str
@@ -2401,6 +2570,7 @@ class DetachVolumeRequestInstanceDetachVolume(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'detach_volume' function.
 class DetachVolumeRequest(BaseValidatorModel):
     VolumeId: str
     Device: Optional[str] = None
@@ -2416,6 +2586,7 @@ class DetachVolumeRequestVolumeDetachFromInstance(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'detach_vpn_gateway' function.
 class DetachVpnGatewayRequest(BaseValidatorModel):
     VpcId: str
     VpnGatewayId: str
@@ -2427,15 +2598,18 @@ class DeviceOptions(BaseValidatorModel):
     PublicSigningKeyUrl: Optional[str] = None
 
 
+# This class is the input for the 'disable_address_transfer' function.
 class DisableAddressTransferRequest(BaseValidatorModel):
     AllocationId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'disable_allowed_images_settings' function.
 class DisableAllowedImagesSettingsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'disable_aws_network_performance_metric_subscription' function.
 class DisableAwsNetworkPerformanceMetricSubscriptionRequest(BaseValidatorModel):
     Source: Optional[str] = None
     Destination: Optional[str] = None
@@ -2444,10 +2618,12 @@ class DisableAwsNetworkPerformanceMetricSubscriptionRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'disable_ebs_encryption_by_default' function.
 class DisableEbsEncryptionByDefaultRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'disable_fast_launch' function.
 class DisableFastLaunchRequest(BaseValidatorModel):
     ImageId: str
     Force: Optional[bool] = None
@@ -2473,44 +2649,53 @@ class DisableFastSnapshotRestoreSuccessItem(BaseValidatorModel):
     DisabledTime: Optional[datetime] = None
 
 
+# This class is the input for the 'disable_fast_snapshot_restores' function.
 class DisableFastSnapshotRestoresRequest(BaseValidatorModel):
     AvailabilityZones: List[str]
     SourceSnapshotIds: List[str]
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'disable_image_block_public_access' function.
 class DisableImageBlockPublicAccessRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'disable_image_deprecation' function.
 class DisableImageDeprecationRequest(BaseValidatorModel):
     ImageId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'disable_image_deregistration_protection' function.
 class DisableImageDeregistrationProtectionRequest(BaseValidatorModel):
     ImageId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'disable_image' function.
 class DisableImageRequest(BaseValidatorModel):
     ImageId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'disable_ipam_organization_admin_account' function.
 class DisableIpamOrganizationAdminAccountRequest(BaseValidatorModel):
     DelegatedAdminAccountId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'disable_serial_console_access' function.
 class DisableSerialConsoleAccessRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'disable_snapshot_block_public_access' function.
 class DisableSnapshotBlockPublicAccessRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'disable_transit_gateway_route_table_propagation' function.
 class DisableTransitGatewayRouteTablePropagationRequest(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     TransitGatewayAttachmentId: Optional[str] = None
@@ -2527,16 +2712,19 @@ class TransitGatewayPropagation(BaseValidatorModel):
     TransitGatewayRouteTableAnnouncementId: Optional[str] = None
 
 
+# This class is the input for the 'disable_vgw_route_propagation' function.
 class DisableVgwRoutePropagationRequest(BaseValidatorModel):
     GatewayId: str
     RouteTableId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'disable_vpc_classic_link_dns_support' function.
 class DisableVpcClassicLinkDnsSupportRequest(BaseValidatorModel):
     VpcId: Optional[str] = None
 
 
+# This class is the input for the 'disable_vpc_classic_link' function.
 class DisableVpcClassicLinkRequest(BaseValidatorModel):
     VpcId: str
     DryRun: Optional[bool] = None
@@ -2557,45 +2745,53 @@ class DisassociateAddressRequestNetworkInterfaceAssociationDelete(BaseValidatorM
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'disassociate_address' function.
 class DisassociateAddressRequest(BaseValidatorModel):
     AssociationId: Optional[str] = None
     PublicIp: Optional[str] = None
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'disassociate_capacity_reservation_billing_owner' function.
 class DisassociateCapacityReservationBillingOwnerRequest(BaseValidatorModel):
     CapacityReservationId: str
     UnusedReservationBillingOwnerId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'disassociate_client_vpn_target_network' function.
 class DisassociateClientVpnTargetNetworkRequest(BaseValidatorModel):
     ClientVpnEndpointId: str
     AssociationId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'disassociate_enclave_certificate_iam_role' function.
 class DisassociateEnclaveCertificateIamRoleRequest(BaseValidatorModel):
     CertificateArn: str
     RoleArn: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'disassociate_iam_instance_profile' function.
 class DisassociateIamInstanceProfileRequest(BaseValidatorModel):
     AssociationId: str
 
 
+# This class is the input for the 'disassociate_ipam_byoasn' function.
 class DisassociateIpamByoasnRequest(BaseValidatorModel):
     Asn: str
     Cidr: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'disassociate_ipam_resource_discovery' function.
 class DisassociateIpamResourceDiscoveryRequest(BaseValidatorModel):
     IpamResourceDiscoveryAssociationId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'disassociate_nat_gateway_address' function.
 class DisassociateNatGatewayAddressRequest(BaseValidatorModel):
     NatGatewayId: str
     AssociationIds: List[str]
@@ -2612,21 +2808,25 @@ class DisassociateRouteTableRequestServiceResourceDisassociateRouteTable(BaseVal
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'disassociate_route_table' function.
 class DisassociateRouteTableRequest(BaseValidatorModel):
     AssociationId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'disassociate_security_group_vpc' function.
 class DisassociateSecurityGroupVpcRequest(BaseValidatorModel):
     GroupId: str
     VpcId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'disassociate_subnet_cidr_block' function.
 class DisassociateSubnetCidrBlockRequest(BaseValidatorModel):
     AssociationId: str
 
 
+# This class is the input for the 'disassociate_transit_gateway_multicast_domain' function.
 class DisassociateTransitGatewayMulticastDomainRequest(BaseValidatorModel):
     TransitGatewayMulticastDomainId: str
     TransitGatewayAttachmentId: str
@@ -2634,24 +2834,28 @@ class DisassociateTransitGatewayMulticastDomainRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'disassociate_transit_gateway_policy_table' function.
 class DisassociateTransitGatewayPolicyTableRequest(BaseValidatorModel):
     TransitGatewayPolicyTableId: str
     TransitGatewayAttachmentId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'disassociate_transit_gateway_route_table' function.
 class DisassociateTransitGatewayRouteTableRequest(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     TransitGatewayAttachmentId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'disassociate_trunk_interface' function.
 class DisassociateTrunkInterfaceRequest(BaseValidatorModel):
     AssociationId: str
     ClientToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'disassociate_vpc_cidr_block' function.
 class DisassociateVpcCidrBlockRequest(BaseValidatorModel):
     AssociationId: str
 
@@ -2772,17 +2976,20 @@ class EnaSrdUdpSpecification(BaseValidatorModel):
     EnaSrdUdpEnabled: Optional[bool] = None
 
 
+# This class is the input for the 'enable_address_transfer' function.
 class EnableAddressTransferRequest(BaseValidatorModel):
     AllocationId: str
     TransferAccountId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'enable_allowed_images_settings' function.
 class EnableAllowedImagesSettingsRequest(BaseValidatorModel):
     AllowedImagesSettingsState: AllowedImagesSettingsEnabledStateType
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'enable_aws_network_performance_metric_subscription' function.
 class EnableAwsNetworkPerformanceMetricSubscriptionRequest(BaseValidatorModel):
     Source: Optional[str] = None
     Destination: Optional[str] = None
@@ -2791,6 +2998,7 @@ class EnableAwsNetworkPerformanceMetricSubscriptionRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'enable_ebs_encryption_by_default' function.
 class EnableEbsEncryptionByDefaultRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
@@ -2824,46 +3032,55 @@ class EnableFastSnapshotRestoreSuccessItem(BaseValidatorModel):
     DisabledTime: Optional[datetime] = None
 
 
+# This class is the input for the 'enable_fast_snapshot_restores' function.
 class EnableFastSnapshotRestoresRequest(BaseValidatorModel):
     AvailabilityZones: List[str]
     SourceSnapshotIds: List[str]
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'enable_image_block_public_access' function.
 class EnableImageBlockPublicAccessRequest(BaseValidatorModel):
     ImageBlockPublicAccessState: Literal['block-new-sharing']
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'enable_image_deregistration_protection' function.
 class EnableImageDeregistrationProtectionRequest(BaseValidatorModel):
     ImageId: str
     WithCooldown: Optional[bool] = None
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'enable_image' function.
 class EnableImageRequest(BaseValidatorModel):
     ImageId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'enable_ipam_organization_admin_account' function.
 class EnableIpamOrganizationAdminAccountRequest(BaseValidatorModel):
     DelegatedAdminAccountId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'enable_reachability_analyzer_organization_sharing' function.
 class EnableReachabilityAnalyzerOrganizationSharingRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'enable_serial_console_access' function.
 class EnableSerialConsoleAccessRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'enable_snapshot_block_public_access' function.
 class EnableSnapshotBlockPublicAccessRequest(BaseValidatorModel):
     State: SnapshotBlockPublicAccessStateType
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'enable_transit_gateway_route_table_propagation' function.
 class EnableTransitGatewayRouteTablePropagationRequest(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     TransitGatewayAttachmentId: Optional[str] = None
@@ -2871,12 +3088,14 @@ class EnableTransitGatewayRouteTablePropagationRequest(BaseValidatorModel):
     TransitGatewayRouteTableAnnouncementId: Optional[str] = None
 
 
+# This class is the input for the 'enable_vgw_route_propagation' function.
 class EnableVgwRoutePropagationRequest(BaseValidatorModel):
     GatewayId: str
     RouteTableId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'enable_volume_io' function.
 class EnableVolumeIORequest(BaseValidatorModel):
     VolumeId: str
     DryRun: Optional[bool] = None
@@ -2886,10 +3105,12 @@ class EnableVolumeIORequestVolumeEnableIo(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'enable_vpc_classic_link_dns_support' function.
 class EnableVpcClassicLinkDnsSupportRequest(BaseValidatorModel):
     VpcId: Optional[str] = None
 
 
+# This class is the input for the 'enable_vpc_classic_link' function.
 class EnableVpcClassicLinkRequest(BaseValidatorModel):
     VpcId: str
     DryRun: Optional[bool] = None
@@ -2923,11 +3144,13 @@ class TransitGatewayRouteTableRoute(BaseValidatorModel):
     ResourceType: Optional[str] = None
 
 
+# This class is the input for the 'export_client_vpn_client_certificate_revocation_list' function.
 class ExportClientVpnClientCertificateRevocationListRequest(BaseValidatorModel):
     ClientVpnEndpointId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'export_client_vpn_client_configuration' function.
 class ExportClientVpnClientConfigurationRequest(BaseValidatorModel):
     ClientVpnEndpointId: str
     DryRun: Optional[bool] = None
@@ -2955,6 +3178,7 @@ class InstanceExportDetails(BaseValidatorModel):
     TargetEnvironment: Optional[ExportEnvironmentType] = None
 
 
+# This class is the input for the 'export_verified_access_instance_client_configuration' function.
 class ExportVerifiedAccessInstanceClientConfigurationRequest(BaseValidatorModel):
     VerifiedAccessInstanceId: str
     DryRun: Optional[bool] = None
@@ -3056,6 +3280,7 @@ class PciId(BaseValidatorModel):
     SubsystemVendorId: Optional[str] = None
 
 
+# This class is the input for the 'get_allowed_images_settings' function.
 class GetAllowedImagesSettingsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
@@ -3064,11 +3289,13 @@ class ImageCriterion(BaseValidatorModel):
     ImageProviders: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_associated_enclave_certificate_iam_roles' function.
 class GetAssociatedEnclaveCertificateIamRolesRequest(BaseValidatorModel):
     CertificateArn: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'get_associated_ipv6_pool_cidrs' function.
 class GetAssociatedIpv6PoolCidrsRequest(BaseValidatorModel):
     PoolId: str
     NextToken: Optional[str] = None
@@ -3081,6 +3308,7 @@ class Ipv6CidrAssociation(BaseValidatorModel):
     AssociatedResource: Optional[str] = None
 
 
+# This class is the input for the 'get_capacity_reservation_usage' function.
 class GetCapacityReservationUsageRequest(BaseValidatorModel):
     CapacityReservationId: str
     NextToken: Optional[str] = None
@@ -3098,23 +3326,27 @@ class GetConsoleOutputRequestInstanceConsoleOutput(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'get_console_output' function.
 class GetConsoleOutputRequest(BaseValidatorModel):
     InstanceId: str
     Latest: Optional[bool] = None
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'get_console_screenshot' function.
 class GetConsoleScreenshotRequest(BaseValidatorModel):
     InstanceId: str
     DryRun: Optional[bool] = None
     WakeUp: Optional[bool] = None
 
 
+# This class is the input for the 'get_declarative_policies_report_summary' function.
 class GetDeclarativePoliciesReportSummaryRequest(BaseValidatorModel):
     ReportId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'get_default_credit_specification' function.
 class GetDefaultCreditSpecificationRequest(BaseValidatorModel):
     InstanceFamily: UnlimitedSupportedInstanceFamilyType
     DryRun: Optional[bool] = None
@@ -3125,14 +3357,17 @@ class InstanceFamilyCreditSpecification(BaseValidatorModel):
     CpuCredits: Optional[str] = None
 
 
+# This class is the input for the 'get_ebs_default_kms_key_id' function.
 class GetEbsDefaultKmsKeyIdRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'get_ebs_encryption_by_default' function.
 class GetEbsEncryptionByDefaultRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'get_groups_for_capacity_reservation' function.
 class GetGroupsForCapacityReservationRequest(BaseValidatorModel):
     CapacityReservationId: str
     NextToken: Optional[str] = None
@@ -3140,6 +3375,7 @@ class GetGroupsForCapacityReservationRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'get_host_reservation_purchase_preview' function.
 class GetHostReservationPurchasePreviewRequest(BaseValidatorModel):
     HostIdSet: List[str]
     OfferingId: str
@@ -3156,10 +3392,12 @@ class Purchase(BaseValidatorModel):
     UpfrontPrice: Optional[str] = None
 
 
+# This class is the input for the 'get_image_block_public_access_state' function.
 class GetImageBlockPublicAccessStateRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'get_instance_metadata_defaults' function.
 class GetInstanceMetadataDefaultsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
@@ -3173,6 +3411,7 @@ class InstanceMetadataDefaultsResponse(BaseValidatorModel):
     ManagedExceptionMessage: Optional[str] = None
 
 
+# This class is the input for the 'get_instance_tpm_ek_pub' function.
 class GetInstanceTpmEkPubRequest(BaseValidatorModel):
     InstanceId: str
     KeyType: EkPubKeyTypeType
@@ -3184,6 +3423,7 @@ class InstanceTypeInfoFromInstanceRequirements(BaseValidatorModel):
     InstanceType: Optional[str] = None
 
 
+# This class is the input for the 'get_instance_uefi_data' function.
 class GetInstanceUefiDataRequest(BaseValidatorModel):
     InstanceId: str
     DryRun: Optional[bool] = None
@@ -3203,11 +3443,13 @@ class IpamAddressHistoryRecord(BaseValidatorModel):
     SampledEndTime: Optional[datetime] = None
 
 
+# This class is the input for the 'get_launch_template_data' function.
 class GetLaunchTemplateDataRequest(BaseValidatorModel):
     InstanceId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'get_managed_prefix_list_associations' function.
 class GetManagedPrefixListAssociationsRequest(BaseValidatorModel):
     PrefixListId: str
     DryRun: Optional[bool] = None
@@ -3220,6 +3462,7 @@ class PrefixListAssociation(BaseValidatorModel):
     ResourceOwner: Optional[str] = None
 
 
+# This class is the input for the 'get_managed_prefix_list_entries' function.
 class GetManagedPrefixListEntriesRequest(BaseValidatorModel):
     PrefixListId: str
     DryRun: Optional[bool] = None
@@ -3233,6 +3476,7 @@ class PrefixListEntry(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'get_network_insights_access_scope_analysis_findings' function.
 class GetNetworkInsightsAccessScopeAnalysisFindingsRequest(BaseValidatorModel):
     NetworkInsightsAccessScopeAnalysisId: str
     MaxResults: Optional[int] = None
@@ -3240,6 +3484,7 @@ class GetNetworkInsightsAccessScopeAnalysisFindingsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'get_network_insights_access_scope_content' function.
 class GetNetworkInsightsAccessScopeContentRequest(BaseValidatorModel):
     NetworkInsightsAccessScopeId: str
     DryRun: Optional[bool] = None
@@ -3249,6 +3494,7 @@ class GetPasswordDataRequestInstancePasswordData(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'get_password_data' function.
 class GetPasswordDataRequest(BaseValidatorModel):
     InstanceId: str
     DryRun: Optional[bool] = None
@@ -3260,10 +3506,12 @@ class ReservationValue(BaseValidatorModel):
     RemainingUpfrontValue: Optional[str] = None
 
 
+# This class is the input for the 'get_serial_console_access_status' function.
 class GetSerialConsoleAccessStatusRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'get_snapshot_block_public_access_state' function.
 class GetSnapshotBlockPublicAccessStateRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
@@ -3294,11 +3542,13 @@ class TransitGatewayRouteTablePropagation(BaseValidatorModel):
     TransitGatewayRouteTableAnnouncementId: Optional[str] = None
 
 
+# This class is the input for the 'get_verified_access_endpoint_policy' function.
 class GetVerifiedAccessEndpointPolicyRequest(BaseValidatorModel):
     VerifiedAccessEndpointId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'get_verified_access_endpoint_targets' function.
 class GetVerifiedAccessEndpointTargetsRequest(BaseValidatorModel):
     VerifiedAccessEndpointId: str
     MaxResults: Optional[int] = None
@@ -3312,11 +3562,13 @@ class VerifiedAccessEndpointTarget(BaseValidatorModel):
     VerifiedAccessEndpointTargetDns: Optional[str] = None
 
 
+# This class is the input for the 'get_verified_access_group_policy' function.
 class GetVerifiedAccessGroupPolicyRequest(BaseValidatorModel):
     VerifiedAccessGroupId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'get_vpn_connection_device_sample_configuration' function.
 class GetVpnConnectionDeviceSampleConfigurationRequest(BaseValidatorModel):
     VpnConnectionId: str
     VpnConnectionDeviceTypeId: str
@@ -3324,6 +3576,7 @@ class GetVpnConnectionDeviceSampleConfigurationRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'get_vpn_connection_device_types' function.
 class GetVpnConnectionDeviceTypesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -3337,6 +3590,7 @@ class VpnConnectionDeviceType(BaseValidatorModel):
     Software: Optional[str] = None
 
 
+# This class is the input for the 'get_vpn_tunnel_replacement_status' function.
 class GetVpnTunnelReplacementStatusRequest(BaseValidatorModel):
     VpnConnectionId: str
     VpnTunnelOutsideIpAddress: str
@@ -3429,6 +3683,7 @@ class StateReason(BaseValidatorModel):
     Message: Optional[str] = None
 
 
+# This class is the input for the 'import_client_vpn_client_certificate_revocation_list' function.
 class ImportClientVpnClientCertificateRevocationListRequest(BaseValidatorModel):
     ClientVpnEndpointId: str
     CertificateRevocationList: str
@@ -3928,6 +4183,7 @@ class LicenseConfigurationRequest(BaseValidatorModel):
     LicenseConfigurationArn: Optional[str] = None
 
 
+# This class is the input for the 'list_images_in_recycle_bin' function.
 class ListImagesInRecycleBinRequest(BaseValidatorModel):
     ImageIds: Optional[List[str]] = None
     NextToken: Optional[str] = None
@@ -3935,6 +4191,7 @@ class ListImagesInRecycleBinRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'list_snapshots_in_recycle_bin' function.
 class ListSnapshotsInRecycleBinRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -3959,29 +4216,34 @@ class MediaDeviceMemoryInfo(BaseValidatorModel):
     SizeInMiB: Optional[int] = None
 
 
+# This class is the input for the 'modify_address_attribute' function.
 class ModifyAddressAttributeRequest(BaseValidatorModel):
     AllocationId: str
     DomainName: Optional[str] = None
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'modify_availability_zone_group' function.
 class ModifyAvailabilityZoneGroupRequest(BaseValidatorModel):
     GroupName: str
     OptInStatus: ModifyAvailabilityZoneOptInStatusType
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'modify_default_credit_specification' function.
 class ModifyDefaultCreditSpecificationRequest(BaseValidatorModel):
     InstanceFamily: UnlimitedSupportedInstanceFamilyType
     CpuCredits: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'modify_ebs_default_kms_key_id' function.
 class ModifyEbsDefaultKmsKeyIdRequest(BaseValidatorModel):
     KmsKeyId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'modify_hosts' function.
 class ModifyHostsRequest(BaseValidatorModel):
     HostIds: List[str]
     HostRecovery: Optional[HostRecoveryType] = None
@@ -3991,17 +4253,20 @@ class ModifyHostsRequest(BaseValidatorModel):
     AutoPlacement: Optional[AutoPlacementType] = None
 
 
+# This class is the input for the 'modify_id_format' function.
 class ModifyIdFormatRequest(BaseValidatorModel):
     Resource: str
     UseLongIds: bool
 
 
+# This class is the input for the 'modify_identity_id_format' function.
 class ModifyIdentityIdFormatRequest(BaseValidatorModel):
     Resource: str
     UseLongIds: bool
     PrincipalArn: str
 
 
+# This class is the input for the 'modify_instance_cpu_options' function.
 class ModifyInstanceCpuOptionsRequest(BaseValidatorModel):
     InstanceId: str
     CoreCount: int
@@ -4013,12 +4278,14 @@ class SuccessfulInstanceCreditSpecificationItem(BaseValidatorModel):
     InstanceId: Optional[str] = None
 
 
+# This class is the input for the 'modify_instance_maintenance_options' function.
 class ModifyInstanceMaintenanceOptionsRequest(BaseValidatorModel):
     InstanceId: str
     AutoRecovery: Optional[InstanceAutoRecoveryStateType] = None
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'modify_instance_metadata_defaults' function.
 class ModifyInstanceMetadataDefaultsRequest(BaseValidatorModel):
     HttpTokens: Optional[MetadataDefaultHttpTokensStateType] = None
     HttpPutResponseHopLimit: Optional[int] = None
@@ -4027,6 +4294,7 @@ class ModifyInstanceMetadataDefaultsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'modify_instance_metadata_options' function.
 class ModifyInstanceMetadataOptionsRequest(BaseValidatorModel):
     InstanceId: str
     HttpTokens: Optional[HttpTokensStateType] = None
@@ -4037,12 +4305,14 @@ class ModifyInstanceMetadataOptionsRequest(BaseValidatorModel):
     InstanceMetadataTags: Optional[InstanceMetadataTagsStateType] = None
 
 
+# This class is the input for the 'modify_instance_network_performance_options' function.
 class ModifyInstanceNetworkPerformanceRequest(BaseValidatorModel):
     InstanceId: str
     BandwidthWeighting: InstanceBandwidthWeightingType
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'modify_instance_placement' function.
 class ModifyInstancePlacementRequest(BaseValidatorModel):
     InstanceId: str
     GroupName: Optional[str] = None
@@ -4058,6 +4328,7 @@ class RemoveIpamOperatingRegion(BaseValidatorModel):
     RegionName: Optional[str] = None
 
 
+# This class is the input for the 'modify_ipam_resource_cidr' function.
 class ModifyIpamResourceCidrRequest(BaseValidatorModel):
     ResourceId: str
     ResourceCidr: str
@@ -4072,12 +4343,14 @@ class RemoveIpamOrganizationalUnitExclusion(BaseValidatorModel):
     OrganizationsEntityPath: Optional[str] = None
 
 
+# This class is the input for the 'modify_ipam_scope' function.
 class ModifyIpamScopeRequest(BaseValidatorModel):
     IpamScopeId: str
     DryRun: Optional[bool] = None
     Description: Optional[str] = None
 
 
+# This class is the input for the 'modify_launch_template' function.
 class ModifyLaunchTemplateRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     ClientToken: Optional[str] = None
@@ -4086,6 +4359,7 @@ class ModifyLaunchTemplateRequest(BaseValidatorModel):
     DefaultVersion: Optional[str] = None
 
 
+# This class is the input for the 'modify_local_gateway_route' function.
 class ModifyLocalGatewayRouteRequest(BaseValidatorModel):
     LocalGatewayRouteTableId: str
     DestinationCidrBlock: Optional[str] = None
@@ -4104,6 +4378,7 @@ class NetworkInterfaceAttachmentChanges(BaseValidatorModel):
     DeleteOnTermination: Optional[bool] = None
 
 
+# This class is the input for the 'modify_private_dns_name_options' function.
 class ModifyPrivateDnsNameOptionsRequest(BaseValidatorModel):
     InstanceId: str
     DryRun: Optional[bool] = None
@@ -4120,12 +4395,14 @@ class ReservedInstancesConfiguration(BaseValidatorModel):
     Scope: Optional[ScopeType] = None
 
 
+# This class is the input for the 'modify_snapshot_tier' function.
 class ModifySnapshotTierRequest(BaseValidatorModel):
     SnapshotId: str
     StorageTier: Optional[Literal['archive']] = None
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'modify_traffic_mirror_filter_network_services' function.
 class ModifyTrafficMirrorFilterNetworkServicesRequest(BaseValidatorModel):
     TrafficMirrorFilterId: str
     AddNetworkServices: Optional[List[Literal['amazon-dns']]] = None
@@ -4133,6 +4410,7 @@ class ModifyTrafficMirrorFilterNetworkServicesRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'modify_traffic_mirror_session' function.
 class ModifyTrafficMirrorSessionRequest(BaseValidatorModel):
     TrafficMirrorSessionId: str
     TrafficMirrorTargetId: Optional[str] = None
@@ -4159,6 +4437,7 @@ class ModifyTransitGatewayOptions(BaseValidatorModel):
     AmazonSideAsn: Optional[int] = None
 
 
+# This class is the input for the 'modify_transit_gateway_prefix_list_reference' function.
 class ModifyTransitGatewayPrefixListReferenceRequest(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     PrefixListId: str
@@ -4190,6 +4469,7 @@ class ModifyVerifiedAccessEndpointRdsOptions(BaseValidatorModel):
     RdsEndpoint: Optional[str] = None
 
 
+# This class is the input for the 'modify_verified_access_group' function.
 class ModifyVerifiedAccessGroupRequest(BaseValidatorModel):
     VerifiedAccessGroupId: str
     VerifiedAccessInstanceId: Optional[str] = None
@@ -4198,6 +4478,7 @@ class ModifyVerifiedAccessGroupRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'modify_verified_access_instance' function.
 class ModifyVerifiedAccessInstanceRequest(BaseValidatorModel):
     VerifiedAccessInstanceId: str
     Description: Optional[str] = None
@@ -4231,6 +4512,7 @@ class ModifyVerifiedAccessTrustProviderOidcOptions(BaseValidatorModel):
     Scope: Optional[str] = None
 
 
+# This class is the input for the 'modify_volume' function.
 class ModifyVolumeRequest(BaseValidatorModel):
     VolumeId: str
     DryRun: Optional[bool] = None
@@ -4241,17 +4523,20 @@ class ModifyVolumeRequest(BaseValidatorModel):
     MultiAttachEnabled: Optional[bool] = None
 
 
+# This class is the input for the 'modify_vpc_block_public_access_exclusion' function.
 class ModifyVpcBlockPublicAccessExclusionRequest(BaseValidatorModel):
     ExclusionId: str
     InternetGatewayExclusionMode: InternetGatewayExclusionModeType
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'modify_vpc_block_public_access_options' function.
 class ModifyVpcBlockPublicAccessOptionsRequest(BaseValidatorModel):
     InternetGatewayBlockMode: InternetGatewayBlockModeType
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'modify_vpc_endpoint_connection_notification' function.
 class ModifyVpcEndpointConnectionNotificationRequest(BaseValidatorModel):
     ConnectionNotificationId: str
     DryRun: Optional[bool] = None
@@ -4259,6 +4544,7 @@ class ModifyVpcEndpointConnectionNotificationRequest(BaseValidatorModel):
     ConnectionEvents: Optional[List[str]] = None
 
 
+# This class is the input for the 'modify_vpc_endpoint_service_configuration' function.
 class ModifyVpcEndpointServiceConfigurationRequest(BaseValidatorModel):
     ServiceId: str
     DryRun: Optional[bool] = None
@@ -4275,12 +4561,14 @@ class ModifyVpcEndpointServiceConfigurationRequest(BaseValidatorModel):
     RemoveSupportedRegions: Optional[List[str]] = None
 
 
+# This class is the input for the 'modify_vpc_endpoint_service_payer_responsibility' function.
 class ModifyVpcEndpointServicePayerResponsibilityRequest(BaseValidatorModel):
     ServiceId: str
     PayerResponsibility: Literal['ServiceOwner']
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'modify_vpc_endpoint_service_permissions' function.
 class ModifyVpcEndpointServicePermissionsRequest(BaseValidatorModel):
     ServiceId: str
     DryRun: Optional[bool] = None
@@ -4300,12 +4588,14 @@ class PeeringConnectionOptions(BaseValidatorModel):
     AllowEgressFromLocalVpcToRemoteClassicLink: Optional[bool] = None
 
 
+# This class is the input for the 'modify_vpc_tenancy' function.
 class ModifyVpcTenancyRequest(BaseValidatorModel):
     VpcId: str
     InstanceTenancy: Literal['default']
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'modify_vpn_connection_options' function.
 class ModifyVpnConnectionOptionsRequest(BaseValidatorModel):
     VpnConnectionId: str
     LocalIpv4NetworkCidr: Optional[str] = None
@@ -4315,6 +4605,7 @@ class ModifyVpnConnectionOptionsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'modify_vpn_connection' function.
 class ModifyVpnConnectionRequest(BaseValidatorModel):
     VpnConnectionId: str
     TransitGatewayId: Optional[str] = None
@@ -4323,6 +4614,7 @@ class ModifyVpnConnectionRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'modify_vpn_tunnel_certificate' function.
 class ModifyVpnTunnelCertificateRequest(BaseValidatorModel):
     VpnConnectionId: str
     VpnTunnelOutsideIpAddress: str
@@ -4357,16 +4649,19 @@ class MonitorInstancesRequestInstanceMonitor(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'monitor_instances' function.
 class MonitorInstancesRequest(BaseValidatorModel):
     InstanceIds: List[str]
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'move_address_to_vpc' function.
 class MoveAddressToVpcRequest(BaseValidatorModel):
     PublicIp: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'move_byoip_cidr_to_ipam' function.
 class MoveByoipCidrToIpamRequest(BaseValidatorModel):
     Cidr: str
     IpamPoolId: str
@@ -4374,6 +4669,7 @@ class MoveByoipCidrToIpamRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'move_capacity_reservation_instances' function.
 class MoveCapacityReservationInstancesRequest(BaseValidatorModel):
     SourceCapacityReservationId: str
     DestinationCapacityReservationId: str
@@ -4563,6 +4859,7 @@ class PropagatingVgw(BaseValidatorModel):
     GatewayId: Optional[str] = None
 
 
+# This class is the input for the 'provision_public_ipv4_pool_cidr' function.
 class ProvisionPublicIpv4PoolCidrRequest(BaseValidatorModel):
     IpamPoolId: str
     PoolId: str
@@ -4578,6 +4875,7 @@ class PublicIpv4PoolRange(BaseValidatorModel):
     AvailableAddressCount: Optional[int] = None
 
 
+# This class is the input for the 'purchase_capacity_block_extension' function.
 class PurchaseCapacityBlockExtensionRequest(BaseValidatorModel):
     CapacityBlockExtensionOfferingId: str
     CapacityReservationId: str
@@ -4598,6 +4896,7 @@ class RebootInstancesRequestInstanceReboot(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'reboot_instances' function.
 class RebootInstancesRequest(BaseValidatorModel):
     InstanceIds: List[str]
     DryRun: Optional[bool] = None
@@ -4621,6 +4920,7 @@ class RegisterInstanceTagAttributeRequest(BaseValidatorModel):
     InstanceTagKeys: Optional[List[str]] = None
 
 
+# This class is the input for the 'register_transit_gateway_multicast_group_members' function.
 class RegisterTransitGatewayMulticastGroupMembersRequest(BaseValidatorModel):
     TransitGatewayMulticastDomainId: str
     NetworkInterfaceIds: List[str]
@@ -4634,6 +4934,7 @@ class TransitGatewayMulticastRegisteredGroupMembers(BaseValidatorModel):
     GroupIpAddress: Optional[str] = None
 
 
+# This class is the input for the 'register_transit_gateway_multicast_group_sources' function.
 class RegisterTransitGatewayMulticastGroupSourcesRequest(BaseValidatorModel):
     TransitGatewayMulticastDomainId: str
     NetworkInterfaceIds: List[str]
@@ -4647,11 +4948,13 @@ class TransitGatewayMulticastRegisteredGroupSources(BaseValidatorModel):
     GroupIpAddress: Optional[str] = None
 
 
+# This class is the input for the 'reject_capacity_reservation_billing_ownership' function.
 class RejectCapacityReservationBillingOwnershipRequest(BaseValidatorModel):
     CapacityReservationId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'reject_transit_gateway_multicast_domain_associations' function.
 class RejectTransitGatewayMulticastDomainAssociationsRequest(BaseValidatorModel):
     TransitGatewayMulticastDomainId: Optional[str] = None
     TransitGatewayAttachmentId: Optional[str] = None
@@ -4659,22 +4962,26 @@ class RejectTransitGatewayMulticastDomainAssociationsRequest(BaseValidatorModel)
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'reject_transit_gateway_peering_attachment' function.
 class RejectTransitGatewayPeeringAttachmentRequest(BaseValidatorModel):
     TransitGatewayAttachmentId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'reject_transit_gateway_vpc_attachment' function.
 class RejectTransitGatewayVpcAttachmentRequest(BaseValidatorModel):
     TransitGatewayAttachmentId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'reject_vpc_endpoint_connections' function.
 class RejectVpcEndpointConnectionsRequest(BaseValidatorModel):
     ServiceId: str
     VpcEndpointIds: List[str]
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'reject_vpc_peering_connection' function.
 class RejectVpcPeeringConnectionRequest(BaseValidatorModel):
     VpcPeeringConnectionId: str
     DryRun: Optional[bool] = None
@@ -4691,6 +4998,7 @@ class ReleaseAddressRequestClassicAddressRelease(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'release_address' function.
 class ReleaseAddressRequest(BaseValidatorModel):
     AllocationId: Optional[str] = None
     PublicIp: Optional[str] = None
@@ -4705,10 +5013,12 @@ class ReleaseAddressRequestVpcAddressRelease(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'release_hosts' function.
 class ReleaseHostsRequest(BaseValidatorModel):
     HostIds: List[str]
 
 
+# This class is the input for the 'release_ipam_pool_allocation' function.
 class ReleaseIpamPoolAllocationRequest(BaseValidatorModel):
     IpamPoolId: str
     Cidr: str
@@ -4721,6 +5031,7 @@ class ReplaceNetworkAclAssociationRequestNetworkAclReplaceAssociation(BaseValida
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'replace_network_acl_association' function.
 class ReplaceNetworkAclAssociationRequest(BaseValidatorModel):
     AssociationId: str
     NetworkAclId: str
@@ -4745,6 +5056,7 @@ class ReplaceRouteRequestRouteReplace(BaseValidatorModel):
     NatGatewayId: Optional[str] = None
 
 
+# This class is the input for the 'replace_route' function.
 class ReplaceRouteRequest(BaseValidatorModel):
     RouteTableId: str
     DestinationPrefixListId: Optional[str] = None
@@ -4770,12 +5082,14 @@ class ReplaceRouteTableAssociationRequestRouteTableAssociationReplaceSubnet(Base
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'replace_route_table_association' function.
 class ReplaceRouteTableAssociationRequest(BaseValidatorModel):
     AssociationId: str
     RouteTableId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'replace_transit_gateway_route' function.
 class ReplaceTransitGatewayRouteRequest(BaseValidatorModel):
     DestinationCidrBlock: str
     TransitGatewayRouteTableId: str
@@ -4784,6 +5098,7 @@ class ReplaceTransitGatewayRouteRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'replace_vpn_tunnel' function.
 class ReplaceVpnTunnelRequest(BaseValidatorModel):
     VpnConnectionId: str
     VpnTunnelOutsideIpAddress: str
@@ -4795,16 +5110,19 @@ class ReservedInstancesId(BaseValidatorModel):
     ReservedInstancesId: Optional[str] = None
 
 
+# This class is the input for the 'reset_address_attribute' function.
 class ResetAddressAttributeRequest(BaseValidatorModel):
     AllocationId: str
     Attribute: Literal['domain-name']
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'reset_ebs_default_kms_key_id' function.
 class ResetEbsDefaultKmsKeyIdRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'reset_fpga_image_attribute' function.
 class ResetFpgaImageAttributeRequest(BaseValidatorModel):
     FpgaImageId: str
     DryRun: Optional[bool] = None
@@ -4816,6 +5134,7 @@ class ResetImageAttributeRequestImageResetAttribute(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'reset_image_attribute' function.
 class ResetImageAttributeRequest(BaseValidatorModel):
     Attribute: Literal['launchPermission']
     ImageId: str
@@ -4842,6 +5161,7 @@ class ResetInstanceAttributeRequestInstanceResetSourceDestCheck(BaseValidatorMod
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'reset_instance_attribute' function.
 class ResetInstanceAttributeRequest(BaseValidatorModel):
     InstanceId: str
     Attribute: InstanceAttributeNameType
@@ -4853,6 +5173,7 @@ class ResetNetworkInterfaceAttributeRequestNetworkInterfaceResetAttribute(BaseVa
     SourceDestCheck: Optional[str] = None
 
 
+# This class is the input for the 'reset_network_interface_attribute' function.
 class ResetNetworkInterfaceAttributeRequest(BaseValidatorModel):
     NetworkInterfaceId: str
     DryRun: Optional[bool] = None
@@ -4864,22 +5185,26 @@ class ResetSnapshotAttributeRequestSnapshotResetAttribute(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'reset_snapshot_attribute' function.
 class ResetSnapshotAttributeRequest(BaseValidatorModel):
     Attribute: SnapshotAttributeNameType
     SnapshotId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'restore_address_to_classic' function.
 class RestoreAddressToClassicRequest(BaseValidatorModel):
     PublicIp: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'restore_image_from_recycle_bin' function.
 class RestoreImageFromRecycleBinRequest(BaseValidatorModel):
     ImageId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'restore_managed_prefix_list_version' function.
 class RestoreManagedPrefixListVersionRequest(BaseValidatorModel):
     PrefixListId: str
     PreviousVersion: int
@@ -4887,11 +5212,13 @@ class RestoreManagedPrefixListVersionRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'restore_snapshot_from_recycle_bin' function.
 class RestoreSnapshotFromRecycleBinRequest(BaseValidatorModel):
     SnapshotId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'restore_snapshot_tier' function.
 class RestoreSnapshotTierRequest(BaseValidatorModel):
     SnapshotId: str
     TemporaryRestoreDays: Optional[int] = None
@@ -4899,6 +5226,7 @@ class RestoreSnapshotTierRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'revoke_client_vpn_ingress' function.
 class RevokeClientVpnIngressRequest(BaseValidatorModel):
     ClientVpnEndpointId: str
     TargetNetworkCidr: str
@@ -5023,6 +5351,7 @@ class SecurityGroupRuleRequest(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'send_diagnostic_interrupt' function.
 class SendDiagnosticInterruptRequest(BaseValidatorModel):
     InstanceId: str
     DryRun: Optional[bool] = None
@@ -5067,12 +5396,14 @@ class StartInstancesRequestInstanceStart(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'start_instances' function.
 class StartInstancesRequest(BaseValidatorModel):
     InstanceIds: List[str]
     AdditionalInfo: Optional[str] = None
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'start_vpc_endpoint_service_private_dns_verification' function.
 class StartVpcEndpointServicePrivateDnsVerificationRequest(BaseValidatorModel):
     ServiceId: str
     DryRun: Optional[bool] = None
@@ -5084,6 +5415,7 @@ class StopInstancesRequestInstanceStop(BaseValidatorModel):
     Force: Optional[bool] = None
 
 
+# This class is the input for the 'stop_instances' function.
 class StopInstancesRequest(BaseValidatorModel):
     InstanceIds: List[str]
     Hibernate: Optional[bool] = None
@@ -5115,6 +5447,7 @@ class TargetGroup(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
+# This class is the input for the 'terminate_client_vpn_connections' function.
 class TerminateClientVpnConnectionsRequest(BaseValidatorModel):
     ClientVpnEndpointId: str
     ConnectionId: Optional[str] = None
@@ -5126,6 +5459,7 @@ class TerminateInstancesRequestInstanceTerminate(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'terminate_instances' function.
 class TerminateInstancesRequest(BaseValidatorModel):
     InstanceIds: List[str]
     DryRun: Optional[bool] = None
@@ -5201,6 +5535,7 @@ class TransitGatewayVpcAttachmentOptions(BaseValidatorModel):
     ApplianceModeSupport: Optional[ApplianceModeSupportValueType] = None
 
 
+# This class is the input for the 'unassign_ipv6_addresses' function.
 class UnassignIpv6AddressesRequest(BaseValidatorModel):
     NetworkInterfaceId: str
     Ipv6Prefixes: Optional[List[str]] = None
@@ -5212,12 +5547,14 @@ class UnassignPrivateIpAddressesRequestNetworkInterfaceUnassignPrivateIpAddresse
     PrivateIpAddresses: Optional[List[str]] = None
 
 
+# This class is the input for the 'unassign_private_ip_addresses' function.
 class UnassignPrivateIpAddressesRequest(BaseValidatorModel):
     NetworkInterfaceId: str
     Ipv4Prefixes: Optional[List[str]] = None
     PrivateIpAddresses: Optional[List[str]] = None
 
 
+# This class is the input for the 'unassign_private_nat_gateway_address' function.
 class UnassignPrivateNatGatewayAddressRequest(BaseValidatorModel):
     NatGatewayId: str
     PrivateIpAddresses: List[str]
@@ -5225,6 +5562,7 @@ class UnassignPrivateNatGatewayAddressRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'unlock_snapshot' function.
 class UnlockSnapshotRequest(BaseValidatorModel):
     SnapshotId: str
     DryRun: Optional[bool] = None
@@ -5234,6 +5572,7 @@ class UnmonitorInstancesRequestInstanceUnmonitor(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'unmonitor_instances' function.
 class UnmonitorInstancesRequest(BaseValidatorModel):
     InstanceIds: List[str]
     DryRun: Optional[bool] = None
@@ -5386,26 +5725,31 @@ class VpnStaticRoute(BaseValidatorModel):
     State: Optional[VpnStateType] = None
 
 
+# This class is the input for the 'withdraw_byoip_cidr' function.
 class WithdrawByoipCidrRequest(BaseValidatorModel):
     Cidr: str
     DryRun: Optional[bool] = None
 
 
+# This class is the output for the 'accept_address_transfer' function.
 class AcceptAddressTransferResult(BaseValidatorModel):
     AddressTransfer: AddressTransfer
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'accept_capacity_reservation_billing_ownership' function.
 class AcceptCapacityReservationBillingOwnershipResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'accept_reserved_instances_exchange_quote' function.
 class AcceptReservedInstancesExchangeQuoteResult(BaseValidatorModel):
     ExchangeId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'allocate_address' function.
 class AllocateAddressResult(BaseValidatorModel):
     AllocationId: str
     PublicIpv4Pool: str
@@ -5418,16 +5762,19 @@ class AllocateAddressResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'allocate_hosts' function.
 class AllocateHostsResult(BaseValidatorModel):
     HostIds: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'apply_security_groups_to_client_vpn_target_network' function.
 class ApplySecurityGroupsToClientVpnTargetNetworkResult(BaseValidatorModel):
     SecurityGroupIds: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'assign_ipv6_addresses' function.
 class AssignIpv6AddressesResult(BaseValidatorModel):
     AssignedIpv6Addresses: List[str]
     AssignedIpv6Prefixes: List[str]
@@ -5435,16 +5782,19 @@ class AssignIpv6AddressesResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_address' function.
 class AssociateAddressResult(BaseValidatorModel):
     AssociationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_capacity_reservation_billing_owner' function.
 class AssociateCapacityReservationBillingOwnerResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_enclave_certificate_iam_role' function.
 class AssociateEnclaveCertificateIamRoleResult(BaseValidatorModel):
     CertificateS3BucketName: str
     CertificateS3ObjectKey: str
@@ -5452,37 +5802,44 @@ class AssociateEnclaveCertificateIamRoleResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_security_group_vpc' function.
 class AssociateSecurityGroupVpcResult(BaseValidatorModel):
     State: SecurityGroupVpcAssociationStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'attach_classic_link_vpc' function.
 class AttachClassicLinkVpcResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'attach_network_interface' function.
 class AttachNetworkInterfaceResult(BaseValidatorModel):
     AttachmentId: str
     NetworkCardIndex: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_capacity_reservation' function.
 class CancelCapacityReservationResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_declarative_policies_report' function.
 class CancelDeclarativePoliciesReportResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_image_launch_permission' function.
 class CancelImageLaunchPermissionResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_import_task' function.
 class CancelImportTaskResult(BaseValidatorModel):
     ImportTaskId: str
     PreviousState: str
@@ -5490,322 +5847,385 @@ class CancelImportTaskResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'confirm_product_instance' function.
 class ConfirmProductInstanceResult(BaseValidatorModel):
     Return: bool
     OwnerId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'copy_fpga_image' function.
 class CopyFpgaImageResult(BaseValidatorModel):
     FpgaImageId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'copy_image' function.
 class CopyImageResult(BaseValidatorModel):
     ImageId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_fpga_image' function.
 class CreateFpgaImageResult(BaseValidatorModel):
     FpgaImageId: str
     FpgaImageGlobalId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_image' function.
 class CreateImageResult(BaseValidatorModel):
     ImageId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_public_ipv4_pool' function.
 class CreatePublicIpv4PoolResult(BaseValidatorModel):
     PoolId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_restore_image_task' function.
 class CreateRestoreImageTaskResult(BaseValidatorModel):
     ImageId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_route' function.
 class CreateRouteResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_store_image_task' function.
 class CreateStoreImageTaskResult(BaseValidatorModel):
     ObjectKey: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_egress_only_internet_gateway' function.
 class DeleteEgressOnlyInternetGatewayResult(BaseValidatorModel):
     ReturnCode: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_fpga_image' function.
 class DeleteFpgaImageResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_key_pair' function.
 class DeleteKeyPairResult(BaseValidatorModel):
     Return: bool
     KeyPairId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_nat_gateway' function.
 class DeleteNatGatewayResult(BaseValidatorModel):
     NatGatewayId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_network_insights_access_scope_analysis' function.
 class DeleteNetworkInsightsAccessScopeAnalysisResult(BaseValidatorModel):
     NetworkInsightsAccessScopeAnalysisId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_network_insights_access_scope' function.
 class DeleteNetworkInsightsAccessScopeResult(BaseValidatorModel):
     NetworkInsightsAccessScopeId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_network_insights_analysis' function.
 class DeleteNetworkInsightsAnalysisResult(BaseValidatorModel):
     NetworkInsightsAnalysisId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_network_insights_path' function.
 class DeleteNetworkInsightsPathResult(BaseValidatorModel):
     NetworkInsightsPathId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_network_interface_permission' function.
 class DeleteNetworkInterfacePermissionResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_public_ipv4_pool' function.
 class DeletePublicIpv4PoolResult(BaseValidatorModel):
     ReturnValue: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_security_group' function.
 class DeleteSecurityGroupResult(BaseValidatorModel):
     Return: bool
     GroupId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_traffic_mirror_filter' function.
 class DeleteTrafficMirrorFilterResult(BaseValidatorModel):
     TrafficMirrorFilterId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_traffic_mirror_filter_rule' function.
 class DeleteTrafficMirrorFilterRuleResult(BaseValidatorModel):
     TrafficMirrorFilterRuleId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_traffic_mirror_session' function.
 class DeleteTrafficMirrorSessionResult(BaseValidatorModel):
     TrafficMirrorSessionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_traffic_mirror_target' function.
 class DeleteTrafficMirrorTargetResult(BaseValidatorModel):
     TrafficMirrorTargetId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_vpc_peering_connection' function.
 class DeleteVpcPeeringConnectionResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'deprovision_public_ipv4_pool_cidr' function.
 class DeprovisionPublicIpv4PoolCidrResult(BaseValidatorModel):
     PoolId: str
     DeprovisionedAddresses: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_address_transfers' function.
 class DescribeAddressTransfersResult(BaseValidatorModel):
     AddressTransfers: List[AddressTransfer]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'detach_classic_link_vpc' function.
 class DetachClassicLinkVpcResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disable_address_transfer' function.
 class DisableAddressTransferResult(BaseValidatorModel):
     AddressTransfer: AddressTransfer
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disable_allowed_images_settings' function.
 class DisableAllowedImagesSettingsResult(BaseValidatorModel):
     AllowedImagesSettingsState: Literal['disabled']
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disable_aws_network_performance_metric_subscription' function.
 class DisableAwsNetworkPerformanceMetricSubscriptionResult(BaseValidatorModel):
     Output: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disable_ebs_encryption_by_default' function.
 class DisableEbsEncryptionByDefaultResult(BaseValidatorModel):
     EbsEncryptionByDefault: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disable_image_block_public_access' function.
 class DisableImageBlockPublicAccessResult(BaseValidatorModel):
     ImageBlockPublicAccessState: Literal['unblocked']
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disable_image_deprecation' function.
 class DisableImageDeprecationResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disable_image_deregistration_protection' function.
 class DisableImageDeregistrationProtectionResult(BaseValidatorModel):
     Return: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disable_image' function.
 class DisableImageResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disable_ipam_organization_admin_account' function.
 class DisableIpamOrganizationAdminAccountResult(BaseValidatorModel):
     Success: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disable_serial_console_access' function.
 class DisableSerialConsoleAccessResult(BaseValidatorModel):
     SerialConsoleAccessEnabled: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disable_snapshot_block_public_access' function.
 class DisableSnapshotBlockPublicAccessResult(BaseValidatorModel):
     State: SnapshotBlockPublicAccessStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disable_vpc_classic_link_dns_support' function.
 class DisableVpcClassicLinkDnsSupportResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disable_vpc_classic_link' function.
 class DisableVpcClassicLinkResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_capacity_reservation_billing_owner' function.
 class DisassociateCapacityReservationBillingOwnerResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_enclave_certificate_iam_role' function.
 class DisassociateEnclaveCertificateIamRoleResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_security_group_vpc' function.
 class DisassociateSecurityGroupVpcResult(BaseValidatorModel):
     State: SecurityGroupVpcAssociationStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_trunk_interface' function.
 class DisassociateTrunkInterfaceResult(BaseValidatorModel):
     Return: bool
     ClientToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'unassign_private_ip_addresses' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enable_address_transfer' function.
 class EnableAddressTransferResult(BaseValidatorModel):
     AddressTransfer: AddressTransfer
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enable_allowed_images_settings' function.
 class EnableAllowedImagesSettingsResult(BaseValidatorModel):
     AllowedImagesSettingsState: AllowedImagesSettingsEnabledStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enable_aws_network_performance_metric_subscription' function.
 class EnableAwsNetworkPerformanceMetricSubscriptionResult(BaseValidatorModel):
     Output: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enable_ebs_encryption_by_default' function.
 class EnableEbsEncryptionByDefaultResult(BaseValidatorModel):
     EbsEncryptionByDefault: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enable_image_block_public_access' function.
 class EnableImageBlockPublicAccessResult(BaseValidatorModel):
     ImageBlockPublicAccessState: Literal['block-new-sharing']
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enable_image_deprecation' function.
 class EnableImageDeprecationResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enable_image_deregistration_protection' function.
 class EnableImageDeregistrationProtectionResult(BaseValidatorModel):
     Return: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enable_image' function.
 class EnableImageResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enable_ipam_organization_admin_account' function.
 class EnableIpamOrganizationAdminAccountResult(BaseValidatorModel):
     Success: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enable_reachability_analyzer_organization_sharing' function.
 class EnableReachabilityAnalyzerOrganizationSharingResult(BaseValidatorModel):
     ReturnValue: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enable_serial_console_access' function.
 class EnableSerialConsoleAccessResult(BaseValidatorModel):
     SerialConsoleAccessEnabled: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enable_snapshot_block_public_access' function.
 class EnableSnapshotBlockPublicAccessResult(BaseValidatorModel):
     State: SnapshotBlockPublicAccessStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enable_vpc_classic_link_dns_support' function.
 class EnableVpcClassicLinkDnsSupportResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enable_vpc_classic_link' function.
 class EnableVpcClassicLinkResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'export_client_vpn_client_configuration' function.
 class ExportClientVpnClientConfigurationResult(BaseValidatorModel):
     ClientConfiguration: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'export_transit_gateway_routes' function.
 class ExportTransitGatewayRoutesResult(BaseValidatorModel):
     S3Location: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_console_output' function.
 class GetConsoleOutputResult(BaseValidatorModel):
     InstanceId: str
     Timestamp: datetime
@@ -5813,34 +6233,40 @@ class GetConsoleOutputResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_console_screenshot' function.
 class GetConsoleScreenshotResult(BaseValidatorModel):
     ImageData: str
     InstanceId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_ebs_default_kms_key_id' function.
 class GetEbsDefaultKmsKeyIdResult(BaseValidatorModel):
     KmsKeyId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_ebs_encryption_by_default' function.
 class GetEbsEncryptionByDefaultResult(BaseValidatorModel):
     EbsEncryptionByDefault: bool
     SseType: SSETypeType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_flow_logs_integration_template' function.
 class GetFlowLogsIntegrationTemplateResult(BaseValidatorModel):
     Result: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_image_block_public_access_state' function.
 class GetImageBlockPublicAccessStateResult(BaseValidatorModel):
     ImageBlockPublicAccessState: str
     ManagedBy: ManagedByType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_instance_tpm_ek_pub' function.
 class GetInstanceTpmEkPubResult(BaseValidatorModel):
     InstanceId: str
     KeyType: EkPubKeyTypeType
@@ -5849,12 +6275,14 @@ class GetInstanceTpmEkPubResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_instance_uefi_data' function.
 class GetInstanceUefiDataResult(BaseValidatorModel):
     InstanceId: str
     UefiData: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_password_data' function.
 class GetPasswordDataResult(BaseValidatorModel):
     InstanceId: str
     Timestamp: datetime
@@ -5862,40 +6290,47 @@ class GetPasswordDataResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_serial_console_access_status' function.
 class GetSerialConsoleAccessStatusResult(BaseValidatorModel):
     SerialConsoleAccessEnabled: bool
     ManagedBy: ManagedByType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_snapshot_block_public_access_state' function.
 class GetSnapshotBlockPublicAccessStateResult(BaseValidatorModel):
     State: SnapshotBlockPublicAccessStateType
     ManagedBy: ManagedByType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_verified_access_endpoint_policy' function.
 class GetVerifiedAccessEndpointPolicyResult(BaseValidatorModel):
     PolicyEnabled: bool
     PolicyDocument: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_verified_access_group_policy' function.
 class GetVerifiedAccessGroupPolicyResult(BaseValidatorModel):
     PolicyEnabled: bool
     PolicyDocument: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_vpn_connection_device_sample_configuration' function.
 class GetVpnConnectionDeviceSampleConfigurationResult(BaseValidatorModel):
     VpnConnectionDeviceSampleConfiguration: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_client_vpn_client_certificate_revocation_list' function.
 class ImportClientVpnClientCertificateRevocationListResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'lock_snapshot' function.
 class LockSnapshotResult(BaseValidatorModel):
     SnapshotId: str
     LockState: LockStateType
@@ -5908,41 +6343,49 @@ class LockSnapshotResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_availability_zone_group' function.
 class ModifyAvailabilityZoneGroupResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_capacity_reservation_fleet' function.
 class ModifyCapacityReservationFleetResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_capacity_reservation' function.
 class ModifyCapacityReservationResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_client_vpn_endpoint' function.
 class ModifyClientVpnEndpointResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_ebs_default_kms_key_id' function.
 class ModifyEbsDefaultKmsKeyIdResult(BaseValidatorModel):
     KmsKeyId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_fleet' function.
 class ModifyFleetResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_instance_capacity_reservation_attributes' function.
 class ModifyInstanceCapacityReservationAttributesResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_instance_cpu_options' function.
 class ModifyInstanceCpuOptionsResult(BaseValidatorModel):
     InstanceId: str
     CoreCount: int
@@ -5950,151 +6393,180 @@ class ModifyInstanceCpuOptionsResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_instance_maintenance_options' function.
 class ModifyInstanceMaintenanceOptionsResult(BaseValidatorModel):
     InstanceId: str
     AutoRecovery: InstanceAutoRecoveryStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_instance_metadata_defaults' function.
 class ModifyInstanceMetadataDefaultsResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_instance_network_performance_options' function.
 class ModifyInstanceNetworkPerformanceResult(BaseValidatorModel):
     InstanceId: str
     BandwidthWeighting: InstanceBandwidthWeightingType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_instance_placement' function.
 class ModifyInstancePlacementResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_private_dns_name_options' function.
 class ModifyPrivateDnsNameOptionsResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_reserved_instances' function.
 class ModifyReservedInstancesResult(BaseValidatorModel):
     ReservedInstancesModificationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_security_group_rules' function.
 class ModifySecurityGroupRulesResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_snapshot_tier' function.
 class ModifySnapshotTierResult(BaseValidatorModel):
     SnapshotId: str
     TieringStartTime: datetime
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_spot_fleet_request' function.
 class ModifySpotFleetRequestResponse(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_vpc_endpoint_connection_notification' function.
 class ModifyVpcEndpointConnectionNotificationResult(BaseValidatorModel):
     ReturnValue: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_vpc_endpoint' function.
 class ModifyVpcEndpointResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_vpc_endpoint_service_configuration' function.
 class ModifyVpcEndpointServiceConfigurationResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_vpc_endpoint_service_payer_responsibility' function.
 class ModifyVpcEndpointServicePayerResponsibilityResult(BaseValidatorModel):
     ReturnValue: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_vpc_tenancy' function.
 class ModifyVpcTenancyResult(BaseValidatorModel):
     ReturnValue: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'move_address_to_vpc' function.
 class MoveAddressToVpcResult(BaseValidatorModel):
     AllocationId: str
     Status: StatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'purchase_reserved_instances_offering' function.
 class PurchaseReservedInstancesOfferingResult(BaseValidatorModel):
     ReservedInstancesId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_image' function.
 class RegisterImageResult(BaseValidatorModel):
     ImageId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reject_capacity_reservation_billing_ownership' function.
 class RejectCapacityReservationBillingOwnershipResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reject_vpc_peering_connection' function.
 class RejectVpcPeeringConnectionResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'release_ipam_pool_allocation' function.
 class ReleaseIpamPoolAllocationResult(BaseValidatorModel):
     Success: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'replace_image_criteria_in_allowed_images_settings' function.
 class ReplaceImageCriteriaInAllowedImagesSettingsResult(BaseValidatorModel):
     ReturnValue: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'replace_network_acl_association' function.
 class ReplaceNetworkAclAssociationResult(BaseValidatorModel):
     NewAssociationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'replace_vpn_tunnel' function.
 class ReplaceVpnTunnelResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'request_spot_fleet' function.
 class RequestSpotFleetResponse(BaseValidatorModel):
     SpotFleetRequestId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reset_ebs_default_kms_key_id' function.
 class ResetEbsDefaultKmsKeyIdResult(BaseValidatorModel):
     KmsKeyId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reset_fpga_image_attribute' function.
 class ResetFpgaImageAttributeResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'restore_address_to_classic' function.
 class RestoreAddressToClassicResult(BaseValidatorModel):
     PublicIp: str
     Status: StatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'restore_image_from_recycle_bin' function.
 class RestoreImageFromRecycleBinResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'restore_snapshot_from_recycle_bin' function.
 class RestoreSnapshotFromRecycleBinResult(BaseValidatorModel):
     SnapshotId: str
     OutpostArn: str
@@ -6110,6 +6582,7 @@ class RestoreSnapshotFromRecycleBinResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'restore_snapshot_tier' function.
 class RestoreSnapshotTierResult(BaseValidatorModel):
     SnapshotId: str
     RestoreStartTime: datetime
@@ -6118,21 +6591,25 @@ class RestoreSnapshotTierResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'run_scheduled_instances' function.
 class RunScheduledInstancesResult(BaseValidatorModel):
     InstanceIdSet: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_declarative_policies_report' function.
 class StartDeclarativePoliciesReportResult(BaseValidatorModel):
     ReportId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_vpc_endpoint_service_private_dns_verification' function.
 class StartVpcEndpointServicePrivateDnsVerificationResult(BaseValidatorModel):
     ReturnValue: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'unassign_ipv6_addresses' function.
 class UnassignIpv6AddressesResult(BaseValidatorModel):
     NetworkInterfaceId: str
     UnassignedIpv6Addresses: List[str]
@@ -6140,21 +6617,25 @@ class UnassignIpv6AddressesResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'unlock_snapshot' function.
 class UnlockSnapshotResult(BaseValidatorModel):
     SnapshotId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_security_group_rule_descriptions_egress' function.
 class UpdateSecurityGroupRuleDescriptionsEgressResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_security_group_rule_descriptions_ingress' function.
 class UpdateSecurityGroupRuleDescriptionsIngressResult(BaseValidatorModel):
     Return: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'detach_volume' function.
 class VolumeAttachmentResponse(BaseValidatorModel):
     DeleteOnTermination: bool
     AssociatedResource: str
@@ -6167,12 +6648,14 @@ class VolumeAttachmentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'accept_reserved_instances_exchange_quote' function.
 class AcceptReservedInstancesExchangeQuoteRequest(BaseValidatorModel):
     ReservedInstanceIds: List[str]
     DryRun: Optional[bool] = None
     TargetConfigurations: Optional[List[TargetConfigurationRequest]] = None
 
 
+# This class is the input for the 'get_reserved_instances_exchange_quote' function.
 class GetReservedInstancesExchangeQuoteRequest(BaseValidatorModel):
     ReservedInstanceIds: List[str]
     DryRun: Optional[bool] = None
@@ -6184,6 +6667,7 @@ class AccountAttribute(BaseValidatorModel):
     AttributeValues: Optional[List[AccountAttributeValue]] = None
 
 
+# This class is the output for the 'describe_fleet_instances' function.
 class DescribeFleetInstancesResult(BaseValidatorModel):
     ActiveInstances: List[ActiveInstance]
     FleetId: str
@@ -6191,6 +6675,7 @@ class DescribeFleetInstancesResult(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_spot_fleet_instances' function.
 class DescribeSpotFleetInstancesResponse(BaseValidatorModel):
     ActiveInstances: List[ActiveInstance]
     SpotFleetRequestId: str
@@ -6198,6 +6683,7 @@ class DescribeSpotFleetInstancesResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'modify_vpc_endpoint_service_permissions' function.
 class ModifyVpcEndpointServicePermissionsResult(BaseValidatorModel):
     AddedPrincipals: List[AddedPrincipal]
     ReturnValue: bool
@@ -6257,12 +6743,14 @@ class CarrierGateway(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_tags' function.
 class ClientCreateTagsRequest(BaseValidatorModel):
     Resources: List[str]
     Tags: List[Tag]
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'delete_tags' function.
 class ClientDeleteTagsRequest(BaseValidatorModel):
     Resources: List[str]
     Tags: Optional[List[Tag]] = None
@@ -6277,12 +6765,14 @@ class CoipPool(BaseValidatorModel):
     PoolArn: Optional[str] = None
 
 
+# This class is the output for the 'copy_snapshot' function.
 class CopySnapshotResult(BaseValidatorModel):
     Tags: List[Tag]
     SnapshotId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_security_group' function.
 class CreateSecurityGroupResult(BaseValidatorModel):
     GroupId: str
     Tags: List[Tag]
@@ -6364,6 +6854,7 @@ class ImageCreateTagsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the output for the 'import_key_pair' function.
 class ImportKeyPairResult(BaseValidatorModel):
     KeyFingerprint: str
     KeyName: str
@@ -6457,6 +6948,7 @@ class KeyPairInfo(BaseValidatorModel):
     KeyFingerprint: Optional[str] = None
 
 
+# This class is the output for the 'create_key_pair' function.
 class KeyPair(BaseValidatorModel):
     KeyPairId: str
     Tags: List[Tag]
@@ -6634,6 +7126,7 @@ class SnapshotInfo(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
 
 
+# This class is the output for the 'create_snapshot' function.
 class SnapshotResponse(BaseValidatorModel):
     OwnerAlias: str
     OutpostArn: str
@@ -6831,11 +7324,13 @@ class VpcCreateTagsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the output for the 'allocate_ipam_pool_cidr' function.
 class AllocateIpamPoolCidrResult(BaseValidatorModel):
     IpamPoolAllocation: IpamPoolAllocation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_ipam_pool_allocations' function.
 class GetIpamPoolAllocationsResult(BaseValidatorModel):
     IpamPoolAllocations: List[IpamPoolAllocation]
     ResponseMetadata: ResponseMetadata
@@ -6890,6 +7385,7 @@ class FirewallStatelessRule(BaseValidatorModel):
     Priority: Optional[int] = None
 
 
+# This class is the output for the 'associate_ipam_byoasn' function.
 class AssociateIpamByoasnResult(BaseValidatorModel):
     AsnAssociation: AsnAssociation
     ResponseMetadata: ResponseMetadata
@@ -6904,11 +7400,13 @@ class ByoipCidr(BaseValidatorModel):
     NetworkBorderGroup: Optional[str] = None
 
 
+# This class is the output for the 'disassociate_ipam_byoasn' function.
 class DisassociateIpamByoasnResult(BaseValidatorModel):
     AsnAssociation: AsnAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'provision_ipam_byoasn' function.
 class ProvisionIpamByoasnRequest(BaseValidatorModel):
     IpamId: str
     Asn: str
@@ -6916,6 +7414,7 @@ class ProvisionIpamByoasnRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the output for the 'assign_private_ip_addresses' function.
 class AssignPrivateIpAddressesResult(BaseValidatorModel):
     NetworkInterfaceId: str
     AssignedPrivateIpAddresses: List[AssignedPrivateIpAddress]
@@ -6923,36 +7422,42 @@ class AssignPrivateIpAddressesResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'assign_private_nat_gateway_address' function.
 class AssignPrivateNatGatewayAddressResult(BaseValidatorModel):
     NatGatewayId: str
     NatGatewayAddresses: List[NatGatewayAddress]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_nat_gateway_address' function.
 class AssociateNatGatewayAddressResult(BaseValidatorModel):
     NatGatewayId: str
     NatGatewayAddresses: List[NatGatewayAddress]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_nat_gateway_address' function.
 class DisassociateNatGatewayAddressResult(BaseValidatorModel):
     NatGatewayId: str
     NatGatewayAddresses: List[NatGatewayAddress]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'unassign_private_nat_gateway_address' function.
 class UnassignPrivateNatGatewayAddressResult(BaseValidatorModel):
     NatGatewayId: str
     NatGatewayAddresses: List[NatGatewayAddress]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_client_vpn_target_network' function.
 class AssociateClientVpnTargetNetworkResult(BaseValidatorModel):
     AssociationId: str
     Status: AssociationStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_client_vpn_target_network' function.
 class DisassociateClientVpnTargetNetworkResult(BaseValidatorModel):
     AssociationId: str
     Status: AssociationStatus
@@ -6968,22 +7473,26 @@ class TargetNetwork(BaseValidatorModel):
     SecurityGroups: Optional[List[str]] = None
 
 
+# This class is the input for the 'associate_iam_instance_profile' function.
 class AssociateIamInstanceProfileRequest(BaseValidatorModel):
     IamInstanceProfile: IamInstanceProfileSpecification
     InstanceId: str
 
 
+# This class is the input for the 'replace_iam_instance_profile_association' function.
 class ReplaceIamInstanceProfileAssociationRequest(BaseValidatorModel):
     IamInstanceProfile: IamInstanceProfileSpecification
     AssociationId: str
 
 
+# This class is the output for the 'associate_route_table' function.
 class AssociateRouteTableResult(BaseValidatorModel):
     AssociationId: str
     AssociationState: RouteTableAssociationState
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'replace_route_table_association' function.
 class ReplaceRouteTableAssociationResult(BaseValidatorModel):
     NewAssociationId: str
     AssociationState: RouteTableAssociationState
@@ -6999,32 +7508,38 @@ class RouteTableAssociation(BaseValidatorModel):
     AssociationState: Optional[RouteTableAssociationState] = None
 
 
+# This class is the output for the 'associate_transit_gateway_policy_table' function.
 class AssociateTransitGatewayPolicyTableResult(BaseValidatorModel):
     Association: TransitGatewayPolicyTableAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_transit_gateway_policy_table' function.
 class DisassociateTransitGatewayPolicyTableResult(BaseValidatorModel):
     Association: TransitGatewayPolicyTableAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_transit_gateway_policy_table_associations' function.
 class GetTransitGatewayPolicyTableAssociationsResult(BaseValidatorModel):
     Associations: List[TransitGatewayPolicyTableAssociation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'associate_transit_gateway_route_table' function.
 class AssociateTransitGatewayRouteTableResult(BaseValidatorModel):
     Association: TransitGatewayAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_transit_gateway_route_table' function.
 class DisassociateTransitGatewayRouteTableResult(BaseValidatorModel):
     Association: TransitGatewayAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_associated_enclave_certificate_iam_roles' function.
 class GetAssociatedEnclaveCertificateIamRolesResult(BaseValidatorModel):
     AssociatedRoles: List[AssociatedRole]
     ResponseMetadata: ResponseMetadata
@@ -7044,6 +7559,7 @@ class ClientData(BaseValidatorModel):
     UploadStart: Optional[Timestamp] = None
 
 
+# This class is the input for the 'describe_capacity_block_offerings' function.
 class DescribeCapacityBlockOfferingsRequest(BaseValidatorModel):
     CapacityDurationHours: int
     DryRun: Optional[bool] = None
@@ -7055,6 +7571,7 @@ class DescribeCapacityBlockOfferingsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_fleet_history' function.
 class DescribeFleetHistoryRequest(BaseValidatorModel):
     FleetId: str
     StartTime: Timestamp
@@ -7064,6 +7581,7 @@ class DescribeFleetHistoryRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_spot_fleet_request_history' function.
 class DescribeSpotFleetRequestHistoryRequest(BaseValidatorModel):
     SpotFleetRequestId: str
     StartTime: Timestamp
@@ -7073,12 +7591,14 @@ class DescribeSpotFleetRequestHistoryRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'enable_image_deprecation' function.
 class EnableImageDeprecationRequest(BaseValidatorModel):
     ImageId: str
     DeprecateAt: Timestamp
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'get_ipam_address_history' function.
 class GetIpamAddressHistoryRequest(BaseValidatorModel):
     Cidr: str
     IpamScopeId: str
@@ -7098,6 +7618,7 @@ class LaunchTemplateSpotMarketOptionsRequest(BaseValidatorModel):
     InstanceInterruptionBehavior: Optional[InstanceInterruptionBehaviorType] = None
 
 
+# This class is the input for the 'lock_snapshot' function.
 class LockSnapshotRequest(BaseValidatorModel):
     SnapshotId: str
     LockMode: LockModeType
@@ -7107,6 +7628,7 @@ class LockSnapshotRequest(BaseValidatorModel):
     ExpirationDate: Optional[Timestamp] = None
 
 
+# This class is the input for the 'modify_capacity_reservation_fleet' function.
 class ModifyCapacityReservationFleetRequest(BaseValidatorModel):
     CapacityReservationFleetId: str
     TotalTargetCapacity: Optional[int] = None
@@ -7115,6 +7637,7 @@ class ModifyCapacityReservationFleetRequest(BaseValidatorModel):
     RemoveEndDate: Optional[bool] = None
 
 
+# This class is the input for the 'modify_capacity_reservation' function.
 class ModifyCapacityReservationRequest(BaseValidatorModel):
     CapacityReservationId: str
     InstanceCount: Optional[int] = None
@@ -7126,6 +7649,7 @@ class ModifyCapacityReservationRequest(BaseValidatorModel):
     InstanceMatchCriteria: Optional[InstanceMatchCriteriaType] = None
 
 
+# This class is the input for the 'modify_instance_event_start_time' function.
 class ModifyInstanceEventStartTimeRequest(BaseValidatorModel):
     InstanceId: str
     InstanceEventId: str
@@ -7142,6 +7666,7 @@ class ReportInstanceStatusRequestInstanceReportStatus(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'report_instance_status' function.
 class ReportInstanceStatusRequest(BaseValidatorModel):
     Instances: List[str]
     Status: ReportStatusTypeType
@@ -7170,6 +7695,7 @@ class SpotMarketOptions(BaseValidatorModel):
     InstanceInterruptionBehavior: Optional[InstanceInterruptionBehaviorType] = None
 
 
+# This class is the output for the 'attach_vpn_gateway' function.
 class AttachVpnGatewayResult(BaseValidatorModel):
     VpcAttachment: VpcAttachment
     ResponseMetadata: ResponseMetadata
@@ -7190,6 +7716,7 @@ class AttachmentEnaSrdSpecification(BaseValidatorModel):
     EnaSrdUdpSpecification: Optional[AttachmentEnaSrdUdpSpecification] = None
 
 
+# This class is the output for the 'describe_vpc_attribute' function.
 class DescribeVpcAttributeResult(BaseValidatorModel):
     EnableDnsHostnames: AttributeBooleanValue
     EnableDnsSupport: AttributeBooleanValue
@@ -7198,6 +7725,7 @@ class DescribeVpcAttributeResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'modify_subnet_attribute' function.
 class ModifySubnetAttributeRequest(BaseValidatorModel):
     SubnetId: str
     AssignIpv6AddressOnCreation: Optional[AttributeBooleanValue] = None
@@ -7212,6 +7740,7 @@ class ModifySubnetAttributeRequest(BaseValidatorModel):
     DisableLniAtDeviceIndex: Optional[AttributeBooleanValue] = None
 
 
+# This class is the input for the 'modify_volume_attribute' function.
 class ModifyVolumeAttributeRequest(BaseValidatorModel):
     VolumeId: str
     AutoEnableIO: Optional[AttributeBooleanValue] = None
@@ -7223,6 +7752,7 @@ class ModifyVolumeAttributeRequestVolumeModifyAttribute(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'modify_vpc_attribute' function.
 class ModifyVpcAttributeRequest(BaseValidatorModel):
     VpcId: str
     EnableDnsHostnames: Optional[AttributeBooleanValue] = None
@@ -7258,11 +7788,13 @@ class AuthorizationRule(BaseValidatorModel):
     Status: Optional[ClientVpnAuthorizationRuleStatus] = None
 
 
+# This class is the output for the 'authorize_client_vpn_ingress' function.
 class AuthorizeClientVpnIngressResult(BaseValidatorModel):
     Status: ClientVpnAuthorizationRuleStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'revoke_client_vpn_ingress' function.
 class RevokeClientVpnIngressResult(BaseValidatorModel):
     Status: ClientVpnAuthorizationRuleStatus
     ResponseMetadata: ResponseMetadata
@@ -7313,17 +7845,20 @@ class BlockDeviceMapping(BaseValidatorModel):
     VirtualName: Optional[str] = None
 
 
+# This class is the output for the 'deprovision_ipam_byoasn' function.
 class DeprovisionIpamByoasnResult(BaseValidatorModel):
     Byoasn: Byoasn
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_ipam_byoasn' function.
 class DescribeIpamByoasnResult(BaseValidatorModel):
     Byoasns: List[Byoasn]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'provision_ipam_byoasn' function.
 class ProvisionIpamByoasnResult(BaseValidatorModel):
     Byoasn: Byoasn
     ResponseMetadata: ResponseMetadata
@@ -7339,28 +7874,33 @@ class CancelSpotFleetRequestsErrorItem(BaseValidatorModel):
     SpotFleetRequestId: Optional[str] = None
 
 
+# This class is the output for the 'cancel_spot_instance_requests' function.
 class CancelSpotInstanceRequestsResult(BaseValidatorModel):
     CancelledSpotInstanceRequests: List[CancelledSpotInstanceRequest]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_capacity_block_extension_offerings' function.
 class DescribeCapacityBlockExtensionOfferingsResult(BaseValidatorModel):
     CapacityBlockExtensionOfferings: List[CapacityBlockExtensionOffering]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_capacity_block_extension_history' function.
 class DescribeCapacityBlockExtensionHistoryResult(BaseValidatorModel):
     CapacityBlockExtensions: List[CapacityBlockExtension]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'purchase_capacity_block_extension' function.
 class PurchaseCapacityBlockExtensionResult(BaseValidatorModel):
     CapacityBlockExtensions: List[CapacityBlockExtension]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_capacity_block_offerings' function.
 class DescribeCapacityBlockOfferingsResult(BaseValidatorModel):
     CapacityBlockOfferings: List[CapacityBlockOffering]
     ResponseMetadata: ResponseMetadata
@@ -7422,6 +7962,7 @@ class CapacityReservationFleet(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'create_capacity_reservation_fleet' function.
 class CreateCapacityReservationFleetResult(BaseValidatorModel):
     CapacityReservationFleetId: str
     State: CapacityReservationFleetStateType
@@ -7437,6 +7978,7 @@ class CreateCapacityReservationFleetResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_groups_for_capacity_reservation' function.
 class GetGroupsForCapacityReservationResult(BaseValidatorModel):
     CapacityReservationGroups: List[CapacityReservationGroup]
     ResponseMetadata: ResponseMetadata
@@ -7481,6 +8023,7 @@ class LaunchTemplateCapacityReservationSpecificationRequest(BaseValidatorModel):
     CapacityReservationTarget: Optional[CapacityReservationTarget] = None
 
 
+# This class is the output for the 'describe_vpc_classic_link_dns_support' function.
 class DescribeVpcClassicLinkDnsSupportResult(BaseValidatorModel):
     Vpcs: List[ClassicLinkDnsSupport]
     ResponseMetadata: ResponseMetadata
@@ -7502,6 +8045,7 @@ class ClassicLoadBalancersConfig(BaseValidatorModel):
     ClassicLoadBalancers: Optional[List[ClassicLoadBalancer]] = None
 
 
+# This class is the output for the 'export_client_vpn_client_certificate_revocation_list' function.
 class ExportClientVpnClientCertificateRevocationListResult(BaseValidatorModel):
     CertificateRevocationList: str
     Status: ClientCertificateRevocationListStatus
@@ -7551,6 +8095,7 @@ class TerminateConnectionStatus(BaseValidatorModel):
     CurrentStatus: Optional[ClientVpnConnectionStatus] = None
 
 
+# This class is the output for the 'create_client_vpn_endpoint' function.
 class CreateClientVpnEndpointResult(BaseValidatorModel):
     ClientVpnEndpointId: str
     Status: ClientVpnEndpointStatus
@@ -7558,6 +8103,7 @@ class CreateClientVpnEndpointResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_client_vpn_endpoint' function.
 class DeleteClientVpnEndpointResult(BaseValidatorModel):
     Status: ClientVpnEndpointStatus
     ResponseMetadata: ResponseMetadata
@@ -7573,11 +8119,13 @@ class ClientVpnRoute(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the output for the 'create_client_vpn_route' function.
 class CreateClientVpnRouteResult(BaseValidatorModel):
     Status: ClientVpnRouteStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_client_vpn_route' function.
 class DeleteClientVpnRouteResult(BaseValidatorModel):
     Status: ClientVpnRouteStatus
     ResponseMetadata: ResponseMetadata
@@ -7591,6 +8139,7 @@ class VpnTunnelLogOptions(BaseValidatorModel):
     CloudWatchLogOptions: Optional[CloudWatchLogOptions] = None
 
 
+# This class is the output for the 'get_coip_pool_usage' function.
 class GetCoipPoolUsageResult(BaseValidatorModel):
     CoipPoolId: str
     CoipAddressUsages: List[CoipAddressUsage]
@@ -7599,22 +8148,26 @@ class GetCoipPoolUsageResult(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_coip_cidr' function.
 class CreateCoipCidrResult(BaseValidatorModel):
     CoipCidr: CoipCidr
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_coip_cidr' function.
 class DeleteCoipCidrResult(BaseValidatorModel):
     CoipCidr: CoipCidr
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_vpc_endpoint_connection_notification' function.
 class CreateVpcEndpointConnectionNotificationResult(BaseValidatorModel):
     ConnectionNotification: ConnectionNotification
     ClientToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_vpc_endpoint_connection_notifications' function.
 class DescribeVpcEndpointConnectionNotificationsResult(BaseValidatorModel):
     ConnectionNotificationSet: List[ConnectionNotification]
     ResponseMetadata: ResponseMetadata
@@ -7633,6 +8186,7 @@ class CpuPerformanceFactorRequest(BaseValidatorModel):
     References: Optional[List[PerformanceFactorReferenceRequest]] = None
 
 
+# This class is the input for the 'modify_instance_event_window' function.
 class ModifyInstanceEventWindowRequest(BaseValidatorModel):
     InstanceEventWindowId: str
     DryRun: Optional[bool] = None
@@ -7641,6 +8195,7 @@ class ModifyInstanceEventWindowRequest(BaseValidatorModel):
     CronExpression: Optional[str] = None
 
 
+# This class is the input for the 'modify_ipam_pool' function.
 class ModifyIpamPoolRequest(BaseValidatorModel):
     IpamPoolId: str
     DryRun: Optional[bool] = None
@@ -7654,21 +8209,25 @@ class ModifyIpamPoolRequest(BaseValidatorModel):
     RemoveAllocationResourceTags: Optional[List[RequestIpamResourceTag]] = None
 
 
+# This class is the output for the 'create_local_gateway_route' function.
 class CreateLocalGatewayRouteResult(BaseValidatorModel):
     Route: LocalGatewayRoute
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_local_gateway_route' function.
 class DeleteLocalGatewayRouteResult(BaseValidatorModel):
     Route: LocalGatewayRoute
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_local_gateway_route' function.
 class ModifyLocalGatewayRouteResult(BaseValidatorModel):
     Route: LocalGatewayRoute
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_local_gateway_routes' function.
 class SearchLocalGatewayRoutesResult(BaseValidatorModel):
     Routes: List[LocalGatewayRoute]
     ResponseMetadata: ResponseMetadata
@@ -7687,6 +8246,7 @@ class CreateNetworkAclEntryRequestNetworkAclCreateEntry(BaseValidatorModel):
     PortRange: Optional[PortRange] = None
 
 
+# This class is the input for the 'create_network_acl_entry' function.
 class CreateNetworkAclEntryRequest(BaseValidatorModel):
     NetworkAclId: str
     RuleNumber: int
@@ -7723,6 +8283,7 @@ class ReplaceNetworkAclEntryRequestNetworkAclReplaceEntry(BaseValidatorModel):
     PortRange: Optional[PortRange] = None
 
 
+# This class is the input for the 'replace_network_acl_entry' function.
 class ReplaceNetworkAclEntryRequest(BaseValidatorModel):
     NetworkAclId: str
     RuleNumber: int
@@ -7736,6 +8297,7 @@ class ReplaceNetworkAclEntryRequest(BaseValidatorModel):
     PortRange: Optional[PortRange] = None
 
 
+# This class is the input for the 'create_reserved_instances_listing' function.
 class CreateReservedInstancesListingRequest(BaseValidatorModel):
     ReservedInstancesId: str
     InstanceCount: int
@@ -7743,6 +8305,7 @@ class CreateReservedInstancesListingRequest(BaseValidatorModel):
     ClientToken: str
 
 
+# This class is the input for the 'create_store_image_task' function.
 class CreateStoreImageTaskRequest(BaseValidatorModel):
     ImageId: str
     Bucket: str
@@ -7750,6 +8313,7 @@ class CreateStoreImageTaskRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'modify_traffic_mirror_filter_rule' function.
 class ModifyTrafficMirrorFilterRuleRequest(BaseValidatorModel):
     TrafficMirrorFilterRuleId: str
     TrafficDirection: Optional[TrafficDirectionType] = None
@@ -7787,6 +8351,7 @@ class CreateVerifiedAccessEndpointLoadBalancerOptions(BaseValidatorModel):
     PortRanges: Optional[List[CreateVerifiedAccessEndpointPortRange]] = None
 
 
+# This class is the input for the 'modify_verified_access_endpoint_policy' function.
 class ModifyVerifiedAccessEndpointPolicyRequest(BaseValidatorModel):
     VerifiedAccessEndpointId: str
     PolicyEnabled: Optional[bool] = None
@@ -7796,6 +8361,7 @@ class ModifyVerifiedAccessEndpointPolicyRequest(BaseValidatorModel):
     SseSpecification: Optional[VerifiedAccessSseSpecificationRequest] = None
 
 
+# This class is the input for the 'modify_verified_access_group_policy' function.
 class ModifyVerifiedAccessGroupPolicyRequest(BaseValidatorModel):
     VerifiedAccessGroupId: str
     PolicyEnabled: Optional[bool] = None
@@ -7810,6 +8376,7 @@ class CreateVolumePermissionModifications(BaseValidatorModel):
     Remove: Optional[List[CreateVolumePermission]] = None
 
 
+# This class is the input for the 'modify_vpc_endpoint' function.
 class ModifyVpcEndpointRequest(BaseValidatorModel):
     VpcEndpointId: str
     DryRun: Optional[bool] = None
@@ -7827,6 +8394,7 @@ class ModifyVpcEndpointRequest(BaseValidatorModel):
     SubnetConfigurations: Optional[List[SubnetConfiguration]] = None
 
 
+# This class is the input for the 'get_aws_network_performance_data' function.
 class GetAwsNetworkPerformanceDataRequest(BaseValidatorModel):
     DataQueries: Optional[List[DataQuery]] = None
     StartTime: Optional[Timestamp] = None
@@ -7851,6 +8419,7 @@ class DeleteFleetErrorItem(BaseValidatorModel):
     FleetId: Optional[str] = None
 
 
+# This class is the output for the 'delete_instance_event_window' function.
 class DeleteInstanceEventWindowResult(BaseValidatorModel):
     InstanceEventWindowState: InstanceEventWindowStateChange
     ResponseMetadata: ResponseMetadata
@@ -7868,31 +8437,37 @@ class FailedQueuedPurchaseDeletion(BaseValidatorModel):
     ReservedInstancesId: Optional[str] = None
 
 
+# This class is the input for the 'deregister_instance_event_notification_attributes' function.
 class DeregisterInstanceEventNotificationAttributesRequest(BaseValidatorModel):
     InstanceTagAttribute: DeregisterInstanceTagAttributeRequest
     DryRun: Optional[bool] = None
 
 
+# This class is the output for the 'deregister_instance_event_notification_attributes' function.
 class DeregisterInstanceEventNotificationAttributesResult(BaseValidatorModel):
     InstanceTagAttribute: InstanceTagNotificationAttribute
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_instance_event_notification_attributes' function.
 class DescribeInstanceEventNotificationAttributesResult(BaseValidatorModel):
     InstanceTagAttribute: InstanceTagNotificationAttribute
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_instance_event_notification_attributes' function.
 class RegisterInstanceEventNotificationAttributesResult(BaseValidatorModel):
     InstanceTagAttribute: InstanceTagNotificationAttribute
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'deregister_transit_gateway_multicast_group_members' function.
 class DeregisterTransitGatewayMulticastGroupMembersResult(BaseValidatorModel):
     DeregisteredMulticastGroupMembers: TransitGatewayMulticastDeregisteredGroupMembers
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'deregister_transit_gateway_multicast_group_sources' function.
 class DeregisterTransitGatewayMulticastGroupSourcesResult(BaseValidatorModel):
     DeregisteredMulticastGroupSources: TransitGatewayMulticastDeregisteredGroupSources
     ResponseMetadata: ResponseMetadata
@@ -8028,6 +8603,7 @@ class ListSnapshotsInRecycleBinRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_addresses' function.
 class DescribeAddressesRequest(BaseValidatorModel):
     PublicIps: Optional[List[str]] = None
     DryRun: Optional[bool] = None
@@ -8035,6 +8611,7 @@ class DescribeAddressesRequest(BaseValidatorModel):
     AllocationIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_availability_zones' function.
 class DescribeAvailabilityZonesRequest(BaseValidatorModel):
     ZoneNames: Optional[List[str]] = None
     ZoneIds: Optional[List[str]] = None
@@ -8049,6 +8626,7 @@ class DescribeAwsNetworkPerformanceMetricSubscriptionsRequestPaginate(BaseValida
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_aws_network_performance_metric_subscriptions' function.
 class DescribeAwsNetworkPerformanceMetricSubscriptionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -8056,6 +8634,7 @@ class DescribeAwsNetworkPerformanceMetricSubscriptionsRequest(BaseValidatorModel
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'describe_bundle_tasks' function.
 class DescribeBundleTasksRequest(BaseValidatorModel):
     BundleIds: Optional[List[str]] = None
     DryRun: Optional[bool] = None
@@ -8069,6 +8648,7 @@ class DescribeCapacityBlockExtensionHistoryRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_capacity_block_extension_history' function.
 class DescribeCapacityBlockExtensionHistoryRequest(BaseValidatorModel):
     CapacityReservationIds: Optional[List[str]] = None
     NextToken: Optional[str] = None
@@ -8085,6 +8665,7 @@ class DescribeCapacityReservationBillingRequestsRequestPaginate(BaseValidatorMod
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_capacity_reservation_billing_requests' function.
 class DescribeCapacityReservationBillingRequestsRequest(BaseValidatorModel):
     Role: CallerRoleType
     CapacityReservationIds: Optional[List[str]] = None
@@ -8101,6 +8682,7 @@ class DescribeCapacityReservationFleetsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_capacity_reservation_fleets' function.
 class DescribeCapacityReservationFleetsRequest(BaseValidatorModel):
     CapacityReservationFleetIds: Optional[List[str]] = None
     NextToken: Optional[str] = None
@@ -8116,6 +8698,7 @@ class DescribeCapacityReservationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_capacity_reservations' function.
 class DescribeCapacityReservationsRequest(BaseValidatorModel):
     CapacityReservationIds: Optional[List[str]] = None
     NextToken: Optional[str] = None
@@ -8131,6 +8714,7 @@ class DescribeCarrierGatewaysRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_carrier_gateways' function.
 class DescribeCarrierGatewaysRequest(BaseValidatorModel):
     CarrierGatewayIds: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -8146,6 +8730,7 @@ class DescribeClassicLinkInstancesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_classic_link_instances' function.
 class DescribeClassicLinkInstancesRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     InstanceIds: Optional[List[str]] = None
@@ -8161,6 +8746,7 @@ class DescribeClientVpnAuthorizationRulesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_client_vpn_authorization_rules' function.
 class DescribeClientVpnAuthorizationRulesRequest(BaseValidatorModel):
     ClientVpnEndpointId: str
     DryRun: Optional[bool] = None
@@ -8176,6 +8762,7 @@ class DescribeClientVpnConnectionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_client_vpn_connections' function.
 class DescribeClientVpnConnectionsRequest(BaseValidatorModel):
     ClientVpnEndpointId: str
     Filters: Optional[List[Filter]] = None
@@ -8191,6 +8778,7 @@ class DescribeClientVpnEndpointsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_client_vpn_endpoints' function.
 class DescribeClientVpnEndpointsRequest(BaseValidatorModel):
     ClientVpnEndpointIds: Optional[List[str]] = None
     MaxResults: Optional[int] = None
@@ -8206,6 +8794,7 @@ class DescribeClientVpnRoutesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_client_vpn_routes' function.
 class DescribeClientVpnRoutesRequest(BaseValidatorModel):
     ClientVpnEndpointId: str
     Filters: Optional[List[Filter]] = None
@@ -8222,6 +8811,7 @@ class DescribeClientVpnTargetNetworksRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_client_vpn_target_networks' function.
 class DescribeClientVpnTargetNetworksRequest(BaseValidatorModel):
     ClientVpnEndpointId: str
     AssociationIds: Optional[List[str]] = None
@@ -8238,6 +8828,7 @@ class DescribeCoipPoolsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_coip_pools' function.
 class DescribeCoipPoolsRequest(BaseValidatorModel):
     PoolIds: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -8246,6 +8837,7 @@ class DescribeCoipPoolsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'describe_customer_gateways' function.
 class DescribeCustomerGatewaysRequest(BaseValidatorModel):
     CustomerGatewayIds: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -8259,6 +8851,7 @@ class DescribeDhcpOptionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_dhcp_options' function.
 class DescribeDhcpOptionsRequest(BaseValidatorModel):
     DhcpOptionsIds: Optional[List[str]] = None
     NextToken: Optional[str] = None
@@ -8274,6 +8867,7 @@ class DescribeEgressOnlyInternetGatewaysRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_egress_only_internet_gateways' function.
 class DescribeEgressOnlyInternetGatewaysRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     EgressOnlyInternetGatewayIds: Optional[List[str]] = None
@@ -8282,6 +8876,7 @@ class DescribeEgressOnlyInternetGatewaysRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
 
 
+# This class is the input for the 'describe_elastic_gpus' function.
 class DescribeElasticGpusRequest(BaseValidatorModel):
     ElasticGpuIds: Optional[List[str]] = None
     DryRun: Optional[bool] = None
@@ -8297,6 +8892,7 @@ class DescribeExportImageTasksRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_export_image_tasks' function.
 class DescribeExportImageTasksRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[List[Filter]] = None
@@ -8305,6 +8901,7 @@ class DescribeExportImageTasksRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_export_tasks' function.
 class DescribeExportTasksRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     ExportTaskIds: Optional[List[str]] = None
@@ -8317,6 +8914,7 @@ class DescribeFastLaunchImagesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_fast_launch_images' function.
 class DescribeFastLaunchImagesRequest(BaseValidatorModel):
     ImageIds: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -8331,6 +8929,7 @@ class DescribeFastSnapshotRestoresRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_fast_snapshot_restores' function.
 class DescribeFastSnapshotRestoresRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxResults: Optional[int] = None
@@ -8338,6 +8937,7 @@ class DescribeFastSnapshotRestoresRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'describe_fleet_instances' function.
 class DescribeFleetInstancesRequest(BaseValidatorModel):
     FleetId: str
     DryRun: Optional[bool] = None
@@ -8353,6 +8953,7 @@ class DescribeFleetsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_fleets' function.
 class DescribeFleetsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     MaxResults: Optional[int] = None
@@ -8368,6 +8969,7 @@ class DescribeFlowLogsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_flow_logs' function.
 class DescribeFlowLogsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[List[Filter]] = None
@@ -8384,6 +8986,7 @@ class DescribeFpgaImagesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_fpga_images' function.
 class DescribeFpgaImagesRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     FpgaImageIds: Optional[List[str]] = None
@@ -8401,6 +9004,7 @@ class DescribeHostReservationOfferingsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_host_reservation_offerings' function.
 class DescribeHostReservationOfferingsRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxDuration: Optional[int] = None
@@ -8416,6 +9020,7 @@ class DescribeHostReservationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_host_reservations' function.
 class DescribeHostReservationsRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     HostReservationIdSet: Optional[List[str]] = None
@@ -8429,6 +9034,7 @@ class DescribeHostsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_hosts' function.
 class DescribeHostsRequest(BaseValidatorModel):
     HostIds: Optional[List[str]] = None
     NextToken: Optional[str] = None
@@ -8442,6 +9048,7 @@ class DescribeIamInstanceProfileAssociationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_iam_instance_profile_associations' function.
 class DescribeIamInstanceProfileAssociationsRequest(BaseValidatorModel):
     AssociationIds: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -8460,6 +9067,7 @@ class DescribeImagesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_images' function.
 class DescribeImagesRequest(BaseValidatorModel):
     ExecutableUsers: Optional[List[str]] = None
     ImageIds: Optional[List[str]] = None
@@ -8479,6 +9087,7 @@ class DescribeImportImageTasksRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_import_image_tasks' function.
 class DescribeImportImageTasksRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[List[Filter]] = None
@@ -8494,6 +9103,7 @@ class DescribeImportSnapshotTasksRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_import_snapshot_tasks' function.
 class DescribeImportSnapshotTasksRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[List[Filter]] = None
@@ -8509,6 +9119,7 @@ class DescribeInstanceConnectEndpointsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_instance_connect_endpoints' function.
 class DescribeInstanceConnectEndpointsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     MaxResults: Optional[int] = None
@@ -8524,6 +9135,7 @@ class DescribeInstanceCreditSpecificationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_instance_credit_specifications' function.
 class DescribeInstanceCreditSpecificationsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[List[Filter]] = None
@@ -8539,6 +9151,7 @@ class DescribeInstanceEventWindowsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_instance_event_windows' function.
 class DescribeInstanceEventWindowsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     InstanceEventWindowIds: Optional[List[str]] = None
@@ -8554,6 +9167,7 @@ class DescribeInstanceImageMetadataRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_instance_image_metadata' function.
 class DescribeInstanceImageMetadataRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     InstanceIds: Optional[List[str]] = None
@@ -8570,6 +9184,7 @@ class DescribeInstanceStatusRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_instance_status' function.
 class DescribeInstanceStatusRequest(BaseValidatorModel):
     InstanceIds: Optional[List[str]] = None
     MaxResults: Optional[int] = None
@@ -8587,6 +9202,7 @@ class DescribeInstanceTopologyRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_instance_topology' function.
 class DescribeInstanceTopologyRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     NextToken: Optional[str] = None
@@ -8603,6 +9219,7 @@ class DescribeInstanceTypeOfferingsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_instance_type_offerings' function.
 class DescribeInstanceTypeOfferingsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     LocationType: Optional[LocationTypeType] = None
@@ -8618,6 +9235,7 @@ class DescribeInstanceTypesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_instance_types' function.
 class DescribeInstanceTypesRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     InstanceTypes: Optional[List[InstanceTypeType]] = None
@@ -8633,6 +9251,7 @@ class DescribeInstancesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_instances' function.
 class DescribeInstancesRequest(BaseValidatorModel):
     InstanceIds: Optional[List[str]] = None
     DryRun: Optional[bool] = None
@@ -8648,6 +9267,7 @@ class DescribeInternetGatewaysRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_internet_gateways' function.
 class DescribeInternetGatewaysRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -8656,6 +9276,7 @@ class DescribeInternetGatewaysRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
 
 
+# This class is the input for the 'describe_ipam_external_resource_verification_tokens' function.
 class DescribeIpamExternalResourceVerificationTokensRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[List[Filter]] = None
@@ -8671,6 +9292,7 @@ class DescribeIpamPoolsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_ipam_pools' function.
 class DescribeIpamPoolsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[List[Filter]] = None
@@ -8686,6 +9308,7 @@ class DescribeIpamResourceDiscoveriesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_ipam_resource_discoveries' function.
 class DescribeIpamResourceDiscoveriesRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     IpamResourceDiscoveryIds: Optional[List[str]] = None
@@ -8701,6 +9324,7 @@ class DescribeIpamResourceDiscoveryAssociationsRequestPaginate(BaseValidatorMode
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_ipam_resource_discovery_associations' function.
 class DescribeIpamResourceDiscoveryAssociationsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     IpamResourceDiscoveryAssociationIds: Optional[List[str]] = None
@@ -8716,6 +9340,7 @@ class DescribeIpamScopesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_ipam_scopes' function.
 class DescribeIpamScopesRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[List[Filter]] = None
@@ -8731,6 +9356,7 @@ class DescribeIpamsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_ipams' function.
 class DescribeIpamsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[List[Filter]] = None
@@ -8746,6 +9372,7 @@ class DescribeIpv6PoolsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_ipv6_pools' function.
 class DescribeIpv6PoolsRequest(BaseValidatorModel):
     PoolIds: Optional[List[str]] = None
     NextToken: Optional[str] = None
@@ -8754,6 +9381,7 @@ class DescribeIpv6PoolsRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
 
 
+# This class is the input for the 'describe_key_pairs' function.
 class DescribeKeyPairsRequest(BaseValidatorModel):
     KeyNames: Optional[List[str]] = None
     KeyPairIds: Optional[List[str]] = None
@@ -8774,6 +9402,7 @@ class DescribeLaunchTemplateVersionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_launch_template_versions' function.
 class DescribeLaunchTemplateVersionsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     LaunchTemplateId: Optional[str] = None
@@ -8795,6 +9424,7 @@ class DescribeLaunchTemplatesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_launch_templates' function.
 class DescribeLaunchTemplatesRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     LaunchTemplateIds: Optional[List[str]] = None
@@ -8826,6 +9456,7 @@ class DescribeLocalGatewayRouteTableVpcAssociationsRequestPaginate(BaseValidator
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_local_gateway_route_table_vpc_associations' function.
 class DescribeLocalGatewayRouteTableVpcAssociationsRequest(BaseValidatorModel):
     LocalGatewayRouteTableVpcAssociationIds: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -8841,6 +9472,7 @@ class DescribeLocalGatewayRouteTablesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_local_gateway_route_tables' function.
 class DescribeLocalGatewayRouteTablesRequest(BaseValidatorModel):
     LocalGatewayRouteTableIds: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -8856,6 +9488,7 @@ class DescribeLocalGatewayVirtualInterfaceGroupsRequestPaginate(BaseValidatorMod
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_local_gateway_virtual_interface_groups' function.
 class DescribeLocalGatewayVirtualInterfaceGroupsRequest(BaseValidatorModel):
     LocalGatewayVirtualInterfaceGroupIds: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -8871,6 +9504,7 @@ class DescribeLocalGatewayVirtualInterfacesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_local_gateway_virtual_interfaces' function.
 class DescribeLocalGatewayVirtualInterfacesRequest(BaseValidatorModel):
     LocalGatewayVirtualInterfaceIds: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -8886,6 +9520,7 @@ class DescribeLocalGatewaysRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_local_gateways' function.
 class DescribeLocalGatewaysRequest(BaseValidatorModel):
     LocalGatewayIds: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -8894,6 +9529,7 @@ class DescribeLocalGatewaysRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'describe_locked_snapshots' function.
 class DescribeLockedSnapshotsRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxResults: Optional[int] = None
@@ -8908,6 +9544,7 @@ class DescribeMacHostsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_mac_hosts' function.
 class DescribeMacHostsRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     HostIds: Optional[List[str]] = None
@@ -8922,6 +9559,7 @@ class DescribeManagedPrefixListsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_managed_prefix_lists' function.
 class DescribeManagedPrefixListsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[List[Filter]] = None
@@ -8937,6 +9575,7 @@ class DescribeMovingAddressesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_moving_addresses' function.
 class DescribeMovingAddressesRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     PublicIps: Optional[List[str]] = None
@@ -8952,6 +9591,7 @@ class DescribeNatGatewaysRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_nat_gateways' function.
 class DescribeNatGatewaysRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[List[Filter]] = None
@@ -8967,6 +9607,7 @@ class DescribeNetworkAclsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_network_acls' function.
 class DescribeNetworkAclsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -8985,6 +9626,7 @@ class DescribeNetworkInsightsAccessScopeAnalysesRequestPaginate(BaseValidatorMod
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_network_insights_access_scope_analyses' function.
 class DescribeNetworkInsightsAccessScopeAnalysesRequest(BaseValidatorModel):
     NetworkInsightsAccessScopeAnalysisIds: Optional[List[str]] = None
     NetworkInsightsAccessScopeId: Optional[str] = None
@@ -9003,6 +9645,7 @@ class DescribeNetworkInsightsAccessScopesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_network_insights_access_scopes' function.
 class DescribeNetworkInsightsAccessScopesRequest(BaseValidatorModel):
     NetworkInsightsAccessScopeIds: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -9021,6 +9664,7 @@ class DescribeNetworkInsightsAnalysesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_network_insights_analyses' function.
 class DescribeNetworkInsightsAnalysesRequest(BaseValidatorModel):
     NetworkInsightsAnalysisIds: Optional[List[str]] = None
     NetworkInsightsPathId: Optional[str] = None
@@ -9039,6 +9683,7 @@ class DescribeNetworkInsightsPathsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_network_insights_paths' function.
 class DescribeNetworkInsightsPathsRequest(BaseValidatorModel):
     NetworkInsightsPathIds: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -9053,6 +9698,7 @@ class DescribeNetworkInterfacePermissionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_network_interface_permissions' function.
 class DescribeNetworkInterfacePermissionsRequest(BaseValidatorModel):
     NetworkInterfacePermissionIds: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -9067,6 +9713,7 @@ class DescribeNetworkInterfacesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_network_interfaces' function.
 class DescribeNetworkInterfacesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -9075,6 +9722,7 @@ class DescribeNetworkInterfacesRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
 
 
+# This class is the input for the 'describe_placement_groups' function.
 class DescribePlacementGroupsRequest(BaseValidatorModel):
     GroupIds: Optional[List[str]] = None
     DryRun: Optional[bool] = None
@@ -9089,6 +9737,7 @@ class DescribePrefixListsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_prefix_lists' function.
 class DescribePrefixListsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[List[Filter]] = None
@@ -9103,6 +9752,7 @@ class DescribePublicIpv4PoolsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_public_ipv4_pools' function.
 class DescribePublicIpv4PoolsRequest(BaseValidatorModel):
     PoolIds: Optional[List[str]] = None
     NextToken: Optional[str] = None
@@ -9110,6 +9760,7 @@ class DescribePublicIpv4PoolsRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
 
 
+# This class is the input for the 'describe_regions' function.
 class DescribeRegionsRequest(BaseValidatorModel):
     RegionNames: Optional[List[str]] = None
     AllRegions: Optional[bool] = None
@@ -9124,6 +9775,7 @@ class DescribeReplaceRootVolumeTasksRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_replace_root_volume_tasks' function.
 class DescribeReplaceRootVolumeTasksRequest(BaseValidatorModel):
     ReplaceRootVolumeTaskIds: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -9132,6 +9784,7 @@ class DescribeReplaceRootVolumeTasksRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'describe_reserved_instances_listings' function.
 class DescribeReservedInstancesListingsRequest(BaseValidatorModel):
     ReservedInstancesId: Optional[str] = None
     ReservedInstancesListingId: Optional[str] = None
@@ -9144,6 +9797,7 @@ class DescribeReservedInstancesModificationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_reserved_instances_modifications' function.
 class DescribeReservedInstancesModificationsRequest(BaseValidatorModel):
     ReservedInstancesModificationIds: Optional[List[str]] = None
     NextToken: Optional[str] = None
@@ -9167,6 +9821,7 @@ class DescribeReservedInstancesOfferingsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_reserved_instances_offerings' function.
 class DescribeReservedInstancesOfferingsRequest(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
     IncludeMarketplace: Optional[bool] = None
@@ -9185,6 +9840,7 @@ class DescribeReservedInstancesOfferingsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_reserved_instances' function.
 class DescribeReservedInstancesRequest(BaseValidatorModel):
     OfferingClass: Optional[OfferingClassTypeType] = None
     ReservedInstancesIds: Optional[List[str]] = None
@@ -9200,6 +9856,7 @@ class DescribeRouteTablesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_route_tables' function.
 class DescribeRouteTablesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -9215,6 +9872,7 @@ class DescribeSecurityGroupRulesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_security_group_rules' function.
 class DescribeSecurityGroupRulesRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     SecurityGroupRuleIds: Optional[List[str]] = None
@@ -9229,6 +9887,7 @@ class DescribeSecurityGroupVpcAssociationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_security_group_vpc_associations' function.
 class DescribeSecurityGroupVpcAssociationsRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     NextToken: Optional[str] = None
@@ -9244,6 +9903,7 @@ class DescribeSecurityGroupsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_security_groups' function.
 class DescribeSecurityGroupsRequest(BaseValidatorModel):
     GroupIds: Optional[List[str]] = None
     GroupNames: Optional[List[str]] = None
@@ -9259,6 +9919,7 @@ class DescribeSnapshotTierStatusRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_snapshot_tier_status' function.
 class DescribeSnapshotTierStatusRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     DryRun: Optional[bool] = None
@@ -9275,6 +9936,7 @@ class DescribeSnapshotsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_snapshots' function.
 class DescribeSnapshotsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -9292,6 +9954,7 @@ class DescribeSpotInstanceRequestsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_spot_instance_requests' function.
 class DescribeSpotInstanceRequestsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -9311,6 +9974,7 @@ class DescribeSpotPriceHistoryRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_spot_price_history' function.
 class DescribeSpotPriceHistoryRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     StartTime: Optional[Timestamp] = None
@@ -9330,6 +9994,7 @@ class DescribeStoreImageTasksRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_store_image_tasks' function.
 class DescribeStoreImageTasksRequest(BaseValidatorModel):
     ImageIds: Optional[List[str]] = None
     DryRun: Optional[bool] = None
@@ -9345,6 +10010,7 @@ class DescribeSubnetsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_subnets' function.
 class DescribeSubnetsRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     SubnetIds: Optional[List[str]] = None
@@ -9359,6 +10025,7 @@ class DescribeTagsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_tags' function.
 class DescribeTagsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[List[Filter]] = None
@@ -9366,6 +10033,7 @@ class DescribeTagsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_traffic_mirror_filter_rules' function.
 class DescribeTrafficMirrorFilterRulesRequest(BaseValidatorModel):
     TrafficMirrorFilterRuleIds: Optional[List[str]] = None
     TrafficMirrorFilterId: Optional[str] = None
@@ -9382,6 +10050,7 @@ class DescribeTrafficMirrorFiltersRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_traffic_mirror_filters' function.
 class DescribeTrafficMirrorFiltersRequest(BaseValidatorModel):
     TrafficMirrorFilterIds: Optional[List[str]] = None
     DryRun: Optional[bool] = None
@@ -9397,6 +10066,7 @@ class DescribeTrafficMirrorSessionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_traffic_mirror_sessions' function.
 class DescribeTrafficMirrorSessionsRequest(BaseValidatorModel):
     TrafficMirrorSessionIds: Optional[List[str]] = None
     DryRun: Optional[bool] = None
@@ -9412,6 +10082,7 @@ class DescribeTrafficMirrorTargetsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_traffic_mirror_targets' function.
 class DescribeTrafficMirrorTargetsRequest(BaseValidatorModel):
     TrafficMirrorTargetIds: Optional[List[str]] = None
     DryRun: Optional[bool] = None
@@ -9427,6 +10098,7 @@ class DescribeTransitGatewayAttachmentsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_transit_gateway_attachments' function.
 class DescribeTransitGatewayAttachmentsRequest(BaseValidatorModel):
     TransitGatewayAttachmentIds: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -9442,6 +10114,7 @@ class DescribeTransitGatewayConnectPeersRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_transit_gateway_connect_peers' function.
 class DescribeTransitGatewayConnectPeersRequest(BaseValidatorModel):
     TransitGatewayConnectPeerIds: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -9457,6 +10130,7 @@ class DescribeTransitGatewayConnectsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_transit_gateway_connects' function.
 class DescribeTransitGatewayConnectsRequest(BaseValidatorModel):
     TransitGatewayAttachmentIds: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -9472,6 +10146,7 @@ class DescribeTransitGatewayMulticastDomainsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_transit_gateway_multicast_domains' function.
 class DescribeTransitGatewayMulticastDomainsRequest(BaseValidatorModel):
     TransitGatewayMulticastDomainIds: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -9487,6 +10162,7 @@ class DescribeTransitGatewayPeeringAttachmentsRequestPaginate(BaseValidatorModel
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_transit_gateway_peering_attachments' function.
 class DescribeTransitGatewayPeeringAttachmentsRequest(BaseValidatorModel):
     TransitGatewayAttachmentIds: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -9502,6 +10178,7 @@ class DescribeTransitGatewayPolicyTablesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_transit_gateway_policy_tables' function.
 class DescribeTransitGatewayPolicyTablesRequest(BaseValidatorModel):
     TransitGatewayPolicyTableIds: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -9517,6 +10194,7 @@ class DescribeTransitGatewayRouteTableAnnouncementsRequestPaginate(BaseValidator
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_transit_gateway_route_table_announcements' function.
 class DescribeTransitGatewayRouteTableAnnouncementsRequest(BaseValidatorModel):
     TransitGatewayRouteTableAnnouncementIds: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -9532,6 +10210,7 @@ class DescribeTransitGatewayRouteTablesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_transit_gateway_route_tables' function.
 class DescribeTransitGatewayRouteTablesRequest(BaseValidatorModel):
     TransitGatewayRouteTableIds: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -9547,6 +10226,7 @@ class DescribeTransitGatewayVpcAttachmentsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_transit_gateway_vpc_attachments' function.
 class DescribeTransitGatewayVpcAttachmentsRequest(BaseValidatorModel):
     TransitGatewayAttachmentIds: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -9562,6 +10242,7 @@ class DescribeTransitGatewaysRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_transit_gateways' function.
 class DescribeTransitGatewaysRequest(BaseValidatorModel):
     TransitGatewayIds: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -9577,6 +10258,7 @@ class DescribeTrunkInterfaceAssociationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_trunk_interface_associations' function.
 class DescribeTrunkInterfaceAssociationsRequest(BaseValidatorModel):
     AssociationIds: Optional[List[str]] = None
     DryRun: Optional[bool] = None
@@ -9594,6 +10276,7 @@ class DescribeVerifiedAccessEndpointsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_verified_access_endpoints' function.
 class DescribeVerifiedAccessEndpointsRequest(BaseValidatorModel):
     VerifiedAccessEndpointIds: Optional[List[str]] = None
     VerifiedAccessInstanceId: Optional[str] = None
@@ -9612,6 +10295,7 @@ class DescribeVerifiedAccessGroupsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_verified_access_groups' function.
 class DescribeVerifiedAccessGroupsRequest(BaseValidatorModel):
     VerifiedAccessGroupIds: Optional[List[str]] = None
     VerifiedAccessInstanceId: Optional[str] = None
@@ -9628,6 +10312,7 @@ class DescribeVerifiedAccessInstanceLoggingConfigurationsRequestPaginate(BaseVal
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_verified_access_instance_logging_configurations' function.
 class DescribeVerifiedAccessInstanceLoggingConfigurationsRequest(BaseValidatorModel):
     VerifiedAccessInstanceIds: Optional[List[str]] = None
     MaxResults: Optional[int] = None
@@ -9643,6 +10328,7 @@ class DescribeVerifiedAccessInstancesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_verified_access_instances' function.
 class DescribeVerifiedAccessInstancesRequest(BaseValidatorModel):
     VerifiedAccessInstanceIds: Optional[List[str]] = None
     MaxResults: Optional[int] = None
@@ -9658,6 +10344,7 @@ class DescribeVerifiedAccessTrustProvidersRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_verified_access_trust_providers' function.
 class DescribeVerifiedAccessTrustProvidersRequest(BaseValidatorModel):
     VerifiedAccessTrustProviderIds: Optional[List[str]] = None
     MaxResults: Optional[int] = None
@@ -9673,6 +10360,7 @@ class DescribeVolumeStatusRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_volume_status' function.
 class DescribeVolumeStatusRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -9695,6 +10383,7 @@ class DescribeVolumesModificationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_volumes_modifications' function.
 class DescribeVolumesModificationsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     VolumeIds: Optional[List[str]] = None
@@ -9710,6 +10399,7 @@ class DescribeVolumesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_volumes' function.
 class DescribeVolumesRequest(BaseValidatorModel):
     VolumeIds: Optional[List[str]] = None
     DryRun: Optional[bool] = None
@@ -9718,6 +10408,7 @@ class DescribeVolumesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_vpc_block_public_access_exclusions' function.
 class DescribeVpcBlockPublicAccessExclusionsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[List[Filter]] = None
@@ -9726,12 +10417,14 @@ class DescribeVpcBlockPublicAccessExclusionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_vpc_classic_link' function.
 class DescribeVpcClassicLinkRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     VpcIds: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
 
 
+# This class is the input for the 'describe_vpc_endpoint_associations' function.
 class DescribeVpcEndpointAssociationsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     VpcEndpointIds: Optional[List[str]] = None
@@ -9747,6 +10440,7 @@ class DescribeVpcEndpointConnectionNotificationsRequestPaginate(BaseValidatorMod
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_vpc_endpoint_connection_notifications' function.
 class DescribeVpcEndpointConnectionNotificationsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     ConnectionNotificationId: Optional[str] = None
@@ -9761,6 +10455,7 @@ class DescribeVpcEndpointConnectionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_vpc_endpoint_connections' function.
 class DescribeVpcEndpointConnectionsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[List[Filter]] = None
@@ -9775,6 +10470,7 @@ class DescribeVpcEndpointServiceConfigurationsRequestPaginate(BaseValidatorModel
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_vpc_endpoint_service_configurations' function.
 class DescribeVpcEndpointServiceConfigurationsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     ServiceIds: Optional[List[str]] = None
@@ -9790,6 +10486,7 @@ class DescribeVpcEndpointServicePermissionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_vpc_endpoint_service_permissions' function.
 class DescribeVpcEndpointServicePermissionsRequest(BaseValidatorModel):
     ServiceId: str
     DryRun: Optional[bool] = None
@@ -9806,6 +10503,7 @@ class DescribeVpcEndpointServicesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_vpc_endpoint_services' function.
 class DescribeVpcEndpointServicesRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     ServiceNames: Optional[List[str]] = None
@@ -9822,6 +10520,7 @@ class DescribeVpcEndpointsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_vpc_endpoints' function.
 class DescribeVpcEndpointsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     VpcEndpointIds: Optional[List[str]] = None
@@ -9837,6 +10536,7 @@ class DescribeVpcPeeringConnectionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_vpc_peering_connections' function.
 class DescribeVpcPeeringConnectionsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -9852,6 +10552,7 @@ class DescribeVpcsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_vpcs' function.
 class DescribeVpcsRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     VpcIds: Optional[List[str]] = None
@@ -9860,18 +10561,21 @@ class DescribeVpcsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'describe_vpn_connections' function.
 class DescribeVpnConnectionsRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     VpnConnectionIds: Optional[List[str]] = None
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'describe_vpn_gateways' function.
 class DescribeVpnGatewaysRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     VpnGatewayIds: Optional[List[str]] = None
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'export_transit_gateway_routes' function.
 class ExportTransitGatewayRoutesRequest(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     S3Bucket: str
@@ -9879,6 +10583,7 @@ class ExportTransitGatewayRoutesRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'get_coip_pool_usage' function.
 class GetCoipPoolUsageRequest(BaseValidatorModel):
     PoolId: str
     Filters: Optional[List[Filter]] = None
@@ -9895,6 +10600,7 @@ class GetIpamDiscoveredAccountsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_ipam_discovered_accounts' function.
 class GetIpamDiscoveredAccountsRequest(BaseValidatorModel):
     IpamResourceDiscoveryId: str
     DiscoveryRegion: str
@@ -9904,6 +10610,7 @@ class GetIpamDiscoveredAccountsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_ipam_discovered_public_addresses' function.
 class GetIpamDiscoveredPublicAddressesRequest(BaseValidatorModel):
     IpamResourceDiscoveryId: str
     AddressRegion: str
@@ -9921,6 +10628,7 @@ class GetIpamDiscoveredResourceCidrsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_ipam_discovered_resource_cidrs' function.
 class GetIpamDiscoveredResourceCidrsRequest(BaseValidatorModel):
     IpamResourceDiscoveryId: str
     ResourceRegion: str
@@ -9938,6 +10646,7 @@ class GetIpamPoolAllocationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_ipam_pool_allocations' function.
 class GetIpamPoolAllocationsRequest(BaseValidatorModel):
     IpamPoolId: str
     DryRun: Optional[bool] = None
@@ -9954,6 +10663,7 @@ class GetIpamPoolCidrsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_ipam_pool_cidrs' function.
 class GetIpamPoolCidrsRequest(BaseValidatorModel):
     IpamPoolId: str
     DryRun: Optional[bool] = None
@@ -9974,6 +10684,7 @@ class GetIpamResourceCidrsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_ipam_resource_cidrs' function.
 class GetIpamResourceCidrsRequest(BaseValidatorModel):
     IpamScopeId: str
     DryRun: Optional[bool] = None
@@ -9994,6 +10705,7 @@ class GetSecurityGroupsForVpcRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_security_groups_for_vpc' function.
 class GetSecurityGroupsForVpcRequest(BaseValidatorModel):
     VpcId: str
     NextToken: Optional[str] = None
@@ -10002,6 +10714,7 @@ class GetSecurityGroupsForVpcRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'get_subnet_cidr_reservations' function.
 class GetSubnetCidrReservationsRequest(BaseValidatorModel):
     SubnetId: str
     Filters: Optional[List[Filter]] = None
@@ -10017,6 +10730,7 @@ class GetTransitGatewayAttachmentPropagationsRequestPaginate(BaseValidatorModel)
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_transit_gateway_attachment_propagations' function.
 class GetTransitGatewayAttachmentPropagationsRequest(BaseValidatorModel):
     TransitGatewayAttachmentId: str
     Filters: Optional[List[Filter]] = None
@@ -10032,6 +10746,7 @@ class GetTransitGatewayMulticastDomainAssociationsRequestPaginate(BaseValidatorM
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_transit_gateway_multicast_domain_associations' function.
 class GetTransitGatewayMulticastDomainAssociationsRequest(BaseValidatorModel):
     TransitGatewayMulticastDomainId: str
     Filters: Optional[List[Filter]] = None
@@ -10047,6 +10762,7 @@ class GetTransitGatewayPolicyTableAssociationsRequestPaginate(BaseValidatorModel
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_transit_gateway_policy_table_associations' function.
 class GetTransitGatewayPolicyTableAssociationsRequest(BaseValidatorModel):
     TransitGatewayPolicyTableId: str
     Filters: Optional[List[Filter]] = None
@@ -10055,6 +10771,7 @@ class GetTransitGatewayPolicyTableAssociationsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'get_transit_gateway_policy_table_entries' function.
 class GetTransitGatewayPolicyTableEntriesRequest(BaseValidatorModel):
     TransitGatewayPolicyTableId: str
     Filters: Optional[List[Filter]] = None
@@ -10070,6 +10787,7 @@ class GetTransitGatewayPrefixListReferencesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_transit_gateway_prefix_list_references' function.
 class GetTransitGatewayPrefixListReferencesRequest(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     Filters: Optional[List[Filter]] = None
@@ -10085,6 +10803,7 @@ class GetTransitGatewayRouteTableAssociationsRequestPaginate(BaseValidatorModel)
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_transit_gateway_route_table_associations' function.
 class GetTransitGatewayRouteTableAssociationsRequest(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     Filters: Optional[List[Filter]] = None
@@ -10100,6 +10819,7 @@ class GetTransitGatewayRouteTablePropagationsRequestPaginate(BaseValidatorModel)
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_transit_gateway_route_table_propagations' function.
 class GetTransitGatewayRouteTablePropagationsRequest(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     Filters: Optional[List[Filter]] = None
@@ -10115,6 +10835,7 @@ class SearchLocalGatewayRoutesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_local_gateway_routes' function.
 class SearchLocalGatewayRoutesRequest(BaseValidatorModel):
     LocalGatewayRouteTableId: str
     Filters: Optional[List[Filter]] = None
@@ -10130,6 +10851,7 @@ class SearchTransitGatewayMulticastGroupsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_transit_gateway_multicast_groups' function.
 class SearchTransitGatewayMulticastGroupsRequest(BaseValidatorModel):
     TransitGatewayMulticastDomainId: str
     Filters: Optional[List[Filter]] = None
@@ -10138,6 +10860,7 @@ class SearchTransitGatewayMulticastGroupsRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'search_transit_gateway_routes' function.
 class SearchTransitGatewayRoutesRequest(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     Filters: List[Filter]
@@ -10145,17 +10868,20 @@ class SearchTransitGatewayRoutesRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the output for the 'describe_aggregate_id_format' function.
 class DescribeAggregateIdFormatResult(BaseValidatorModel):
     UseLongIdsAggregated: bool
     Statuses: List[IdFormat]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_id_format' function.
 class DescribeIdFormatResult(BaseValidatorModel):
     Statuses: List[IdFormat]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_identity_id_format' function.
 class DescribeIdentityIdFormatResult(BaseValidatorModel):
     Statuses: List[IdFormat]
     ResponseMetadata: ResponseMetadata
@@ -10166,6 +10892,7 @@ class PrincipalIdFormat(BaseValidatorModel):
     Statuses: Optional[List[IdFormat]] = None
 
 
+# This class is the output for the 'describe_aws_network_performance_metric_subscriptions' function.
 class DescribeAwsNetworkPerformanceMetricSubscriptionsResult(BaseValidatorModel):
     Subscriptions: List[Subscription]
     ResponseMetadata: ResponseMetadata
@@ -10495,6 +11222,7 @@ class DescribeFastLaunchImagesSuccessItem(BaseValidatorModel):
     StateTransitionTime: Optional[datetime] = None
 
 
+# This class is the output for the 'disable_fast_launch' function.
 class DisableFastLaunchResult(BaseValidatorModel):
     ImageId: str
     ResourceType: Literal['snapshot']
@@ -10508,6 +11236,7 @@ class DisableFastLaunchResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enable_fast_launch' function.
 class EnableFastLaunchResult(BaseValidatorModel):
     ImageId: str
     ResourceType: Literal['snapshot']
@@ -10521,76 +11250,89 @@ class EnableFastLaunchResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_fast_snapshot_restores' function.
 class DescribeFastSnapshotRestoresResult(BaseValidatorModel):
     FastSnapshotRestores: List[DescribeFastSnapshotRestoreSuccessItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_host_reservation_offerings' function.
 class DescribeHostReservationOfferingsResult(BaseValidatorModel):
     OfferingSet: List[HostOffering]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_instance_credit_specifications' function.
 class DescribeInstanceCreditSpecificationsResult(BaseValidatorModel):
     InstanceCreditSpecifications: List[InstanceCreditSpecification]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_instance_topology' function.
 class DescribeInstanceTopologyResult(BaseValidatorModel):
     Instances: List[InstanceTopology]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_instance_type_offerings' function.
 class DescribeInstanceTypeOfferingsResult(BaseValidatorModel):
     InstanceTypeOfferings: List[InstanceTypeOffering]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_locked_snapshots' function.
 class DescribeLockedSnapshotsResult(BaseValidatorModel):
     Snapshots: List[LockedSnapshotsInfo]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_mac_hosts' function.
 class DescribeMacHostsResult(BaseValidatorModel):
     MacHosts: List[MacHost]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_moving_addresses' function.
 class DescribeMovingAddressesResult(BaseValidatorModel):
     MovingAddressStatuses: List[MovingAddressStatus]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_prefix_lists' function.
 class DescribePrefixListsResult(BaseValidatorModel):
     PrefixLists: List[PrefixList]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_regions' function.
 class DescribeRegionsResult(BaseValidatorModel):
     Regions: List[Region]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_security_group_references' function.
 class DescribeSecurityGroupReferencesResult(BaseValidatorModel):
     SecurityGroupReferenceSet: List[SecurityGroupReference]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_security_group_vpc_associations' function.
 class DescribeSecurityGroupVpcAssociationsResult(BaseValidatorModel):
     SecurityGroupVpcAssociations: List[SecurityGroupVpcAssociation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_snapshot_attribute' function.
 class DescribeSnapshotAttributeResult(BaseValidatorModel):
     ProductCodes: List[ProductCode]
     SnapshotId: str
@@ -10598,6 +11340,7 @@ class DescribeSnapshotAttributeResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_volume_attribute' function.
 class DescribeVolumeAttributeResult(BaseValidatorModel):
     AutoEnableIO: AttributeBooleanValue
     ProductCodes: List[ProductCode]
@@ -10605,40 +11348,47 @@ class DescribeVolumeAttributeResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_spot_price_history' function.
 class DescribeSpotPriceHistoryResult(BaseValidatorModel):
     SpotPriceHistory: List[SpotPrice]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_store_image_tasks' function.
 class DescribeStoreImageTasksResult(BaseValidatorModel):
     StoreImageTaskResults: List[StoreImageTaskResult]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_tags' function.
 class DescribeTagsResult(BaseValidatorModel):
     Tags: List[TagDescription]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_volumes_modifications' function.
 class DescribeVolumesModificationsResult(BaseValidatorModel):
     VolumesModifications: List[VolumeModification]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'modify_volume' function.
 class ModifyVolumeResult(BaseValidatorModel):
     VolumeModification: VolumeModification
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_vpc_block_public_access_options' function.
 class DescribeVpcBlockPublicAccessOptionsResult(BaseValidatorModel):
     VpcBlockPublicAccessOptions: VpcBlockPublicAccessOptions
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_vpc_block_public_access_options' function.
 class ModifyVpcBlockPublicAccessOptionsResult(BaseValidatorModel):
     VpcBlockPublicAccessOptions: VpcBlockPublicAccessOptions
     ResponseMetadata: ResponseMetadata
@@ -10668,11 +11418,13 @@ class DisableFastSnapshotRestoreStateErrorItem(BaseValidatorModel):
     Error: Optional[DisableFastSnapshotRestoreStateError] = None
 
 
+# This class is the output for the 'disable_transit_gateway_route_table_propagation' function.
 class DisableTransitGatewayRouteTablePropagationResult(BaseValidatorModel):
     Propagation: TransitGatewayPropagation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enable_transit_gateway_route_table_propagation' function.
 class EnableTransitGatewayRouteTablePropagationResult(BaseValidatorModel):
     Propagation: TransitGatewayPropagation
     ResponseMetadata: ResponseMetadata
@@ -10684,6 +11436,7 @@ class DiskImage(BaseValidatorModel):
     Volume: Optional[VolumeDetail] = None
 
 
+# This class is the input for the 'import_volume' function.
 class ImportVolumeRequest(BaseValidatorModel):
     AvailabilityZone: str
     Image: DiskImageDetail
@@ -10747,6 +11500,7 @@ class VpcEndpointConnection(BaseValidatorModel):
     VpcEndpointRegion: Optional[str] = None
 
 
+# This class is the input for the 'modify_client_vpn_endpoint' function.
 class ModifyClientVpnEndpointRequest(BaseValidatorModel):
     ClientVpnEndpointId: str
     ServerCertificateArn: Optional[str] = None
@@ -10838,6 +11592,7 @@ class EnaSrdSpecification(BaseValidatorModel):
     EnaSrdUdpSpecification: Optional[EnaSrdUdpSpecification] = None
 
 
+# This class is the input for the 'enable_fast_launch' function.
 class EnableFastLaunchRequest(BaseValidatorModel):
     ImageId: str
     ResourceType: Optional[str] = None
@@ -10864,6 +11619,7 @@ class HistoryRecord(BaseValidatorModel):
     Timestamp: Optional[datetime] = None
 
 
+# This class is the output for the 'export_image' function.
 class ExportImageResult(BaseValidatorModel):
     Description: str
     DiskImageFormat: DiskImageFormatType
@@ -10955,6 +11711,7 @@ class FpgaImage(BaseValidatorModel):
     InstanceTypes: Optional[List[str]] = None
 
 
+# This class is the output for the 'get_allowed_images_settings' function.
 class GetAllowedImagesSettingsResult(BaseValidatorModel):
     State: str
     ImageCriteria: List[ImageCriterion]
@@ -10962,12 +11719,14 @@ class GetAllowedImagesSettingsResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_associated_ipv6_pool_cidrs' function.
 class GetAssociatedIpv6PoolCidrsResult(BaseValidatorModel):
     Ipv6CidrAssociations: List[Ipv6CidrAssociation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_capacity_reservation_usage' function.
 class GetCapacityReservationUsageResult(BaseValidatorModel):
     CapacityReservationId: str
     InstanceType: str
@@ -10979,16 +11738,19 @@ class GetCapacityReservationUsageResult(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_default_credit_specification' function.
 class GetDefaultCreditSpecificationResult(BaseValidatorModel):
     InstanceFamilyCreditSpecification: InstanceFamilyCreditSpecification
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_default_credit_specification' function.
 class ModifyDefaultCreditSpecificationResult(BaseValidatorModel):
     InstanceFamilyCreditSpecification: InstanceFamilyCreditSpecification
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_host_reservation_purchase_preview' function.
 class GetHostReservationPurchasePreviewResult(BaseValidatorModel):
     CurrencyCode: Literal['USD']
     Purchase: List[Purchase]
@@ -10997,6 +11759,7 @@ class GetHostReservationPurchasePreviewResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'purchase_host_reservation' function.
 class PurchaseHostReservationResult(BaseValidatorModel):
     ClientToken: str
     CurrencyCode: Literal['USD']
@@ -11006,29 +11769,34 @@ class PurchaseHostReservationResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_instance_metadata_defaults' function.
 class GetInstanceMetadataDefaultsResult(BaseValidatorModel):
     AccountLevel: InstanceMetadataDefaultsResponse
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_instance_types_from_instance_requirements' function.
 class GetInstanceTypesFromInstanceRequirementsResult(BaseValidatorModel):
     InstanceTypes: List[InstanceTypeInfoFromInstanceRequirements]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_ipam_address_history' function.
 class GetIpamAddressHistoryResult(BaseValidatorModel):
     HistoryRecords: List[IpamAddressHistoryRecord]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_managed_prefix_list_associations' function.
 class GetManagedPrefixListAssociationsResult(BaseValidatorModel):
     PrefixListAssociations: List[PrefixListAssociation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_managed_prefix_list_entries' function.
 class GetManagedPrefixListEntriesResult(BaseValidatorModel):
     Entries: List[PrefixListEntry]
     ResponseMetadata: ResponseMetadata
@@ -11040,42 +11808,49 @@ class ReservedInstanceReservationValue(BaseValidatorModel):
     ReservedInstanceId: Optional[str] = None
 
 
+# This class is the output for the 'get_spot_placement_scores' function.
 class GetSpotPlacementScoresResult(BaseValidatorModel):
     SpotPlacementScores: List[SpotPlacementScore]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_transit_gateway_attachment_propagations' function.
 class GetTransitGatewayAttachmentPropagationsResult(BaseValidatorModel):
     TransitGatewayAttachmentPropagations: List[TransitGatewayAttachmentPropagation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_transit_gateway_route_table_associations' function.
 class GetTransitGatewayRouteTableAssociationsResult(BaseValidatorModel):
     Associations: List[TransitGatewayRouteTableAssociation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_transit_gateway_route_table_propagations' function.
 class GetTransitGatewayRouteTablePropagationsResult(BaseValidatorModel):
     TransitGatewayRouteTablePropagations: List[TransitGatewayRouteTablePropagation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_verified_access_endpoint_targets' function.
 class GetVerifiedAccessEndpointTargetsResult(BaseValidatorModel):
     VerifiedAccessEndpointTargets: List[VerifiedAccessEndpointTarget]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_vpn_connection_device_types' function.
 class GetVpnConnectionDeviceTypesResult(BaseValidatorModel):
     VpnConnectionDeviceTypes: List[VpnConnectionDeviceType]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_vpn_tunnel_replacement_status' function.
 class GetVpnTunnelReplacementStatusResult(BaseValidatorModel):
     VpnConnectionId: str
     TransitGatewayId: str
@@ -11106,6 +11881,7 @@ class LaunchPermissionModifications(BaseValidatorModel):
     Remove: Optional[List[LaunchPermission]] = None
 
 
+# This class is the input for the 'replace_image_criteria_in_allowed_images_settings' function.
 class ReplaceImageCriteriaInAllowedImagesSettingsRequest(BaseValidatorModel):
     ImageCriteria: Optional[List[ImageCriterionRequest]] = None
     DryRun: Optional[bool] = None
@@ -11127,6 +11903,7 @@ class SnapshotDiskContainer(BaseValidatorModel):
     UserBucket: Optional[UserBucket] = None
 
 
+# This class is the output for the 'list_images_in_recycle_bin' function.
 class ListImagesInRecycleBinResult(BaseValidatorModel):
     Images: List[ImageRecycleBinInfo]
     ResponseMetadata: ResponseMetadata
@@ -11171,6 +11948,7 @@ class InstanceAttachmentEnaSrdSpecification(BaseValidatorModel):
     EnaSrdUdpSpecification: Optional[InstanceAttachmentEnaSrdUdpSpecification] = None
 
 
+# This class is the input for the 'modify_instance_credit_specification' function.
 class ModifyInstanceCreditSpecificationRequest(BaseValidatorModel):
     InstanceCreditSpecifications: List[InstanceCreditSpecificationRequest]
     DryRun: Optional[bool] = None
@@ -11196,6 +11974,7 @@ class InstanceStateChange(BaseValidatorModel):
     PreviousState: Optional[InstanceState] = None
 
 
+# This class is the output for the 'modify_instance_metadata_options' function.
 class ModifyInstanceMetadataOptionsResult(BaseValidatorModel):
     InstanceId: str
     InstanceMetadataOptions: InstanceMetadataOptionsResponse
@@ -11219,6 +11998,7 @@ class InstanceStatusSummary(BaseValidatorModel):
     Status: Optional[SummaryStatusType] = None
 
 
+# This class is the output for the 'modify_instance_event_start_time' function.
 class ModifyInstanceEventStartTimeResult(BaseValidatorModel):
     Event: InstanceStatusEvent
     ResponseMetadata: ResponseMetadata
@@ -11253,6 +12033,7 @@ class StaleIpPermission(BaseValidatorModel):
     UserIdGroupPairs: Optional[List[UserIdGroupPair]] = None
 
 
+# This class is the input for the 'provision_ipam_pool_cidr' function.
 class ProvisionIpamPoolCidrRequest(BaseValidatorModel):
     IpamPoolId: str
     DryRun: Optional[bool] = None
@@ -11412,6 +12193,7 @@ class LaunchTemplateInstanceMarketOptions(BaseValidatorModel):
     SpotOptions: Optional[LaunchTemplateSpotMarketOptions] = None
 
 
+# This class is the output for the 'list_snapshots_in_recycle_bin' function.
 class ListSnapshotsInRecycleBinResult(BaseValidatorModel):
     Snapshots: List[SnapshotRecycleBinInfo]
     ResponseMetadata: ResponseMetadata
@@ -11430,6 +12212,7 @@ class MediaDeviceInfo(BaseValidatorModel):
     MemoryInfo: Optional[MediaDeviceMemoryInfo] = None
 
 
+# This class is the input for the 'modify_ipam' function.
 class ModifyIpamRequest(BaseValidatorModel):
     IpamId: str
     DryRun: Optional[bool] = None
@@ -11440,6 +12223,7 @@ class ModifyIpamRequest(BaseValidatorModel):
     EnablePrivateGua: Optional[bool] = None
 
 
+# This class is the input for the 'modify_ipam_resource_discovery' function.
 class ModifyIpamResourceDiscoveryRequest(BaseValidatorModel):
     IpamResourceDiscoveryId: str
     DryRun: Optional[bool] = None
@@ -11450,6 +12234,7 @@ class ModifyIpamResourceDiscoveryRequest(BaseValidatorModel):
     RemoveOrganizationalUnitExclusions: Optional[List[RemoveIpamOrganizationalUnitExclusion]] = None
 
 
+# This class is the input for the 'modify_managed_prefix_list' function.
 class ModifyManagedPrefixListRequest(BaseValidatorModel):
     PrefixListId: str
     DryRun: Optional[bool] = None
@@ -11460,6 +12245,7 @@ class ModifyManagedPrefixListRequest(BaseValidatorModel):
     MaxEntries: Optional[int] = None
 
 
+# This class is the input for the 'modify_reserved_instances' function.
 class ModifyReservedInstancesRequest(BaseValidatorModel):
     ReservedInstancesIds: List[str]
     TargetConfigurations: List[ReservedInstancesConfiguration]
@@ -11471,6 +12257,7 @@ class ReservedInstancesModificationResult(BaseValidatorModel):
     TargetConfiguration: Optional[ReservedInstancesConfiguration] = None
 
 
+# This class is the input for the 'modify_transit_gateway' function.
 class ModifyTransitGatewayRequest(BaseValidatorModel):
     TransitGatewayId: str
     Description: Optional[str] = None
@@ -11478,6 +12265,7 @@ class ModifyTransitGatewayRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'modify_transit_gateway_vpc_attachment' function.
 class ModifyTransitGatewayVpcAttachmentRequest(BaseValidatorModel):
     TransitGatewayAttachmentId: str
     AddSubnetIds: Optional[List[str]] = None
@@ -11503,6 +12291,7 @@ class ModifyVerifiedAccessEndpointLoadBalancerOptions(BaseValidatorModel):
     PortRanges: Optional[List[ModifyVerifiedAccessEndpointPortRange]] = None
 
 
+# This class is the output for the 'modify_verified_access_endpoint_policy' function.
 class ModifyVerifiedAccessEndpointPolicyResult(BaseValidatorModel):
     PolicyEnabled: bool
     PolicyDocument: str
@@ -11510,6 +12299,7 @@ class ModifyVerifiedAccessEndpointPolicyResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_verified_access_group_policy' function.
 class ModifyVerifiedAccessGroupPolicyResult(BaseValidatorModel):
     PolicyEnabled: bool
     PolicyDocument: str
@@ -11530,6 +12320,7 @@ class VerifiedAccessGroup(BaseValidatorModel):
     SseSpecification: Optional[VerifiedAccessSseSpecificationResponse] = None
 
 
+# This class is the input for the 'modify_verified_access_trust_provider' function.
 class ModifyVerifiedAccessTrustProviderRequest(BaseValidatorModel):
     VerifiedAccessTrustProviderId: str
     OidcOptions: Optional[ModifyVerifiedAccessTrustProviderOidcOptions] = None
@@ -11541,6 +12332,7 @@ class ModifyVerifiedAccessTrustProviderRequest(BaseValidatorModel):
     NativeApplicationOidcOptions: Optional[ModifyVerifiedAccessNativeApplicationOidcOptions] = None
 
 
+# This class is the input for the 'modify_vpc_peering_connection_options' function.
 class ModifyVpcPeeringConnectionOptionsRequest(BaseValidatorModel):
     VpcPeeringConnectionId: str
     AccepterPeeringConnectionOptions: Optional[PeeringConnectionOptionsRequest] = None
@@ -11548,6 +12340,7 @@ class ModifyVpcPeeringConnectionOptionsRequest(BaseValidatorModel):
     RequesterPeeringConnectionOptions: Optional[PeeringConnectionOptionsRequest] = None
 
 
+# This class is the output for the 'modify_vpc_peering_connection_options' function.
 class ModifyVpcPeeringConnectionOptionsResult(BaseValidatorModel):
     AccepterPeeringConnectionOptions: PeeringConnectionOptions
     RequesterPeeringConnectionOptions: PeeringConnectionOptions
@@ -11663,6 +12456,7 @@ class ReservedInstancesListing(BaseValidatorModel):
     UpdateDate: Optional[datetime] = None
 
 
+# This class is the output for the 'provision_public_ipv4_pool_cidr' function.
 class ProvisionPublicIpv4PoolCidrResult(BaseValidatorModel):
     PoolId: str
     PoolAddressRange: PublicIpv4PoolRange
@@ -11679,12 +12473,14 @@ class PublicIpv4Pool(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'purchase_scheduled_instances' function.
 class PurchaseScheduledInstancesRequest(BaseValidatorModel):
     PurchaseRequests: List[PurchaseRequest]
     ClientToken: Optional[str] = None
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'purchase_reserved_instances_offering' function.
 class PurchaseReservedInstancesOfferingRequest(BaseValidatorModel):
     InstanceCount: int
     ReservedInstancesOfferingId: str
@@ -11749,16 +12545,19 @@ class SecurityGroupRule(BaseValidatorModel):
     SecurityGroupRuleArn: Optional[str] = None
 
 
+# This class is the input for the 'register_instance_event_notification_attributes' function.
 class RegisterInstanceEventNotificationAttributesRequest(BaseValidatorModel):
     InstanceTagAttribute: RegisterInstanceTagAttributeRequest
     DryRun: Optional[bool] = None
 
 
+# This class is the output for the 'register_transit_gateway_multicast_group_members' function.
 class RegisterTransitGatewayMulticastGroupMembersResult(BaseValidatorModel):
     RegisteredMulticastGroupMembers: TransitGatewayMulticastRegisteredGroupMembers
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_transit_gateway_multicast_group_sources' function.
 class RegisterTransitGatewayMulticastGroupSourcesResult(BaseValidatorModel):
     RegisteredMulticastGroupSources: TransitGatewayMulticastRegisteredGroupSources
     ResponseMetadata: ResponseMetadata
@@ -11824,6 +12623,7 @@ class ScheduledInstancesNetworkInterface(BaseValidatorModel):
     SubnetId: Optional[str] = None
 
 
+# This class is the output for the 'search_transit_gateway_multicast_groups' function.
 class SearchTransitGatewayMulticastGroupsResult(BaseValidatorModel):
     MulticastGroups: List[TransitGatewayMulticastGroup]
     ResponseMetadata: ResponseMetadata
@@ -12178,6 +12978,7 @@ class VerifiedAccessLogOptions(BaseValidatorModel):
     IncludeTrustContext: Optional[bool] = None
 
 
+# This class is the output for the 'create_volume' function.
 class VolumeResponse(BaseValidatorModel):
     OutpostArn: str
     Iops: int
@@ -12260,6 +13061,7 @@ class VpcPeeringConnectionVpcInfo(BaseValidatorModel):
     Region: Optional[str] = None
 
 
+# This class is the output for the 'describe_account_attributes' function.
 class DescribeAccountAttributesResult(BaseValidatorModel):
     AccountAttributes: List[AccountAttribute]
     ResponseMetadata: ResponseMetadata
@@ -12276,104 +13078,123 @@ class AdditionalDetail(BaseValidatorModel):
     LoadBalancers: Optional[List[AnalysisComponent]] = None
 
 
+# This class is the output for the 'describe_addresses_attribute' function.
 class DescribeAddressesAttributeResult(BaseValidatorModel):
     Addresses: List[AddressAttribute]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'modify_address_attribute' function.
 class ModifyAddressAttributeResult(BaseValidatorModel):
     Address: AddressAttribute
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reset_address_attribute' function.
 class ResetAddressAttributeResult(BaseValidatorModel):
     Address: AddressAttribute
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_addresses' function.
 class DescribeAddressesResult(BaseValidatorModel):
     Addresses: List[Address]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_vpc_endpoint_service_permissions' function.
 class DescribeVpcEndpointServicePermissionsResult(BaseValidatorModel):
     AllowedPrincipals: List[AllowedPrincipal]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_carrier_gateway' function.
 class CreateCarrierGatewayResult(BaseValidatorModel):
     CarrierGateway: CarrierGateway
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_carrier_gateway' function.
 class DeleteCarrierGatewayResult(BaseValidatorModel):
     CarrierGateway: CarrierGateway
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_carrier_gateways' function.
 class DescribeCarrierGatewaysResult(BaseValidatorModel):
     CarrierGateways: List[CarrierGateway]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_coip_pool' function.
 class CreateCoipPoolResult(BaseValidatorModel):
     CoipPool: CoipPool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_coip_pool' function.
 class DeleteCoipPoolResult(BaseValidatorModel):
     CoipPool: CoipPool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_coip_pools' function.
 class DescribeCoipPoolsResult(BaseValidatorModel):
     CoipPools: List[CoipPool]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_customer_gateway' function.
 class CreateCustomerGatewayResult(BaseValidatorModel):
     CustomerGateway: CustomerGateway
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_customer_gateways' function.
 class DescribeCustomerGatewaysResult(BaseValidatorModel):
     CustomerGateways: List[CustomerGateway]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_declarative_policies_reports' function.
 class DescribeDeclarativePoliciesReportsResult(BaseValidatorModel):
     Reports: List[DeclarativePoliciesReport]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_instance_connect_endpoint' function.
 class CreateInstanceConnectEndpointResult(BaseValidatorModel):
     InstanceConnectEndpoint: Ec2InstanceConnectEndpoint
     ClientToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_instance_connect_endpoint' function.
 class DeleteInstanceConnectEndpointResult(BaseValidatorModel):
     InstanceConnectEndpoint: Ec2InstanceConnectEndpoint
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_instance_connect_endpoints' function.
 class DescribeInstanceConnectEndpointsResult(BaseValidatorModel):
     InstanceConnectEndpoints: List[Ec2InstanceConnectEndpoint]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_host_reservations' function.
 class DescribeHostReservationsResult(BaseValidatorModel):
     HostReservationSet: List[HostReservation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'associate_instance_event_window' function.
 class AssociateInstanceEventWindowRequest(BaseValidatorModel):
     InstanceEventWindowId: str
     AssociationTarget: InstanceEventWindowAssociationRequest
@@ -12390,65 +13211,77 @@ class InstanceEventWindow(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'disassociate_instance_event_window' function.
 class DisassociateInstanceEventWindowRequest(BaseValidatorModel):
     InstanceEventWindowId: str
     AssociationTarget: InstanceEventWindowDisassociationRequest
     DryRun: Optional[bool] = None
 
 
+# This class is the output for the 'create_ipam_external_resource_verification_token' function.
 class CreateIpamExternalResourceVerificationTokenResult(BaseValidatorModel):
     IpamExternalResourceVerificationToken: IpamExternalResourceVerificationToken
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_ipam_external_resource_verification_token' function.
 class DeleteIpamExternalResourceVerificationTokenResult(BaseValidatorModel):
     IpamExternalResourceVerificationToken: IpamExternalResourceVerificationToken
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_ipam_external_resource_verification_tokens' function.
 class DescribeIpamExternalResourceVerificationTokensResult(BaseValidatorModel):
     IpamExternalResourceVerificationTokens: List[IpamExternalResourceVerificationToken]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'associate_ipam_resource_discovery' function.
 class AssociateIpamResourceDiscoveryResult(BaseValidatorModel):
     IpamResourceDiscoveryAssociation: IpamResourceDiscoveryAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_ipam_resource_discovery_associations' function.
 class DescribeIpamResourceDiscoveryAssociationsResult(BaseValidatorModel):
     IpamResourceDiscoveryAssociations: List[IpamResourceDiscoveryAssociation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'disassociate_ipam_resource_discovery' function.
 class DisassociateIpamResourceDiscoveryResult(BaseValidatorModel):
     IpamResourceDiscoveryAssociation: IpamResourceDiscoveryAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_ipam_scope' function.
 class CreateIpamScopeResult(BaseValidatorModel):
     IpamScope: IpamScope
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_ipam_scope' function.
 class DeleteIpamScopeResult(BaseValidatorModel):
     IpamScope: IpamScope
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_ipam_scopes' function.
 class DescribeIpamScopesResult(BaseValidatorModel):
     IpamScopes: List[IpamScope]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'modify_ipam_scope' function.
 class ModifyIpamScopeResult(BaseValidatorModel):
     IpamScope: IpamScope
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_key_pairs' function.
 class DescribeKeyPairsResult(BaseValidatorModel):
     KeyPairs: List[KeyPairInfo]
     ResponseMetadata: ResponseMetadata
@@ -12470,137 +13303,162 @@ class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult(Base
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_local_gateway_route_table_vpc_association' function.
 class CreateLocalGatewayRouteTableVpcAssociationResult(BaseValidatorModel):
     LocalGatewayRouteTableVpcAssociation: LocalGatewayRouteTableVpcAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_local_gateway_route_table_vpc_association' function.
 class DeleteLocalGatewayRouteTableVpcAssociationResult(BaseValidatorModel):
     LocalGatewayRouteTableVpcAssociation: LocalGatewayRouteTableVpcAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_local_gateway_route_table_vpc_associations' function.
 class DescribeLocalGatewayRouteTableVpcAssociationsResult(BaseValidatorModel):
     LocalGatewayRouteTableVpcAssociations: List[LocalGatewayRouteTableVpcAssociation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_local_gateways' function.
 class DescribeLocalGatewaysResult(BaseValidatorModel):
     LocalGateways: List[LocalGateway]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_local_gateway_virtual_interface_groups' function.
 class DescribeLocalGatewayVirtualInterfaceGroupsResult(BaseValidatorModel):
     LocalGatewayVirtualInterfaceGroups: List[LocalGatewayVirtualInterfaceGroup]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_local_gateway_virtual_interfaces' function.
 class DescribeLocalGatewayVirtualInterfacesResult(BaseValidatorModel):
     LocalGatewayVirtualInterfaces: List[LocalGatewayVirtualInterface]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_managed_prefix_list' function.
 class CreateManagedPrefixListResult(BaseValidatorModel):
     PrefixList: ManagedPrefixList
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_managed_prefix_list' function.
 class DeleteManagedPrefixListResult(BaseValidatorModel):
     PrefixList: ManagedPrefixList
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_managed_prefix_lists' function.
 class DescribeManagedPrefixListsResult(BaseValidatorModel):
     PrefixLists: List[ManagedPrefixList]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'modify_managed_prefix_list' function.
 class ModifyManagedPrefixListResult(BaseValidatorModel):
     PrefixList: ManagedPrefixList
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'restore_managed_prefix_list_version' function.
 class RestoreManagedPrefixListVersionResult(BaseValidatorModel):
     PrefixList: ManagedPrefixList
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_network_insights_access_scope_analyses' function.
 class DescribeNetworkInsightsAccessScopeAnalysesResult(BaseValidatorModel):
     NetworkInsightsAccessScopeAnalyses: List[NetworkInsightsAccessScopeAnalysis]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_network_insights_access_scope_analysis' function.
 class StartNetworkInsightsAccessScopeAnalysisResult(BaseValidatorModel):
     NetworkInsightsAccessScopeAnalysis: NetworkInsightsAccessScopeAnalysis
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_network_insights_access_scopes' function.
 class DescribeNetworkInsightsAccessScopesResult(BaseValidatorModel):
     NetworkInsightsAccessScopes: List[NetworkInsightsAccessScope]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_placement_group' function.
 class CreatePlacementGroupResult(BaseValidatorModel):
     PlacementGroup: PlacementGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_placement_groups' function.
 class DescribePlacementGroupsResult(BaseValidatorModel):
     PlacementGroups: List[PlacementGroup]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_replace_root_volume_task' function.
 class CreateReplaceRootVolumeTaskResult(BaseValidatorModel):
     ReplaceRootVolumeTask: ReplaceRootVolumeTask
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_replace_root_volume_tasks' function.
 class DescribeReplaceRootVolumeTasksResult(BaseValidatorModel):
     ReplaceRootVolumeTasks: List[ReplaceRootVolumeTask]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_security_groups_for_vpc' function.
 class GetSecurityGroupsForVpcResult(BaseValidatorModel):
     SecurityGroupForVpcs: List[SecurityGroupForVpc]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_snapshots' function.
 class CreateSnapshotsResult(BaseValidatorModel):
     Snapshots: List[SnapshotInfo]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_snapshot_tier_status' function.
 class DescribeSnapshotTierStatusResult(BaseValidatorModel):
     SnapshotTierStatuses: List[SnapshotTierStatus]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_snapshots' function.
 class DescribeSnapshotsResult(BaseValidatorModel):
     Snapshots: List[Snapshot]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_subnet_cidr_reservation' function.
 class CreateSubnetCidrReservationResult(BaseValidatorModel):
     SubnetCidrReservation: SubnetCidrReservation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_subnet_cidr_reservation' function.
 class DeleteSubnetCidrReservationResult(BaseValidatorModel):
     DeletedSubnetCidrReservation: SubnetCidrReservation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_subnet_cidr_reservations' function.
 class GetSubnetCidrReservationsResult(BaseValidatorModel):
     SubnetIpv4CidrReservations: List[SubnetCidrReservation]
     SubnetIpv6CidrReservations: List[SubnetCidrReservation]
@@ -12610,116 +13468,137 @@ class GetSubnetCidrReservationsResult(BaseValidatorModel):
 TagSpecificationUnion = Union[TagSpecification, TagSpecificationOutput]
 
 
+# This class is the output for the 'create_traffic_mirror_session' function.
 class CreateTrafficMirrorSessionResult(BaseValidatorModel):
     TrafficMirrorSession: TrafficMirrorSession
     ClientToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_traffic_mirror_sessions' function.
 class DescribeTrafficMirrorSessionsResult(BaseValidatorModel):
     TrafficMirrorSessions: List[TrafficMirrorSession]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'modify_traffic_mirror_session' function.
 class ModifyTrafficMirrorSessionResult(BaseValidatorModel):
     TrafficMirrorSession: TrafficMirrorSession
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_traffic_mirror_target' function.
 class CreateTrafficMirrorTargetResult(BaseValidatorModel):
     TrafficMirrorTarget: TrafficMirrorTarget
     ClientToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_traffic_mirror_targets' function.
 class DescribeTrafficMirrorTargetsResult(BaseValidatorModel):
     TrafficMirrorTargets: List[TrafficMirrorTarget]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_transit_gateway_policy_table' function.
 class CreateTransitGatewayPolicyTableResult(BaseValidatorModel):
     TransitGatewayPolicyTable: TransitGatewayPolicyTable
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_transit_gateway_policy_table' function.
 class DeleteTransitGatewayPolicyTableResult(BaseValidatorModel):
     TransitGatewayPolicyTable: TransitGatewayPolicyTable
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_transit_gateway_policy_tables' function.
 class DescribeTransitGatewayPolicyTablesResult(BaseValidatorModel):
     TransitGatewayPolicyTables: List[TransitGatewayPolicyTable]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_transit_gateway_route_table_announcement' function.
 class CreateTransitGatewayRouteTableAnnouncementResult(BaseValidatorModel):
     TransitGatewayRouteTableAnnouncement: TransitGatewayRouteTableAnnouncement
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_transit_gateway_route_table_announcement' function.
 class DeleteTransitGatewayRouteTableAnnouncementResult(BaseValidatorModel):
     TransitGatewayRouteTableAnnouncement: TransitGatewayRouteTableAnnouncement
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_transit_gateway_route_table_announcements' function.
 class DescribeTransitGatewayRouteTableAnnouncementsResult(BaseValidatorModel):
     TransitGatewayRouteTableAnnouncements: List[TransitGatewayRouteTableAnnouncement]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_transit_gateway_route_table' function.
 class CreateTransitGatewayRouteTableResult(BaseValidatorModel):
     TransitGatewayRouteTable: TransitGatewayRouteTable
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_transit_gateway_route_table' function.
 class DeleteTransitGatewayRouteTableResult(BaseValidatorModel):
     TransitGatewayRouteTable: TransitGatewayRouteTable
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_transit_gateway_route_tables' function.
 class DescribeTransitGatewayRouteTablesResult(BaseValidatorModel):
     TransitGatewayRouteTables: List[TransitGatewayRouteTable]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'associate_trunk_interface' function.
 class AssociateTrunkInterfaceResult(BaseValidatorModel):
     InterfaceAssociation: TrunkInterfaceAssociation
     ClientToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_trunk_interface_associations' function.
 class DescribeTrunkInterfaceAssociationsResult(BaseValidatorModel):
     InterfaceAssociations: List[TrunkInterfaceAssociation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_vpc_block_public_access_exclusion' function.
 class CreateVpcBlockPublicAccessExclusionResult(BaseValidatorModel):
     VpcBlockPublicAccessExclusion: VpcBlockPublicAccessExclusion
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_vpc_block_public_access_exclusion' function.
 class DeleteVpcBlockPublicAccessExclusionResult(BaseValidatorModel):
     VpcBlockPublicAccessExclusion: VpcBlockPublicAccessExclusion
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_vpc_block_public_access_exclusions' function.
 class DescribeVpcBlockPublicAccessExclusionsResult(BaseValidatorModel):
     VpcBlockPublicAccessExclusions: List[VpcBlockPublicAccessExclusion]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'modify_vpc_block_public_access_exclusion' function.
 class ModifyVpcBlockPublicAccessExclusionResult(BaseValidatorModel):
     VpcBlockPublicAccessExclusion: VpcBlockPublicAccessExclusion
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_vpc_classic_link' function.
 class DescribeVpcClassicLinkResult(BaseValidatorModel):
     Vpcs: List[VpcClassicLink]
     ResponseMetadata: ResponseMetadata
@@ -12781,37 +13660,44 @@ class Explanation(BaseValidatorModel):
     FirewallStatefulRule: Optional[FirewallStatefulRule] = None
 
 
+# This class is the output for the 'advertise_byoip_cidr' function.
 class AdvertiseByoipCidrResult(BaseValidatorModel):
     ByoipCidr: ByoipCidr
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'deprovision_byoip_cidr' function.
 class DeprovisionByoipCidrResult(BaseValidatorModel):
     ByoipCidr: ByoipCidr
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_byoip_cidrs' function.
 class DescribeByoipCidrsResult(BaseValidatorModel):
     ByoipCidrs: List[ByoipCidr]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'move_byoip_cidr_to_ipam' function.
 class MoveByoipCidrToIpamResult(BaseValidatorModel):
     ByoipCidr: ByoipCidr
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'provision_byoip_cidr' function.
 class ProvisionByoipCidrResult(BaseValidatorModel):
     ByoipCidr: ByoipCidr
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'withdraw_byoip_cidr' function.
 class WithdrawByoipCidrResult(BaseValidatorModel):
     ByoipCidr: ByoipCidr
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_client_vpn_target_networks' function.
 class DescribeClientVpnTargetNetworksResult(BaseValidatorModel):
     ClientVpnTargetNetworks: List[TargetNetwork]
     ResponseMetadata: ResponseMetadata
@@ -12847,6 +13733,7 @@ class DescribeScheduledInstanceAvailabilityRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_scheduled_instance_availability' function.
 class DescribeScheduledInstanceAvailabilityRequest(BaseValidatorModel):
     FirstSlotStartTimeRange: SlotDateTimeRangeRequest
     Recurrence: ScheduledInstanceRecurrenceRequest
@@ -12866,6 +13753,7 @@ class DescribeScheduledInstancesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_scheduled_instances' function.
 class DescribeScheduledInstancesRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Filters: Optional[List[Filter]] = None
@@ -12880,11 +13768,13 @@ class InstanceMarketOptionsRequest(BaseValidatorModel):
     SpotOptions: Optional[SpotMarketOptions] = None
 
 
+# This class is the output for the 'create_vpn_gateway' function.
 class CreateVpnGatewayResult(BaseValidatorModel):
     VpnGateway: VpnGateway
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_vpn_gateways' function.
 class DescribeVpnGatewaysResult(BaseValidatorModel):
     VpnGateways: List[VpnGateway]
     ResponseMetadata: ResponseMetadata
@@ -12902,6 +13792,7 @@ class NetworkInterfaceAttachment(BaseValidatorModel):
     EnaSrdSpecification: Optional[AttachmentEnaSrdSpecification] = None
 
 
+# This class is the output for the 'get_declarative_policies_report_summary' function.
 class GetDeclarativePoliciesReportSummaryResult(BaseValidatorModel):
     ReportId: str
     S3Bucket: str
@@ -12922,12 +13813,14 @@ class DhcpOptions(BaseValidatorModel):
     DhcpConfigurations: Optional[List[DhcpConfiguration]] = None
 
 
+# This class is the output for the 'describe_client_vpn_authorization_rules' function.
 class DescribeClientVpnAuthorizationRulesResult(BaseValidatorModel):
     AuthorizationRules: List[AuthorizationRule]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_availability_zones' function.
 class DescribeAvailabilityZonesResult(BaseValidatorModel):
     AvailabilityZones: List[AvailabilityZone]
     ResponseMetadata: ResponseMetadata
@@ -12960,6 +13853,7 @@ class Storage(BaseValidatorModel):
     S3: Optional[S3Storage] = None
 
 
+# This class is the output for the 'describe_image_attribute' function.
 class ImageAttribute(BaseValidatorModel):
     Description: AttributeValue
     KernelId: AttributeValue
@@ -13017,24 +13911,28 @@ class Image(BaseValidatorModel):
     Platform: Optional[Literal['windows']] = None
 
 
+# This class is the output for the 'cancel_capacity_reservation_fleets' function.
 class CancelCapacityReservationFleetsResult(BaseValidatorModel):
     SuccessfulFleetCancellations: List[CapacityReservationFleetCancellationState]
     FailedFleetCancellations: List[FailedCapacityReservationFleetCancellationResult]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_spot_fleet_requests' function.
 class CancelSpotFleetRequestsResponse(BaseValidatorModel):
     SuccessfulFleetRequests: List[CancelSpotFleetRequestsSuccessItem]
     UnsuccessfulFleetRequests: List[CancelSpotFleetRequestsErrorItem]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_capacity_reservation_billing_requests' function.
 class DescribeCapacityReservationBillingRequestsResult(BaseValidatorModel):
     CapacityReservationBillingRequests: List[CapacityReservationBillingRequest]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_capacity_reservation_by_splitting' function.
 class CreateCapacityReservationBySplittingResult(BaseValidatorModel):
     SourceCapacityReservation: CapacityReservation
     DestinationCapacityReservation: CapacityReservation
@@ -13042,17 +13940,20 @@ class CreateCapacityReservationBySplittingResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_capacity_reservation' function.
 class CreateCapacityReservationResult(BaseValidatorModel):
     CapacityReservation: CapacityReservation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_capacity_reservations' function.
 class DescribeCapacityReservationsResult(BaseValidatorModel):
     CapacityReservations: List[CapacityReservation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'move_capacity_reservation_instances' function.
 class MoveCapacityReservationInstancesResult(BaseValidatorModel):
     SourceCapacityReservation: CapacityReservation
     DestinationCapacityReservation: CapacityReservation
@@ -13060,23 +13961,27 @@ class MoveCapacityReservationInstancesResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'purchase_capacity_block' function.
 class PurchaseCapacityBlockResult(BaseValidatorModel):
     CapacityReservation: CapacityReservation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_capacity_reservation_fleets' function.
 class DescribeCapacityReservationFleetsResult(BaseValidatorModel):
     CapacityReservationFleets: List[CapacityReservationFleet]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'modify_instance_capacity_reservation_attributes' function.
 class ModifyInstanceCapacityReservationAttributesRequest(BaseValidatorModel):
     InstanceId: str
     CapacityReservationSpecification: CapacityReservationSpecification
     DryRun: Optional[bool] = None
 
 
+# This class is the output for the 'describe_classic_link_instances' function.
 class DescribeClassicLinkInstancesResult(BaseValidatorModel):
     Instances: List[ClassicLinkInstance]
     ResponseMetadata: ResponseMetadata
@@ -13110,12 +14015,14 @@ class ClientVpnEndpoint(BaseValidatorModel):
     DisconnectOnSessionTimeout: Optional[bool] = None
 
 
+# This class is the output for the 'describe_client_vpn_connections' function.
 class DescribeClientVpnConnectionsResult(BaseValidatorModel):
     Connections: List[ClientVpnConnection]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'terminate_client_vpn_connections' function.
 class TerminateClientVpnConnectionsResult(BaseValidatorModel):
     ClientVpnEndpointId: str
     Username: str
@@ -13123,6 +14030,7 @@ class TerminateClientVpnConnectionsResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_client_vpn_routes' function.
 class DescribeClientVpnRoutesResult(BaseValidatorModel):
     Routes: List[ClientVpnRoute]
     ResponseMetadata: ResponseMetadata
@@ -13228,6 +14136,7 @@ class ModifySnapshotAttributeRequestSnapshotModifyAttribute(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'modify_snapshot_attribute' function.
 class ModifySnapshotAttributeRequest(BaseValidatorModel):
     SnapshotId: str
     Attribute: Optional[SnapshotAttributeNameType] = None
@@ -13238,42 +14147,49 @@ class ModifySnapshotAttributeRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the output for the 'get_aws_network_performance_data' function.
 class GetAwsNetworkPerformanceDataResult(BaseValidatorModel):
     DataResponses: List[DataResponse]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'delete_fleets' function.
 class DeleteFleetsResult(BaseValidatorModel):
     SuccessfulFleetDeletions: List[DeleteFleetSuccessItem]
     UnsuccessfulFleetDeletions: List[DeleteFleetErrorItem]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_launch_template_versions' function.
 class DeleteLaunchTemplateVersionsResult(BaseValidatorModel):
     SuccessfullyDeletedLaunchTemplateVersions: List[DeleteLaunchTemplateVersionsResponseSuccessItem]
     UnsuccessfullyDeletedLaunchTemplateVersions: List[DeleteLaunchTemplateVersionsResponseErrorItem]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_queued_reserved_instances' function.
 class DeleteQueuedReservedInstancesResult(BaseValidatorModel):
     SuccessfulQueuedPurchaseDeletions: List[SuccessfulQueuedPurchaseDeletion]
     FailedQueuedPurchaseDeletions: List[FailedQueuedPurchaseDeletion]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_principal_id_format' function.
 class DescribePrincipalIdFormatResult(BaseValidatorModel):
     Principals: List[PrincipalIdFormat]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_fast_launch_images' function.
 class DescribeFastLaunchImagesResult(BaseValidatorModel):
     FastLaunchImages: List[DescribeFastLaunchImagesSuccessItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_flow_logs' function.
 class DescribeFlowLogsResult(BaseValidatorModel):
     FlowLogs: List[FlowLog]
     ResponseMetadata: ResponseMetadata
@@ -13292,12 +14208,14 @@ class ImportInstanceTaskDetails(BaseValidatorModel):
     Volumes: Optional[List[ImportInstanceVolumeDetailItem]] = None
 
 
+# This class is the output for the 'describe_vpc_endpoint_associations' function.
 class DescribeVpcEndpointAssociationsResult(BaseValidatorModel):
     VpcEndpointAssociations: List[VpcEndpointAssociation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_vpc_endpoint_connections' function.
 class DescribeVpcEndpointConnectionsResult(BaseValidatorModel):
     VpcEndpointConnections: List[VpcEndpointConnection]
     ResponseMetadata: ResponseMetadata
@@ -13323,6 +14241,7 @@ class ModifyInstanceAttributeRequestInstanceModifyAttribute(BaseValidatorModel):
     EnaSupport: Optional[AttributeBooleanValue] = None
 
 
+# This class is the input for the 'modify_instance_attribute' function.
 class ModifyInstanceAttributeRequest(BaseValidatorModel):
     InstanceId: str
     SourceDestCheck: Optional[AttributeBooleanValue] = None
@@ -13348,45 +14267,53 @@ class InstanceBlockDeviceMapping(BaseValidatorModel):
     Ebs: Optional[EbsInstanceBlockDevice] = None
 
 
+# This class is the output for the 'delete_launch_template' function.
 class DeleteLaunchTemplateResult(BaseValidatorModel):
     LaunchTemplate: LaunchTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_launch_templates' function.
 class DescribeLaunchTemplatesResult(BaseValidatorModel):
     LaunchTemplates: List[LaunchTemplate]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'modify_launch_template' function.
 class ModifyLaunchTemplateResult(BaseValidatorModel):
     LaunchTemplate: LaunchTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_egress_only_internet_gateway' function.
 class CreateEgressOnlyInternetGatewayResult(BaseValidatorModel):
     ClientToken: str
     EgressOnlyInternetGateway: EgressOnlyInternetGateway
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_egress_only_internet_gateways' function.
 class DescribeEgressOnlyInternetGatewaysResult(BaseValidatorModel):
     EgressOnlyInternetGateways: List[EgressOnlyInternetGateway]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_internet_gateway' function.
 class CreateInternetGatewayResult(BaseValidatorModel):
     InternetGateway: InternetGateway
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_internet_gateways' function.
 class DescribeInternetGatewaysResult(BaseValidatorModel):
     InternetGateways: List[InternetGateway]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_elastic_gpus' function.
 class DescribeElasticGpusResult(BaseValidatorModel):
     ElasticGpuSet: List[ElasticGpus]
     MaxResults: int
@@ -13477,6 +14404,7 @@ class AttachNetworkInterfaceRequestNetworkInterfaceAttach(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'attach_network_interface' function.
 class AttachNetworkInterfaceRequest(BaseValidatorModel):
     NetworkInterfaceId: str
     InstanceId: str
@@ -13498,6 +14426,7 @@ class ModifyNetworkInterfaceAttributeRequestNetworkInterfaceModifyAttribute(Base
     Attachment: Optional[NetworkInterfaceAttachmentChanges] = None
 
 
+# This class is the input for the 'modify_network_interface_attribute' function.
 class ModifyNetworkInterfaceAttributeRequest(BaseValidatorModel):
     NetworkInterfaceId: str
     EnaSrdSpecification: Optional[EnaSrdSpecification] = None
@@ -13516,6 +14445,7 @@ class EnableFastSnapshotRestoreErrorItem(BaseValidatorModel):
     FastSnapshotRestoreStateErrors: Optional[List[EnableFastSnapshotRestoreStateErrorItem]] = None
 
 
+# This class is the output for the 'describe_fleet_history' function.
 class DescribeFleetHistoryResult(BaseValidatorModel):
     HistoryRecords: List[HistoryRecordEntry]
     LastEvaluatedTime: datetime
@@ -13525,6 +14455,7 @@ class DescribeFleetHistoryResult(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_spot_fleet_request_history' function.
 class DescribeSpotFleetRequestHistoryResponse(BaseValidatorModel):
     HistoryRecords: List[HistoryRecord]
     LastEvaluatedTime: datetime
@@ -13534,17 +14465,20 @@ class DescribeSpotFleetRequestHistoryResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_export_image_tasks' function.
 class DescribeExportImageTasksResult(BaseValidatorModel):
     ExportImageTasks: List[ExportImageTask]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_instance_export_task' function.
 class CreateInstanceExportTaskResult(BaseValidatorModel):
     ExportTask: ExportTask
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_export_tasks' function.
 class DescribeExportTasksResult(BaseValidatorModel):
     ExportTasks: List[ExportTask]
     ResponseMetadata: ResponseMetadata
@@ -13594,16 +14528,19 @@ class FpgaInfo(BaseValidatorModel):
     TotalFpgaMemoryInMiB: Optional[int] = None
 
 
+# This class is the output for the 'describe_fpga_image_attribute' function.
 class DescribeFpgaImageAttributeResult(BaseValidatorModel):
     FpgaImageAttribute: FpgaImageAttribute
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_fpga_image_attribute' function.
 class ModifyFpgaImageAttributeResult(BaseValidatorModel):
     FpgaImageAttribute: FpgaImageAttribute
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_fpga_images' function.
 class DescribeFpgaImagesResult(BaseValidatorModel):
     FpgaImages: List[FpgaImage]
     ResponseMetadata: ResponseMetadata
@@ -13615,22 +14552,26 @@ class GpuInfo(BaseValidatorModel):
     TotalGpuMemoryInMiB: Optional[int] = None
 
 
+# This class is the output for the 'associate_iam_instance_profile' function.
 class AssociateIamInstanceProfileResult(BaseValidatorModel):
     IamInstanceProfileAssociation: IamInstanceProfileAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_iam_instance_profile_associations' function.
 class DescribeIamInstanceProfileAssociationsResult(BaseValidatorModel):
     IamInstanceProfileAssociations: List[IamInstanceProfileAssociation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'disassociate_iam_instance_profile' function.
 class DisassociateIamInstanceProfileResult(BaseValidatorModel):
     IamInstanceProfileAssociation: IamInstanceProfileAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'replace_iam_instance_profile_association' function.
 class ReplaceIamInstanceProfileAssociationResult(BaseValidatorModel):
     IamInstanceProfileAssociation: IamInstanceProfileAssociation
     ResponseMetadata: ResponseMetadata
@@ -13651,6 +14592,7 @@ class ModifyImageAttributeRequestImageModifyAttribute(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'modify_image_attribute' function.
 class ModifyImageAttributeRequest(BaseValidatorModel):
     ImageId: str
     Attribute: Optional[str] = None
@@ -13667,22 +14609,26 @@ class ModifyImageAttributeRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the output for the 'create_local_gateway_route_table' function.
 class CreateLocalGatewayRouteTableResult(BaseValidatorModel):
     LocalGatewayRouteTable: LocalGatewayRouteTable
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_local_gateway_route_table' function.
 class DeleteLocalGatewayRouteTableResult(BaseValidatorModel):
     LocalGatewayRouteTable: LocalGatewayRouteTable
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_local_gateway_route_tables' function.
 class DescribeLocalGatewayRouteTablesResult(BaseValidatorModel):
     LocalGatewayRouteTables: List[LocalGatewayRouteTable]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'import_instance' function.
 class ImportInstanceRequest(BaseValidatorModel):
     Platform: Literal['windows']
     DryRun: Optional[bool] = None
@@ -13706,32 +14652,38 @@ class InstanceNetworkInterfaceAttachment(BaseValidatorModel):
     EnaSrdSpecification: Optional[InstanceAttachmentEnaSrdSpecification] = None
 
 
+# This class is the output for the 'describe_instance_image_metadata' function.
 class DescribeInstanceImageMetadataResult(BaseValidatorModel):
     InstanceImageMetadata: List[InstanceImageMetadata]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_instances' function.
 class StartInstancesResult(BaseValidatorModel):
     StartingInstances: List[InstanceStateChange]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_instances' function.
 class StopInstancesResult(BaseValidatorModel):
     StoppingInstances: List[InstanceStateChange]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'terminate_instances' function.
 class TerminateInstancesResult(BaseValidatorModel):
     TerminatingInstances: List[InstanceStateChange]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'monitor_instances' function.
 class MonitorInstancesResult(BaseValidatorModel):
     InstanceMonitorings: List[InstanceMonitoring]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'unmonitor_instances' function.
 class UnmonitorInstancesResult(BaseValidatorModel):
     InstanceMonitorings: List[InstanceMonitoring]
     ResponseMetadata: ResponseMetadata
@@ -13749,6 +14701,7 @@ class InstanceStatus(BaseValidatorModel):
     AttachedEbsStatus: Optional[EbsStatusSummary] = None
 
 
+# This class is the output for the 'revoke_security_group_egress' function.
 class RevokeSecurityGroupEgressResult(BaseValidatorModel):
     Return: bool
     UnknownIpPermissions: List[IpPermissionOutput]
@@ -13756,6 +14709,7 @@ class RevokeSecurityGroupEgressResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'revoke_security_group_ingress' function.
 class RevokeSecurityGroupIngressResult(BaseValidatorModel):
     Return: bool
     UnknownIpPermissions: List[IpPermissionOutput]
@@ -13786,103 +14740,122 @@ class StaleSecurityGroup(BaseValidatorModel):
     VpcId: Optional[str] = None
 
 
+# This class is the output for the 'get_ipam_discovered_accounts' function.
 class GetIpamDiscoveredAccountsResult(BaseValidatorModel):
     IpamDiscoveredAccounts: List[IpamDiscoveredAccount]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_ipam_discovered_resource_cidrs' function.
 class GetIpamDiscoveredResourceCidrsResult(BaseValidatorModel):
     IpamDiscoveredResourceCidrs: List[IpamDiscoveredResourceCidr]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_ipam_resource_cidrs' function.
 class GetIpamResourceCidrsResult(BaseValidatorModel):
     IpamResourceCidrs: List[IpamResourceCidr]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'modify_ipam_resource_cidr' function.
 class ModifyIpamResourceCidrResult(BaseValidatorModel):
     IpamResourceCidr: IpamResourceCidr
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_ipam' function.
 class CreateIpamResult(BaseValidatorModel):
     Ipam: Ipam
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_ipam' function.
 class DeleteIpamResult(BaseValidatorModel):
     Ipam: Ipam
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_ipams' function.
 class DescribeIpamsResult(BaseValidatorModel):
     Ipams: List[Ipam]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'modify_ipam' function.
 class ModifyIpamResult(BaseValidatorModel):
     Ipam: Ipam
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_ipam_resource_discovery' function.
 class CreateIpamResourceDiscoveryResult(BaseValidatorModel):
     IpamResourceDiscovery: IpamResourceDiscovery
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_ipam_resource_discovery' function.
 class DeleteIpamResourceDiscoveryResult(BaseValidatorModel):
     IpamResourceDiscovery: IpamResourceDiscovery
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_ipam_resource_discoveries' function.
 class DescribeIpamResourceDiscoveriesResult(BaseValidatorModel):
     IpamResourceDiscoveries: List[IpamResourceDiscovery]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'modify_ipam_resource_discovery' function.
 class ModifyIpamResourceDiscoveryResult(BaseValidatorModel):
     IpamResourceDiscovery: IpamResourceDiscovery
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'deprovision_ipam_pool_cidr' function.
 class DeprovisionIpamPoolCidrResult(BaseValidatorModel):
     IpamPoolCidr: IpamPoolCidr
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_ipam_pool_cidrs' function.
 class GetIpamPoolCidrsResult(BaseValidatorModel):
     IpamPoolCidrs: List[IpamPoolCidr]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'provision_ipam_pool_cidr' function.
 class ProvisionIpamPoolCidrResult(BaseValidatorModel):
     IpamPoolCidr: IpamPoolCidr
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_ipam_pool' function.
 class CreateIpamPoolResult(BaseValidatorModel):
     IpamPool: IpamPool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_ipam_pool' function.
 class DeleteIpamPoolResult(BaseValidatorModel):
     IpamPool: IpamPool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_ipam_pools' function.
 class DescribeIpamPoolsResult(BaseValidatorModel):
     IpamPools: List[IpamPool]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'modify_ipam_pool' function.
 class ModifyIpamPoolResult(BaseValidatorModel):
     IpamPool: IpamPool
     ResponseMetadata: ResponseMetadata
@@ -13910,6 +14883,7 @@ class IpamDiscoveredPublicAddress(BaseValidatorModel):
     SampleTime: Optional[datetime] = None
 
 
+# This class is the output for the 'describe_ipv6_pools' function.
 class DescribeIpv6PoolsResult(BaseValidatorModel):
     Ipv6Pools: List[Ipv6Pool]
     ResponseMetadata: ResponseMetadata
@@ -13941,6 +14915,7 @@ class LaunchTemplateInstanceNetworkInterfaceSpecification(BaseValidatorModel):
     ConnectionTrackingSpecification: Optional[ConnectionTrackingSpecification] = None
 
 
+# This class is the input for the 'modify_fpga_image_attribute' function.
 class ModifyFpgaImageAttributeRequest(BaseValidatorModel):
     FpgaImageId: str
     DryRun: Optional[bool] = None
@@ -13971,6 +14946,7 @@ class ReservedInstancesModification(BaseValidatorModel):
     UpdateDate: Optional[datetime] = None
 
 
+# This class is the input for the 'modify_verified_access_endpoint' function.
 class ModifyVerifiedAccessEndpointRequest(BaseValidatorModel):
     VerifiedAccessEndpointId: str
     VerifiedAccessGroupId: Optional[str] = None
@@ -13983,44 +14959,52 @@ class ModifyVerifiedAccessEndpointRequest(BaseValidatorModel):
     CidrOptions: Optional[ModifyVerifiedAccessEndpointCidrOptions] = None
 
 
+# This class is the output for the 'create_verified_access_group' function.
 class CreateVerifiedAccessGroupResult(BaseValidatorModel):
     VerifiedAccessGroup: VerifiedAccessGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_verified_access_group' function.
 class DeleteVerifiedAccessGroupResult(BaseValidatorModel):
     VerifiedAccessGroup: VerifiedAccessGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_verified_access_groups' function.
 class DescribeVerifiedAccessGroupsResult(BaseValidatorModel):
     VerifiedAccessGroups: List[VerifiedAccessGroup]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'modify_verified_access_group' function.
 class ModifyVerifiedAccessGroupResult(BaseValidatorModel):
     VerifiedAccessGroup: VerifiedAccessGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_nat_gateway' function.
 class CreateNatGatewayResult(BaseValidatorModel):
     ClientToken: str
     NatGateway: NatGateway
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_nat_gateways' function.
 class DescribeNatGatewaysResult(BaseValidatorModel):
     NatGateways: List[NatGateway]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_network_interface_permission' function.
 class CreateNetworkInterfacePermissionResult(BaseValidatorModel):
     InterfacePermission: NetworkInterfacePermission
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_network_interface_permissions' function.
 class DescribeNetworkInterfacePermissionsResult(BaseValidatorModel):
     NetworkInterfacePermissions: List[NetworkInterfacePermission]
     ResponseMetadata: ResponseMetadata
@@ -14032,22 +15016,26 @@ class NeuronInfo(BaseValidatorModel):
     TotalNeuronDeviceMemoryInMiB: Optional[int] = None
 
 
+# This class is the output for the 'create_verified_access_trust_provider' function.
 class CreateVerifiedAccessTrustProviderResult(BaseValidatorModel):
     VerifiedAccessTrustProvider: VerifiedAccessTrustProvider
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_verified_access_trust_provider' function.
 class DeleteVerifiedAccessTrustProviderResult(BaseValidatorModel):
     VerifiedAccessTrustProvider: VerifiedAccessTrustProvider
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_verified_access_trust_providers' function.
 class DescribeVerifiedAccessTrustProvidersResult(BaseValidatorModel):
     VerifiedAccessTrustProviders: List[VerifiedAccessTrustProvider]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'modify_verified_access_trust_provider' function.
 class ModifyVerifiedAccessTrustProviderResult(BaseValidatorModel):
     VerifiedAccessTrustProvider: VerifiedAccessTrustProvider
     ResponseMetadata: ResponseMetadata
@@ -14065,50 +15053,59 @@ class AccessScopePath(BaseValidatorModel):
     ThroughResources: Optional[List[ThroughResourcesStatement]] = None
 
 
+# This class is the output for the 'cancel_reserved_instances_listing' function.
 class CancelReservedInstancesListingResult(BaseValidatorModel):
     ReservedInstancesListings: List[ReservedInstancesListing]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_reserved_instances_listing' function.
 class CreateReservedInstancesListingResult(BaseValidatorModel):
     ReservedInstancesListings: List[ReservedInstancesListing]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_reserved_instances_listings' function.
 class DescribeReservedInstancesListingsResult(BaseValidatorModel):
     ReservedInstancesListings: List[ReservedInstancesListing]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_public_ipv4_pools' function.
 class DescribePublicIpv4PoolsResult(BaseValidatorModel):
     PublicIpv4Pools: List[PublicIpv4Pool]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_reserved_instances_offerings' function.
 class DescribeReservedInstancesOfferingsResult(BaseValidatorModel):
     ReservedInstancesOfferings: List[ReservedInstancesOffering]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_reserved_instances' function.
 class DescribeReservedInstancesResult(BaseValidatorModel):
     ReservedInstances: List[ReservedInstances]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'authorize_security_group_egress' function.
 class AuthorizeSecurityGroupEgressResult(BaseValidatorModel):
     Return: bool
     SecurityGroupRules: List[SecurityGroupRule]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'authorize_security_group_ingress' function.
 class AuthorizeSecurityGroupIngressResult(BaseValidatorModel):
     Return: bool
     SecurityGroupRules: List[SecurityGroupRule]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_security_group_rules' function.
 class DescribeSecurityGroupRulesResult(BaseValidatorModel):
     SecurityGroupRules: List[SecurityGroupRule]
     ResponseMetadata: ResponseMetadata
@@ -14126,18 +15123,21 @@ class BundleTask(BaseValidatorModel):
     BundleTaskError: Optional[BundleTaskError] = None
 
 
+# This class is the output for the 'describe_scheduled_instance_availability' function.
 class DescribeScheduledInstanceAvailabilityResult(BaseValidatorModel):
     ScheduledInstanceAvailabilitySet: List[ScheduledInstanceAvailability]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_scheduled_instances' function.
 class DescribeScheduledInstancesResult(BaseValidatorModel):
     ScheduledInstanceSet: List[ScheduledInstance]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'purchase_scheduled_instances' function.
 class PurchaseScheduledInstancesResult(BaseValidatorModel):
     ScheduledInstanceSet: List[ScheduledInstance]
     ResponseMetadata: ResponseMetadata
@@ -14160,12 +15160,14 @@ class ScheduledInstancesLaunchSpecification(BaseValidatorModel):
     UserData: Optional[str] = None
 
 
+# This class is the input for the 'modify_security_group_rules' function.
 class ModifySecurityGroupRulesRequest(BaseValidatorModel):
     GroupId: str
     SecurityGroupRules: List[SecurityGroupRuleUpdate]
     DryRun: Optional[bool] = None
 
 
+# This class is the output for the 'describe_vpc_endpoint_services' function.
 class DescribeVpcEndpointServicesResult(BaseValidatorModel):
     ServiceNames: List[str]
     ServiceDetails: List[ServiceDetail]
@@ -14173,18 +15175,21 @@ class DescribeVpcEndpointServicesResult(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_vpc_endpoint_service_configuration' function.
 class CreateVpcEndpointServiceConfigurationResult(BaseValidatorModel):
     ServiceConfiguration: ServiceConfiguration
     ClientToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_vpc_endpoint_service_configurations' function.
 class DescribeVpcEndpointServiceConfigurationsResult(BaseValidatorModel):
     ServiceConfigurations: List[ServiceConfiguration]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'import_image' function.
 class ImportImageResult(BaseValidatorModel):
     Architecture: str
     Description: str
@@ -14225,6 +15230,7 @@ class ImportImageTask(BaseValidatorModel):
     BootMode: Optional[BootModeValuesType] = None
 
 
+# This class is the output for the 'import_snapshot' function.
 class ImportSnapshotResult(BaseValidatorModel):
     Description: str
     ImportTaskId: str
@@ -14240,48 +15246,57 @@ class ImportSnapshotTask(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'create_spot_datafeed_subscription' function.
 class CreateSpotDatafeedSubscriptionResult(BaseValidatorModel):
     SpotDatafeedSubscription: SpotDatafeedSubscription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_spot_datafeed_subscription' function.
 class DescribeSpotDatafeedSubscriptionResult(BaseValidatorModel):
     SpotDatafeedSubscription: SpotDatafeedSubscription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_transit_gateway_multicast_domain_associations' function.
 class GetTransitGatewayMulticastDomainAssociationsResult(BaseValidatorModel):
     MulticastDomainAssociations: List[TransitGatewayMulticastDomainAssociation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'accept_transit_gateway_multicast_domain_associations' function.
 class AcceptTransitGatewayMulticastDomainAssociationsResult(BaseValidatorModel):
     Associations: TransitGatewayMulticastDomainAssociations
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_transit_gateway_multicast_domain' function.
 class AssociateTransitGatewayMulticastDomainResult(BaseValidatorModel):
     Associations: TransitGatewayMulticastDomainAssociations
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_transit_gateway_multicast_domain' function.
 class DisassociateTransitGatewayMulticastDomainResult(BaseValidatorModel):
     Associations: TransitGatewayMulticastDomainAssociations
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reject_transit_gateway_multicast_domain_associations' function.
 class RejectTransitGatewayMulticastDomainAssociationsResult(BaseValidatorModel):
     Associations: TransitGatewayMulticastDomainAssociations
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_subnet_cidr_block' function.
 class AssociateSubnetCidrBlockResult(BaseValidatorModel):
     Ipv6CidrBlockAssociation: SubnetIpv6CidrBlockAssociation
     SubnetId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_subnet_cidr_block' function.
 class DisassociateSubnetCidrBlockResult(BaseValidatorModel):
     Ipv6CidrBlockAssociation: SubnetIpv6CidrBlockAssociation
     SubnetId: str
@@ -14313,18 +15328,21 @@ class Subnet(BaseValidatorModel):
     MapPublicIpOnLaunch: Optional[bool] = None
 
 
+# This class is the output for the 'create_vpc_endpoint' function.
 class CreateVpcEndpointResult(BaseValidatorModel):
     VpcEndpoint: VpcEndpoint
     ClientToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_vpc_endpoints' function.
 class DescribeVpcEndpointsResult(BaseValidatorModel):
     VpcEndpoints: List[VpcEndpoint]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_reserved_instances_exchange_quote' function.
 class GetReservedInstancesExchangeQuoteResult(BaseValidatorModel):
     CurrencyCode: str
     IsValidExchange: bool
@@ -14348,18 +15366,21 @@ class LoadBalancersConfig(BaseValidatorModel):
     TargetGroupsConfig: Optional[TargetGroupsConfig] = None
 
 
+# This class is the output for the 'create_traffic_mirror_filter_rule' function.
 class CreateTrafficMirrorFilterRuleResult(BaseValidatorModel):
     TrafficMirrorFilterRule: TrafficMirrorFilterRule
     ClientToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_traffic_mirror_filter_rules' function.
 class DescribeTrafficMirrorFilterRulesResult(BaseValidatorModel):
     TrafficMirrorFilterRules: List[TrafficMirrorFilterRule]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'modify_traffic_mirror_filter_rule' function.
 class ModifyTrafficMirrorFilterRuleResult(BaseValidatorModel):
     TrafficMirrorFilterRule: TrafficMirrorFilterRule
     ResponseMetadata: ResponseMetadata
@@ -14374,6 +15395,7 @@ class TrafficMirrorFilter(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'describe_transit_gateway_attachments' function.
 class DescribeTransitGatewayAttachmentsResult(BaseValidatorModel):
     TransitGatewayAttachments: List[TransitGatewayAttachment]
     ResponseMetadata: ResponseMetadata
@@ -14389,80 +15411,95 @@ class TransitGatewayConnectPeer(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'create_transit_gateway_connect' function.
 class CreateTransitGatewayConnectResult(BaseValidatorModel):
     TransitGatewayConnect: TransitGatewayConnect
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_transit_gateway_connect' function.
 class DeleteTransitGatewayConnectResult(BaseValidatorModel):
     TransitGatewayConnect: TransitGatewayConnect
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_transit_gateway_connects' function.
 class DescribeTransitGatewayConnectsResult(BaseValidatorModel):
     TransitGatewayConnects: List[TransitGatewayConnect]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_transit_gateway_multicast_domain' function.
 class CreateTransitGatewayMulticastDomainResult(BaseValidatorModel):
     TransitGatewayMulticastDomain: TransitGatewayMulticastDomain
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_transit_gateway_multicast_domain' function.
 class DeleteTransitGatewayMulticastDomainResult(BaseValidatorModel):
     TransitGatewayMulticastDomain: TransitGatewayMulticastDomain
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_transit_gateway_multicast_domains' function.
 class DescribeTransitGatewayMulticastDomainsResult(BaseValidatorModel):
     TransitGatewayMulticastDomains: List[TransitGatewayMulticastDomain]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_transit_gateway' function.
 class CreateTransitGatewayResult(BaseValidatorModel):
     TransitGateway: TransitGateway
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_transit_gateway' function.
 class DeleteTransitGatewayResult(BaseValidatorModel):
     TransitGateway: TransitGateway
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_transit_gateways' function.
 class DescribeTransitGatewaysResult(BaseValidatorModel):
     TransitGateways: List[TransitGateway]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'modify_transit_gateway' function.
 class ModifyTransitGatewayResult(BaseValidatorModel):
     TransitGateway: TransitGateway
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'accept_transit_gateway_peering_attachment' function.
 class AcceptTransitGatewayPeeringAttachmentResult(BaseValidatorModel):
     TransitGatewayPeeringAttachment: TransitGatewayPeeringAttachment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_transit_gateway_peering_attachment' function.
 class CreateTransitGatewayPeeringAttachmentResult(BaseValidatorModel):
     TransitGatewayPeeringAttachment: TransitGatewayPeeringAttachment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_transit_gateway_peering_attachment' function.
 class DeleteTransitGatewayPeeringAttachmentResult(BaseValidatorModel):
     TransitGatewayPeeringAttachment: TransitGatewayPeeringAttachment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_transit_gateway_peering_attachments' function.
 class DescribeTransitGatewayPeeringAttachmentsResult(BaseValidatorModel):
     TransitGatewayPeeringAttachments: List[TransitGatewayPeeringAttachment]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'reject_transit_gateway_peering_attachment' function.
 class RejectTransitGatewayPeeringAttachmentResult(BaseValidatorModel):
     TransitGatewayPeeringAttachment: TransitGatewayPeeringAttachment
     ResponseMetadata: ResponseMetadata
@@ -14474,90 +15511,107 @@ class TransitGatewayPolicyTableEntry(BaseValidatorModel):
     TargetRouteTableId: Optional[str] = None
 
 
+# This class is the output for the 'create_transit_gateway_prefix_list_reference' function.
 class CreateTransitGatewayPrefixListReferenceResult(BaseValidatorModel):
     TransitGatewayPrefixListReference: TransitGatewayPrefixListReference
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_transit_gateway_prefix_list_reference' function.
 class DeleteTransitGatewayPrefixListReferenceResult(BaseValidatorModel):
     TransitGatewayPrefixListReference: TransitGatewayPrefixListReference
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_transit_gateway_prefix_list_references' function.
 class GetTransitGatewayPrefixListReferencesResult(BaseValidatorModel):
     TransitGatewayPrefixListReferences: List[TransitGatewayPrefixListReference]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'modify_transit_gateway_prefix_list_reference' function.
 class ModifyTransitGatewayPrefixListReferenceResult(BaseValidatorModel):
     TransitGatewayPrefixListReference: TransitGatewayPrefixListReference
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_transit_gateway_route' function.
 class CreateTransitGatewayRouteResult(BaseValidatorModel):
     Route: TransitGatewayRoute
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_transit_gateway_route' function.
 class DeleteTransitGatewayRouteResult(BaseValidatorModel):
     Route: TransitGatewayRoute
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'replace_transit_gateway_route' function.
 class ReplaceTransitGatewayRouteResult(BaseValidatorModel):
     Route: TransitGatewayRoute
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_transit_gateway_routes' function.
 class SearchTransitGatewayRoutesResult(BaseValidatorModel):
     Routes: List[TransitGatewayRoute]
     AdditionalRoutesAvailable: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'accept_transit_gateway_vpc_attachment' function.
 class AcceptTransitGatewayVpcAttachmentResult(BaseValidatorModel):
     TransitGatewayVpcAttachment: TransitGatewayVpcAttachment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_transit_gateway_vpc_attachment' function.
 class CreateTransitGatewayVpcAttachmentResult(BaseValidatorModel):
     TransitGatewayVpcAttachment: TransitGatewayVpcAttachment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_transit_gateway_vpc_attachment' function.
 class DeleteTransitGatewayVpcAttachmentResult(BaseValidatorModel):
     TransitGatewayVpcAttachment: TransitGatewayVpcAttachment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_transit_gateway_vpc_attachments' function.
 class DescribeTransitGatewayVpcAttachmentsResult(BaseValidatorModel):
     TransitGatewayVpcAttachments: List[TransitGatewayVpcAttachment]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'modify_transit_gateway_vpc_attachment' function.
 class ModifyTransitGatewayVpcAttachmentResult(BaseValidatorModel):
     TransitGatewayVpcAttachment: TransitGatewayVpcAttachment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reject_transit_gateway_vpc_attachment' function.
 class RejectTransitGatewayVpcAttachmentResult(BaseValidatorModel):
     TransitGatewayVpcAttachment: TransitGatewayVpcAttachment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_instance_credit_specification' function.
 class ModifyInstanceCreditSpecificationResult(BaseValidatorModel):
     SuccessfulInstanceCreditSpecifications: List[SuccessfulInstanceCreditSpecificationItem]
     UnsuccessfulInstanceCreditSpecifications: List[UnsuccessfulInstanceCreditSpecificationItem]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'accept_vpc_endpoint_connections' function.
 class AcceptVpcEndpointConnectionsResult(BaseValidatorModel):
     Unsuccessful: List[UnsuccessfulItem]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_flow_logs' function.
 class CreateFlowLogsResult(BaseValidatorModel):
     ClientToken: str
     FlowLogIds: List[str]
@@ -14565,43 +15619,51 @@ class CreateFlowLogsResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_flow_logs' function.
 class DeleteFlowLogsResult(BaseValidatorModel):
     Unsuccessful: List[UnsuccessfulItem]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_vpc_endpoint_connection_notifications' function.
 class DeleteVpcEndpointConnectionNotificationsResult(BaseValidatorModel):
     Unsuccessful: List[UnsuccessfulItem]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_vpc_endpoint_service_configurations' function.
 class DeleteVpcEndpointServiceConfigurationsResult(BaseValidatorModel):
     Unsuccessful: List[UnsuccessfulItem]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_vpc_endpoints' function.
 class DeleteVpcEndpointsResult(BaseValidatorModel):
     Unsuccessful: List[UnsuccessfulItem]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_hosts' function.
 class ModifyHostsResult(BaseValidatorModel):
     Successful: List[str]
     Unsuccessful: List[UnsuccessfulItem]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reject_vpc_endpoint_connections' function.
 class RejectVpcEndpointConnectionsResult(BaseValidatorModel):
     Unsuccessful: List[UnsuccessfulItem]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'release_hosts' function.
 class ReleaseHostsResult(BaseValidatorModel):
     Successful: List[str]
     Unsuccessful: List[UnsuccessfulItem]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_launch_template' function.
 class CreateLaunchTemplateResult(BaseValidatorModel):
     LaunchTemplate: LaunchTemplate
     Warning: ValidationWarning
@@ -14632,6 +15694,7 @@ class VerifiedAccessEndpoint(BaseValidatorModel):
     CidrOptions: Optional[VerifiedAccessEndpointCidrOptions] = None
 
 
+# This class is the output for the 'export_verified_access_instance_client_configuration' function.
 class ExportVerifiedAccessInstanceClientConfigurationResult(BaseValidatorModel):
     Version: str
     VerifiedAccessInstanceId: str
@@ -14642,34 +15705,40 @@ class ExportVerifiedAccessInstanceClientConfigurationResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'attach_verified_access_trust_provider' function.
 class AttachVerifiedAccessTrustProviderResult(BaseValidatorModel):
     VerifiedAccessTrustProvider: VerifiedAccessTrustProvider
     VerifiedAccessInstance: VerifiedAccessInstance
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_verified_access_instance' function.
 class CreateVerifiedAccessInstanceResult(BaseValidatorModel):
     VerifiedAccessInstance: VerifiedAccessInstance
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_verified_access_instance' function.
 class DeleteVerifiedAccessInstanceResult(BaseValidatorModel):
     VerifiedAccessInstance: VerifiedAccessInstance
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_verified_access_instances' function.
 class DescribeVerifiedAccessInstancesResult(BaseValidatorModel):
     VerifiedAccessInstances: List[VerifiedAccessInstance]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'detach_verified_access_trust_provider' function.
 class DetachVerifiedAccessTrustProviderResult(BaseValidatorModel):
     VerifiedAccessTrustProvider: VerifiedAccessTrustProvider
     VerifiedAccessInstance: VerifiedAccessInstance
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_verified_access_instance' function.
 class ModifyVerifiedAccessInstanceResult(BaseValidatorModel):
     VerifiedAccessInstance: VerifiedAccessInstance
     ResponseMetadata: ResponseMetadata
@@ -14683,6 +15752,7 @@ class VerifiedAccessLogs(BaseValidatorModel):
     IncludeTrustContext: Optional[bool] = None
 
 
+# This class is the input for the 'modify_verified_access_instance_logging_configuration' function.
 class ModifyVerifiedAccessInstanceLoggingConfigurationRequest(BaseValidatorModel):
     VerifiedAccessInstanceId: str
     AccessLogs: VerifiedAccessLogOptions
@@ -14690,6 +15760,7 @@ class ModifyVerifiedAccessInstanceLoggingConfigurationRequest(BaseValidatorModel
     ClientToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_volumes' function.
 class DescribeVolumesResult(BaseValidatorModel):
     Volumes: List[Volume]
     ResponseMetadata: ResponseMetadata
@@ -14706,6 +15777,7 @@ class VolumeStatusItem(BaseValidatorModel):
     AttachmentStatuses: Optional[List[VolumeStatusAttachmentStatus]] = None
 
 
+# This class is the output for the 'associate_vpc_cidr_block' function.
 class AssociateVpcCidrBlockResult(BaseValidatorModel):
     Ipv6CidrBlockAssociation: VpcIpv6CidrBlockAssociation
     CidrBlockAssociation: VpcCidrBlockAssociation
@@ -14713,6 +15785,7 @@ class AssociateVpcCidrBlockResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_vpc_cidr_block' function.
 class DisassociateVpcCidrBlockResult(BaseValidatorModel):
     Ipv6CidrBlockAssociation: VpcIpv6CidrBlockAssociation
     CidrBlockAssociation: VpcCidrBlockAssociation
@@ -14739,38 +15812,45 @@ class VpcPeeringConnection(BaseValidatorModel):
     VpcPeeringConnectionId: Optional[str] = None
 
 
+# This class is the output for the 'associate_instance_event_window' function.
 class AssociateInstanceEventWindowResult(BaseValidatorModel):
     InstanceEventWindow: InstanceEventWindow
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_instance_event_window' function.
 class CreateInstanceEventWindowResult(BaseValidatorModel):
     InstanceEventWindow: InstanceEventWindow
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_instance_event_windows' function.
 class DescribeInstanceEventWindowsResult(BaseValidatorModel):
     InstanceEventWindows: List[InstanceEventWindow]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'disassociate_instance_event_window' function.
 class DisassociateInstanceEventWindowResult(BaseValidatorModel):
     InstanceEventWindow: InstanceEventWindow
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_instance_event_window' function.
 class ModifyInstanceEventWindowResult(BaseValidatorModel):
     InstanceEventWindow: InstanceEventWindow
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'accept_address_transfer' function.
 class AcceptAddressTransferRequest(BaseValidatorModel):
     Address: str
     TagSpecifications: Optional[List[TagSpecificationUnion]] = None
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'allocate_address' function.
 class AllocateAddressRequest(BaseValidatorModel):
     Domain: Optional[DomainTypeType] = None
     Address: Optional[str] = None
@@ -14782,6 +15862,7 @@ class AllocateAddressRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'allocate_hosts' function.
 class AllocateHostsRequest(BaseValidatorModel):
     AvailabilityZone: str
     InstanceFamily: Optional[str] = None
@@ -14796,6 +15877,7 @@ class AllocateHostsRequest(BaseValidatorModel):
     Quantity: Optional[int] = None
 
 
+# This class is the input for the 'associate_ipam_resource_discovery' function.
 class AssociateIpamResourceDiscoveryRequest(BaseValidatorModel):
     IpamId: str
     IpamResourceDiscoveryId: str
@@ -14804,6 +15886,7 @@ class AssociateIpamResourceDiscoveryRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'copy_image' function.
 class CopyImageRequest(BaseValidatorModel):
     Name: str
     SourceImageId: str
@@ -14832,6 +15915,7 @@ class CopySnapshotRequestSnapshotCopy(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'copy_snapshot' function.
 class CopySnapshotRequest(BaseValidatorModel):
     SourceRegion: str
     SourceSnapshotId: str
@@ -14846,6 +15930,7 @@ class CopySnapshotRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_capacity_reservation_by_splitting' function.
 class CreateCapacityReservationBySplittingRequest(BaseValidatorModel):
     SourceCapacityReservationId: str
     InstanceCount: int
@@ -14854,6 +15939,7 @@ class CreateCapacityReservationBySplittingRequest(BaseValidatorModel):
     TagSpecifications: Optional[List[TagSpecificationUnion]] = None
 
 
+# This class is the input for the 'create_capacity_reservation_fleet' function.
 class CreateCapacityReservationFleetRequest(BaseValidatorModel):
     InstanceTypeSpecifications: List[ReservationFleetInstanceSpecification]
     TotalTargetCapacity: int
@@ -14866,6 +15952,7 @@ class CreateCapacityReservationFleetRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_capacity_reservation' function.
 class CreateCapacityReservationRequest(BaseValidatorModel):
     InstanceType: str
     InstancePlatform: CapacityReservationInstancePlatformType
@@ -14888,6 +15975,7 @@ class CreateCapacityReservationRequest(BaseValidatorModel):
     DeliveryPreference: Optional[CapacityReservationDeliveryPreferenceType] = None
 
 
+# This class is the input for the 'create_carrier_gateway' function.
 class CreateCarrierGatewayRequest(BaseValidatorModel):
     VpcId: str
     TagSpecifications: Optional[List[TagSpecificationUnion]] = None
@@ -14895,6 +15983,7 @@ class CreateCarrierGatewayRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'create_client_vpn_endpoint' function.
 class CreateClientVpnEndpointRequest(BaseValidatorModel):
     ClientCidrBlock: str
     ServerCertificateArn: str
@@ -14917,12 +16006,14 @@ class CreateClientVpnEndpointRequest(BaseValidatorModel):
     DisconnectOnSessionTimeout: Optional[bool] = None
 
 
+# This class is the input for the 'create_coip_pool' function.
 class CreateCoipPoolRequest(BaseValidatorModel):
     LocalGatewayRouteTableId: str
     TagSpecifications: Optional[List[TagSpecificationUnion]] = None
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_customer_gateway' function.
 class CreateCustomerGatewayRequest(BaseValidatorModel):
     Type: Literal['ipsec.1']
     BgpAsn: Optional[int] = None
@@ -14941,12 +16032,14 @@ class CreateDhcpOptionsRequestServiceResourceCreateDhcpOptions(BaseValidatorMode
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_dhcp_options' function.
 class CreateDhcpOptionsRequest(BaseValidatorModel):
     DhcpConfigurations: List[NewDhcpConfiguration]
     TagSpecifications: Optional[List[TagSpecificationUnion]] = None
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_egress_only_internet_gateway' function.
 class CreateEgressOnlyInternetGatewayRequest(BaseValidatorModel):
     VpcId: str
     ClientToken: Optional[str] = None
@@ -14954,6 +16047,7 @@ class CreateEgressOnlyInternetGatewayRequest(BaseValidatorModel):
     TagSpecifications: Optional[List[TagSpecificationUnion]] = None
 
 
+# This class is the input for the 'create_flow_logs' function.
 class CreateFlowLogsRequest(BaseValidatorModel):
     ResourceIds: List[str]
     ResourceType: FlowLogsResourceTypeType
@@ -14971,6 +16065,7 @@ class CreateFlowLogsRequest(BaseValidatorModel):
     DestinationOptions: Optional[DestinationOptionsRequest] = None
 
 
+# This class is the input for the 'create_fpga_image' function.
 class CreateFpgaImageRequest(BaseValidatorModel):
     InputStorageLocation: StorageLocation
     DryRun: Optional[bool] = None
@@ -14990,6 +16085,7 @@ class CreateImageRequestInstanceCreateImage(BaseValidatorModel):
     BlockDeviceMappings: Optional[List[BlockDeviceMapping]] = None
 
 
+# This class is the input for the 'create_image' function.
 class CreateImageRequest(BaseValidatorModel):
     InstanceId: str
     Name: str
@@ -15000,6 +16096,7 @@ class CreateImageRequest(BaseValidatorModel):
     BlockDeviceMappings: Optional[List[BlockDeviceMapping]] = None
 
 
+# This class is the input for the 'create_instance_connect_endpoint' function.
 class CreateInstanceConnectEndpointRequest(BaseValidatorModel):
     SubnetId: str
     DryRun: Optional[bool] = None
@@ -15009,6 +16106,7 @@ class CreateInstanceConnectEndpointRequest(BaseValidatorModel):
     TagSpecifications: Optional[List[TagSpecificationUnion]] = None
 
 
+# This class is the input for the 'create_instance_event_window' function.
 class CreateInstanceEventWindowRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Name: Optional[str] = None
@@ -15017,6 +16115,7 @@ class CreateInstanceEventWindowRequest(BaseValidatorModel):
     TagSpecifications: Optional[List[TagSpecificationUnion]] = None
 
 
+# This class is the input for the 'create_instance_export_task' function.
 class CreateInstanceExportTaskRequest(BaseValidatorModel):
     InstanceId: str
     TargetEnvironment: ExportEnvironmentType
@@ -15030,11 +16129,13 @@ class CreateInternetGatewayRequestServiceResourceCreateInternetGateway(BaseValid
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_internet_gateway' function.
 class CreateInternetGatewayRequest(BaseValidatorModel):
     TagSpecifications: Optional[List[TagSpecificationUnion]] = None
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_ipam_external_resource_verification_token' function.
 class CreateIpamExternalResourceVerificationTokenRequest(BaseValidatorModel):
     IpamId: str
     DryRun: Optional[bool] = None
@@ -15042,6 +16143,7 @@ class CreateIpamExternalResourceVerificationTokenRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'create_ipam_pool' function.
 class CreateIpamPoolRequest(BaseValidatorModel):
     IpamScopeId: str
     AddressFamily: AddressFamilyType
@@ -15062,6 +16164,7 @@ class CreateIpamPoolRequest(BaseValidatorModel):
     SourceResource: Optional[IpamPoolSourceResourceRequest] = None
 
 
+# This class is the input for the 'create_ipam' function.
 class CreateIpamRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Description: Optional[str] = None
@@ -15072,6 +16175,7 @@ class CreateIpamRequest(BaseValidatorModel):
     EnablePrivateGua: Optional[bool] = None
 
 
+# This class is the input for the 'create_ipam_resource_discovery' function.
 class CreateIpamResourceDiscoveryRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     Description: Optional[str] = None
@@ -15080,6 +16184,7 @@ class CreateIpamResourceDiscoveryRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'create_ipam_scope' function.
 class CreateIpamScopeRequest(BaseValidatorModel):
     IpamId: str
     DryRun: Optional[bool] = None
@@ -15096,6 +16201,7 @@ class CreateKeyPairRequestServiceResourceCreateKeyPair(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_key_pair' function.
 class CreateKeyPairRequest(BaseValidatorModel):
     KeyName: str
     KeyType: Optional[KeyTypeType] = None
@@ -15104,6 +16210,7 @@ class CreateKeyPairRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_local_gateway_route_table' function.
 class CreateLocalGatewayRouteTableRequest(BaseValidatorModel):
     LocalGatewayId: str
     Mode: Optional[LocalGatewayRouteTableModeType] = None
@@ -15118,6 +16225,7 @@ class CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest(BaseVa
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_local_gateway_route_table_vpc_association' function.
 class CreateLocalGatewayRouteTableVpcAssociationRequest(BaseValidatorModel):
     LocalGatewayRouteTableId: str
     VpcId: str
@@ -15125,6 +16233,7 @@ class CreateLocalGatewayRouteTableVpcAssociationRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_managed_prefix_list' function.
 class CreateManagedPrefixListRequest(BaseValidatorModel):
     PrefixListName: str
     MaxEntries: int
@@ -15135,6 +16244,7 @@ class CreateManagedPrefixListRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'create_nat_gateway' function.
 class CreateNatGatewayRequest(BaseValidatorModel):
     SubnetId: str
     AllocationId: Optional[str] = None
@@ -15155,6 +16265,7 @@ class CreateNetworkAclRequestServiceResourceCreateNetworkAcl(BaseValidatorModel)
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_network_acl' function.
 class CreateNetworkAclRequest(BaseValidatorModel):
     VpcId: str
     TagSpecifications: Optional[List[TagSpecificationUnion]] = None
@@ -15168,6 +16279,7 @@ class CreateNetworkAclRequestVpcCreateNetworkAcl(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_network_insights_path' function.
 class CreateNetworkInsightsPathRequest(BaseValidatorModel):
     Source: str
     Protocol: ProtocolType
@@ -15225,6 +16337,7 @@ class CreateNetworkInterfaceRequestSubnetCreateNetworkInterface(BaseValidatorMod
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_network_interface' function.
 class CreateNetworkInterfaceRequest(BaseValidatorModel):
     SubnetId: str
     Ipv4Prefixes: Optional[List[Ipv4PrefixSpecificationRequest]] = None
@@ -15256,6 +16369,7 @@ class CreatePlacementGroupRequestServiceResourceCreatePlacementGroup(BaseValidat
     Strategy: Optional[PlacementStrategyType] = None
 
 
+# This class is the input for the 'create_placement_group' function.
 class CreatePlacementGroupRequest(BaseValidatorModel):
     PartitionCount: Optional[int] = None
     TagSpecifications: Optional[List[TagSpecificationUnion]] = None
@@ -15265,12 +16379,14 @@ class CreatePlacementGroupRequest(BaseValidatorModel):
     Strategy: Optional[PlacementStrategyType] = None
 
 
+# This class is the input for the 'create_public_ipv4_pool' function.
 class CreatePublicIpv4PoolRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     TagSpecifications: Optional[List[TagSpecificationUnion]] = None
     NetworkBorderGroup: Optional[str] = None
 
 
+# This class is the input for the 'create_replace_root_volume_task' function.
 class CreateReplaceRootVolumeTaskRequest(BaseValidatorModel):
     InstanceId: str
     SnapshotId: Optional[str] = None
@@ -15281,6 +16397,7 @@ class CreateReplaceRootVolumeTaskRequest(BaseValidatorModel):
     DeleteReplacedRootVolume: Optional[bool] = None
 
 
+# This class is the input for the 'create_restore_image_task' function.
 class CreateRestoreImageTaskRequest(BaseValidatorModel):
     Bucket: str
     ObjectKey: str
@@ -15296,6 +16413,7 @@ class CreateRouteTableRequestServiceResourceCreateRouteTable(BaseValidatorModel)
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_route_table' function.
 class CreateRouteTableRequest(BaseValidatorModel):
     VpcId: str
     TagSpecifications: Optional[List[TagSpecificationUnion]] = None
@@ -15317,6 +16435,7 @@ class CreateSecurityGroupRequestServiceResourceCreateSecurityGroup(BaseValidator
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_security_group' function.
 class CreateSecurityGroupRequest(BaseValidatorModel):
     Description: str
     GroupName: str
@@ -15341,6 +16460,7 @@ class CreateSnapshotRequestServiceResourceCreateSnapshot(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_snapshot' function.
 class CreateSnapshotRequest(BaseValidatorModel):
     VolumeId: str
     Description: Optional[str] = None
@@ -15358,6 +16478,7 @@ class CreateSnapshotRequestVolumeCreateSnapshot(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_snapshots' function.
 class CreateSnapshotsRequest(BaseValidatorModel):
     InstanceSpecification: InstanceSpecification
     Description: Optional[str] = None
@@ -15368,6 +16489,7 @@ class CreateSnapshotsRequest(BaseValidatorModel):
     Location: Optional[SnapshotLocationEnumType] = None
 
 
+# This class is the input for the 'create_subnet_cidr_reservation' function.
 class CreateSubnetCidrReservationRequest(BaseValidatorModel):
     SubnetId: str
     Cidr: str
@@ -15393,6 +16515,7 @@ class CreateSubnetRequestServiceResourceCreateSubnet(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_subnet' function.
 class CreateSubnetRequest(BaseValidatorModel):
     VpcId: str
     TagSpecifications: Optional[List[TagSpecificationUnion]] = None
@@ -15424,6 +16547,7 @@ class CreateSubnetRequestVpcCreateSubnet(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_traffic_mirror_filter' function.
 class CreateTrafficMirrorFilterRequest(BaseValidatorModel):
     Description: Optional[str] = None
     TagSpecifications: Optional[List[TagSpecificationUnion]] = None
@@ -15431,6 +16555,7 @@ class CreateTrafficMirrorFilterRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'create_traffic_mirror_filter_rule' function.
 class CreateTrafficMirrorFilterRuleRequest(BaseValidatorModel):
     TrafficMirrorFilterId: str
     TrafficDirection: TrafficDirectionType
@@ -15447,6 +16572,7 @@ class CreateTrafficMirrorFilterRuleRequest(BaseValidatorModel):
     TagSpecifications: Optional[List[TagSpecificationUnion]] = None
 
 
+# This class is the input for the 'create_traffic_mirror_session' function.
 class CreateTrafficMirrorSessionRequest(BaseValidatorModel):
     NetworkInterfaceId: str
     TrafficMirrorTargetId: str
@@ -15460,6 +16586,7 @@ class CreateTrafficMirrorSessionRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'create_traffic_mirror_target' function.
 class CreateTrafficMirrorTargetRequest(BaseValidatorModel):
     NetworkInterfaceId: Optional[str] = None
     NetworkLoadBalancerArn: Optional[str] = None
@@ -15470,6 +16597,7 @@ class CreateTrafficMirrorTargetRequest(BaseValidatorModel):
     GatewayLoadBalancerEndpointId: Optional[str] = None
 
 
+# This class is the input for the 'create_transit_gateway_connect_peer' function.
 class CreateTransitGatewayConnectPeerRequest(BaseValidatorModel):
     TransitGatewayAttachmentId: str
     PeerAddress: str
@@ -15480,6 +16608,7 @@ class CreateTransitGatewayConnectPeerRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_transit_gateway_connect' function.
 class CreateTransitGatewayConnectRequest(BaseValidatorModel):
     TransportTransitGatewayAttachmentId: str
     Options: CreateTransitGatewayConnectRequestOptions
@@ -15487,6 +16616,7 @@ class CreateTransitGatewayConnectRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_transit_gateway_multicast_domain' function.
 class CreateTransitGatewayMulticastDomainRequest(BaseValidatorModel):
     TransitGatewayId: str
     Options: Optional[CreateTransitGatewayMulticastDomainRequestOptions] = None
@@ -15494,6 +16624,7 @@ class CreateTransitGatewayMulticastDomainRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_transit_gateway_peering_attachment' function.
 class CreateTransitGatewayPeeringAttachmentRequest(BaseValidatorModel):
     TransitGatewayId: str
     PeerTransitGatewayId: str
@@ -15504,12 +16635,14 @@ class CreateTransitGatewayPeeringAttachmentRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_transit_gateway_policy_table' function.
 class CreateTransitGatewayPolicyTableRequest(BaseValidatorModel):
     TransitGatewayId: str
     TagSpecifications: Optional[List[TagSpecificationUnion]] = None
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_transit_gateway' function.
 class CreateTransitGatewayRequest(BaseValidatorModel):
     Description: Optional[str] = None
     Options: Optional[TransitGatewayRequestOptions] = None
@@ -15517,6 +16650,7 @@ class CreateTransitGatewayRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_transit_gateway_route_table_announcement' function.
 class CreateTransitGatewayRouteTableAnnouncementRequest(BaseValidatorModel):
     TransitGatewayRouteTableId: str
     PeeringAttachmentId: str
@@ -15524,12 +16658,14 @@ class CreateTransitGatewayRouteTableAnnouncementRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_transit_gateway_route_table' function.
 class CreateTransitGatewayRouteTableRequest(BaseValidatorModel):
     TransitGatewayId: str
     TagSpecifications: Optional[List[TagSpecificationUnion]] = None
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_transit_gateway_vpc_attachment' function.
 class CreateTransitGatewayVpcAttachmentRequest(BaseValidatorModel):
     TransitGatewayId: str
     VpcId: str
@@ -15539,6 +16675,7 @@ class CreateTransitGatewayVpcAttachmentRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_verified_access_endpoint' function.
 class CreateVerifiedAccessEndpointRequest(BaseValidatorModel):
     VerifiedAccessGroupId: str
     EndpointType: VerifiedAccessEndpointTypeType
@@ -15559,6 +16696,7 @@ class CreateVerifiedAccessEndpointRequest(BaseValidatorModel):
     CidrOptions: Optional[CreateVerifiedAccessEndpointCidrOptions] = None
 
 
+# This class is the input for the 'create_verified_access_group' function.
 class CreateVerifiedAccessGroupRequest(BaseValidatorModel):
     VerifiedAccessInstanceId: str
     Description: Optional[str] = None
@@ -15569,6 +16707,7 @@ class CreateVerifiedAccessGroupRequest(BaseValidatorModel):
     SseSpecification: Optional[VerifiedAccessSseSpecificationRequest] = None
 
 
+# This class is the input for the 'create_verified_access_instance' function.
 class CreateVerifiedAccessInstanceRequest(BaseValidatorModel):
     Description: Optional[str] = None
     TagSpecifications: Optional[List[TagSpecificationUnion]] = None
@@ -15578,6 +16717,7 @@ class CreateVerifiedAccessInstanceRequest(BaseValidatorModel):
     CidrEndpointsCustomSubDomain: Optional[str] = None
 
 
+# This class is the input for the 'create_verified_access_trust_provider' function.
 class CreateVerifiedAccessTrustProviderRequest(BaseValidatorModel):
     TrustProviderType: TrustProviderTypeType
     PolicyReferenceName: str
@@ -15610,6 +16750,7 @@ class CreateVolumeRequestServiceResourceCreateVolume(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_volume' function.
 class CreateVolumeRequest(BaseValidatorModel):
     AvailabilityZone: str
     Encrypted: Optional[bool] = None
@@ -15627,6 +16768,7 @@ class CreateVolumeRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_vpc_block_public_access_exclusion' function.
 class CreateVpcBlockPublicAccessExclusionRequest(BaseValidatorModel):
     InternetGatewayExclusionMode: InternetGatewayExclusionModeType
     DryRun: Optional[bool] = None
@@ -15635,6 +16777,7 @@ class CreateVpcBlockPublicAccessExclusionRequest(BaseValidatorModel):
     TagSpecifications: Optional[List[TagSpecificationUnion]] = None
 
 
+# This class is the input for the 'create_vpc_endpoint' function.
 class CreateVpcEndpointRequest(BaseValidatorModel):
     VpcId: str
     DryRun: Optional[bool] = None
@@ -15655,6 +16798,7 @@ class CreateVpcEndpointRequest(BaseValidatorModel):
     ServiceRegion: Optional[str] = None
 
 
+# This class is the input for the 'create_vpc_endpoint_service_configuration' function.
 class CreateVpcEndpointServiceConfigurationRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     AcceptanceRequired: Optional[bool] = None
@@ -15676,6 +16820,7 @@ class CreateVpcPeeringConnectionRequestServiceResourceCreateVpcPeeringConnection
     PeerOwnerId: Optional[str] = None
 
 
+# This class is the input for the 'create_vpc_peering_connection' function.
 class CreateVpcPeeringConnectionRequest(BaseValidatorModel):
     VpcId: str
     PeerRegion: Optional[str] = None
@@ -15708,6 +16853,7 @@ class CreateVpcRequestServiceResourceCreateVpc(BaseValidatorModel):
     AmazonProvidedIpv6CidrBlock: Optional[bool] = None
 
 
+# This class is the input for the 'create_vpc' function.
 class CreateVpcRequest(BaseValidatorModel):
     CidrBlock: Optional[str] = None
     Ipv6Pool: Optional[str] = None
@@ -15723,6 +16869,7 @@ class CreateVpcRequest(BaseValidatorModel):
     AmazonProvidedIpv6CidrBlock: Optional[bool] = None
 
 
+# This class is the input for the 'create_vpn_gateway' function.
 class CreateVpnGatewayRequest(BaseValidatorModel):
     Type: Literal['ipsec.1']
     AvailabilityZone: Optional[str] = None
@@ -15731,6 +16878,7 @@ class CreateVpnGatewayRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'export_image' function.
 class ExportImageRequest(BaseValidatorModel):
     DiskImageFormat: DiskImageFormatType
     ImageId: str
@@ -15742,6 +16890,7 @@ class ExportImageRequest(BaseValidatorModel):
     TagSpecifications: Optional[List[TagSpecificationUnion]] = None
 
 
+# This class is the input for the 'import_image' function.
 class ImportImageRequest(BaseValidatorModel):
     Architecture: Optional[str] = None
     ClientData: Optional[ClientData] = None
@@ -15768,6 +16917,7 @@ class ImportKeyPairRequestServiceResourceImportKeyPair(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'import_key_pair' function.
 class ImportKeyPairRequest(BaseValidatorModel):
     KeyName: str
     PublicKeyMaterial: Blob
@@ -15775,6 +16925,7 @@ class ImportKeyPairRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'import_snapshot' function.
 class ImportSnapshotRequest(BaseValidatorModel):
     ClientData: Optional[ClientData] = None
     ClientToken: Optional[str] = None
@@ -15787,6 +16938,7 @@ class ImportSnapshotRequest(BaseValidatorModel):
     TagSpecifications: Optional[List[TagSpecificationUnion]] = None
 
 
+# This class is the input for the 'provision_byoip_cidr' function.
 class ProvisionByoipCidrRequest(BaseValidatorModel):
     Cidr: str
     CidrAuthorizationContext: Optional[CidrAuthorizationContext] = None
@@ -15798,6 +16950,7 @@ class ProvisionByoipCidrRequest(BaseValidatorModel):
     NetworkBorderGroup: Optional[str] = None
 
 
+# This class is the input for the 'purchase_capacity_block' function.
 class PurchaseCapacityBlockRequest(BaseValidatorModel):
     CapacityBlockOfferingId: str
     InstancePlatform: CapacityReservationInstancePlatformType
@@ -15805,6 +16958,7 @@ class PurchaseCapacityBlockRequest(BaseValidatorModel):
     TagSpecifications: Optional[List[TagSpecificationUnion]] = None
 
 
+# This class is the input for the 'purchase_host_reservation' function.
 class PurchaseHostReservationRequest(BaseValidatorModel):
     HostIdSet: List[str]
     OfferingId: str
@@ -15835,6 +16989,7 @@ class RegisterImageRequestServiceResourceRegisterImage(BaseValidatorModel):
     EnaSupport: Optional[bool] = None
 
 
+# This class is the input for the 'register_image' function.
 class RegisterImageRequest(BaseValidatorModel):
     Name: str
     ImageLocation: Optional[str] = None
@@ -15856,6 +17011,7 @@ class RegisterImageRequest(BaseValidatorModel):
     EnaSupport: Optional[bool] = None
 
 
+# This class is the input for the 'start_declarative_policies_report' function.
 class StartDeclarativePoliciesReportRequest(BaseValidatorModel):
     S3Bucket: str
     TargetId: str
@@ -15864,6 +17020,7 @@ class StartDeclarativePoliciesReportRequest(BaseValidatorModel):
     TagSpecifications: Optional[List[TagSpecificationUnion]] = None
 
 
+# This class is the input for the 'start_network_insights_access_scope_analysis' function.
 class StartNetworkInsightsAccessScopeAnalysisRequest(BaseValidatorModel):
     NetworkInsightsAccessScopeId: str
     ClientToken: str
@@ -15871,6 +17028,7 @@ class StartNetworkInsightsAccessScopeAnalysisRequest(BaseValidatorModel):
     TagSpecifications: Optional[List[TagSpecificationUnion]] = None
 
 
+# This class is the input for the 'start_network_insights_analysis' function.
 class StartNetworkInsightsAnalysisRequest(BaseValidatorModel):
     NetworkInsightsPathId: str
     ClientToken: str
@@ -15903,18 +17061,21 @@ class PathComponent(BaseValidatorModel):
     ServiceName: Optional[str] = None
 
 
+# This class is the output for the 'create_route_table' function.
 class CreateRouteTableResult(BaseValidatorModel):
     RouteTable: RouteTable
     ClientToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_route_tables' function.
 class DescribeRouteTablesResult(BaseValidatorModel):
     RouteTables: List[RouteTable]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_flow_logs_integration_template' function.
 class GetFlowLogsIntegrationTemplateRequest(BaseValidatorModel):
     FlowLogId: str
     ConfigDeliveryS3DestinationArn: str
@@ -15922,6 +17083,7 @@ class GetFlowLogsIntegrationTemplateRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the output for the 'describe_network_interface_attribute' function.
 class DescribeNetworkInterfaceAttributeResult(BaseValidatorModel):
     Attachment: NetworkInterfaceAttachment
     Description: AttributeValue
@@ -15963,17 +17125,20 @@ class NetworkInterface(BaseValidatorModel):
     Operator: Optional[OperatorResponse] = None
 
 
+# This class is the output for the 'create_dhcp_options' function.
 class CreateDhcpOptionsResult(BaseValidatorModel):
     DhcpOptions: DhcpOptions
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_dhcp_options' function.
 class DescribeDhcpOptionsResult(BaseValidatorModel):
     DhcpOptions: List[DhcpOptions]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_hosts' function.
 class DescribeHostsResult(BaseValidatorModel):
     Hosts: List[Host]
     ResponseMetadata: ResponseMetadata
@@ -15982,18 +17147,21 @@ class DescribeHostsResult(BaseValidatorModel):
 StorageUnion = Union[Storage, StorageOutput]
 
 
+# This class is the output for the 'describe_images' function.
 class DescribeImagesResult(BaseValidatorModel):
     Images: List[Image]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_client_vpn_endpoints' function.
 class DescribeClientVpnEndpointsResult(BaseValidatorModel):
     ClientVpnEndpoints: List[ClientVpnEndpoint]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'modify_vpn_tunnel_options' function.
 class ModifyVpnTunnelOptionsRequest(BaseValidatorModel):
     VpnConnectionId: str
     VpnTunnelOutsideIpAddress: str
@@ -16088,18 +17256,21 @@ class InstanceRequirementsRequest(BaseValidatorModel):
     BaselinePerformanceFactors: Optional[BaselinePerformanceFactorsRequest] = None
 
 
+# This class is the output for the 'create_network_acl' function.
 class CreateNetworkAclResult(BaseValidatorModel):
     NetworkAcl: NetworkAcl
     ClientToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_network_acls' function.
 class DescribeNetworkAclsResult(BaseValidatorModel):
     NetworkAcls: List[NetworkAcl]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'disable_fast_snapshot_restores' function.
 class DisableFastSnapshotRestoresResult(BaseValidatorModel):
     Successful: List[DisableFastSnapshotRestoreSuccessItem]
     Unsuccessful: List[DisableFastSnapshotRestoreErrorItem]
@@ -16116,6 +17287,7 @@ class ConversionTask(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'describe_instance_attribute' function.
 class InstanceAttribute(BaseValidatorModel):
     BlockDeviceMappings: List[InstanceBlockDeviceMapping]
     DisableApiTermination: AttributeBooleanValue
@@ -16157,17 +17329,20 @@ class LaunchSpecification(BaseValidatorModel):
 InstanceNetworkInterfaceSpecificationUnion = Union[InstanceNetworkInterfaceSpecification, InstanceNetworkInterfaceSpecificationOutput]
 
 
+# This class is the output for the 'enable_fast_snapshot_restores' function.
 class EnableFastSnapshotRestoresResult(BaseValidatorModel):
     Successful: List[EnableFastSnapshotRestoreSuccessItem]
     Unsuccessful: List[EnableFastSnapshotRestoreErrorItem]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_network_insights_path' function.
 class CreateNetworkInsightsPathResult(BaseValidatorModel):
     NetworkInsightsPath: NetworkInsightsPath
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_network_insights_paths' function.
 class DescribeNetworkInsightsPathsResult(BaseValidatorModel):
     NetworkInsightsPaths: List[NetworkInsightsPath]
     ResponseMetadata: ResponseMetadata
@@ -16197,12 +17372,14 @@ class InstanceNetworkInterface(BaseValidatorModel):
     Operator: Optional[OperatorResponse] = None
 
 
+# This class is the output for the 'describe_instance_status' function.
 class DescribeInstanceStatusResult(BaseValidatorModel):
     InstanceStatuses: List[InstanceStatus]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_security_groups' function.
 class DescribeSecurityGroupsResult(BaseValidatorModel):
     SecurityGroups: List[SecurityGroup]
     ResponseMetadata: ResponseMetadata
@@ -16221,6 +17398,7 @@ class AuthorizeSecurityGroupEgressRequestSecurityGroupAuthorizeEgress(BaseValida
     IpPermissions: Optional[List[IpPermissionUnion]] = None
 
 
+# This class is the input for the 'authorize_security_group_egress' function.
 class AuthorizeSecurityGroupEgressRequest(BaseValidatorModel):
     GroupId: str
     TagSpecifications: Optional[List[TagSpecificationUnion]] = None
@@ -16247,6 +17425,7 @@ class AuthorizeSecurityGroupIngressRequestSecurityGroupAuthorizeIngress(BaseVali
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'authorize_security_group_ingress' function.
 class AuthorizeSecurityGroupIngressRequest(BaseValidatorModel):
     CidrIp: Optional[str] = None
     FromPort: Optional[int] = None
@@ -16273,6 +17452,7 @@ class RevokeSecurityGroupEgressRequestSecurityGroupRevokeEgress(BaseValidatorMod
     IpPermissions: Optional[List[IpPermissionUnion]] = None
 
 
+# This class is the input for the 'revoke_security_group_egress' function.
 class RevokeSecurityGroupEgressRequest(BaseValidatorModel):
     GroupId: str
     SecurityGroupRuleIds: Optional[List[str]] = None
@@ -16299,6 +17479,7 @@ class RevokeSecurityGroupIngressRequestSecurityGroupRevokeIngress(BaseValidatorM
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'revoke_security_group_ingress' function.
 class RevokeSecurityGroupIngressRequest(BaseValidatorModel):
     CidrIp: Optional[str] = None
     FromPort: Optional[int] = None
@@ -16313,6 +17494,7 @@ class RevokeSecurityGroupIngressRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'update_security_group_rule_descriptions_egress' function.
 class UpdateSecurityGroupRuleDescriptionsEgressRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     GroupId: Optional[str] = None
@@ -16321,6 +17503,7 @@ class UpdateSecurityGroupRuleDescriptionsEgressRequest(BaseValidatorModel):
     SecurityGroupRuleDescriptions: Optional[List[SecurityGroupRuleDescription]] = None
 
 
+# This class is the input for the 'update_security_group_rule_descriptions_ingress' function.
 class UpdateSecurityGroupRuleDescriptionsIngressRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
     GroupId: Optional[str] = None
@@ -16329,12 +17512,14 @@ class UpdateSecurityGroupRuleDescriptionsIngressRequest(BaseValidatorModel):
     SecurityGroupRuleDescriptions: Optional[List[SecurityGroupRuleDescription]] = None
 
 
+# This class is the output for the 'describe_stale_security_groups' function.
 class DescribeStaleSecurityGroupsResult(BaseValidatorModel):
     StaleSecurityGroupSet: List[StaleSecurityGroup]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_ipam_discovered_public_addresses' function.
 class GetIpamDiscoveredPublicAddressesResult(BaseValidatorModel):
     IpamDiscoveredPublicAddresses: List[IpamDiscoveredPublicAddress]
     OldestSampleTime: datetime
@@ -16342,6 +17527,7 @@ class GetIpamDiscoveredPublicAddressesResult(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_reserved_instances_modifications' function.
 class DescribeReservedInstancesModificationsResult(BaseValidatorModel):
     ReservedInstancesModifications: List[ReservedInstancesModification]
     ResponseMetadata: ResponseMetadata
@@ -16381,6 +17567,7 @@ class InstanceTypeInfo(BaseValidatorModel):
     PhcSupport: Optional[PhcSupportType] = None
 
 
+# This class is the input for the 'create_network_insights_access_scope' function.
 class CreateNetworkInsightsAccessScopeRequest(BaseValidatorModel):
     ClientToken: str
     MatchPaths: Optional[List[AccessScopePathRequest]] = None
@@ -16395,21 +17582,25 @@ class NetworkInsightsAccessScopeContent(BaseValidatorModel):
     ExcludePaths: Optional[List[AccessScopePath]] = None
 
 
+# This class is the output for the 'bundle_instance' function.
 class BundleInstanceResult(BaseValidatorModel):
     BundleTask: BundleTask
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_bundle_task' function.
 class CancelBundleTaskResult(BaseValidatorModel):
     BundleTask: BundleTask
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_bundle_tasks' function.
 class DescribeBundleTasksResult(BaseValidatorModel):
     BundleTasks: List[BundleTask]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'run_scheduled_instances' function.
 class RunScheduledInstancesRequest(BaseValidatorModel):
     LaunchSpecification: ScheduledInstancesLaunchSpecification
     ScheduledInstanceId: str
@@ -16418,88 +17609,104 @@ class RunScheduledInstancesRequest(BaseValidatorModel):
     InstanceCount: Optional[int] = None
 
 
+# This class is the output for the 'describe_import_image_tasks' function.
 class DescribeImportImageTasksResult(BaseValidatorModel):
     ImportImageTasks: List[ImportImageTask]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_import_snapshot_tasks' function.
 class DescribeImportSnapshotTasksResult(BaseValidatorModel):
     ImportSnapshotTasks: List[ImportSnapshotTask]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_default_subnet' function.
 class CreateDefaultSubnetResult(BaseValidatorModel):
     Subnet: Subnet
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_subnet' function.
 class CreateSubnetResult(BaseValidatorModel):
     Subnet: Subnet
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_subnets' function.
 class DescribeSubnetsResult(BaseValidatorModel):
     Subnets: List[Subnet]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_traffic_mirror_filter' function.
 class CreateTrafficMirrorFilterResult(BaseValidatorModel):
     TrafficMirrorFilter: TrafficMirrorFilter
     ClientToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_traffic_mirror_filters' function.
 class DescribeTrafficMirrorFiltersResult(BaseValidatorModel):
     TrafficMirrorFilters: List[TrafficMirrorFilter]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'modify_traffic_mirror_filter_network_services' function.
 class ModifyTrafficMirrorFilterNetworkServicesResult(BaseValidatorModel):
     TrafficMirrorFilter: TrafficMirrorFilter
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_transit_gateway_connect_peer' function.
 class CreateTransitGatewayConnectPeerResult(BaseValidatorModel):
     TransitGatewayConnectPeer: TransitGatewayConnectPeer
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_transit_gateway_connect_peer' function.
 class DeleteTransitGatewayConnectPeerResult(BaseValidatorModel):
     TransitGatewayConnectPeer: TransitGatewayConnectPeer
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_transit_gateway_connect_peers' function.
 class DescribeTransitGatewayConnectPeersResult(BaseValidatorModel):
     TransitGatewayConnectPeers: List[TransitGatewayConnectPeer]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_transit_gateway_policy_table_entries' function.
 class GetTransitGatewayPolicyTableEntriesResult(BaseValidatorModel):
     TransitGatewayPolicyTableEntries: List[TransitGatewayPolicyTableEntry]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_verified_access_endpoint' function.
 class CreateVerifiedAccessEndpointResult(BaseValidatorModel):
     VerifiedAccessEndpoint: VerifiedAccessEndpoint
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_verified_access_endpoint' function.
 class DeleteVerifiedAccessEndpointResult(BaseValidatorModel):
     VerifiedAccessEndpoint: VerifiedAccessEndpoint
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_verified_access_endpoints' function.
 class DescribeVerifiedAccessEndpointsResult(BaseValidatorModel):
     VerifiedAccessEndpoints: List[VerifiedAccessEndpoint]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'modify_verified_access_endpoint' function.
 class ModifyVerifiedAccessEndpointResult(BaseValidatorModel):
     VerifiedAccessEndpoint: VerifiedAccessEndpoint
     ResponseMetadata: ResponseMetadata
@@ -16510,6 +17717,7 @@ class VerifiedAccessInstanceLoggingConfiguration(BaseValidatorModel):
     AccessLogs: Optional[VerifiedAccessLogs] = None
 
 
+# This class is the output for the 'describe_volume_status' function.
 class DescribeVolumeStatusResult(BaseValidatorModel):
     VolumeStatuses: List[VolumeStatusItem]
     ResponseMetadata: ResponseMetadata
@@ -16531,16 +17739,19 @@ class Vpc(BaseValidatorModel):
     DhcpOptionsId: Optional[str] = None
 
 
+# This class is the output for the 'accept_vpc_peering_connection' function.
 class AcceptVpcPeeringConnectionResult(BaseValidatorModel):
     VpcPeeringConnection: VpcPeeringConnection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_vpc_peering_connection' function.
 class CreateVpcPeeringConnectionResult(BaseValidatorModel):
     VpcPeeringConnection: VpcPeeringConnection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_vpc_peering_connections' function.
 class DescribeVpcPeeringConnectionsResult(BaseValidatorModel):
     VpcPeeringConnections: List[VpcPeeringConnection]
     ResponseMetadata: ResponseMetadata
@@ -16573,24 +17784,28 @@ class NetworkInsightsAnalysis(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'create_network_interface' function.
 class CreateNetworkInterfaceResult(BaseValidatorModel):
     NetworkInterface: NetworkInterface
     ClientToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_network_interfaces' function.
 class DescribeNetworkInterfacesResult(BaseValidatorModel):
     NetworkInterfaces: List[NetworkInterface]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'bundle_instance' function.
 class BundleInstanceRequest(BaseValidatorModel):
     InstanceId: str
     Storage: StorageUnion
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'create_vpn_connection' function.
 class CreateVpnConnectionRequest(BaseValidatorModel):
     CustomerGatewayId: str
     Type: str
@@ -16723,6 +17938,7 @@ class GetInstanceTypesFromInstanceRequirementsRequestPaginate(BaseValidatorModel
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_instance_types_from_instance_requirements' function.
 class GetInstanceTypesFromInstanceRequirementsRequest(BaseValidatorModel):
     ArchitectureTypes: List[ArchitectureTypeType]
     VirtualizationTypes: List[VirtualizationTypeType]
@@ -16774,16 +17990,19 @@ class RequestLaunchTemplateData(BaseValidatorModel):
     NetworkPerformanceOptions: Optional[LaunchTemplateNetworkPerformanceOptionsRequest] = None
 
 
+# This class is the output for the 'describe_conversion_tasks' function.
 class DescribeConversionTasksResult(BaseValidatorModel):
     ConversionTasks: List[ConversionTask]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_instance' function.
 class ImportInstanceResult(BaseValidatorModel):
     ConversionTask: ConversionTask
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_volume' function.
 class ImportVolumeResult(BaseValidatorModel):
     ConversionTask: ConversionTask
     ResponseMetadata: ResponseMetadata
@@ -16921,6 +18140,7 @@ class RunInstancesRequestSubnetCreateInstances(BaseValidatorModel):
     EbsOptimized: Optional[bool] = None
 
 
+# This class is the input for the 'run_instances' function.
 class RunInstancesRequest(BaseValidatorModel):
     MaxCount: int
     MinCount: int
@@ -17029,50 +18249,59 @@ class Instance(BaseValidatorModel):
     PublicIpAddress: Optional[str] = None
 
 
+# This class is the output for the 'describe_instance_types' function.
 class DescribeInstanceTypesResult(BaseValidatorModel):
     InstanceTypes: List[InstanceTypeInfo]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_network_insights_access_scope' function.
 class CreateNetworkInsightsAccessScopeResult(BaseValidatorModel):
     NetworkInsightsAccessScope: NetworkInsightsAccessScope
     NetworkInsightsAccessScopeContent: NetworkInsightsAccessScopeContent
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_network_insights_access_scope_content' function.
 class GetNetworkInsightsAccessScopeContentResult(BaseValidatorModel):
     NetworkInsightsAccessScopeContent: NetworkInsightsAccessScopeContent
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_verified_access_instance_logging_configurations' function.
 class DescribeVerifiedAccessInstanceLoggingConfigurationsResult(BaseValidatorModel):
     LoggingConfigurations: List[VerifiedAccessInstanceLoggingConfiguration]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'modify_verified_access_instance_logging_configuration' function.
 class ModifyVerifiedAccessInstanceLoggingConfigurationResult(BaseValidatorModel):
     LoggingConfiguration: VerifiedAccessInstanceLoggingConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_default_vpc' function.
 class CreateDefaultVpcResult(BaseValidatorModel):
     Vpc: Vpc
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_vpc' function.
 class CreateVpcResult(BaseValidatorModel):
     Vpc: Vpc
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_vpcs' function.
 class DescribeVpcsResult(BaseValidatorModel):
     Vpcs: List[Vpc]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_network_insights_access_scope_analysis_findings' function.
 class GetNetworkInsightsAccessScopeAnalysisFindingsResult(BaseValidatorModel):
     NetworkInsightsAccessScopeAnalysisId: str
     AnalysisStatus: AnalysisStatusType
@@ -17081,42 +18310,50 @@ class GetNetworkInsightsAccessScopeAnalysisFindingsResult(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_network_insights_analyses' function.
 class DescribeNetworkInsightsAnalysesResult(BaseValidatorModel):
     NetworkInsightsAnalyses: List[NetworkInsightsAnalysis]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_network_insights_analysis' function.
 class StartNetworkInsightsAnalysisResult(BaseValidatorModel):
     NetworkInsightsAnalysis: NetworkInsightsAnalysis
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_vpn_connection' function.
 class CreateVpnConnectionResult(BaseValidatorModel):
     VpnConnection: VpnConnection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_vpn_connections' function.
 class DescribeVpnConnectionsResult(BaseValidatorModel):
     VpnConnections: List[VpnConnection]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_vpn_connection_options' function.
 class ModifyVpnConnectionOptionsResult(BaseValidatorModel):
     VpnConnection: VpnConnection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_vpn_connection' function.
 class ModifyVpnConnectionResult(BaseValidatorModel):
     VpnConnection: VpnConnection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_vpn_tunnel_certificate' function.
 class ModifyVpnTunnelCertificateResult(BaseValidatorModel):
     VpnConnection: VpnConnection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_vpn_tunnel_options' function.
 class ModifyVpnTunnelOptionsResult(BaseValidatorModel):
     VpnConnection: VpnConnection
     ResponseMetadata: ResponseMetadata
@@ -17137,6 +18374,7 @@ class LaunchTemplateConfigOutput(BaseValidatorModel):
     Overrides: Optional[List[LaunchTemplateOverridesOutput]] = None
 
 
+# This class is the output for the 'get_launch_template_data' function.
 class GetLaunchTemplateDataResult(BaseValidatorModel):
     LaunchTemplateData: ResponseLaunchTemplateData
     ResponseMetadata: ResponseMetadata
@@ -17198,6 +18436,7 @@ class GetSpotPlacementScoresRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_spot_placement_scores' function.
 class GetSpotPlacementScoresRequest(BaseValidatorModel):
     TargetCapacity: int
     InstanceTypes: Optional[List[str]] = None
@@ -17210,6 +18449,7 @@ class GetSpotPlacementScoresRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_launch_template' function.
 class CreateLaunchTemplateRequest(BaseValidatorModel):
     LaunchTemplateName: str
     LaunchTemplateData: RequestLaunchTemplateData
@@ -17220,6 +18460,7 @@ class CreateLaunchTemplateRequest(BaseValidatorModel):
     TagSpecifications: Optional[List[TagSpecificationUnion]] = None
 
 
+# This class is the input for the 'create_launch_template_version' function.
 class CreateLaunchTemplateVersionRequest(BaseValidatorModel):
     LaunchTemplateData: RequestLaunchTemplateData
     DryRun: Optional[bool] = None
@@ -17231,17 +18472,20 @@ class CreateLaunchTemplateVersionRequest(BaseValidatorModel):
     ResolveAlias: Optional[bool] = None
 
 
+# This class is the output for the 'describe_spot_instance_requests' function.
 class DescribeSpotInstanceRequestsResult(BaseValidatorModel):
     SpotInstanceRequests: List[SpotInstanceRequest]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'request_spot_instances' function.
 class RequestSpotInstancesResult(BaseValidatorModel):
     SpotInstanceRequests: List[SpotInstanceRequest]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'request_spot_instances' function.
 class RequestSpotInstancesRequest(BaseValidatorModel):
     LaunchSpecification: Optional[RequestSpotLaunchSpecification] = None
     TagSpecifications: Optional[List[TagSpecificationUnion]] = None
@@ -17258,6 +18502,7 @@ class RequestSpotInstancesRequest(BaseValidatorModel):
     BlockDurationMinutes: Optional[int] = None
 
 
+# This class is the output for the 'run_instances' function.
 class ReservationResponse(BaseValidatorModel):
     ReservationId: str
     OwnerId: str
@@ -17334,12 +18579,14 @@ class SpotFleetRequestConfigDataOutput(BaseValidatorModel):
     TagSpecifications: Optional[List[TagSpecificationOutput]] = None
 
 
+# This class is the output for the 'create_launch_template_version' function.
 class CreateLaunchTemplateVersionResult(BaseValidatorModel):
     LaunchTemplateVersion: LaunchTemplateVersion
     Warning: ValidationWarning
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_launch_template_versions' function.
 class DescribeLaunchTemplateVersionsResult(BaseValidatorModel):
     LaunchTemplateVersions: List[LaunchTemplateVersion]
     ResponseMetadata: ResponseMetadata
@@ -17370,6 +18617,7 @@ class SpotFleetLaunchSpecification(BaseValidatorModel):
     SecurityGroups: Optional[List[GroupIdentifier]] = None
 
 
+# This class is the input for the 'create_fleet' function.
 class CreateFleetRequest(BaseValidatorModel):
     LaunchTemplateConfigs: List[FleetLaunchTemplateConfigRequest]
     TargetCapacitySpecification: TargetCapacitySpecificationRequest
@@ -17387,6 +18635,7 @@ class CreateFleetRequest(BaseValidatorModel):
     Context: Optional[str] = None
 
 
+# This class is the input for the 'modify_fleet' function.
 class ModifyFleetRequest(BaseValidatorModel):
     FleetId: str
     DryRun: Optional[bool] = None
@@ -17396,12 +18645,14 @@ class ModifyFleetRequest(BaseValidatorModel):
     Context: Optional[str] = None
 
 
+# This class is the output for the 'describe_instances' function.
 class DescribeInstancesResult(BaseValidatorModel):
     Reservations: List[Reservation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_fleet' function.
 class CreateFleetResult(BaseValidatorModel):
     FleetId: str
     Errors: List[CreateFleetError]
@@ -17452,12 +18703,14 @@ class LaunchTemplateOverrides(BaseValidatorModel):
     InstanceRequirements: Optional[InstanceRequirementsUnion] = None
 
 
+# This class is the output for the 'describe_fleets' function.
 class DescribeFleetsResult(BaseValidatorModel):
     Fleets: List[FleetData]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_spot_fleet_requests' function.
 class DescribeSpotFleetRequestsResponse(BaseValidatorModel):
     SpotFleetRequestConfigs: List[SpotFleetRequestConfig]
     ResponseMetadata: ResponseMetadata
@@ -17502,6 +18755,7 @@ class SpotFleetRequestConfigData(BaseValidatorModel):
     TagSpecifications: Optional[List[TagSpecification]] = None
 
 
+# This class is the input for the 'modify_spot_fleet_request' function.
 class ModifySpotFleetRequestRequest(BaseValidatorModel):
     SpotFleetRequestId: str
     LaunchTemplateConfigs: Optional[List[LaunchTemplateConfigUnion]] = None
@@ -17513,6 +18767,7 @@ class ModifySpotFleetRequestRequest(BaseValidatorModel):
 SpotFleetRequestConfigDataUnion = Union[SpotFleetRequestConfigData, SpotFleetRequestConfigDataOutput]
 
 
+# This class is the input for the 'request_spot_fleet' function.
 class RequestSpotFleetRequest(BaseValidatorModel):
     SpotFleetRequestConfig: SpotFleetRequestConfigDataUnion
     DryRun: Optional[bool] = None

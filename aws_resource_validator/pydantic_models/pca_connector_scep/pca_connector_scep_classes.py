@@ -36,6 +36,7 @@ class OpenIdConfiguration(BaseValidatorModel):
     Audience: Optional[str] = None
 
 
+# This class is the input for the 'create_challenge' function.
 class CreateChallengeRequest(BaseValidatorModel):
     ConnectorArn: str
     ClientToken: Optional[str] = None
@@ -50,22 +51,27 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'delete_challenge' function.
 class DeleteChallengeRequest(BaseValidatorModel):
     ChallengeArn: str
 
 
+# This class is the input for the 'delete_connector' function.
 class DeleteConnectorRequest(BaseValidatorModel):
     ConnectorArn: str
 
 
+# This class is the input for the 'get_challenge_metadata' function.
 class GetChallengeMetadataRequest(BaseValidatorModel):
     ChallengeArn: str
 
 
+# This class is the input for the 'get_challenge_password' function.
 class GetChallengePasswordRequest(BaseValidatorModel):
     ChallengeArn: str
 
 
+# This class is the input for the 'get_connector' function.
 class GetConnectorRequest(BaseValidatorModel):
     ConnectorArn: str
 
@@ -81,61 +87,73 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_challenge_metadata' function.
 class ListChallengeMetadataRequest(BaseValidatorModel):
     ConnectorArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_connectors' function.
 class ListConnectorsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Dict[str, str]
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: List[str]
 
 
+# This class is the output for the 'create_challenge' function.
 class CreateChallengeResponse(BaseValidatorModel):
     Challenge: Challenge
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_connector' function.
 class CreateConnectorResponse(BaseValidatorModel):
     ConnectorArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'untag_resource' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_challenge_metadata' function.
 class GetChallengeMetadataResponse(BaseValidatorModel):
     ChallengeMetadata: ChallengeMetadata
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_challenge_password' function.
 class GetChallengePasswordResponse(BaseValidatorModel):
     Password: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_challenge_metadata' function.
 class ListChallengeMetadataResponse(BaseValidatorModel):
     Challenges: List[ChallengeMetadataSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
@@ -180,6 +198,7 @@ class Connector(BaseValidatorModel):
     UpdatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'create_connector' function.
 class CreateConnectorRequest(BaseValidatorModel):
     CertificateAuthorityArn: str
     MobileDeviceManagement: Optional[MobileDeviceManagement] = None
@@ -187,12 +206,14 @@ class CreateConnectorRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'list_connectors' function.
 class ListConnectorsResponse(BaseValidatorModel):
     Connectors: List[ConnectorSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_connector' function.
 class GetConnectorResponse(BaseValidatorModel):
     Connector: Connector
     ResponseMetadata: ResponseMetadata

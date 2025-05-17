@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'accept_engagement_invitation' function.
 class AcceptEngagementInvitationRequest(BaseValidatorModel):
     Catalog: str
     Identifier: str
@@ -40,6 +41,7 @@ class AssigneeContact(BaseValidatorModel):
     LastName: str
 
 
+# This class is the input for the 'associate_opportunity' function.
 class AssociateOpportunityRequest(BaseValidatorModel):
     Catalog: str
     OpportunityIdentifier: str
@@ -103,6 +105,7 @@ class Tag(BaseValidatorModel):
     Value: str
 
 
+# This class is the input for the 'create_resource_snapshot' function.
 class CreateResourceSnapshotRequest(BaseValidatorModel):
     Catalog: str
     ClientToken: str
@@ -125,11 +128,13 @@ class EngagementCustomer(BaseValidatorModel):
     WebsiteUrl: str
 
 
+# This class is the input for the 'delete_resource_snapshot_job' function.
 class DeleteResourceSnapshotJobRequest(BaseValidatorModel):
     Catalog: str
     ResourceSnapshotJobIdentifier: str
 
 
+# This class is the input for the 'disassociate_opportunity' function.
 class DisassociateOpportunityRequest(BaseValidatorModel):
     Catalog: str
     OpportunityIdentifier: str
@@ -170,21 +175,25 @@ class EngagementSummary(BaseValidatorModel):
     Title: Optional[str] = None
 
 
+# This class is the input for the 'get_aws_opportunity_summary' function.
 class GetAwsOpportunitySummaryRequest(BaseValidatorModel):
     Catalog: str
     RelatedOpportunityIdentifier: str
 
 
+# This class is the input for the 'get_engagement_invitation' function.
 class GetEngagementInvitationRequest(BaseValidatorModel):
     Catalog: str
     Identifier: str
 
 
+# This class is the input for the 'get_engagement' function.
 class GetEngagementRequest(BaseValidatorModel):
     Catalog: str
     Identifier: str
 
 
+# This class is the input for the 'get_opportunity' function.
 class GetOpportunityRequest(BaseValidatorModel):
     Catalog: str
     Identifier: str
@@ -204,11 +213,13 @@ class RelatedEntityIdentifiers(BaseValidatorModel):
     Solutions: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_resource_snapshot_job' function.
 class GetResourceSnapshotJobRequest(BaseValidatorModel):
     Catalog: str
     ResourceSnapshotJobIdentifier: str
 
 
+# This class is the input for the 'get_resource_snapshot' function.
 class GetResourceSnapshotRequest(BaseValidatorModel):
     Catalog: str
     EngagementIdentifier: str
@@ -218,6 +229,7 @@ class GetResourceSnapshotRequest(BaseValidatorModel):
     Revision: Optional[int] = None
 
 
+# This class is the input for the 'get_selling_system_settings' function.
 class GetSellingSystemSettingsRequest(BaseValidatorModel):
     Catalog: str
 
@@ -287,6 +299,7 @@ class OpportunityEngagementInvitationSort(BaseValidatorModel):
     SortOrder: SortOrderType
 
 
+# This class is the input for the 'list_engagement_members' function.
 class ListEngagementMembersRequest(BaseValidatorModel):
     Catalog: str
     Identifier: str
@@ -294,6 +307,7 @@ class ListEngagementMembersRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_engagement_resource_associations' function.
 class ListEngagementResourceAssociationsRequest(BaseValidatorModel):
     Catalog: str
     CreatedBy: Optional[str] = None
@@ -321,6 +335,7 @@ class ResourceSnapshotJobSummary(BaseValidatorModel):
     Status: Optional[ResourceSnapshotJobStatusType] = None
 
 
+# This class is the input for the 'list_resource_snapshots' function.
 class ListResourceSnapshotsRequest(BaseValidatorModel):
     Catalog: str
     EngagementIdentifier: str
@@ -356,6 +371,7 @@ class SolutionBase(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -381,27 +397,32 @@ class SenderContact(BaseValidatorModel):
     Phone: Optional[str] = None
 
 
+# This class is the input for the 'put_selling_system_settings' function.
 class PutSellingSystemSettingsRequest(BaseValidatorModel):
     Catalog: str
     ResourceSnapshotJobRoleIdentifier: Optional[str] = None
 
 
+# This class is the input for the 'reject_engagement_invitation' function.
 class RejectEngagementInvitationRequest(BaseValidatorModel):
     Catalog: str
     Identifier: str
     RejectionReason: Optional[str] = None
 
 
+# This class is the input for the 'start_resource_snapshot_job' function.
 class StartResourceSnapshotJobRequest(BaseValidatorModel):
     Catalog: str
     ResourceSnapshotJobIdentifier: str
 
 
+# This class is the input for the 'stop_resource_snapshot_job' function.
 class StopResourceSnapshotJobRequest(BaseValidatorModel):
     Catalog: str
     ResourceSnapshotJobIdentifier: str
 
 
+# This class is the input for the 'submit_opportunity' function.
 class SubmitOpportunityRequest(BaseValidatorModel):
     Catalog: str
     Identifier: str
@@ -436,6 +457,7 @@ class Account(BaseValidatorModel):
     WebsiteUrl: Optional[str] = None
 
 
+# This class is the input for the 'assign_opportunity' function.
 class AssignOpportunityRequest(BaseValidatorModel):
     Assignee: AssigneeContact
     Catalog: str
@@ -515,18 +537,21 @@ class ProjectView(BaseValidatorModel):
     SalesActivities: Optional[List[SalesActivityType]] = None
 
 
+# This class is the output for the 'create_engagement_invitation' function.
 class CreateEngagementInvitationResponse(BaseValidatorModel):
     Arn: str
     Id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_engagement' function.
 class CreateEngagementResponse(BaseValidatorModel):
     Arn: str
     Id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_opportunity' function.
 class CreateOpportunityResponse(BaseValidatorModel):
     Id: str
     LastModifiedDate: datetime
@@ -534,22 +559,26 @@ class CreateOpportunityResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_resource_snapshot_job' function.
 class CreateResourceSnapshotJobResponse(BaseValidatorModel):
     Arn: str
     Id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_resource_snapshot' function.
 class CreateResourceSnapshotResponse(BaseValidatorModel):
     Arn: str
     Revision: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'submit_opportunity' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_snapshot_job' function.
 class GetResourceSnapshotJobResponse(BaseValidatorModel):
     Arn: str
     Catalog: str
@@ -566,18 +595,21 @@ class GetResourceSnapshotJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_selling_system_settings' function.
 class GetSellingSystemSettingsResponse(BaseValidatorModel):
     Catalog: str
     ResourceSnapshotJobRoleArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_selling_system_settings' function.
 class PutSellingSystemSettingsResponse(BaseValidatorModel):
     Catalog: str
     ResourceSnapshotJobRoleArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_engagement_by_accepting_invitation_task' function.
 class StartEngagementByAcceptingInvitationTaskResponse(BaseValidatorModel):
     EngagementInvitationId: str
     Message: str
@@ -591,6 +623,7 @@ class StartEngagementByAcceptingInvitationTaskResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_engagement_from_opportunity_task' function.
 class StartEngagementFromOpportunityTaskResponse(BaseValidatorModel):
     EngagementId: str
     EngagementInvitationId: str
@@ -605,12 +638,14 @@ class StartEngagementFromOpportunityTaskResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_opportunity' function.
 class UpdateOpportunityResponse(BaseValidatorModel):
     Id: str
     LastModifiedDate: datetime
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_resource_snapshot_job' function.
 class CreateResourceSnapshotJobRequest(BaseValidatorModel):
     Catalog: str
     ClientToken: str
@@ -621,11 +656,13 @@ class CreateResourceSnapshotJobRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_engagement_by_accepting_invitation_task' function.
 class StartEngagementByAcceptingInvitationTaskRequest(BaseValidatorModel):
     Catalog: str
     ClientToken: str
@@ -633,6 +670,7 @@ class StartEngagementByAcceptingInvitationTaskRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'start_engagement_from_opportunity_task' function.
 class StartEngagementFromOpportunityTaskRequest(BaseValidatorModel):
     AwsSubmission: AwsSubmission
     Catalog: str
@@ -651,18 +689,21 @@ class CustomerProjectsContext(BaseValidatorModel):
     Project: Optional[EngagementCustomerProjectDetails] = None
 
 
+# This class is the output for the 'list_engagement_members' function.
 class ListEngagementMembersResponse(BaseValidatorModel):
     EngagementMemberList: List[EngagementMember]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_engagement_resource_associations' function.
 class ListEngagementResourceAssociationsResponse(BaseValidatorModel):
     EngagementResourceAssociationSummaries: List[EngagementResourceAssociationSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_engagements' function.
 class ListEngagementsRequest(BaseValidatorModel):
     Catalog: str
     CreatedBy: Optional[List[str]] = None
@@ -673,6 +714,7 @@ class ListEngagementsRequest(BaseValidatorModel):
     Sort: Optional[EngagementSort] = None
 
 
+# This class is the output for the 'list_engagements' function.
 class ListEngagementsResponse(BaseValidatorModel):
     EngagementSummaryList: List[EngagementSummary]
     ResponseMetadata: ResponseMetadata
@@ -700,12 +742,14 @@ class LifeCycleOutput(BaseValidatorModel):
     TargetCloseDate: Optional[str] = None
 
 
+# This class is the output for the 'list_engagement_by_accepting_invitation_tasks' function.
 class ListEngagementByAcceptingInvitationTasksResponse(BaseValidatorModel):
     TaskSummaries: List[ListEngagementByAcceptingInvitationTaskSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_engagement_by_accepting_invitation_tasks' function.
 class ListEngagementByAcceptingInvitationTasksRequest(BaseValidatorModel):
     Catalog: str
     EngagementInvitationIdentifier: Optional[List[str]] = None
@@ -717,6 +761,7 @@ class ListEngagementByAcceptingInvitationTasksRequest(BaseValidatorModel):
     TaskStatus: Optional[List[TaskStatusType]] = None
 
 
+# This class is the input for the 'list_engagement_from_opportunity_tasks' function.
 class ListEngagementFromOpportunityTasksRequest(BaseValidatorModel):
     Catalog: str
     EngagementIdentifier: Optional[List[str]] = None
@@ -782,6 +827,7 @@ class ListResourceSnapshotsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_engagement_from_opportunity_tasks' function.
 class ListEngagementFromOpportunityTasksResponse(BaseValidatorModel):
     TaskSummaries: List[ListEngagementFromOpportunityTaskSummary]
     ResponseMetadata: ResponseMetadata
@@ -799,6 +845,7 @@ class ListEngagementInvitationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_engagement_invitations' function.
 class ListEngagementInvitationsRequest(BaseValidatorModel):
     Catalog: str
     ParticipantType: ParticipantTypeType
@@ -819,6 +866,7 @@ class ListResourceSnapshotJobsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_resource_snapshot_jobs' function.
 class ListResourceSnapshotJobsRequest(BaseValidatorModel):
     Catalog: str
     EngagementIdentifier: Optional[str] = None
@@ -828,12 +876,14 @@ class ListResourceSnapshotJobsRequest(BaseValidatorModel):
     Status: Optional[ResourceSnapshotJobStatusType] = None
 
 
+# This class is the output for the 'list_resource_snapshot_jobs' function.
 class ListResourceSnapshotJobsResponse(BaseValidatorModel):
     ResourceSnapshotJobSummaries: List[ResourceSnapshotJobSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_resource_snapshots' function.
 class ListResourceSnapshotsResponse(BaseValidatorModel):
     ResourceSnapshotSummaries: List[ResourceSnapshotSummary]
     ResponseMetadata: ResponseMetadata
@@ -849,6 +899,7 @@ class ListSolutionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_solutions' function.
 class ListSolutionsRequest(BaseValidatorModel):
     Catalog: str
     Category: Optional[List[str]] = None
@@ -859,6 +910,7 @@ class ListSolutionsRequest(BaseValidatorModel):
     Status: Optional[List[SolutionStatusType]] = None
 
 
+# This class is the output for the 'list_solutions' function.
 class ListSolutionsResponse(BaseValidatorModel):
     SolutionSummaries: List[SolutionBase]
     ResponseMetadata: ResponseMetadata
@@ -904,6 +956,7 @@ class Customer(BaseValidatorModel):
     Contacts: Optional[List[Contact]] = None
 
 
+# This class is the output for the 'get_aws_opportunity_summary' function.
 class GetAwsOpportunitySummaryResponse(BaseValidatorModel):
     Catalog: str
     Customer: AwsOpportunityCustomer
@@ -946,6 +999,7 @@ class ListOpportunitiesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_opportunities' function.
 class ListOpportunitiesRequest(BaseValidatorModel):
     Catalog: str
     CustomerCompanyName: Optional[List[str]] = None
@@ -969,6 +1023,7 @@ class LifeCycle(BaseValidatorModel):
     TargetCloseDate: Optional[str] = None
 
 
+# This class is the output for the 'list_engagement_invitations' function.
 class ListEngagementInvitationsResponse(BaseValidatorModel):
     EngagementInvitationSummaries: List[EngagementInvitationSummary]
     ResponseMetadata: ResponseMetadata
@@ -988,6 +1043,7 @@ class OpportunitySummary(BaseValidatorModel):
     Project: Optional[ProjectSummary] = None
 
 
+# This class is the output for the 'get_opportunity' function.
 class GetOpportunityResponse(BaseValidatorModel):
     Arn: str
     Catalog: str
@@ -1038,6 +1094,7 @@ class EngagementContextDetails(BaseValidatorModel):
 LifeCycleUnion = Union[LifeCycle, LifeCycleOutput]
 
 
+# This class is the output for the 'list_opportunities' function.
 class ListOpportunitiesResponse(BaseValidatorModel):
     OpportunitySummaries: List[OpportunitySummary]
     ResponseMetadata: ResponseMetadata
@@ -1048,6 +1105,7 @@ class ResourceSnapshotPayload(BaseValidatorModel):
     OpportunitySummary: Optional[OpportunitySummaryView] = None
 
 
+# This class is the output for the 'get_engagement_invitation' function.
 class GetEngagementInvitationResponse(BaseValidatorModel):
     Arn: str
     Catalog: str
@@ -1071,6 +1129,7 @@ class GetEngagementInvitationResponse(BaseValidatorModel):
 OpportunityInvitationPayloadUnion = Union[OpportunityInvitationPayload, OpportunityInvitationPayloadOutput]
 
 
+# This class is the input for the 'create_engagement' function.
 class CreateEngagementRequest(BaseValidatorModel):
     Catalog: str
     ClientToken: str
@@ -1079,6 +1138,7 @@ class CreateEngagementRequest(BaseValidatorModel):
     Contexts: Optional[List[EngagementContextDetails]] = None
 
 
+# This class is the output for the 'get_engagement' function.
 class GetEngagementResponse(BaseValidatorModel):
     Arn: str
     Contexts: List[EngagementContextDetails]
@@ -1091,6 +1151,7 @@ class GetEngagementResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_opportunity' function.
 class CreateOpportunityRequest(BaseValidatorModel):
     Catalog: str
     ClientToken: str
@@ -1107,6 +1168,7 @@ class CreateOpportunityRequest(BaseValidatorModel):
     SoftwareRevenue: Optional[SoftwareRevenue] = None
 
 
+# This class is the input for the 'update_opportunity' function.
 class UpdateOpportunityRequest(BaseValidatorModel):
     Catalog: str
     Identifier: str
@@ -1122,6 +1184,7 @@ class UpdateOpportunityRequest(BaseValidatorModel):
     SoftwareRevenue: Optional[SoftwareRevenue] = None
 
 
+# This class is the output for the 'get_resource_snapshot' function.
 class GetResourceSnapshotResponse(BaseValidatorModel):
     Arn: str
     Catalog: str
@@ -1148,6 +1211,7 @@ class Invitation(BaseValidatorModel):
     Receiver: Receiver
 
 
+# This class is the input for the 'create_engagement_invitation' function.
 class CreateEngagementInvitationRequest(BaseValidatorModel):
     Catalog: str
     ClientToken: str

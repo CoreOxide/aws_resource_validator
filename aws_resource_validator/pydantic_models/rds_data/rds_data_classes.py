@@ -32,6 +32,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'begin_transaction' function.
 class BeginTransactionRequest(BaseValidatorModel):
     resourceArn: str
     secretArn: str
@@ -58,12 +59,14 @@ class ColumnMetadata(BaseValidatorModel):
     arrayBaseColumnType: Optional[int] = None
 
 
+# This class is the input for the 'commit_transaction' function.
 class CommitTransactionRequest(BaseValidatorModel):
     resourceArn: str
     secretArn: str
     transactionId: str
 
 
+# This class is the input for the 'execute_sql' function.
 class ExecuteSqlRequest(BaseValidatorModel):
     dbClusterOrInstanceArn: str
     awsSecretStoreArn: str
@@ -77,6 +80,7 @@ class ResultSetOptions(BaseValidatorModel):
     longReturnType: Optional[LongReturnTypeType] = None
 
 
+# This class is the input for the 'rollback_transaction' function.
 class RollbackTransactionRequest(BaseValidatorModel):
     resourceArn: str
     secretArn: str
@@ -99,16 +103,19 @@ class FieldOutput(BaseValidatorModel):
 ArrayValueUnion = Union[ArrayValue, ArrayValueOutput]
 
 
+# This class is the output for the 'begin_transaction' function.
 class BeginTransactionResponse(BaseValidatorModel):
     transactionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'commit_transaction' function.
 class CommitTransactionResponse(BaseValidatorModel):
     transactionStatus: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'rollback_transaction' function.
 class RollbackTransactionResponse(BaseValidatorModel):
     transactionStatus: str
     ResponseMetadata: ResponseMetadata
@@ -132,6 +139,7 @@ class Value(BaseValidatorModel):
     structValue: Optional[StructValue] = None
 
 
+# This class is the output for the 'execute_statement' function.
 class ExecuteStatementResponse(BaseValidatorModel):
     records: List[List[FieldOutput]]
     columnMetadata: List[ColumnMetadata]
@@ -159,6 +167,7 @@ class Record(BaseValidatorModel):
     values: Optional[List[Value]] = None
 
 
+# This class is the output for the 'batch_execute_statement' function.
 class BatchExecuteStatementResponse(BaseValidatorModel):
     updateResults: List[UpdateResult]
     ResponseMetadata: ResponseMetadata
@@ -182,6 +191,7 @@ class SqlStatementResult(BaseValidatorModel):
     numberOfRecordsUpdated: Optional[int] = None
 
 
+# This class is the input for the 'batch_execute_statement' function.
 class BatchExecuteStatementRequest(BaseValidatorModel):
     resourceArn: str
     secretArn: str
@@ -192,6 +202,7 @@ class BatchExecuteStatementRequest(BaseValidatorModel):
     transactionId: Optional[str] = None
 
 
+# This class is the input for the 'execute_statement' function.
 class ExecuteStatementRequest(BaseValidatorModel):
     resourceArn: str
     secretArn: str
@@ -206,6 +217,7 @@ class ExecuteStatementRequest(BaseValidatorModel):
     formatRecordsAs: Optional[RecordsFormatTypeType] = None
 
 
+# This class is the output for the 'execute_sql' function.
 class ExecuteSqlResponse(BaseValidatorModel):
     sqlStatementResults: List[SqlStatementResult]
     ResponseMetadata: ResponseMetadata

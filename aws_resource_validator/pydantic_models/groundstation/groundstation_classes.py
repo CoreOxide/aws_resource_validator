@@ -35,6 +35,7 @@ class Eirp(BaseValidatorModel):
     value: float
 
 
+# This class is the input for the 'cancel_contact' function.
 class CancelContactRequest(BaseValidatorModel):
     contactId: str
 
@@ -112,23 +113,28 @@ class DataflowEndpointListItem(BaseValidatorModel):
     dataflowEndpointGroupId: Optional[str] = None
 
 
+# This class is the input for the 'delete_config' function.
 class DeleteConfigRequest(BaseValidatorModel):
     configId: str
     configType: ConfigCapabilityTypeType
 
 
+# This class is the input for the 'delete_dataflow_endpoint_group' function.
 class DeleteDataflowEndpointGroupRequest(BaseValidatorModel):
     dataflowEndpointGroupId: str
 
 
+# This class is the input for the 'delete_ephemeris' function.
 class DeleteEphemerisRequest(BaseValidatorModel):
     ephemerisId: str
 
 
+# This class is the input for the 'delete_mission_profile' function.
 class DeleteMissionProfileRequest(BaseValidatorModel):
     missionProfileId: str
 
 
+# This class is the input for the 'describe_contact' function.
 class DescribeContactRequest(BaseValidatorModel):
     contactId: str
 
@@ -138,6 +144,7 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'describe_ephemeris' function.
 class DescribeEphemerisRequest(BaseValidatorModel):
     ephemerisId: str
 
@@ -177,28 +184,34 @@ class Frequency(BaseValidatorModel):
     value: float
 
 
+# This class is the input for the 'get_agent_configuration' function.
 class GetAgentConfigurationRequest(BaseValidatorModel):
     agentId: str
 
 
+# This class is the input for the 'get_config' function.
 class GetConfigRequest(BaseValidatorModel):
     configId: str
     configType: ConfigCapabilityTypeType
 
 
+# This class is the input for the 'get_dataflow_endpoint_group' function.
 class GetDataflowEndpointGroupRequest(BaseValidatorModel):
     dataflowEndpointGroupId: str
 
 
+# This class is the input for the 'get_minute_usage' function.
 class GetMinuteUsageRequest(BaseValidatorModel):
     month: int
     year: int
 
 
+# This class is the input for the 'get_mission_profile' function.
 class GetMissionProfileRequest(BaseValidatorModel):
     missionProfileId: str
 
 
+# This class is the input for the 'get_satellite' function.
 class GetSatelliteRequest(BaseValidatorModel):
     satelliteId: str
 
@@ -220,22 +233,26 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_configs' function.
 class ListConfigsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_dataflow_endpoint_groups' function.
 class ListDataflowEndpointGroupsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_ground_stations' function.
 class ListGroundStationsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     satelliteId: Optional[str] = None
 
 
+# This class is the input for the 'list_mission_profiles' function.
 class ListMissionProfilesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -248,11 +265,13 @@ class MissionProfileListItem(BaseValidatorModel):
     region: Optional[str] = None
 
 
+# This class is the input for the 'list_satellites' function.
 class ListSatellitesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -273,6 +292,7 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_ephemeris' function.
 class UpdateEphemerisRequest(BaseValidatorModel):
     enabled: bool
     ephemerisId: str
@@ -289,6 +309,7 @@ class AgentDetails(BaseValidatorModel):
     reservedCpuCores: Optional[List[int]] = None
 
 
+# This class is the input for the 'update_agent_status' function.
 class UpdateAgentStatusRequest(BaseValidatorModel):
     agentId: str
     aggregateStatus: AggregateStatus
@@ -296,6 +317,7 @@ class UpdateAgentStatusRequest(BaseValidatorModel):
     taskId: str
 
 
+# This class is the output for the 'update_config' function.
 class ConfigIdResponse(BaseValidatorModel):
     configArn: str
     configId: str
@@ -303,27 +325,32 @@ class ConfigIdResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reserve_contact' function.
 class ContactIdResponse(BaseValidatorModel):
     contactId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_dataflow_endpoint_group' function.
 class DataflowEndpointGroupIdResponse(BaseValidatorModel):
     dataflowEndpointGroupId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_ephemeris' function.
 class EphemerisIdResponse(BaseValidatorModel):
     ephemerisId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_agent_configuration' function.
 class GetAgentConfigurationResponse(BaseValidatorModel):
     agentId: str
     taskingDocument: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_minute_usage' function.
 class GetMinuteUsageResponse(BaseValidatorModel):
     estimatedMinutesRemaining: int
     isReservedMinutesCustomer: bool
@@ -333,26 +360,31 @@ class GetMinuteUsageResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_mission_profile' function.
 class MissionProfileIdResponse(BaseValidatorModel):
     missionProfileId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_agent' function.
 class RegisterAgentResponse(BaseValidatorModel):
     agentId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_agent_status' function.
 class UpdateAgentStatusResponse(BaseValidatorModel):
     agentId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_configs' function.
 class ListConfigsResponse(BaseValidatorModel):
     configList: List[ConfigListItem]
     ResponseMetadata: ResponseMetadata
@@ -389,6 +421,7 @@ class ContactData(BaseValidatorModel):
     visibilityStartTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_contacts' function.
 class ListContactsRequest(BaseValidatorModel):
     endTime: Timestamp
     startTime: Timestamp
@@ -400,6 +433,7 @@ class ListContactsRequest(BaseValidatorModel):
     satelliteArn: Optional[str] = None
 
 
+# This class is the input for the 'list_ephemerides' function.
 class ListEphemeridesRequest(BaseValidatorModel):
     endTime: Timestamp
     satelliteId: str
@@ -409,6 +443,7 @@ class ListEphemeridesRequest(BaseValidatorModel):
     statusList: Optional[List[EphemerisStatusType]] = None
 
 
+# This class is the input for the 'reserve_contact' function.
 class ReserveContactRequest(BaseValidatorModel):
     endTime: Timestamp
     groundStation: str
@@ -423,6 +458,7 @@ class TimeRange(BaseValidatorModel):
     startTime: Timestamp
 
 
+# This class is the input for the 'create_mission_profile' function.
 class CreateMissionProfileRequest(BaseValidatorModel):
     dataflowEdges: List[List[str]]
     minimumViableContactDurationSeconds: int
@@ -435,6 +471,7 @@ class CreateMissionProfileRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'get_mission_profile' function.
 class GetMissionProfileResponse(BaseValidatorModel):
     contactPostPassDurationSeconds: int
     contactPrePassDurationSeconds: int
@@ -451,6 +488,7 @@ class GetMissionProfileResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_mission_profile' function.
 class UpdateMissionProfileRequest(BaseValidatorModel):
     missionProfileId: str
     contactPostPassDurationSeconds: Optional[int] = None
@@ -463,6 +501,7 @@ class UpdateMissionProfileRequest(BaseValidatorModel):
     trackingConfigArn: Optional[str] = None
 
 
+# This class is the output for the 'list_dataflow_endpoint_groups' function.
 class ListDataflowEndpointGroupsResponse(BaseValidatorModel):
     dataflowEndpointGroupList: List[DataflowEndpointListItem]
     ResponseMetadata: ResponseMetadata
@@ -494,6 +533,7 @@ class OEMEphemeris(BaseValidatorModel):
     s3Object: Optional[S3Object] = None
 
 
+# This class is the output for the 'get_satellite' function.
 class GetSatelliteResponse(BaseValidatorModel):
     currentEphemeris: EphemerisMetaData
     groundStations: List[str]
@@ -522,6 +562,7 @@ class UplinkSpectrumConfig(BaseValidatorModel):
     polarization: Optional[PolarizationType] = None
 
 
+# This class is the output for the 'list_ground_stations' function.
 class ListGroundStationsResponse(BaseValidatorModel):
     groundStationList: List[GroundStationData]
     ResponseMetadata: ResponseMetadata
@@ -572,6 +613,7 @@ class ListSatellitesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_mission_profiles' function.
 class ListMissionProfilesResponse(BaseValidatorModel):
     missionProfileList: List[MissionProfileListItem]
     ResponseMetadata: ResponseMetadata
@@ -580,11 +622,13 @@ class ListMissionProfilesResponse(BaseValidatorModel):
 SecurityDetailsUnion = Union[SecurityDetails, SecurityDetailsOutput]
 
 
+# This class is the input for the 'register_agent' function.
 class RegisterAgentRequest(BaseValidatorModel):
     agentDetails: AgentDetails
     discoveryData: DiscoveryData
 
 
+# This class is the output for the 'list_contacts' function.
 class ListContactsResponse(BaseValidatorModel):
     contactList: List[ContactData]
     ResponseMetadata: ResponseMetadata
@@ -602,12 +646,14 @@ class EphemerisTypeDescription(BaseValidatorModel):
     tle: Optional[EphemerisDescription] = None
 
 
+# This class is the output for the 'list_ephemerides' function.
 class ListEphemeridesResponse(BaseValidatorModel):
     ephemerides: List[EphemerisItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_satellites' function.
 class ListSatellitesResponse(BaseValidatorModel):
     satellites: List[SatelliteListItem]
     ResponseMetadata: ResponseMetadata
@@ -640,6 +686,7 @@ class TLEEphemeris(BaseValidatorModel):
     tleData: Optional[List[TLEData]] = None
 
 
+# This class is the output for the 'describe_ephemeris' function.
 class DescribeEphemerisResponse(BaseValidatorModel):
     creationTime: datetime
     enabled: bool
@@ -677,12 +724,14 @@ class EphemerisData(BaseValidatorModel):
     tle: Optional[TLEEphemeris] = None
 
 
+# This class is the input for the 'create_config' function.
 class CreateConfigRequest(BaseValidatorModel):
     configData: ConfigTypeData
     name: str
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'get_config' function.
 class GetConfigResponse(BaseValidatorModel):
     configArn: str
     configData: ConfigTypeData
@@ -693,6 +742,7 @@ class GetConfigResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_config' function.
 class UpdateConfigRequest(BaseValidatorModel):
     configData: ConfigTypeData
     configId: str
@@ -716,6 +766,7 @@ class EndpointDetails(BaseValidatorModel):
     securityDetails: Optional[SecurityDetailsUnion] = None
 
 
+# This class is the input for the 'create_ephemeris' function.
 class CreateEphemerisRequest(BaseValidatorModel):
     name: str
     satelliteId: str
@@ -733,6 +784,7 @@ class ConfigDetails(BaseValidatorModel):
     s3RecordingDetails: Optional[S3RecordingDetails] = None
 
 
+# This class is the output for the 'get_dataflow_endpoint_group' function.
 class GetDataflowEndpointGroupResponse(BaseValidatorModel):
     contactPostPassDurationSeconds: int
     contactPrePassDurationSeconds: int
@@ -759,6 +811,7 @@ class Source(BaseValidatorModel):
     dataflowSourceRegion: Optional[str] = None
 
 
+# This class is the input for the 'create_dataflow_endpoint_group' function.
 class CreateDataflowEndpointGroupRequest(BaseValidatorModel):
     endpointDetails: List[EndpointDetailsUnion]
     contactPostPassDurationSeconds: Optional[int] = None
@@ -772,6 +825,7 @@ class DataflowDetail(BaseValidatorModel):
     source: Optional[Source] = None
 
 
+# This class is the output for the 'describe_contact' function.
 class DescribeContactResponse(BaseValidatorModel):
     contactId: str
     contactStatus: ContactStatusType

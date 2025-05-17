@@ -16,6 +16,7 @@ class CellOutput(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_cell' function.
 class CreateCellRequest(BaseValidatorModel):
     CellName: str
     Cells: Optional[List[str]] = None
@@ -30,22 +31,26 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_cross_account_authorization' function.
 class CreateCrossAccountAuthorizationRequest(BaseValidatorModel):
     CrossAccountAuthorization: str
 
 
+# This class is the input for the 'create_readiness_check' function.
 class CreateReadinessCheckRequest(BaseValidatorModel):
     ReadinessCheckName: str
     ResourceSetName: str
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_recovery_group' function.
 class CreateRecoveryGroupRequest(BaseValidatorModel):
     RecoveryGroupName: str
     Cells: Optional[List[str]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'delete_cell' function.
 class DeleteCellRequest(BaseValidatorModel):
     CellName: str
 
@@ -54,18 +59,22 @@ class DeleteCrossAccountAuthorizationRequest(BaseValidatorModel):
     CrossAccountAuthorization: str
 
 
+# This class is the input for the 'delete_readiness_check' function.
 class DeleteReadinessCheckRequest(BaseValidatorModel):
     ReadinessCheckName: str
 
 
+# This class is the input for the 'delete_recovery_group' function.
 class DeleteRecoveryGroupRequest(BaseValidatorModel):
     RecoveryGroupName: str
 
 
+# This class is the input for the 'delete_resource_set' function.
 class DeleteResourceSetRequest(BaseValidatorModel):
     ResourceSetName: str
 
 
+# This class is the input for the 'get_architecture_recommendations' function.
 class GetArchitectureRecommendationsRequest(BaseValidatorModel):
     RecoveryGroupName: str
     MaxResults: Optional[int] = None
@@ -82,6 +91,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'get_cell_readiness_summary' function.
 class GetCellReadinessSummaryRequest(BaseValidatorModel):
     CellName: str
     MaxResults: Optional[int] = None
@@ -93,14 +103,17 @@ class ReadinessCheckSummary(BaseValidatorModel):
     ReadinessCheckName: Optional[str] = None
 
 
+# This class is the input for the 'get_cell' function.
 class GetCellRequest(BaseValidatorModel):
     CellName: str
 
 
+# This class is the input for the 'get_readiness_check' function.
 class GetReadinessCheckRequest(BaseValidatorModel):
     ReadinessCheckName: str
 
 
+# This class is the input for the 'get_readiness_check_resource_status' function.
 class GetReadinessCheckResourceStatusRequest(BaseValidatorModel):
     ReadinessCheckName: str
     ResourceIdentifier: str
@@ -108,6 +121,7 @@ class GetReadinessCheckResourceStatusRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_readiness_check_status' function.
 class GetReadinessCheckStatusRequest(BaseValidatorModel):
     ReadinessCheckName: str
     MaxResults: Optional[int] = None
@@ -125,30 +139,36 @@ class ResourceResult(BaseValidatorModel):
     ResourceArn: Optional[str] = None
 
 
+# This class is the input for the 'get_recovery_group_readiness_summary' function.
 class GetRecoveryGroupReadinessSummaryRequest(BaseValidatorModel):
     RecoveryGroupName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_recovery_group' function.
 class GetRecoveryGroupRequest(BaseValidatorModel):
     RecoveryGroupName: str
 
 
+# This class is the input for the 'get_resource_set' function.
 class GetResourceSetRequest(BaseValidatorModel):
     ResourceSetName: str
 
 
+# This class is the input for the 'list_cells' function.
 class ListCellsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_cross_account_authorizations' function.
 class ListCrossAccountAuthorizationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_readiness_checks' function.
 class ListReadinessChecksRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -161,6 +181,7 @@ class ReadinessCheckOutput(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_recovery_groups' function.
 class ListRecoveryGroupsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -173,6 +194,7 @@ class RecoveryGroupOutput(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_resource_sets' function.
 class ListResourceSetsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -184,12 +206,14 @@ class ListRulesOutput(BaseValidatorModel):
     RuleId: str
 
 
+# This class is the input for the 'list_rules' function.
 class ListRulesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     ResourceType: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resources' function.
 class ListTagsForResourcesRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -208,26 +232,31 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: Dict[str, str]
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_cell' function.
 class UpdateCellRequest(BaseValidatorModel):
     CellName: str
     Cells: List[str]
 
 
+# This class is the input for the 'update_readiness_check' function.
 class UpdateReadinessCheckRequest(BaseValidatorModel):
     ReadinessCheckName: str
     ResourceSetName: str
 
 
+# This class is the input for the 'update_recovery_group' function.
 class UpdateRecoveryGroupRequest(BaseValidatorModel):
     Cells: List[str]
     RecoveryGroupName: str
 
 
+# This class is the output for the 'create_cell' function.
 class CreateCellResponse(BaseValidatorModel):
     CellArn: str
     CellName: str
@@ -237,11 +266,13 @@ class CreateCellResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_cross_account_authorization' function.
 class CreateCrossAccountAuthorizationResponse(BaseValidatorModel):
     CrossAccountAuthorization: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_readiness_check' function.
 class CreateReadinessCheckResponse(BaseValidatorModel):
     ReadinessCheckArn: str
     ReadinessCheckName: str
@@ -250,6 +281,7 @@ class CreateReadinessCheckResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_recovery_group' function.
 class CreateRecoveryGroupResponse(BaseValidatorModel):
     Cells: List[str]
     RecoveryGroupArn: str
@@ -258,10 +290,12 @@ class CreateRecoveryGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'untag_resource' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_cell' function.
 class GetCellResponse(BaseValidatorModel):
     CellArn: str
     CellName: str
@@ -271,6 +305,7 @@ class GetCellResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_readiness_check' function.
 class GetReadinessCheckResponse(BaseValidatorModel):
     ReadinessCheckArn: str
     ReadinessCheckName: str
@@ -279,6 +314,7 @@ class GetReadinessCheckResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_recovery_group' function.
 class GetRecoveryGroupResponse(BaseValidatorModel):
     Cells: List[str]
     RecoveryGroupArn: str
@@ -287,23 +323,27 @@ class GetRecoveryGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_cells' function.
 class ListCellsResponse(BaseValidatorModel):
     Cells: List[CellOutput]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_cross_account_authorizations' function.
 class ListCrossAccountAuthorizationsResponse(BaseValidatorModel):
     CrossAccountAuthorizations: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resources' function.
 class ListTagsForResourcesResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_cell' function.
 class UpdateCellResponse(BaseValidatorModel):
     CellArn: str
     CellName: str
@@ -313,6 +353,7 @@ class UpdateCellResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_readiness_check' function.
 class UpdateReadinessCheckResponse(BaseValidatorModel):
     ReadinessCheckArn: str
     ReadinessCheckName: str
@@ -321,6 +362,7 @@ class UpdateReadinessCheckResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_recovery_group' function.
 class UpdateRecoveryGroupResponse(BaseValidatorModel):
     Cells: List[str]
     RecoveryGroupArn: str
@@ -329,6 +371,7 @@ class UpdateRecoveryGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_architecture_recommendations' function.
 class GetArchitectureRecommendationsResponse(BaseValidatorModel):
     LastAuditTimestamp: datetime
     Recommendations: List[Recommendation]
@@ -382,6 +425,7 @@ class ListRulesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'get_cell_readiness_summary' function.
 class GetCellReadinessSummaryResponse(BaseValidatorModel):
     Readiness: ReadinessType
     ReadinessChecks: List[ReadinessCheckSummary]
@@ -389,6 +433,7 @@ class GetCellReadinessSummaryResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_recovery_group_readiness_summary' function.
 class GetRecoveryGroupReadinessSummaryResponse(BaseValidatorModel):
     Readiness: ReadinessType
     ReadinessChecks: List[ReadinessCheckSummary]
@@ -403,6 +448,7 @@ class RuleResult(BaseValidatorModel):
     RuleId: str
 
 
+# This class is the output for the 'get_readiness_check_status' function.
 class GetReadinessCheckStatusResponse(BaseValidatorModel):
     Messages: List[Message]
     Readiness: ReadinessType
@@ -411,18 +457,21 @@ class GetReadinessCheckStatusResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_readiness_checks' function.
 class ListReadinessChecksResponse(BaseValidatorModel):
     ReadinessChecks: List[ReadinessCheckOutput]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_recovery_groups' function.
 class ListRecoveryGroupsResponse(BaseValidatorModel):
     RecoveryGroups: List[RecoveryGroupOutput]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_rules' function.
 class ListRulesResponse(BaseValidatorModel):
     Rules: List[ListRulesOutput]
     ResponseMetadata: ResponseMetadata
@@ -434,6 +483,7 @@ class TargetResource(BaseValidatorModel):
     R53Resource: Optional[R53ResourceRecord] = None
 
 
+# This class is the output for the 'get_readiness_check_resource_status' function.
 class GetReadinessCheckResourceStatusResponse(BaseValidatorModel):
     Readiness: ReadinessType
     Rules: List[RuleResult]
@@ -463,6 +513,7 @@ class Resource(BaseValidatorModel):
     ResourceArn: Optional[str] = None
 
 
+# This class is the output for the 'create_resource_set' function.
 class CreateResourceSetResponse(BaseValidatorModel):
     ResourceSetArn: str
     ResourceSetName: str
@@ -472,6 +523,7 @@ class CreateResourceSetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_set' function.
 class GetResourceSetResponse(BaseValidatorModel):
     ResourceSetArn: str
     ResourceSetName: str
@@ -489,6 +541,7 @@ class ResourceSetOutput(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'update_resource_set' function.
 class UpdateResourceSetResponse(BaseValidatorModel):
     ResourceSetArn: str
     ResourceSetName: str
@@ -500,12 +553,14 @@ class UpdateResourceSetResponse(BaseValidatorModel):
 ResourceUnion = Union[Resource, ResourceOutput]
 
 
+# This class is the output for the 'list_resource_sets' function.
 class ListResourceSetsResponse(BaseValidatorModel):
     ResourceSets: List[ResourceSetOutput]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_resource_set' function.
 class CreateResourceSetRequest(BaseValidatorModel):
     ResourceSetName: str
     ResourceSetType: str
@@ -513,6 +568,7 @@ class CreateResourceSetRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_resource_set' function.
 class UpdateResourceSetRequest(BaseValidatorModel):
     ResourceSetName: str
     ResourceSetType: str

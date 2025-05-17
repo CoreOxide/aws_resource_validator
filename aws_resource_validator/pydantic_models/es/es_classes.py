@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'accept_inbound_cross_cluster_search_connection' function.
 class AcceptInboundCrossClusterSearchConnectionRequest(BaseValidatorModel):
     CrossClusterSearchConnectionId: str
 
@@ -44,11 +45,13 @@ class MasterUserOptions(BaseValidatorModel):
     MasterUserPassword: Optional[str] = None
 
 
+# This class is the input for the 'associate_package' function.
 class AssociatePackageRequest(BaseValidatorModel):
     PackageID: str
     DomainName: str
 
 
+# This class is the input for the 'authorize_vpc_endpoint_access' function.
 class AuthorizeVpcEndpointAccessRequest(BaseValidatorModel):
     DomainName: str
     Account: str
@@ -87,6 +90,7 @@ class AutoTuneStatus(BaseValidatorModel):
     PendingDeletion: Optional[bool] = None
 
 
+# This class is the input for the 'cancel_domain_config_change' function.
 class CancelDomainConfigChangeRequest(BaseValidatorModel):
     DomainName: str
     DryRun: Optional[bool] = None
@@ -98,6 +102,7 @@ class CancelledChangeProperty(BaseValidatorModel):
     ActiveValue: Optional[str] = None
 
 
+# This class is the input for the 'cancel_elasticsearch_service_software_update' function.
 class CancelElasticsearchServiceSoftwareUpdateRequest(BaseValidatorModel):
     DomainName: str
 
@@ -200,22 +205,27 @@ class PackageSource(BaseValidatorModel):
     S3Key: Optional[str] = None
 
 
+# This class is the input for the 'delete_elasticsearch_domain' function.
 class DeleteElasticsearchDomainRequest(BaseValidatorModel):
     DomainName: str
 
 
+# This class is the input for the 'delete_inbound_cross_cluster_search_connection' function.
 class DeleteInboundCrossClusterSearchConnectionRequest(BaseValidatorModel):
     CrossClusterSearchConnectionId: str
 
 
+# This class is the input for the 'delete_outbound_cross_cluster_search_connection' function.
 class DeleteOutboundCrossClusterSearchConnectionRequest(BaseValidatorModel):
     CrossClusterSearchConnectionId: str
 
 
+# This class is the input for the 'delete_package' function.
 class DeletePackageRequest(BaseValidatorModel):
     PackageID: str
 
 
+# This class is the input for the 'delete_vpc_endpoint' function.
 class DeleteVpcEndpointRequest(BaseValidatorModel):
     VpcEndpointId: str
 
@@ -227,29 +237,35 @@ class VpcEndpointSummary(BaseValidatorModel):
     Status: Optional[VpcEndpointStatusType] = None
 
 
+# This class is the input for the 'describe_domain_auto_tunes' function.
 class DescribeDomainAutoTunesRequest(BaseValidatorModel):
     DomainName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_domain_change_progress' function.
 class DescribeDomainChangeProgressRequest(BaseValidatorModel):
     DomainName: str
     ChangeId: Optional[str] = None
 
 
+# This class is the input for the 'describe_elasticsearch_domain_config' function.
 class DescribeElasticsearchDomainConfigRequest(BaseValidatorModel):
     DomainName: str
 
 
+# This class is the input for the 'describe_elasticsearch_domain' function.
 class DescribeElasticsearchDomainRequest(BaseValidatorModel):
     DomainName: str
 
 
+# This class is the input for the 'describe_elasticsearch_domains' function.
 class DescribeElasticsearchDomainsRequest(BaseValidatorModel):
     DomainNames: List[str]
 
 
+# This class is the input for the 'describe_elasticsearch_instance_type_limits' function.
 class DescribeElasticsearchInstanceTypeLimitsRequest(BaseValidatorModel):
     InstanceType: ESPartitionInstanceTypeType
     ElasticsearchVersion: str
@@ -272,18 +288,21 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_reserved_elasticsearch_instance_offerings' function.
 class DescribeReservedElasticsearchInstanceOfferingsRequest(BaseValidatorModel):
     ReservedElasticsearchInstanceOfferingId: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_reserved_elasticsearch_instances' function.
 class DescribeReservedElasticsearchInstancesRequest(BaseValidatorModel):
     ReservedElasticsearchInstanceId: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_vpc_endpoints' function.
 class DescribeVpcEndpointsRequest(BaseValidatorModel):
     VpcEndpointIds: List[str]
 
@@ -294,6 +313,7 @@ class VpcEndpointError(BaseValidatorModel):
     ErrorMessage: Optional[str] = None
 
 
+# This class is the input for the 'dissociate_package' function.
 class DissociatePackageRequest(BaseValidatorModel):
     PackageID: str
     DomainName: str
@@ -332,10 +352,12 @@ class VPCDerivedInfo(BaseValidatorModel):
     SecurityGroupIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_compatible_elasticsearch_versions' function.
 class GetCompatibleElasticsearchVersionsRequest(BaseValidatorModel):
     DomainName: Optional[str] = None
 
 
+# This class is the input for the 'get_package_version_history' function.
 class GetPackageVersionHistoryRequest(BaseValidatorModel):
     PackageID: str
     MaxResults: Optional[int] = None
@@ -348,12 +370,14 @@ class PackageVersionHistory(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'get_upgrade_history' function.
 class GetUpgradeHistoryRequest(BaseValidatorModel):
     DomainName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_upgrade_status' function.
 class GetUpgradeStatusRequest(BaseValidatorModel):
     DomainName: str
 
@@ -368,16 +392,19 @@ class InstanceCountLimits(BaseValidatorModel):
     MaximumInstanceCount: Optional[int] = None
 
 
+# This class is the input for the 'list_domain_names' function.
 class ListDomainNamesRequest(BaseValidatorModel):
     EngineType: Optional[EngineTypeType] = None
 
 
+# This class is the input for the 'list_domains_for_package' function.
 class ListDomainsForPackageRequest(BaseValidatorModel):
     PackageID: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_elasticsearch_instance_types' function.
 class ListElasticsearchInstanceTypesRequest(BaseValidatorModel):
     ElasticsearchVersion: str
     DomainName: Optional[str] = None
@@ -385,35 +412,42 @@ class ListElasticsearchInstanceTypesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_elasticsearch_versions' function.
 class ListElasticsearchVersionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_packages_for_domain' function.
 class ListPackagesForDomainRequest(BaseValidatorModel):
     DomainName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags' function.
 class ListTagsRequest(BaseValidatorModel):
     ARN: str
 
 
+# This class is the input for the 'list_vpc_endpoint_access' function.
 class ListVpcEndpointAccessRequest(BaseValidatorModel):
     DomainName: str
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_vpc_endpoints_for_domain' function.
 class ListVpcEndpointsForDomainRequest(BaseValidatorModel):
     DomainName: str
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_vpc_endpoints' function.
 class ListVpcEndpointsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'purchase_reserved_elasticsearch_instance_offering' function.
 class PurchaseReservedElasticsearchInstanceOfferingRequest(BaseValidatorModel):
     ReservedElasticsearchInstanceOfferingId: str
     ReservationName: str
@@ -425,10 +459,12 @@ class RecurringCharge(BaseValidatorModel):
     RecurringChargeFrequency: Optional[str] = None
 
 
+# This class is the input for the 'reject_inbound_cross_cluster_search_connection' function.
 class RejectInboundCrossClusterSearchConnectionRequest(BaseValidatorModel):
     CrossClusterSearchConnectionId: str
 
 
+# This class is the input for the 'remove_tags' function.
 class RemoveTagsRequest(BaseValidatorModel):
     ARN: str
     TagKeys: List[str]
@@ -444,6 +480,7 @@ class SAMLIdp(BaseValidatorModel):
     EntityId: str
 
 
+# This class is the input for the 'start_elasticsearch_service_software_update' function.
 class StartElasticsearchServiceSoftwareUpdateRequest(BaseValidatorModel):
     DomainName: str
 
@@ -453,6 +490,7 @@ class StorageTypeLimit(BaseValidatorModel):
     LimitValues: Optional[List[str]] = None
 
 
+# This class is the input for the 'upgrade_elasticsearch_domain' function.
 class UpgradeElasticsearchDomainRequest(BaseValidatorModel):
     DomainName: str
     TargetVersion: str
@@ -466,10 +504,12 @@ class UpgradeStepItem(BaseValidatorModel):
     ProgressPercent: Optional[float] = None
 
 
+# This class is the output for the 'remove_tags' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_upgrade_status' function.
 class GetUpgradeStatusResponse(BaseValidatorModel):
     UpgradeStep: UpgradeStepType
     StepStatus: UpgradeStatusType
@@ -477,18 +517,21 @@ class GetUpgradeStatusResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_elasticsearch_instance_types' function.
 class ListElasticsearchInstanceTypesResponse(BaseValidatorModel):
     ElasticsearchInstanceTypes: List[ESPartitionInstanceTypeType]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_elasticsearch_versions' function.
 class ListElasticsearchVersionsResponse(BaseValidatorModel):
     ElasticsearchVersions: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'purchase_reserved_elasticsearch_instance_offering' function.
 class PurchaseReservedElasticsearchInstanceOfferingResponse(BaseValidatorModel):
     ReservedElasticsearchInstanceId: str
     ReservationName: str
@@ -510,21 +553,25 @@ class ElasticsearchVersionStatus(BaseValidatorModel):
     Status: OptionStatus
 
 
+# This class is the input for the 'add_tags' function.
 class AddTagsRequest(BaseValidatorModel):
     ARN: str
     TagList: List[Tag]
 
 
+# This class is the output for the 'list_tags' function.
 class ListTagsResponse(BaseValidatorModel):
     TagList: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'authorize_vpc_endpoint_access' function.
 class AuthorizeVpcEndpointAccessResponse(BaseValidatorModel):
     AuthorizedPrincipal: AuthorizedPrincipal
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_vpc_endpoint_access' function.
 class ListVpcEndpointAccessResponse(BaseValidatorModel):
     AuthorizedPrincipalList: List[AuthorizedPrincipal]
     NextToken: str
@@ -547,6 +594,7 @@ class AutoTuneMaintenanceSchedule(BaseValidatorModel):
     CronExpressionForRecurrence: Optional[str] = None
 
 
+# This class is the output for the 'cancel_domain_config_change' function.
 class CancelDomainConfigChangeResponse(BaseValidatorModel):
     DryRun: bool
     CancelledChangeIds: List[str]
@@ -554,16 +602,19 @@ class CancelDomainConfigChangeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_elasticsearch_service_software_update' function.
 class CancelElasticsearchServiceSoftwareUpdateResponse(BaseValidatorModel):
     ServiceSoftwareOptions: ServiceSoftwareOptions
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_elasticsearch_service_software_update' function.
 class StartElasticsearchServiceSoftwareUpdateResponse(BaseValidatorModel):
     ServiceSoftwareOptions: ServiceSoftwareOptions
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'upgrade_elasticsearch_domain' function.
 class UpgradeElasticsearchDomainResponse(BaseValidatorModel):
     DomainName: str
     TargetVersion: str
@@ -590,6 +641,7 @@ class CognitoOptionsStatus(BaseValidatorModel):
     Status: OptionStatus
 
 
+# This class is the output for the 'get_compatible_elasticsearch_versions' function.
 class GetCompatibleElasticsearchVersionsResponse(BaseValidatorModel):
     CompatibleElasticsearchVersions: List[CompatibleVersionsMap]
     ResponseMetadata: ResponseMetadata
@@ -625,23 +677,27 @@ class SnapshotOptionsStatus(BaseValidatorModel):
     Status: OptionStatus
 
 
+# This class is the input for the 'create_vpc_endpoint' function.
 class CreateVpcEndpointRequest(BaseValidatorModel):
     DomainArn: str
     VpcOptions: VPCOptions
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'update_vpc_endpoint' function.
 class UpdateVpcEndpointRequest(BaseValidatorModel):
     VpcEndpointId: str
     VpcOptions: VPCOptions
 
 
+# This class is the input for the 'create_outbound_cross_cluster_search_connection' function.
 class CreateOutboundCrossClusterSearchConnectionRequest(BaseValidatorModel):
     SourceDomainInfo: DomainInformation
     DestinationDomainInfo: DomainInformation
     ConnectionAlias: str
 
 
+# This class is the output for the 'create_outbound_cross_cluster_search_connection' function.
 class CreateOutboundCrossClusterSearchConnectionResponse(BaseValidatorModel):
     SourceDomainInfo: DomainInformation
     DestinationDomainInfo: DomainInformation
@@ -659,6 +715,7 @@ class OutboundCrossClusterSearchConnection(BaseValidatorModel):
     ConnectionStatus: Optional[OutboundCrossClusterSearchConnectionStatus] = None
 
 
+# This class is the input for the 'create_package' function.
 class CreatePackageRequest(BaseValidatorModel):
     PackageName: str
     PackageType: Literal['TXT-DICTIONARY']
@@ -666,6 +723,7 @@ class CreatePackageRequest(BaseValidatorModel):
     PackageDescription: Optional[str] = None
 
 
+# This class is the input for the 'update_package' function.
 class UpdatePackageRequest(BaseValidatorModel):
     PackageID: str
     PackageSource: PackageSource
@@ -673,35 +731,41 @@ class UpdatePackageRequest(BaseValidatorModel):
     CommitMessage: Optional[str] = None
 
 
+# This class is the output for the 'delete_vpc_endpoint' function.
 class DeleteVpcEndpointResponse(BaseValidatorModel):
     VpcEndpointSummary: VpcEndpointSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_vpc_endpoints_for_domain' function.
 class ListVpcEndpointsForDomainResponse(BaseValidatorModel):
     VpcEndpointSummaryList: List[VpcEndpointSummary]
     NextToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_vpc_endpoints' function.
 class ListVpcEndpointsResponse(BaseValidatorModel):
     VpcEndpointSummaryList: List[VpcEndpointSummary]
     NextToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'describe_inbound_cross_cluster_search_connections' function.
 class DescribeInboundCrossClusterSearchConnectionsRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_outbound_cross_cluster_search_connections' function.
 class DescribeOutboundCrossClusterSearchConnectionsRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_packages' function.
 class DescribePackagesRequest(BaseValidatorModel):
     Filters: Optional[List[DescribePackagesFilter]] = None
     MaxResults: Optional[int] = None
@@ -733,6 +797,7 @@ class ListElasticsearchVersionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_domain_names' function.
 class ListDomainNamesResponse(BaseValidatorModel):
     DomainNames: List[DomainInfo]
     ResponseMetadata: ResponseMetadata
@@ -790,6 +855,7 @@ class VpcEndpoint(BaseValidatorModel):
     Endpoint: Optional[str] = None
 
 
+# This class is the output for the 'get_package_version_history' function.
 class GetPackageVersionHistoryResponse(BaseValidatorModel):
     PackageID: str
     PackageVersionHistoryList: List[PackageVersionHistory]
@@ -885,60 +951,71 @@ class AutoTuneOptions(BaseValidatorModel):
     MaintenanceSchedules: Optional[List[AutoTuneMaintenanceSchedule]] = None
 
 
+# This class is the output for the 'describe_domain_change_progress' function.
 class DescribeDomainChangeProgressResponse(BaseValidatorModel):
     ChangeProgressStatus: ChangeProgressStatusDetails
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_outbound_cross_cluster_search_connection' function.
 class DeleteOutboundCrossClusterSearchConnectionResponse(BaseValidatorModel):
     CrossClusterSearchConnection: OutboundCrossClusterSearchConnection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_outbound_cross_cluster_search_connections' function.
 class DescribeOutboundCrossClusterSearchConnectionsResponse(BaseValidatorModel):
     CrossClusterSearchConnections: List[OutboundCrossClusterSearchConnection]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'associate_package' function.
 class AssociatePackageResponse(BaseValidatorModel):
     DomainPackageDetails: DomainPackageDetails
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'dissociate_package' function.
 class DissociatePackageResponse(BaseValidatorModel):
     DomainPackageDetails: DomainPackageDetails
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_domains_for_package' function.
 class ListDomainsForPackageResponse(BaseValidatorModel):
     DomainPackageDetailsList: List[DomainPackageDetails]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_packages_for_domain' function.
 class ListPackagesForDomainResponse(BaseValidatorModel):
     DomainPackageDetailsList: List[DomainPackageDetails]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_package' function.
 class CreatePackageResponse(BaseValidatorModel):
     PackageDetails: PackageDetails
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_package' function.
 class DeletePackageResponse(BaseValidatorModel):
     PackageDetails: PackageDetails
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_packages' function.
 class DescribePackagesResponse(BaseValidatorModel):
     PackageDetailsList: List[PackageDetails]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_package' function.
 class UpdatePackageResponse(BaseValidatorModel):
     PackageDetails: PackageDetails
     ResponseMetadata: ResponseMetadata
@@ -949,49 +1026,58 @@ class ElasticsearchClusterConfigStatus(BaseValidatorModel):
     Status: OptionStatus
 
 
+# This class is the output for the 'create_vpc_endpoint' function.
 class CreateVpcEndpointResponse(BaseValidatorModel):
     VpcEndpoint: VpcEndpoint
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_vpc_endpoints' function.
 class DescribeVpcEndpointsResponse(BaseValidatorModel):
     VpcEndpoints: List[VpcEndpoint]
     VpcEndpointErrors: List[VpcEndpointError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_vpc_endpoint' function.
 class UpdateVpcEndpointResponse(BaseValidatorModel):
     VpcEndpoint: VpcEndpoint
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'accept_inbound_cross_cluster_search_connection' function.
 class AcceptInboundCrossClusterSearchConnectionResponse(BaseValidatorModel):
     CrossClusterSearchConnection: InboundCrossClusterSearchConnection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_inbound_cross_cluster_search_connection' function.
 class DeleteInboundCrossClusterSearchConnectionResponse(BaseValidatorModel):
     CrossClusterSearchConnection: InboundCrossClusterSearchConnection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_inbound_cross_cluster_search_connections' function.
 class DescribeInboundCrossClusterSearchConnectionsResponse(BaseValidatorModel):
     CrossClusterSearchConnections: List[InboundCrossClusterSearchConnection]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'reject_inbound_cross_cluster_search_connection' function.
 class RejectInboundCrossClusterSearchConnectionResponse(BaseValidatorModel):
     CrossClusterSearchConnection: InboundCrossClusterSearchConnection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_reserved_elasticsearch_instance_offerings' function.
 class DescribeReservedElasticsearchInstanceOfferingsResponse(BaseValidatorModel):
     ReservedElasticsearchInstanceOfferings: List[ReservedElasticsearchInstanceOffering]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_reserved_elasticsearch_instances' function.
 class DescribeReservedElasticsearchInstancesResponse(BaseValidatorModel):
     ReservedElasticsearchInstances: List[ReservedElasticsearchInstance]
     ResponseMetadata: ResponseMetadata
@@ -1020,12 +1106,14 @@ class Limits(BaseValidatorModel):
     AdditionalLimits: Optional[List[AdditionalLimit]] = None
 
 
+# This class is the output for the 'get_upgrade_history' function.
 class GetUpgradeHistoryResponse(BaseValidatorModel):
     UpgradeHistories: List[UpgradeHistory]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_domain_auto_tunes' function.
 class DescribeDomainAutoTunesResponse(BaseValidatorModel):
     AutoTunes: List[AutoTune]
     ResponseMetadata: ResponseMetadata
@@ -1079,11 +1167,13 @@ class ElasticsearchDomainStatus(BaseValidatorModel):
     ModifyingProperties: Optional[List[ModifyingProperties]] = None
 
 
+# This class is the output for the 'describe_elasticsearch_instance_type_limits' function.
 class DescribeElasticsearchInstanceTypeLimitsResponse(BaseValidatorModel):
     LimitsByRole: Dict[str, Limits]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_elasticsearch_domain' function.
 class CreateElasticsearchDomainRequest(BaseValidatorModel):
     DomainName: str
     ElasticsearchVersion: Optional[str] = None
@@ -1103,6 +1193,7 @@ class CreateElasticsearchDomainRequest(BaseValidatorModel):
     TagList: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_elasticsearch_domain_config' function.
 class UpdateElasticsearchDomainConfigRequest(BaseValidatorModel):
     DomainName: str
     ElasticsearchClusterConfig: Optional[ElasticsearchClusterConfig] = None
@@ -1140,31 +1231,37 @@ class ElasticsearchDomainConfig(BaseValidatorModel):
     ModifyingProperties: Optional[List[ModifyingProperties]] = None
 
 
+# This class is the output for the 'create_elasticsearch_domain' function.
 class CreateElasticsearchDomainResponse(BaseValidatorModel):
     DomainStatus: ElasticsearchDomainStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_elasticsearch_domain' function.
 class DeleteElasticsearchDomainResponse(BaseValidatorModel):
     DomainStatus: ElasticsearchDomainStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_elasticsearch_domain' function.
 class DescribeElasticsearchDomainResponse(BaseValidatorModel):
     DomainStatus: ElasticsearchDomainStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_elasticsearch_domains' function.
 class DescribeElasticsearchDomainsResponse(BaseValidatorModel):
     DomainStatusList: List[ElasticsearchDomainStatus]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_elasticsearch_domain_config' function.
 class DescribeElasticsearchDomainConfigResponse(BaseValidatorModel):
     DomainConfig: ElasticsearchDomainConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_elasticsearch_domain_config' function.
 class UpdateElasticsearchDomainConfigResponse(BaseValidatorModel):
     DomainConfig: ElasticsearchDomainConfig
     DryRunResults: DryRunResults

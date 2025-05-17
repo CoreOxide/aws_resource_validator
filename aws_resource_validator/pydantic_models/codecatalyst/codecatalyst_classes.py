@@ -38,12 +38,14 @@ class RepositoryInput(BaseValidatorModel):
     branchName: Optional[str] = None
 
 
+# This class is the input for the 'create_project' function.
 class CreateProjectRequest(BaseValidatorModel):
     spaceName: str
     displayName: str
     description: Optional[str] = None
 
 
+# This class is the input for the 'create_source_repository_branch' function.
 class CreateSourceRepositoryBranchRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
@@ -52,6 +54,7 @@ class CreateSourceRepositoryBranchRequest(BaseValidatorModel):
     headCommitId: Optional[str] = None
 
 
+# This class is the input for the 'create_source_repository' function.
 class CreateSourceRepositoryRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
@@ -63,23 +66,27 @@ class DeleteAccessTokenRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'delete_dev_environment' function.
 class DeleteDevEnvironmentRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
     id: str
 
 
+# This class is the input for the 'delete_project' function.
 class DeleteProjectRequest(BaseValidatorModel):
     spaceName: str
     name: str
 
 
+# This class is the input for the 'delete_source_repository' function.
 class DeleteSourceRepositoryRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
     name: str
 
 
+# This class is the input for the 'delete_space' function.
 class DeleteSpaceRequest(BaseValidatorModel):
     name: str
 
@@ -144,42 +151,50 @@ class Filter(BaseValidatorModel):
     comparisonOperator: Optional[str] = None
 
 
+# This class is the input for the 'get_dev_environment' function.
 class GetDevEnvironmentRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
     id: str
 
 
+# This class is the input for the 'get_project' function.
 class GetProjectRequest(BaseValidatorModel):
     spaceName: str
     name: str
 
 
+# This class is the input for the 'get_source_repository_clone_urls' function.
 class GetSourceRepositoryCloneUrlsRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
     sourceRepositoryName: str
 
 
+# This class is the input for the 'get_source_repository' function.
 class GetSourceRepositoryRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
     name: str
 
 
+# This class is the input for the 'get_space' function.
 class GetSpaceRequest(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'get_subscription' function.
 class GetSubscriptionRequest(BaseValidatorModel):
     spaceName: str
 
 
+# This class is the input for the 'get_user_details' function.
 class GetUserDetailsRequest(BaseValidatorModel):
     id: Optional[str] = None
     userName: Optional[str] = None
 
 
+# This class is the input for the 'get_workflow' function.
 class GetWorkflowRequest(BaseValidatorModel):
     spaceName: str
     id: str
@@ -190,6 +205,7 @@ class WorkflowDefinition(BaseValidatorModel):
     path: str
 
 
+# This class is the input for the 'get_workflow_run' function.
 class GetWorkflowRunRequest(BaseValidatorModel):
     spaceName: str
     id: str
@@ -202,11 +218,13 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_access_tokens' function.
 class ListAccessTokensRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_dev_environment_sessions' function.
 class ListDevEnvironmentSessionsRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
@@ -235,6 +253,7 @@ class ListSourceRepositoriesItem(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'list_source_repositories' function.
 class ListSourceRepositoriesRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
@@ -249,6 +268,7 @@ class ListSourceRepositoryBranchesItem(BaseValidatorModel):
     headCommitId: Optional[str] = None
 
 
+# This class is the input for the 'list_source_repository_branches' function.
 class ListSourceRepositoryBranchesRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
@@ -257,6 +277,7 @@ class ListSourceRepositoryBranchesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_spaces' function.
 class ListSpacesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
@@ -268,6 +289,7 @@ class SpaceSummary(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'list_workflow_runs' function.
 class ListWorkflowRunsRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
@@ -288,6 +310,7 @@ class WorkflowRunSummary(BaseValidatorModel):
     endTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_workflows' function.
 class ListWorkflowsRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
@@ -296,6 +319,7 @@ class ListWorkflowsRequest(BaseValidatorModel):
     sortBy: Optional[List[Dict[str, Any]]] = None
 
 
+# This class is the input for the 'start_workflow_run' function.
 class StartWorkflowRunRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
@@ -303,12 +327,14 @@ class StartWorkflowRunRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'stop_dev_environment' function.
 class StopDevEnvironmentRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
     id: str
 
 
+# This class is the input for the 'stop_dev_environment_session' function.
 class StopDevEnvironmentSessionRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
@@ -316,12 +342,14 @@ class StopDevEnvironmentSessionRequest(BaseValidatorModel):
     sessionId: str
 
 
+# This class is the input for the 'update_project' function.
 class UpdateProjectRequest(BaseValidatorModel):
     spaceName: str
     name: str
     description: Optional[str] = None
 
 
+# This class is the input for the 'update_space' function.
 class UpdateSpaceRequest(BaseValidatorModel):
     name: str
     description: Optional[str] = None
@@ -331,11 +359,13 @@ class WorkflowDefinitionSummary(BaseValidatorModel):
     path: str
 
 
+# This class is the input for the 'create_access_token' function.
 class CreateAccessTokenRequest(BaseValidatorModel):
     name: str
     expiresTime: Optional[Timestamp] = None
 
 
+# This class is the input for the 'list_event_logs' function.
 class ListEventLogsRequest(BaseValidatorModel):
     spaceName: str
     startTime: Timestamp
@@ -345,6 +375,7 @@ class ListEventLogsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the output for the 'create_access_token' function.
 class CreateAccessTokenResponse(BaseValidatorModel):
     secret: str
     name: str
@@ -353,6 +384,7 @@ class CreateAccessTokenResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_dev_environment' function.
 class CreateDevEnvironmentResponse(BaseValidatorModel):
     spaceName: str
     projectName: str
@@ -361,6 +393,7 @@ class CreateDevEnvironmentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_project' function.
 class CreateProjectResponse(BaseValidatorModel):
     spaceName: str
     name: str
@@ -369,6 +402,7 @@ class CreateProjectResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_source_repository_branch' function.
 class CreateSourceRepositoryBranchResponse(BaseValidatorModel):
     ref: str
     name: str
@@ -377,6 +411,7 @@ class CreateSourceRepositoryBranchResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_source_repository' function.
 class CreateSourceRepositoryResponse(BaseValidatorModel):
     spaceName: str
     projectName: str
@@ -385,6 +420,7 @@ class CreateSourceRepositoryResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_dev_environment' function.
 class DeleteDevEnvironmentResponse(BaseValidatorModel):
     spaceName: str
     projectName: str
@@ -392,6 +428,7 @@ class DeleteDevEnvironmentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_project' function.
 class DeleteProjectResponse(BaseValidatorModel):
     spaceName: str
     name: str
@@ -399,6 +436,7 @@ class DeleteProjectResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_source_repository' function.
 class DeleteSourceRepositoryResponse(BaseValidatorModel):
     spaceName: str
     projectName: str
@@ -406,12 +444,14 @@ class DeleteSourceRepositoryResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_space' function.
 class DeleteSpaceResponse(BaseValidatorModel):
     name: str
     displayName: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_project' function.
 class GetProjectResponse(BaseValidatorModel):
     spaceName: str
     name: str
@@ -420,11 +460,13 @@ class GetProjectResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_source_repository_clone_urls' function.
 class GetSourceRepositoryCloneUrlsResponse(BaseValidatorModel):
     https: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_source_repository' function.
 class GetSourceRepositoryResponse(BaseValidatorModel):
     spaceName: str
     projectName: str
@@ -435,6 +477,7 @@ class GetSourceRepositoryResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_space' function.
 class GetSpaceResponse(BaseValidatorModel):
     name: str
     regionName: str
@@ -443,6 +486,7 @@ class GetSpaceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_subscription' function.
 class GetSubscriptionResponse(BaseValidatorModel):
     subscriptionType: str
     awsAccountName: str
@@ -451,6 +495,7 @@ class GetSubscriptionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_workflow_run' function.
 class GetWorkflowRunResponse(BaseValidatorModel):
     spaceName: str
     projectName: str
@@ -464,12 +509,14 @@ class GetWorkflowRunResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_access_tokens' function.
 class ListAccessTokensResponse(BaseValidatorModel):
     items: List[AccessTokenSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_dev_environment' function.
 class StartDevEnvironmentResponse(BaseValidatorModel):
     spaceName: str
     projectName: str
@@ -478,6 +525,7 @@ class StartDevEnvironmentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_workflow_run' function.
 class StartWorkflowRunResponse(BaseValidatorModel):
     spaceName: str
     projectName: str
@@ -486,6 +534,7 @@ class StartWorkflowRunResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_dev_environment' function.
 class StopDevEnvironmentResponse(BaseValidatorModel):
     spaceName: str
     projectName: str
@@ -494,6 +543,7 @@ class StopDevEnvironmentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_dev_environment_session' function.
 class StopDevEnvironmentSessionResponse(BaseValidatorModel):
     spaceName: str
     projectName: str
@@ -502,6 +552,7 @@ class StopDevEnvironmentSessionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_project' function.
 class UpdateProjectResponse(BaseValidatorModel):
     spaceName: str
     name: str
@@ -510,6 +561,7 @@ class UpdateProjectResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_space' function.
 class UpdateSpaceResponse(BaseValidatorModel):
     name: str
     displayName: str
@@ -522,6 +574,7 @@ class VerifySessionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_dev_environment' function.
 class StartDevEnvironmentRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
@@ -531,6 +584,7 @@ class StartDevEnvironmentRequest(BaseValidatorModel):
     inactivityTimeoutMinutes: Optional[int] = None
 
 
+# This class is the input for the 'update_dev_environment' function.
 class UpdateDevEnvironmentRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
@@ -542,6 +596,7 @@ class UpdateDevEnvironmentRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the output for the 'update_dev_environment' function.
 class UpdateDevEnvironmentResponse(BaseValidatorModel):
     id: str
     spaceName: str
@@ -554,6 +609,7 @@ class UpdateDevEnvironmentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_dev_environment' function.
 class CreateDevEnvironmentRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
@@ -567,6 +623,7 @@ class CreateDevEnvironmentRequest(BaseValidatorModel):
     vpcConnectionName: Optional[str] = None
 
 
+# This class is the output for the 'start_dev_environment_session' function.
 class StartDevEnvironmentSessionResponse(BaseValidatorModel):
     accessDetails: DevEnvironmentAccessDetails
     sessionId: str
@@ -581,6 +638,7 @@ class DevEnvironmentSessionConfiguration(BaseValidatorModel):
     executeCommandSessionConfiguration: Optional[ExecuteCommandSessionConfiguration] = None
 
 
+# This class is the output for the 'list_dev_environment_sessions' function.
 class ListDevEnvironmentSessionsResponse(BaseValidatorModel):
     items: List[DevEnvironmentSessionSummary]
     ResponseMetadata: ResponseMetadata
@@ -604,6 +662,7 @@ class DevEnvironmentSummary(BaseValidatorModel):
     vpcConnectionName: Optional[str] = None
 
 
+# This class is the output for the 'get_dev_environment' function.
 class GetDevEnvironmentResponse(BaseValidatorModel):
     spaceName: str
     projectName: str
@@ -622,6 +681,7 @@ class GetDevEnvironmentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_user_details' function.
 class GetUserDetailsResponse(BaseValidatorModel):
     userId: str
     userName: str
@@ -649,6 +709,7 @@ class EventLogEntry(BaseValidatorModel):
     userAgent: Optional[str] = None
 
 
+# This class is the input for the 'list_dev_environments' function.
 class ListDevEnvironmentsRequest(BaseValidatorModel):
     spaceName: str
     projectName: Optional[str] = None
@@ -657,6 +718,7 @@ class ListDevEnvironmentsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the output for the 'get_workflow' function.
 class GetWorkflowResponse(BaseValidatorModel):
     spaceName: str
     projectName: str
@@ -736,6 +798,7 @@ class ListProjectsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_projects' function.
 class ListProjectsRequest(BaseValidatorModel):
     spaceName: str
     nextToken: Optional[str] = None
@@ -743,30 +806,35 @@ class ListProjectsRequest(BaseValidatorModel):
     filters: Optional[List[ProjectListFilter]] = None
 
 
+# This class is the output for the 'list_projects' function.
 class ListProjectsResponse(BaseValidatorModel):
     items: List[ProjectSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_source_repositories' function.
 class ListSourceRepositoriesResponse(BaseValidatorModel):
     items: List[ListSourceRepositoriesItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_source_repository_branches' function.
 class ListSourceRepositoryBranchesResponse(BaseValidatorModel):
     items: List[ListSourceRepositoryBranchesItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_spaces' function.
 class ListSpacesResponse(BaseValidatorModel):
     items: List[SpaceSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_workflow_runs' function.
 class ListWorkflowRunsResponse(BaseValidatorModel):
     items: List[WorkflowRunSummary]
     ResponseMetadata: ResponseMetadata
@@ -785,6 +853,7 @@ class WorkflowSummary(BaseValidatorModel):
     status: WorkflowStatusType
 
 
+# This class is the input for the 'start_dev_environment_session' function.
 class StartDevEnvironmentSessionRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
@@ -792,18 +861,21 @@ class StartDevEnvironmentSessionRequest(BaseValidatorModel):
     sessionConfiguration: DevEnvironmentSessionConfiguration
 
 
+# This class is the output for the 'list_dev_environments' function.
 class ListDevEnvironmentsResponse(BaseValidatorModel):
     items: List[DevEnvironmentSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_event_logs' function.
 class ListEventLogsResponse(BaseValidatorModel):
     items: List[EventLogEntry]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_workflows' function.
 class ListWorkflowsResponse(BaseValidatorModel):
     items: List[WorkflowSummary]
     ResponseMetadata: ResponseMetadata

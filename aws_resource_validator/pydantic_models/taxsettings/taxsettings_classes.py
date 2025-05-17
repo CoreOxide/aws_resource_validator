@@ -136,6 +136,7 @@ class BatchDeleteTaxRegistrationError(BaseValidatorModel):
     code: Optional[str] = None
 
 
+# This class is the input for the 'batch_delete_tax_registration' function.
 class BatchDeleteTaxRegistrationRequest(BaseValidatorModel):
     accountIds: List[str]
 
@@ -148,6 +149,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'batch_get_tax_exemptions' function.
 class BatchGetTaxExemptionsRequest(BaseValidatorModel):
     accountIds: List[str]
 
@@ -178,6 +180,7 @@ class TaxDocumentMetadata(BaseValidatorModel):
     taxDocumentName: str
 
 
+# This class is the input for the 'get_tax_registration' function.
 class GetTaxRegistrationRequest(BaseValidatorModel):
     accountId: Optional[str] = None
 
@@ -188,16 +191,19 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_supplemental_tax_registrations' function.
 class ListSupplementalTaxRegistrationsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tax_exemptions' function.
 class ListTaxExemptionsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tax_registrations' function.
 class ListTaxRegistrationsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -270,6 +276,7 @@ class TaxExemptionType(BaseValidatorModel):
     displayName: Optional[str] = None
 
 
+# This class is the output for the 'batch_delete_tax_registration' function.
 class BatchDeleteTaxRegistrationResponse(BaseValidatorModel):
     errors: List[BatchDeleteTaxRegistrationError]
     ResponseMetadata: ResponseMetadata
@@ -280,28 +287,33 @@ class GetTaxInheritanceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_tax_registration_document' function.
 class GetTaxRegistrationDocumentResponse(BaseValidatorModel):
     destinationFilePath: str
     presignedS3Url: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_supplemental_tax_registration' function.
 class PutSupplementalTaxRegistrationResponse(BaseValidatorModel):
     authorityId: str
     status: TaxRegistrationStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_tax_exemption' function.
 class PutTaxExemptionResponse(BaseValidatorModel):
     caseId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_tax_registration' function.
 class PutTaxRegistrationResponse(BaseValidatorModel):
     status: TaxRegistrationStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_put_tax_registration' function.
 class BatchPutTaxRegistrationResponse(BaseValidatorModel):
     errors: List[BatchPutTaxRegistrationError]
     status: TaxRegistrationStatusType
@@ -318,6 +330,7 @@ class TaxRegistrationDocFile(BaseValidatorModel):
     fileName: str
 
 
+# This class is the input for the 'get_tax_registration_document' function.
 class GetTaxRegistrationDocumentRequest(BaseValidatorModel):
     taxDocumentMetadata: TaxDocumentMetadata
     destinationS3Location: Optional[DestinationS3Location] = None
@@ -337,10 +350,12 @@ class ListTaxRegistrationsRequestPaginate(BaseValidatorModel):
 MalaysiaAdditionalInfoUnion = Union[MalaysiaAdditionalInfo, MalaysiaAdditionalInfoOutput]
 
 
+# This class is the input for the 'put_supplemental_tax_registration' function.
 class PutSupplementalTaxRegistrationRequest(BaseValidatorModel):
     taxRegistrationEntry: SupplementalTaxRegistrationEntry
 
 
+# This class is the output for the 'list_supplemental_tax_registrations' function.
 class ListSupplementalTaxRegistrationsResponse(BaseValidatorModel):
     taxRegistrations: List[SupplementalTaxRegistration]
     ResponseMetadata: ResponseMetadata
@@ -385,6 +400,7 @@ class TaxExemption(BaseValidatorModel):
     systemEffectiveDate: Optional[datetime] = None
 
 
+# This class is the input for the 'put_tax_exemption' function.
 class PutTaxExemptionRequest(BaseValidatorModel):
     accountIds: List[str]
     authority: Authority
@@ -417,6 +433,7 @@ class AdditionalInfoRequest(BaseValidatorModel):
     vietnamAdditionalInfo: Optional[VietnamAdditionalInfo] = None
 
 
+# This class is the output for the 'get_tax_registration' function.
 class GetTaxRegistrationResponse(BaseValidatorModel):
     taxRegistration: TaxRegistration
     ResponseMetadata: ResponseMetadata
@@ -441,18 +458,21 @@ class VerificationDetails(BaseValidatorModel):
     taxRegistrationDocuments: Optional[List[TaxRegistrationDocument]] = None
 
 
+# This class is the output for the 'list_tax_registrations' function.
 class ListTaxRegistrationsResponse(BaseValidatorModel):
     accountDetails: List[AccountDetails]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'batch_get_tax_exemptions' function.
 class BatchGetTaxExemptionsResponse(BaseValidatorModel):
     failedAccounts: List[str]
     taxExemptionDetailsMap: Dict[str, TaxExemptionDetails]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tax_exemptions' function.
 class ListTaxExemptionsResponse(BaseValidatorModel):
     taxExemptionDetailsMap: Dict[str, TaxExemptionDetails]
     ResponseMetadata: ResponseMetadata
@@ -470,11 +490,13 @@ class TaxRegistrationEntry(BaseValidatorModel):
     verificationDetails: Optional[VerificationDetails] = None
 
 
+# This class is the input for the 'batch_put_tax_registration' function.
 class BatchPutTaxRegistrationRequest(BaseValidatorModel):
     accountIds: List[str]
     taxRegistrationEntry: TaxRegistrationEntry
 
 
+# This class is the input for the 'put_tax_registration' function.
 class PutTaxRegistrationRequest(BaseValidatorModel):
     taxRegistrationEntry: TaxRegistrationEntry
     accountId: Optional[str] = None

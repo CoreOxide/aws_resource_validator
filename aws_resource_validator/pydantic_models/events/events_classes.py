@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'activate_event_source' function.
 class ActivateEventSourceRequest(BaseValidatorModel):
     Name: str
 
@@ -59,6 +60,7 @@ class BatchRetryStrategy(BaseValidatorModel):
     Attempts: Optional[int] = None
 
 
+# This class is the input for the 'cancel_replay' function.
 class CancelReplayRequest(BaseValidatorModel):
     ReplayName: str
 
@@ -128,6 +130,7 @@ class ConnectivityResourceConfigurationArn(BaseValidatorModel):
     ResourceConfigurationArn: str
 
 
+# This class is the input for the 'create_api_destination' function.
 class CreateApiDestinationRequest(BaseValidatorModel):
     Name: str
     ConnectionArn: str
@@ -137,6 +140,7 @@ class CreateApiDestinationRequest(BaseValidatorModel):
     InvocationRateLimitPerSecond: Optional[int] = None
 
 
+# This class is the input for the 'create_archive' function.
 class CreateArchiveRequest(BaseValidatorModel):
     ArchiveName: str
     EventSourceArn: str
@@ -177,15 +181,18 @@ class Tag(BaseValidatorModel):
     Value: str
 
 
+# This class is the input for the 'create_partner_event_source' function.
 class CreatePartnerEventSourceRequest(BaseValidatorModel):
     Name: str
     Account: str
 
 
+# This class is the input for the 'deactivate_event_source' function.
 class DeactivateEventSourceRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'deauthorize_connection' function.
 class DeauthorizeConnectionRequest(BaseValidatorModel):
     Name: str
 
@@ -198,6 +205,7 @@ class DeleteArchiveRequest(BaseValidatorModel):
     ArchiveName: str
 
 
+# This class is the input for the 'delete_connection' function.
 class DeleteConnectionRequest(BaseValidatorModel):
     Name: str
 
@@ -206,25 +214,30 @@ class DeleteEndpointRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'delete_event_bus' function.
 class DeleteEventBusRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'delete_partner_event_source' function.
 class DeletePartnerEventSourceRequest(BaseValidatorModel):
     Name: str
     Account: str
 
 
+# This class is the input for the 'delete_rule' function.
 class DeleteRuleRequest(BaseValidatorModel):
     Name: str
     EventBusName: Optional[str] = None
     Force: Optional[bool] = None
 
 
+# This class is the input for the 'describe_api_destination' function.
 class DescribeApiDestinationRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'describe_archive' function.
 class DescribeArchiveRequest(BaseValidatorModel):
     ArchiveName: str
 
@@ -234,27 +247,33 @@ class DescribeConnectionResourceParameters(BaseValidatorModel):
     ResourceAssociationArn: str
 
 
+# This class is the input for the 'describe_connection' function.
 class DescribeConnectionRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'describe_endpoint' function.
 class DescribeEndpointRequest(BaseValidatorModel):
     Name: str
     HomeRegion: Optional[str] = None
 
 
+# This class is the input for the 'describe_event_bus' function.
 class DescribeEventBusRequest(BaseValidatorModel):
     Name: Optional[str] = None
 
 
+# This class is the input for the 'describe_event_source' function.
 class DescribeEventSourceRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'describe_partner_event_source' function.
 class DescribePartnerEventSourceRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'describe_replay' function.
 class DescribeReplayRequest(BaseValidatorModel):
     ReplayName: str
 
@@ -264,11 +283,13 @@ class ReplayDestinationOutput(BaseValidatorModel):
     FilterArns: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_rule' function.
 class DescribeRuleRequest(BaseValidatorModel):
     Name: str
     EventBusName: Optional[str] = None
 
 
+# This class is the input for the 'disable_rule' function.
 class DisableRuleRequest(BaseValidatorModel):
     Name: str
     EventBusName: Optional[str] = None
@@ -284,6 +305,7 @@ class PlacementStrategy(BaseValidatorModel):
     field: Optional[str] = None
 
 
+# This class is the input for the 'enable_rule' function.
 class EnableRuleRequest(BaseValidatorModel):
     Name: str
     EventBusName: Optional[str] = None
@@ -341,6 +363,7 @@ class KinesisParameters(BaseValidatorModel):
     PartitionKeyPath: str
 
 
+# This class is the input for the 'list_api_destinations' function.
 class ListApiDestinationsRequest(BaseValidatorModel):
     NamePrefix: Optional[str] = None
     ConnectionArn: Optional[str] = None
@@ -348,6 +371,7 @@ class ListApiDestinationsRequest(BaseValidatorModel):
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'list_archives' function.
 class ListArchivesRequest(BaseValidatorModel):
     NamePrefix: Optional[str] = None
     EventSourceArn: Optional[str] = None
@@ -356,6 +380,7 @@ class ListArchivesRequest(BaseValidatorModel):
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'list_connections' function.
 class ListConnectionsRequest(BaseValidatorModel):
     NamePrefix: Optional[str] = None
     ConnectionState: Optional[ConnectionStateType] = None
@@ -363,6 +388,7 @@ class ListConnectionsRequest(BaseValidatorModel):
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'list_endpoints' function.
 class ListEndpointsRequest(BaseValidatorModel):
     NamePrefix: Optional[str] = None
     HomeRegion: Optional[str] = None
@@ -370,18 +396,21 @@ class ListEndpointsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_event_buses' function.
 class ListEventBusesRequest(BaseValidatorModel):
     NamePrefix: Optional[str] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'list_event_sources' function.
 class ListEventSourcesRequest(BaseValidatorModel):
     NamePrefix: Optional[str] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'list_partner_event_source_accounts' function.
 class ListPartnerEventSourceAccountsRequest(BaseValidatorModel):
     EventSourceName: str
     NextToken: Optional[str] = None
@@ -395,6 +424,7 @@ class PartnerEventSourceAccount(BaseValidatorModel):
     State: Optional[EventSourceStateType] = None
 
 
+# This class is the input for the 'list_partner_event_sources' function.
 class ListPartnerEventSourcesRequest(BaseValidatorModel):
     NamePrefix: str
     NextToken: Optional[str] = None
@@ -406,6 +436,7 @@ class PartnerEventSource(BaseValidatorModel):
     Name: Optional[str] = None
 
 
+# This class is the input for the 'list_replays' function.
 class ListReplaysRequest(BaseValidatorModel):
     NamePrefix: Optional[str] = None
     State: Optional[ReplayStateType] = None
@@ -432,6 +463,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_rule_names_by_target' function.
 class ListRuleNamesByTargetRequest(BaseValidatorModel):
     TargetArn: str
     EventBusName: Optional[str] = None
@@ -439,6 +471,7 @@ class ListRuleNamesByTargetRequest(BaseValidatorModel):
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'list_rules' function.
 class ListRulesRequest(BaseValidatorModel):
     NamePrefix: Optional[str] = None
     EventBusName: Optional[str] = None
@@ -458,10 +491,12 @@ class Rule(BaseValidatorModel):
     EventBusName: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
 
+# This class is the input for the 'list_targets_by_rule' function.
 class ListTargetsByRuleRequest(BaseValidatorModel):
     Rule: str
     EventBusName: Optional[str] = None
@@ -509,12 +544,14 @@ class RedshiftDataParameters(BaseValidatorModel):
     Sqls: Optional[List[str]] = None
 
 
+# This class is the input for the 'remove_permission' function.
 class RemovePermissionRequest(BaseValidatorModel):
     StatementId: Optional[str] = None
     RemoveAllPermissions: Optional[bool] = None
     EventBusName: Optional[str] = None
 
 
+# This class is the input for the 'remove_targets' function.
 class RemoveTargetsRequest(BaseValidatorModel):
     Rule: str
     Ids: List[str]
@@ -557,6 +594,7 @@ class SqsParameters(BaseValidatorModel):
     MessageGroupId: Optional[str] = None
 
 
+# This class is the input for the 'test_event_pattern' function.
 class TestEventPatternRequest(BaseValidatorModel):
     EventPattern: str
     Event: str
@@ -567,6 +605,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_api_destination' function.
 class UpdateApiDestinationRequest(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
@@ -576,6 +615,7 @@ class UpdateApiDestinationRequest(BaseValidatorModel):
     InvocationRateLimitPerSecond: Optional[int] = None
 
 
+# This class is the input for the 'update_archive' function.
 class UpdateArchiveRequest(BaseValidatorModel):
     ArchiveName: str
     Description: Optional[str] = None
@@ -611,6 +651,7 @@ class BatchParameters(BaseValidatorModel):
     RetryStrategy: Optional[BatchRetryStrategy] = None
 
 
+# This class is the output for the 'cancel_replay' function.
 class CancelReplayResponse(BaseValidatorModel):
     ReplayArn: str
     State: ReplayStateType
@@ -618,6 +659,7 @@ class CancelReplayResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_api_destination' function.
 class CreateApiDestinationResponse(BaseValidatorModel):
     ApiDestinationArn: str
     ApiDestinationState: ApiDestinationStateType
@@ -626,6 +668,7 @@ class CreateApiDestinationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_archive' function.
 class CreateArchiveResponse(BaseValidatorModel):
     ArchiveArn: str
     State: ArchiveStateType
@@ -634,6 +677,7 @@ class CreateArchiveResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_connection' function.
 class CreateConnectionResponse(BaseValidatorModel):
     ConnectionArn: str
     ConnectionState: ConnectionStateType
@@ -642,11 +686,13 @@ class CreateConnectionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_partner_event_source' function.
 class CreatePartnerEventSourceResponse(BaseValidatorModel):
     EventSourceArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'deauthorize_connection' function.
 class DeauthorizeConnectionResponse(BaseValidatorModel):
     ConnectionArn: str
     ConnectionState: ConnectionStateType
@@ -656,6 +702,7 @@ class DeauthorizeConnectionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_connection' function.
 class DeleteConnectionResponse(BaseValidatorModel):
     ConnectionArn: str
     ConnectionState: ConnectionStateType
@@ -665,6 +712,7 @@ class DeleteConnectionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_api_destination' function.
 class DescribeApiDestinationResponse(BaseValidatorModel):
     ApiDestinationArn: str
     Name: str
@@ -679,6 +727,7 @@ class DescribeApiDestinationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_archive' function.
 class DescribeArchiveResponse(BaseValidatorModel):
     ArchiveArn: str
     ArchiveName: str
@@ -694,6 +743,7 @@ class DescribeArchiveResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_event_source' function.
 class DescribeEventSourceResponse(BaseValidatorModel):
     Arn: str
     CreatedBy: str
@@ -704,12 +754,14 @@ class DescribeEventSourceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_partner_event_source' function.
 class DescribePartnerEventSourceResponse(BaseValidatorModel):
     Arn: str
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_rule' function.
 class DescribeRuleResponse(BaseValidatorModel):
     Name: str
     Arn: str
@@ -724,33 +776,39 @@ class DescribeRuleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'remove_permission' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_api_destinations' function.
 class ListApiDestinationsResponse(BaseValidatorModel):
     ApiDestinations: List[ApiDestination]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_archives' function.
 class ListArchivesResponse(BaseValidatorModel):
     Archives: List[Archive]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_rule_names_by_target' function.
 class ListRuleNamesByTargetResponse(BaseValidatorModel):
     RuleNames: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'put_rule' function.
 class PutRuleResponse(BaseValidatorModel):
     RuleArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_replay' function.
 class StartReplayResponse(BaseValidatorModel):
     ReplayArn: str
     State: ReplayStateType
@@ -759,11 +817,13 @@ class StartReplayResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'test_event_pattern' function.
 class TestEventPatternResponse(BaseValidatorModel):
     Result: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_api_destination' function.
 class UpdateApiDestinationResponse(BaseValidatorModel):
     ApiDestinationArn: str
     ApiDestinationState: ApiDestinationStateType
@@ -772,6 +832,7 @@ class UpdateApiDestinationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_archive' function.
 class UpdateArchiveResponse(BaseValidatorModel):
     ArchiveArn: str
     State: ArchiveStateType
@@ -780,6 +841,7 @@ class UpdateArchiveResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_connection' function.
 class UpdateConnectionResponse(BaseValidatorModel):
     ConnectionArn: str
     ConnectionState: ConnectionStateType
@@ -789,6 +851,7 @@ class UpdateConnectionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_permission' function.
 class PutPermissionRequest(BaseValidatorModel):
     EventBusName: Optional[str] = None
     Action: Optional[str] = None
@@ -810,6 +873,7 @@ class ConnectionHttpParameters(BaseValidatorModel):
     BodyParameters: Optional[List[ConnectionBodyParameter]] = None
 
 
+# This class is the output for the 'list_connections' function.
 class ListConnectionsResponse(BaseValidatorModel):
     Connections: List[Connection]
     ResponseMetadata: ResponseMetadata
@@ -820,6 +884,7 @@ class ConnectivityResourceParameters(BaseValidatorModel):
     ResourceParameters: ConnectivityResourceConfigurationArn
 
 
+# This class is the output for the 'create_event_bus' function.
 class CreateEventBusResponse(BaseValidatorModel):
     EventBusArn: str
     Description: str
@@ -828,6 +893,7 @@ class CreateEventBusResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_event_bus' function.
 class DescribeEventBusResponse(BaseValidatorModel):
     Name: str
     Arn: str
@@ -840,6 +906,7 @@ class DescribeEventBusResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_event_bus' function.
 class UpdateEventBusRequest(BaseValidatorModel):
     Name: Optional[str] = None
     KmsKeyIdentifier: Optional[str] = None
@@ -847,6 +914,7 @@ class UpdateEventBusRequest(BaseValidatorModel):
     DeadLetterConfig: Optional[DeadLetterConfig] = None
 
 
+# This class is the output for the 'update_event_bus' function.
 class UpdateEventBusResponse(BaseValidatorModel):
     Arn: str
     Name: str
@@ -856,6 +924,7 @@ class UpdateEventBusResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_event_bus' function.
 class CreateEventBusRequest(BaseValidatorModel):
     Name: str
     EventSourceName: Optional[str] = None
@@ -865,11 +934,13 @@ class CreateEventBusRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_rule' function.
 class PutRuleRequest(BaseValidatorModel):
     Name: str
     ScheduleExpression: Optional[str] = None
@@ -890,6 +961,7 @@ class DescribeConnectionConnectivityParameters(BaseValidatorModel):
     ResourceParameters: DescribeConnectionResourceParameters
 
 
+# This class is the output for the 'describe_replay' function.
 class DescribeReplayResponse(BaseValidatorModel):
     ReplayName: str
     ReplayArn: str
@@ -906,12 +978,14 @@ class DescribeReplayResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_event_buses' function.
 class ListEventBusesResponse(BaseValidatorModel):
     EventBuses: List[EventBus]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_event_sources' function.
 class ListEventSourcesResponse(BaseValidatorModel):
     EventSources: List[EventSource]
     ResponseMetadata: ResponseMetadata
@@ -927,18 +1001,21 @@ HttpParametersUnion = Union[HttpParameters, HttpParametersOutput]
 InputTransformerUnion = Union[InputTransformer, InputTransformerOutput]
 
 
+# This class is the output for the 'list_partner_event_source_accounts' function.
 class ListPartnerEventSourceAccountsResponse(BaseValidatorModel):
     PartnerEventSourceAccounts: List[PartnerEventSourceAccount]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_partner_event_sources' function.
 class ListPartnerEventSourcesResponse(BaseValidatorModel):
     PartnerEventSources: List[PartnerEventSource]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_replays' function.
 class ListReplaysResponse(BaseValidatorModel):
     Replays: List[Replay]
     ResponseMetadata: ResponseMetadata
@@ -963,6 +1040,7 @@ class ListTargetsByRuleRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_rules' function.
 class ListRulesResponse(BaseValidatorModel):
     Rules: List[Rule]
     ResponseMetadata: ResponseMetadata
@@ -987,18 +1065,21 @@ class PutPartnerEventsRequestEntry(BaseValidatorModel):
     Detail: Optional[str] = None
 
 
+# This class is the output for the 'put_events' function.
 class PutEventsResponse(BaseValidatorModel):
     FailedEntryCount: int
     Entries: List[PutEventsResultEntry]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_partner_events' function.
 class PutPartnerEventsResponse(BaseValidatorModel):
     FailedEntryCount: int
     Entries: List[PutPartnerEventsResultEntry]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_targets' function.
 class PutTargetsResponse(BaseValidatorModel):
     FailedEntryCount: int
     FailedEntries: List[PutTargetsResultEntry]
@@ -1007,6 +1088,7 @@ class PutTargetsResponse(BaseValidatorModel):
 RedshiftDataParametersUnion = Union[RedshiftDataParameters, RedshiftDataParametersOutput]
 
 
+# This class is the output for the 'remove_targets' function.
 class RemoveTargetsResponse(BaseValidatorModel):
     FailedEntryCount: int
     FailedEntries: List[RemoveTargetsResultEntry]
@@ -1063,15 +1145,18 @@ class RoutingConfig(BaseValidatorModel):
     FailoverConfig: FailoverConfig
 
 
+# This class is the input for the 'put_events' function.
 class PutEventsRequest(BaseValidatorModel):
     Entries: List[PutEventsRequestEntry]
     EndpointId: Optional[str] = None
 
 
+# This class is the input for the 'put_partner_events' function.
 class PutPartnerEventsRequest(BaseValidatorModel):
     Entries: List[PutPartnerEventsRequestEntry]
 
 
+# This class is the input for the 'start_replay' function.
 class StartReplayRequest(BaseValidatorModel):
     ReplayName: str
     EventSourceArn: str
@@ -1131,6 +1216,7 @@ class UpdateConnectionOAuthRequestParameters(BaseValidatorModel):
     OAuthHttpParameters: Optional[ConnectionHttpParametersUnion] = None
 
 
+# This class is the input for the 'create_endpoint' function.
 class CreateEndpointRequest(BaseValidatorModel):
     Name: str
     RoutingConfig: RoutingConfig
@@ -1140,6 +1226,7 @@ class CreateEndpointRequest(BaseValidatorModel):
     RoleArn: Optional[str] = None
 
 
+# This class is the output for the 'create_endpoint' function.
 class CreateEndpointResponse(BaseValidatorModel):
     Name: str
     Arn: str
@@ -1151,6 +1238,7 @@ class CreateEndpointResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_endpoint' function.
 class DescribeEndpointResponse(BaseValidatorModel):
     Name: str
     Description: str
@@ -1184,6 +1272,7 @@ class Endpoint(BaseValidatorModel):
     LastModifiedTime: Optional[datetime] = None
 
 
+# This class is the input for the 'update_endpoint' function.
 class UpdateEndpointRequest(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
@@ -1193,6 +1282,7 @@ class UpdateEndpointRequest(BaseValidatorModel):
     RoleArn: Optional[str] = None
 
 
+# This class is the output for the 'update_endpoint' function.
 class UpdateEndpointResponse(BaseValidatorModel):
     Name: str
     Arn: str
@@ -1208,6 +1298,7 @@ class UpdateEndpointResponse(BaseValidatorModel):
 RunCommandParametersUnion = Union[RunCommandParameters, RunCommandParametersOutput]
 
 
+# This class is the output for the 'list_targets_by_rule' function.
 class ListTargetsByRuleResponse(BaseValidatorModel):
     Targets: List[TargetOutput]
     ResponseMetadata: ResponseMetadata
@@ -1231,6 +1322,7 @@ class EcsParameters(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'describe_connection' function.
 class DescribeConnectionResponse(BaseValidatorModel):
     ConnectionArn: str
     Name: str
@@ -1263,6 +1355,7 @@ class UpdateConnectionAuthRequestParameters(BaseValidatorModel):
     ConnectivityParameters: Optional[ConnectivityResourceParameters] = None
 
 
+# This class is the output for the 'list_endpoints' function.
 class ListEndpointsResponse(BaseValidatorModel):
     Endpoints: List[Endpoint]
     ResponseMetadata: ResponseMetadata
@@ -1271,6 +1364,7 @@ class ListEndpointsResponse(BaseValidatorModel):
 EcsParametersUnion = Union[EcsParameters, EcsParametersOutput]
 
 
+# This class is the input for the 'create_connection' function.
 class CreateConnectionRequest(BaseValidatorModel):
     Name: str
     AuthorizationType: ConnectionAuthorizationTypeType
@@ -1279,6 +1373,7 @@ class CreateConnectionRequest(BaseValidatorModel):
     InvocationConnectivityParameters: Optional[ConnectivityResourceParameters] = None
 
 
+# This class is the input for the 'update_connection' function.
 class UpdateConnectionRequest(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
@@ -1309,6 +1404,7 @@ class Target(BaseValidatorModel):
 TargetUnion = Union[Target, TargetOutput]
 
 
+# This class is the input for the 'put_targets' function.
 class PutTargetsRequest(BaseValidatorModel):
     Rule: str
     Targets: List[TargetUnion]

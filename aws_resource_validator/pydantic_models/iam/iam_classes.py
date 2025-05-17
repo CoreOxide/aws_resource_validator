@@ -38,6 +38,7 @@ class AccessKey(BaseValidatorModel):
     CreateDate: Optional[datetime] = None
 
 
+# This class is the input for the 'add_client_id_to_open_id_connect_provider' function.
 class AddClientIDToOpenIDConnectProviderRequest(BaseValidatorModel):
     OpenIDConnectProviderArn: str
     ClientID: str
@@ -47,6 +48,7 @@ class AddRoleToInstanceProfileRequestInstanceProfileAddRole(BaseValidatorModel):
     RoleName: str
 
 
+# This class is the input for the 'add_role_to_instance_profile' function.
 class AddRoleToInstanceProfileRequest(BaseValidatorModel):
     InstanceProfileName: str
     RoleName: str
@@ -56,6 +58,7 @@ class AddUserToGroupRequestGroupAddUser(BaseValidatorModel):
     UserName: str
 
 
+# This class is the input for the 'add_user_to_group' function.
 class AddUserToGroupRequest(BaseValidatorModel):
     GroupName: str
     UserName: str
@@ -73,6 +76,7 @@ class AttachGroupPolicyRequestPolicyAttachGroup(BaseValidatorModel):
     GroupName: str
 
 
+# This class is the input for the 'attach_group_policy' function.
 class AttachGroupPolicyRequest(BaseValidatorModel):
     GroupName: str
     PolicyArn: str
@@ -86,6 +90,7 @@ class AttachRolePolicyRequestRoleAttachPolicy(BaseValidatorModel):
     PolicyArn: str
 
 
+# This class is the input for the 'attach_role_policy' function.
 class AttachRolePolicyRequest(BaseValidatorModel):
     RoleName: str
     PolicyArn: str
@@ -95,6 +100,7 @@ class AttachUserPolicyRequestPolicyAttachUser(BaseValidatorModel):
     UserName: str
 
 
+# This class is the input for the 'attach_user_policy' function.
 class AttachUserPolicyRequest(BaseValidatorModel):
     UserName: str
     PolicyArn: str
@@ -119,6 +125,7 @@ class ChangePasswordRequestServiceResourceChangePassword(BaseValidatorModel):
     NewPassword: str
 
 
+# This class is the input for the 'change_password' function.
 class ChangePasswordRequest(BaseValidatorModel):
     OldPassword: str
     NewPassword: str
@@ -130,6 +137,7 @@ class ContextEntry(BaseValidatorModel):
     ContextKeyType: Optional[ContextKeyTypeEnumType] = None
 
 
+# This class is the input for the 'create_access_key' function.
 class CreateAccessKeyRequest(BaseValidatorModel):
     UserName: Optional[str] = None
 
@@ -146,6 +154,7 @@ class CreateAccountAliasRequestServiceResourceCreateAccountAlias(BaseValidatorMo
     AccountAlias: str
 
 
+# This class is the input for the 'create_account_alias' function.
 class CreateAccountAliasRequest(BaseValidatorModel):
     AccountAlias: str
 
@@ -159,6 +168,7 @@ class CreateGroupRequestServiceResourceCreateGroup(BaseValidatorModel):
     Path: Optional[str] = None
 
 
+# This class is the input for the 'create_group' function.
 class CreateGroupRequest(BaseValidatorModel):
     GroupName: str
     Path: Optional[str] = None
@@ -182,6 +192,7 @@ class CreateLoginProfileRequestLoginProfileCreate(BaseValidatorModel):
     PasswordResetRequired: Optional[bool] = None
 
 
+# This class is the input for the 'create_login_profile' function.
 class CreateLoginProfileRequest(BaseValidatorModel):
     UserName: Optional[str] = None
     Password: Optional[str] = None
@@ -204,18 +215,21 @@ class CreatePolicyVersionRequestPolicyCreateVersion(BaseValidatorModel):
     SetAsDefault: Optional[bool] = None
 
 
+# This class is the input for the 'create_policy_version' function.
 class CreatePolicyVersionRequest(BaseValidatorModel):
     PolicyArn: str
     PolicyDocument: str
     SetAsDefault: Optional[bool] = None
 
 
+# This class is the input for the 'create_service_linked_role' function.
 class CreateServiceLinkedRoleRequest(BaseValidatorModel):
     AWSServiceName: str
     Description: Optional[str] = None
     CustomSuffix: Optional[str] = None
 
 
+# This class is the input for the 'create_service_specific_credential' function.
 class CreateServiceSpecificCredentialRequest(BaseValidatorModel):
     UserName: str
     ServiceName: str
@@ -231,103 +245,126 @@ class ServiceSpecificCredential(BaseValidatorModel):
     Status: StatusTypeType
 
 
+# This class is the input for the 'deactivate_mfa_device' function.
 class DeactivateMFADeviceRequest(BaseValidatorModel):
     SerialNumber: str
     UserName: Optional[str] = None
 
 
+# This class is the input for the 'delete_access_key' function.
 class DeleteAccessKeyRequest(BaseValidatorModel):
     AccessKeyId: str
     UserName: Optional[str] = None
 
 
+# This class is the input for the 'delete_account_alias' function.
 class DeleteAccountAliasRequest(BaseValidatorModel):
     AccountAlias: str
 
 
+# This class is the input for the 'delete_group_policy' function.
 class DeleteGroupPolicyRequest(BaseValidatorModel):
     GroupName: str
     PolicyName: str
 
 
+# This class is the input for the 'delete_group' function.
 class DeleteGroupRequest(BaseValidatorModel):
     GroupName: str
 
 
+# This class is the input for the 'delete_instance_profile' function.
 class DeleteInstanceProfileRequest(BaseValidatorModel):
     InstanceProfileName: str
 
 
+# This class is the input for the 'delete_login_profile' function.
 class DeleteLoginProfileRequest(BaseValidatorModel):
     UserName: Optional[str] = None
 
 
+# This class is the input for the 'delete_open_id_connect_provider' function.
 class DeleteOpenIDConnectProviderRequest(BaseValidatorModel):
     OpenIDConnectProviderArn: str
 
 
+# This class is the input for the 'delete_policy' function.
 class DeletePolicyRequest(BaseValidatorModel):
     PolicyArn: str
 
 
+# This class is the input for the 'delete_policy_version' function.
 class DeletePolicyVersionRequest(BaseValidatorModel):
     PolicyArn: str
     VersionId: str
 
 
+# This class is the input for the 'delete_role_permissions_boundary' function.
 class DeleteRolePermissionsBoundaryRequest(BaseValidatorModel):
     RoleName: str
 
 
+# This class is the input for the 'delete_role_policy' function.
 class DeleteRolePolicyRequest(BaseValidatorModel):
     RoleName: str
     PolicyName: str
 
 
+# This class is the input for the 'delete_role' function.
 class DeleteRoleRequest(BaseValidatorModel):
     RoleName: str
 
 
+# This class is the input for the 'delete_saml_provider' function.
 class DeleteSAMLProviderRequest(BaseValidatorModel):
     SAMLProviderArn: str
 
 
+# This class is the input for the 'delete_ssh_public_key' function.
 class DeleteSSHPublicKeyRequest(BaseValidatorModel):
     UserName: str
     SSHPublicKeyId: str
 
 
+# This class is the input for the 'delete_server_certificate' function.
 class DeleteServerCertificateRequest(BaseValidatorModel):
     ServerCertificateName: str
 
 
+# This class is the input for the 'delete_service_linked_role' function.
 class DeleteServiceLinkedRoleRequest(BaseValidatorModel):
     RoleName: str
 
 
+# This class is the input for the 'delete_service_specific_credential' function.
 class DeleteServiceSpecificCredentialRequest(BaseValidatorModel):
     ServiceSpecificCredentialId: str
     UserName: Optional[str] = None
 
 
+# This class is the input for the 'delete_signing_certificate' function.
 class DeleteSigningCertificateRequest(BaseValidatorModel):
     CertificateId: str
     UserName: Optional[str] = None
 
 
+# This class is the input for the 'delete_user_permissions_boundary' function.
 class DeleteUserPermissionsBoundaryRequest(BaseValidatorModel):
     UserName: str
 
 
+# This class is the input for the 'delete_user_policy' function.
 class DeleteUserPolicyRequest(BaseValidatorModel):
     UserName: str
     PolicyName: str
 
 
+# This class is the input for the 'delete_user' function.
 class DeleteUserRequest(BaseValidatorModel):
     UserName: str
 
 
+# This class is the input for the 'delete_virtual_mfa_device' function.
 class DeleteVirtualMFADeviceRequest(BaseValidatorModel):
     SerialNumber: str
 
@@ -345,6 +382,7 @@ class DetachGroupPolicyRequestPolicyDetachGroup(BaseValidatorModel):
     GroupName: str
 
 
+# This class is the input for the 'detach_group_policy' function.
 class DetachGroupPolicyRequest(BaseValidatorModel):
     GroupName: str
     PolicyArn: str
@@ -358,6 +396,7 @@ class DetachRolePolicyRequestRoleDetachPolicy(BaseValidatorModel):
     PolicyArn: str
 
 
+# This class is the input for the 'detach_role_policy' function.
 class DetachRolePolicyRequest(BaseValidatorModel):
     RoleName: str
     PolicyArn: str
@@ -367,6 +406,7 @@ class DetachUserPolicyRequestPolicyDetachUser(BaseValidatorModel):
     UserName: str
 
 
+# This class is the input for the 'detach_user_policy' function.
 class DetachUserPolicyRequest(BaseValidatorModel):
     UserName: str
     PolicyArn: str
@@ -381,6 +421,7 @@ class EnableMFADeviceRequestMfaDeviceAssociate(BaseValidatorModel):
     AuthenticationCode2: str
 
 
+# This class is the input for the 'enable_mfa_device' function.
 class EnableMFADeviceRequest(BaseValidatorModel):
     UserName: str
     SerialNumber: str
@@ -415,16 +456,19 @@ class PermissionsBoundaryDecisionDetail(BaseValidatorModel):
     AllowedByPermissionsBoundary: Optional[bool] = None
 
 
+# This class is the input for the 'generate_organizations_access_report' function.
 class GenerateOrganizationsAccessReportRequest(BaseValidatorModel):
     EntityPath: str
     OrganizationsPolicyId: Optional[str] = None
 
 
+# This class is the input for the 'generate_service_last_accessed_details' function.
 class GenerateServiceLastAccessedDetailsRequest(BaseValidatorModel):
     Arn: str
     Granularity: Optional[AccessAdvisorUsageGranularityTypeType] = None
 
 
+# This class is the input for the 'get_access_key_last_used' function.
 class GetAccessKeyLastUsedRequest(BaseValidatorModel):
     AccessKeyId: str
 
@@ -435,6 +479,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'get_account_authorization_details' function.
 class GetAccountAuthorizationDetailsRequest(BaseValidatorModel):
     Filter: Optional[List[EntityTypeType]] = None
     MaxItems: Optional[int] = None
@@ -454,26 +499,31 @@ class PasswordPolicy(BaseValidatorModel):
     HardExpiry: Optional[bool] = None
 
 
+# This class is the input for the 'get_context_keys_for_custom_policy' function.
 class GetContextKeysForCustomPolicyRequest(BaseValidatorModel):
     PolicyInputList: List[str]
 
 
+# This class is the input for the 'get_context_keys_for_principal_policy' function.
 class GetContextKeysForPrincipalPolicyRequest(BaseValidatorModel):
     PolicySourceArn: str
     PolicyInputList: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_group_policy' function.
 class GetGroupPolicyRequest(BaseValidatorModel):
     GroupName: str
     PolicyName: str
 
 
+# This class is the input for the 'get_group' function.
 class GetGroupRequest(BaseValidatorModel):
     GroupName: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
+# This class is the input for the 'get_instance_profile' function.
 class GetInstanceProfileRequest(BaseValidatorModel):
     InstanceProfileName: str
 
@@ -483,19 +533,23 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'get_login_profile' function.
 class GetLoginProfileRequest(BaseValidatorModel):
     UserName: Optional[str] = None
 
 
+# This class is the input for the 'get_mfa_device' function.
 class GetMFADeviceRequest(BaseValidatorModel):
     SerialNumber: str
     UserName: Optional[str] = None
 
 
+# This class is the input for the 'get_open_id_connect_provider' function.
 class GetOpenIDConnectProviderRequest(BaseValidatorModel):
     OpenIDConnectProviderArn: str
 
 
+# This class is the input for the 'get_organizations_access_report' function.
 class GetOrganizationsAccessReportRequest(BaseValidatorModel):
     JobId: str
     MaxItems: Optional[int] = None
@@ -503,24 +557,29 @@ class GetOrganizationsAccessReportRequest(BaseValidatorModel):
     SortKey: Optional[SortKeyTypeType] = None
 
 
+# This class is the input for the 'get_policy' function.
 class GetPolicyRequest(BaseValidatorModel):
     PolicyArn: str
 
 
+# This class is the input for the 'get_policy_version' function.
 class GetPolicyVersionRequest(BaseValidatorModel):
     PolicyArn: str
     VersionId: str
 
 
+# This class is the input for the 'get_role_policy' function.
 class GetRolePolicyRequest(BaseValidatorModel):
     RoleName: str
     PolicyName: str
 
 
+# This class is the input for the 'get_role' function.
 class GetRoleRequest(BaseValidatorModel):
     RoleName: str
 
 
+# This class is the input for the 'get_saml_provider' function.
 class GetSAMLProviderRequest(BaseValidatorModel):
     SAMLProviderArn: str
 
@@ -530,6 +589,7 @@ class SAMLPrivateKey(BaseValidatorModel):
     Timestamp: Optional[datetime] = None
 
 
+# This class is the input for the 'get_ssh_public_key' function.
 class GetSSHPublicKeyRequest(BaseValidatorModel):
     UserName: str
     SSHPublicKeyId: str
@@ -545,16 +605,19 @@ class SSHPublicKey(BaseValidatorModel):
     UploadDate: Optional[datetime] = None
 
 
+# This class is the input for the 'get_server_certificate' function.
 class GetServerCertificateRequest(BaseValidatorModel):
     ServerCertificateName: str
 
 
+# This class is the input for the 'get_service_last_accessed_details' function.
 class GetServiceLastAccessedDetailsRequest(BaseValidatorModel):
     JobId: str
     MaxItems: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'get_service_last_accessed_details_with_entities' function.
 class GetServiceLastAccessedDetailsWithEntitiesRequest(BaseValidatorModel):
     JobId: str
     ServiceNamespace: str
@@ -562,30 +625,36 @@ class GetServiceLastAccessedDetailsWithEntitiesRequest(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'get_service_linked_role_deletion_status' function.
 class GetServiceLinkedRoleDeletionStatusRequest(BaseValidatorModel):
     DeletionTaskId: str
 
 
+# This class is the input for the 'get_user_policy' function.
 class GetUserPolicyRequest(BaseValidatorModel):
     UserName: str
     PolicyName: str
 
 
+# This class is the input for the 'get_user' function.
 class GetUserRequest(BaseValidatorModel):
     UserName: Optional[str] = None
 
 
+# This class is the input for the 'list_access_keys' function.
 class ListAccessKeysRequest(BaseValidatorModel):
     UserName: Optional[str] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
+# This class is the input for the 'list_account_aliases' function.
 class ListAccountAliasesRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
+# This class is the input for the 'list_attached_group_policies' function.
 class ListAttachedGroupPoliciesRequest(BaseValidatorModel):
     GroupName: str
     PathPrefix: Optional[str] = None
@@ -593,6 +662,7 @@ class ListAttachedGroupPoliciesRequest(BaseValidatorModel):
     MaxItems: Optional[int] = None
 
 
+# This class is the input for the 'list_attached_role_policies' function.
 class ListAttachedRolePoliciesRequest(BaseValidatorModel):
     RoleName: str
     PathPrefix: Optional[str] = None
@@ -600,6 +670,7 @@ class ListAttachedRolePoliciesRequest(BaseValidatorModel):
     MaxItems: Optional[int] = None
 
 
+# This class is the input for the 'list_attached_user_policies' function.
 class ListAttachedUserPoliciesRequest(BaseValidatorModel):
     UserName: str
     PathPrefix: Optional[str] = None
@@ -607,6 +678,7 @@ class ListAttachedUserPoliciesRequest(BaseValidatorModel):
     MaxItems: Optional[int] = None
 
 
+# This class is the input for the 'list_entities_for_policy' function.
 class ListEntitiesForPolicyRequest(BaseValidatorModel):
     PolicyArn: str
     EntityFilter: Optional[EntityTypeType] = None
@@ -631,48 +703,56 @@ class PolicyUser(BaseValidatorModel):
     UserId: Optional[str] = None
 
 
+# This class is the input for the 'list_group_policies' function.
 class ListGroupPoliciesRequest(BaseValidatorModel):
     GroupName: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
+# This class is the input for the 'list_groups_for_user' function.
 class ListGroupsForUserRequest(BaseValidatorModel):
     UserName: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
+# This class is the input for the 'list_groups' function.
 class ListGroupsRequest(BaseValidatorModel):
     PathPrefix: Optional[str] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
+# This class is the input for the 'list_instance_profile_tags' function.
 class ListInstanceProfileTagsRequest(BaseValidatorModel):
     InstanceProfileName: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
+# This class is the input for the 'list_instance_profiles_for_role' function.
 class ListInstanceProfilesForRoleRequest(BaseValidatorModel):
     RoleName: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
+# This class is the input for the 'list_instance_profiles' function.
 class ListInstanceProfilesRequest(BaseValidatorModel):
     PathPrefix: Optional[str] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
+# This class is the input for the 'list_mfa_device_tags' function.
 class ListMFADeviceTagsRequest(BaseValidatorModel):
     SerialNumber: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
+# This class is the input for the 'list_mfa_devices' function.
 class ListMFADevicesRequest(BaseValidatorModel):
     UserName: Optional[str] = None
     Marker: Optional[str] = None
@@ -685,6 +765,7 @@ class MFADevice(BaseValidatorModel):
     EnableDate: datetime
 
 
+# This class is the input for the 'list_open_id_connect_provider_tags' function.
 class ListOpenIDConnectProviderTagsRequest(BaseValidatorModel):
     OpenIDConnectProviderArn: str
     Marker: Optional[str] = None
@@ -703,12 +784,14 @@ class PolicyGrantingServiceAccess(BaseValidatorModel):
     EntityName: Optional[str] = None
 
 
+# This class is the input for the 'list_policies_granting_service_access' function.
 class ListPoliciesGrantingServiceAccessRequest(BaseValidatorModel):
     Arn: str
     ServiceNamespaces: List[str]
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'list_policies' function.
 class ListPoliciesRequest(BaseValidatorModel):
     Scope: Optional[PolicyScopeTypeType] = None
     OnlyAttached: Optional[bool] = None
@@ -718,36 +801,42 @@ class ListPoliciesRequest(BaseValidatorModel):
     MaxItems: Optional[int] = None
 
 
+# This class is the input for the 'list_policy_tags' function.
 class ListPolicyTagsRequest(BaseValidatorModel):
     PolicyArn: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
+# This class is the input for the 'list_policy_versions' function.
 class ListPolicyVersionsRequest(BaseValidatorModel):
     PolicyArn: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
+# This class is the input for the 'list_role_policies' function.
 class ListRolePoliciesRequest(BaseValidatorModel):
     RoleName: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
+# This class is the input for the 'list_role_tags' function.
 class ListRoleTagsRequest(BaseValidatorModel):
     RoleName: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
+# This class is the input for the 'list_roles' function.
 class ListRolesRequest(BaseValidatorModel):
     PathPrefix: Optional[str] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
+# This class is the input for the 'list_saml_provider_tags' function.
 class ListSAMLProviderTagsRequest(BaseValidatorModel):
     SAMLProviderArn: str
     Marker: Optional[str] = None
@@ -760,6 +849,7 @@ class SAMLProviderListEntry(BaseValidatorModel):
     CreateDate: Optional[datetime] = None
 
 
+# This class is the input for the 'list_ssh_public_keys' function.
 class ListSSHPublicKeysRequest(BaseValidatorModel):
     UserName: Optional[str] = None
     Marker: Optional[str] = None
@@ -773,12 +863,14 @@ class SSHPublicKeyMetadata(BaseValidatorModel):
     UploadDate: datetime
 
 
+# This class is the input for the 'list_server_certificate_tags' function.
 class ListServerCertificateTagsRequest(BaseValidatorModel):
     ServerCertificateName: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
+# This class is the input for the 'list_server_certificates' function.
 class ListServerCertificatesRequest(BaseValidatorModel):
     PathPrefix: Optional[str] = None
     Marker: Optional[str] = None
@@ -794,6 +886,7 @@ class ServerCertificateMetadata(BaseValidatorModel):
     Expiration: Optional[datetime] = None
 
 
+# This class is the input for the 'list_service_specific_credentials' function.
 class ListServiceSpecificCredentialsRequest(BaseValidatorModel):
     UserName: Optional[str] = None
     ServiceName: Optional[str] = None
@@ -808,6 +901,7 @@ class ServiceSpecificCredentialMetadata(BaseValidatorModel):
     ServiceName: str
 
 
+# This class is the input for the 'list_signing_certificates' function.
 class ListSigningCertificatesRequest(BaseValidatorModel):
     UserName: Optional[str] = None
     Marker: Optional[str] = None
@@ -822,24 +916,28 @@ class SigningCertificate(BaseValidatorModel):
     UploadDate: Optional[datetime] = None
 
 
+# This class is the input for the 'list_user_policies' function.
 class ListUserPoliciesRequest(BaseValidatorModel):
     UserName: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
+# This class is the input for the 'list_user_tags' function.
 class ListUserTagsRequest(BaseValidatorModel):
     UserName: str
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
+# This class is the input for the 'list_users' function.
 class ListUsersRequest(BaseValidatorModel):
     PathPrefix: Optional[str] = None
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
+# This class is the input for the 'list_virtual_mfa_devices' function.
 class ListVirtualMFADevicesRequest(BaseValidatorModel):
     AssignmentStatus: Optional[AssignmentStatusTypeType] = None
     Marker: Optional[str] = None
@@ -867,12 +965,14 @@ class PutGroupPolicyRequestGroupPolicyPut(BaseValidatorModel):
     PolicyDocument: str
 
 
+# This class is the input for the 'put_group_policy' function.
 class PutGroupPolicyRequest(BaseValidatorModel):
     GroupName: str
     PolicyName: str
     PolicyDocument: str
 
 
+# This class is the input for the 'put_role_permissions_boundary' function.
 class PutRolePermissionsBoundaryRequest(BaseValidatorModel):
     RoleName: str
     PermissionsBoundary: str
@@ -882,17 +982,20 @@ class PutRolePolicyRequestRolePolicyPut(BaseValidatorModel):
     PolicyDocument: str
 
 
+# This class is the input for the 'put_role_policy' function.
 class PutRolePolicyRequest(BaseValidatorModel):
     RoleName: str
     PolicyName: str
     PolicyDocument: str
 
 
+# This class is the input for the 'put_user_permissions_boundary' function.
 class PutUserPermissionsBoundaryRequest(BaseValidatorModel):
     UserName: str
     PermissionsBoundary: str
 
 
+# This class is the input for the 'put_user_policy' function.
 class PutUserPolicyRequest(BaseValidatorModel):
     UserName: str
     PolicyName: str
@@ -908,6 +1011,7 @@ class PutUserPolicyRequestUserPolicyPut(BaseValidatorModel):
     PolicyDocument: str
 
 
+# This class is the input for the 'remove_client_id_from_open_id_connect_provider' function.
 class RemoveClientIDFromOpenIDConnectProviderRequest(BaseValidatorModel):
     OpenIDConnectProviderArn: str
     ClientID: str
@@ -917,6 +1021,7 @@ class RemoveRoleFromInstanceProfileRequestInstanceProfileRemoveRole(BaseValidato
     RoleName: str
 
 
+# This class is the input for the 'remove_role_from_instance_profile' function.
 class RemoveRoleFromInstanceProfileRequest(BaseValidatorModel):
     InstanceProfileName: str
     RoleName: str
@@ -926,6 +1031,7 @@ class RemoveUserFromGroupRequestGroupRemoveUser(BaseValidatorModel):
     UserName: str
 
 
+# This class is the input for the 'remove_user_from_group' function.
 class RemoveUserFromGroupRequest(BaseValidatorModel):
     GroupName: str
     UserName: str
@@ -935,6 +1041,7 @@ class RemoveUserFromGroupRequestUserRemoveGroup(BaseValidatorModel):
     GroupName: str
 
 
+# This class is the input for the 'reset_service_specific_credential' function.
 class ResetServiceSpecificCredentialRequest(BaseValidatorModel):
     ServiceSpecificCredentialId: str
     UserName: Optional[str] = None
@@ -945,6 +1052,7 @@ class ResyncMFADeviceRequestMfaDeviceResync(BaseValidatorModel):
     AuthenticationCode2: str
 
 
+# This class is the input for the 'resync_mfa_device' function.
 class ResyncMFADeviceRequest(BaseValidatorModel):
     UserName: str
     SerialNumber: str
@@ -964,50 +1072,60 @@ class TrackedActionLastAccessed(BaseValidatorModel):
     LastAccessedRegion: Optional[str] = None
 
 
+# This class is the input for the 'set_default_policy_version' function.
 class SetDefaultPolicyVersionRequest(BaseValidatorModel):
     PolicyArn: str
     VersionId: str
 
 
+# This class is the input for the 'set_security_token_service_preferences' function.
 class SetSecurityTokenServicePreferencesRequest(BaseValidatorModel):
     GlobalEndpointTokenVersion: GlobalEndpointTokenVersionType
 
 
+# This class is the input for the 'untag_instance_profile' function.
 class UntagInstanceProfileRequest(BaseValidatorModel):
     InstanceProfileName: str
     TagKeys: List[str]
 
 
+# This class is the input for the 'untag_mfa_device' function.
 class UntagMFADeviceRequest(BaseValidatorModel):
     SerialNumber: str
     TagKeys: List[str]
 
 
+# This class is the input for the 'untag_open_id_connect_provider' function.
 class UntagOpenIDConnectProviderRequest(BaseValidatorModel):
     OpenIDConnectProviderArn: str
     TagKeys: List[str]
 
 
+# This class is the input for the 'untag_policy' function.
 class UntagPolicyRequest(BaseValidatorModel):
     PolicyArn: str
     TagKeys: List[str]
 
 
+# This class is the input for the 'untag_role' function.
 class UntagRoleRequest(BaseValidatorModel):
     RoleName: str
     TagKeys: List[str]
 
 
+# This class is the input for the 'untag_saml_provider' function.
 class UntagSAMLProviderRequest(BaseValidatorModel):
     SAMLProviderArn: str
     TagKeys: List[str]
 
 
+# This class is the input for the 'untag_server_certificate' function.
 class UntagServerCertificateRequest(BaseValidatorModel):
     ServerCertificateName: str
     TagKeys: List[str]
 
 
+# This class is the input for the 'untag_user' function.
 class UntagUserRequest(BaseValidatorModel):
     UserName: str
     TagKeys: List[str]
@@ -1029,6 +1147,7 @@ class UpdateAccessKeyRequestAccessKeyPairDeactivate(BaseValidatorModel):
     Status: Optional[StatusTypeType] = None
 
 
+# This class is the input for the 'update_access_key' function.
 class UpdateAccessKeyRequest(BaseValidatorModel):
     AccessKeyId: str
     Status: StatusTypeType
@@ -1059,6 +1178,7 @@ class UpdateAccountPasswordPolicyRequestServiceResourceCreateAccountPasswordPoli
     HardExpiry: Optional[bool] = None
 
 
+# This class is the input for the 'update_account_password_policy' function.
 class UpdateAccountPasswordPolicyRequest(BaseValidatorModel):
     MinimumPasswordLength: Optional[int] = None
     RequireSymbols: Optional[bool] = None
@@ -1075,6 +1195,7 @@ class UpdateAssumeRolePolicyRequestAssumeRolePolicyUpdate(BaseValidatorModel):
     PolicyDocument: str
 
 
+# This class is the input for the 'update_assume_role_policy' function.
 class UpdateAssumeRolePolicyRequest(BaseValidatorModel):
     RoleName: str
     PolicyDocument: str
@@ -1085,6 +1206,7 @@ class UpdateGroupRequestGroupUpdate(BaseValidatorModel):
     NewGroupName: Optional[str] = None
 
 
+# This class is the input for the 'update_group' function.
 class UpdateGroupRequest(BaseValidatorModel):
     GroupName: str
     NewPath: Optional[str] = None
@@ -1096,17 +1218,20 @@ class UpdateLoginProfileRequestLoginProfileUpdate(BaseValidatorModel):
     PasswordResetRequired: Optional[bool] = None
 
 
+# This class is the input for the 'update_login_profile' function.
 class UpdateLoginProfileRequest(BaseValidatorModel):
     UserName: str
     Password: Optional[str] = None
     PasswordResetRequired: Optional[bool] = None
 
 
+# This class is the input for the 'update_open_id_connect_provider_thumbprint' function.
 class UpdateOpenIDConnectProviderThumbprintRequest(BaseValidatorModel):
     OpenIDConnectProviderArn: str
     ThumbprintList: List[str]
 
 
+# This class is the input for the 'update_role_description' function.
 class UpdateRoleDescriptionRequest(BaseValidatorModel):
     RoleName: str
     Description: str
@@ -1125,6 +1250,7 @@ class UpdateSAMLProviderRequestSamlProviderUpdate(BaseValidatorModel):
     RemovePrivateKey: Optional[str] = None
 
 
+# This class is the input for the 'update_saml_provider' function.
 class UpdateSAMLProviderRequest(BaseValidatorModel):
     SAMLProviderArn: str
     SAMLMetadataDocument: Optional[str] = None
@@ -1133,6 +1259,7 @@ class UpdateSAMLProviderRequest(BaseValidatorModel):
     RemovePrivateKey: Optional[str] = None
 
 
+# This class is the input for the 'update_ssh_public_key' function.
 class UpdateSSHPublicKeyRequest(BaseValidatorModel):
     UserName: str
     SSHPublicKeyId: str
@@ -1144,12 +1271,14 @@ class UpdateServerCertificateRequestServerCertificateUpdate(BaseValidatorModel):
     NewServerCertificateName: Optional[str] = None
 
 
+# This class is the input for the 'update_server_certificate' function.
 class UpdateServerCertificateRequest(BaseValidatorModel):
     ServerCertificateName: str
     NewPath: Optional[str] = None
     NewServerCertificateName: Optional[str] = None
 
 
+# This class is the input for the 'update_service_specific_credential' function.
 class UpdateServiceSpecificCredentialRequest(BaseValidatorModel):
     ServiceSpecificCredentialId: str
     Status: StatusTypeType
@@ -1164,12 +1293,14 @@ class UpdateSigningCertificateRequestSigningCertificateDeactivate(BaseValidatorM
     Status: Optional[StatusTypeType] = None
 
 
+# This class is the input for the 'update_signing_certificate' function.
 class UpdateSigningCertificateRequest(BaseValidatorModel):
     CertificateId: str
     Status: StatusTypeType
     UserName: Optional[str] = None
 
 
+# This class is the input for the 'update_user' function.
 class UpdateUserRequest(BaseValidatorModel):
     UserName: str
     NewPath: Optional[str] = None
@@ -1181,6 +1312,7 @@ class UpdateUserRequestUserUpdate(BaseValidatorModel):
     NewUserName: Optional[str] = None
 
 
+# This class is the input for the 'upload_ssh_public_key' function.
 class UploadSSHPublicKeyRequest(BaseValidatorModel):
     UserName: str
     SSHPublicKeyBody: str
@@ -1191,11 +1323,13 @@ class UploadSigningCertificateRequestServiceResourceCreateSigningCertificate(Bas
     UserName: Optional[str] = None
 
 
+# This class is the input for the 'upload_signing_certificate' function.
 class UploadSigningCertificateRequest(BaseValidatorModel):
     CertificateBody: str
     UserName: Optional[str] = None
 
 
+# This class is the input for the 'simulate_custom_policy' function.
 class SimulateCustomPolicyRequest(BaseValidatorModel):
     PolicyInputList: List[str]
     ActionNames: List[str]
@@ -1210,6 +1344,7 @@ class SimulateCustomPolicyRequest(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'simulate_principal_policy' function.
 class SimulatePrincipalPolicyRequest(BaseValidatorModel):
     PolicySourceArn: str
     ActionNames: List[str]
@@ -1225,11 +1360,13 @@ class SimulatePrincipalPolicyRequest(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the output for the 'create_access_key' function.
 class CreateAccessKeyResponse(BaseValidatorModel):
     AccessKey: AccessKey
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_service_linked_role' function.
 class DeleteServiceLinkedRoleResponse(BaseValidatorModel):
     DeletionTaskId: str
     ResponseMetadata: ResponseMetadata
@@ -1247,6 +1384,7 @@ class DisableOrganizationsRootSessionsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_user' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
@@ -1269,16 +1407,19 @@ class GenerateCredentialReportResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'generate_organizations_access_report' function.
 class GenerateOrganizationsAccessReportResponse(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'generate_service_last_accessed_details' function.
 class GenerateServiceLastAccessedDetailsResponse(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_access_key_last_used' function.
 class GetAccessKeyLastUsedResponse(BaseValidatorModel):
     UserName: str
     AccessKeyLastUsed: AccessKeyLastUsed
@@ -1290,6 +1431,7 @@ class GetAccountSummaryResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_context_keys_for_principal_policy' function.
 class GetContextKeysForPolicyResponse(BaseValidatorModel):
     ContextKeyNames: List[str]
     ResponseMetadata: ResponseMetadata
@@ -1302,6 +1444,7 @@ class GetCredentialReportResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_mfa_device' function.
 class GetMFADeviceResponse(BaseValidatorModel):
     UserName: str
     SerialNumber: str
@@ -1310,6 +1453,7 @@ class GetMFADeviceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_access_keys' function.
 class ListAccessKeysResponse(BaseValidatorModel):
     AccessKeyMetadata: List[AccessKeyMetadata]
     IsTruncated: bool
@@ -1317,6 +1461,7 @@ class ListAccessKeysResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_account_aliases' function.
 class ListAccountAliasesResponse(BaseValidatorModel):
     AccountAliases: List[str]
     IsTruncated: bool
@@ -1324,6 +1469,7 @@ class ListAccountAliasesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_attached_group_policies' function.
 class ListAttachedGroupPoliciesResponse(BaseValidatorModel):
     AttachedPolicies: List[AttachedPolicy]
     IsTruncated: bool
@@ -1331,6 +1477,7 @@ class ListAttachedGroupPoliciesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_attached_role_policies' function.
 class ListAttachedRolePoliciesResponse(BaseValidatorModel):
     AttachedPolicies: List[AttachedPolicy]
     IsTruncated: bool
@@ -1338,6 +1485,7 @@ class ListAttachedRolePoliciesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_attached_user_policies' function.
 class ListAttachedUserPoliciesResponse(BaseValidatorModel):
     AttachedPolicies: List[AttachedPolicy]
     IsTruncated: bool
@@ -1345,6 +1493,7 @@ class ListAttachedUserPoliciesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_group_policies' function.
 class ListGroupPoliciesResponse(BaseValidatorModel):
     PolicyNames: List[str]
     IsTruncated: bool
@@ -1358,6 +1507,7 @@ class ListOrganizationsFeaturesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_role_policies' function.
 class ListRolePoliciesResponse(BaseValidatorModel):
     PolicyNames: List[str]
     IsTruncated: bool
@@ -1365,6 +1515,7 @@ class ListRolePoliciesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_user_policies' function.
 class ListUserPoliciesResponse(BaseValidatorModel):
     PolicyNames: List[str]
     IsTruncated: bool
@@ -1372,16 +1523,19 @@ class ListUserPoliciesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_saml_provider' function.
 class UpdateSAMLProviderResponse(BaseValidatorModel):
     SAMLProviderArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_group' function.
 class CreateGroupResponse(BaseValidatorModel):
     Group: Group
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_groups_for_user' function.
 class ListGroupsForUserResponse(BaseValidatorModel):
     Groups: List[Group]
     IsTruncated: bool
@@ -1389,6 +1543,7 @@ class ListGroupsForUserResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_groups' function.
 class ListGroupsResponse(BaseValidatorModel):
     Groups: List[Group]
     IsTruncated: bool
@@ -1402,12 +1557,14 @@ class CreateInstanceProfileRequestServiceResourceCreateInstanceProfile(BaseValid
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_instance_profile' function.
 class CreateInstanceProfileRequest(BaseValidatorModel):
     InstanceProfileName: str
     Path: Optional[str] = None
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_open_id_connect_provider' function.
 class CreateOpenIDConnectProviderRequest(BaseValidatorModel):
     Url: str
     ClientIDList: Optional[List[str]] = None
@@ -1415,6 +1572,7 @@ class CreateOpenIDConnectProviderRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'create_open_id_connect_provider' function.
 class CreateOpenIDConnectProviderResponse(BaseValidatorModel):
     OpenIDConnectProviderArn: str
     Tags: List[Tag]
@@ -1429,6 +1587,7 @@ class CreatePolicyRequestServiceResourceCreatePolicy(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_policy' function.
 class CreatePolicyRequest(BaseValidatorModel):
     PolicyName: str
     PolicyDocument: str
@@ -1447,6 +1606,7 @@ class CreateRoleRequestServiceResourceCreateRole(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_role' function.
 class CreateRoleRequest(BaseValidatorModel):
     RoleName: str
     AssumeRolePolicyDocument: str
@@ -1465,6 +1625,7 @@ class CreateSAMLProviderRequestServiceResourceCreateSamlProvider(BaseValidatorMo
     AddPrivateKey: Optional[str] = None
 
 
+# This class is the input for the 'create_saml_provider' function.
 class CreateSAMLProviderRequest(BaseValidatorModel):
     SAMLMetadataDocument: str
     Name: str
@@ -1473,6 +1634,7 @@ class CreateSAMLProviderRequest(BaseValidatorModel):
     AddPrivateKey: Optional[str] = None
 
 
+# This class is the output for the 'create_saml_provider' function.
 class CreateSAMLProviderResponse(BaseValidatorModel):
     SAMLProviderArn: str
     Tags: List[Tag]
@@ -1486,6 +1648,7 @@ class CreateUserRequestServiceResourceCreateUser(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_user' function.
 class CreateUserRequest(BaseValidatorModel):
     UserName: str
     Path: Optional[str] = None
@@ -1505,12 +1668,14 @@ class CreateVirtualMFADeviceRequestServiceResourceCreateVirtualMfaDevice(BaseVal
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_virtual_mfa_device' function.
 class CreateVirtualMFADeviceRequest(BaseValidatorModel):
     VirtualMFADeviceName: str
     Path: Optional[str] = None
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'get_open_id_connect_provider' function.
 class GetOpenIDConnectProviderResponse(BaseValidatorModel):
     Url: str
     ClientIDList: List[str]
@@ -1520,6 +1685,7 @@ class GetOpenIDConnectProviderResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_instance_profile_tags' function.
 class ListInstanceProfileTagsResponse(BaseValidatorModel):
     Tags: List[Tag]
     IsTruncated: bool
@@ -1527,6 +1693,7 @@ class ListInstanceProfileTagsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_mfa_device_tags' function.
 class ListMFADeviceTagsResponse(BaseValidatorModel):
     Tags: List[Tag]
     IsTruncated: bool
@@ -1534,6 +1701,7 @@ class ListMFADeviceTagsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_open_id_connect_provider_tags' function.
 class ListOpenIDConnectProviderTagsResponse(BaseValidatorModel):
     Tags: List[Tag]
     IsTruncated: bool
@@ -1541,6 +1709,7 @@ class ListOpenIDConnectProviderTagsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_policy_tags' function.
 class ListPolicyTagsResponse(BaseValidatorModel):
     Tags: List[Tag]
     IsTruncated: bool
@@ -1548,6 +1717,7 @@ class ListPolicyTagsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_role_tags' function.
 class ListRoleTagsResponse(BaseValidatorModel):
     Tags: List[Tag]
     IsTruncated: bool
@@ -1555,6 +1725,7 @@ class ListRoleTagsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_saml_provider_tags' function.
 class ListSAMLProviderTagsResponse(BaseValidatorModel):
     Tags: List[Tag]
     IsTruncated: bool
@@ -1562,6 +1733,7 @@ class ListSAMLProviderTagsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_server_certificate_tags' function.
 class ListServerCertificateTagsResponse(BaseValidatorModel):
     Tags: List[Tag]
     IsTruncated: bool
@@ -1569,6 +1741,7 @@ class ListServerCertificateTagsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_user_tags' function.
 class ListUserTagsResponse(BaseValidatorModel):
     Tags: List[Tag]
     IsTruncated: bool
@@ -1591,41 +1764,49 @@ class Policy(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'tag_instance_profile' function.
 class TagInstanceProfileRequest(BaseValidatorModel):
     InstanceProfileName: str
     Tags: List[Tag]
 
 
+# This class is the input for the 'tag_mfa_device' function.
 class TagMFADeviceRequest(BaseValidatorModel):
     SerialNumber: str
     Tags: List[Tag]
 
 
+# This class is the input for the 'tag_open_id_connect_provider' function.
 class TagOpenIDConnectProviderRequest(BaseValidatorModel):
     OpenIDConnectProviderArn: str
     Tags: List[Tag]
 
 
+# This class is the input for the 'tag_policy' function.
 class TagPolicyRequest(BaseValidatorModel):
     PolicyArn: str
     Tags: List[Tag]
 
 
+# This class is the input for the 'tag_role' function.
 class TagRoleRequest(BaseValidatorModel):
     RoleName: str
     Tags: List[Tag]
 
 
+# This class is the input for the 'tag_saml_provider' function.
 class TagSAMLProviderRequest(BaseValidatorModel):
     SAMLProviderArn: str
     Tags: List[Tag]
 
 
+# This class is the input for the 'tag_server_certificate' function.
 class TagServerCertificateRequest(BaseValidatorModel):
     ServerCertificateName: str
     Tags: List[Tag]
 
 
+# This class is the input for the 'tag_user' function.
 class TagUserRequest(BaseValidatorModel):
     UserName: str
     Tags: List[Tag]
@@ -1640,6 +1821,7 @@ class UploadServerCertificateRequestServiceResourceCreateServerCertificate(BaseV
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'upload_server_certificate' function.
 class UploadServerCertificateRequest(BaseValidatorModel):
     ServerCertificateName: str
     CertificateBody: str
@@ -1660,21 +1842,25 @@ class User(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'create_login_profile' function.
 class CreateLoginProfileResponse(BaseValidatorModel):
     LoginProfile: LoginProfile
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_login_profile' function.
 class GetLoginProfileResponse(BaseValidatorModel):
     LoginProfile: LoginProfile
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_service_specific_credential' function.
 class CreateServiceSpecificCredentialResponse(BaseValidatorModel):
     ServiceSpecificCredential: ServiceSpecificCredential
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reset_service_specific_credential' function.
 class ResetServiceSpecificCredentialResponse(BaseValidatorModel):
     ServiceSpecificCredential: ServiceSpecificCredential
     ResponseMetadata: ResponseMetadata
@@ -1690,6 +1876,7 @@ class EntityDetails(BaseValidatorModel):
     LastAuthenticated: Optional[datetime] = None
 
 
+# This class is the output for the 'get_organizations_access_report' function.
 class GetOrganizationsAccessReportResponse(BaseValidatorModel):
     JobStatus: JobStatusTypeType
     JobCreationDate: datetime
@@ -1923,6 +2110,7 @@ class GetUserRequestWait(BaseValidatorModel):
     WaiterConfig: Optional[WaiterConfig] = None
 
 
+# This class is the output for the 'get_saml_provider' function.
 class GetSAMLProviderResponse(BaseValidatorModel):
     SAMLProviderUUID: str
     SAMLMetadataDocument: str
@@ -1934,16 +2122,19 @@ class GetSAMLProviderResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_ssh_public_key' function.
 class GetSSHPublicKeyResponse(BaseValidatorModel):
     SSHPublicKey: SSHPublicKey
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'upload_ssh_public_key' function.
 class UploadSSHPublicKeyResponse(BaseValidatorModel):
     SSHPublicKey: SSHPublicKey
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_entities_for_policy' function.
 class ListEntitiesForPolicyResponse(BaseValidatorModel):
     PolicyGroups: List[PolicyGroup]
     PolicyUsers: List[PolicyUser]
@@ -1953,6 +2144,7 @@ class ListEntitiesForPolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_mfa_devices' function.
 class ListMFADevicesResponse(BaseValidatorModel):
     MFADevices: List[MFADevice]
     IsTruncated: bool
@@ -1975,6 +2167,7 @@ class ListSAMLProvidersResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_ssh_public_keys' function.
 class ListSSHPublicKeysResponse(BaseValidatorModel):
     SSHPublicKeys: List[SSHPublicKeyMetadata]
     IsTruncated: bool
@@ -1982,6 +2175,7 @@ class ListSSHPublicKeysResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_server_certificates' function.
 class ListServerCertificatesResponse(BaseValidatorModel):
     ServerCertificateMetadataList: List[ServerCertificateMetadata]
     IsTruncated: bool
@@ -1996,17 +2190,20 @@ class ServerCertificate(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'upload_server_certificate' function.
 class UploadServerCertificateResponse(BaseValidatorModel):
     ServerCertificateMetadata: ServerCertificateMetadata
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_service_specific_credentials' function.
 class ListServiceSpecificCredentialsResponse(BaseValidatorModel):
     ServiceSpecificCredentials: List[ServiceSpecificCredentialMetadata]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_signing_certificates' function.
 class ListSigningCertificatesResponse(BaseValidatorModel):
     Certificates: List[SigningCertificate]
     IsTruncated: bool
@@ -2014,6 +2211,7 @@ class ListSigningCertificatesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'upload_signing_certificate' function.
 class UploadSigningCertificateResponse(BaseValidatorModel):
     Certificate: SigningCertificate
     ResponseMetadata: ResponseMetadata
@@ -2041,16 +2239,19 @@ class ServiceLastAccessed(BaseValidatorModel):
     TrackedActionsLastAccessed: Optional[List[TrackedActionLastAccessed]] = None
 
 
+# This class is the output for the 'create_policy' function.
 class CreatePolicyResponse(BaseValidatorModel):
     Policy: Policy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_policy' function.
 class GetPolicyResponse(BaseValidatorModel):
     Policy: Policy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_policies' function.
 class ListPoliciesResponse(BaseValidatorModel):
     Policies: List[Policy]
     IsTruncated: bool
@@ -2058,11 +2259,13 @@ class ListPoliciesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_user' function.
 class CreateUserResponse(BaseValidatorModel):
     User: User
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_group' function.
 class GetGroupResponse(BaseValidatorModel):
     Group: Group
     Users: List[User]
@@ -2071,11 +2274,13 @@ class GetGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_user' function.
 class GetUserResponse(BaseValidatorModel):
     User: User
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_users' function.
 class ListUsersResponse(BaseValidatorModel):
     Users: List[User]
     IsTruncated: bool
@@ -2092,12 +2297,14 @@ class VirtualMFADevice(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'get_service_linked_role_deletion_status' function.
 class GetServiceLinkedRoleDeletionStatusResponse(BaseValidatorModel):
     Status: DeletionTaskStatusTypeType
     Reason: DeletionTaskFailureReasonType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_service_last_accessed_details_with_entities' function.
 class GetServiceLastAccessedDetailsWithEntitiesResponse(BaseValidatorModel):
     JobStatus: JobStatusTypeType
     JobCreationDate: datetime
@@ -2109,6 +2316,7 @@ class GetServiceLastAccessedDetailsWithEntitiesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_policies_granting_service_access' function.
 class ListPoliciesGrantingServiceAccessResponse(BaseValidatorModel):
     PoliciesGrantingServiceAccess: List[ListPoliciesGrantingServiceAccessEntry]
     IsTruncated: bool
@@ -2116,6 +2324,7 @@ class ListPoliciesGrantingServiceAccessResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_server_certificate' function.
 class GetServerCertificateResponse(BaseValidatorModel):
     ServerCertificate: ServerCertificate
     ResponseMetadata: ResponseMetadata
@@ -2132,6 +2341,7 @@ class ResourceSpecificResult(BaseValidatorModel):
     PermissionsBoundaryDecisionDetail: Optional[PermissionsBoundaryDecisionDetail] = None
 
 
+# This class is the output for the 'get_service_last_accessed_details' function.
 class GetServiceLastAccessedDetailsResponse(BaseValidatorModel):
     JobStatus: JobStatusTypeType
     JobType: AccessAdvisorUsageGranularityTypeType
@@ -2144,11 +2354,13 @@ class GetServiceLastAccessedDetailsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_virtual_mfa_device' function.
 class CreateVirtualMFADeviceResponse(BaseValidatorModel):
     VirtualMFADevice: VirtualMFADevice
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_virtual_mfa_devices' function.
 class ListVirtualMFADevicesResponse(BaseValidatorModel):
     VirtualMFADevices: List[VirtualMFADevice]
     IsTruncated: bool
@@ -2156,6 +2368,7 @@ class ListVirtualMFADevicesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_group_policy' function.
 class GetGroupPolicyResponse(BaseValidatorModel):
     GroupName: str
     PolicyName: str
@@ -2163,6 +2376,7 @@ class GetGroupPolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_role_policy' function.
 class GetRolePolicyResponse(BaseValidatorModel):
     RoleName: str
     PolicyName: str
@@ -2170,6 +2384,7 @@ class GetRolePolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_user_policy' function.
 class GetUserPolicyResponse(BaseValidatorModel):
     UserName: str
     PolicyName: str
@@ -2238,16 +2453,19 @@ class UserDetail(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'create_policy_version' function.
 class CreatePolicyVersionResponse(BaseValidatorModel):
     PolicyVersion: PolicyVersion
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_policy_version' function.
 class GetPolicyVersionResponse(BaseValidatorModel):
     PolicyVersion: PolicyVersion
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_policy_versions' function.
 class ListPolicyVersionsResponse(BaseValidatorModel):
     Versions: List[PolicyVersion]
     IsTruncated: bool
@@ -2270,16 +2488,19 @@ class ManagedPolicyDetail(BaseValidatorModel):
     PolicyVersionList: Optional[List[PolicyVersion]] = None
 
 
+# This class is the output for the 'create_role' function.
 class CreateRoleResponse(BaseValidatorModel):
     Role: Role
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_service_linked_role' function.
 class CreateServiceLinkedRoleResponse(BaseValidatorModel):
     Role: Role
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_role' function.
 class GetRoleResponse(BaseValidatorModel):
     Role: Role
     ResponseMetadata: ResponseMetadata
@@ -2295,6 +2516,7 @@ class InstanceProfile(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'list_roles' function.
 class ListRolesResponse(BaseValidatorModel):
     Roles: List[Role]
     IsTruncated: bool
@@ -2302,11 +2524,13 @@ class ListRolesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_role_description' function.
 class UpdateRoleDescriptionResponse(BaseValidatorModel):
     Role: Role
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'simulate_principal_policy' function.
 class SimulatePolicyResponse(BaseValidatorModel):
     EvaluationResults: List[EvaluationResult]
     IsTruncated: bool
@@ -2314,16 +2538,19 @@ class SimulatePolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_instance_profile' function.
 class CreateInstanceProfileResponse(BaseValidatorModel):
     InstanceProfile: InstanceProfile
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_instance_profile' function.
 class GetInstanceProfileResponse(BaseValidatorModel):
     InstanceProfile: InstanceProfile
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_instance_profiles_for_role' function.
 class ListInstanceProfilesForRoleResponse(BaseValidatorModel):
     InstanceProfiles: List[InstanceProfile]
     IsTruncated: bool
@@ -2331,6 +2558,7 @@ class ListInstanceProfilesForRoleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_instance_profiles' function.
 class ListInstanceProfilesResponse(BaseValidatorModel):
     InstanceProfiles: List[InstanceProfile]
     IsTruncated: bool
@@ -2353,6 +2581,7 @@ class RoleDetail(BaseValidatorModel):
     RoleLastUsed: Optional[RoleLastUsed] = None
 
 
+# This class is the output for the 'get_account_authorization_details' function.
 class GetAccountAuthorizationDetailsResponse(BaseValidatorModel):
     UserDetailList: List[UserDetail]
     GroupDetailList: List[GroupDetail]

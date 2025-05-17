@@ -114,11 +114,13 @@ class SnoozeActionConfiguration(BaseValidatorModel):
     note: Optional[str] = None
 
 
+# This class is the input for the 'describe_alarm' function.
 class DescribeAlarmRequest(BaseValidatorModel):
     alarmModelName: str
     keyValue: Optional[str] = None
 
 
+# This class is the input for the 'describe_detector' function.
 class DescribeDetectorRequest(BaseValidatorModel):
     detectorModelName: str
     keyValue: Optional[str] = None
@@ -148,12 +150,14 @@ class Variable(BaseValidatorModel):
     value: str
 
 
+# This class is the input for the 'list_alarms' function.
 class ListAlarmsRequest(BaseValidatorModel):
     alarmModelName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_detectors' function.
 class ListDetectorsRequest(BaseValidatorModel):
     detectorModelName: str
     stateName: Optional[str] = None
@@ -175,71 +179,86 @@ class StateChangeConfiguration(BaseValidatorModel):
     triggerType: Optional[Literal['SNOOZE_TIMEOUT']] = None
 
 
+# This class is the input for the 'batch_acknowledge_alarm' function.
 class BatchAcknowledgeAlarmRequest(BaseValidatorModel):
     acknowledgeActionRequests: List[AcknowledgeAlarmActionRequest]
 
 
+# This class is the output for the 'batch_acknowledge_alarm' function.
 class BatchAcknowledgeAlarmResponse(BaseValidatorModel):
     errorEntries: List[BatchAlarmActionErrorEntry]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_disable_alarm' function.
 class BatchDisableAlarmResponse(BaseValidatorModel):
     errorEntries: List[BatchAlarmActionErrorEntry]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_enable_alarm' function.
 class BatchEnableAlarmResponse(BaseValidatorModel):
     errorEntries: List[BatchAlarmActionErrorEntry]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_reset_alarm' function.
 class BatchResetAlarmResponse(BaseValidatorModel):
     errorEntries: List[BatchAlarmActionErrorEntry]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_snooze_alarm' function.
 class BatchSnoozeAlarmResponse(BaseValidatorModel):
     errorEntries: List[BatchAlarmActionErrorEntry]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_alarms' function.
 class ListAlarmsResponse(BaseValidatorModel):
     alarmSummaries: List[AlarmSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'batch_delete_detector' function.
 class BatchDeleteDetectorResponse(BaseValidatorModel):
     batchDeleteDetectorErrorEntries: List[BatchDeleteDetectorErrorEntry]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'batch_delete_detector' function.
 class BatchDeleteDetectorRequest(BaseValidatorModel):
     detectors: List[DeleteDetectorRequest]
 
 
+# This class is the input for the 'batch_disable_alarm' function.
 class BatchDisableAlarmRequest(BaseValidatorModel):
     disableActionRequests: List[DisableAlarmActionRequest]
 
 
+# This class is the input for the 'batch_enable_alarm' function.
 class BatchEnableAlarmRequest(BaseValidatorModel):
     enableActionRequests: List[EnableAlarmActionRequest]
 
 
+# This class is the output for the 'batch_put_message' function.
 class BatchPutMessageResponse(BaseValidatorModel):
     BatchPutMessageErrorEntries: List[BatchPutMessageErrorEntry]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'batch_reset_alarm' function.
 class BatchResetAlarmRequest(BaseValidatorModel):
     resetActionRequests: List[ResetAlarmActionRequest]
 
 
+# This class is the input for the 'batch_snooze_alarm' function.
 class BatchSnoozeAlarmRequest(BaseValidatorModel):
     snoozeActionRequests: List[SnoozeAlarmActionRequest]
 
 
+# This class is the output for the 'batch_update_detector' function.
 class BatchUpdateDetectorResponse(BaseValidatorModel):
     batchUpdateDetectorErrorEntries: List[BatchUpdateDetectorErrorEntry]
     ResponseMetadata: ResponseMetadata
@@ -298,6 +317,7 @@ class UpdateDetectorRequest(BaseValidatorModel):
     keyValue: Optional[str] = None
 
 
+# This class is the output for the 'list_detectors' function.
 class ListDetectorsResponse(BaseValidatorModel):
     detectorSummaries: List[DetectorSummary]
     ResponseMetadata: ResponseMetadata
@@ -313,6 +333,7 @@ class Detector(BaseValidatorModel):
     lastUpdateTime: Optional[datetime] = None
 
 
+# This class is the input for the 'batch_put_message' function.
 class BatchPutMessageRequest(BaseValidatorModel):
     messages: List[Message]
 
@@ -324,10 +345,12 @@ class AlarmState(BaseValidatorModel):
     systemEvent: Optional[SystemEvent] = None
 
 
+# This class is the input for the 'batch_update_detector' function.
 class BatchUpdateDetectorRequest(BaseValidatorModel):
     detectors: List[UpdateDetectorRequest]
 
 
+# This class is the output for the 'describe_detector' function.
 class DescribeDetectorResponse(BaseValidatorModel):
     detector: Detector
     ResponseMetadata: ResponseMetadata
@@ -343,6 +366,7 @@ class Alarm(BaseValidatorModel):
     lastUpdateTime: Optional[datetime] = None
 
 
+# This class is the output for the 'describe_alarm' function.
 class DescribeAlarmResponse(BaseValidatorModel):
     alarm: Alarm
     ResponseMetadata: ResponseMetadata

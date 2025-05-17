@@ -223,6 +223,7 @@ class GetRecommendationError(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'get_effective_recommendation_preferences' function.
 class GetEffectiveRecommendationPreferencesRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -239,6 +240,7 @@ class IdleRecommendationError(BaseValidatorModel):
     resourceType: Optional[IdleRecommendationResourceTypeType] = None
 
 
+# This class is the input for the 'get_recommendation_summaries' function.
 class GetRecommendationSummariesRequest(BaseValidatorModel):
     accountIds: Optional[List[str]] = None
     nextToken: Optional[str] = None
@@ -345,6 +347,7 @@ class ReasonCodeSummary(BaseValidatorModel):
     value: Optional[float] = None
 
 
+# This class is the input for the 'update_enrollment_status' function.
 class UpdateEnrollmentStatusRequest(BaseValidatorModel):
     status: StatusType
     includeMemberAccounts: Optional[bool] = None
@@ -388,6 +391,7 @@ class DeleteRecommendationPreferencesRequest(BaseValidatorModel):
     scope: Optional[Scope] = None
 
 
+# This class is the input for the 'get_recommendation_preferences' function.
 class GetRecommendationPreferencesRequest(BaseValidatorModel):
     resourceType: ResourceTypeType
     scope: Optional[Scope] = None
@@ -395,6 +399,7 @@ class GetRecommendationPreferencesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_recommendation_export_jobs' function.
 class DescribeRecommendationExportJobsRequest(BaseValidatorModel):
     jobIds: Optional[List[str]] = None
     filters: Optional[List[JobFilter]] = None
@@ -428,12 +433,14 @@ class GetEnrollmentStatusResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_enrollment_statuses_for_organization' function.
 class GetEnrollmentStatusesForOrganizationResponse(BaseValidatorModel):
     accountEnrollmentStatuses: List[AccountEnrollmentStatus]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_enrollment_status' function.
 class UpdateEnrollmentStatusResponse(BaseValidatorModel):
     status: StatusType
     statusReason: str
@@ -449,6 +456,7 @@ class EBSSavingsOpportunityAfterDiscounts(BaseValidatorModel):
     estimatedMonthlySavings: Optional[EBSEstimatedMonthlySavings] = None
 
 
+# This class is the input for the 'get_ebs_volume_recommendations' function.
 class GetEBSVolumeRecommendationsRequest(BaseValidatorModel):
     volumeArns: Optional[List[str]] = None
     nextToken: Optional[str] = None
@@ -472,6 +480,7 @@ class ECSServiceRecommendedOptionProjectedMetric(BaseValidatorModel):
     projectedMetrics: Optional[List[ECSServiceProjectedMetric]] = None
 
 
+# This class is the input for the 'get_ecs_service_recommendations' function.
 class GetECSServiceRecommendationsRequest(BaseValidatorModel):
     serviceArns: Optional[List[str]] = None
     nextToken: Optional[str] = None
@@ -485,6 +494,7 @@ class GetEnrollmentStatusesForOrganizationRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_enrollment_statuses_for_organization' function.
 class GetEnrollmentStatusesForOrganizationRequest(BaseValidatorModel):
     filters: Optional[List[EnrollmentFilter]] = None
     nextToken: Optional[str] = None
@@ -501,6 +511,7 @@ class SavingsOpportunity(BaseValidatorModel):
     estimatedMonthlySavings: Optional[EstimatedMonthlySavings] = None
 
 
+# This class is the input for the 'get_auto_scaling_group_recommendations' function.
 class GetAutoScalingGroupRecommendationsRequest(BaseValidatorModel):
     accountIds: Optional[List[str]] = None
     autoScalingGroupArns: Optional[List[str]] = None
@@ -510,6 +521,7 @@ class GetAutoScalingGroupRecommendationsRequest(BaseValidatorModel):
     recommendationPreferences: Optional[RecommendationPreferences] = None
 
 
+# This class is the input for the 'get_ec2_instance_recommendations' function.
 class GetEC2InstanceRecommendationsRequest(BaseValidatorModel):
     instanceArns: Optional[List[str]] = None
     nextToken: Optional[str] = None
@@ -519,6 +531,7 @@ class GetEC2InstanceRecommendationsRequest(BaseValidatorModel):
     recommendationPreferences: Optional[RecommendationPreferences] = None
 
 
+# This class is the input for the 'export_auto_scaling_group_recommendations' function.
 class ExportAutoScalingGroupRecommendationsRequest(BaseValidatorModel):
     s3DestinationConfig: S3DestinationConfig
     accountIds: Optional[List[str]] = None
@@ -529,6 +542,7 @@ class ExportAutoScalingGroupRecommendationsRequest(BaseValidatorModel):
     recommendationPreferences: Optional[RecommendationPreferences] = None
 
 
+# This class is the input for the 'export_ebs_volume_recommendations' function.
 class ExportEBSVolumeRecommendationsRequest(BaseValidatorModel):
     s3DestinationConfig: S3DestinationConfig
     accountIds: Optional[List[str]] = None
@@ -538,6 +552,7 @@ class ExportEBSVolumeRecommendationsRequest(BaseValidatorModel):
     includeMemberAccounts: Optional[bool] = None
 
 
+# This class is the input for the 'export_ec2_instance_recommendations' function.
 class ExportEC2InstanceRecommendationsRequest(BaseValidatorModel):
     s3DestinationConfig: S3DestinationConfig
     accountIds: Optional[List[str]] = None
@@ -548,6 +563,7 @@ class ExportEC2InstanceRecommendationsRequest(BaseValidatorModel):
     recommendationPreferences: Optional[RecommendationPreferences] = None
 
 
+# This class is the input for the 'export_ecs_service_recommendations' function.
 class ExportECSServiceRecommendationsRequest(BaseValidatorModel):
     s3DestinationConfig: S3DestinationConfig
     accountIds: Optional[List[str]] = None
@@ -557,6 +573,7 @@ class ExportECSServiceRecommendationsRequest(BaseValidatorModel):
     includeMemberAccounts: Optional[bool] = None
 
 
+# This class is the output for the 'export_auto_scaling_group_recommendations' function.
 class ExportAutoScalingGroupRecommendationsResponse(BaseValidatorModel):
     jobId: str
     s3Destination: S3Destination
@@ -567,48 +584,56 @@ class ExportDestination(BaseValidatorModel):
     s3: Optional[S3Destination] = None
 
 
+# This class is the output for the 'export_ebs_volume_recommendations' function.
 class ExportEBSVolumeRecommendationsResponse(BaseValidatorModel):
     jobId: str
     s3Destination: S3Destination
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'export_ec2_instance_recommendations' function.
 class ExportEC2InstanceRecommendationsResponse(BaseValidatorModel):
     jobId: str
     s3Destination: S3Destination
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'export_ecs_service_recommendations' function.
 class ExportECSServiceRecommendationsResponse(BaseValidatorModel):
     jobId: str
     s3Destination: S3Destination
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'export_idle_recommendations' function.
 class ExportIdleRecommendationsResponse(BaseValidatorModel):
     jobId: str
     s3Destination: S3Destination
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'export_lambda_function_recommendations' function.
 class ExportLambdaFunctionRecommendationsResponse(BaseValidatorModel):
     jobId: str
     s3Destination: S3Destination
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'export_license_recommendations' function.
 class ExportLicenseRecommendationsResponse(BaseValidatorModel):
     jobId: str
     s3Destination: S3Destination
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'export_rds_database_recommendations' function.
 class ExportRDSDatabaseRecommendationsResponse(BaseValidatorModel):
     jobId: str
     s3Destination: S3Destination
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'export_idle_recommendations' function.
 class ExportIdleRecommendationsRequest(BaseValidatorModel):
     s3DestinationConfig: S3DestinationConfig
     accountIds: Optional[List[str]] = None
@@ -618,6 +643,7 @@ class ExportIdleRecommendationsRequest(BaseValidatorModel):
     includeMemberAccounts: Optional[bool] = None
 
 
+# This class is the input for the 'export_lambda_function_recommendations' function.
 class ExportLambdaFunctionRecommendationsRequest(BaseValidatorModel):
     s3DestinationConfig: S3DestinationConfig
     accountIds: Optional[List[str]] = None
@@ -634,6 +660,7 @@ class GetLambdaFunctionRecommendationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_lambda_function_recommendations' function.
 class GetLambdaFunctionRecommendationsRequest(BaseValidatorModel):
     functionArns: Optional[List[str]] = None
     accountIds: Optional[List[str]] = None
@@ -642,6 +669,7 @@ class GetLambdaFunctionRecommendationsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'export_license_recommendations' function.
 class ExportLicenseRecommendationsRequest(BaseValidatorModel):
     s3DestinationConfig: S3DestinationConfig
     accountIds: Optional[List[str]] = None
@@ -651,6 +679,7 @@ class ExportLicenseRecommendationsRequest(BaseValidatorModel):
     includeMemberAccounts: Optional[bool] = None
 
 
+# This class is the input for the 'get_license_recommendations' function.
 class GetLicenseRecommendationsRequest(BaseValidatorModel):
     resourceArns: Optional[List[str]] = None
     nextToken: Optional[str] = None
@@ -659,6 +688,7 @@ class GetLicenseRecommendationsRequest(BaseValidatorModel):
     accountIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'export_rds_database_recommendations' function.
 class ExportRDSDatabaseRecommendationsRequest(BaseValidatorModel):
     s3DestinationConfig: S3DestinationConfig
     accountIds: Optional[List[str]] = None
@@ -669,6 +699,7 @@ class ExportRDSDatabaseRecommendationsRequest(BaseValidatorModel):
     recommendationPreferences: Optional[RecommendationPreferences] = None
 
 
+# This class is the input for the 'get_rds_database_recommendations' function.
 class GetRDSDatabaseRecommendationsRequest(BaseValidatorModel):
     resourceArns: Optional[List[str]] = None
     nextToken: Optional[str] = None
@@ -678,6 +709,7 @@ class GetRDSDatabaseRecommendationsRequest(BaseValidatorModel):
     recommendationPreferences: Optional[RecommendationPreferences] = None
 
 
+# This class is the input for the 'get_ec2_recommendation_projected_metrics' function.
 class GetEC2RecommendationProjectedMetricsRequest(BaseValidatorModel):
     instanceArn: str
     stat: MetricStatisticType
@@ -687,6 +719,7 @@ class GetEC2RecommendationProjectedMetricsRequest(BaseValidatorModel):
     recommendationPreferences: Optional[RecommendationPreferences] = None
 
 
+# This class is the input for the 'get_ecs_service_recommendation_projected_metrics' function.
 class GetECSServiceRecommendationProjectedMetricsRequest(BaseValidatorModel):
     serviceArn: str
     stat: MetricStatisticType
@@ -695,6 +728,7 @@ class GetECSServiceRecommendationProjectedMetricsRequest(BaseValidatorModel):
     endTime: Timestamp
 
 
+# This class is the input for the 'get_rds_database_recommendation_projected_metrics' function.
 class GetRDSDatabaseRecommendationProjectedMetricsRequest(BaseValidatorModel):
     resourceArn: str
     stat: MetricStatisticType
@@ -704,6 +738,7 @@ class GetRDSDatabaseRecommendationProjectedMetricsRequest(BaseValidatorModel):
     recommendationPreferences: Optional[RecommendationPreferences] = None
 
 
+# This class is the input for the 'get_idle_recommendations' function.
 class GetIdleRecommendationsRequest(BaseValidatorModel):
     resourceArns: Optional[List[str]] = None
     nextToken: Optional[str] = None
@@ -806,6 +841,7 @@ class EffectiveRecommendationPreferences(BaseValidatorModel):
     savingsEstimationMode: Optional[InstanceSavingsEstimationMode] = None
 
 
+# This class is the output for the 'get_effective_recommendation_preferences' function.
 class GetEffectiveRecommendationPreferencesResponse(BaseValidatorModel):
     enhancedInfrastructureMetrics: EnhancedInfrastructureMetricsType
     externalMetricsPreference: ExternalMetricsPreference
@@ -839,6 +875,7 @@ class RecommendationPreferencesDetail(BaseValidatorModel):
     savingsEstimationMode: Optional[SavingsEstimationModeType] = None
 
 
+# This class is the output for the 'get_ecs_service_recommendation_projected_metrics' function.
 class GetECSServiceRecommendationProjectedMetricsResponse(BaseValidatorModel):
     recommendedOptionProjectedMetrics: List[ECSServiceRecommendedOptionProjectedMetric]
     ResponseMetadata: ResponseMetadata
@@ -925,11 +962,13 @@ class LambdaFunctionMemoryRecommendationOption(BaseValidatorModel):
     savingsOpportunityAfterDiscounts: Optional[LambdaSavingsOpportunityAfterDiscounts] = None
 
 
+# This class is the output for the 'get_ec2_recommendation_projected_metrics' function.
 class GetEC2RecommendationProjectedMetricsResponse(BaseValidatorModel):
     recommendedOptionProjectedMetrics: List[RecommendedOptionProjectedMetric]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_rds_database_recommendation_projected_metrics' function.
 class GetRDSDatabaseRecommendationProjectedMetricsResponse(BaseValidatorModel):
     recommendedOptionProjectedMetrics: List[RDSDatabaseRecommendedOptionProjectedMetric]
     ResponseMetadata: ResponseMetadata
@@ -963,6 +1002,7 @@ class RecommendationSummary(BaseValidatorModel):
     inferredWorkloadSavings: Optional[List[InferredWorkloadSaving]] = None
 
 
+# This class is the output for the 'get_recommendation_preferences' function.
 class GetRecommendationPreferencesResponse(BaseValidatorModel):
     recommendationPreferencesDetails: List[RecommendationPreferencesDetail]
     ResponseMetadata: ResponseMetadata
@@ -1011,6 +1051,7 @@ class VolumeRecommendation(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'describe_recommendation_export_jobs' function.
 class DescribeRecommendationExportJobsResponse(BaseValidatorModel):
     recommendationExportJobs: List[RecommendationExportJob]
     ResponseMetadata: ResponseMetadata
@@ -1033,6 +1074,7 @@ class AutoScalingGroupRecommendation(BaseValidatorModel):
     inferredWorkloadTypes: Optional[List[InferredWorkloadTypeType]] = None
 
 
+# This class is the output for the 'get_idle_recommendations' function.
 class GetIdleRecommendationsResponse(BaseValidatorModel):
     idleRecommendations: List[IdleRecommendation]
     errors: List[IdleRecommendationError]
@@ -1103,12 +1145,14 @@ class RDSDBRecommendation(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'get_recommendation_summaries' function.
 class GetRecommendationSummariesResponse(BaseValidatorModel):
     recommendationSummaries: List[RecommendationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_ecs_service_recommendations' function.
 class GetECSServiceRecommendationsResponse(BaseValidatorModel):
     ecsServiceRecommendations: List[ECSServiceRecommendation]
     errors: List[GetRecommendationError]
@@ -1116,6 +1160,7 @@ class GetECSServiceRecommendationsResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_license_recommendations' function.
 class GetLicenseRecommendationsResponse(BaseValidatorModel):
     licenseRecommendations: List[LicenseRecommendation]
     errors: List[GetRecommendationError]
@@ -1123,6 +1168,7 @@ class GetLicenseRecommendationsResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_ebs_volume_recommendations' function.
 class GetEBSVolumeRecommendationsResponse(BaseValidatorModel):
     volumeRecommendations: List[VolumeRecommendation]
     errors: List[GetRecommendationError]
@@ -1130,6 +1176,7 @@ class GetEBSVolumeRecommendationsResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_auto_scaling_group_recommendations' function.
 class GetAutoScalingGroupRecommendationsResponse(BaseValidatorModel):
     autoScalingGroupRecommendations: List[AutoScalingGroupRecommendation]
     errors: List[GetRecommendationError]
@@ -1137,6 +1184,7 @@ class GetAutoScalingGroupRecommendationsResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_ec2_instance_recommendations' function.
 class GetEC2InstanceRecommendationsResponse(BaseValidatorModel):
     instanceRecommendations: List[InstanceRecommendation]
     errors: List[GetRecommendationError]
@@ -1144,12 +1192,14 @@ class GetEC2InstanceRecommendationsResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_lambda_function_recommendations' function.
 class GetLambdaFunctionRecommendationsResponse(BaseValidatorModel):
     lambdaFunctionRecommendations: List[LambdaFunctionRecommendation]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_rds_database_recommendations' function.
 class GetRDSDatabaseRecommendationsResponse(BaseValidatorModel):
     rdsDBRecommendations: List[RDSDBRecommendation]
     errors: List[GetRecommendationError]

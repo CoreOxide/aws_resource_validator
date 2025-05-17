@@ -55,6 +55,7 @@ class ControlOperation(BaseValidatorModel):
     targetIdentifier: Optional[str] = None
 
 
+# This class is the input for the 'create_landing_zone' function.
 class CreateLandingZoneInput(BaseValidatorModel):
     manifest: Dict[str, Any]
     version: str
@@ -69,14 +70,17 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'delete_landing_zone' function.
 class DeleteLandingZoneInput(BaseValidatorModel):
     landingZoneIdentifier: str
 
 
+# This class is the input for the 'disable_baseline' function.
 class DisableBaselineInput(BaseValidatorModel):
     enabledBaselineIdentifier: str
 
 
+# This class is the input for the 'disable_control' function.
 class DisableControlInput(BaseValidatorModel):
     controlIdentifier: str
     targetIdentifier: str
@@ -127,30 +131,37 @@ class EnabledControlFilter(BaseValidatorModel):
     statuses: Optional[List[EnablementStatusType]] = None
 
 
+# This class is the input for the 'get_baseline' function.
 class GetBaselineInput(BaseValidatorModel):
     baselineIdentifier: str
 
 
+# This class is the input for the 'get_baseline_operation' function.
 class GetBaselineOperationInput(BaseValidatorModel):
     operationIdentifier: str
 
 
+# This class is the input for the 'get_control_operation' function.
 class GetControlOperationInput(BaseValidatorModel):
     operationIdentifier: str
 
 
+# This class is the input for the 'get_enabled_baseline' function.
 class GetEnabledBaselineInput(BaseValidatorModel):
     enabledBaselineIdentifier: str
 
 
+# This class is the input for the 'get_enabled_control' function.
 class GetEnabledControlInput(BaseValidatorModel):
     enabledControlIdentifier: str
 
 
+# This class is the input for the 'get_landing_zone' function.
 class GetLandingZoneInput(BaseValidatorModel):
     landingZoneIdentifier: str
 
 
+# This class is the input for the 'get_landing_zone_operation' function.
 class GetLandingZoneOperationInput(BaseValidatorModel):
     operationIdentifier: str
 
@@ -189,28 +200,34 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_baselines' function.
 class ListBaselinesInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_landing_zones' function.
 class ListLandingZonesInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInput(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'reset_enabled_baseline' function.
 class ResetEnabledBaselineInput(BaseValidatorModel):
     enabledBaselineIdentifier: str
 
 
+# This class is the input for the 'reset_enabled_control' function.
 class ResetEnabledControlInput(BaseValidatorModel):
     enabledControlIdentifier: str
 
 
+# This class is the input for the 'reset_landing_zone' function.
 class ResetLandingZoneInput(BaseValidatorModel):
     landingZoneIdentifier: str
 
@@ -225,56 +242,66 @@ class UntagResourceInput(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_landing_zone' function.
 class UpdateLandingZoneInput(BaseValidatorModel):
     landingZoneIdentifier: str
     manifest: Dict[str, Any]
     version: str
 
 
+# This class is the input for the 'list_control_operations' function.
 class ListControlOperationsInput(BaseValidatorModel):
     filter: Optional[ControlOperationFilter] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_landing_zone' function.
 class CreateLandingZoneOutput(BaseValidatorModel):
     arn: str
     operationIdentifier: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_landing_zone' function.
 class DeleteLandingZoneOutput(BaseValidatorModel):
     operationIdentifier: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disable_baseline' function.
 class DisableBaselineOutput(BaseValidatorModel):
     operationIdentifier: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disable_control' function.
 class DisableControlOutput(BaseValidatorModel):
     operationIdentifier: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enable_baseline' function.
 class EnableBaselineOutput(BaseValidatorModel):
     arn: str
     operationIdentifier: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enable_control' function.
 class EnableControlOutput(BaseValidatorModel):
     arn: str
     operationIdentifier: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_baseline_operation' function.
 class GetBaselineOperationOutput(BaseValidatorModel):
     baselineOperation: BaselineOperation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_baseline' function.
 class GetBaselineOutput(BaseValidatorModel):
     arn: str
     description: str
@@ -282,58 +309,69 @@ class GetBaselineOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_control_operation' function.
 class GetControlOperationOutput(BaseValidatorModel):
     controlOperation: ControlOperation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_baselines' function.
 class ListBaselinesOutput(BaseValidatorModel):
     baselines: List[BaselineSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_control_operations' function.
 class ListControlOperationsOutput(BaseValidatorModel):
     controlOperations: List[ControlOperationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceOutput(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reset_enabled_baseline' function.
 class ResetEnabledBaselineOutput(BaseValidatorModel):
     operationIdentifier: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reset_enabled_control' function.
 class ResetEnabledControlOutput(BaseValidatorModel):
     operationIdentifier: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reset_landing_zone' function.
 class ResetLandingZoneOutput(BaseValidatorModel):
     operationIdentifier: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_enabled_baseline' function.
 class UpdateEnabledBaselineOutput(BaseValidatorModel):
     operationIdentifier: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_enabled_control' function.
 class UpdateEnabledControlOutput(BaseValidatorModel):
     operationIdentifier: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_landing_zone' function.
 class UpdateLandingZoneOutput(BaseValidatorModel):
     operationIdentifier: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'enable_baseline' function.
 class EnableBaselineInput(BaseValidatorModel):
     baselineIdentifier: str
     baselineVersion: str
@@ -342,12 +380,14 @@ class EnableBaselineInput(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_enabled_baseline' function.
 class UpdateEnabledBaselineInput(BaseValidatorModel):
     baselineVersion: str
     enabledBaselineIdentifier: str
     parameters: Optional[List[EnabledBaselineParameter]] = None
 
 
+# This class is the input for the 'enable_control' function.
 class EnableControlInput(BaseValidatorModel):
     controlIdentifier: str
     targetIdentifier: str
@@ -355,6 +395,7 @@ class EnableControlInput(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_enabled_control' function.
 class UpdateEnabledControlInput(BaseValidatorModel):
     enabledControlIdentifier: str
     parameters: List[EnabledControlParameter]
@@ -387,6 +428,7 @@ class EnabledControlSummary(BaseValidatorModel):
     targetIdentifier: Optional[str] = None
 
 
+# This class is the input for the 'list_enabled_baselines' function.
 class ListEnabledBaselinesInput(BaseValidatorModel):
     filter: Optional[EnabledBaselineFilter] = None
     includeChildren: Optional[bool] = None
@@ -404,6 +446,7 @@ class EnabledControlDetails(BaseValidatorModel):
     targetRegions: Optional[List[Region]] = None
 
 
+# This class is the input for the 'list_enabled_controls' function.
 class ListEnabledControlsInput(BaseValidatorModel):
     filter: Optional[EnabledControlFilter] = None
     maxResults: Optional[int] = None
@@ -411,6 +454,7 @@ class ListEnabledControlsInput(BaseValidatorModel):
     targetIdentifier: Optional[str] = None
 
 
+# This class is the output for the 'get_landing_zone_operation' function.
 class GetLandingZoneOperationOutput(BaseValidatorModel):
     operationDetails: LandingZoneOperationDetail
     ResponseMetadata: ResponseMetadata
@@ -425,18 +469,21 @@ class LandingZoneDetail(BaseValidatorModel):
     status: Optional[LandingZoneStatusType] = None
 
 
+# This class is the input for the 'list_landing_zone_operations' function.
 class ListLandingZoneOperationsInput(BaseValidatorModel):
     filter: Optional[LandingZoneOperationFilter] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_landing_zone_operations' function.
 class ListLandingZoneOperationsOutput(BaseValidatorModel):
     landingZoneOperations: List[LandingZoneOperationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_landing_zones' function.
 class ListLandingZonesOutput(BaseValidatorModel):
     landingZones: List[LandingZoneSummary]
     ResponseMetadata: ResponseMetadata
@@ -473,28 +520,33 @@ class ListLandingZonesInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'get_enabled_baseline' function.
 class GetEnabledBaselineOutput(BaseValidatorModel):
     enabledBaselineDetails: EnabledBaselineDetails
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_enabled_baselines' function.
 class ListEnabledBaselinesOutput(BaseValidatorModel):
     enabledBaselines: List[EnabledBaselineSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_enabled_controls' function.
 class ListEnabledControlsOutput(BaseValidatorModel):
     enabledControls: List[EnabledControlSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_enabled_control' function.
 class GetEnabledControlOutput(BaseValidatorModel):
     enabledControlDetails: EnabledControlDetails
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_landing_zone' function.
 class GetLandingZoneOutput(BaseValidatorModel):
     landingZone: LandingZoneDetail
     ResponseMetadata: ResponseMetadata

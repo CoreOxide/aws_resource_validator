@@ -88,6 +88,7 @@ class Tag(BaseValidatorModel):
     value: str
 
 
+# This class is the input for the 'create_dataset_content' function.
 class CreateDatasetContentRequest(BaseValidatorModel):
     datasetName: str
     versionId: Optional[str] = None
@@ -166,23 +167,28 @@ class TimestampPartition(BaseValidatorModel):
     timestampFormat: Optional[str] = None
 
 
+# This class is the input for the 'delete_channel' function.
 class DeleteChannelRequest(BaseValidatorModel):
     channelName: str
 
 
+# This class is the input for the 'delete_dataset_content' function.
 class DeleteDatasetContentRequest(BaseValidatorModel):
     datasetName: str
     versionId: Optional[str] = None
 
 
+# This class is the input for the 'delete_dataset' function.
 class DeleteDatasetRequest(BaseValidatorModel):
     datasetName: str
 
 
+# This class is the input for the 'delete_datastore' function.
 class DeleteDatastoreRequest(BaseValidatorModel):
     datastoreName: str
 
 
+# This class is the input for the 'delete_pipeline' function.
 class DeletePipelineRequest(BaseValidatorModel):
     pipelineName: str
 
@@ -196,15 +202,18 @@ class DeltaTime(BaseValidatorModel):
     timeExpression: str
 
 
+# This class is the input for the 'describe_channel' function.
 class DescribeChannelRequest(BaseValidatorModel):
     channelName: str
     includeStatistics: Optional[bool] = None
 
 
+# This class is the input for the 'describe_dataset' function.
 class DescribeDatasetRequest(BaseValidatorModel):
     datasetName: str
 
 
+# This class is the input for the 'describe_datastore' function.
 class DescribeDatastoreRequest(BaseValidatorModel):
     datastoreName: str
     includeStatistics: Optional[bool] = None
@@ -216,6 +225,7 @@ class LoggingOptions(BaseValidatorModel):
     enabled: bool
 
 
+# This class is the input for the 'describe_pipeline' function.
 class DescribePipelineRequest(BaseValidatorModel):
     pipelineName: str
 
@@ -242,6 +252,7 @@ class FilterActivity(BaseValidatorModel):
     next: Optional[str] = None
 
 
+# This class is the input for the 'get_dataset_content' function.
 class GetDatasetContentRequest(BaseValidatorModel):
     datasetName: str
     versionId: Optional[str] = None
@@ -265,6 +276,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_channels' function.
 class ListChannelsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -272,21 +284,25 @@ class ListChannelsRequest(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'list_datasets' function.
 class ListDatasetsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_datastores' function.
 class ListDatastoresRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_pipelines' function.
 class ListPipelinesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -339,37 +355,44 @@ class UntagResourceRequest(BaseValidatorModel):
 AddAttributesActivityUnion = Union[AddAttributesActivity, AddAttributesActivityOutput]
 
 
+# This class is the output for the 'batch_put_message' function.
 class BatchPutMessageResponse(BaseValidatorModel):
     batchPutMessageErrorEntries: List[BatchPutMessageErrorEntry]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_dataset_content' function.
 class CreateDatasetContentResponse(BaseValidatorModel):
     versionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_pipeline' function.
 class CreatePipelineResponse(BaseValidatorModel):
     pipelineName: str
     pipelineArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_pipeline' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'run_pipeline_activity' function.
 class RunPipelineActivityResponse(BaseValidatorModel):
     payloads: List[bytes]
     logResult: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'sample_channel_data' function.
 class SampleChannelDataResponse(BaseValidatorModel):
     payloads: List[bytes]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_pipeline_reprocessing' function.
 class StartPipelineReprocessingResponse(BaseValidatorModel):
     reprocessingId: str
     ResponseMetadata: ResponseMetadata
@@ -403,6 +426,7 @@ class ChannelStorageSummary(BaseValidatorModel):
     customerManagedS3: Optional[CustomerManagedChannelS3StorageSummary] = None
 
 
+# This class is the output for the 'create_channel' function.
 class CreateChannelResponse(BaseValidatorModel):
     channelName: str
     channelArn: str
@@ -410,6 +434,7 @@ class CreateChannelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_dataset' function.
 class CreateDatasetResponse(BaseValidatorModel):
     datasetName: str
     datasetArn: str
@@ -417,6 +442,7 @@ class CreateDatasetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_datastore' function.
 class CreateDatastoreResponse(BaseValidatorModel):
     datastoreName: str
     datastoreArn: str
@@ -432,6 +458,7 @@ class SchemaDefinition(BaseValidatorModel):
     columns: Optional[List[Column]] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -450,6 +477,7 @@ class DatasetContentSummary(BaseValidatorModel):
     completionTime: Optional[datetime] = None
 
 
+# This class is the output for the 'get_dataset_content' function.
 class GetDatasetContentResponse(BaseValidatorModel):
     entries: List[DatasetEntry]
     timestamp: datetime
@@ -488,6 +516,7 @@ class DescribeLoggingOptionsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_logging_options' function.
 class PutLoggingOptionsRequest(BaseValidatorModel):
     loggingOptions: LoggingOptions
 
@@ -522,6 +551,7 @@ class ListDatasetContentsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_dataset_contents' function.
 class ListDatasetContentsRequest(BaseValidatorModel):
     datasetName: str
     nextToken: Optional[str] = None
@@ -530,6 +560,7 @@ class ListDatasetContentsRequest(BaseValidatorModel):
     scheduledBefore: Optional[Timestamp] = None
 
 
+# This class is the input for the 'sample_channel_data' function.
 class SampleChannelDataRequest(BaseValidatorModel):
     channelName: str
     maxMessages: Optional[int] = None
@@ -537,6 +568,7 @@ class SampleChannelDataRequest(BaseValidatorModel):
     endTime: Optional[Timestamp] = None
 
 
+# This class is the input for the 'start_pipeline_reprocessing' function.
 class StartPipelineReprocessingRequest(BaseValidatorModel):
     pipelineName: str
     startTime: Optional[Timestamp] = None
@@ -576,6 +608,7 @@ RemoveAttributesActivityUnion = Union[RemoveAttributesActivity, RemoveAttributes
 SelectAttributesActivityUnion = Union[SelectAttributesActivity, SelectAttributesActivityOutput]
 
 
+# This class is the input for the 'batch_put_message' function.
 class BatchPutMessageRequest(BaseValidatorModel):
     channelName: str
     messages: List[Message]
@@ -611,6 +644,7 @@ class ParquetConfiguration(BaseValidatorModel):
     schemaDefinition: Optional[SchemaDefinition] = None
 
 
+# This class is the output for the 'list_dataset_contents' function.
 class ListDatasetContentsResponse(BaseValidatorModel):
     datasetContentSummaries: List[DatasetContentSummary]
     ResponseMetadata: ResponseMetadata
@@ -695,6 +729,7 @@ class Pipeline(BaseValidatorModel):
     lastUpdateTime: Optional[datetime] = None
 
 
+# This class is the output for the 'list_pipelines' function.
 class ListPipelinesResponse(BaseValidatorModel):
     pipelineSummaries: List[PipelineSummary]
     ResponseMetadata: ResponseMetadata
@@ -714,12 +749,14 @@ class PipelineActivity(BaseValidatorModel):
     deviceShadowEnrich: Optional[DeviceShadowEnrichActivity] = None
 
 
+# This class is the output for the 'describe_channel' function.
 class DescribeChannelResponse(BaseValidatorModel):
     channel: Channel
     statistics: ChannelStatistics
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_channel' function.
 class CreateChannelRequest(BaseValidatorModel):
     channelName: str
     channelStorage: Optional[ChannelStorageUnion] = None
@@ -727,12 +764,14 @@ class CreateChannelRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_channel' function.
 class UpdateChannelRequest(BaseValidatorModel):
     channelName: str
     channelStorage: Optional[ChannelStorageUnion] = None
     retentionPeriod: Optional[RetentionPeriod] = None
 
 
+# This class is the output for the 'list_channels' function.
 class ListChannelsResponse(BaseValidatorModel):
     channelSummaries: List[ChannelSummary]
     ResponseMetadata: ResponseMetadata
@@ -749,6 +788,7 @@ class FileFormatConfiguration(BaseValidatorModel):
     parquetConfiguration: Optional[ParquetConfiguration] = None
 
 
+# This class is the output for the 'list_datasets' function.
 class ListDatasetsResponse(BaseValidatorModel):
     datasetSummaries: List[DatasetSummary]
     ResponseMetadata: ResponseMetadata
@@ -785,6 +825,7 @@ class DatasetActionOutput(BaseValidatorModel):
 ContainerDatasetActionUnion = Union[ContainerDatasetAction, ContainerDatasetActionOutput]
 
 
+# This class is the output for the 'describe_pipeline' function.
 class DescribePipelineResponse(BaseValidatorModel):
     pipeline: Pipeline
     ResponseMetadata: ResponseMetadata
@@ -807,6 +848,7 @@ class Datastore(BaseValidatorModel):
 FileFormatConfigurationUnion = Union[FileFormatConfiguration, FileFormatConfigurationOutput]
 
 
+# This class is the output for the 'list_datastores' function.
 class ListDatastoresResponse(BaseValidatorModel):
     datastoreSummaries: List[DatastoreSummary]
     ResponseMetadata: ResponseMetadata
@@ -833,28 +875,33 @@ class DatasetAction(BaseValidatorModel):
     containerAction: Optional[ContainerDatasetActionUnion] = None
 
 
+# This class is the input for the 'create_pipeline' function.
 class CreatePipelineRequest(BaseValidatorModel):
     pipelineName: str
     pipelineActivities: List[PipelineActivityUnion]
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'run_pipeline_activity' function.
 class RunPipelineActivityRequest(BaseValidatorModel):
     pipelineActivity: PipelineActivityUnion
     payloads: List[Blob]
 
 
+# This class is the input for the 'update_pipeline' function.
 class UpdatePipelineRequest(BaseValidatorModel):
     pipelineName: str
     pipelineActivities: List[PipelineActivityUnion]
 
 
+# This class is the output for the 'describe_datastore' function.
 class DescribeDatastoreResponse(BaseValidatorModel):
     datastore: Datastore
     statistics: DatastoreStatistics
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_datastore' function.
 class CreateDatastoreRequest(BaseValidatorModel):
     datastoreName: str
     datastoreStorage: Optional[DatastoreStorageUnion] = None
@@ -864,6 +911,7 @@ class CreateDatastoreRequest(BaseValidatorModel):
     datastorePartitions: Optional[DatastorePartitionsUnion] = None
 
 
+# This class is the input for the 'update_datastore' function.
 class UpdateDatastoreRequest(BaseValidatorModel):
     datastoreName: str
     retentionPeriod: Optional[RetentionPeriod] = None
@@ -871,6 +919,7 @@ class UpdateDatastoreRequest(BaseValidatorModel):
     fileFormatConfiguration: Optional[FileFormatConfigurationUnion] = None
 
 
+# This class is the output for the 'describe_dataset' function.
 class DescribeDatasetResponse(BaseValidatorModel):
     dataset: Dataset
     ResponseMetadata: ResponseMetadata
@@ -878,6 +927,7 @@ class DescribeDatasetResponse(BaseValidatorModel):
 DatasetActionUnion = Union[DatasetAction, DatasetActionOutput]
 
 
+# This class is the input for the 'create_dataset' function.
 class CreateDatasetRequest(BaseValidatorModel):
     datasetName: str
     actions: List[DatasetActionUnion]
@@ -889,6 +939,7 @@ class CreateDatasetRequest(BaseValidatorModel):
     lateDataRules: Optional[List[LateDataRule]] = None
 
 
+# This class is the input for the 'update_dataset' function.
 class UpdateDatasetRequest(BaseValidatorModel):
     datasetName: str
     actions: List[DatasetActionUnion]

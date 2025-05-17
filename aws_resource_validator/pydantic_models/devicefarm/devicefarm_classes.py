@@ -51,6 +51,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_instance_profile' function.
 class CreateInstanceProfileRequest(BaseValidatorModel):
     name: str
     description: Optional[str] = None
@@ -68,6 +69,7 @@ class InstanceProfile(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'create_network_profile' function.
 class CreateNetworkProfileRequest(BaseValidatorModel):
     projectArn: str
     name: str
@@ -103,11 +105,13 @@ class DeviceProxy(BaseValidatorModel):
     port: int
 
 
+# This class is the input for the 'create_test_grid_url' function.
 class CreateTestGridUrlRequest(BaseValidatorModel):
     projectArn: str
     expiresInSeconds: int
 
 
+# This class is the input for the 'create_upload' function.
 class CreateUploadRequest(BaseValidatorModel):
     projectArn: str
     name: str
@@ -128,6 +132,7 @@ class Upload(BaseValidatorModel):
     category: Optional[UploadCategoryType] = None
 
 
+# This class is the input for the 'create_vpce_configuration' function.
 class CreateVPCEConfigurationRequest(BaseValidatorModel):
     vpceConfigurationName: str
     vpceServiceName: str
@@ -227,6 +232,7 @@ class ExecutionConfiguration(BaseValidatorModel):
     skipAppResign: Optional[bool] = None
 
 
+# This class is the input for the 'get_device_instance' function.
 class GetDeviceInstanceRequest(BaseValidatorModel):
     arn: str
 
@@ -239,22 +245,27 @@ class ScheduleRunTest(BaseValidatorModel):
     parameters: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'get_device_pool' function.
 class GetDevicePoolRequest(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'get_device' function.
 class GetDeviceRequest(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'get_instance_profile' function.
 class GetInstanceProfileRequest(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'get_job' function.
 class GetJobRequest(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'get_network_profile' function.
 class GetNetworkProfileRequest(BaseValidatorModel):
     arn: str
 
@@ -265,30 +276,37 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'get_offering_status' function.
 class GetOfferingStatusRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_project' function.
 class GetProjectRequest(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'get_remote_access_session' function.
 class GetRemoteAccessSessionRequest(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'get_run' function.
 class GetRunRequest(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'get_suite' function.
 class GetSuiteRequest(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'get_test_grid_project' function.
 class GetTestGridProjectRequest(BaseValidatorModel):
     projectArn: str
 
 
+# This class is the input for the 'get_test_grid_session' function.
 class GetTestGridSessionRequest(BaseValidatorModel):
     projectArn: Optional[str] = None
     sessionId: Optional[str] = None
@@ -304,56 +322,67 @@ class TestGridSession(BaseValidatorModel):
     seleniumProperties: Optional[str] = None
 
 
+# This class is the input for the 'get_test' function.
 class GetTestRequest(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'get_upload' function.
 class GetUploadRequest(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'get_vpce_configuration' function.
 class GetVPCEConfigurationRequest(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'install_to_remote_access_session' function.
 class InstallToRemoteAccessSessionRequest(BaseValidatorModel):
     remoteAccessSessionArn: str
     appArn: str
 
 
+# This class is the input for the 'list_artifacts' function.
 class ListArtifactsRequest(BaseValidatorModel):
     arn: str
     type: ArtifactCategoryType
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_device_instances' function.
 class ListDeviceInstancesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_device_pools' function.
 class ListDevicePoolsRequest(BaseValidatorModel):
     arn: str
     type: Optional[DevicePoolTypeType] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_instance_profiles' function.
 class ListInstanceProfilesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_jobs' function.
 class ListJobsRequest(BaseValidatorModel):
     arn: str
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_network_profiles' function.
 class ListNetworkProfilesRequest(BaseValidatorModel):
     arn: str
     type: Optional[NetworkProfileTypeType] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_offering_promotions' function.
 class ListOfferingPromotionsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
@@ -363,29 +392,35 @@ class OfferingPromotion(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'list_offering_transactions' function.
 class ListOfferingTransactionsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_offerings' function.
 class ListOfferingsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_projects' function.
 class ListProjectsRequest(BaseValidatorModel):
     arn: Optional[str] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_remote_access_sessions' function.
 class ListRemoteAccessSessionsRequest(BaseValidatorModel):
     arn: str
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_runs' function.
 class ListRunsRequest(BaseValidatorModel):
     arn: str
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_samples' function.
 class ListSamplesRequest(BaseValidatorModel):
     arn: str
     nextToken: Optional[str] = None
@@ -397,11 +432,13 @@ class Sample(BaseValidatorModel):
     url: Optional[str] = None
 
 
+# This class is the input for the 'list_suites' function.
 class ListSuitesRequest(BaseValidatorModel):
     arn: str
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
@@ -411,11 +448,13 @@ class Tag(BaseValidatorModel):
     Value: str
 
 
+# This class is the input for the 'list_test_grid_projects' function.
 class ListTestGridProjectsRequest(BaseValidatorModel):
     maxResult: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_test_grid_session_actions' function.
 class ListTestGridSessionActionsRequest(BaseValidatorModel):
     sessionArn: str
     maxResult: Optional[int] = None
@@ -430,6 +469,7 @@ class TestGridSessionAction(BaseValidatorModel):
     requestMethod: Optional[str] = None
 
 
+# This class is the input for the 'list_test_grid_session_artifacts' function.
 class ListTestGridSessionArtifactsRequest(BaseValidatorModel):
     sessionArn: str
     type: Optional[TestGridSessionArtifactCategoryType] = None
@@ -445,22 +485,26 @@ class TestGridSessionArtifact(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'list_tests' function.
 class ListTestsRequest(BaseValidatorModel):
     arn: str
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_unique_problems' function.
 class ListUniqueProblemsRequest(BaseValidatorModel):
     arn: str
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_uploads' function.
 class ListUploadsRequest(BaseValidatorModel):
     arn: str
     type: Optional[UploadTypeType] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_vpce_configurations' function.
 class ListVPCEConfigurationsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -487,6 +531,7 @@ class VpcConfigOutput(BaseValidatorModel):
     vpcId: str
 
 
+# This class is the input for the 'purchase_offering' function.
 class PurchaseOfferingRequest(BaseValidatorModel):
     offeringId: str
     quantity: int
@@ -500,19 +545,23 @@ class Radios(BaseValidatorModel):
     gps: Optional[bool] = None
 
 
+# This class is the input for the 'renew_offering' function.
 class RenewOfferingRequest(BaseValidatorModel):
     offeringId: str
     quantity: int
 
 
+# This class is the input for the 'stop_job' function.
 class StopJobRequest(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'stop_remote_access_session' function.
 class StopRemoteAccessSessionRequest(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'stop_run' function.
 class StopRunRequest(BaseValidatorModel):
     arn: str
 
@@ -534,12 +583,14 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_device_instance' function.
 class UpdateDeviceInstanceRequest(BaseValidatorModel):
     arn: str
     profileArn: Optional[str] = None
     labels: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_instance_profile' function.
 class UpdateInstanceProfileRequest(BaseValidatorModel):
     arn: str
     name: Optional[str] = None
@@ -549,6 +600,7 @@ class UpdateInstanceProfileRequest(BaseValidatorModel):
     rebootAfterUse: Optional[bool] = None
 
 
+# This class is the input for the 'update_network_profile' function.
 class UpdateNetworkProfileRequest(BaseValidatorModel):
     arn: str
     name: Optional[str] = None
@@ -564,6 +616,7 @@ class UpdateNetworkProfileRequest(BaseValidatorModel):
     downlinkLossPercent: Optional[int] = None
 
 
+# This class is the input for the 'update_upload' function.
 class UpdateUploadRequest(BaseValidatorModel):
     arn: str
     name: Optional[str] = None
@@ -571,6 +624,7 @@ class UpdateUploadRequest(BaseValidatorModel):
     editContent: Optional[bool] = None
 
 
+# This class is the input for the 'update_vpce_configuration' function.
 class UpdateVPCEConfigurationRequest(BaseValidatorModel):
     arn: str
     vpceConfigurationName: Optional[str] = None
@@ -596,6 +650,7 @@ class AccountSettings(BaseValidatorModel):
     skipAppResign: Optional[bool] = None
 
 
+# This class is the input for the 'create_device_pool' function.
 class CreateDevicePoolRequest(BaseValidatorModel):
     projectArn: str
     name: str
@@ -613,6 +668,7 @@ class DevicePool(BaseValidatorModel):
     maxDevices: Optional[int] = None
 
 
+# This class is the input for the 'update_device_pool' function.
 class UpdateDevicePoolRequest(BaseValidatorModel):
     arn: str
     name: Optional[str] = None
@@ -622,18 +678,21 @@ class UpdateDevicePoolRequest(BaseValidatorModel):
     clearMaxDevices: Optional[bool] = None
 
 
+# This class is the output for the 'create_test_grid_url' function.
 class CreateTestGridUrlResult(BaseValidatorModel):
     url: str
     expires: datetime
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_artifacts' function.
 class ListArtifactsResult(BaseValidatorModel):
     artifacts: List[Artifact]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_instance_profile' function.
 class CreateInstanceProfileResult(BaseValidatorModel):
     instanceProfile: InstanceProfile
     ResponseMetadata: ResponseMetadata
@@ -648,38 +707,45 @@ class DeviceInstance(BaseValidatorModel):
     instanceProfile: Optional[InstanceProfile] = None
 
 
+# This class is the output for the 'get_instance_profile' function.
 class GetInstanceProfileResult(BaseValidatorModel):
     instanceProfile: InstanceProfile
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_instance_profiles' function.
 class ListInstanceProfilesResult(BaseValidatorModel):
     instanceProfiles: List[InstanceProfile]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_instance_profile' function.
 class UpdateInstanceProfileResult(BaseValidatorModel):
     instanceProfile: InstanceProfile
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_network_profile' function.
 class CreateNetworkProfileResult(BaseValidatorModel):
     networkProfile: NetworkProfile
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_network_profile' function.
 class GetNetworkProfileResult(BaseValidatorModel):
     networkProfile: NetworkProfile
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_network_profiles' function.
 class ListNetworkProfilesResult(BaseValidatorModel):
     networkProfiles: List[NetworkProfile]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_network_profile' function.
 class UpdateNetworkProfileResult(BaseValidatorModel):
     networkProfile: NetworkProfile
     ResponseMetadata: ResponseMetadata
@@ -691,48 +757,57 @@ class CreateRemoteAccessSessionConfiguration(BaseValidatorModel):
     deviceProxy: Optional[DeviceProxy] = None
 
 
+# This class is the output for the 'create_upload' function.
 class CreateUploadResult(BaseValidatorModel):
     upload: Upload
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_upload' function.
 class GetUploadResult(BaseValidatorModel):
     upload: Upload
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'install_to_remote_access_session' function.
 class InstallToRemoteAccessSessionResult(BaseValidatorModel):
     appUpload: Upload
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_uploads' function.
 class ListUploadsResult(BaseValidatorModel):
     uploads: List[Upload]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_upload' function.
 class UpdateUploadResult(BaseValidatorModel):
     upload: Upload
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_vpce_configuration' function.
 class CreateVPCEConfigurationResult(BaseValidatorModel):
     vpceConfiguration: VPCEConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_vpce_configuration' function.
 class GetVPCEConfigurationResult(BaseValidatorModel):
     vpceConfiguration: VPCEConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_vpce_configurations' function.
 class ListVPCEConfigurationsResult(BaseValidatorModel):
     vpceConfigurations: List[VPCEConfiguration]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_vpce_configuration' function.
 class UpdateVPCEConfigurationResult(BaseValidatorModel):
     vpceConfiguration: VPCEConfiguration
     ResponseMetadata: ResponseMetadata
@@ -868,29 +943,34 @@ class ListVPCEConfigurationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'get_test_grid_session' function.
 class GetTestGridSessionResult(BaseValidatorModel):
     testGridSession: TestGridSession
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_test_grid_sessions' function.
 class ListTestGridSessionsResult(BaseValidatorModel):
     testGridSessions: List[TestGridSession]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_offering_promotions' function.
 class ListOfferingPromotionsResult(BaseValidatorModel):
     offeringPromotions: List[OfferingPromotion]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_samples' function.
 class ListSamplesResult(BaseValidatorModel):
     samples: List[Sample]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -901,18 +981,21 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the output for the 'list_test_grid_session_actions' function.
 class ListTestGridSessionActionsResult(BaseValidatorModel):
     actions: List[TestGridSessionAction]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_test_grid_session_artifacts' function.
 class ListTestGridSessionArtifactsResult(BaseValidatorModel):
     artifacts: List[TestGridSessionArtifact]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_test_grid_sessions' function.
 class ListTestGridSessionsRequest(BaseValidatorModel):
     projectArn: str
     status: Optional[TestGridSessionStatusType] = None
@@ -954,22 +1037,26 @@ class GetAccountSettingsResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_device_pool' function.
 class CreateDevicePoolResult(BaseValidatorModel):
     devicePool: DevicePool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_device_pool' function.
 class GetDevicePoolResult(BaseValidatorModel):
     devicePool: DevicePool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_device_pools' function.
 class ListDevicePoolsResult(BaseValidatorModel):
     devicePools: List[DevicePool]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_device_pool' function.
 class UpdateDevicePoolResult(BaseValidatorModel):
     devicePool: DevicePool
     ResponseMetadata: ResponseMetadata
@@ -999,22 +1086,26 @@ class Device(BaseValidatorModel):
     availability: Optional[DeviceAvailabilityType] = None
 
 
+# This class is the output for the 'get_device_instance' function.
 class GetDeviceInstanceResult(BaseValidatorModel):
     deviceInstance: DeviceInstance
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_device_instances' function.
 class ListDeviceInstancesResult(BaseValidatorModel):
     deviceInstances: List[DeviceInstance]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_device_instance' function.
 class UpdateDeviceInstanceResult(BaseValidatorModel):
     deviceInstance: DeviceInstance
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_remote_access_session' function.
 class CreateRemoteAccessSessionRequest(BaseValidatorModel):
     projectArn: str
     deviceArn: str
@@ -1090,28 +1181,33 @@ class ListDevicesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_devices' function.
 class ListDevicesRequest(BaseValidatorModel):
     arn: Optional[str] = None
     nextToken: Optional[str] = None
     filters: Optional[List[DeviceFilterUnion]] = None
 
 
+# This class is the output for the 'get_suite' function.
 class GetSuiteResult(BaseValidatorModel):
     suite: Suite
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_suites' function.
 class ListSuitesResult(BaseValidatorModel):
     suites: List[Suite]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_test' function.
 class GetTestResult(BaseValidatorModel):
     test: Test
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tests' function.
 class ListTestsResult(BaseValidatorModel):
     tests: List[Test]
     ResponseMetadata: ResponseMetadata
@@ -1126,54 +1222,64 @@ class Offering(BaseValidatorModel):
     recurringCharges: Optional[List[RecurringCharge]] = None
 
 
+# This class is the output for the 'create_project' function.
 class CreateProjectResult(BaseValidatorModel):
     project: Project
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_project' function.
 class GetProjectResult(BaseValidatorModel):
     project: Project
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_projects' function.
 class ListProjectsResult(BaseValidatorModel):
     projects: List[Project]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_project' function.
 class UpdateProjectResult(BaseValidatorModel):
     project: Project
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_test_grid_project' function.
 class CreateTestGridProjectResult(BaseValidatorModel):
     testGridProject: TestGridProject
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_test_grid_project' function.
 class GetTestGridProjectResult(BaseValidatorModel):
     testGridProject: TestGridProject
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_test_grid_projects' function.
 class ListTestGridProjectsResult(BaseValidatorModel):
     testGridProjects: List[TestGridProject]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_test_grid_project' function.
 class UpdateTestGridProjectResult(BaseValidatorModel):
     testGridProject: TestGridProject
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_test_grid_project' function.
 class CreateTestGridProjectRequest(BaseValidatorModel):
     name: str
     description: Optional[str] = None
     vpcConfig: Optional[TestGridVpcConfigUnion] = None
 
 
+# This class is the input for the 'update_test_grid_project' function.
 class UpdateTestGridProjectRequest(BaseValidatorModel):
     projectArn: str
     name: Optional[str] = None
@@ -1181,12 +1287,14 @@ class UpdateTestGridProjectRequest(BaseValidatorModel):
     vpcConfig: Optional[TestGridVpcConfigUnion] = None
 
 
+# This class is the input for the 'create_project' function.
 class CreateProjectRequest(BaseValidatorModel):
     name: str
     defaultJobTimeoutMinutes: Optional[int] = None
     vpcConfig: Optional[VpcConfigUnion] = None
 
 
+# This class is the input for the 'update_project' function.
 class UpdateProjectRequest(BaseValidatorModel):
     arn: str
     name: Optional[str] = None
@@ -1200,6 +1308,7 @@ class DevicePoolCompatibilityResult(BaseValidatorModel):
     incompatibilityMessages: Optional[List[IncompatibilityMessage]] = None
 
 
+# This class is the output for the 'get_device' function.
 class GetDeviceResult(BaseValidatorModel):
     device: Device
     ResponseMetadata: ResponseMetadata
@@ -1223,6 +1332,7 @@ class Job(BaseValidatorModel):
     videoCapture: Optional[bool] = None
 
 
+# This class is the output for the 'list_devices' function.
 class ListDevicesResult(BaseValidatorModel):
     devices: List[Device]
     ResponseMetadata: ResponseMetadata
@@ -1265,6 +1375,7 @@ class RemoteAccessSession(BaseValidatorModel):
     deviceProxy: Optional[DeviceProxy] = None
 
 
+# This class is the input for the 'get_device_pool_compatibility' function.
 class GetDevicePoolCompatibilityRequest(BaseValidatorModel):
     devicePoolArn: str
     appArn: Optional[str] = None
@@ -1273,27 +1384,32 @@ class GetDevicePoolCompatibilityRequest(BaseValidatorModel):
     configuration: Optional[ScheduleRunConfiguration] = None
 
 
+# This class is the output for the 'get_run' function.
 class GetRunResult(BaseValidatorModel):
     run: Run
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_runs' function.
 class ListRunsResult(BaseValidatorModel):
     runs: List[Run]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'schedule_run' function.
 class ScheduleRunResult(BaseValidatorModel):
     run: Run
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_run' function.
 class StopRunResult(BaseValidatorModel):
     run: Run
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'schedule_run' function.
 class ScheduleRunRequest(BaseValidatorModel):
     projectArn: str
     test: ScheduleRunTest
@@ -1305,6 +1421,7 @@ class ScheduleRunRequest(BaseValidatorModel):
     executionConfiguration: Optional[ExecutionConfiguration] = None
 
 
+# This class is the output for the 'list_offerings' function.
 class ListOfferingsResult(BaseValidatorModel):
     offerings: List[Offering]
     ResponseMetadata: ResponseMetadata
@@ -1318,23 +1435,27 @@ class OfferingStatus(BaseValidatorModel):
     effectiveOn: Optional[datetime] = None
 
 
+# This class is the output for the 'get_device_pool_compatibility' function.
 class GetDevicePoolCompatibilityResult(BaseValidatorModel):
     compatibleDevices: List[DevicePoolCompatibilityResult]
     incompatibleDevices: List[DevicePoolCompatibilityResult]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_job' function.
 class GetJobResult(BaseValidatorModel):
     job: Job
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_jobs' function.
 class ListJobsResult(BaseValidatorModel):
     jobs: List[Job]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'stop_job' function.
 class StopJobResult(BaseValidatorModel):
     job: Job
     ResponseMetadata: ResponseMetadata
@@ -1345,27 +1466,32 @@ class UniqueProblem(BaseValidatorModel):
     problems: Optional[List[Problem]] = None
 
 
+# This class is the output for the 'create_remote_access_session' function.
 class CreateRemoteAccessSessionResult(BaseValidatorModel):
     remoteAccessSession: RemoteAccessSession
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_remote_access_session' function.
 class GetRemoteAccessSessionResult(BaseValidatorModel):
     remoteAccessSession: RemoteAccessSession
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_remote_access_sessions' function.
 class ListRemoteAccessSessionsResult(BaseValidatorModel):
     remoteAccessSessions: List[RemoteAccessSession]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'stop_remote_access_session' function.
 class StopRemoteAccessSessionResult(BaseValidatorModel):
     remoteAccessSession: RemoteAccessSession
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_offering_status' function.
 class GetOfferingStatusResult(BaseValidatorModel):
     current: Dict[str, OfferingStatus]
     nextPeriod: Dict[str, OfferingStatus]
@@ -1381,23 +1507,27 @@ class OfferingTransaction(BaseValidatorModel):
     cost: Optional[MonetaryAmount] = None
 
 
+# This class is the output for the 'list_unique_problems' function.
 class ListUniqueProblemsResult(BaseValidatorModel):
     uniqueProblems: Dict[ExecutionResultType, List[UniqueProblem]]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_offering_transactions' function.
 class ListOfferingTransactionsResult(BaseValidatorModel):
     offeringTransactions: List[OfferingTransaction]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'purchase_offering' function.
 class PurchaseOfferingResult(BaseValidatorModel):
     offeringTransaction: OfferingTransaction
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'renew_offering' function.
 class RenewOfferingResult(BaseValidatorModel):
     offeringTransaction: OfferingTransaction
     ResponseMetadata: ResponseMetadata

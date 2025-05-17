@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'get_raw_message_content' function.
 class GetRawMessageContentRequest(BaseValidatorModel):
     messageId: str
 
@@ -26,6 +27,7 @@ class S3Reference(BaseValidatorModel):
     objectVersion: Optional[str] = None
 
 
+# This class is the output for the 'get_raw_message_content' function.
 class GetRawMessageContentResponse(BaseValidatorModel):
     messageContent: StreamingBody
     ResponseMetadata: ResponseMetadata

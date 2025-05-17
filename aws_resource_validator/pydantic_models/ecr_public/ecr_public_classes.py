@@ -13,6 +13,7 @@ class AuthorizationData(BaseValidatorModel):
     expiresAt: Optional[datetime] = None
 
 
+# This class is the input for the 'batch_check_layer_availability' function.
 class BatchCheckLayerAvailabilityRequest(BaseValidatorModel):
     repositoryName: str
     layerDigests: List[str]
@@ -47,6 +48,7 @@ class ImageIdentifier(BaseValidatorModel):
 Blob = Union[str, bytes, IO[Any], StreamingBody]
 
 
+# This class is the input for the 'complete_layer_upload' function.
 class CompleteLayerUploadRequest(BaseValidatorModel):
     repositoryName: str
     uploadId: str
@@ -77,11 +79,13 @@ class Repository(BaseValidatorModel):
     createdAt: Optional[datetime] = None
 
 
+# This class is the input for the 'delete_repository_policy' function.
 class DeleteRepositoryPolicyRequest(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
 
 
+# This class is the input for the 'delete_repository' function.
 class DeleteRepositoryRequest(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
@@ -94,6 +98,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_image_tags' function.
 class DescribeImageTagsRequest(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
@@ -112,11 +117,13 @@ class ImageDetail(BaseValidatorModel):
     artifactMediaType: Optional[str] = None
 
 
+# This class is the input for the 'describe_registries' function.
 class DescribeRegistriesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_repositories' function.
 class DescribeRepositoriesRequest(BaseValidatorModel):
     registryId: Optional[str] = None
     repositoryNames: Optional[List[str]] = None
@@ -128,11 +135,13 @@ class RegistryCatalogData(BaseValidatorModel):
     displayName: Optional[str] = None
 
 
+# This class is the input for the 'get_repository_catalog_data' function.
 class GetRepositoryCatalogDataRequest(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
 
 
+# This class is the input for the 'get_repository_policy' function.
 class GetRepositoryPolicyRequest(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
@@ -146,15 +155,18 @@ class ReferencedImageDetail(BaseValidatorModel):
     artifactMediaType: Optional[str] = None
 
 
+# This class is the input for the 'initiate_layer_upload' function.
 class InitiateLayerUploadRequest(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'put_image' function.
 class PutImageRequest(BaseValidatorModel):
     repositoryName: str
     imageManifest: str
@@ -164,6 +176,7 @@ class PutImageRequest(BaseValidatorModel):
     imageDigest: Optional[str] = None
 
 
+# This class is the input for the 'put_registry_catalog_data' function.
 class PutRegistryCatalogDataRequest(BaseValidatorModel):
     displayName: Optional[str] = None
 
@@ -175,6 +188,7 @@ class RegistryAlias(BaseValidatorModel):
     defaultRegistryAlias: bool
 
 
+# This class is the input for the 'set_repository_policy' function.
 class SetRepositoryPolicyRequest(BaseValidatorModel):
     repositoryName: str
     policyText: str
@@ -187,12 +201,14 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the output for the 'batch_check_layer_availability' function.
 class BatchCheckLayerAvailabilityResponse(BaseValidatorModel):
     layers: List[Layer]
     failures: List[LayerFailure]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'complete_layer_upload' function.
 class CompleteLayerUploadResponse(BaseValidatorModel):
     registryId: str
     repositoryName: str
@@ -201,6 +217,7 @@ class CompleteLayerUploadResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_repository_policy' function.
 class DeleteRepositoryPolicyResponse(BaseValidatorModel):
     registryId: str
     repositoryName: str
@@ -213,6 +230,7 @@ class GetAuthorizationTokenResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_repository_policy' function.
 class GetRepositoryPolicyResponse(BaseValidatorModel):
     registryId: str
     repositoryName: str
@@ -220,12 +238,14 @@ class GetRepositoryPolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'initiate_layer_upload' function.
 class InitiateLayerUploadResponse(BaseValidatorModel):
     uploadId: str
     partSize: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'set_repository_policy' function.
 class SetRepositoryPolicyResponse(BaseValidatorModel):
     registryId: str
     repositoryName: str
@@ -233,6 +253,7 @@ class SetRepositoryPolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'upload_layer_part' function.
 class UploadLayerPartResponse(BaseValidatorModel):
     registryId: str
     repositoryName: str
@@ -241,12 +262,14 @@ class UploadLayerPartResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'batch_delete_image' function.
 class BatchDeleteImageRequest(BaseValidatorModel):
     repositoryName: str
     imageIds: List[ImageIdentifier]
     registryId: Optional[str] = None
 
 
+# This class is the input for the 'describe_images' function.
 class DescribeImagesRequest(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
@@ -278,6 +301,7 @@ class RepositoryCatalogDataInput(BaseValidatorModel):
     usageText: Optional[str] = None
 
 
+# This class is the input for the 'upload_layer_part' function.
 class UploadLayerPartRequest(BaseValidatorModel):
     repositoryName: str
     uploadId: str
@@ -287,6 +311,7 @@ class UploadLayerPartRequest(BaseValidatorModel):
     registryId: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -297,27 +322,32 @@ class TagResourceRequest(BaseValidatorModel):
     tags: List[Tag]
 
 
+# This class is the output for the 'get_repository_catalog_data' function.
 class GetRepositoryCatalogDataResponse(BaseValidatorModel):
     catalogData: RepositoryCatalogData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_repository_catalog_data' function.
 class PutRepositoryCatalogDataResponse(BaseValidatorModel):
     catalogData: RepositoryCatalogData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_repository' function.
 class CreateRepositoryResponse(BaseValidatorModel):
     repository: Repository
     catalogData: RepositoryCatalogData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_repository' function.
 class DeleteRepositoryResponse(BaseValidatorModel):
     repository: Repository
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_repositories' function.
 class DescribeRepositoriesResponse(BaseValidatorModel):
     repositories: List[Repository]
     ResponseMetadata: ResponseMetadata
@@ -347,6 +377,7 @@ class DescribeRepositoriesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'describe_images' function.
 class DescribeImagesResponse(BaseValidatorModel):
     imageDetails: List[ImageDetail]
     ResponseMetadata: ResponseMetadata
@@ -358,6 +389,7 @@ class GetRegistryCatalogDataResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_registry_catalog_data' function.
 class PutRegistryCatalogDataResponse(BaseValidatorModel):
     registryCatalogData: RegistryCatalogData
     ResponseMetadata: ResponseMetadata
@@ -377,35 +409,41 @@ class Registry(BaseValidatorModel):
     aliases: List[RegistryAlias]
 
 
+# This class is the output for the 'batch_delete_image' function.
 class BatchDeleteImageResponse(BaseValidatorModel):
     imageIds: List[ImageIdentifier]
     failures: List[ImageFailure]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_image' function.
 class PutImageResponse(BaseValidatorModel):
     image: Image
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_repository' function.
 class CreateRepositoryRequest(BaseValidatorModel):
     repositoryName: str
     catalogData: Optional[RepositoryCatalogDataInput] = None
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'put_repository_catalog_data' function.
 class PutRepositoryCatalogDataRequest(BaseValidatorModel):
     repositoryName: str
     catalogData: RepositoryCatalogDataInput
     registryId: Optional[str] = None
 
 
+# This class is the output for the 'describe_image_tags' function.
 class DescribeImageTagsResponse(BaseValidatorModel):
     imageTagDetails: List[ImageTagDetail]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_registries' function.
 class DescribeRegistriesResponse(BaseValidatorModel):
     registries: List[Registry]
     ResponseMetadata: ResponseMetadata

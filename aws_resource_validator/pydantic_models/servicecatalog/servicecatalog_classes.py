@@ -102,6 +102,7 @@ class ConstraintSummary(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'copy_product' function.
 class CopyProductInput(BaseValidatorModel):
     SourceProductArn: str
     IdempotencyToken: str
@@ -112,6 +113,7 @@ class CopyProductInput(BaseValidatorModel):
     CopyOptions: Optional[List[Literal['CopyTags']]] = None
 
 
+# This class is the input for the 'create_constraint' function.
 class CreateConstraintInput(BaseValidatorModel):
     PortfolioId: str
     ProductId: str
@@ -166,6 +168,7 @@ class UpdateProvisioningParameter(BaseValidatorModel):
     UsePreviousValue: Optional[bool] = None
 
 
+# This class is the input for the 'create_service_action' function.
 class CreateServiceActionInput(BaseValidatorModel):
     Name: str
     DefinitionType: Literal['SSM_AUTOMATION']
@@ -175,6 +178,7 @@ class CreateServiceActionInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
 
 
+# This class is the input for the 'create_tag_option' function.
 class CreateTagOptionInput(BaseValidatorModel):
     Key: str
     Value: str
@@ -225,25 +229,30 @@ class DeleteTagOptionInput(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'describe_constraint' function.
 class DescribeConstraintInput(BaseValidatorModel):
     Id: str
     AcceptLanguage: Optional[str] = None
 
 
+# This class is the input for the 'describe_copy_product_status' function.
 class DescribeCopyProductStatusInput(BaseValidatorModel):
     CopyProductToken: str
     AcceptLanguage: Optional[str] = None
 
 
+# This class is the input for the 'describe_portfolio' function.
 class DescribePortfolioInput(BaseValidatorModel):
     Id: str
     AcceptLanguage: Optional[str] = None
 
 
+# This class is the input for the 'describe_portfolio_share_status' function.
 class DescribePortfolioShareStatusInput(BaseValidatorModel):
     PortfolioShareToken: str
 
 
+# This class is the input for the 'describe_portfolio_shares' function.
 class DescribePortfolioSharesInput(BaseValidatorModel):
     PortfolioId: str
     Type: DescribePortfolioShareTypeType
@@ -259,6 +268,7 @@ class PortfolioShareDetail(BaseValidatorModel):
     SharePrincipals: Optional[bool] = None
 
 
+# This class is the input for the 'describe_product_as_admin' function.
 class DescribeProductAsAdminInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     Id: Optional[str] = None
@@ -274,6 +284,7 @@ class ProvisioningArtifactSummary(BaseValidatorModel):
     ProvisioningArtifactMetadata: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'describe_product' function.
 class DescribeProductInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     Id: Optional[str] = None
@@ -307,11 +318,13 @@ class ProvisioningArtifact(BaseValidatorModel):
     Guidance: Optional[ProvisioningArtifactGuidanceType] = None
 
 
+# This class is the input for the 'describe_product_view' function.
 class DescribeProductViewInput(BaseValidatorModel):
     Id: str
     AcceptLanguage: Optional[str] = None
 
 
+# This class is the input for the 'describe_provisioned_product' function.
 class DescribeProvisionedProductInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     Id: Optional[str] = None
@@ -335,6 +348,7 @@ class ProvisionedProductDetail(BaseValidatorModel):
     LaunchRoleArn: Optional[str] = None
 
 
+# This class is the input for the 'describe_provisioned_product_plan' function.
 class DescribeProvisionedProductPlanInput(BaseValidatorModel):
     PlanId: str
     AcceptLanguage: Optional[str] = None
@@ -342,6 +356,7 @@ class DescribeProvisionedProductPlanInput(BaseValidatorModel):
     PageToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_provisioning_artifact' function.
 class DescribeProvisioningArtifactInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     ProvisioningArtifactId: Optional[str] = None
@@ -352,6 +367,7 @@ class DescribeProvisioningArtifactInput(BaseValidatorModel):
     IncludeProvisioningArtifactParameters: Optional[bool] = None
 
 
+# This class is the input for the 'describe_provisioning_parameters' function.
 class DescribeProvisioningParametersInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     ProductId: Optional[str] = None
@@ -382,6 +398,7 @@ class UsageInstruction(BaseValidatorModel):
     Value: Optional[str] = None
 
 
+# This class is the input for the 'describe_record' function.
 class DescribeRecordInput(BaseValidatorModel):
     Id: str
     AcceptLanguage: Optional[str] = None
@@ -395,6 +412,7 @@ class RecordOutput(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'describe_service_action_execution_parameters' function.
 class DescribeServiceActionExecutionParametersInput(BaseValidatorModel):
     ProvisionedProductId: str
     ServiceActionId: str
@@ -407,11 +425,13 @@ class ExecutionParameter(BaseValidatorModel):
     DefaultValues: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_service_action' function.
 class DescribeServiceActionInput(BaseValidatorModel):
     Id: str
     AcceptLanguage: Optional[str] = None
 
 
+# This class is the input for the 'describe_tag_option' function.
 class DescribeTagOptionInput(BaseValidatorModel):
     Id: str
 
@@ -452,12 +472,14 @@ class UniqueTagResourceIdentifier(BaseValidatorModel):
     Value: Optional[str] = None
 
 
+# This class is the input for the 'execute_provisioned_product_plan' function.
 class ExecuteProvisionedProductPlanInput(BaseValidatorModel):
     PlanId: str
     IdempotencyToken: str
     AcceptLanguage: Optional[str] = None
 
 
+# This class is the input for the 'execute_provisioned_product_service_action' function.
 class ExecuteProvisionedProductServiceActionInput(BaseValidatorModel):
     ProvisionedProductId: str
     ServiceActionId: str
@@ -466,6 +488,7 @@ class ExecuteProvisionedProductServiceActionInput(BaseValidatorModel):
     Parameters: Optional[Dict[str, List[str]]] = None
 
 
+# This class is the input for the 'get_provisioned_product_outputs' function.
 class GetProvisionedProductOutputsInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     ProvisionedProductId: Optional[str] = None
@@ -475,6 +498,7 @@ class GetProvisionedProductOutputsInput(BaseValidatorModel):
     PageToken: Optional[str] = None
 
 
+# This class is the input for the 'import_as_provisioned_product' function.
 class ImportAsProvisionedProductInput(BaseValidatorModel):
     ProductId: str
     ProvisioningArtifactId: str
@@ -498,6 +522,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_accepted_portfolio_shares' function.
 class ListAcceptedPortfolioSharesInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     PageToken: Optional[str] = None
@@ -505,6 +530,7 @@ class ListAcceptedPortfolioSharesInput(BaseValidatorModel):
     PortfolioShareType: Optional[PortfolioShareTypeType] = None
 
 
+# This class is the input for the 'list_budgets_for_resource' function.
 class ListBudgetsForResourceInput(BaseValidatorModel):
     ResourceId: str
     AcceptLanguage: Optional[str] = None
@@ -512,6 +538,7 @@ class ListBudgetsForResourceInput(BaseValidatorModel):
     PageToken: Optional[str] = None
 
 
+# This class is the input for the 'list_constraints_for_portfolio' function.
 class ListConstraintsForPortfolioInput(BaseValidatorModel):
     PortfolioId: str
     AcceptLanguage: Optional[str] = None
@@ -520,6 +547,7 @@ class ListConstraintsForPortfolioInput(BaseValidatorModel):
     PageToken: Optional[str] = None
 
 
+# This class is the input for the 'list_launch_paths' function.
 class ListLaunchPathsInput(BaseValidatorModel):
     ProductId: str
     AcceptLanguage: Optional[str] = None
@@ -527,6 +555,7 @@ class ListLaunchPathsInput(BaseValidatorModel):
     PageToken: Optional[str] = None
 
 
+# This class is the input for the 'list_organization_portfolio_access' function.
 class ListOrganizationPortfolioAccessInput(BaseValidatorModel):
     PortfolioId: str
     OrganizationNodeType: OrganizationNodeTypeType
@@ -535,6 +564,7 @@ class ListOrganizationPortfolioAccessInput(BaseValidatorModel):
     PageSize: Optional[int] = None
 
 
+# This class is the input for the 'list_portfolio_access' function.
 class ListPortfolioAccessInput(BaseValidatorModel):
     PortfolioId: str
     AcceptLanguage: Optional[str] = None
@@ -543,6 +573,7 @@ class ListPortfolioAccessInput(BaseValidatorModel):
     PageSize: Optional[int] = None
 
 
+# This class is the input for the 'list_portfolios_for_product' function.
 class ListPortfoliosForProductInput(BaseValidatorModel):
     ProductId: str
     AcceptLanguage: Optional[str] = None
@@ -550,12 +581,14 @@ class ListPortfoliosForProductInput(BaseValidatorModel):
     PageSize: Optional[int] = None
 
 
+# This class is the input for the 'list_portfolios' function.
 class ListPortfoliosInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     PageToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
+# This class is the input for the 'list_principals_for_portfolio' function.
 class ListPrincipalsForPortfolioInput(BaseValidatorModel):
     PortfolioId: str
     AcceptLanguage: Optional[str] = None
@@ -577,6 +610,7 @@ class ProvisionedProductPlanSummary(BaseValidatorModel):
     ProvisioningArtifactId: Optional[str] = None
 
 
+# This class is the input for the 'list_provisioning_artifacts_for_service_action' function.
 class ListProvisioningArtifactsForServiceActionInput(BaseValidatorModel):
     ServiceActionId: str
     PageSize: Optional[int] = None
@@ -584,6 +618,7 @@ class ListProvisioningArtifactsForServiceActionInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
 
 
+# This class is the input for the 'list_provisioning_artifacts' function.
 class ListProvisioningArtifactsInput(BaseValidatorModel):
     ProductId: str
     AcceptLanguage: Optional[str] = None
@@ -594,6 +629,7 @@ class ListRecordHistorySearchFilter(BaseValidatorModel):
     Value: Optional[str] = None
 
 
+# This class is the input for the 'list_resources_for_tag_option' function.
 class ListResourcesForTagOptionInput(BaseValidatorModel):
     TagOptionId: str
     ResourceType: Optional[str] = None
@@ -609,6 +645,7 @@ class ResourceDetail(BaseValidatorModel):
     CreatedTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_service_actions_for_provisioning_artifact' function.
 class ListServiceActionsForProvisioningArtifactInput(BaseValidatorModel):
     ProductId: str
     ProvisioningArtifactId: str
@@ -624,12 +661,14 @@ class ServiceActionSummary(BaseValidatorModel):
     DefinitionType: Optional[Literal['SSM_AUTOMATION']] = None
 
 
+# This class is the input for the 'list_service_actions' function.
 class ListServiceActionsInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     PageSize: Optional[int] = None
     PageToken: Optional[str] = None
 
 
+# This class is the input for the 'list_stack_instances_for_provisioned_product' function.
 class ListStackInstancesForProvisionedProductInput(BaseValidatorModel):
     ProvisionedProductId: str
     AcceptLanguage: Optional[str] = None
@@ -708,6 +747,7 @@ class ResourceTargetDefinition(BaseValidatorModel):
     RequiresRecreation: Optional[RequiresRecreationType] = None
 
 
+# This class is the input for the 'search_products_as_admin' function.
 class SearchProductsAsAdminInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     PortfolioId: Optional[str] = None
@@ -719,6 +759,7 @@ class SearchProductsAsAdminInput(BaseValidatorModel):
     ProductSource: Optional[Literal['ACCOUNT']] = None
 
 
+# This class is the input for the 'search_products' function.
 class SearchProductsInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     Filters: Optional[Dict[ProductViewFilterByType, List[str]]] = None
@@ -734,6 +775,7 @@ class ShareError(BaseValidatorModel):
     Error: Optional[str] = None
 
 
+# This class is the input for the 'terminate_provisioned_product' function.
 class TerminateProvisionedProductInput(BaseValidatorModel):
     TerminateToken: str
     ProvisionedProductName: Optional[str] = None
@@ -743,6 +785,7 @@ class TerminateProvisionedProductInput(BaseValidatorModel):
     RetainPhysicalResources: Optional[bool] = None
 
 
+# This class is the input for the 'update_constraint' function.
 class UpdateConstraintInput(BaseValidatorModel):
     Id: str
     AcceptLanguage: Optional[str] = None
@@ -760,6 +803,7 @@ class UpdateProvisioningPreferences(BaseValidatorModel):
     StackSetOperationType: Optional[StackSetOperationTypeType] = None
 
 
+# This class is the input for the 'update_provisioned_product_properties' function.
 class UpdateProvisionedProductPropertiesInput(BaseValidatorModel):
     ProvisionedProductId: str
     ProvisionedProductProperties: Dict[PropertyKeyType, str]
@@ -767,6 +811,7 @@ class UpdateProvisionedProductPropertiesInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
 
 
+# This class is the input for the 'update_provisioning_artifact' function.
 class UpdateProvisioningArtifactInput(BaseValidatorModel):
     ProductId: str
     ProvisioningArtifactId: str
@@ -777,6 +822,7 @@ class UpdateProvisioningArtifactInput(BaseValidatorModel):
     Guidance: Optional[ProvisioningArtifactGuidanceType] = None
 
 
+# This class is the input for the 'update_service_action' function.
 class UpdateServiceActionInput(BaseValidatorModel):
     Id: str
     Name: Optional[str] = None
@@ -785,12 +831,14 @@ class UpdateServiceActionInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
 
 
+# This class is the input for the 'update_tag_option' function.
 class UpdateTagOptionInput(BaseValidatorModel):
     Id: str
     Value: Optional[str] = None
     Active: Optional[bool] = None
 
 
+# This class is the input for the 'list_provisioned_product_plans' function.
 class ListProvisionedProductPlansInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     ProvisionProductId: Optional[str] = None
@@ -799,6 +847,7 @@ class ListProvisionedProductPlansInput(BaseValidatorModel):
     AccessLevelFilter: Optional[AccessLevelFilter] = None
 
 
+# This class is the input for the 'scan_provisioned_products' function.
 class ScanProvisionedProductsInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     AccessLevelFilter: Optional[AccessLevelFilter] = None
@@ -806,6 +855,7 @@ class ScanProvisionedProductsInput(BaseValidatorModel):
     PageToken: Optional[str] = None
 
 
+# This class is the input for the 'search_provisioned_products' function.
 class SearchProvisionedProductsInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     AccessLevelFilter: Optional[AccessLevelFilter] = None
@@ -816,36 +866,43 @@ class SearchProvisionedProductsInput(BaseValidatorModel):
     PageToken: Optional[str] = None
 
 
+# This class is the input for the 'batch_associate_service_action_with_provisioning_artifact' function.
 class BatchAssociateServiceActionWithProvisioningArtifactInput(BaseValidatorModel):
     ServiceActionAssociations: List[ServiceActionAssociation]
     AcceptLanguage: Optional[str] = None
 
 
+# This class is the input for the 'batch_disassociate_service_action_from_provisioning_artifact' function.
 class BatchDisassociateServiceActionFromProvisioningArtifactInput(BaseValidatorModel):
     ServiceActionAssociations: List[ServiceActionAssociation]
     AcceptLanguage: Optional[str] = None
 
 
+# This class is the output for the 'batch_associate_service_action_with_provisioning_artifact' function.
 class BatchAssociateServiceActionWithProvisioningArtifactOutput(BaseValidatorModel):
     FailedServiceActionAssociations: List[FailedServiceActionAssociation]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_disassociate_service_action_from_provisioning_artifact' function.
 class BatchDisassociateServiceActionFromProvisioningArtifactOutput(BaseValidatorModel):
     FailedServiceActionAssociations: List[FailedServiceActionAssociation]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'copy_product' function.
 class CopyProductOutput(BaseValidatorModel):
     CopyProductToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_portfolio_share' function.
 class CreatePortfolioShareOutput(BaseValidatorModel):
     PortfolioShareToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_provisioned_product_plan' function.
 class CreateProvisionedProductPlanOutput(BaseValidatorModel):
     PlanName: str
     PlanId: str
@@ -855,11 +912,13 @@ class CreateProvisionedProductPlanOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_portfolio_share' function.
 class DeletePortfolioShareOutput(BaseValidatorModel):
     PortfolioShareToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_copy_product_status' function.
 class DescribeCopyProductStatusOutput(BaseValidatorModel):
     CopyProductStatus: CopyProductStatusType
     TargetProductId: str
@@ -872,18 +931,21 @@ class GetAWSOrganizationsAccessStatusOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_portfolio_access' function.
 class ListPortfolioAccessOutput(BaseValidatorModel):
     AccountIds: List[str]
     NextPageToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_portfolio_share' function.
 class UpdatePortfolioShareOutput(BaseValidatorModel):
     PortfolioShareToken: str
     Status: ShareStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_provisioned_product_properties' function.
 class UpdateProvisionedProductPropertiesOutput(BaseValidatorModel):
     ProvisionedProductId: str
     ProvisionedProductProperties: Dict[PropertyKeyType, str]
@@ -892,6 +954,7 @@ class UpdateProvisionedProductPropertiesOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_budgets_for_resource' function.
 class ListBudgetsForResourceOutput(BaseValidatorModel):
     Budgets: List[BudgetDetail]
     NextPageToken: str
@@ -902,6 +965,7 @@ class SourceConnectionParameters(BaseValidatorModel):
     CodeStar: Optional[CodeStarParameters] = None
 
 
+# This class is the output for the 'create_constraint' function.
 class CreateConstraintOutput(BaseValidatorModel):
     ConstraintDetail: ConstraintDetail
     ConstraintParameters: str
@@ -909,6 +973,7 @@ class CreateConstraintOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_constraint' function.
 class DescribeConstraintOutput(BaseValidatorModel):
     ConstraintDetail: ConstraintDetail
     ConstraintParameters: str
@@ -916,12 +981,14 @@ class DescribeConstraintOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_constraints_for_portfolio' function.
 class ListConstraintsForPortfolioOutput(BaseValidatorModel):
     ConstraintDetails: List[ConstraintDetail]
     NextPageToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_constraint' function.
 class UpdateConstraintOutput(BaseValidatorModel):
     ConstraintDetail: ConstraintDetail
     ConstraintParameters: str
@@ -929,6 +996,7 @@ class UpdateConstraintOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_portfolio' function.
 class CreatePortfolioInput(BaseValidatorModel):
     DisplayName: str
     ProviderName: str
@@ -967,6 +1035,7 @@ class ProvisionedProductAttribute(BaseValidatorModel):
     UserArnSession: Optional[str] = None
 
 
+# This class is the input for the 'update_portfolio' function.
 class UpdatePortfolioInput(BaseValidatorModel):
     Id: str
     AcceptLanguage: Optional[str] = None
@@ -977,36 +1046,42 @@ class UpdatePortfolioInput(BaseValidatorModel):
     RemoveTags: Optional[List[str]] = None
 
 
+# This class is the output for the 'create_portfolio' function.
 class CreatePortfolioOutput(BaseValidatorModel):
     PortfolioDetail: PortfolioDetail
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_accepted_portfolio_shares' function.
 class ListAcceptedPortfolioSharesOutput(BaseValidatorModel):
     PortfolioDetails: List[PortfolioDetail]
     NextPageToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_portfolios_for_product' function.
 class ListPortfoliosForProductOutput(BaseValidatorModel):
     PortfolioDetails: List[PortfolioDetail]
     NextPageToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_portfolios' function.
 class ListPortfoliosOutput(BaseValidatorModel):
     PortfolioDetails: List[PortfolioDetail]
     NextPageToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_portfolio' function.
 class UpdatePortfolioOutput(BaseValidatorModel):
     PortfolioDetail: PortfolioDetail
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_portfolio_share' function.
 class CreatePortfolioShareInput(BaseValidatorModel):
     PortfolioId: str
     AcceptLanguage: Optional[str] = None
@@ -1016,6 +1091,7 @@ class CreatePortfolioShareInput(BaseValidatorModel):
     SharePrincipals: Optional[bool] = None
 
 
+# This class is the input for the 'delete_portfolio_share' function.
 class DeletePortfolioShareInput(BaseValidatorModel):
     PortfolioId: str
     AcceptLanguage: Optional[str] = None
@@ -1023,12 +1099,14 @@ class DeletePortfolioShareInput(BaseValidatorModel):
     OrganizationNode: Optional[OrganizationNode] = None
 
 
+# This class is the output for the 'list_organization_portfolio_access' function.
 class ListOrganizationPortfolioAccessOutput(BaseValidatorModel):
     OrganizationNodes: List[OrganizationNode]
     NextPageToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_portfolio_share' function.
 class UpdatePortfolioShareInput(BaseValidatorModel):
     PortfolioId: str
     AcceptLanguage: Optional[str] = None
@@ -1038,6 +1116,7 @@ class UpdatePortfolioShareInput(BaseValidatorModel):
     SharePrincipals: Optional[bool] = None
 
 
+# This class is the input for the 'create_provisioning_artifact' function.
 class CreateProvisioningArtifactInput(BaseValidatorModel):
     ProductId: str
     Parameters: ProvisioningArtifactProperties
@@ -1045,6 +1124,7 @@ class CreateProvisioningArtifactInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
 
 
+# This class is the output for the 'create_provisioning_artifact' function.
 class CreateProvisioningArtifactOutput(BaseValidatorModel):
     ProvisioningArtifactDetail: ProvisioningArtifactDetail
     Info: Dict[str, str]
@@ -1052,12 +1132,14 @@ class CreateProvisioningArtifactOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_provisioning_artifacts' function.
 class ListProvisioningArtifactsOutput(BaseValidatorModel):
     ProvisioningArtifactDetails: List[ProvisioningArtifactDetail]
     NextPageToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_provisioning_artifact' function.
 class UpdateProvisioningArtifactOutput(BaseValidatorModel):
     ProvisioningArtifactDetail: ProvisioningArtifactDetail
     Info: Dict[str, str]
@@ -1065,6 +1147,7 @@ class UpdateProvisioningArtifactOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_provisioned_product_plan' function.
 class CreateProvisionedProductPlanInput(BaseValidatorModel):
     PlanName: str
     PlanType: Literal['CLOUDFORMATION']
@@ -1097,11 +1180,13 @@ class ProvisionedProductPlanDetails(BaseValidatorModel):
     StatusMessage: Optional[str] = None
 
 
+# This class is the output for the 'create_tag_option' function.
 class CreateTagOptionOutput(BaseValidatorModel):
     TagOptionDetail: TagOptionDetail
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_portfolio' function.
 class DescribePortfolioOutput(BaseValidatorModel):
     PortfolioDetail: PortfolioDetail
     Tags: List[Tag]
@@ -1110,28 +1195,33 @@ class DescribePortfolioOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_tag_option' function.
 class DescribeTagOptionOutput(BaseValidatorModel):
     TagOptionDetail: TagOptionDetail
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tag_options' function.
 class ListTagOptionsOutput(BaseValidatorModel):
     TagOptionDetails: List[TagOptionDetail]
     PageToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_tag_option' function.
 class UpdateTagOptionOutput(BaseValidatorModel):
     TagOptionDetail: TagOptionDetail
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_portfolio_shares' function.
 class DescribePortfolioSharesOutput(BaseValidatorModel):
     NextPageToken: str
     PortfolioShareDetails: List[PortfolioShareDetail]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_product' function.
 class DescribeProductOutput(BaseValidatorModel):
     ProductViewSummary: ProductViewSummary
     ProvisioningArtifacts: List[ProvisioningArtifact]
@@ -1140,6 +1230,7 @@ class DescribeProductOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_product_view' function.
 class DescribeProductViewOutput(BaseValidatorModel):
     ProductViewSummary: ProductViewSummary
     ProvisioningArtifacts: List[ProvisioningArtifact]
@@ -1151,18 +1242,21 @@ class ProvisioningArtifactView(BaseValidatorModel):
     ProvisioningArtifact: Optional[ProvisioningArtifact] = None
 
 
+# This class is the output for the 'describe_provisioned_product' function.
 class DescribeProvisionedProductOutput(BaseValidatorModel):
     ProvisionedProductDetail: ProvisionedProductDetail
     CloudWatchDashboards: List[CloudWatchDashboard]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'scan_provisioned_products' function.
 class ScanProvisionedProductsOutput(BaseValidatorModel):
     ProvisionedProducts: List[ProvisionedProductDetail]
     NextPageToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_provisioned_product_outputs' function.
 class GetProvisionedProductOutputsOutput(BaseValidatorModel):
     Outputs: List[RecordOutput]
     NextPageToken: str
@@ -1178,6 +1272,7 @@ class NotifyUpdateProvisionedProductEngineWorkflowResultInput(BaseValidatorModel
     Outputs: Optional[List[RecordOutput]] = None
 
 
+# This class is the output for the 'describe_service_action_execution_parameters' function.
 class DescribeServiceActionExecutionParametersOutput(BaseValidatorModel):
     ServiceActionParameters: List[ExecutionParameter]
     ResponseMetadata: ResponseMetadata
@@ -1277,12 +1372,14 @@ class SearchProductsAsAdminInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_principals_for_portfolio' function.
 class ListPrincipalsForPortfolioOutput(BaseValidatorModel):
     Principals: List[Principal]
     NextPageToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_provisioned_product_plans' function.
 class ListProvisionedProductPlansOutput(BaseValidatorModel):
     ProvisionedProductPlans: List[ProvisionedProductPlanSummary]
     NextPageToken: str
@@ -1296,6 +1393,7 @@ class ListRecordHistoryInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_record_history' function.
 class ListRecordHistoryInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     AccessLevelFilter: Optional[AccessLevelFilter] = None
@@ -1304,18 +1402,21 @@ class ListRecordHistoryInput(BaseValidatorModel):
     PageToken: Optional[str] = None
 
 
+# This class is the output for the 'list_resources_for_tag_option' function.
 class ListResourcesForTagOptionOutput(BaseValidatorModel):
     ResourceDetails: List[ResourceDetail]
     PageToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_service_actions_for_provisioning_artifact' function.
 class ListServiceActionsForProvisioningArtifactOutput(BaseValidatorModel):
     ServiceActionSummaries: List[ServiceActionSummary]
     NextPageToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_service_actions' function.
 class ListServiceActionsOutput(BaseValidatorModel):
     ServiceActionSummaries: List[ServiceActionSummary]
     NextPageToken: str
@@ -1327,6 +1428,7 @@ class ServiceActionDetail(BaseValidatorModel):
     Definition: Optional[Dict[ServiceActionDefinitionKeyType, str]] = None
 
 
+# This class is the output for the 'list_stack_instances_for_provisioned_product' function.
 class ListStackInstancesForProvisionedProductOutput(BaseValidatorModel):
     StackInstances: List[StackInstance]
     NextPageToken: str
@@ -1338,6 +1440,7 @@ class ListTagOptionsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_tag_options' function.
 class ListTagOptionsInput(BaseValidatorModel):
     Filters: Optional[ListTagOptionsFilters] = None
     PageSize: Optional[int] = None
@@ -1353,6 +1456,7 @@ class ProvisioningArtifactParameter(BaseValidatorModel):
     ParameterConstraints: Optional[ParameterConstraints] = None
 
 
+# This class is the output for the 'search_products' function.
 class SearchProductsOutput(BaseValidatorModel):
     ProductViewSummaries: List[ProductViewSummary]
     ProductViewAggregations: Dict[str, List[ProductViewAggregationValue]]
@@ -1360,6 +1464,7 @@ class SearchProductsOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'provision_product' function.
 class ProvisionProductInput(BaseValidatorModel):
     ProvisionedProductName: str
     ProvisionToken: str
@@ -1404,6 +1509,7 @@ class ShareDetails(BaseValidatorModel):
     ShareErrors: Optional[List[ShareError]] = None
 
 
+# This class is the input for the 'update_provisioned_product' function.
 class UpdateProvisionedProductInput(BaseValidatorModel):
     UpdateToken: str
     AcceptLanguage: Optional[str] = None
@@ -1431,12 +1537,14 @@ class SourceConnection(BaseValidatorModel):
     Type: Optional[Literal['CODESTAR']] = None
 
 
+# This class is the output for the 'list_launch_paths' function.
 class ListLaunchPathsOutput(BaseValidatorModel):
     LaunchPathSummaries: List[LaunchPathSummary]
     NextPageToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_provisioned_products' function.
 class SearchProvisionedProductsOutput(BaseValidatorModel):
     ProvisionedProducts: List[ProvisionedProductAttribute]
     TotalResultsCount: int
@@ -1444,6 +1552,7 @@ class SearchProvisionedProductsOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_provisioning_artifacts_for_service_action' function.
 class ListProvisioningArtifactsForServiceActionOutput(BaseValidatorModel):
     ProvisioningArtifactViews: List[ProvisioningArtifactView]
     NextPageToken: str
@@ -1460,21 +1569,25 @@ class NotifyProvisionProductEngineWorkflowResultInput(BaseValidatorModel):
     Outputs: Optional[List[RecordOutput]] = None
 
 
+# This class is the output for the 'create_service_action' function.
 class CreateServiceActionOutput(BaseValidatorModel):
     ServiceActionDetail: ServiceActionDetail
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_service_action' function.
 class DescribeServiceActionOutput(BaseValidatorModel):
     ServiceActionDetail: ServiceActionDetail
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_service_action' function.
 class UpdateServiceActionOutput(BaseValidatorModel):
     ServiceActionDetail: ServiceActionDetail
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_provisioning_artifact' function.
 class DescribeProvisioningArtifactOutput(BaseValidatorModel):
     ProvisioningArtifactDetail: ProvisioningArtifactDetail
     Info: Dict[str, str]
@@ -1483,6 +1596,7 @@ class DescribeProvisioningArtifactOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_provisioning_parameters' function.
 class DescribeProvisioningParametersOutput(BaseValidatorModel):
     ProvisioningArtifactParameters: List[ProvisioningArtifactParameter]
     ConstraintSummaries: List[ConstraintSummary]
@@ -1494,6 +1608,7 @@ class DescribeProvisioningParametersOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_record' function.
 class DescribeRecordOutput(BaseValidatorModel):
     RecordDetail: RecordDetail
     RecordOutputs: List[RecordOutput]
@@ -1501,37 +1616,44 @@ class DescribeRecordOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'execute_provisioned_product_plan' function.
 class ExecuteProvisionedProductPlanOutput(BaseValidatorModel):
     RecordDetail: RecordDetail
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'execute_provisioned_product_service_action' function.
 class ExecuteProvisionedProductServiceActionOutput(BaseValidatorModel):
     RecordDetail: RecordDetail
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_as_provisioned_product' function.
 class ImportAsProvisionedProductOutput(BaseValidatorModel):
     RecordDetail: RecordDetail
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_record_history' function.
 class ListRecordHistoryOutput(BaseValidatorModel):
     RecordDetails: List[RecordDetail]
     NextPageToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'provision_product' function.
 class ProvisionProductOutput(BaseValidatorModel):
     RecordDetail: RecordDetail
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'terminate_provisioned_product' function.
 class TerminateProvisionedProductOutput(BaseValidatorModel):
     RecordDetail: RecordDetail
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_provisioned_product' function.
 class UpdateProvisionedProductOutput(BaseValidatorModel):
     RecordDetail: RecordDetail
     ResponseMetadata: ResponseMetadata
@@ -1547,6 +1669,7 @@ class ResourceChange(BaseValidatorModel):
     Details: Optional[List[ResourceChangeDetail]] = None
 
 
+# This class is the output for the 'describe_portfolio_share_status' function.
 class DescribePortfolioShareStatusOutput(BaseValidatorModel):
     PortfolioShareToken: str
     PortfolioId: str
@@ -1564,6 +1687,7 @@ class ProductViewDetail(BaseValidatorModel):
     SourceConnection: Optional[SourceConnectionDetail] = None
 
 
+# This class is the input for the 'create_product' function.
 class CreateProductInput(BaseValidatorModel):
     Name: str
     Owner: str
@@ -1580,6 +1704,7 @@ class CreateProductInput(BaseValidatorModel):
     SourceConnection: Optional[SourceConnection] = None
 
 
+# This class is the input for the 'update_product' function.
 class UpdateProductInput(BaseValidatorModel):
     Id: str
     AcceptLanguage: Optional[str] = None
@@ -1595,6 +1720,7 @@ class UpdateProductInput(BaseValidatorModel):
     SourceConnection: Optional[SourceConnection] = None
 
 
+# This class is the output for the 'describe_provisioned_product_plan' function.
 class DescribeProvisionedProductPlanOutput(BaseValidatorModel):
     ProvisionedProductPlanDetails: ProvisionedProductPlanDetails
     ResourceChanges: List[ResourceChange]
@@ -1602,6 +1728,7 @@ class DescribeProvisionedProductPlanOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_product' function.
 class CreateProductOutput(BaseValidatorModel):
     ProductViewDetail: ProductViewDetail
     ProvisioningArtifactDetail: ProvisioningArtifactDetail
@@ -1609,6 +1736,7 @@ class CreateProductOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_product_as_admin' function.
 class DescribeProductAsAdminOutput(BaseValidatorModel):
     ProductViewDetail: ProductViewDetail
     ProvisioningArtifactSummaries: List[ProvisioningArtifactSummary]
@@ -1618,12 +1746,14 @@ class DescribeProductAsAdminOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_products_as_admin' function.
 class SearchProductsAsAdminOutput(BaseValidatorModel):
     ProductViewDetails: List[ProductViewDetail]
     NextPageToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_product' function.
 class UpdateProductOutput(BaseValidatorModel):
     ProductViewDetail: ProductViewDetail
     Tags: List[Tag]

@@ -15,6 +15,7 @@ class AbortCriteria(BaseValidatorModel):
     minNumberOfExecutedThings: int
 
 
+# This class is the input for the 'accept_certificate_transfer' function.
 class AcceptCertificateTransferRequest(BaseValidatorModel):
     certificateId: str
     setAsActive: Optional[bool] = None
@@ -210,6 +211,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'associate_targets_with_job' function.
 class AssociateTargetsWithJobRequest(BaseValidatorModel):
     targets: List[str]
     jobId: str
@@ -217,11 +219,13 @@ class AssociateTargetsWithJobRequest(BaseValidatorModel):
     namespaceId: Optional[str] = None
 
 
+# This class is the input for the 'attach_policy' function.
 class AttachPolicyRequest(BaseValidatorModel):
     policyName: str
     target: str
 
 
+# This class is the input for the 'attach_principal_policy' function.
 class AttachPrincipalPolicyRequest(BaseValidatorModel):
     policyName: str
     principal: str
@@ -424,6 +428,7 @@ class CancelAuditTaskRequest(BaseValidatorModel):
     taskId: str
 
 
+# This class is the input for the 'cancel_certificate_transfer' function.
 class CancelCertificateTransferRequest(BaseValidatorModel):
     certificateId: str
 
@@ -432,6 +437,7 @@ class CancelDetectMitigationActionsTaskRequest(BaseValidatorModel):
     taskId: str
 
 
+# This class is the input for the 'cancel_job_execution' function.
 class CancelJobExecutionRequest(BaseValidatorModel):
     jobId: str
     thingName: str
@@ -440,6 +446,7 @@ class CancelJobExecutionRequest(BaseValidatorModel):
     statusDetails: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'cancel_job' function.
 class CancelJobRequest(BaseValidatorModel):
     jobId: str
     reasonCode: Optional[str] = None
@@ -537,6 +544,7 @@ class Tag(BaseValidatorModel):
     Value: Optional[str] = None
 
 
+# This class is the input for the 'create_certificate_from_csr' function.
 class CreateCertificateFromCsrRequest(BaseValidatorModel):
     certificateSigningRequest: str
     setAsActive: Optional[bool] = None
@@ -566,6 +574,7 @@ class MaintenanceWindow(BaseValidatorModel):
     durationInMinutes: int
 
 
+# This class is the input for the 'create_keys_and_certificate' function.
 class CreateKeysAndCertificateRequest(BaseValidatorModel):
     setAsActive: Optional[bool] = None
 
@@ -575,6 +584,7 @@ class KeyPair(BaseValidatorModel):
     PrivateKey: Optional[str] = None
 
 
+# This class is the input for the 'create_package' function.
 class CreatePackageRequest(BaseValidatorModel):
     packageName: str
     description: Optional[str] = None
@@ -582,12 +592,14 @@ class CreatePackageRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'create_policy_version' function.
 class CreatePolicyVersionRequest(BaseValidatorModel):
     policyName: str
     policyDocument: str
     setAsDefault: Optional[bool] = None
 
 
+# This class is the input for the 'create_provisioning_claim' function.
 class CreateProvisioningClaimRequest(BaseValidatorModel):
     templateName: str
 
@@ -597,6 +609,7 @@ class ProvisioningHook(BaseValidatorModel):
     payloadVersion: Optional[str] = None
 
 
+# This class is the input for the 'create_provisioning_template_version' function.
 class CreateProvisioningTemplateVersionRequest(BaseValidatorModel):
     templateName: str
     templateBody: str
@@ -629,6 +642,7 @@ class DeleteCertificateProviderRequest(BaseValidatorModel):
     certificateProviderName: str
 
 
+# This class is the input for the 'delete_certificate' function.
 class DeleteCertificateRequest(BaseValidatorModel):
     certificateId: str
     forceDelete: Optional[bool] = None
@@ -639,6 +653,7 @@ class DeleteCommandExecutionRequest(BaseValidatorModel):
     targetArn: str
 
 
+# This class is the input for the 'delete_command' function.
 class DeleteCommandRequest(BaseValidatorModel):
     commandId: str
 
@@ -660,11 +675,13 @@ class DeleteDynamicThingGroupRequest(BaseValidatorModel):
     expectedVersion: Optional[int] = None
 
 
+# This class is the input for the 'delete_fleet_metric' function.
 class DeleteFleetMetricRequest(BaseValidatorModel):
     metricName: str
     expectedVersion: Optional[int] = None
 
 
+# This class is the input for the 'delete_job_execution' function.
 class DeleteJobExecutionRequest(BaseValidatorModel):
     jobId: str
     thingName: str
@@ -673,12 +690,14 @@ class DeleteJobExecutionRequest(BaseValidatorModel):
     namespaceId: Optional[str] = None
 
 
+# This class is the input for the 'delete_job' function.
 class DeleteJobRequest(BaseValidatorModel):
     jobId: str
     force: Optional[bool] = None
     namespaceId: Optional[str] = None
 
 
+# This class is the input for the 'delete_job_template' function.
 class DeleteJobTemplateRequest(BaseValidatorModel):
     jobTemplateId: str
 
@@ -704,10 +723,12 @@ class DeletePackageVersionRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_policy' function.
 class DeletePolicyRequest(BaseValidatorModel):
     policyName: str
 
 
+# This class is the input for the 'delete_policy_version' function.
 class DeletePolicyVersionRequest(BaseValidatorModel):
     policyName: str
     policyVersionId: str
@@ -757,10 +778,12 @@ class DeleteTopicRuleDestinationRequest(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'delete_topic_rule' function.
 class DeleteTopicRuleRequest(BaseValidatorModel):
     ruleName: str
 
 
+# This class is the input for the 'delete_v2_logging_level' function.
 class DeleteV2LoggingLevelRequest(BaseValidatorModel):
     targetType: LogTargetTypeType
     targetName: str
@@ -771,10 +794,12 @@ class DeprecateThingTypeRequest(BaseValidatorModel):
     undoDeprecate: Optional[bool] = None
 
 
+# This class is the input for the 'describe_audit_finding' function.
 class DescribeAuditFindingRequest(BaseValidatorModel):
     findingId: str
 
 
+# This class is the input for the 'describe_audit_mitigation_actions_task' function.
 class DescribeAuditMitigationActionsTaskRequest(BaseValidatorModel):
     taskId: str
 
@@ -787,6 +812,7 @@ class TaskStatisticsForAuditCheck(BaseValidatorModel):
     canceledFindingsCount: Optional[int] = None
 
 
+# This class is the input for the 'describe_audit_task' function.
 class DescribeAuditTaskRequest(BaseValidatorModel):
     taskId: str
 
@@ -801,14 +827,17 @@ class TaskStatistics(BaseValidatorModel):
     canceledChecks: Optional[int] = None
 
 
+# This class is the input for the 'describe_authorizer' function.
 class DescribeAuthorizerRequest(BaseValidatorModel):
     authorizerName: str
 
 
+# This class is the input for the 'describe_billing_group' function.
 class DescribeBillingGroupRequest(BaseValidatorModel):
     billingGroupName: str
 
 
+# This class is the input for the 'describe_ca_certificate' function.
 class DescribeCACertificateRequest(BaseValidatorModel):
     certificateId: str
 
@@ -819,26 +848,32 @@ class RegistrationConfig(BaseValidatorModel):
     templateName: Optional[str] = None
 
 
+# This class is the input for the 'describe_certificate_provider' function.
 class DescribeCertificateProviderRequest(BaseValidatorModel):
     certificateProviderName: str
 
 
+# This class is the input for the 'describe_certificate' function.
 class DescribeCertificateRequest(BaseValidatorModel):
     certificateId: str
 
 
+# This class is the input for the 'describe_custom_metric' function.
 class DescribeCustomMetricRequest(BaseValidatorModel):
     metricName: str
 
 
+# This class is the input for the 'describe_detect_mitigation_actions_task' function.
 class DescribeDetectMitigationActionsTaskRequest(BaseValidatorModel):
     taskId: str
 
 
+# This class is the input for the 'describe_dimension' function.
 class DescribeDimensionRequest(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'describe_domain_configuration' function.
 class DescribeDomainConfigurationRequest(BaseValidatorModel):
     domainConfigurationName: str
 
@@ -849,33 +884,40 @@ class ServerCertificateSummary(BaseValidatorModel):
     serverCertificateStatusDetail: Optional[str] = None
 
 
+# This class is the input for the 'describe_endpoint' function.
 class DescribeEndpointRequest(BaseValidatorModel):
     endpointType: Optional[str] = None
 
 
+# This class is the input for the 'describe_fleet_metric' function.
 class DescribeFleetMetricRequest(BaseValidatorModel):
     metricName: str
 
 
+# This class is the input for the 'describe_index' function.
 class DescribeIndexRequest(BaseValidatorModel):
     indexName: str
 
 
+# This class is the input for the 'describe_job_execution' function.
 class DescribeJobExecutionRequest(BaseValidatorModel):
     jobId: str
     thingName: str
     executionNumber: Optional[int] = None
 
 
+# This class is the input for the 'describe_job' function.
 class DescribeJobRequest(BaseValidatorModel):
     jobId: str
     beforeSubstitution: Optional[bool] = None
 
 
+# This class is the input for the 'describe_job_template' function.
 class DescribeJobTemplateRequest(BaseValidatorModel):
     jobTemplateId: str
 
 
+# This class is the input for the 'describe_managed_job_template' function.
 class DescribeManagedJobTemplateRequest(BaseValidatorModel):
     templateName: str
     templateVersion: Optional[str] = None
@@ -889,19 +931,23 @@ class DocumentParameter(BaseValidatorModel):
     optional: Optional[bool] = None
 
 
+# This class is the input for the 'describe_mitigation_action' function.
 class DescribeMitigationActionRequest(BaseValidatorModel):
     actionName: str
 
 
+# This class is the input for the 'describe_provisioning_template' function.
 class DescribeProvisioningTemplateRequest(BaseValidatorModel):
     templateName: str
 
 
+# This class is the input for the 'describe_provisioning_template_version' function.
 class DescribeProvisioningTemplateVersionRequest(BaseValidatorModel):
     templateName: str
     versionId: int
 
 
+# This class is the input for the 'describe_role_alias' function.
 class DescribeRoleAliasRequest(BaseValidatorModel):
     roleAlias: str
 
@@ -916,30 +962,37 @@ class RoleAliasDescription(BaseValidatorModel):
     lastModifiedDate: Optional[datetime] = None
 
 
+# This class is the input for the 'describe_scheduled_audit' function.
 class DescribeScheduledAuditRequest(BaseValidatorModel):
     scheduledAuditName: str
 
 
+# This class is the input for the 'describe_security_profile' function.
 class DescribeSecurityProfileRequest(BaseValidatorModel):
     securityProfileName: str
 
 
+# This class is the input for the 'describe_stream' function.
 class DescribeStreamRequest(BaseValidatorModel):
     streamId: str
 
 
+# This class is the input for the 'describe_thing_group' function.
 class DescribeThingGroupRequest(BaseValidatorModel):
     thingGroupName: str
 
 
+# This class is the input for the 'describe_thing_registration_task' function.
 class DescribeThingRegistrationTaskRequest(BaseValidatorModel):
     taskId: str
 
 
+# This class is the input for the 'describe_thing' function.
 class DescribeThingRequest(BaseValidatorModel):
     thingName: str
 
 
+# This class is the input for the 'describe_thing_type' function.
 class DescribeThingTypeRequest(BaseValidatorModel):
     thingTypeName: str
 
@@ -955,11 +1008,13 @@ class S3Destination(BaseValidatorModel):
     prefix: Optional[str] = None
 
 
+# This class is the input for the 'detach_policy' function.
 class DetachPolicyRequest(BaseValidatorModel):
     policyName: str
     target: str
 
 
+# This class is the input for the 'detach_principal_policy' function.
 class DetachPrincipalPolicyRequest(BaseValidatorModel):
     policyName: str
     principal: str
@@ -1010,6 +1065,7 @@ class DetectMitigationActionsTaskTarget(BaseValidatorModel):
     behaviorName: Optional[str] = None
 
 
+# This class is the input for the 'disable_topic_rule' function.
 class DisableTopicRuleRequest(BaseValidatorModel):
     ruleName: str
 
@@ -1041,6 +1097,7 @@ class EnableIoTLoggingParams(BaseValidatorModel):
     logLevel: LogLevelType
 
 
+# This class is the input for the 'enable_topic_rule' function.
 class EnableTopicRuleRequest(BaseValidatorModel):
     ruleName: str
 
@@ -1087,12 +1144,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'get_behavior_model_training_summaries' function.
 class GetBehaviorModelTrainingSummariesRequest(BaseValidatorModel):
     securityProfileName: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_cardinality' function.
 class GetCardinalityRequest(BaseValidatorModel):
     queryString: str
     indexName: Optional[str] = None
@@ -1100,6 +1159,7 @@ class GetCardinalityRequest(BaseValidatorModel):
     queryVersion: Optional[str] = None
 
 
+# This class is the input for the 'get_command_execution' function.
 class GetCommandExecutionRequest(BaseValidatorModel):
     executionId: str
     targetArn: str
@@ -1111,21 +1171,25 @@ class StatusReason(BaseValidatorModel):
     reasonDescription: Optional[str] = None
 
 
+# This class is the input for the 'get_command' function.
 class GetCommandRequest(BaseValidatorModel):
     commandId: str
 
 
+# This class is the input for the 'get_effective_policies' function.
 class GetEffectivePoliciesRequest(BaseValidatorModel):
     principal: Optional[str] = None
     cognitoIdentityPoolId: Optional[str] = None
     thingName: Optional[str] = None
 
 
+# This class is the input for the 'get_job_document' function.
 class GetJobDocumentRequest(BaseValidatorModel):
     jobId: str
     beforeSubstitution: Optional[bool] = None
 
 
+# This class is the input for the 'get_ota_update' function.
 class GetOTAUpdateRequest(BaseValidatorModel):
     otaUpdateId: str
 
@@ -1135,15 +1199,18 @@ class VersionUpdateByJobsConfig(BaseValidatorModel):
     roleArn: Optional[str] = None
 
 
+# This class is the input for the 'get_package' function.
 class GetPackageRequest(BaseValidatorModel):
     packageName: str
 
 
+# This class is the input for the 'get_package_version' function.
 class GetPackageVersionRequest(BaseValidatorModel):
     packageName: str
     versionName: str
 
 
+# This class is the input for the 'get_percentiles' function.
 class GetPercentilesRequest(BaseValidatorModel):
     queryString: str
     indexName: Optional[str] = None
@@ -1157,15 +1224,18 @@ class PercentPair(BaseValidatorModel):
     value: Optional[float] = None
 
 
+# This class is the input for the 'get_policy' function.
 class GetPolicyRequest(BaseValidatorModel):
     policyName: str
 
 
+# This class is the input for the 'get_policy_version' function.
 class GetPolicyVersionRequest(BaseValidatorModel):
     policyName: str
     policyVersionId: str
 
 
+# This class is the input for the 'get_statistics' function.
 class GetStatisticsRequest(BaseValidatorModel):
     queryString: str
     indexName: Optional[str] = None
@@ -1184,14 +1254,17 @@ class Statistics(BaseValidatorModel):
     stdDeviation: Optional[float] = None
 
 
+# This class is the input for the 'get_thing_connectivity_data' function.
 class GetThingConnectivityDataRequest(BaseValidatorModel):
     thingName: str
 
 
+# This class is the input for the 'get_topic_rule_destination' function.
 class GetTopicRuleDestinationRequest(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'get_topic_rule' function.
 class GetTopicRuleRequest(BaseValidatorModel):
     ruleName: str
 
@@ -1293,6 +1366,7 @@ class KafkaActionHeader(BaseValidatorModel):
     value: str
 
 
+# This class is the input for the 'list_active_violations' function.
 class ListActiveViolationsRequest(BaseValidatorModel):
     thingName: Optional[str] = None
     securityProfileName: Optional[str] = None
@@ -1303,6 +1377,7 @@ class ListActiveViolationsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_attached_policies' function.
 class ListAttachedPoliciesRequest(BaseValidatorModel):
     target: str
     recursive: Optional[bool] = None
@@ -1310,6 +1385,7 @@ class ListAttachedPoliciesRequest(BaseValidatorModel):
     pageSize: Optional[int] = None
 
 
+# This class is the input for the 'list_audit_mitigation_actions_executions' function.
 class ListAuditMitigationActionsExecutionsRequest(BaseValidatorModel):
     taskId: str
     findingId: str
@@ -1318,6 +1394,7 @@ class ListAuditMitigationActionsExecutionsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_authorizers' function.
 class ListAuthorizersRequest(BaseValidatorModel):
     pageSize: Optional[int] = None
     marker: Optional[str] = None
@@ -1325,12 +1402,14 @@ class ListAuthorizersRequest(BaseValidatorModel):
     status: Optional[AuthorizerStatusType] = None
 
 
+# This class is the input for the 'list_billing_groups' function.
 class ListBillingGroupsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     namePrefixFilter: Optional[str] = None
 
 
+# This class is the input for the 'list_ca_certificates' function.
 class ListCACertificatesRequest(BaseValidatorModel):
     pageSize: Optional[int] = None
     marker: Optional[str] = None
@@ -1338,11 +1417,13 @@ class ListCACertificatesRequest(BaseValidatorModel):
     templateName: Optional[str] = None
 
 
+# This class is the input for the 'list_certificate_providers' function.
 class ListCertificateProvidersRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     ascendingOrder: Optional[bool] = None
 
 
+# This class is the input for the 'list_certificates_by_ca' function.
 class ListCertificatesByCARequest(BaseValidatorModel):
     caCertificateId: str
     pageSize: Optional[int] = None
@@ -1350,6 +1431,7 @@ class ListCertificatesByCARequest(BaseValidatorModel):
     ascendingOrder: Optional[bool] = None
 
 
+# This class is the input for the 'list_certificates' function.
 class ListCertificatesRequest(BaseValidatorModel):
     pageSize: Optional[int] = None
     marker: Optional[str] = None
@@ -1361,6 +1443,7 @@ class TimeFilter(BaseValidatorModel):
     before: Optional[str] = None
 
 
+# This class is the input for the 'list_commands' function.
 class ListCommandsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -1369,32 +1452,38 @@ class ListCommandsRequest(BaseValidatorModel):
     sortOrder: Optional[SortOrderType] = None
 
 
+# This class is the input for the 'list_custom_metrics' function.
 class ListCustomMetricsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_dimensions' function.
 class ListDimensionsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_domain_configurations' function.
 class ListDomainConfigurationsRequest(BaseValidatorModel):
     marker: Optional[str] = None
     pageSize: Optional[int] = None
     serviceType: Optional[ServiceTypeType] = None
 
 
+# This class is the input for the 'list_fleet_metrics' function.
 class ListFleetMetricsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_indices' function.
 class ListIndicesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_job_executions_for_job' function.
 class ListJobExecutionsForJobRequest(BaseValidatorModel):
     jobId: str
     status: Optional[JobExecutionStatusType] = None
@@ -1402,6 +1491,7 @@ class ListJobExecutionsForJobRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_job_executions_for_thing' function.
 class ListJobExecutionsForThingRequest(BaseValidatorModel):
     thingName: str
     status: Optional[JobExecutionStatusType] = None
@@ -1411,11 +1501,13 @@ class ListJobExecutionsForThingRequest(BaseValidatorModel):
     jobId: Optional[str] = None
 
 
+# This class is the input for the 'list_job_templates' function.
 class ListJobTemplatesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_jobs' function.
 class ListJobsRequest(BaseValidatorModel):
     status: Optional[JobStatusType] = None
     targetSelection: Optional[TargetSelectionType] = None
@@ -1426,6 +1518,7 @@ class ListJobsRequest(BaseValidatorModel):
     namespaceId: Optional[str] = None
 
 
+# This class is the input for the 'list_managed_job_templates' function.
 class ListManagedJobTemplatesRequest(BaseValidatorModel):
     templateName: Optional[str] = None
     maxResults: Optional[int] = None
@@ -1440,6 +1533,7 @@ class ManagedJobTemplateSummary(BaseValidatorModel):
     templateVersion: Optional[str] = None
 
 
+# This class is the input for the 'list_mitigation_actions' function.
 class ListMitigationActionsRequest(BaseValidatorModel):
     actionType: Optional[MitigationActionTypeType] = None
     maxResults: Optional[int] = None
@@ -1452,6 +1546,7 @@ class MitigationActionIdentifier(BaseValidatorModel):
     creationDate: Optional[datetime] = None
 
 
+# This class is the input for the 'list_ota_updates' function.
 class ListOTAUpdatesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -1464,6 +1559,7 @@ class OTAUpdateSummary(BaseValidatorModel):
     creationDate: Optional[datetime] = None
 
 
+# This class is the input for the 'list_outgoing_certificates' function.
 class ListOutgoingCertificatesRequest(BaseValidatorModel):
     pageSize: Optional[int] = None
     marker: Optional[str] = None
@@ -1479,6 +1575,7 @@ class OutgoingCertificate(BaseValidatorModel):
     creationDate: Optional[datetime] = None
 
 
+# This class is the input for the 'list_package_versions' function.
 class ListPackageVersionsRequest(BaseValidatorModel):
     packageName: str
     status: Optional[PackageVersionStatusType] = None
@@ -1494,6 +1591,7 @@ class PackageVersionSummary(BaseValidatorModel):
     lastModifiedDate: Optional[datetime] = None
 
 
+# This class is the input for the 'list_packages' function.
 class ListPackagesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -1506,12 +1604,14 @@ class PackageSummary(BaseValidatorModel):
     lastModifiedDate: Optional[datetime] = None
 
 
+# This class is the input for the 'list_policies' function.
 class ListPoliciesRequest(BaseValidatorModel):
     marker: Optional[str] = None
     pageSize: Optional[int] = None
     ascendingOrder: Optional[bool] = None
 
 
+# This class is the input for the 'list_policy_principals' function.
 class ListPolicyPrincipalsRequest(BaseValidatorModel):
     policyName: str
     marker: Optional[str] = None
@@ -1519,6 +1619,7 @@ class ListPolicyPrincipalsRequest(BaseValidatorModel):
     ascendingOrder: Optional[bool] = None
 
 
+# This class is the input for the 'list_policy_versions' function.
 class ListPolicyVersionsRequest(BaseValidatorModel):
     policyName: str
 
@@ -1529,6 +1630,7 @@ class PolicyVersion(BaseValidatorModel):
     createDate: Optional[datetime] = None
 
 
+# This class is the input for the 'list_principal_policies' function.
 class ListPrincipalPoliciesRequest(BaseValidatorModel):
     principal: str
     marker: Optional[str] = None
@@ -1536,12 +1638,14 @@ class ListPrincipalPoliciesRequest(BaseValidatorModel):
     ascendingOrder: Optional[bool] = None
 
 
+# This class is the input for the 'list_principal_things' function.
 class ListPrincipalThingsRequest(BaseValidatorModel):
     principal: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_principal_things_v2' function.
 class ListPrincipalThingsV2Request(BaseValidatorModel):
     principal: str
     nextToken: Optional[str] = None
@@ -1554,6 +1658,7 @@ class PrincipalThingObject(BaseValidatorModel):
     thingPrincipalType: Optional[ThingPrincipalTypeType] = None
 
 
+# This class is the input for the 'list_provisioning_template_versions' function.
 class ListProvisioningTemplateVersionsRequest(BaseValidatorModel):
     templateName: str
     maxResults: Optional[int] = None
@@ -1566,6 +1671,7 @@ class ProvisioningTemplateVersionSummary(BaseValidatorModel):
     isDefaultVersion: Optional[bool] = None
 
 
+# This class is the input for the 'list_provisioning_templates' function.
 class ListProvisioningTemplatesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -1581,18 +1687,21 @@ class ProvisioningTemplateSummary(BaseValidatorModel):
     type: Optional[TemplateTypeType] = None
 
 
+# This class is the input for the 'list_related_resources_for_audit_finding' function.
 class ListRelatedResourcesForAuditFindingRequest(BaseValidatorModel):
     findingId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_role_aliases' function.
 class ListRoleAliasesRequest(BaseValidatorModel):
     pageSize: Optional[int] = None
     marker: Optional[str] = None
     ascendingOrder: Optional[bool] = None
 
 
+# This class is the input for the 'list_sbom_validation_results' function.
 class ListSbomValidationResultsRequest(BaseValidatorModel):
     packageName: str
     versionName: str
@@ -1608,6 +1717,7 @@ class SbomValidationResultSummary(BaseValidatorModel):
     errorMessage: Optional[str] = None
 
 
+# This class is the input for the 'list_scheduled_audits' function.
 class ListScheduledAuditsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -1621,6 +1731,7 @@ class ScheduledAuditMetadata(BaseValidatorModel):
     dayOfWeek: Optional[DayOfWeekType] = None
 
 
+# This class is the input for the 'list_security_profiles_for_target' function.
 class ListSecurityProfilesForTargetRequest(BaseValidatorModel):
     securityProfileTargetArn: str
     nextToken: Optional[str] = None
@@ -1628,6 +1739,7 @@ class ListSecurityProfilesForTargetRequest(BaseValidatorModel):
     recursive: Optional[bool] = None
 
 
+# This class is the input for the 'list_security_profiles' function.
 class ListSecurityProfilesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -1640,6 +1752,7 @@ class SecurityProfileIdentifier(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'list_streams' function.
 class ListStreamsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -1653,17 +1766,20 @@ class StreamSummary(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_targets_for_policy' function.
 class ListTargetsForPolicyRequest(BaseValidatorModel):
     policyName: str
     marker: Optional[str] = None
     pageSize: Optional[int] = None
 
 
+# This class is the input for the 'list_targets_for_security_profile' function.
 class ListTargetsForSecurityProfileRequest(BaseValidatorModel):
     securityProfileName: str
     nextToken: Optional[str] = None
@@ -1674,12 +1790,14 @@ class SecurityProfileTarget(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'list_thing_groups_for_thing' function.
 class ListThingGroupsForThingRequest(BaseValidatorModel):
     thingName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_thing_groups' function.
 class ListThingGroupsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -1688,12 +1806,14 @@ class ListThingGroupsRequest(BaseValidatorModel):
     recursive: Optional[bool] = None
 
 
+# This class is the input for the 'list_thing_principals' function.
 class ListThingPrincipalsRequest(BaseValidatorModel):
     thingName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_thing_principals_v2' function.
 class ListThingPrincipalsV2Request(BaseValidatorModel):
     thingName: str
     nextToken: Optional[str] = None
@@ -1706,6 +1826,7 @@ class ThingPrincipalObject(BaseValidatorModel):
     thingPrincipalType: Optional[ThingPrincipalTypeType] = None
 
 
+# This class is the input for the 'list_thing_registration_task_reports' function.
 class ListThingRegistrationTaskReportsRequest(BaseValidatorModel):
     taskId: str
     reportType: ReportTypeType
@@ -1713,24 +1834,28 @@ class ListThingRegistrationTaskReportsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_thing_registration_tasks' function.
 class ListThingRegistrationTasksRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     status: Optional[StatusType] = None
 
 
+# This class is the input for the 'list_thing_types' function.
 class ListThingTypesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     thingTypeName: Optional[str] = None
 
 
+# This class is the input for the 'list_things_in_billing_group' function.
 class ListThingsInBillingGroupRequest(BaseValidatorModel):
     billingGroupName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_things_in_thing_group' function.
 class ListThingsInThingGroupRequest(BaseValidatorModel):
     thingGroupName: str
     recursive: Optional[bool] = None
@@ -1738,6 +1863,7 @@ class ListThingsInThingGroupRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_things' function.
 class ListThingsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -1755,11 +1881,13 @@ class ThingAttribute(BaseValidatorModel):
     version: Optional[int] = None
 
 
+# This class is the input for the 'list_topic_rule_destinations' function.
 class ListTopicRuleDestinationsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_topic_rules' function.
 class ListTopicRulesRequest(BaseValidatorModel):
     topic: Optional[str] = None
     maxResults: Optional[int] = None
@@ -1775,6 +1903,7 @@ class TopicRuleListItem(BaseValidatorModel):
     ruleDisabled: Optional[bool] = None
 
 
+# This class is the input for the 'list_v2_logging_levels' function.
 class ListV2LoggingLevelsRequest(BaseValidatorModel):
     targetType: Optional[LogTargetTypeType] = None
     nextToken: Optional[str] = None
@@ -1843,6 +1972,7 @@ class PutVerificationStateOnViolationRequest(BaseValidatorModel):
     verificationStateDescription: Optional[str] = None
 
 
+# This class is the input for the 'register_certificate' function.
 class RegisterCertificateRequest(BaseValidatorModel):
     certificatePem: str
     caCertificatePem: Optional[str] = None
@@ -1850,16 +1980,19 @@ class RegisterCertificateRequest(BaseValidatorModel):
     status: Optional[CertificateStatusType] = None
 
 
+# This class is the input for the 'register_certificate_without_ca' function.
 class RegisterCertificateWithoutCARequest(BaseValidatorModel):
     certificatePem: str
     status: Optional[CertificateStatusType] = None
 
 
+# This class is the input for the 'register_thing' function.
 class RegisterThingRequest(BaseValidatorModel):
     templateBody: str
     parameters: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'reject_certificate_transfer' function.
 class RejectCertificateTransferRequest(BaseValidatorModel):
     certificateId: str
     rejectReason: Optional[str] = None
@@ -1879,6 +2012,7 @@ class RemoveThingFromThingGroupRequest(BaseValidatorModel):
     thingArn: Optional[str] = None
 
 
+# This class is the input for the 'search_index' function.
 class SearchIndexRequest(BaseValidatorModel):
     queryString: str
     indexName: Optional[str] = None
@@ -1895,15 +2029,18 @@ class ThingGroupDocument(BaseValidatorModel):
     parentGroupNames: Optional[List[str]] = None
 
 
+# This class is the input for the 'set_default_authorizer' function.
 class SetDefaultAuthorizerRequest(BaseValidatorModel):
     authorizerName: str
 
 
+# This class is the input for the 'set_default_policy_version' function.
 class SetDefaultPolicyVersionRequest(BaseValidatorModel):
     policyName: str
     policyVersionId: str
 
 
+# This class is the input for the 'set_v2_logging_options' function.
 class SetV2LoggingOptionsRequest(BaseValidatorModel):
     roleArn: Optional[str] = None
     defaultLogLevel: Optional[LogLevelType] = None
@@ -1916,10 +2053,12 @@ class SigningProfileParameter(BaseValidatorModel):
     certificatePathOnDevice: Optional[str] = None
 
 
+# This class is the input for the 'start_on_demand_audit_task' function.
 class StartOnDemandAuditTaskRequest(BaseValidatorModel):
     targetCheckNames: List[str]
 
 
+# This class is the input for the 'start_thing_registration_task' function.
 class StartThingRegistrationTaskRequest(BaseValidatorModel):
     templateBody: str
     inputFileBucket: str
@@ -1972,6 +2111,7 @@ class VpcDestinationProperties(BaseValidatorModel):
     roleArn: Optional[str] = None
 
 
+# This class is the input for the 'transfer_certificate' function.
 class TransferCertificateRequest(BaseValidatorModel):
     certificateId: str
     targetAwsAccount: str
@@ -1983,6 +2123,7 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_authorizer' function.
 class UpdateAuthorizerRequest(BaseValidatorModel):
     authorizerName: str
     authorizerFunctionArn: Optional[str] = None
@@ -1992,17 +2133,20 @@ class UpdateAuthorizerRequest(BaseValidatorModel):
     enableCachingForHttp: Optional[bool] = None
 
 
+# This class is the input for the 'update_certificate_provider' function.
 class UpdateCertificateProviderRequest(BaseValidatorModel):
     certificateProviderName: str
     lambdaFunctionArn: Optional[str] = None
     accountDefaultForOperations: Optional[List[Literal['CreateCertificateFromCsr']]] = None
 
 
+# This class is the input for the 'update_certificate' function.
 class UpdateCertificateRequest(BaseValidatorModel):
     certificateId: str
     newStatus: CertificateStatusType
 
 
+# This class is the input for the 'update_command' function.
 class UpdateCommandRequest(BaseValidatorModel):
     commandId: str
     displayName: Optional[str] = None
@@ -2010,11 +2154,13 @@ class UpdateCommandRequest(BaseValidatorModel):
     deprecated: Optional[bool] = None
 
 
+# This class is the input for the 'update_custom_metric' function.
 class UpdateCustomMetricRequest(BaseValidatorModel):
     metricName: str
     displayName: str
 
 
+# This class is the input for the 'update_dimension' function.
 class UpdateDimensionRequest(BaseValidatorModel):
     name: str
     stringValues: List[str]
@@ -2028,12 +2174,14 @@ class UpdatePackageRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'update_role_alias' function.
 class UpdateRoleAliasRequest(BaseValidatorModel):
     roleAlias: str
     roleArn: Optional[str] = None
     credentialDurationSeconds: Optional[int] = None
 
 
+# This class is the input for the 'update_scheduled_audit' function.
 class UpdateScheduledAuditRequest(BaseValidatorModel):
     scheduledAuditName: str
     frequency: Optional[AuditFrequencyType] = None
@@ -2091,6 +2239,7 @@ class AssetPropertyValue(BaseValidatorModel):
     quality: Optional[str] = None
 
 
+# This class is the output for the 'associate_targets_with_job' function.
 class AssociateTargetsWithJobResponse(BaseValidatorModel):
     jobArn: str
     jobId: str
@@ -2098,6 +2247,7 @@ class AssociateTargetsWithJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_job' function.
 class CancelJobResponse(BaseValidatorModel):
     jobArn: str
     jobId: str
@@ -2105,12 +2255,14 @@ class CancelJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_authorizer' function.
 class CreateAuthorizerResponse(BaseValidatorModel):
     authorizerName: str
     authorizerArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_billing_group' function.
 class CreateBillingGroupResponse(BaseValidatorModel):
     billingGroupName: str
     billingGroupArn: str
@@ -2118,6 +2270,7 @@ class CreateBillingGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_certificate_from_csr' function.
 class CreateCertificateFromCsrResponse(BaseValidatorModel):
     certificateArn: str
     certificateId: str
@@ -2125,36 +2278,42 @@ class CreateCertificateFromCsrResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_certificate_provider' function.
 class CreateCertificateProviderResponse(BaseValidatorModel):
     certificateProviderName: str
     certificateProviderArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_command' function.
 class CreateCommandResponse(BaseValidatorModel):
     commandId: str
     commandArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_custom_metric' function.
 class CreateCustomMetricResponse(BaseValidatorModel):
     metricName: str
     metricArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_dimension' function.
 class CreateDimensionResponse(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_domain_configuration' function.
 class CreateDomainConfigurationResponse(BaseValidatorModel):
     domainConfigurationName: str
     domainConfigurationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_dynamic_thing_group' function.
 class CreateDynamicThingGroupResponse(BaseValidatorModel):
     thingGroupName: str
     thingGroupArn: str
@@ -2165,12 +2324,14 @@ class CreateDynamicThingGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_fleet_metric' function.
 class CreateFleetMetricResponse(BaseValidatorModel):
     metricName: str
     metricArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_job' function.
 class CreateJobResponse(BaseValidatorModel):
     jobArn: str
     jobId: str
@@ -2178,18 +2339,21 @@ class CreateJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_job_template' function.
 class CreateJobTemplateResponse(BaseValidatorModel):
     jobTemplateArn: str
     jobTemplateId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_mitigation_action' function.
 class CreateMitigationActionResponse(BaseValidatorModel):
     actionArn: str
     actionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_ota_update' function.
 class CreateOTAUpdateResponse(BaseValidatorModel):
     otaUpdateId: str
     awsIotJobId: str
@@ -2199,6 +2363,7 @@ class CreateOTAUpdateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_package' function.
 class CreatePackageResponse(BaseValidatorModel):
     packageName: str
     packageArn: str
@@ -2206,6 +2371,7 @@ class CreatePackageResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_package_version' function.
 class CreatePackageVersionResponse(BaseValidatorModel):
     packageVersionArn: str
     packageName: str
@@ -2217,6 +2383,7 @@ class CreatePackageVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_policy' function.
 class CreatePolicyResponse(BaseValidatorModel):
     policyName: str
     policyArn: str
@@ -2225,6 +2392,7 @@ class CreatePolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_policy_version' function.
 class CreatePolicyVersionResponse(BaseValidatorModel):
     policyArn: str
     policyDocument: str
@@ -2233,6 +2401,7 @@ class CreatePolicyVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_provisioning_template' function.
 class CreateProvisioningTemplateResponse(BaseValidatorModel):
     templateArn: str
     templateName: str
@@ -2240,6 +2409,7 @@ class CreateProvisioningTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_provisioning_template_version' function.
 class CreateProvisioningTemplateVersionResponse(BaseValidatorModel):
     templateArn: str
     templateName: str
@@ -2248,23 +2418,27 @@ class CreateProvisioningTemplateVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_role_alias' function.
 class CreateRoleAliasResponse(BaseValidatorModel):
     roleAlias: str
     roleAliasArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_scheduled_audit' function.
 class CreateScheduledAuditResponse(BaseValidatorModel):
     scheduledAuditArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_security_profile' function.
 class CreateSecurityProfileResponse(BaseValidatorModel):
     securityProfileName: str
     securityProfileArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_stream' function.
 class CreateStreamResponse(BaseValidatorModel):
     streamId: str
     streamArn: str
@@ -2273,6 +2447,7 @@ class CreateStreamResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_thing_group' function.
 class CreateThingGroupResponse(BaseValidatorModel):
     thingGroupName: str
     thingGroupArn: str
@@ -2280,6 +2455,7 @@ class CreateThingGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_thing' function.
 class CreateThingResponse(BaseValidatorModel):
     thingName: str
     thingArn: str
@@ -2287,6 +2463,7 @@ class CreateThingResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_thing_type' function.
 class CreateThingTypeResponse(BaseValidatorModel):
     thingTypeName: str
     thingTypeArn: str
@@ -2294,11 +2471,13 @@ class CreateThingTypeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_command' function.
 class DeleteCommandResponse(BaseValidatorModel):
     statusCode: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_certificate_provider' function.
 class DescribeCertificateProviderResponse(BaseValidatorModel):
     certificateProviderName: str
     certificateProviderArn: str
@@ -2309,6 +2488,7 @@ class DescribeCertificateProviderResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_custom_metric' function.
 class DescribeCustomMetricResponse(BaseValidatorModel):
     metricName: str
     metricArn: str
@@ -2319,6 +2499,7 @@ class DescribeCustomMetricResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_dimension' function.
 class DescribeDimensionResponse(BaseValidatorModel):
     name: str
     arn: str
@@ -2329,11 +2510,13 @@ class DescribeDimensionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_endpoint' function.
 class DescribeEndpointResponse(BaseValidatorModel):
     endpointAddress: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_fleet_metric' function.
 class DescribeFleetMetricResponse(BaseValidatorModel):
     metricName: str
     queryString: str
@@ -2351,6 +2534,7 @@ class DescribeFleetMetricResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_index' function.
 class DescribeIndexResponse(BaseValidatorModel):
     indexName: str
     indexStatus: IndexStatusType
@@ -2358,6 +2542,7 @@ class DescribeIndexResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_provisioning_template_version' function.
 class DescribeProvisioningTemplateVersionResponse(BaseValidatorModel):
     versionId: int
     creationDate: datetime
@@ -2366,6 +2551,7 @@ class DescribeProvisioningTemplateVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_scheduled_audit' function.
 class DescribeScheduledAuditResponse(BaseValidatorModel):
     frequency: AuditFrequencyType
     dayOfMonth: str
@@ -2376,6 +2562,7 @@ class DescribeScheduledAuditResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_thing_registration_task' function.
 class DescribeThingRegistrationTaskResponse(BaseValidatorModel):
     taskId: str
     creationDate: datetime
@@ -2392,6 +2579,7 @@ class DescribeThingRegistrationTaskResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_thing' function.
 class DescribeThingResponse(BaseValidatorModel):
     defaultClientId: str
     thingName: str
@@ -2404,15 +2592,18 @@ class DescribeThingResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_job' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_cardinality' function.
 class GetCardinalityResponse(BaseValidatorModel):
     cardinality: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_job_document' function.
 class GetJobDocumentResponse(BaseValidatorModel):
     document: str
     ResponseMetadata: ResponseMetadata
@@ -2424,6 +2615,7 @@ class GetLoggingOptionsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_package' function.
 class GetPackageResponse(BaseValidatorModel):
     packageName: str
     packageArn: str
@@ -2434,6 +2626,7 @@ class GetPackageResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_policy' function.
 class GetPolicyResponse(BaseValidatorModel):
     policyName: str
     policyArn: str
@@ -2445,6 +2638,7 @@ class GetPolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_policy_version' function.
 class GetPolicyVersionResponse(BaseValidatorModel):
     policyArn: str
     policyName: str
@@ -2462,6 +2656,7 @@ class GetRegistrationCodeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_thing_connectivity_data' function.
 class GetThingConnectivityDataResponse(BaseValidatorModel):
     thingName: str
     connected: bool
@@ -2477,72 +2672,84 @@ class GetV2LoggingOptionsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_attached_policies' function.
 class ListAttachedPoliciesResponse(BaseValidatorModel):
     policies: List[Policy]
     nextMarker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_custom_metrics' function.
 class ListCustomMetricsResponse(BaseValidatorModel):
     metricNames: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_dimensions' function.
 class ListDimensionsResponse(BaseValidatorModel):
     dimensionNames: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_indices' function.
 class ListIndicesResponse(BaseValidatorModel):
     indexNames: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_policies' function.
 class ListPoliciesResponse(BaseValidatorModel):
     policies: List[Policy]
     nextMarker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_policy_principals' function.
 class ListPolicyPrincipalsResponse(BaseValidatorModel):
     principals: List[str]
     nextMarker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_principal_policies' function.
 class ListPrincipalPoliciesResponse(BaseValidatorModel):
     policies: List[Policy]
     nextMarker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_principal_things' function.
 class ListPrincipalThingsResponse(BaseValidatorModel):
     things: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_role_aliases' function.
 class ListRoleAliasesResponse(BaseValidatorModel):
     roleAliases: List[str]
     nextMarker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_targets_for_policy' function.
 class ListTargetsForPolicyResponse(BaseValidatorModel):
     targets: List[str]
     nextMarker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_thing_principals' function.
 class ListThingPrincipalsResponse(BaseValidatorModel):
     principals: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_thing_registration_task_reports' function.
 class ListThingRegistrationTaskReportsResponse(BaseValidatorModel):
     resourceLinks: List[str]
     reportType: ReportTypeType
@@ -2550,74 +2757,87 @@ class ListThingRegistrationTaskReportsResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_thing_registration_tasks' function.
 class ListThingRegistrationTasksResponse(BaseValidatorModel):
     taskIds: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_things_in_billing_group' function.
 class ListThingsInBillingGroupResponse(BaseValidatorModel):
     things: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_things_in_thing_group' function.
 class ListThingsInThingGroupResponse(BaseValidatorModel):
     things: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'register_ca_certificate' function.
 class RegisterCACertificateResponse(BaseValidatorModel):
     certificateArn: str
     certificateId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_certificate' function.
 class RegisterCertificateResponse(BaseValidatorModel):
     certificateArn: str
     certificateId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_certificate_without_ca' function.
 class RegisterCertificateWithoutCAResponse(BaseValidatorModel):
     certificateArn: str
     certificateId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_thing' function.
 class RegisterThingResponse(BaseValidatorModel):
     certificatePem: str
     resourceArns: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'set_default_authorizer' function.
 class SetDefaultAuthorizerResponse(BaseValidatorModel):
     authorizerName: str
     authorizerArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_audit_mitigation_actions_task' function.
 class StartAuditMitigationActionsTaskResponse(BaseValidatorModel):
     taskId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_detect_mitigation_actions_task' function.
 class StartDetectMitigationActionsTaskResponse(BaseValidatorModel):
     taskId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_on_demand_audit_task' function.
 class StartOnDemandAuditTaskResponse(BaseValidatorModel):
     taskId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_thing_registration_task' function.
 class StartThingRegistrationTaskResponse(BaseValidatorModel):
     taskId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'test_invoke_authorizer' function.
 class TestInvokeAuthorizerResponse(BaseValidatorModel):
     isAuthenticated: bool
     principalId: str
@@ -2627,28 +2847,33 @@ class TestInvokeAuthorizerResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'transfer_certificate' function.
 class TransferCertificateResponse(BaseValidatorModel):
     transferredCertificateArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_authorizer' function.
 class UpdateAuthorizerResponse(BaseValidatorModel):
     authorizerName: str
     authorizerArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_billing_group' function.
 class UpdateBillingGroupResponse(BaseValidatorModel):
     version: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_certificate_provider' function.
 class UpdateCertificateProviderResponse(BaseValidatorModel):
     certificateProviderName: str
     certificateProviderArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_command' function.
 class UpdateCommandResponse(BaseValidatorModel):
     commandId: str
     displayName: str
@@ -2658,6 +2883,7 @@ class UpdateCommandResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_custom_metric' function.
 class UpdateCustomMetricResponse(BaseValidatorModel):
     metricName: str
     metricArn: str
@@ -2668,6 +2894,7 @@ class UpdateCustomMetricResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_dimension' function.
 class UpdateDimensionResponse(BaseValidatorModel):
     name: str
     arn: str
@@ -2678,34 +2905,40 @@ class UpdateDimensionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_domain_configuration' function.
 class UpdateDomainConfigurationResponse(BaseValidatorModel):
     domainConfigurationName: str
     domainConfigurationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_dynamic_thing_group' function.
 class UpdateDynamicThingGroupResponse(BaseValidatorModel):
     version: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_mitigation_action' function.
 class UpdateMitigationActionResponse(BaseValidatorModel):
     actionArn: str
     actionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_role_alias' function.
 class UpdateRoleAliasResponse(BaseValidatorModel):
     roleAlias: str
     roleAliasArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_scheduled_audit' function.
 class UpdateScheduledAuditResponse(BaseValidatorModel):
     scheduledAuditArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_stream' function.
 class UpdateStreamResponse(BaseValidatorModel):
     streamId: str
     streamArn: str
@@ -2714,6 +2947,7 @@ class UpdateStreamResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_thing_group' function.
 class UpdateThingGroupResponse(BaseValidatorModel):
     version: int
     ResponseMetadata: ResponseMetadata
@@ -2733,12 +2967,14 @@ class ThingGroupProperties(BaseValidatorModel):
 AuditCheckConfigurationUnion = Union[AuditCheckConfiguration, AuditCheckConfigurationOutput]
 
 
+# This class is the output for the 'list_audit_mitigation_actions_executions' function.
 class ListAuditMitigationActionsExecutionsResponse(BaseValidatorModel):
     actionsExecutions: List[AuditMitigationActionExecutionMetadata]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_audit_mitigation_actions_tasks' function.
 class ListAuditMitigationActionsTasksResponse(BaseValidatorModel):
     tasks: List[AuditMitigationActionsTaskMetadata]
     ResponseMetadata: ResponseMetadata
@@ -2754,6 +2990,7 @@ class DescribeAccountAuditConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_audit_tasks' function.
 class ListAuditTasksResponse(BaseValidatorModel):
     tasks: List[AuditTaskMetadata]
     ResponseMetadata: ResponseMetadata
@@ -2762,6 +2999,7 @@ class ListAuditTasksResponse(BaseValidatorModel):
 AuthInfoUnion = Union[AuthInfo, AuthInfoOutput]
 
 
+# This class is the output for the 'describe_authorizer' function.
 class DescribeAuthorizerResponse(BaseValidatorModel):
     authorizerDescription: AuthorizerDescription
     ResponseMetadata: ResponseMetadata
@@ -2772,6 +3010,7 @@ class DescribeDefaultAuthorizerResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_authorizers' function.
 class ListAuthorizersResponse(BaseValidatorModel):
     authorizers: List[AuthorizerSummary]
     nextMarker: str
@@ -2798,6 +3037,7 @@ class BehaviorCriteriaOutput(BaseValidatorModel):
     mlDetectionConfig: Optional[MachineLearningDetectionConfig] = None
 
 
+# This class is the output for the 'get_behavior_model_training_summaries' function.
 class GetBehaviorModelTrainingSummariesResponse(BaseValidatorModel):
     summaries: List[BehaviorModelTrainingSummary]
     ResponseMetadata: ResponseMetadata
@@ -2810,6 +3050,7 @@ class MetricToRetain(BaseValidatorModel):
     exportMetric: Optional[bool] = None
 
 
+# This class is the output for the 'describe_billing_group' function.
 class DescribeBillingGroupResponse(BaseValidatorModel):
     billingGroupName: str
     billingGroupId: str
@@ -2820,6 +3061,7 @@ class DescribeBillingGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_billing_group' function.
 class UpdateBillingGroupRequest(BaseValidatorModel):
     billingGroupName: str
     billingGroupProperties: BillingGroupProperties
@@ -2851,6 +3093,7 @@ class MqttContext(BaseValidatorModel):
     clientId: Optional[str] = None
 
 
+# This class is the output for the 'get_buckets_aggregation' function.
 class GetBucketsAggregationResponse(BaseValidatorModel):
     totalCount: int
     buckets: List[Bucket]
@@ -2876,6 +3119,7 @@ class CACertificateDescription(BaseValidatorModel):
     certificateMode: Optional[CertificateModeType] = None
 
 
+# This class is the output for the 'list_ca_certificates' function.
 class ListCACertificatesResponse(BaseValidatorModel):
     certificates: List[CACertificate]
     nextMarker: str
@@ -2899,18 +3143,21 @@ class CertificateDescription(BaseValidatorModel):
     certificateMode: Optional[CertificateModeType] = None
 
 
+# This class is the output for the 'list_certificate_providers' function.
 class ListCertificateProvidersResponse(BaseValidatorModel):
     certificateProviders: List[CertificateProviderSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_certificates_by_ca' function.
 class ListCertificatesByCAResponse(BaseValidatorModel):
     certificates: List[Certificate]
     nextMarker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_certificates' function.
 class ListCertificatesResponse(BaseValidatorModel):
     certificates: List[Certificate]
     nextMarker: str
@@ -2924,6 +3171,7 @@ class CustomCodeSigningOutput(BaseValidatorModel):
     signatureAlgorithm: Optional[str] = None
 
 
+# This class is the output for the 'list_command_executions' function.
 class ListCommandExecutionsResponse(BaseValidatorModel):
     commandExecutions: List[CommandExecutionSummary]
     ResponseMetadata: ResponseMetadata
@@ -2937,6 +3185,7 @@ class CommandParameterOutput(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the output for the 'list_commands' function.
 class ListCommandsResponse(BaseValidatorModel):
     commands: List[CommandSummary]
     ResponseMetadata: ResponseMetadata
@@ -2954,6 +3203,7 @@ class UpdateEventConfigurationsRequest(BaseValidatorModel):
     eventConfigurations: Optional[Dict[EventTypeType, Configuration]] = None
 
 
+# This class is the input for the 'list_audit_mitigation_actions_tasks' function.
 class ListAuditMitigationActionsTasksRequest(BaseValidatorModel):
     startTime: Timestamp
     endTime: Timestamp
@@ -2964,6 +3214,7 @@ class ListAuditMitigationActionsTasksRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_audit_tasks' function.
 class ListAuditTasksRequest(BaseValidatorModel):
     startTime: Timestamp
     endTime: Timestamp
@@ -2973,6 +3224,7 @@ class ListAuditTasksRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_detect_mitigation_actions_executions' function.
 class ListDetectMitigationActionsExecutionsRequest(BaseValidatorModel):
     taskId: Optional[str] = None
     violationId: Optional[str] = None
@@ -2983,6 +3235,7 @@ class ListDetectMitigationActionsExecutionsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_detect_mitigation_actions_tasks' function.
 class ListDetectMitigationActionsTasksRequest(BaseValidatorModel):
     startTime: Timestamp
     endTime: Timestamp
@@ -2990,6 +3243,7 @@ class ListDetectMitigationActionsTasksRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_metric_values' function.
 class ListMetricValuesRequest(BaseValidatorModel):
     thingName: str
     metricName: str
@@ -3001,6 +3255,7 @@ class ListMetricValuesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_violation_events' function.
 class ListViolationEventsRequest(BaseValidatorModel):
     startTime: Timestamp
     endTime: Timestamp
@@ -3018,6 +3273,7 @@ class ViolationEventOccurrenceRange(BaseValidatorModel):
     endTime: Timestamp
 
 
+# This class is the input for the 'create_authorizer' function.
 class CreateAuthorizerRequest(BaseValidatorModel):
     authorizerName: str
     authorizerFunctionArn: str
@@ -3029,12 +3285,14 @@ class CreateAuthorizerRequest(BaseValidatorModel):
     enableCachingForHttp: Optional[bool] = None
 
 
+# This class is the input for the 'create_billing_group' function.
 class CreateBillingGroupRequest(BaseValidatorModel):
     billingGroupName: str
     billingGroupProperties: Optional[BillingGroupProperties] = None
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_certificate_provider' function.
 class CreateCertificateProviderRequest(BaseValidatorModel):
     certificateProviderName: str
     lambdaFunctionArn: str
@@ -3043,6 +3301,7 @@ class CreateCertificateProviderRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_custom_metric' function.
 class CreateCustomMetricRequest(BaseValidatorModel):
     metricName: str
     metricType: CustomMetricTypeType
@@ -3051,6 +3310,7 @@ class CreateCustomMetricRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_dimension' function.
 class CreateDimensionRequest(BaseValidatorModel):
     name: str
     type: Literal['TOPIC_FILTER']
@@ -3059,12 +3319,14 @@ class CreateDimensionRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_policy' function.
 class CreatePolicyRequest(BaseValidatorModel):
     policyName: str
     policyDocument: str
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_role_alias' function.
 class CreateRoleAliasRequest(BaseValidatorModel):
     roleAlias: str
     roleArn: str
@@ -3072,6 +3334,7 @@ class CreateRoleAliasRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_scheduled_audit' function.
 class CreateScheduledAuditRequest(BaseValidatorModel):
     frequency: AuditFrequencyType
     targetCheckNames: List[str]
@@ -3081,6 +3344,7 @@ class CreateScheduledAuditRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -3092,6 +3356,7 @@ class TagResourceRequest(BaseValidatorModel):
     tags: List[Tag]
 
 
+# This class is the input for the 'create_domain_configuration' function.
 class CreateDomainConfigurationRequest(BaseValidatorModel):
     domainConfigurationName: str
     domainName: Optional[str] = None
@@ -3107,6 +3372,7 @@ class CreateDomainConfigurationRequest(BaseValidatorModel):
     clientCertificateConfig: Optional[ClientCertificateConfig] = None
 
 
+# This class is the input for the 'update_domain_configuration' function.
 class UpdateDomainConfigurationRequest(BaseValidatorModel):
     domainConfigurationName: str
     authorizerConfig: Optional[AuthorizerConfig] = None
@@ -3133,6 +3399,7 @@ class SchedulingConfig(BaseValidatorModel):
     maintenanceWindows: Optional[List[MaintenanceWindow]] = None
 
 
+# This class is the output for the 'create_keys_and_certificate' function.
 class CreateKeysAndCertificateResponse(BaseValidatorModel):
     certificateArn: str
     certificateId: str
@@ -3141,6 +3408,7 @@ class CreateKeysAndCertificateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_provisioning_claim' function.
 class CreateProvisioningClaimResponse(BaseValidatorModel):
     certificateId: str
     certificatePem: str
@@ -3149,6 +3417,7 @@ class CreateProvisioningClaimResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_provisioning_template' function.
 class CreateProvisioningTemplateRequest(BaseValidatorModel):
     templateName: str
     templateBody: str
@@ -3160,6 +3429,7 @@ class CreateProvisioningTemplateRequest(BaseValidatorModel):
     type: Optional[TemplateTypeType] = None
 
 
+# This class is the output for the 'describe_provisioning_template' function.
 class DescribeProvisioningTemplateResponse(BaseValidatorModel):
     templateArn: str
     templateName: str
@@ -3185,6 +3455,7 @@ class UpdateProvisioningTemplateRequest(BaseValidatorModel):
     removePreProvisioningHook: Optional[bool] = None
 
 
+# This class is the output for the 'describe_audit_task' function.
 class DescribeAuditTaskResponse(BaseValidatorModel):
     taskStatus: AuditTaskStatusType
     taskType: AuditTaskTypeType
@@ -3195,6 +3466,7 @@ class DescribeAuditTaskResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'register_ca_certificate' function.
 class RegisterCACertificateRequest(BaseValidatorModel):
     caCertificate: str
     verificationCertificate: Optional[str] = None
@@ -3205,6 +3477,7 @@ class RegisterCACertificateRequest(BaseValidatorModel):
     certificateMode: Optional[CertificateModeType] = None
 
 
+# This class is the input for the 'update_ca_certificate' function.
 class UpdateCACertificateRequest(BaseValidatorModel):
     certificateId: str
     newStatus: Optional[CACertificateStatusType] = None
@@ -3213,6 +3486,7 @@ class UpdateCACertificateRequest(BaseValidatorModel):
     removeAutoRegistration: Optional[bool] = None
 
 
+# This class is the output for the 'describe_domain_configuration' function.
 class DescribeDomainConfigurationResponse(BaseValidatorModel):
     domainConfigurationName: str
     domainConfigurationArn: str
@@ -3231,6 +3505,7 @@ class DescribeDomainConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_managed_job_template' function.
 class DescribeManagedJobTemplateResponse(BaseValidatorModel):
     templateName: str
     templateArn: str
@@ -3242,6 +3517,7 @@ class DescribeManagedJobTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_role_alias' function.
 class DescribeRoleAliasResponse(BaseValidatorModel):
     roleAliasDescription: RoleAliasDescription
     ResponseMetadata: ResponseMetadata
@@ -3251,6 +3527,7 @@ class Destination(BaseValidatorModel):
     s3Destination: Optional[S3Destination] = None
 
 
+# This class is the output for the 'list_detect_mitigation_actions_executions' function.
 class ListDetectMitigationActionsExecutionsResponse(BaseValidatorModel):
     actionsExecutions: List[DetectMitigationActionExecution]
     ResponseMetadata: ResponseMetadata
@@ -3259,6 +3536,7 @@ class ListDetectMitigationActionsExecutionsResponse(BaseValidatorModel):
 DetectMitigationActionsTaskTargetUnion = Union[DetectMitigationActionsTaskTarget, DetectMitigationActionsTaskTargetOutput]
 
 
+# This class is the output for the 'list_domain_configurations' function.
 class ListDomainConfigurationsResponse(BaseValidatorModel):
     domainConfigurations: List[DomainConfigurationSummary]
     nextMarker: str
@@ -3270,6 +3548,7 @@ class DynamoDBv2Action(BaseValidatorModel):
     putItem: PutItemInput
 
 
+# This class is the output for the 'get_effective_policies' function.
 class GetEffectivePoliciesResponse(BaseValidatorModel):
     effectivePolicies: List[EffectivePolicy]
     ResponseMetadata: ResponseMetadata
@@ -3311,6 +3590,7 @@ class FileLocation(BaseValidatorModel):
     s3Location: Optional[S3Location] = None
 
 
+# This class is the output for the 'list_fleet_metrics' function.
 class ListFleetMetricsResponse(BaseValidatorModel):
     fleetMetrics: List[FleetMetricNameAndArn]
     ResponseMetadata: ResponseMetadata
@@ -3683,6 +3963,7 @@ class ListViolationEventsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'get_command_execution' function.
 class GetCommandExecutionResponse(BaseValidatorModel):
     executionId: str
     commandArn: str
@@ -3710,28 +3991,33 @@ class UpdatePackageConfigurationRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the output for the 'get_percentiles' function.
 class GetPercentilesResponse(BaseValidatorModel):
     percentiles: List[PercentPair]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_statistics' function.
 class GetStatisticsResponse(BaseValidatorModel):
     statistics: Statistics
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_billing_groups' function.
 class ListBillingGroupsResponse(BaseValidatorModel):
     billingGroups: List[GroupNameAndArn]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_thing_groups_for_thing' function.
 class ListThingGroupsForThingResponse(BaseValidatorModel):
     thingGroups: List[GroupNameAndArn]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_thing_groups' function.
 class ListThingGroupsResponse(BaseValidatorModel):
     thingGroups: List[GroupNameAndArn]
     ResponseMetadata: ResponseMetadata
@@ -3780,12 +4066,14 @@ class JobExecutionsRetryConfig(BaseValidatorModel):
     criteriaList: List[RetryCriteria]
 
 
+# This class is the output for the 'list_jobs' function.
 class ListJobsResponse(BaseValidatorModel):
     jobs: List[JobSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_job_templates' function.
 class ListJobTemplatesResponse(BaseValidatorModel):
     jobTemplates: List[JobTemplateSummary]
     ResponseMetadata: ResponseMetadata
@@ -3821,6 +4109,7 @@ class ListCommandExecutionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_command_executions' function.
 class ListCommandExecutionsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -3833,89 +4122,104 @@ class ListCommandExecutionsRequest(BaseValidatorModel):
     commandArn: Optional[str] = None
 
 
+# This class is the output for the 'list_managed_job_templates' function.
 class ListManagedJobTemplatesResponse(BaseValidatorModel):
     managedJobTemplates: List[ManagedJobTemplateSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_mitigation_actions' function.
 class ListMitigationActionsResponse(BaseValidatorModel):
     actionIdentifiers: List[MitigationActionIdentifier]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_ota_updates' function.
 class ListOTAUpdatesResponse(BaseValidatorModel):
     otaUpdates: List[OTAUpdateSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_outgoing_certificates' function.
 class ListOutgoingCertificatesResponse(BaseValidatorModel):
     outgoingCertificates: List[OutgoingCertificate]
     nextMarker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_package_versions' function.
 class ListPackageVersionsResponse(BaseValidatorModel):
     packageVersionSummaries: List[PackageVersionSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_packages' function.
 class ListPackagesResponse(BaseValidatorModel):
     packageSummaries: List[PackageSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_policy_versions' function.
 class ListPolicyVersionsResponse(BaseValidatorModel):
     policyVersions: List[PolicyVersion]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_principal_things_v2' function.
 class ListPrincipalThingsV2Response(BaseValidatorModel):
     principalThingObjects: List[PrincipalThingObject]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_provisioning_template_versions' function.
 class ListProvisioningTemplateVersionsResponse(BaseValidatorModel):
     versions: List[ProvisioningTemplateVersionSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_provisioning_templates' function.
 class ListProvisioningTemplatesResponse(BaseValidatorModel):
     templates: List[ProvisioningTemplateSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_sbom_validation_results' function.
 class ListSbomValidationResultsResponse(BaseValidatorModel):
     validationResultSummaries: List[SbomValidationResultSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_scheduled_audits' function.
 class ListScheduledAuditsResponse(BaseValidatorModel):
     scheduledAudits: List[ScheduledAuditMetadata]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_security_profiles' function.
 class ListSecurityProfilesResponse(BaseValidatorModel):
     securityProfileIdentifiers: List[SecurityProfileIdentifier]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_streams' function.
 class ListStreamsResponse(BaseValidatorModel):
     streams: List[StreamSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_targets_for_security_profile' function.
 class ListTargetsForSecurityProfileResponse(BaseValidatorModel):
     securityProfileTargets: List[SecurityProfileTarget]
     ResponseMetadata: ResponseMetadata
@@ -3927,18 +4231,21 @@ class SecurityProfileTargetMapping(BaseValidatorModel):
     target: Optional[SecurityProfileTarget] = None
 
 
+# This class is the output for the 'list_thing_principals_v2' function.
 class ListThingPrincipalsV2Response(BaseValidatorModel):
     thingPrincipalObjects: List[ThingPrincipalObject]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_things' function.
 class ListThingsResponse(BaseValidatorModel):
     things: List[ThingAttribute]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_topic_rules' function.
 class ListTopicRulesResponse(BaseValidatorModel):
     rules: List[TopicRuleListItem]
     ResponseMetadata: ResponseMetadata
@@ -3959,11 +4266,13 @@ class LogTargetConfiguration(BaseValidatorModel):
     logLevel: Optional[LogLevelType] = None
 
 
+# This class is the input for the 'set_v2_logging_level' function.
 class SetV2LoggingLevelRequest(BaseValidatorModel):
     logTarget: LogTarget
     logLevel: LogLevelType
 
 
+# This class is the input for the 'set_logging_options' function.
 class SetLoggingOptionsRequest(BaseValidatorModel):
     loggingOptionsPayload: LoggingOptionsPayload
 
@@ -4079,6 +4388,7 @@ class TopicRuleDestination(BaseValidatorModel):
     vpcProperties: Optional[VpcDestinationProperties] = None
 
 
+# This class is the output for the 'validate_security_profile_behaviors' function.
 class ValidateSecurityProfileBehaviorsResponse(BaseValidatorModel):
     valid: bool
     validationErrors: List[ValidationError]
@@ -4087,12 +4397,14 @@ class ValidateSecurityProfileBehaviorsResponse(BaseValidatorModel):
 AbortConfigUnion = Union[AbortConfig, AbortConfigOutput]
 
 
+# This class is the output for the 'list_metric_values' function.
 class ListMetricValuesResponse(BaseValidatorModel):
     metricDatumList: List[MetricDatum]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_fleet_metric' function.
 class CreateFleetMetricRequest(BaseValidatorModel):
     metricName: str
     queryString: str
@@ -4106,6 +4418,7 @@ class CreateFleetMetricRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_fleet_metric' function.
 class UpdateFleetMetricRequest(BaseValidatorModel):
     metricName: str
     indexName: str
@@ -4140,6 +4453,7 @@ class PutAssetPropertyValueEntry(BaseValidatorModel):
     propertyAlias: Optional[str] = None
 
 
+# This class is the input for the 'create_thing' function.
 class CreateThingRequest(BaseValidatorModel):
     thingName: str
     thingTypeName: Optional[str] = None
@@ -4163,6 +4477,7 @@ class UpdateAccountAuditConfigurationRequest(BaseValidatorModel):
     auditCheckConfigurations: Optional[Dict[str, AuditCheckConfigurationUnion]] = None
 
 
+# This class is the input for the 'start_audit_mitigation_actions_task' function.
 class StartAuditMitigationActionsTaskRequest(BaseValidatorModel):
     taskId: str
     target: AuditMitigationActionsTaskTargetUnion
@@ -4170,6 +4485,7 @@ class StartAuditMitigationActionsTaskRequest(BaseValidatorModel):
     clientRequestToken: str
 
 
+# This class is the input for the 'test_authorization' function.
 class TestAuthorizationRequest(BaseValidatorModel):
     authInfos: List[AuthInfoUnion]
     principal: Optional[str] = None
@@ -4199,6 +4515,7 @@ CommandParameterValueUnion = Union[CommandParameterValue, CommandParameterValueO
 CommandPayloadUnion = Union[CommandPayload, CommandPayloadOutput]
 
 
+# This class is the input for the 'test_invoke_authorizer' function.
 class TestInvokeAuthorizerRequest(BaseValidatorModel):
     authorizerName: str
     token: Optional[str] = None
@@ -4208,6 +4525,7 @@ class TestInvokeAuthorizerRequest(BaseValidatorModel):
     tlsContext: Optional[TlsContext] = None
 
 
+# This class is the input for the 'get_buckets_aggregation' function.
 class GetBucketsAggregationRequest(BaseValidatorModel):
     queryString: str
     aggregationField: str
@@ -4216,17 +4534,20 @@ class GetBucketsAggregationRequest(BaseValidatorModel):
     queryVersion: Optional[str] = None
 
 
+# This class is the output for the 'describe_ca_certificate' function.
 class DescribeCACertificateResponse(BaseValidatorModel):
     certificateDescription: CACertificateDescription
     registrationConfig: RegistrationConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_certificate' function.
 class DescribeCertificateResponse(BaseValidatorModel):
     certificateDescription: CertificateDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_command' function.
 class GetCommandResponse(BaseValidatorModel):
     commandId: str
     commandArn: str
@@ -4260,6 +4581,7 @@ class JobExecutionsRolloutConfig(BaseValidatorModel):
 ThingGroupIndexingConfigurationUnion = Union[ThingGroupIndexingConfiguration, ThingGroupIndexingConfigurationOutput]
 
 
+# This class is the input for the 'create_package_version' function.
 class CreatePackageVersionRequest(BaseValidatorModel):
     packageName: str
     versionName: str
@@ -4282,6 +4604,7 @@ class UpdatePackageVersionRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'associate_sbom_with_package_version' function.
 class AssociateSbomWithPackageVersionRequest(BaseValidatorModel):
     packageName: str
     versionName: str
@@ -4289,6 +4612,7 @@ class AssociateSbomWithPackageVersionRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the output for the 'associate_sbom_with_package_version' function.
 class AssociateSbomWithPackageVersionResponse(BaseValidatorModel):
     packageName: str
     versionName: str
@@ -4297,6 +4621,7 @@ class AssociateSbomWithPackageVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_package_version' function.
 class GetPackageVersionResponse(BaseValidatorModel):
     packageVersionArn: str
     packageName: str
@@ -4314,6 +4639,7 @@ class GetPackageVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_stream' function.
 class CreateStreamRequest(BaseValidatorModel):
     streamId: str
     files: List[StreamFile]
@@ -4333,6 +4659,7 @@ class StreamInfo(BaseValidatorModel):
     roleArn: Optional[str] = None
 
 
+# This class is the input for the 'update_stream' function.
 class UpdateStreamRequest(BaseValidatorModel):
     streamId: str
     description: Optional[str] = None
@@ -4360,6 +4687,7 @@ class ThingIndexingConfiguration(BaseValidatorModel):
     filter: Optional[IndexingFilter] = None
 
 
+# This class is the output for the 'describe_thing_group' function.
 class DescribeThingGroupResponse(BaseValidatorModel):
     thingGroupName: str
     thingGroupId: str
@@ -4388,17 +4716,20 @@ class HttpAction(BaseValidatorModel):
     auth: Optional[HttpAuthorization] = None
 
 
+# This class is the output for the 'describe_job_execution' function.
 class DescribeJobExecutionResponse(BaseValidatorModel):
     execution: JobExecution
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_job_executions_for_job' function.
 class ListJobExecutionsForJobResponse(BaseValidatorModel):
     executionSummaries: List[JobExecutionSummaryForJob]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_job_executions_for_thing' function.
 class ListJobExecutionsForThingResponse(BaseValidatorModel):
     executionSummaries: List[JobExecutionSummaryForThing]
     ResponseMetadata: ResponseMetadata
@@ -4409,12 +4740,14 @@ JobExecutionsRetryConfigUnion = Union[JobExecutionsRetryConfig, JobExecutionsRet
 KafkaActionUnion = Union[KafkaAction, KafkaActionOutput]
 
 
+# This class is the output for the 'list_security_profiles_for_target' function.
 class ListSecurityProfilesForTargetResponse(BaseValidatorModel):
     securityProfileTargetMappings: List[SecurityProfileTargetMapping]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_v2_logging_levels' function.
 class ListV2LoggingLevelsResponse(BaseValidatorModel):
     logTargetConfigurations: List[LogTargetConfiguration]
     ResponseMetadata: ResponseMetadata
@@ -4431,6 +4764,7 @@ class BehaviorCriteria(BaseValidatorModel):
     mlDetectionConfig: Optional[MachineLearningDetectionConfig] = None
 
 
+# This class is the output for the 'describe_mitigation_action' function.
 class DescribeMitigationActionResponse(BaseValidatorModel):
     actionName: str
     actionType: MitigationActionTypeType
@@ -4495,11 +4829,13 @@ class DeleteAuditSuppressionRequest(BaseValidatorModel):
     resourceIdentifier: ResourceIdentifier
 
 
+# This class is the input for the 'describe_audit_suppression' function.
 class DescribeAuditSuppressionRequest(BaseValidatorModel):
     checkName: str
     resourceIdentifier: ResourceIdentifier
 
 
+# This class is the output for the 'describe_audit_suppression' function.
 class DescribeAuditSuppressionResponse(BaseValidatorModel):
     checkName: str
     resourceIdentifier: ResourceIdentifier
@@ -4519,6 +4855,7 @@ class ListAuditFindingsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_audit_findings' function.
 class ListAuditFindingsRequest(BaseValidatorModel):
     taskId: Optional[str] = None
     checkName: Optional[str] = None
@@ -4537,6 +4874,7 @@ class ListAuditSuppressionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_audit_suppressions' function.
 class ListAuditSuppressionsRequest(BaseValidatorModel):
     checkName: Optional[str] = None
     resourceIdentifier: Optional[ResourceIdentifier] = None
@@ -4565,6 +4903,7 @@ class UpdateAuditSuppressionRequest(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the output for the 'search_index' function.
 class SearchIndexResponse(BaseValidatorModel):
     things: List[ThingDocument]
     thingGroups: List[ThingGroupDocument]
@@ -4574,21 +4913,25 @@ class SearchIndexResponse(BaseValidatorModel):
 TimestreamActionUnion = Union[TimestreamAction, TimestreamActionOutput]
 
 
+# This class is the input for the 'create_topic_rule_destination' function.
 class CreateTopicRuleDestinationRequest(BaseValidatorModel):
     destinationConfiguration: TopicRuleDestinationConfiguration
 
 
+# This class is the output for the 'list_topic_rule_destinations' function.
 class ListTopicRuleDestinationsResponse(BaseValidatorModel):
     destinationSummaries: List[TopicRuleDestinationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_topic_rule_destination' function.
 class CreateTopicRuleDestinationResponse(BaseValidatorModel):
     topicRuleDestination: TopicRuleDestination
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_topic_rule_destination' function.
 class GetTopicRuleDestinationResponse(BaseValidatorModel):
     topicRuleDestination: TopicRuleDestination
     ResponseMetadata: ResponseMetadata
@@ -4609,6 +4952,7 @@ class IotSiteWiseActionOutput(BaseValidatorModel):
 PutAssetPropertyValueEntryUnion = Union[PutAssetPropertyValueEntry, PutAssetPropertyValueEntryOutput]
 
 
+# This class is the input for the 'create_dynamic_thing_group' function.
 class CreateDynamicThingGroupRequest(BaseValidatorModel):
     thingGroupName: str
     queryString: str
@@ -4618,6 +4962,7 @@ class CreateDynamicThingGroupRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_thing_group' function.
 class CreateThingGroupRequest(BaseValidatorModel):
     thingGroupName: str
     parentGroupName: Optional[str] = None
@@ -4625,6 +4970,7 @@ class CreateThingGroupRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_dynamic_thing_group' function.
 class UpdateDynamicThingGroupRequest(BaseValidatorModel):
     thingGroupName: str
     thingGroupProperties: ThingGroupPropertiesUnion
@@ -4634,6 +4980,7 @@ class UpdateDynamicThingGroupRequest(BaseValidatorModel):
     queryVersion: Optional[str] = None
 
 
+# This class is the input for the 'update_thing_group' function.
 class UpdateThingGroupRequest(BaseValidatorModel):
     thingGroupName: str
     thingGroupProperties: ThingGroupPropertiesUnion
@@ -4653,6 +5000,7 @@ class ActiveViolation(BaseValidatorModel):
     violationStartTime: Optional[datetime] = None
 
 
+# This class is the output for the 'describe_security_profile' function.
 class DescribeSecurityProfileResponse(BaseValidatorModel):
     securityProfileName: str
     securityProfileArn: str
@@ -4668,6 +5016,7 @@ class DescribeSecurityProfileResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_security_profile' function.
 class UpdateSecurityProfileResponse(BaseValidatorModel):
     securityProfileName: str
     securityProfileArn: str
@@ -4710,6 +5059,7 @@ class CommandParameter(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'start_detect_mitigation_actions_task' function.
 class StartDetectMitigationActionsTaskRequest(BaseValidatorModel):
     taskId: str
     target: DetectMitigationActionsTaskTargetUnion
@@ -4726,6 +5076,7 @@ class CodeSigningOutput(BaseValidatorModel):
     customCodeSigning: Optional[CustomCodeSigningOutput] = None
 
 
+# This class is the output for the 'describe_job_template' function.
 class DescribeJobTemplateResponse(BaseValidatorModel):
     jobTemplateArn: str
     jobTemplateId: str
@@ -4771,6 +5122,7 @@ class Job(BaseValidatorModel):
     destinationPackageVersions: Optional[List[str]] = None
 
 
+# This class is the output for the 'describe_stream' function.
 class DescribeStreamResponse(BaseValidatorModel):
     streamInfo: StreamInfo
     ResponseMetadata: ResponseMetadata
@@ -4786,6 +5138,7 @@ ThingIndexingConfigurationUnion = Union[ThingIndexingConfiguration, ThingIndexin
 HttpActionUnion = Union[HttpAction, HttpActionOutput]
 
 
+# This class is the input for the 'create_job' function.
 class CreateJobRequest(BaseValidatorModel):
     jobId: str
     targets: List[str]
@@ -4806,6 +5159,7 @@ class CreateJobRequest(BaseValidatorModel):
     destinationPackageVersions: Optional[List[str]] = None
 
 
+# This class is the input for the 'create_job_template' function.
 class CreateJobTemplateRequest(BaseValidatorModel):
     jobTemplateId: str
     description: str
@@ -4822,6 +5176,7 @@ class CreateJobTemplateRequest(BaseValidatorModel):
     destinationPackageVersions: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_job' function.
 class UpdateJobRequest(BaseValidatorModel):
     jobId: str
     description: Optional[str] = None
@@ -4835,6 +5190,7 @@ class UpdateJobRequest(BaseValidatorModel):
 BehaviorCriteriaUnion = Union[BehaviorCriteria, BehaviorCriteriaOutput]
 
 
+# This class is the output for the 'describe_audit_mitigation_actions_task' function.
 class DescribeAuditMitigationActionsTaskResponse(BaseValidatorModel):
     taskStatus: AuditMitigationActionsTaskStatusType
     startTime: datetime
@@ -4859,6 +5215,7 @@ class DetectMitigationActionsTaskSummary(BaseValidatorModel):
     taskStatistics: Optional[DetectMitigationActionsTaskStatistics] = None
 
 
+# This class is the input for the 'create_mitigation_action' function.
 class CreateMitigationActionRequest(BaseValidatorModel):
     actionName: str
     roleArn: str
@@ -4866,12 +5223,14 @@ class CreateMitigationActionRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_mitigation_action' function.
 class UpdateMitigationActionRequest(BaseValidatorModel):
     actionName: str
     roleArn: Optional[str] = None
     actionParams: Optional[MitigationActionParamsUnion] = None
 
 
+# This class is the output for the 'describe_thing_type' function.
 class DescribeThingTypeResponse(BaseValidatorModel):
     thingTypeName: str
     thingTypeId: str
@@ -4897,6 +5256,7 @@ class RepublishAction(BaseValidatorModel):
     headers: Optional[MqttHeadersUnion] = None
 
 
+# This class is the output for the 'list_audit_suppressions' function.
 class ListAuditSuppressionsResponse(BaseValidatorModel):
     suppressions: List[AuditSuppression]
     ResponseMetadata: ResponseMetadata
@@ -4917,12 +5277,14 @@ class AuditFinding(BaseValidatorModel):
     isSuppressed: Optional[bool] = None
 
 
+# This class is the output for the 'list_related_resources_for_audit_finding' function.
 class ListRelatedResourcesForAuditFindingResponse(BaseValidatorModel):
     relatedResources: List[RelatedResource]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'test_authorization' function.
 class TestAuthorizationResponse(BaseValidatorModel):
     authResults: List[AuthResult]
     ResponseMetadata: ResponseMetadata
@@ -4959,12 +5321,14 @@ class IotSiteWiseAction(BaseValidatorModel):
     roleArn: str
 
 
+# This class is the output for the 'list_active_violations' function.
 class ListActiveViolationsResponse(BaseValidatorModel):
     activeViolations: List[ActiveViolation]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_violation_events' function.
 class ListViolationEventsResponse(BaseValidatorModel):
     violationEvents: List[ViolationEvent]
     ResponseMetadata: ResponseMetadata
@@ -4984,6 +5348,7 @@ class OTAUpdateFileOutput(BaseValidatorModel):
     attributes: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'describe_job' function.
 class DescribeJobResponse(BaseValidatorModel):
     documentSource: str
     job: Job
@@ -5004,23 +5369,27 @@ class Behavior(BaseValidatorModel):
     exportMetric: Optional[bool] = None
 
 
+# This class is the output for the 'describe_detect_mitigation_actions_task' function.
 class DescribeDetectMitigationActionsTaskResponse(BaseValidatorModel):
     taskSummary: DetectMitigationActionsTaskSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_detect_mitigation_actions_tasks' function.
 class ListDetectMitigationActionsTasksResponse(BaseValidatorModel):
     tasks: List[DetectMitigationActionsTaskSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_thing_types' function.
 class ListThingTypesResponse(BaseValidatorModel):
     thingTypes: List[Thinginition]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_thing_type' function.
 class CreateThingTypeRequest(BaseValidatorModel):
     thingTypeName: str
     thingTypeProperties: Optional[ThingTypePropertiesUnion] = None
@@ -5034,11 +5403,13 @@ class UpdateThingTypeRequest(BaseValidatorModel):
 RepublishActionUnion = Union[RepublishAction, RepublishActionOutput]
 
 
+# This class is the output for the 'describe_audit_finding' function.
 class DescribeAuditFindingResponse(BaseValidatorModel):
     finding: AuditFinding
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_audit_findings' function.
 class ListAuditFindingsResponse(BaseValidatorModel):
     findings: List[AuditFinding]
     ResponseMetadata: ResponseMetadata
@@ -5064,6 +5435,7 @@ class CodeSigning(BaseValidatorModel):
     customCodeSigning: Optional[CustomCodeSigningUnion] = None
 
 
+# This class is the input for the 'create_command' function.
 class CreateCommandRequest(BaseValidatorModel):
     commandId: str
     namespace: Optional[CommandNamespaceType] = None
@@ -5096,6 +5468,7 @@ class OTAUpdateInfo(BaseValidatorModel):
 BehaviorUnion = Union[Behavior, BehaviorOutput]
 
 
+# This class is the output for the 'get_topic_rule' function.
 class GetTopicRuleResponse(BaseValidatorModel):
     ruleArn: str
     rule: TopicRule
@@ -5130,11 +5503,13 @@ class Action(BaseValidatorModel):
 CodeSigningUnion = Union[CodeSigning, CodeSigningOutput]
 
 
+# This class is the output for the 'get_ota_update' function.
 class GetOTAUpdateResponse(BaseValidatorModel):
     otaUpdateInfo: OTAUpdateInfo
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_security_profile' function.
 class CreateSecurityProfileRequest(BaseValidatorModel):
     securityProfileName: str
     securityProfileDescription: Optional[str] = None
@@ -5146,6 +5521,7 @@ class CreateSecurityProfileRequest(BaseValidatorModel):
     metricsExportConfig: Optional[MetricsExportConfig] = None
 
 
+# This class is the input for the 'update_security_profile' function.
 class UpdateSecurityProfileRequest(BaseValidatorModel):
     securityProfileName: str
     securityProfileDescription: Optional[str] = None
@@ -5161,6 +5537,7 @@ class UpdateSecurityProfileRequest(BaseValidatorModel):
     deleteMetricsExportConfig: Optional[bool] = None
 
 
+# This class is the input for the 'validate_security_profile_behaviors' function.
 class ValidateSecurityProfileBehaviorsRequest(BaseValidatorModel):
     behaviors: List[BehaviorUnion]
 
@@ -5187,17 +5564,20 @@ class TopicRulePayload(BaseValidatorModel):
 OTAUpdateFileUnion = Union[OTAUpdateFile, OTAUpdateFileOutput]
 
 
+# This class is the input for the 'create_topic_rule' function.
 class CreateTopicRuleRequest(BaseValidatorModel):
     ruleName: str
     topicRulePayload: TopicRulePayload
     tags: Optional[str] = None
 
 
+# This class is the input for the 'replace_topic_rule' function.
 class ReplaceTopicRuleRequest(BaseValidatorModel):
     ruleName: str
     topicRulePayload: TopicRulePayload
 
 
+# This class is the input for the 'create_ota_update' function.
 class CreateOTAUpdateRequest(BaseValidatorModel):
     otaUpdateId: str
     targets: List[str]

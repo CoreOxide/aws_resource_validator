@@ -101,6 +101,7 @@ class Geometry(BaseValidatorModel):
     Type: str
 
 
+# This class is the input for the 'get_earth_observation_job' function.
 class GetEarthObservationJobInput(BaseValidatorModel):
     Arn: str
 
@@ -110,10 +111,12 @@ class OutputBand(BaseValidatorModel):
     OutputDataType: OutputTypeType
 
 
+# This class is the input for the 'get_raster_data_collection' function.
 class GetRasterDataCollectionInput(BaseValidatorModel):
     Arn: str
 
 
+# This class is the input for the 'get_tile' function.
 class GetTileInput(BaseValidatorModel):
     Arn: str
     ImageAssets: List[str]
@@ -129,6 +132,7 @@ class GetTileInput(BaseValidatorModel):
     TimeRangeFilter: Optional[str] = None
 
 
+# This class is the input for the 'get_vector_enrichment_job' function.
 class GetVectorEnrichmentJobInput(BaseValidatorModel):
     Arn: str
 
@@ -189,6 +193,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_earth_observation_jobs' function.
 class ListEarthObservationJobInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -207,15 +212,18 @@ class ListEarthObservationJobOutputConfig(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_raster_data_collections' function.
 class ListRasterDataCollectionsInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'list_vector_enrichment_jobs' function.
 class ListVectorEnrichmentJobInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -317,11 +325,13 @@ class CustomIndicesInput(BaseValidatorModel):
     Operations: Optional[List[Operation]] = None
 
 
+# This class is the output for the 'get_tile' function.
 class GetTileOutput(BaseValidatorModel):
     BinaryFile: StreamingBody
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
@@ -344,6 +354,7 @@ class VectorEnrichmentJobDataSourceConfigInput(BaseValidatorModel):
     S3Data: Optional[VectorEnrichmentJobS3Data] = None
 
 
+# This class is the output for the 'get_raster_data_collection' function.
 class GetRasterDataCollectionOutput(BaseValidatorModel):
     Arn: str
     Description: str
@@ -392,12 +403,14 @@ class ListVectorEnrichmentJobInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_earth_observation_jobs' function.
 class ListEarthObservationJobOutput(BaseValidatorModel):
     EarthObservationJobSummaries: List[ListEarthObservationJobOutputConfig]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_vector_enrichment_jobs' function.
 class ListVectorEnrichmentJobOutput(BaseValidatorModel):
     VectorEnrichmentJobSummaries: List[ListVectorEnrichmentJobOutputConfig]
     ResponseMetadata: ResponseMetadata
@@ -450,6 +463,7 @@ class BandMathConfigInput(BaseValidatorModel):
     PredefinedIndices: Optional[List[str]] = None
 
 
+# This class is the input for the 'export_earth_observation_job' function.
 class ExportEarthObservationJobInput(BaseValidatorModel):
     Arn: str
     ExecutionRoleArn: str
@@ -458,6 +472,7 @@ class ExportEarthObservationJobInput(BaseValidatorModel):
     ExportSourceImages: Optional[bool] = None
 
 
+# This class is the output for the 'export_earth_observation_job' function.
 class ExportEarthObservationJobOutput(BaseValidatorModel):
     Arn: str
     CreationTime: datetime
@@ -468,6 +483,7 @@ class ExportEarthObservationJobOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'export_vector_enrichment_job' function.
 class ExportVectorEnrichmentJobInput(BaseValidatorModel):
     Arn: str
     ExecutionRoleArn: str
@@ -475,6 +491,7 @@ class ExportVectorEnrichmentJobInput(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the output for the 'export_vector_enrichment_job' function.
 class ExportVectorEnrichmentJobOutput(BaseValidatorModel):
     Arn: str
     CreationTime: datetime
@@ -489,12 +506,14 @@ class VectorEnrichmentJobInputConfig(BaseValidatorModel):
     DocumentType: Literal['CSV']
 
 
+# This class is the output for the 'list_raster_data_collections' function.
 class ListRasterDataCollectionsOutput(BaseValidatorModel):
     RasterDataCollectionSummaries: List[RasterDataCollectionMetadata]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'search_raster_data_collection' function.
 class SearchRasterDataCollectionOutput(BaseValidatorModel):
     ApproximateResultCount: int
     Items: List[ItemSource]
@@ -533,6 +552,7 @@ class PropertyFilter(BaseValidatorModel):
     Property: Property
 
 
+# This class is the output for the 'get_vector_enrichment_job' function.
 class GetVectorEnrichmentJobOutput(BaseValidatorModel):
     Arn: str
     CreationTime: datetime
@@ -551,6 +571,7 @@ class GetVectorEnrichmentJobOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_vector_enrichment_job' function.
 class StartVectorEnrichmentJobInput(BaseValidatorModel):
     ExecutionRoleArn: str
     InputConfig: VectorEnrichmentJobInputConfig
@@ -561,6 +582,7 @@ class StartVectorEnrichmentJobInput(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'start_vector_enrichment_job' function.
 class StartVectorEnrichmentJobOutput(BaseValidatorModel):
     Arn: str
     CreationTime: datetime
@@ -649,6 +671,7 @@ class RasterDataCollectionQueryWithBandFilterInput(BaseValidatorModel):
     PropertyFilters: Optional[PropertyFiltersUnion] = None
 
 
+# This class is the output for the 'get_earth_observation_job' function.
 class GetEarthObservationJobOutput(BaseValidatorModel):
     Arn: str
     CreationTime: datetime
@@ -667,6 +690,7 @@ class GetEarthObservationJobOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_earth_observation_job' function.
 class StartEarthObservationJobOutput(BaseValidatorModel):
     Arn: str
     CreationTime: datetime
@@ -686,12 +710,14 @@ class InputConfigInput(BaseValidatorModel):
     RasterDataCollectionQuery: Optional[RasterDataCollectionQueryInput] = None
 
 
+# This class is the input for the 'search_raster_data_collection' function.
 class SearchRasterDataCollectionInput(BaseValidatorModel):
     Arn: str
     RasterDataCollectionQuery: RasterDataCollectionQueryWithBandFilterInput
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'start_earth_observation_job' function.
 class StartEarthObservationJobInput(BaseValidatorModel):
     ExecutionRoleArn: str
     InputConfig: InputConfigInput

@@ -58,12 +58,14 @@ class Snapshot(BaseValidatorModel):
     totalBackupSizeInMegaBytes: Optional[float] = None
 
 
+# This class is the input for the 'create_custom_domain_association' function.
 class CreateCustomDomainAssociationRequest(BaseValidatorModel):
     customDomainCertificateArn: str
     customDomainName: str
     workgroupName: str
 
 
+# This class is the input for the 'create_endpoint_access' function.
 class CreateEndpointAccessRequest(BaseValidatorModel):
     endpointName: str
     subnetIds: List[str]
@@ -90,6 +92,7 @@ class Namespace(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'create_snapshot_copy_configuration' function.
 class CreateSnapshotCopyConfigurationRequest(BaseValidatorModel):
     destinationRegion: str
     namespaceName: str
@@ -106,6 +109,7 @@ class SnapshotCopyConfiguration(BaseValidatorModel):
     snapshotRetentionPeriod: Optional[int] = None
 
 
+# This class is the input for the 'create_usage_limit' function.
 class CreateUsageLimitRequest(BaseValidatorModel):
     amount: int
     resourceArn: str
@@ -134,10 +138,12 @@ class DeleteCustomDomainAssociationRequest(BaseValidatorModel):
     workgroupName: str
 
 
+# This class is the input for the 'delete_endpoint_access' function.
 class DeleteEndpointAccessRequest(BaseValidatorModel):
     endpointName: str
 
 
+# This class is the input for the 'delete_namespace' function.
 class DeleteNamespaceRequest(BaseValidatorModel):
     namespaceName: str
     finalSnapshotName: Optional[str] = None
@@ -148,22 +154,27 @@ class DeleteResourcePolicyRequest(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'delete_scheduled_action' function.
 class DeleteScheduledActionRequest(BaseValidatorModel):
     scheduledActionName: str
 
 
+# This class is the input for the 'delete_snapshot_copy_configuration' function.
 class DeleteSnapshotCopyConfigurationRequest(BaseValidatorModel):
     snapshotCopyConfigurationId: str
 
 
+# This class is the input for the 'delete_snapshot' function.
 class DeleteSnapshotRequest(BaseValidatorModel):
     snapshotName: str
 
 
+# This class is the input for the 'delete_usage_limit' function.
 class DeleteUsageLimitRequest(BaseValidatorModel):
     usageLimitId: str
 
 
+# This class is the input for the 'delete_workgroup' function.
 class DeleteWorkgroupRequest(BaseValidatorModel):
     workgroupName: str
 
@@ -173,6 +184,7 @@ class VpcSecurityGroupMembership(BaseValidatorModel):
     vpcSecurityGroupId: Optional[str] = None
 
 
+# This class is the input for the 'get_credentials' function.
 class GetCredentialsRequest(BaseValidatorModel):
     customDomainName: Optional[str] = None
     dbName: Optional[str] = None
@@ -180,19 +192,23 @@ class GetCredentialsRequest(BaseValidatorModel):
     workgroupName: Optional[str] = None
 
 
+# This class is the input for the 'get_custom_domain_association' function.
 class GetCustomDomainAssociationRequest(BaseValidatorModel):
     customDomainName: str
     workgroupName: str
 
 
+# This class is the input for the 'get_endpoint_access' function.
 class GetEndpointAccessRequest(BaseValidatorModel):
     endpointName: str
 
 
+# This class is the input for the 'get_namespace' function.
 class GetNamespaceRequest(BaseValidatorModel):
     namespaceName: str
 
 
+# This class is the input for the 'get_recovery_point' function.
 class GetRecoveryPointRequest(BaseValidatorModel):
     recoveryPointId: str
 
@@ -206,6 +222,7 @@ class RecoveryPoint(BaseValidatorModel):
     workgroupName: Optional[str] = None
 
 
+# This class is the input for the 'get_resource_policy' function.
 class GetResourcePolicyRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -215,16 +232,19 @@ class ResourcePolicy(BaseValidatorModel):
     resourceArn: Optional[str] = None
 
 
+# This class is the input for the 'get_scheduled_action' function.
 class GetScheduledActionRequest(BaseValidatorModel):
     scheduledActionName: str
 
 
+# This class is the input for the 'get_snapshot' function.
 class GetSnapshotRequest(BaseValidatorModel):
     ownerAccount: Optional[str] = None
     snapshotArn: Optional[str] = None
     snapshotName: Optional[str] = None
 
 
+# This class is the input for the 'get_table_restore_status' function.
 class GetTableRestoreStatusRequest(BaseValidatorModel):
     tableRestoreRequestId: str
 
@@ -248,14 +268,17 @@ class TableRestoreStatus(BaseValidatorModel):
     workgroupName: Optional[str] = None
 
 
+# This class is the input for the 'get_track' function.
 class GetTrackRequest(BaseValidatorModel):
     trackName: str
 
 
+# This class is the input for the 'get_usage_limit' function.
 class GetUsageLimitRequest(BaseValidatorModel):
     usageLimitId: str
 
 
+# This class is the input for the 'get_workgroup' function.
 class GetWorkgroupRequest(BaseValidatorModel):
     workgroupName: str
 
@@ -266,6 +289,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_custom_domain_associations' function.
 class ListCustomDomainAssociationsRequest(BaseValidatorModel):
     customDomainCertificateArn: Optional[str] = None
     customDomainName: Optional[str] = None
@@ -273,6 +297,7 @@ class ListCustomDomainAssociationsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_endpoint_access' function.
 class ListEndpointAccessRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -281,6 +306,7 @@ class ListEndpointAccessRequest(BaseValidatorModel):
     workgroupName: Optional[str] = None
 
 
+# This class is the input for the 'list_managed_workgroups' function.
 class ListManagedWorkgroupsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -295,11 +321,13 @@ class ManagedWorkgroupListItem(BaseValidatorModel):
     status: Optional[ManagedWorkgroupStatusType] = None
 
 
+# This class is the input for the 'list_namespaces' function.
 class ListNamespacesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_scheduled_actions' function.
 class ListScheduledActionsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     namespaceName: Optional[str] = None
@@ -311,12 +339,14 @@ class ScheduledActionAssociation(BaseValidatorModel):
     scheduledActionName: Optional[str] = None
 
 
+# This class is the input for the 'list_snapshot_copy_configurations' function.
 class ListSnapshotCopyConfigurationsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     namespaceName: Optional[str] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_table_restore_status' function.
 class ListTableRestoreStatusRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     namespaceName: Optional[str] = None
@@ -324,15 +354,18 @@ class ListTableRestoreStatusRequest(BaseValidatorModel):
     workgroupName: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'list_tracks' function.
 class ListTracksRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_usage_limits' function.
 class ListUsageLimitsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -340,6 +373,7 @@ class ListUsageLimitsRequest(BaseValidatorModel):
     usageType: Optional[UsageLimitUsageTypeType] = None
 
 
+# This class is the input for the 'list_workgroups' function.
 class ListWorkgroupsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -354,17 +388,20 @@ class NetworkInterface(BaseValidatorModel):
     subnetId: Optional[str] = None
 
 
+# This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyRequest(BaseValidatorModel):
     policy: str
     resourceArn: str
 
 
+# This class is the input for the 'restore_from_recovery_point' function.
 class RestoreFromRecoveryPointRequest(BaseValidatorModel):
     namespaceName: str
     recoveryPointId: str
     workgroupName: str
 
 
+# This class is the input for the 'restore_from_snapshot' function.
 class RestoreFromSnapshotRequest(BaseValidatorModel):
     namespaceName: str
     workgroupName: str
@@ -375,6 +412,7 @@ class RestoreFromSnapshotRequest(BaseValidatorModel):
     snapshotName: Optional[str] = None
 
 
+# This class is the input for the 'restore_table_from_recovery_point' function.
 class RestoreTableFromRecoveryPointRequest(BaseValidatorModel):
     namespaceName: str
     newTableName: str
@@ -388,6 +426,7 @@ class RestoreTableFromRecoveryPointRequest(BaseValidatorModel):
     targetSchemaName: Optional[str] = None
 
 
+# This class is the input for the 'restore_table_from_snapshot' function.
 class RestoreTableFromSnapshotRequest(BaseValidatorModel):
     namespaceName: str
     newTableName: str
@@ -416,17 +455,20 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_custom_domain_association' function.
 class UpdateCustomDomainAssociationRequest(BaseValidatorModel):
     customDomainCertificateArn: str
     customDomainName: str
     workgroupName: str
 
 
+# This class is the input for the 'update_endpoint_access' function.
 class UpdateEndpointAccessRequest(BaseValidatorModel):
     endpointName: str
     vpcSecurityGroupIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_namespace' function.
 class UpdateNamespaceRequest(BaseValidatorModel):
     namespaceName: str
     adminPasswordSecretKmsKeyId: Optional[str] = None
@@ -439,22 +481,26 @@ class UpdateNamespaceRequest(BaseValidatorModel):
     manageAdminPassword: Optional[bool] = None
 
 
+# This class is the input for the 'update_snapshot_copy_configuration' function.
 class UpdateSnapshotCopyConfigurationRequest(BaseValidatorModel):
     snapshotCopyConfigurationId: str
     snapshotRetentionPeriod: Optional[int] = None
 
 
+# This class is the input for the 'update_snapshot' function.
 class UpdateSnapshotRequest(BaseValidatorModel):
     snapshotName: str
     retentionPeriod: Optional[int] = None
 
 
+# This class is the input for the 'update_usage_limit' function.
 class UpdateUsageLimitRequest(BaseValidatorModel):
     usageLimitId: str
     amount: Optional[int] = None
     breachAction: Optional[UsageLimitBreachActionType] = None
 
 
+# This class is the input for the 'convert_recovery_point_to_snapshot' function.
 class ConvertRecoveryPointToSnapshotRequest(BaseValidatorModel):
     recoveryPointId: str
     snapshotName: str
@@ -462,6 +508,7 @@ class ConvertRecoveryPointToSnapshotRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_namespace' function.
 class CreateNamespaceRequest(BaseValidatorModel):
     namespaceName: str
     adminPasswordSecretKmsKeyId: Optional[str] = None
@@ -477,6 +524,7 @@ class CreateNamespaceRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_snapshot' function.
 class CreateSnapshotRequest(BaseValidatorModel):
     namespaceName: str
     snapshotName: str
@@ -503,6 +551,7 @@ class TagResourceRequest(BaseValidatorModel):
     tags: List[Tag]
 
 
+# This class is the output for the 'create_custom_domain_association' function.
 class CreateCustomDomainAssociationResponse(BaseValidatorModel):
     customDomainCertificateArn: str
     customDomainCertificateExpiryTime: datetime
@@ -511,6 +560,7 @@ class CreateCustomDomainAssociationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_credentials' function.
 class GetCredentialsResponse(BaseValidatorModel):
     dbPassword: str
     dbUser: str
@@ -519,6 +569,7 @@ class GetCredentialsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_custom_domain_association' function.
 class GetCustomDomainAssociationResponse(BaseValidatorModel):
     customDomainCertificateArn: str
     customDomainCertificateExpiryTime: datetime
@@ -527,17 +578,20 @@ class GetCustomDomainAssociationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_custom_domain_associations' function.
 class ListCustomDomainAssociationsResponse(BaseValidatorModel):
     associations: List[Association]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_custom_domain_association' function.
 class UpdateCustomDomainAssociationResponse(BaseValidatorModel):
     customDomainCertificateArn: str
     customDomainCertificateExpiryTime: datetime
@@ -546,64 +600,76 @@ class UpdateCustomDomainAssociationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'convert_recovery_point_to_snapshot' function.
 class ConvertRecoveryPointToSnapshotResponse(BaseValidatorModel):
     snapshot: Snapshot
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_snapshot' function.
 class CreateSnapshotResponse(BaseValidatorModel):
     snapshot: Snapshot
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_snapshot' function.
 class DeleteSnapshotResponse(BaseValidatorModel):
     snapshot: Snapshot
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_snapshot' function.
 class GetSnapshotResponse(BaseValidatorModel):
     snapshot: Snapshot
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_snapshots' function.
 class ListSnapshotsResponse(BaseValidatorModel):
     snapshots: List[Snapshot]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_snapshot' function.
 class UpdateSnapshotResponse(BaseValidatorModel):
     snapshot: Snapshot
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_namespace' function.
 class CreateNamespaceResponse(BaseValidatorModel):
     namespace: Namespace
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_namespace' function.
 class DeleteNamespaceResponse(BaseValidatorModel):
     namespace: Namespace
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_namespace' function.
 class GetNamespaceResponse(BaseValidatorModel):
     namespace: Namespace
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_namespaces' function.
 class ListNamespacesResponse(BaseValidatorModel):
     namespaces: List[Namespace]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'restore_from_recovery_point' function.
 class RestoreFromRecoveryPointResponse(BaseValidatorModel):
     namespace: Namespace
     recoveryPointId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'restore_from_snapshot' function.
 class RestoreFromSnapshotResponse(BaseValidatorModel):
     namespace: Namespace
     ownerAccount: str
@@ -611,11 +677,13 @@ class RestoreFromSnapshotResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_namespace' function.
 class UpdateNamespaceResponse(BaseValidatorModel):
     namespace: Namespace
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'list_recovery_points' function.
 class ListRecoveryPointsRequest(BaseValidatorModel):
     endTime: Optional[Timestamp] = None
     maxResults: Optional[int] = None
@@ -625,6 +693,7 @@ class ListRecoveryPointsRequest(BaseValidatorModel):
     startTime: Optional[Timestamp] = None
 
 
+# This class is the input for the 'list_snapshots' function.
 class ListSnapshotsRequest(BaseValidatorModel):
     endTime: Optional[Timestamp] = None
     maxResults: Optional[int] = None
@@ -640,53 +709,63 @@ class Schedule(BaseValidatorModel):
     cron: Optional[str] = None
 
 
+# This class is the output for the 'create_snapshot_copy_configuration' function.
 class CreateSnapshotCopyConfigurationResponse(BaseValidatorModel):
     snapshotCopyConfiguration: SnapshotCopyConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_snapshot_copy_configuration' function.
 class DeleteSnapshotCopyConfigurationResponse(BaseValidatorModel):
     snapshotCopyConfiguration: SnapshotCopyConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_snapshot_copy_configurations' function.
 class ListSnapshotCopyConfigurationsResponse(BaseValidatorModel):
     snapshotCopyConfigurations: List[SnapshotCopyConfiguration]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_snapshot_copy_configuration' function.
 class UpdateSnapshotCopyConfigurationResponse(BaseValidatorModel):
     snapshotCopyConfiguration: SnapshotCopyConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_usage_limit' function.
 class CreateUsageLimitResponse(BaseValidatorModel):
     usageLimit: UsageLimit
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_usage_limit' function.
 class DeleteUsageLimitResponse(BaseValidatorModel):
     usageLimit: UsageLimit
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_usage_limit' function.
 class GetUsageLimitResponse(BaseValidatorModel):
     usageLimit: UsageLimit
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_usage_limits' function.
 class ListUsageLimitsResponse(BaseValidatorModel):
     usageLimits: List[UsageLimit]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_usage_limit' function.
 class UpdateUsageLimitResponse(BaseValidatorModel):
     usageLimit: UsageLimit
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_workgroup' function.
 class CreateWorkgroupRequest(BaseValidatorModel):
     namespaceName: str
     workgroupName: str
@@ -704,6 +783,7 @@ class CreateWorkgroupRequest(BaseValidatorModel):
     trackName: Optional[str] = None
 
 
+# This class is the input for the 'update_workgroup' function.
 class UpdateWorkgroupRequest(BaseValidatorModel):
     workgroupName: str
     baseCapacity: Optional[int] = None
@@ -719,43 +799,51 @@ class UpdateWorkgroupRequest(BaseValidatorModel):
     trackName: Optional[str] = None
 
 
+# This class is the output for the 'get_recovery_point' function.
 class GetRecoveryPointResponse(BaseValidatorModel):
     recoveryPoint: RecoveryPoint
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_recovery_points' function.
 class ListRecoveryPointsResponse(BaseValidatorModel):
     recoveryPoints: List[RecoveryPoint]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_resource_policy' function.
 class GetResourcePolicyResponse(BaseValidatorModel):
     resourcePolicy: ResourcePolicy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_resource_policy' function.
 class PutResourcePolicyResponse(BaseValidatorModel):
     resourcePolicy: ResourcePolicy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_table_restore_status' function.
 class GetTableRestoreStatusResponse(BaseValidatorModel):
     tableRestoreStatus: TableRestoreStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_table_restore_status' function.
 class ListTableRestoreStatusResponse(BaseValidatorModel):
     tableRestoreStatuses: List[TableRestoreStatus]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'restore_table_from_recovery_point' function.
 class RestoreTableFromRecoveryPointResponse(BaseValidatorModel):
     tableRestoreStatus: TableRestoreStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'restore_table_from_snapshot' function.
 class RestoreTableFromSnapshotResponse(BaseValidatorModel):
     tableRestoreStatus: TableRestoreStatus
     ResponseMetadata: ResponseMetadata
@@ -831,12 +919,14 @@ class ListWorkgroupsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_managed_workgroups' function.
 class ListManagedWorkgroupsResponse(BaseValidatorModel):
     managedWorkgroups: List[ManagedWorkgroupListItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_scheduled_actions' function.
 class ListScheduledActionsResponse(BaseValidatorModel):
     scheduledActions: List[ScheduledActionAssociation]
     ResponseMetadata: ResponseMetadata
@@ -884,11 +974,13 @@ class Endpoint(BaseValidatorModel):
     vpcEndpoints: Optional[List[VpcEndpoint]] = None
 
 
+# This class is the output for the 'get_track' function.
 class GetTrackResponse(BaseValidatorModel):
     track: ServerlessTrack
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tracks' function.
 class ListTracksResponse(BaseValidatorModel):
     tracks: List[ServerlessTrack]
     ResponseMetadata: ResponseMetadata
@@ -911,27 +1003,32 @@ class ScheduledActionResponse(BaseValidatorModel):
 TargetActionUnion = Union[TargetAction, TargetActionOutput]
 
 
+# This class is the output for the 'create_endpoint_access' function.
 class CreateEndpointAccessResponse(BaseValidatorModel):
     endpoint: EndpointAccess
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_endpoint_access' function.
 class DeleteEndpointAccessResponse(BaseValidatorModel):
     endpoint: EndpointAccess
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_endpoint_access' function.
 class GetEndpointAccessResponse(BaseValidatorModel):
     endpoint: EndpointAccess
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_endpoint_access' function.
 class ListEndpointAccessResponse(BaseValidatorModel):
     endpoints: List[EndpointAccess]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_endpoint_access' function.
 class UpdateEndpointAccessResponse(BaseValidatorModel):
     endpoint: EndpointAccess
     ResponseMetadata: ResponseMetadata
@@ -965,26 +1062,31 @@ class Workgroup(BaseValidatorModel):
     workgroupVersion: Optional[str] = None
 
 
+# This class is the output for the 'create_scheduled_action' function.
 class CreateScheduledActionResponse(BaseValidatorModel):
     scheduledAction: ScheduledActionResponse
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_scheduled_action' function.
 class DeleteScheduledActionResponse(BaseValidatorModel):
     scheduledAction: ScheduledActionResponse
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_scheduled_action' function.
 class GetScheduledActionResponse(BaseValidatorModel):
     scheduledAction: ScheduledActionResponse
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_scheduled_action' function.
 class UpdateScheduledActionResponse(BaseValidatorModel):
     scheduledAction: ScheduledActionResponse
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_scheduled_action' function.
 class CreateScheduledActionRequest(BaseValidatorModel):
     namespaceName: str
     roleArn: str
@@ -997,6 +1099,7 @@ class CreateScheduledActionRequest(BaseValidatorModel):
     startTime: Optional[Timestamp] = None
 
 
+# This class is the input for the 'update_scheduled_action' function.
 class UpdateScheduledActionRequest(BaseValidatorModel):
     scheduledActionName: str
     enabled: Optional[bool] = None
@@ -1008,27 +1111,32 @@ class UpdateScheduledActionRequest(BaseValidatorModel):
     targetAction: Optional[TargetActionUnion] = None
 
 
+# This class is the output for the 'create_workgroup' function.
 class CreateWorkgroupResponse(BaseValidatorModel):
     workgroup: Workgroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_workgroup' function.
 class DeleteWorkgroupResponse(BaseValidatorModel):
     workgroup: Workgroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_workgroup' function.
 class GetWorkgroupResponse(BaseValidatorModel):
     workgroup: Workgroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_workgroups' function.
 class ListWorkgroupsResponse(BaseValidatorModel):
     workgroups: List[Workgroup]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_workgroup' function.
 class UpdateWorkgroupResponse(BaseValidatorModel):
     workgroup: Workgroup
     ResponseMetadata: ResponseMetadata

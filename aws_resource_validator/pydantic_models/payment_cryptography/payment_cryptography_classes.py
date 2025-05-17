@@ -13,6 +13,7 @@ class Alias(BaseValidatorModel):
     KeyArn: Optional[str] = None
 
 
+# This class is the input for the 'create_alias' function.
 class CreateAliasInput(BaseValidatorModel):
     AliasName: str
     KeyArn: Optional[str] = None
@@ -35,6 +36,7 @@ class DeleteAliasInput(BaseValidatorModel):
     AliasName: str
 
 
+# This class is the input for the 'delete_key' function.
 class DeleteKeyInput(BaseValidatorModel):
     KeyIdentifier: str
     DeleteKeyInDays: Optional[int] = None
@@ -58,24 +60,29 @@ class WrappedKey(BaseValidatorModel):
     KeyCheckValueAlgorithm: Optional[KeyCheckValueAlgorithmType] = None
 
 
+# This class is the input for the 'get_alias' function.
 class GetAliasInput(BaseValidatorModel):
     AliasName: str
 
 
+# This class is the input for the 'get_key' function.
 class GetKeyInput(BaseValidatorModel):
     KeyIdentifier: str
 
 
+# This class is the input for the 'get_parameters_for_export' function.
 class GetParametersForExportInput(BaseValidatorModel):
     KeyMaterialType: KeyMaterialTypeType
     SigningKeyAlgorithm: KeyAlgorithmType
 
 
+# This class is the input for the 'get_parameters_for_import' function.
 class GetParametersForImportInput(BaseValidatorModel):
     KeyMaterialType: KeyMaterialTypeType
     WrappingKeyAlgorithm: KeyAlgorithmType
 
 
+# This class is the input for the 'get_public_key_certificate' function.
 class GetPublicKeyCertificateInput(BaseValidatorModel):
     KeyIdentifier: str
 
@@ -112,32 +119,38 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_aliases' function.
 class ListAliasesInput(BaseValidatorModel):
     KeyArn: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_keys' function.
 class ListKeysInput(BaseValidatorModel):
     KeyState: Optional[KeyStateType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInput(BaseValidatorModel):
     ResourceArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'restore_key' function.
 class RestoreKeyInput(BaseValidatorModel):
     KeyIdentifier: str
 
 
+# This class is the input for the 'start_key_usage' function.
 class StartKeyUsageInput(BaseValidatorModel):
     KeyIdentifier: str
 
 
+# This class is the input for the 'stop_key_usage' function.
 class StopKeyUsageInput(BaseValidatorModel):
     KeyIdentifier: str
 
@@ -147,21 +160,25 @@ class UntagResourceInput(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_alias' function.
 class UpdateAliasInput(BaseValidatorModel):
     AliasName: str
     KeyArn: Optional[str] = None
 
 
+# This class is the output for the 'create_alias' function.
 class CreateAliasOutput(BaseValidatorModel):
     Alias: Alias
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_alias' function.
 class GetAliasOutput(BaseValidatorModel):
     Alias: Alias
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_parameters_for_export' function.
 class GetParametersForExportOutput(BaseValidatorModel):
     SigningKeyCertificate: str
     SigningKeyCertificateChain: str
@@ -171,6 +188,7 @@ class GetParametersForExportOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_parameters_for_import' function.
 class GetParametersForImportOutput(BaseValidatorModel):
     WrappingKeyCertificate: str
     WrappingKeyCertificateChain: str
@@ -180,23 +198,27 @@ class GetParametersForImportOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_public_key_certificate' function.
 class GetPublicKeyCertificateOutput(BaseValidatorModel):
     KeyCertificate: str
     KeyCertificateChain: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_aliases' function.
 class ListAliasesOutput(BaseValidatorModel):
     Aliases: List[Alias]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_alias' function.
 class UpdateAliasOutput(BaseValidatorModel):
     Alias: Alias
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceOutput(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -213,6 +235,7 @@ class ExportAttributes(BaseValidatorModel):
     KeyCheckValueAlgorithm: Optional[KeyCheckValueAlgorithmType] = None
 
 
+# This class is the output for the 'export_key' function.
 class ExportKeyOutput(BaseValidatorModel):
     WrappedKey: WrappedKey
     ResponseMetadata: ResponseMetadata
@@ -247,6 +270,7 @@ class ListTagsForResourceInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'create_key' function.
 class CreateKeyInput(BaseValidatorModel):
     KeyAttributes: KeyAttributes
     Exportable: bool
@@ -313,42 +337,50 @@ class ExportTr34KeyBlock(BaseValidatorModel):
     KeyBlockHeaders: Optional[KeyBlockHeaders] = None
 
 
+# This class is the output for the 'list_keys' function.
 class ListKeysOutput(BaseValidatorModel):
     Keys: List[KeySummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_key' function.
 class CreateKeyOutput(BaseValidatorModel):
     Key: Key
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_key' function.
 class DeleteKeyOutput(BaseValidatorModel):
     Key: Key
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_key' function.
 class GetKeyOutput(BaseValidatorModel):
     Key: Key
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_key' function.
 class ImportKeyOutput(BaseValidatorModel):
     Key: Key
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'restore_key' function.
 class RestoreKeyOutput(BaseValidatorModel):
     Key: Key
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_key_usage' function.
 class StartKeyUsageOutput(BaseValidatorModel):
     Key: Key
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_key_usage' function.
 class StopKeyUsageOutput(BaseValidatorModel):
     Key: Key
     ResponseMetadata: ResponseMetadata
@@ -368,6 +400,7 @@ class ExportKeyMaterial(BaseValidatorModel):
     KeyCryptogram: Optional[ExportKeyCryptogram] = None
 
 
+# This class is the input for the 'import_key' function.
 class ImportKeyInput(BaseValidatorModel):
     KeyMaterial: ImportKeyMaterial
     KeyCheckValueAlgorithm: Optional[KeyCheckValueAlgorithmType] = None
@@ -375,6 +408,7 @@ class ImportKeyInput(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'export_key' function.
 class ExportKeyInput(BaseValidatorModel):
     KeyMaterial: ExportKeyMaterial
     ExportKeyIdentifier: str

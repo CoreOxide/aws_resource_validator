@@ -13,6 +13,7 @@ class AgeRange(BaseValidatorModel):
     High: Optional[int] = None
 
 
+# This class is the input for the 'associate_faces' function.
 class AssociateFacesRequest(BaseValidatorModel):
     CollectionId: str
     UserId: str
@@ -140,6 +141,7 @@ class CoversBodyPart(BaseValidatorModel):
     Value: Optional[bool] = None
 
 
+# This class is the input for the 'create_collection' function.
 class CreateCollectionRequest(BaseValidatorModel):
     CollectionId: str
     Tags: Optional[Dict[str, str]] = None
@@ -150,6 +152,7 @@ class LivenessOutputConfig(BaseValidatorModel):
     S3KeyPrefix: Optional[str] = None
 
 
+# This class is the input for the 'create_project' function.
 class CreateProjectRequest(BaseValidatorModel):
     ProjectName: str
     Feature: Optional[CustomizationFeatureType] = None
@@ -196,6 +199,7 @@ class DatasetMetadata(BaseValidatorModel):
     StatusMessageCode: Optional[DatasetStatusMessageCodeType] = None
 
 
+# This class is the input for the 'delete_collection' function.
 class DeleteCollectionRequest(BaseValidatorModel):
     CollectionId: str
 
@@ -204,6 +208,7 @@ class DeleteDatasetRequest(BaseValidatorModel):
     DatasetArn: str
 
 
+# This class is the input for the 'delete_faces' function.
 class DeleteFacesRequest(BaseValidatorModel):
     CollectionId: str
     FaceIds: List[str]
@@ -221,10 +226,12 @@ class DeleteProjectPolicyRequest(BaseValidatorModel):
     PolicyRevisionId: Optional[str] = None
 
 
+# This class is the input for the 'delete_project' function.
 class DeleteProjectRequest(BaseValidatorModel):
     ProjectArn: str
 
 
+# This class is the input for the 'delete_project_version' function.
 class DeleteProjectVersionRequest(BaseValidatorModel):
     ProjectVersionArn: str
 
@@ -239,10 +246,12 @@ class DeleteUserRequest(BaseValidatorModel):
     ClientRequestToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_collection' function.
 class DescribeCollectionRequest(BaseValidatorModel):
     CollectionId: str
 
 
+# This class is the input for the 'describe_dataset' function.
 class DescribeDatasetRequest(BaseValidatorModel):
     DatasetArn: str
 
@@ -253,6 +262,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_project_versions' function.
 class DescribeProjectVersionsRequest(BaseValidatorModel):
     ProjectArn: str
     VersionNames: Optional[List[str]] = None
@@ -265,6 +275,7 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'describe_projects' function.
 class DescribeProjectsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -272,6 +283,7 @@ class DescribeProjectsRequest(BaseValidatorModel):
     Features: Optional[List[CustomizationFeatureType]] = None
 
 
+# This class is the input for the 'describe_stream_processor' function.
 class DescribeStreamProcessorRequest(BaseValidatorModel):
     Name: str
 
@@ -326,6 +338,7 @@ class DetectionFilter(BaseValidatorModel):
     MinBoundingBoxWidth: Optional[float] = None
 
 
+# This class is the input for the 'disassociate_faces' function.
 class DisassociateFacesRequest(BaseValidatorModel):
     CollectionId: str
     UserId: str
@@ -398,10 +411,12 @@ class Point(BaseValidatorModel):
     Y: Optional[float] = None
 
 
+# This class is the input for the 'get_celebrity_info' function.
 class GetCelebrityInfoRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_celebrity_recognition' function.
 class GetCelebrityRecognitionRequest(BaseValidatorModel):
     JobId: str
     MaxResults: Optional[int] = None
@@ -424,6 +439,7 @@ class GetContentModerationRequestMetadata(BaseValidatorModel):
     AggregateBy: Optional[ContentModerationAggregateByType] = None
 
 
+# This class is the input for the 'get_content_moderation' function.
 class GetContentModerationRequest(BaseValidatorModel):
     JobId: str
     MaxResults: Optional[int] = None
@@ -432,16 +448,19 @@ class GetContentModerationRequest(BaseValidatorModel):
     AggregateBy: Optional[ContentModerationAggregateByType] = None
 
 
+# This class is the input for the 'get_face_detection' function.
 class GetFaceDetectionRequest(BaseValidatorModel):
     JobId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_face_liveness_session_results' function.
 class GetFaceLivenessSessionResultsRequest(BaseValidatorModel):
     SessionId: str
 
 
+# This class is the input for the 'get_face_search' function.
 class GetFaceSearchRequest(BaseValidatorModel):
     JobId: str
     MaxResults: Optional[int] = None
@@ -454,6 +473,7 @@ class GetLabelDetectionRequestMetadata(BaseValidatorModel):
     AggregateBy: Optional[LabelDetectionAggregateByType] = None
 
 
+# This class is the input for the 'get_label_detection' function.
 class GetLabelDetectionRequest(BaseValidatorModel):
     JobId: str
     MaxResults: Optional[int] = None
@@ -462,6 +482,7 @@ class GetLabelDetectionRequest(BaseValidatorModel):
     AggregateBy: Optional[LabelDetectionAggregateByType] = None
 
 
+# This class is the input for the 'get_media_analysis_job' function.
 class GetMediaAnalysisJobRequest(BaseValidatorModel):
     JobId: str
 
@@ -476,6 +497,7 @@ class MediaAnalysisOutputConfig(BaseValidatorModel):
     S3KeyPrefix: Optional[str] = None
 
 
+# This class is the input for the 'get_person_tracking' function.
 class GetPersonTrackingRequest(BaseValidatorModel):
     JobId: str
     MaxResults: Optional[int] = None
@@ -483,6 +505,7 @@ class GetPersonTrackingRequest(BaseValidatorModel):
     SortBy: Optional[PersonTrackingSortByType] = None
 
 
+# This class is the input for the 'get_segment_detection' function.
 class GetSegmentDetectionRequest(BaseValidatorModel):
     JobId: str
     MaxResults: Optional[int] = None
@@ -494,6 +517,7 @@ class SegmentTypeInfo(BaseValidatorModel):
     ModelVersion: Optional[str] = None
 
 
+# This class is the input for the 'get_text_detection' function.
 class GetTextDetectionRequest(BaseValidatorModel):
     JobId: str
     MaxResults: Optional[int] = None
@@ -529,11 +553,13 @@ class Parent(BaseValidatorModel):
     Name: Optional[str] = None
 
 
+# This class is the input for the 'list_collections' function.
 class ListCollectionsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_dataset_entries' function.
 class ListDatasetEntriesRequest(BaseValidatorModel):
     DatasetArn: str
     ContainsLabels: Optional[List[str]] = None
@@ -544,12 +570,14 @@ class ListDatasetEntriesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_dataset_labels' function.
 class ListDatasetLabelsRequest(BaseValidatorModel):
     DatasetArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_faces' function.
 class ListFacesRequest(BaseValidatorModel):
     CollectionId: str
     NextToken: Optional[str] = None
@@ -558,11 +586,13 @@ class ListFacesRequest(BaseValidatorModel):
     FaceIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_media_analysis_jobs' function.
 class ListMediaAnalysisJobsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_project_policies' function.
 class ListProjectPoliciesRequest(BaseValidatorModel):
     ProjectArn: str
     NextToken: Optional[str] = None
@@ -578,6 +608,7 @@ class ProjectPolicy(BaseValidatorModel):
     LastUpdatedTimestamp: Optional[datetime] = None
 
 
+# This class is the input for the 'list_stream_processors' function.
 class ListStreamProcessorsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -588,10 +619,12 @@ class StreamProcessor(BaseValidatorModel):
     Status: Optional[StreamProcessorStatusType] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'list_users' function.
 class ListUsersRequest(BaseValidatorModel):
     CollectionId: str
     MaxResults: Optional[int] = None
@@ -622,6 +655,7 @@ class NotificationChannel(BaseValidatorModel):
     RoleArn: str
 
 
+# This class is the input for the 'put_project_policy' function.
 class PutProjectPolicyRequest(BaseValidatorModel):
     ProjectArn: str
     PolicyName: str
@@ -634,6 +668,7 @@ class S3Destination(BaseValidatorModel):
     KeyPrefix: Optional[str] = None
 
 
+# This class is the input for the 'search_faces' function.
 class SearchFacesRequest(BaseValidatorModel):
     CollectionId: str
     FaceId: str
@@ -641,6 +676,7 @@ class SearchFacesRequest(BaseValidatorModel):
     FaceMatchThreshold: Optional[float] = None
 
 
+# This class is the input for the 'search_users' function.
 class SearchUsersRequest(BaseValidatorModel):
     CollectionId: str
     UserId: Optional[str] = None
@@ -667,6 +703,7 @@ class TechnicalCueSegment(BaseValidatorModel):
     Confidence: Optional[float] = None
 
 
+# This class is the input for the 'start_project_version' function.
 class StartProjectVersionRequest(BaseValidatorModel):
     ProjectVersionArn: str
     MinInferenceUnits: int
@@ -681,6 +718,7 @@ class StreamProcessingStopSelector(BaseValidatorModel):
     MaxDurationInSeconds: Optional[int] = None
 
 
+# This class is the input for the 'stop_project_version' function.
 class StopProjectVersionRequest(BaseValidatorModel):
     ProjectVersionArn: str
 
@@ -699,11 +737,13 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the output for the 'copy_project_version' function.
 class CopyProjectVersionResponse(BaseValidatorModel):
     ProjectVersionArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_collection' function.
 class CreateCollectionResponse(BaseValidatorModel):
     StatusCode: int
     CollectionArn: str
@@ -711,46 +751,55 @@ class CreateCollectionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_dataset' function.
 class CreateDatasetResponse(BaseValidatorModel):
     DatasetArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_face_liveness_session' function.
 class CreateFaceLivenessSessionResponse(BaseValidatorModel):
     SessionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_project' function.
 class CreateProjectResponse(BaseValidatorModel):
     ProjectArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_project_version' function.
 class CreateProjectVersionResponse(BaseValidatorModel):
     ProjectVersionArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_stream_processor' function.
 class CreateStreamProcessorResponse(BaseValidatorModel):
     StreamProcessorArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_collection' function.
 class DeleteCollectionResponse(BaseValidatorModel):
     StatusCode: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_project' function.
 class DeleteProjectResponse(BaseValidatorModel):
     Status: ProjectStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_project_version' function.
 class DeleteProjectVersionResponse(BaseValidatorModel):
     Status: ProjectVersionStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_collection' function.
 class DescribeCollectionResponse(BaseValidatorModel):
     FaceCount: int
     FaceModelVersion: str
@@ -760,6 +809,7 @@ class DescribeCollectionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_collections' function.
 class ListCollectionsResponse(BaseValidatorModel):
     CollectionIds: List[str]
     FaceModelVersions: List[str]
@@ -767,82 +817,98 @@ class ListCollectionsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_dataset_entries' function.
 class ListDatasetEntriesResponse(BaseValidatorModel):
     DatasetEntries: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_project_policy' function.
 class PutProjectPolicyResponse(BaseValidatorModel):
     PolicyRevisionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_celebrity_recognition' function.
 class StartCelebrityRecognitionResponse(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_content_moderation' function.
 class StartContentModerationResponse(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_face_detection' function.
 class StartFaceDetectionResponse(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_face_search' function.
 class StartFaceSearchResponse(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_label_detection' function.
 class StartLabelDetectionResponse(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_media_analysis_job' function.
 class StartMediaAnalysisJobResponse(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_person_tracking' function.
 class StartPersonTrackingResponse(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_project_version' function.
 class StartProjectVersionResponse(BaseValidatorModel):
     Status: ProjectVersionStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_segment_detection' function.
 class StartSegmentDetectionResponse(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_stream_processor' function.
 class StartStreamProcessorResponse(BaseValidatorModel):
     SessionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_text_detection' function.
 class StartTextDetectionResponse(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_project_version' function.
 class StopProjectVersionResponse(BaseValidatorModel):
     Status: ProjectVersionStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_faces' function.
 class AssociateFacesResponse(BaseValidatorModel):
     AssociatedFaces: List[AssociatedFace]
     UnsuccessfulFaceAssociations: List[UnsuccessfulFaceAssociation]
@@ -905,6 +971,7 @@ class Image(BaseValidatorModel):
     S3Object: Optional[S3Object] = None
 
 
+# This class is the output for the 'get_celebrity_info' function.
 class GetCelebrityInfoResponse(BaseValidatorModel):
     Urls: List[str]
     Name: str
@@ -935,6 +1002,7 @@ class ContentModerationDetection(BaseValidatorModel):
     ContentTypes: Optional[List[ContentType]] = None
 
 
+# This class is the input for the 'copy_project_version' function.
 class CopyProjectVersionRequest(BaseValidatorModel):
     SourceProjectArn: str
     SourceProjectVersionArn: str
@@ -984,6 +1052,7 @@ class ProjectDescription(BaseValidatorModel):
     AutoUpdate: Optional[ProjectAutoUpdateType] = None
 
 
+# This class is the output for the 'delete_faces' function.
 class DeleteFacesResponse(BaseValidatorModel):
     DeletedFaces: List[str]
     UnsuccessfulFaceDeletions: List[UnsuccessfulFaceDeletion]
@@ -1082,6 +1151,7 @@ class LabelDetectionSettings(BaseValidatorModel):
     GeneralLabels: Optional[GeneralLabelsSettings] = None
 
 
+# This class is the output for the 'detect_moderation_labels' function.
 class DetectModerationLabelsResponse(BaseValidatorModel):
     ModerationLabels: List[ModerationLabel]
     ModerationModelVersion: str
@@ -1091,6 +1161,7 @@ class DetectModerationLabelsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_faces' function.
 class DisassociateFacesResponse(BaseValidatorModel):
     DisassociatedFaces: List[DisassociatedFace]
     UnsuccessfulFaceDisassociations: List[UnsuccessfulFaceDisassociation]
@@ -1161,18 +1232,21 @@ class StreamProcessorInput(BaseValidatorModel):
     KinesisVideoStream: Optional[KinesisVideoStream] = None
 
 
+# This class is the output for the 'list_project_policies' function.
 class ListProjectPoliciesResponse(BaseValidatorModel):
     ProjectPolicies: List[ProjectPolicy]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_stream_processors' function.
 class ListStreamProcessorsResponse(BaseValidatorModel):
     StreamProcessors: List[StreamProcessor]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_users' function.
 class ListUsersResponse(BaseValidatorModel):
     Users: List[User]
     ResponseMetadata: ResponseMetadata
@@ -1218,6 +1292,7 @@ class FaceMatch(BaseValidatorModel):
     Face: Optional[Face] = None
 
 
+# This class is the output for the 'list_faces' function.
 class ListFacesResponse(BaseValidatorModel):
     Faces: List[Face]
     FaceModelVersion: str
@@ -1225,6 +1300,7 @@ class ListFacesResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_face_liveness_session_results' function.
 class GetFaceLivenessSessionResultsResponse(BaseValidatorModel):
     SessionId: str
     Status: LivenessSessionStatusType
@@ -1248,6 +1324,7 @@ class EvaluationResult(BaseValidatorModel):
     Summary: Optional[Summary] = None
 
 
+# This class is the input for the 'start_celebrity_recognition' function.
 class StartCelebrityRecognitionRequest(BaseValidatorModel):
     Video: Video
     ClientRequestToken: Optional[str] = None
@@ -1255,6 +1332,7 @@ class StartCelebrityRecognitionRequest(BaseValidatorModel):
     JobTag: Optional[str] = None
 
 
+# This class is the input for the 'start_content_moderation' function.
 class StartContentModerationRequest(BaseValidatorModel):
     Video: Video
     MinConfidence: Optional[float] = None
@@ -1263,6 +1341,7 @@ class StartContentModerationRequest(BaseValidatorModel):
     JobTag: Optional[str] = None
 
 
+# This class is the input for the 'start_face_detection' function.
 class StartFaceDetectionRequest(BaseValidatorModel):
     Video: Video
     ClientRequestToken: Optional[str] = None
@@ -1271,6 +1350,7 @@ class StartFaceDetectionRequest(BaseValidatorModel):
     JobTag: Optional[str] = None
 
 
+# This class is the input for the 'start_face_search' function.
 class StartFaceSearchRequest(BaseValidatorModel):
     Video: Video
     CollectionId: str
@@ -1280,6 +1360,7 @@ class StartFaceSearchRequest(BaseValidatorModel):
     JobTag: Optional[str] = None
 
 
+# This class is the input for the 'start_person_tracking' function.
 class StartPersonTrackingRequest(BaseValidatorModel):
     Video: Video
     ClientRequestToken: Optional[str] = None
@@ -1297,6 +1378,7 @@ class UpdateDatasetEntriesRequest(BaseValidatorModel):
     Changes: DatasetChanges
 
 
+# This class is the input for the 'compare_faces' function.
 class CompareFacesRequest(BaseValidatorModel):
     SourceImage: Image
     TargetImage: Image
@@ -1304,6 +1386,7 @@ class CompareFacesRequest(BaseValidatorModel):
     QualityFilter: Optional[QualityFilterType] = None
 
 
+# This class is the input for the 'detect_custom_labels' function.
 class DetectCustomLabelsRequest(BaseValidatorModel):
     ProjectVersionArn: str
     Image: Image
@@ -1311,16 +1394,19 @@ class DetectCustomLabelsRequest(BaseValidatorModel):
     MinConfidence: Optional[float] = None
 
 
+# This class is the input for the 'detect_faces' function.
 class DetectFacesRequest(BaseValidatorModel):
     Image: Image
     Attributes: Optional[List[AttributeType]] = None
 
 
+# This class is the input for the 'detect_protective_equipment' function.
 class DetectProtectiveEquipmentRequest(BaseValidatorModel):
     Image: Image
     SummarizationAttributes: Optional[ProtectiveEquipmentSummarizationAttributes] = None
 
 
+# This class is the input for the 'index_faces' function.
 class IndexFacesRequest(BaseValidatorModel):
     CollectionId: str
     Image: Image
@@ -1330,10 +1416,12 @@ class IndexFacesRequest(BaseValidatorModel):
     QualityFilter: Optional[QualityFilterType] = None
 
 
+# This class is the input for the 'recognize_celebrities' function.
 class RecognizeCelebritiesRequest(BaseValidatorModel):
     Image: Image
 
 
+# This class is the input for the 'search_faces_by_image' function.
 class SearchFacesByImageRequest(BaseValidatorModel):
     CollectionId: str
     Image: Image
@@ -1342,6 +1430,7 @@ class SearchFacesByImageRequest(BaseValidatorModel):
     QualityFilter: Optional[QualityFilterType] = None
 
 
+# This class is the input for the 'search_users_by_image' function.
 class SearchUsersByImageRequest(BaseValidatorModel):
     CollectionId: str
     Image: Image
@@ -1364,6 +1453,7 @@ class CompareFacesMatch(BaseValidatorModel):
     Face: Optional[ComparedFace] = None
 
 
+# This class is the output for the 'get_content_moderation' function.
 class GetContentModerationResponse(BaseValidatorModel):
     JobStatus: VideoJobStatusType
     StatusMessage: str
@@ -1384,23 +1474,27 @@ class ProtectiveEquipmentBodyPart(BaseValidatorModel):
     EquipmentDetections: Optional[List[EquipmentDetection]] = None
 
 
+# This class is the input for the 'create_face_liveness_session' function.
 class CreateFaceLivenessSessionRequest(BaseValidatorModel):
     KmsKeyId: Optional[str] = None
     Settings: Optional[CreateFaceLivenessSessionRequestSettings] = None
     ClientRequestToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_dataset' function.
 class DescribeDatasetResponse(BaseValidatorModel):
     DatasetDescription: DatasetDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_dataset_labels' function.
 class ListDatasetLabelsResponse(BaseValidatorModel):
     DatasetLabelDescriptions: List[DatasetLabelDescription]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_projects' function.
 class DescribeProjectsResponse(BaseValidatorModel):
     ProjectDescriptions: List[ProjectDescription]
     ResponseMetadata: ResponseMetadata
@@ -1423,6 +1517,7 @@ class Label(BaseValidatorModel):
     Categories: Optional[List[LabelCategory]] = None
 
 
+# This class is the input for the 'detect_labels' function.
 class DetectLabelsRequest(BaseValidatorModel):
     Image: Image
     MaxLabels: Optional[int] = None
@@ -1431,6 +1526,7 @@ class DetectLabelsRequest(BaseValidatorModel):
     Settings: Optional[DetectLabelsSettings] = None
 
 
+# This class is the input for the 'start_label_detection' function.
 class StartLabelDetectionRequest(BaseValidatorModel):
     Video: Video
     ClientRequestToken: Optional[str] = None
@@ -1451,6 +1547,7 @@ class CelebrityDetail(BaseValidatorModel):
     KnownGender: Optional[KnownGender] = None
 
 
+# This class is the output for the 'detect_faces' function.
 class DetectFacesResponse(BaseValidatorModel):
     FaceDetails: List[FaceDetail]
     OrientationCorrection: OrientationCorrectionType
@@ -1506,6 +1603,7 @@ class TextDetection(BaseValidatorModel):
 RegionOfInterestUnion = Union[RegionOfInterest, RegionOfInterestOutput]
 
 
+# This class is the input for the 'detect_moderation_labels' function.
 class DetectModerationLabelsRequest(BaseValidatorModel):
     Image: Image
     MinConfidence: Optional[float] = None
@@ -1513,12 +1611,14 @@ class DetectModerationLabelsRequest(BaseValidatorModel):
     ProjectVersion: Optional[str] = None
 
 
+# This class is the input for the 'start_stream_processor' function.
 class StartStreamProcessorRequest(BaseValidatorModel):
     Name: str
     StartSelector: Optional[StreamProcessingStartSelector] = None
     StopSelector: Optional[StreamProcessingStopSelector] = None
 
 
+# This class is the output for the 'search_users' function.
 class SearchUsersResponse(BaseValidatorModel):
     UserMatches: List[UserMatch]
     FaceModelVersion: str
@@ -1527,6 +1627,7 @@ class SearchUsersResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_media_analysis_job' function.
 class StartMediaAnalysisJobRequest(BaseValidatorModel):
     OperationsConfig: MediaAnalysisOperationsConfig
     Input: MediaAnalysisInput
@@ -1536,6 +1637,7 @@ class StartMediaAnalysisJobRequest(BaseValidatorModel):
     KmsKeyId: Optional[str] = None
 
 
+# This class is the output for the 'get_media_analysis_job' function.
 class GetMediaAnalysisJobResponse(BaseValidatorModel):
     JobId: str
     JobName: str
@@ -1567,6 +1669,7 @@ class MediaAnalysisJobDescription(BaseValidatorModel):
     ManifestSummary: Optional[MediaAnalysisManifestSummary] = None
 
 
+# This class is the output for the 'describe_stream_processor' function.
 class DescribeStreamProcessorResponse(BaseValidatorModel):
     Name: str
     StreamProcessorArn: str
@@ -1585,6 +1688,7 @@ class DescribeStreamProcessorResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_segment_detection' function.
 class GetSegmentDetectionResponse(BaseValidatorModel):
     JobStatus: VideoJobStatusType
     StatusMessage: str
@@ -1599,6 +1703,7 @@ class GetSegmentDetectionResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'search_faces_by_image' function.
 class SearchFacesByImageResponse(BaseValidatorModel):
     SearchedFaceBoundingBox: BoundingBox
     SearchedFaceConfidence: float
@@ -1607,6 +1712,7 @@ class SearchFacesByImageResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_faces' function.
 class SearchFacesResponse(BaseValidatorModel):
     SearchedFaceId: str
     FaceMatches: List[FaceMatch]
@@ -1636,6 +1742,7 @@ class ValidationData(BaseValidatorModel):
     Assets: Optional[List[Asset]] = None
 
 
+# This class is the input for the 'create_dataset' function.
 class CreateDatasetRequest(BaseValidatorModel):
     DatasetType: DatasetTypeType
     ProjectArn: str
@@ -1643,6 +1750,7 @@ class CreateDatasetRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'start_segment_detection' function.
 class StartSegmentDetectionRequest(BaseValidatorModel):
     Video: Video
     SegmentTypes: List[SegmentTypeType]
@@ -1652,6 +1760,7 @@ class StartSegmentDetectionRequest(BaseValidatorModel):
     Filters: Optional[StartSegmentDetectionFilters] = None
 
 
+# This class is the output for the 'recognize_celebrities' function.
 class RecognizeCelebritiesResponse(BaseValidatorModel):
     CelebrityFaces: List[Celebrity]
     UnrecognizedFaces: List[ComparedFace]
@@ -1659,6 +1768,7 @@ class RecognizeCelebritiesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'compare_faces' function.
 class CompareFacesResponse(BaseValidatorModel):
     SourceImageFace: ComparedSourceImageFace
     FaceMatches: List[CompareFacesMatch]
@@ -1675,6 +1785,7 @@ class ProtectiveEquipmentPerson(BaseValidatorModel):
     Id: Optional[int] = None
 
 
+# This class is the output for the 'detect_labels' function.
 class DetectLabelsResponse(BaseValidatorModel):
     Labels: List[Label]
     OrientationCorrection: OrientationCorrectionType
@@ -1696,6 +1807,7 @@ class CelebrityRecognition(BaseValidatorModel):
     Celebrity: Optional[CelebrityDetail] = None
 
 
+# This class is the output for the 'get_face_detection' function.
 class GetFaceDetectionResponse(BaseValidatorModel):
     JobStatus: VideoJobStatusType
     StatusMessage: str
@@ -1719,6 +1831,7 @@ class PersonMatch(BaseValidatorModel):
     FaceMatches: Optional[List[FaceMatch]] = None
 
 
+# This class is the output for the 'index_faces' function.
 class IndexFacesResponse(BaseValidatorModel):
     FaceRecords: List[FaceRecord]
     OrientationCorrection: OrientationCorrectionType
@@ -1727,6 +1840,7 @@ class IndexFacesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_users_by_image' function.
 class SearchUsersByImageResponse(BaseValidatorModel):
     UserMatches: List[UserMatch]
     FaceModelVersion: str
@@ -1735,11 +1849,13 @@ class SearchUsersByImageResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'detect_custom_labels' function.
 class DetectCustomLabelsResponse(BaseValidatorModel):
     CustomLabels: List[CustomLabel]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'detect_text' function.
 class DetectTextResponse(BaseValidatorModel):
     TextDetections: List[TextDetection]
     TextModelVersion: str
@@ -1751,6 +1867,7 @@ class TextDetectionResult(BaseValidatorModel):
     TextDetection: Optional[TextDetection] = None
 
 
+# This class is the input for the 'create_stream_processor' function.
 class CreateStreamProcessorRequest(BaseValidatorModel):
     Input: StreamProcessorInput
     Output: StreamProcessorOutput
@@ -1782,6 +1899,7 @@ class UpdateStreamProcessorRequest(BaseValidatorModel):
     ParametersToDelete: Optional[List[StreamProcessorParameterToDeleteType]] = None
 
 
+# This class is the output for the 'list_media_analysis_jobs' function.
 class ListMediaAnalysisJobsResponse(BaseValidatorModel):
     MediaAnalysisJobs: List[MediaAnalysisJobDescription]
     ResponseMetadata: ResponseMetadata
@@ -1804,6 +1922,7 @@ class TrainingDataResult(BaseValidatorModel):
     Validation: Optional[ValidationData] = None
 
 
+# This class is the output for the 'detect_protective_equipment' function.
 class DetectProtectiveEquipmentResponse(BaseValidatorModel):
     ProtectiveEquipmentModelVersion: str
     Persons: List[ProtectiveEquipmentPerson]
@@ -1811,6 +1930,7 @@ class DetectProtectiveEquipmentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_label_detection' function.
 class GetLabelDetectionResponse(BaseValidatorModel):
     JobStatus: VideoJobStatusType
     StatusMessage: str
@@ -1825,6 +1945,7 @@ class GetLabelDetectionResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_celebrity_recognition' function.
 class GetCelebrityRecognitionResponse(BaseValidatorModel):
     JobStatus: VideoJobStatusType
     StatusMessage: str
@@ -1837,6 +1958,7 @@ class GetCelebrityRecognitionResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_person_tracking' function.
 class GetPersonTrackingResponse(BaseValidatorModel):
     JobStatus: VideoJobStatusType
     StatusMessage: str
@@ -1849,6 +1971,7 @@ class GetPersonTrackingResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_face_search' function.
 class GetFaceSearchResponse(BaseValidatorModel):
     JobStatus: VideoJobStatusType
     StatusMessage: str
@@ -1861,6 +1984,7 @@ class GetFaceSearchResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_text_detection' function.
 class GetTextDetectionResponse(BaseValidatorModel):
     JobStatus: VideoJobStatusType
     StatusMessage: str
@@ -1874,11 +1998,13 @@ class GetTextDetectionResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'detect_text' function.
 class DetectTextRequest(BaseValidatorModel):
     Image: Image
     Filters: Optional[DetectTextFilters] = None
 
 
+# This class is the input for the 'start_text_detection' function.
 class StartTextDetectionRequest(BaseValidatorModel):
     Video: Video
     ClientRequestToken: Optional[str] = None
@@ -1887,6 +2013,7 @@ class StartTextDetectionRequest(BaseValidatorModel):
     Filters: Optional[StartTextDetectionFilters] = None
 
 
+# This class is the input for the 'create_project_version' function.
 class CreateProjectVersionRequest(BaseValidatorModel):
     ProjectArn: str
     VersionName: str
@@ -1921,6 +2048,7 @@ class ProjectVersionDescription(BaseValidatorModel):
     FeatureConfig: Optional[CustomizationFeatureConfig] = None
 
 
+# This class is the output for the 'describe_project_versions' function.
 class DescribeProjectVersionsResponse(BaseValidatorModel):
     ProjectVersionDescriptions: List[ProjectVersionDescription]
     ResponseMetadata: ResponseMetadata

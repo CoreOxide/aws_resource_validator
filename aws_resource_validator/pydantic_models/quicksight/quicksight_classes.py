@@ -454,6 +454,7 @@ class SucceededTopicReviewedAnswer(BaseValidatorModel):
     AnswerId: Optional[str] = None
 
 
+# This class is the input for the 'batch_delete_topic_reviewed_answer' function.
 class BatchDeleteTopicReviewedAnswerRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
@@ -521,6 +522,7 @@ class CalculatedMeasureField(BaseValidatorModel):
     Expression: str
 
 
+# This class is the input for the 'cancel_ingestion' function.
 class CancelIngestionRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSetId: str
@@ -697,6 +699,7 @@ class ContributionAnalysisFactor(BaseValidatorModel):
     FieldName: Optional[str] = None
 
 
+# This class is the input for the 'create_account_subscription' function.
 class CreateAccountSubscriptionRequest(BaseValidatorModel):
     AuthenticationMethod: AuthenticationMethodOptionType
     AwsAccountId: str
@@ -743,6 +746,7 @@ class RowLevelPermissionDataSet(BaseValidatorModel):
     Status: Optional[StatusType] = None
 
 
+# This class is the input for the 'create_folder_membership' function.
 class CreateFolderMembershipRequest(BaseValidatorModel):
     AwsAccountId: str
     FolderId: str
@@ -755,6 +759,7 @@ class FolderMember(BaseValidatorModel):
     MemberType: Optional[MemberTypeType] = None
 
 
+# This class is the input for the 'create_group_membership' function.
 class CreateGroupMembershipRequest(BaseValidatorModel):
     MemberName: str
     GroupName: str
@@ -767,6 +772,7 @@ class GroupMember(BaseValidatorModel):
     MemberName: Optional[str] = None
 
 
+# This class is the input for the 'create_group' function.
 class CreateGroupRequest(BaseValidatorModel):
     GroupName: str
     AwsAccountId: str
@@ -781,6 +787,7 @@ class Group(BaseValidatorModel):
     PrincipalId: Optional[str] = None
 
 
+# This class is the input for the 'create_iam_policy_assignment' function.
 class CreateIAMPolicyAssignmentRequest(BaseValidatorModel):
     AwsAccountId: str
     AssignmentName: str
@@ -790,6 +797,7 @@ class CreateIAMPolicyAssignmentRequest(BaseValidatorModel):
     Identities: Optional[Dict[str, List[str]]] = None
 
 
+# This class is the input for the 'create_ingestion' function.
 class CreateIngestionRequest(BaseValidatorModel):
     DataSetId: str
     IngestionId: str
@@ -797,6 +805,7 @@ class CreateIngestionRequest(BaseValidatorModel):
     IngestionType: Optional[IngestionTypeType] = None
 
 
+# This class is the input for the 'create_role_membership' function.
 class CreateRoleMembershipRequest(BaseValidatorModel):
     MemberName: str
     AwsAccountId: str
@@ -804,6 +813,7 @@ class CreateRoleMembershipRequest(BaseValidatorModel):
     Role: RoleType
 
 
+# This class is the input for the 'create_template_alias' function.
 class CreateTemplateAliasRequest(BaseValidatorModel):
     AwsAccountId: str
     TemplateId: str
@@ -817,6 +827,7 @@ class TemplateAlias(BaseValidatorModel):
     TemplateVersionNumber: Optional[int] = None
 
 
+# This class is the input for the 'create_theme_alias' function.
 class CreateThemeAliasRequest(BaseValidatorModel):
     AwsAccountId: str
     ThemeId: str
@@ -1174,15 +1185,18 @@ class FilterSelectableValues(BaseValidatorModel):
     Values: Optional[List[str]] = None
 
 
+# This class is the input for the 'delete_account_customization' function.
 class DeleteAccountCustomizationRequest(BaseValidatorModel):
     AwsAccountId: str
     Namespace: Optional[str] = None
 
 
+# This class is the input for the 'delete_account_subscription' function.
 class DeleteAccountSubscriptionRequest(BaseValidatorModel):
     AwsAccountId: str
 
 
+# This class is the input for the 'delete_analysis' function.
 class DeleteAnalysisRequest(BaseValidatorModel):
     AwsAccountId: str
     AnalysisId: str
@@ -1190,46 +1204,55 @@ class DeleteAnalysisRequest(BaseValidatorModel):
     ForceDeleteWithoutRecovery: Optional[bool] = None
 
 
+# This class is the input for the 'delete_brand_assignment' function.
 class DeleteBrandAssignmentRequest(BaseValidatorModel):
     AwsAccountId: str
 
 
+# This class is the input for the 'delete_brand' function.
 class DeleteBrandRequest(BaseValidatorModel):
     AwsAccountId: str
     BrandId: str
 
 
+# This class is the input for the 'delete_custom_permissions' function.
 class DeleteCustomPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     CustomPermissionsName: str
 
 
+# This class is the input for the 'delete_dashboard' function.
 class DeleteDashboardRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
     VersionNumber: Optional[int] = None
 
 
+# This class is the input for the 'delete_data_set_refresh_properties' function.
 class DeleteDataSetRefreshPropertiesRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSetId: str
 
 
+# This class is the input for the 'delete_data_set' function.
 class DeleteDataSetRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSetId: str
 
 
+# This class is the input for the 'delete_data_source' function.
 class DeleteDataSourceRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSourceId: str
 
 
+# This class is the input for the 'delete_default_q_business_application' function.
 class DeleteDefaultQBusinessApplicationRequest(BaseValidatorModel):
     AwsAccountId: str
     Namespace: Optional[str] = None
 
 
+# This class is the input for the 'delete_folder_membership' function.
 class DeleteFolderMembershipRequest(BaseValidatorModel):
     AwsAccountId: str
     FolderId: str
@@ -1237,11 +1260,13 @@ class DeleteFolderMembershipRequest(BaseValidatorModel):
     MemberType: MemberTypeType
 
 
+# This class is the input for the 'delete_folder' function.
 class DeleteFolderRequest(BaseValidatorModel):
     AwsAccountId: str
     FolderId: str
 
 
+# This class is the input for the 'delete_group_membership' function.
 class DeleteGroupMembershipRequest(BaseValidatorModel):
     MemberName: str
     GroupName: str
@@ -1249,40 +1274,47 @@ class DeleteGroupMembershipRequest(BaseValidatorModel):
     Namespace: str
 
 
+# This class is the input for the 'delete_group' function.
 class DeleteGroupRequest(BaseValidatorModel):
     GroupName: str
     AwsAccountId: str
     Namespace: str
 
 
+# This class is the input for the 'delete_iam_policy_assignment' function.
 class DeleteIAMPolicyAssignmentRequest(BaseValidatorModel):
     AwsAccountId: str
     AssignmentName: str
     Namespace: str
 
 
+# This class is the input for the 'delete_identity_propagation_config' function.
 class DeleteIdentityPropagationConfigRequest(BaseValidatorModel):
     AwsAccountId: str
     Service: ServiceTypeType
 
 
+# This class is the input for the 'delete_namespace' function.
 class DeleteNamespaceRequest(BaseValidatorModel):
     AwsAccountId: str
     Namespace: str
 
 
+# This class is the input for the 'delete_refresh_schedule' function.
 class DeleteRefreshScheduleRequest(BaseValidatorModel):
     DataSetId: str
     AwsAccountId: str
     ScheduleId: str
 
 
+# This class is the input for the 'delete_role_custom_permission' function.
 class DeleteRoleCustomPermissionRequest(BaseValidatorModel):
     Role: RoleType
     AwsAccountId: str
     Namespace: str
 
 
+# This class is the input for the 'delete_role_membership' function.
 class DeleteRoleMembershipRequest(BaseValidatorModel):
     MemberName: str
     Role: RoleType
@@ -1290,83 +1322,98 @@ class DeleteRoleMembershipRequest(BaseValidatorModel):
     Namespace: str
 
 
+# This class is the input for the 'delete_template_alias' function.
 class DeleteTemplateAliasRequest(BaseValidatorModel):
     AwsAccountId: str
     TemplateId: str
     AliasName: str
 
 
+# This class is the input for the 'delete_template' function.
 class DeleteTemplateRequest(BaseValidatorModel):
     AwsAccountId: str
     TemplateId: str
     VersionNumber: Optional[int] = None
 
 
+# This class is the input for the 'delete_theme_alias' function.
 class DeleteThemeAliasRequest(BaseValidatorModel):
     AwsAccountId: str
     ThemeId: str
     AliasName: str
 
 
+# This class is the input for the 'delete_theme' function.
 class DeleteThemeRequest(BaseValidatorModel):
     AwsAccountId: str
     ThemeId: str
     VersionNumber: Optional[int] = None
 
 
+# This class is the input for the 'delete_topic_refresh_schedule' function.
 class DeleteTopicRefreshScheduleRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
     DatasetId: str
 
 
+# This class is the input for the 'delete_topic' function.
 class DeleteTopicRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
 
 
+# This class is the input for the 'delete_user_by_principal_id' function.
 class DeleteUserByPrincipalIdRequest(BaseValidatorModel):
     PrincipalId: str
     AwsAccountId: str
     Namespace: str
 
 
+# This class is the input for the 'delete_user_custom_permission' function.
 class DeleteUserCustomPermissionRequest(BaseValidatorModel):
     UserName: str
     AwsAccountId: str
     Namespace: str
 
 
+# This class is the input for the 'delete_user' function.
 class DeleteUserRequest(BaseValidatorModel):
     UserName: str
     AwsAccountId: str
     Namespace: str
 
 
+# This class is the input for the 'delete_vpc_connection' function.
 class DeleteVPCConnectionRequest(BaseValidatorModel):
     AwsAccountId: str
     VPCConnectionId: str
 
 
+# This class is the input for the 'describe_account_customization' function.
 class DescribeAccountCustomizationRequest(BaseValidatorModel):
     AwsAccountId: str
     Namespace: Optional[str] = None
     Resolved: Optional[bool] = None
 
 
+# This class is the input for the 'describe_account_settings' function.
 class DescribeAccountSettingsRequest(BaseValidatorModel):
     AwsAccountId: str
 
 
+# This class is the input for the 'describe_account_subscription' function.
 class DescribeAccountSubscriptionRequest(BaseValidatorModel):
     AwsAccountId: str
 
 
+# This class is the input for the 'describe_analysis_definition' function.
 class DescribeAnalysisDefinitionRequest(BaseValidatorModel):
     AwsAccountId: str
     AnalysisId: str
 
 
+# This class is the input for the 'describe_analysis_permissions' function.
 class DescribeAnalysisPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     AnalysisId: str
@@ -1377,41 +1424,49 @@ class ResourcePermissionOutput(BaseValidatorModel):
     Actions: List[str]
 
 
+# This class is the input for the 'describe_analysis' function.
 class DescribeAnalysisRequest(BaseValidatorModel):
     AwsAccountId: str
     AnalysisId: str
 
 
+# This class is the input for the 'describe_asset_bundle_export_job' function.
 class DescribeAssetBundleExportJobRequest(BaseValidatorModel):
     AwsAccountId: str
     AssetBundleExportJobId: str
 
 
+# This class is the input for the 'describe_asset_bundle_import_job' function.
 class DescribeAssetBundleImportJobRequest(BaseValidatorModel):
     AwsAccountId: str
     AssetBundleImportJobId: str
 
 
+# This class is the input for the 'describe_brand_assignment' function.
 class DescribeBrandAssignmentRequest(BaseValidatorModel):
     AwsAccountId: str
 
 
+# This class is the input for the 'describe_brand_published_version' function.
 class DescribeBrandPublishedVersionRequest(BaseValidatorModel):
     AwsAccountId: str
     BrandId: str
 
 
+# This class is the input for the 'describe_brand' function.
 class DescribeBrandRequest(BaseValidatorModel):
     AwsAccountId: str
     BrandId: str
     VersionId: Optional[str] = None
 
 
+# This class is the input for the 'describe_custom_permissions' function.
 class DescribeCustomPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     CustomPermissionsName: str
 
 
+# This class is the input for the 'describe_dashboard_definition' function.
 class DescribeDashboardDefinitionRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
@@ -1419,11 +1474,13 @@ class DescribeDashboardDefinitionRequest(BaseValidatorModel):
     AliasName: Optional[str] = None
 
 
+# This class is the input for the 'describe_dashboard_permissions' function.
 class DescribeDashboardPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
 
 
+# This class is the input for the 'describe_dashboard' function.
 class DescribeDashboardRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
@@ -1431,12 +1488,14 @@ class DescribeDashboardRequest(BaseValidatorModel):
     AliasName: Optional[str] = None
 
 
+# This class is the input for the 'describe_dashboard_snapshot_job' function.
 class DescribeDashboardSnapshotJobRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
     SnapshotJobId: str
 
 
+# This class is the input for the 'describe_dashboard_snapshot_job_result' function.
 class DescribeDashboardSnapshotJobResultRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
@@ -1448,35 +1507,42 @@ class SnapshotJobErrorInfo(BaseValidatorModel):
     ErrorType: Optional[str] = None
 
 
+# This class is the input for the 'describe_dashboards_qa_configuration' function.
 class DescribeDashboardsQAConfigurationRequest(BaseValidatorModel):
     AwsAccountId: str
 
 
+# This class is the input for the 'describe_data_set_permissions' function.
 class DescribeDataSetPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSetId: str
 
 
+# This class is the input for the 'describe_data_set_refresh_properties' function.
 class DescribeDataSetRefreshPropertiesRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSetId: str
 
 
+# This class is the input for the 'describe_data_set' function.
 class DescribeDataSetRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSetId: str
 
 
+# This class is the input for the 'describe_data_source_permissions' function.
 class DescribeDataSourcePermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSourceId: str
 
 
+# This class is the input for the 'describe_data_source' function.
 class DescribeDataSourceRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSourceId: str
 
 
+# This class is the input for the 'describe_default_q_business_application' function.
 class DescribeDefaultQBusinessApplicationRequest(BaseValidatorModel):
     AwsAccountId: str
     Namespace: Optional[str] = None
@@ -1488,6 +1554,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_folder_permissions' function.
 class DescribeFolderPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     FolderId: str
@@ -1496,11 +1563,13 @@ class DescribeFolderPermissionsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_folder' function.
 class DescribeFolderRequest(BaseValidatorModel):
     AwsAccountId: str
     FolderId: str
 
 
+# This class is the input for the 'describe_folder_resolved_permissions' function.
 class DescribeFolderResolvedPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     FolderId: str
@@ -1520,6 +1589,7 @@ class Folder(BaseValidatorModel):
     SharingModel: Optional[SharingModelType] = None
 
 
+# This class is the input for the 'describe_group_membership' function.
 class DescribeGroupMembershipRequest(BaseValidatorModel):
     MemberName: str
     GroupName: str
@@ -1527,12 +1597,14 @@ class DescribeGroupMembershipRequest(BaseValidatorModel):
     Namespace: str
 
 
+# This class is the input for the 'describe_group' function.
 class DescribeGroupRequest(BaseValidatorModel):
     GroupName: str
     AwsAccountId: str
     Namespace: str
 
 
+# This class is the input for the 'describe_iam_policy_assignment' function.
 class DescribeIAMPolicyAssignmentRequest(BaseValidatorModel):
     AwsAccountId: str
     AssignmentName: str
@@ -1548,16 +1620,19 @@ class IAMPolicyAssignment(BaseValidatorModel):
     AssignmentStatus: Optional[AssignmentStatusType] = None
 
 
+# This class is the input for the 'describe_ingestion' function.
 class DescribeIngestionRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSetId: str
     IngestionId: str
 
 
+# This class is the input for the 'describe_ip_restriction' function.
 class DescribeIpRestrictionRequest(BaseValidatorModel):
     AwsAccountId: str
 
 
+# This class is the input for the 'describe_key_registration' function.
 class DescribeKeyRegistrationRequest(BaseValidatorModel):
     AwsAccountId: str
     DefaultKeyOnly: Optional[bool] = None
@@ -1568,37 +1643,44 @@ class RegisteredCustomerManagedKey(BaseValidatorModel):
     DefaultKey: Optional[bool] = None
 
 
+# This class is the input for the 'describe_namespace' function.
 class DescribeNamespaceRequest(BaseValidatorModel):
     AwsAccountId: str
     Namespace: str
 
 
+# This class is the input for the 'describe_q_personalization_configuration' function.
 class DescribeQPersonalizationConfigurationRequest(BaseValidatorModel):
     AwsAccountId: str
 
 
+# This class is the input for the 'describe_quick_sight_q_search_configuration' function.
 class DescribeQuickSightQSearchConfigurationRequest(BaseValidatorModel):
     AwsAccountId: str
 
 
+# This class is the input for the 'describe_refresh_schedule' function.
 class DescribeRefreshScheduleRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSetId: str
     ScheduleId: str
 
 
+# This class is the input for the 'describe_role_custom_permission' function.
 class DescribeRoleCustomPermissionRequest(BaseValidatorModel):
     Role: RoleType
     AwsAccountId: str
     Namespace: str
 
 
+# This class is the input for the 'describe_template_alias' function.
 class DescribeTemplateAliasRequest(BaseValidatorModel):
     AwsAccountId: str
     TemplateId: str
     AliasName: str
 
 
+# This class is the input for the 'describe_template_definition' function.
 class DescribeTemplateDefinitionRequest(BaseValidatorModel):
     AwsAccountId: str
     TemplateId: str
@@ -1606,11 +1688,13 @@ class DescribeTemplateDefinitionRequest(BaseValidatorModel):
     AliasName: Optional[str] = None
 
 
+# This class is the input for the 'describe_template_permissions' function.
 class DescribeTemplatePermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     TemplateId: str
 
 
+# This class is the input for the 'describe_template' function.
 class DescribeTemplateRequest(BaseValidatorModel):
     AwsAccountId: str
     TemplateId: str
@@ -1618,17 +1702,20 @@ class DescribeTemplateRequest(BaseValidatorModel):
     AliasName: Optional[str] = None
 
 
+# This class is the input for the 'describe_theme_alias' function.
 class DescribeThemeAliasRequest(BaseValidatorModel):
     AwsAccountId: str
     ThemeId: str
     AliasName: str
 
 
+# This class is the input for the 'describe_theme_permissions' function.
 class DescribeThemePermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     ThemeId: str
 
 
+# This class is the input for the 'describe_theme' function.
 class DescribeThemeRequest(BaseValidatorModel):
     AwsAccountId: str
     ThemeId: str
@@ -1636,11 +1723,13 @@ class DescribeThemeRequest(BaseValidatorModel):
     AliasName: Optional[str] = None
 
 
+# This class is the input for the 'describe_topic_permissions' function.
 class DescribeTopicPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
 
 
+# This class is the input for the 'describe_topic_refresh' function.
 class DescribeTopicRefreshRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
@@ -1653,6 +1742,7 @@ class TopicRefreshDetails(BaseValidatorModel):
     RefreshStatus: Optional[TopicRefreshStatusType] = None
 
 
+# This class is the input for the 'describe_topic_refresh_schedule' function.
 class DescribeTopicRefreshScheduleRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
@@ -1668,11 +1758,13 @@ class TopicRefreshScheduleOutput(BaseValidatorModel):
     TopicScheduleType: Optional[TopicScheduleTypeType] = None
 
 
+# This class is the input for the 'describe_topic' function.
 class DescribeTopicRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
 
 
+# This class is the input for the 'describe_user' function.
 class DescribeUserRequest(BaseValidatorModel):
     UserName: str
     AwsAccountId: str
@@ -1693,6 +1785,7 @@ class User(BaseValidatorModel):
     ExternalLoginId: Optional[str] = None
 
 
+# This class is the input for the 'describe_vpc_connection' function.
 class DescribeVPCConnectionRequest(BaseValidatorModel):
     AwsAccountId: str
     VPCConnectionId: str
@@ -1912,6 +2005,7 @@ class GeospatialNullSymbolStyle(BaseValidatorModel):
     StrokeWidth: Optional[float] = None
 
 
+# This class is the input for the 'get_dashboard_embed_url' function.
 class GetDashboardEmbedUrlRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
@@ -1925,6 +2019,7 @@ class GetDashboardEmbedUrlRequest(BaseValidatorModel):
     AdditionalDashboardIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_session_embed_url' function.
 class GetSessionEmbedUrlRequest(BaseValidatorModel):
     AwsAccountId: str
     EntryPoint: Optional[str] = None
@@ -2076,24 +2171,28 @@ class ResourcePermission(BaseValidatorModel):
     Actions: List[str]
 
 
+# This class is the input for the 'list_analyses' function.
 class ListAnalysesRequest(BaseValidatorModel):
     AwsAccountId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_asset_bundle_export_jobs' function.
 class ListAssetBundleExportJobsRequest(BaseValidatorModel):
     AwsAccountId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_asset_bundle_import_jobs' function.
 class ListAssetBundleImportJobsRequest(BaseValidatorModel):
     AwsAccountId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_brands' function.
 class ListBrandsRequest(BaseValidatorModel):
     AwsAccountId: str
     MaxResults: Optional[int] = None
@@ -2104,12 +2203,14 @@ class ListControlSearchOptions(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
 
 
+# This class is the input for the 'list_custom_permissions' function.
 class ListCustomPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_dashboard_versions' function.
 class ListDashboardVersionsRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
@@ -2117,24 +2218,28 @@ class ListDashboardVersionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_dashboards' function.
 class ListDashboardsRequest(BaseValidatorModel):
     AwsAccountId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_data_sets' function.
 class ListDataSetsRequest(BaseValidatorModel):
     AwsAccountId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_data_sources' function.
 class ListDataSourcesRequest(BaseValidatorModel):
     AwsAccountId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_folder_members' function.
 class ListFolderMembersRequest(BaseValidatorModel):
     AwsAccountId: str
     FolderId: str
@@ -2147,6 +2252,7 @@ class MemberIdArnPair(BaseValidatorModel):
     MemberArn: Optional[str] = None
 
 
+# This class is the input for the 'list_folders_for_resource' function.
 class ListFoldersForResourceRequest(BaseValidatorModel):
     AwsAccountId: str
     ResourceArn: str
@@ -2154,12 +2260,14 @@ class ListFoldersForResourceRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_folders' function.
 class ListFoldersRequest(BaseValidatorModel):
     AwsAccountId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_group_memberships' function.
 class ListGroupMembershipsRequest(BaseValidatorModel):
     GroupName: str
     AwsAccountId: str
@@ -2168,6 +2276,7 @@ class ListGroupMembershipsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_groups' function.
 class ListGroupsRequest(BaseValidatorModel):
     AwsAccountId: str
     Namespace: str
@@ -2175,6 +2284,7 @@ class ListGroupsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_iam_policy_assignments_for_user' function.
 class ListIAMPolicyAssignmentsForUserRequest(BaseValidatorModel):
     AwsAccountId: str
     UserName: str
@@ -2183,6 +2293,7 @@ class ListIAMPolicyAssignmentsForUserRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_iam_policy_assignments' function.
 class ListIAMPolicyAssignmentsRequest(BaseValidatorModel):
     AwsAccountId: str
     Namespace: str
@@ -2191,12 +2302,14 @@ class ListIAMPolicyAssignmentsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_identity_propagation_configs' function.
 class ListIdentityPropagationConfigsRequest(BaseValidatorModel):
     AwsAccountId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_ingestions' function.
 class ListIngestionsRequest(BaseValidatorModel):
     DataSetId: str
     AwsAccountId: str
@@ -2204,17 +2317,20 @@ class ListIngestionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_namespaces' function.
 class ListNamespacesRequest(BaseValidatorModel):
     AwsAccountId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_refresh_schedules' function.
 class ListRefreshSchedulesRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSetId: str
 
 
+# This class is the input for the 'list_role_memberships' function.
 class ListRoleMembershipsRequest(BaseValidatorModel):
     Role: RoleType
     AwsAccountId: str
@@ -2223,10 +2339,12 @@ class ListRoleMembershipsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'list_template_aliases' function.
 class ListTemplateAliasesRequest(BaseValidatorModel):
     AwsAccountId: str
     TemplateId: str
@@ -2234,6 +2352,7 @@ class ListTemplateAliasesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_template_versions' function.
 class ListTemplateVersionsRequest(BaseValidatorModel):
     AwsAccountId: str
     TemplateId: str
@@ -2249,6 +2368,7 @@ class TemplateVersionSummary(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'list_templates' function.
 class ListTemplatesRequest(BaseValidatorModel):
     AwsAccountId: str
     NextToken: Optional[str] = None
@@ -2264,6 +2384,7 @@ class TemplateSummary(BaseValidatorModel):
     LastUpdatedTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_theme_aliases' function.
 class ListThemeAliasesRequest(BaseValidatorModel):
     AwsAccountId: str
     ThemeId: str
@@ -2271,6 +2392,7 @@ class ListThemeAliasesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_theme_versions' function.
 class ListThemeVersionsRequest(BaseValidatorModel):
     AwsAccountId: str
     ThemeId: str
@@ -2286,6 +2408,7 @@ class ThemeVersionSummary(BaseValidatorModel):
     Status: Optional[ResourceStatusType] = None
 
 
+# This class is the input for the 'list_themes' function.
 class ListThemesRequest(BaseValidatorModel):
     AwsAccountId: str
     NextToken: Optional[str] = None
@@ -2302,16 +2425,19 @@ class ThemeSummary(BaseValidatorModel):
     LastUpdatedTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_topic_refresh_schedules' function.
 class ListTopicRefreshSchedulesRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
 
 
+# This class is the input for the 'list_topic_reviewed_answers' function.
 class ListTopicReviewedAnswersRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
 
 
+# This class is the input for the 'list_topics' function.
 class ListTopicsRequest(BaseValidatorModel):
     AwsAccountId: str
     NextToken: Optional[str] = None
@@ -2325,6 +2451,7 @@ class TopicSummary(BaseValidatorModel):
     UserExperienceVersion: Optional[TopicUserExperienceVersionType] = None
 
 
+# This class is the input for the 'list_user_groups' function.
 class ListUserGroupsRequest(BaseValidatorModel):
     UserName: str
     AwsAccountId: str
@@ -2333,6 +2460,7 @@ class ListUserGroupsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_users' function.
 class ListUsersRequest(BaseValidatorModel):
     AwsAccountId: str
     Namespace: str
@@ -2340,6 +2468,7 @@ class ListUsersRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_vpc_connections' function.
 class ListVPCConnectionsRequest(BaseValidatorModel):
     AwsAccountId: str
     NextToken: Optional[str] = None
@@ -2477,6 +2606,7 @@ class PluginVisualProperty(BaseValidatorModel):
     Value: Optional[str] = None
 
 
+# This class is the input for the 'predict_qa_results' function.
 class PredictQAResultsRequest(BaseValidatorModel):
     AwsAccountId: str
     QueryText: str
@@ -2551,6 +2681,7 @@ class RenameColumnOperation(BaseValidatorModel):
     NewColumnName: str
 
 
+# This class is the input for the 'restore_analysis' function.
 class RestoreAnalysisRequest(BaseValidatorModel):
     AwsAccountId: str
     AnalysisId: str
@@ -2696,6 +2827,7 @@ class SnapshotJobResultErrorInfo(BaseValidatorModel):
     ErrorType: Optional[str] = None
 
 
+# This class is the input for the 'start_dashboard_snapshot_job_schedule' function.
 class StartDashboardSnapshotJobScheduleRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
@@ -2820,11 +2952,13 @@ class UntagColumnOperation(BaseValidatorModel):
     TagNames: List[ColumnTagNameType]
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_account_settings' function.
 class UpdateAccountSettingsRequest(BaseValidatorModel):
     AwsAccountId: str
     DefaultNamespace: str
@@ -2832,51 +2966,60 @@ class UpdateAccountSettingsRequest(BaseValidatorModel):
     TerminationProtectionEnabled: Optional[bool] = None
 
 
+# This class is the input for the 'update_application_with_token_exchange_grant' function.
 class UpdateApplicationWithTokenExchangeGrantRequest(BaseValidatorModel):
     AwsAccountId: str
     Namespace: str
 
 
+# This class is the input for the 'update_brand_assignment' function.
 class UpdateBrandAssignmentRequest(BaseValidatorModel):
     AwsAccountId: str
     BrandArn: str
 
 
+# This class is the input for the 'update_brand_published_version' function.
 class UpdateBrandPublishedVersionRequest(BaseValidatorModel):
     AwsAccountId: str
     BrandId: str
     VersionId: str
 
 
+# This class is the input for the 'update_dashboard_links' function.
 class UpdateDashboardLinksRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
     LinkEntities: List[str]
 
 
+# This class is the input for the 'update_dashboard_published_version' function.
 class UpdateDashboardPublishedVersionRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
     VersionNumber: int
 
 
+# This class is the input for the 'update_dashboards_qa_configuration' function.
 class UpdateDashboardsQAConfigurationRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardsQAStatus: DashboardsQAStatusType
 
 
+# This class is the input for the 'update_default_q_business_application' function.
 class UpdateDefaultQBusinessApplicationRequest(BaseValidatorModel):
     AwsAccountId: str
     ApplicationId: str
     Namespace: Optional[str] = None
 
 
+# This class is the input for the 'update_folder' function.
 class UpdateFolderRequest(BaseValidatorModel):
     AwsAccountId: str
     FolderId: str
     Name: str
 
 
+# This class is the input for the 'update_group' function.
 class UpdateGroupRequest(BaseValidatorModel):
     GroupName: str
     AwsAccountId: str
@@ -2884,6 +3027,7 @@ class UpdateGroupRequest(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'update_iam_policy_assignment' function.
 class UpdateIAMPolicyAssignmentRequest(BaseValidatorModel):
     AwsAccountId: str
     AssignmentName: str
@@ -2893,12 +3037,14 @@ class UpdateIAMPolicyAssignmentRequest(BaseValidatorModel):
     Identities: Optional[Dict[str, List[str]]] = None
 
 
+# This class is the input for the 'update_identity_propagation_config' function.
 class UpdateIdentityPropagationConfigRequest(BaseValidatorModel):
     AwsAccountId: str
     Service: ServiceTypeType
     AuthorizedTargets: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_ip_restriction' function.
 class UpdateIpRestrictionRequest(BaseValidatorModel):
     AwsAccountId: str
     IpRestrictionRuleMap: Optional[Dict[str, str]] = None
@@ -2907,21 +3053,25 @@ class UpdateIpRestrictionRequest(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
+# This class is the input for the 'update_public_sharing_settings' function.
 class UpdatePublicSharingSettingsRequest(BaseValidatorModel):
     AwsAccountId: str
     PublicSharingEnabled: Optional[bool] = None
 
 
+# This class is the input for the 'update_q_personalization_configuration' function.
 class UpdateQPersonalizationConfigurationRequest(BaseValidatorModel):
     AwsAccountId: str
     PersonalizationMode: PersonalizationModeType
 
 
+# This class is the input for the 'update_quick_sight_q_search_configuration' function.
 class UpdateQuickSightQSearchConfigurationRequest(BaseValidatorModel):
     AwsAccountId: str
     QSearchStatus: QSearchStatusType
 
 
+# This class is the input for the 'update_role_custom_permission' function.
 class UpdateRoleCustomPermissionRequest(BaseValidatorModel):
     CustomPermissionsName: str
     Role: RoleType
@@ -2929,11 +3079,13 @@ class UpdateRoleCustomPermissionRequest(BaseValidatorModel):
     Namespace: str
 
 
+# This class is the input for the 'update_spice_capacity_configuration' function.
 class UpdateSPICECapacityConfigurationRequest(BaseValidatorModel):
     AwsAccountId: str
     PurchaseMode: PurchaseModeType
 
 
+# This class is the input for the 'update_template_alias' function.
 class UpdateTemplateAliasRequest(BaseValidatorModel):
     AwsAccountId: str
     TemplateId: str
@@ -2941,6 +3093,7 @@ class UpdateTemplateAliasRequest(BaseValidatorModel):
     TemplateVersionNumber: int
 
 
+# This class is the input for the 'update_theme_alias' function.
 class UpdateThemeAliasRequest(BaseValidatorModel):
     AwsAccountId: str
     ThemeId: str
@@ -2948,6 +3101,7 @@ class UpdateThemeAliasRequest(BaseValidatorModel):
     ThemeVersionNumber: int
 
 
+# This class is the input for the 'update_user_custom_permission' function.
 class UpdateUserCustomPermissionRequest(BaseValidatorModel):
     UserName: str
     AwsAccountId: str
@@ -2955,6 +3109,7 @@ class UpdateUserCustomPermissionRequest(BaseValidatorModel):
     CustomPermissionsName: str
 
 
+# This class is the input for the 'update_user' function.
 class UpdateUserRequest(BaseValidatorModel):
     UserName: str
     AwsAccountId: str
@@ -2968,6 +3123,7 @@ class UpdateUserRequest(BaseValidatorModel):
     ExternalLoginId: Optional[str] = None
 
 
+# This class is the input for the 'update_vpc_connection' function.
 class UpdateVPCConnectionRequest(BaseValidatorModel):
     AwsAccountId: str
     VPCConnectionId: str
@@ -2997,6 +3153,7 @@ class WordCloudOptions(BaseValidatorModel):
     MaximumStringLength: Optional[int] = None
 
 
+# This class is the input for the 'update_account_customization' function.
 class UpdateAccountCustomizationRequest(BaseValidatorModel):
     AwsAccountId: str
     AccountCustomization: AccountCustomization
@@ -3093,6 +3250,7 @@ class TemplateError(BaseValidatorModel):
     ViolatedEntities: Optional[List[Entity]] = None
 
 
+# This class is the input for the 'search_analyses' function.
 class SearchAnalysesRequest(BaseValidatorModel):
     AwsAccountId: str
     Filters: List[AnalysisSearchFilter]
@@ -3284,6 +3442,7 @@ class AssetBundleImportJobVPCConnectionOverrideTags(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the input for the 'create_account_customization' function.
 class CreateAccountCustomizationRequest(BaseValidatorModel):
     AwsAccountId: str
     AccountCustomization: AccountCustomization
@@ -3291,6 +3450,7 @@ class CreateAccountCustomizationRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_namespace' function.
 class CreateNamespaceRequest(BaseValidatorModel):
     AwsAccountId: str
     Namespace: str
@@ -3298,6 +3458,7 @@ class CreateNamespaceRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_vpc_connection' function.
 class CreateVPCConnectionRequest(BaseValidatorModel):
     AwsAccountId: str
     VPCConnectionId: str
@@ -3309,6 +3470,7 @@ class CreateVPCConnectionRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'register_user' function.
 class RegisterUserRequest(BaseValidatorModel):
     IdentityType: IdentityTypeType
     Email: str
@@ -3325,6 +3487,7 @@ class RegisterUserRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: List[Tag]
@@ -3427,6 +3590,7 @@ class ScatterPlotSortConfiguration(BaseValidatorModel):
     ScatterPlotLimitConfiguration: Optional[ItemsLimitConfiguration] = None
 
 
+# This class is the output for the 'cancel_ingestion' function.
 class CancelIngestionResponse(BaseValidatorModel):
     Arn: str
     IngestionId: str
@@ -3435,6 +3599,7 @@ class CancelIngestionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_account_customization' function.
 class CreateAccountCustomizationResponse(BaseValidatorModel):
     Arn: str
     AwsAccountId: str
@@ -3445,6 +3610,7 @@ class CreateAccountCustomizationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_analysis' function.
 class CreateAnalysisResponse(BaseValidatorModel):
     Arn: str
     AnalysisId: str
@@ -3454,6 +3620,7 @@ class CreateAnalysisResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_custom_permissions' function.
 class CreateCustomPermissionsResponse(BaseValidatorModel):
     Status: int
     Arn: str
@@ -3461,6 +3628,7 @@ class CreateCustomPermissionsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_dashboard' function.
 class CreateDashboardResponse(BaseValidatorModel):
     Arn: str
     VersionArn: str
@@ -3471,6 +3639,7 @@ class CreateDashboardResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_data_set' function.
 class CreateDataSetResponse(BaseValidatorModel):
     Arn: str
     DataSetId: str
@@ -3481,6 +3650,7 @@ class CreateDataSetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_data_source' function.
 class CreateDataSourceResponse(BaseValidatorModel):
     Arn: str
     DataSourceId: str
@@ -3490,6 +3660,7 @@ class CreateDataSourceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_folder' function.
 class CreateFolderResponse(BaseValidatorModel):
     Status: int
     Arn: str
@@ -3498,6 +3669,7 @@ class CreateFolderResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_iam_policy_assignment' function.
 class CreateIAMPolicyAssignmentResponse(BaseValidatorModel):
     AssignmentName: str
     AssignmentId: str
@@ -3509,6 +3681,7 @@ class CreateIAMPolicyAssignmentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_ingestion' function.
 class CreateIngestionResponse(BaseValidatorModel):
     Arn: str
     IngestionId: str
@@ -3518,6 +3691,7 @@ class CreateIngestionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_namespace' function.
 class CreateNamespaceResponse(BaseValidatorModel):
     Arn: str
     Name: str
@@ -3529,6 +3703,7 @@ class CreateNamespaceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_refresh_schedule' function.
 class CreateRefreshScheduleResponse(BaseValidatorModel):
     Status: int
     RequestId: str
@@ -3537,12 +3712,14 @@ class CreateRefreshScheduleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_role_membership' function.
 class CreateRoleMembershipResponse(BaseValidatorModel):
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_template' function.
 class CreateTemplateResponse(BaseValidatorModel):
     Arn: str
     VersionArn: str
@@ -3553,6 +3730,7 @@ class CreateTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_theme' function.
 class CreateThemeResponse(BaseValidatorModel):
     Arn: str
     VersionArn: str
@@ -3563,6 +3741,7 @@ class CreateThemeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_topic_refresh_schedule' function.
 class CreateTopicRefreshScheduleResponse(BaseValidatorModel):
     TopicId: str
     TopicArn: str
@@ -3572,6 +3751,7 @@ class CreateTopicRefreshScheduleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_topic' function.
 class CreateTopicResponse(BaseValidatorModel):
     Arn: str
     TopicId: str
@@ -3581,6 +3761,7 @@ class CreateTopicResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_vpc_connection' function.
 class CreateVPCConnectionResponse(BaseValidatorModel):
     Arn: str
     VPCConnectionId: str
@@ -3591,18 +3772,21 @@ class CreateVPCConnectionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_account_customization' function.
 class DeleteAccountCustomizationResponse(BaseValidatorModel):
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_account_subscription' function.
 class DeleteAccountSubscriptionResponse(BaseValidatorModel):
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_analysis' function.
 class DeleteAnalysisResponse(BaseValidatorModel):
     Status: int
     Arn: str
@@ -3612,16 +3796,19 @@ class DeleteAnalysisResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_brand_assignment' function.
 class DeleteBrandAssignmentResponse(BaseValidatorModel):
     RequestId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_brand' function.
 class DeleteBrandResponse(BaseValidatorModel):
     RequestId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_custom_permissions' function.
 class DeleteCustomPermissionsResponse(BaseValidatorModel):
     Status: int
     Arn: str
@@ -3629,6 +3816,7 @@ class DeleteCustomPermissionsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_dashboard' function.
 class DeleteDashboardResponse(BaseValidatorModel):
     Status: int
     Arn: str
@@ -3637,12 +3825,14 @@ class DeleteDashboardResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_data_set_refresh_properties' function.
 class DeleteDataSetRefreshPropertiesResponse(BaseValidatorModel):
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_data_set' function.
 class DeleteDataSetResponse(BaseValidatorModel):
     Arn: str
     DataSetId: str
@@ -3651,6 +3841,7 @@ class DeleteDataSetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_data_source' function.
 class DeleteDataSourceResponse(BaseValidatorModel):
     Arn: str
     DataSourceId: str
@@ -3659,18 +3850,21 @@ class DeleteDataSourceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_default_q_business_application' function.
 class DeleteDefaultQBusinessApplicationResponse(BaseValidatorModel):
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_folder_membership' function.
 class DeleteFolderMembershipResponse(BaseValidatorModel):
     Status: int
     RequestId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_folder' function.
 class DeleteFolderResponse(BaseValidatorModel):
     Status: int
     Arn: str
@@ -3679,18 +3873,21 @@ class DeleteFolderResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_group_membership' function.
 class DeleteGroupMembershipResponse(BaseValidatorModel):
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_group' function.
 class DeleteGroupResponse(BaseValidatorModel):
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_iam_policy_assignment' function.
 class DeleteIAMPolicyAssignmentResponse(BaseValidatorModel):
     AssignmentName: str
     RequestId: str
@@ -3698,18 +3895,21 @@ class DeleteIAMPolicyAssignmentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_identity_propagation_config' function.
 class DeleteIdentityPropagationConfigResponse(BaseValidatorModel):
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_namespace' function.
 class DeleteNamespaceResponse(BaseValidatorModel):
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_refresh_schedule' function.
 class DeleteRefreshScheduleResponse(BaseValidatorModel):
     Status: int
     RequestId: str
@@ -3718,18 +3918,21 @@ class DeleteRefreshScheduleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_role_custom_permission' function.
 class DeleteRoleCustomPermissionResponse(BaseValidatorModel):
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_role_membership' function.
 class DeleteRoleMembershipResponse(BaseValidatorModel):
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_template_alias' function.
 class DeleteTemplateAliasResponse(BaseValidatorModel):
     Status: int
     TemplateId: str
@@ -3739,6 +3942,7 @@ class DeleteTemplateAliasResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_template' function.
 class DeleteTemplateResponse(BaseValidatorModel):
     RequestId: str
     Arn: str
@@ -3747,6 +3951,7 @@ class DeleteTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_theme_alias' function.
 class DeleteThemeAliasResponse(BaseValidatorModel):
     AliasName: str
     Arn: str
@@ -3756,6 +3961,7 @@ class DeleteThemeAliasResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_theme' function.
 class DeleteThemeResponse(BaseValidatorModel):
     Arn: str
     RequestId: str
@@ -3764,6 +3970,7 @@ class DeleteThemeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_topic_refresh_schedule' function.
 class DeleteTopicRefreshScheduleResponse(BaseValidatorModel):
     TopicId: str
     TopicArn: str
@@ -3773,6 +3980,7 @@ class DeleteTopicRefreshScheduleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_topic' function.
 class DeleteTopicResponse(BaseValidatorModel):
     Arn: str
     TopicId: str
@@ -3781,24 +3989,28 @@ class DeleteTopicResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_user_by_principal_id' function.
 class DeleteUserByPrincipalIdResponse(BaseValidatorModel):
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_user_custom_permission' function.
 class DeleteUserCustomPermissionResponse(BaseValidatorModel):
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_user' function.
 class DeleteUserResponse(BaseValidatorModel):
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_vpc_connection' function.
 class DeleteVPCConnectionResponse(BaseValidatorModel):
     Arn: str
     VPCConnectionId: str
@@ -3809,6 +4021,7 @@ class DeleteVPCConnectionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_account_customization' function.
 class DescribeAccountCustomizationResponse(BaseValidatorModel):
     Arn: str
     AwsAccountId: str
@@ -3819,6 +4032,7 @@ class DescribeAccountCustomizationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_account_settings' function.
 class DescribeAccountSettingsResponse(BaseValidatorModel):
     AccountSettings: AccountSettings
     RequestId: str
@@ -3826,6 +4040,7 @@ class DescribeAccountSettingsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_account_subscription' function.
 class DescribeAccountSubscriptionResponse(BaseValidatorModel):
     AccountInfo: AccountInfo
     Status: int
@@ -3833,12 +4048,14 @@ class DescribeAccountSubscriptionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_brand_assignment' function.
 class DescribeBrandAssignmentResponse(BaseValidatorModel):
     RequestId: str
     BrandArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_dashboards_qa_configuration' function.
 class DescribeDashboardsQAConfigurationResponse(BaseValidatorModel):
     DashboardsQAStatus: DashboardsQAStatusType
     RequestId: str
@@ -3846,6 +4063,7 @@ class DescribeDashboardsQAConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_default_q_business_application' function.
 class DescribeDefaultQBusinessApplicationResponse(BaseValidatorModel):
     RequestId: str
     Status: int
@@ -3853,6 +4071,7 @@ class DescribeDefaultQBusinessApplicationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_ip_restriction' function.
 class DescribeIpRestrictionResponse(BaseValidatorModel):
     AwsAccountId: str
     IpRestrictionRuleMap: Dict[str, str]
@@ -3864,6 +4083,7 @@ class DescribeIpRestrictionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_q_personalization_configuration' function.
 class DescribeQPersonalizationConfigurationResponse(BaseValidatorModel):
     PersonalizationMode: PersonalizationModeType
     RequestId: str
@@ -3871,6 +4091,7 @@ class DescribeQPersonalizationConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_quick_sight_q_search_configuration' function.
 class DescribeQuickSightQSearchConfigurationResponse(BaseValidatorModel):
     QSearchStatus: QSearchStatusType
     RequestId: str
@@ -3878,6 +4099,7 @@ class DescribeQuickSightQSearchConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_role_custom_permission' function.
 class DescribeRoleCustomPermissionResponse(BaseValidatorModel):
     CustomPermissionsName: str
     RequestId: str
@@ -3885,6 +4107,7 @@ class DescribeRoleCustomPermissionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'generate_embed_url_for_anonymous_user' function.
 class GenerateEmbedUrlForAnonymousUserResponse(BaseValidatorModel):
     EmbedUrl: str
     Status: int
@@ -3893,6 +4116,7 @@ class GenerateEmbedUrlForAnonymousUserResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'generate_embed_url_for_registered_user' function.
 class GenerateEmbedUrlForRegisteredUserResponse(BaseValidatorModel):
     EmbedUrl: str
     Status: int
@@ -3900,6 +4124,7 @@ class GenerateEmbedUrlForRegisteredUserResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'generate_embed_url_for_registered_user_with_identity' function.
 class GenerateEmbedUrlForRegisteredUserWithIdentityResponse(BaseValidatorModel):
     EmbedUrl: str
     Status: int
@@ -3907,6 +4132,7 @@ class GenerateEmbedUrlForRegisteredUserWithIdentityResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_dashboard_embed_url' function.
 class GetDashboardEmbedUrlResponse(BaseValidatorModel):
     EmbedUrl: str
     Status: int
@@ -3914,6 +4140,7 @@ class GetDashboardEmbedUrlResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_session_embed_url' function.
 class GetSessionEmbedUrlResponse(BaseValidatorModel):
     EmbedUrl: str
     Status: int
@@ -3921,6 +4148,7 @@ class GetSessionEmbedUrlResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_analyses' function.
 class ListAnalysesResponse(BaseValidatorModel):
     AnalysisSummaryList: List[AnalysisSummary]
     Status: int
@@ -3929,6 +4157,7 @@ class ListAnalysesResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_asset_bundle_export_jobs' function.
 class ListAssetBundleExportJobsResponse(BaseValidatorModel):
     AssetBundleExportJobSummaryList: List[AssetBundleExportJobSummary]
     RequestId: str
@@ -3937,6 +4166,7 @@ class ListAssetBundleExportJobsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_asset_bundle_import_jobs' function.
 class ListAssetBundleImportJobsResponse(BaseValidatorModel):
     AssetBundleImportJobSummaryList: List[AssetBundleImportJobSummary]
     RequestId: str
@@ -3945,6 +4175,7 @@ class ListAssetBundleImportJobsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_folders_for_resource' function.
 class ListFoldersForResourceResponse(BaseValidatorModel):
     Status: int
     Folders: List[str]
@@ -3953,6 +4184,7 @@ class ListFoldersForResourceResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_iam_policy_assignments_for_user' function.
 class ListIAMPolicyAssignmentsForUserResponse(BaseValidatorModel):
     ActiveAssignments: List[ActiveIAMPolicyAssignment]
     RequestId: str
@@ -3961,6 +4193,7 @@ class ListIAMPolicyAssignmentsForUserResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_identity_propagation_configs' function.
 class ListIdentityPropagationConfigsResponse(BaseValidatorModel):
     Services: List[AuthorizedTargetsByService]
     Status: int
@@ -3969,6 +4202,7 @@ class ListIdentityPropagationConfigsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_role_memberships' function.
 class ListRoleMembershipsResponse(BaseValidatorModel):
     MembersList: List[str]
     RequestId: str
@@ -3977,6 +4211,7 @@ class ListRoleMembershipsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     RequestId: str
@@ -3984,12 +4219,14 @@ class ListTagsForResourceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_data_set_refresh_properties' function.
 class PutDataSetRefreshPropertiesResponse(BaseValidatorModel):
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'restore_analysis' function.
 class RestoreAnalysisResponse(BaseValidatorModel):
     Status: int
     Arn: str
@@ -3999,6 +4236,7 @@ class RestoreAnalysisResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_analyses' function.
 class SearchAnalysesResponse(BaseValidatorModel):
     AnalysisSummaryList: List[AnalysisSummary]
     Status: int
@@ -4007,6 +4245,7 @@ class SearchAnalysesResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_asset_bundle_export_job' function.
 class StartAssetBundleExportJobResponse(BaseValidatorModel):
     Arn: str
     AssetBundleExportJobId: str
@@ -4015,6 +4254,7 @@ class StartAssetBundleExportJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_asset_bundle_import_job' function.
 class StartAssetBundleImportJobResponse(BaseValidatorModel):
     Arn: str
     AssetBundleImportJobId: str
@@ -4023,6 +4263,7 @@ class StartAssetBundleImportJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_dashboard_snapshot_job' function.
 class StartDashboardSnapshotJobResponse(BaseValidatorModel):
     Arn: str
     SnapshotJobId: str
@@ -4031,24 +4272,28 @@ class StartDashboardSnapshotJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_dashboard_snapshot_job_schedule' function.
 class StartDashboardSnapshotJobScheduleResponse(BaseValidatorModel):
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'tag_resource' function.
 class TagResourceResponse(BaseValidatorModel):
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'untag_resource' function.
 class UntagResourceResponse(BaseValidatorModel):
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_account_customization' function.
 class UpdateAccountCustomizationResponse(BaseValidatorModel):
     Arn: str
     AwsAccountId: str
@@ -4059,12 +4304,14 @@ class UpdateAccountCustomizationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_account_settings' function.
 class UpdateAccountSettingsResponse(BaseValidatorModel):
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_analysis' function.
 class UpdateAnalysisResponse(BaseValidatorModel):
     Arn: str
     AnalysisId: str
@@ -4074,24 +4321,28 @@ class UpdateAnalysisResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_application_with_token_exchange_grant' function.
 class UpdateApplicationWithTokenExchangeGrantResponse(BaseValidatorModel):
     Status: int
     RequestId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_brand_assignment' function.
 class UpdateBrandAssignmentResponse(BaseValidatorModel):
     RequestId: str
     BrandArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_brand_published_version' function.
 class UpdateBrandPublishedVersionResponse(BaseValidatorModel):
     RequestId: str
     VersionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_custom_permissions' function.
 class UpdateCustomPermissionsResponse(BaseValidatorModel):
     Status: int
     Arn: str
@@ -4099,6 +4350,7 @@ class UpdateCustomPermissionsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_dashboard_links' function.
 class UpdateDashboardLinksResponse(BaseValidatorModel):
     RequestId: str
     Status: int
@@ -4107,6 +4359,7 @@ class UpdateDashboardLinksResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_dashboard_published_version' function.
 class UpdateDashboardPublishedVersionResponse(BaseValidatorModel):
     DashboardId: str
     DashboardArn: str
@@ -4115,6 +4368,7 @@ class UpdateDashboardPublishedVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_dashboard' function.
 class UpdateDashboardResponse(BaseValidatorModel):
     Arn: str
     VersionArn: str
@@ -4125,6 +4379,7 @@ class UpdateDashboardResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_dashboards_qa_configuration' function.
 class UpdateDashboardsQAConfigurationResponse(BaseValidatorModel):
     DashboardsQAStatus: DashboardsQAStatusType
     RequestId: str
@@ -4132,6 +4387,7 @@ class UpdateDashboardsQAConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_data_set_permissions' function.
 class UpdateDataSetPermissionsResponse(BaseValidatorModel):
     DataSetArn: str
     DataSetId: str
@@ -4140,6 +4396,7 @@ class UpdateDataSetPermissionsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_data_set' function.
 class UpdateDataSetResponse(BaseValidatorModel):
     Arn: str
     DataSetId: str
@@ -4150,6 +4407,7 @@ class UpdateDataSetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_data_source_permissions' function.
 class UpdateDataSourcePermissionsResponse(BaseValidatorModel):
     DataSourceArn: str
     DataSourceId: str
@@ -4158,6 +4416,7 @@ class UpdateDataSourcePermissionsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_data_source' function.
 class UpdateDataSourceResponse(BaseValidatorModel):
     Arn: str
     DataSourceId: str
@@ -4167,12 +4426,14 @@ class UpdateDataSourceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_default_q_business_application' function.
 class UpdateDefaultQBusinessApplicationResponse(BaseValidatorModel):
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_folder' function.
 class UpdateFolderResponse(BaseValidatorModel):
     Status: int
     Arn: str
@@ -4181,6 +4442,7 @@ class UpdateFolderResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_iam_policy_assignment' function.
 class UpdateIAMPolicyAssignmentResponse(BaseValidatorModel):
     AssignmentName: str
     AssignmentId: str
@@ -4192,12 +4454,14 @@ class UpdateIAMPolicyAssignmentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_identity_propagation_config' function.
 class UpdateIdentityPropagationConfigResponse(BaseValidatorModel):
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_ip_restriction' function.
 class UpdateIpRestrictionResponse(BaseValidatorModel):
     AwsAccountId: str
     RequestId: str
@@ -4205,12 +4469,14 @@ class UpdateIpRestrictionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_public_sharing_settings' function.
 class UpdatePublicSharingSettingsResponse(BaseValidatorModel):
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_q_personalization_configuration' function.
 class UpdateQPersonalizationConfigurationResponse(BaseValidatorModel):
     PersonalizationMode: PersonalizationModeType
     RequestId: str
@@ -4218,6 +4484,7 @@ class UpdateQPersonalizationConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_quick_sight_q_search_configuration' function.
 class UpdateQuickSightQSearchConfigurationResponse(BaseValidatorModel):
     QSearchStatus: QSearchStatusType
     RequestId: str
@@ -4225,6 +4492,7 @@ class UpdateQuickSightQSearchConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_refresh_schedule' function.
 class UpdateRefreshScheduleResponse(BaseValidatorModel):
     Status: int
     RequestId: str
@@ -4233,18 +4501,21 @@ class UpdateRefreshScheduleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_role_custom_permission' function.
 class UpdateRoleCustomPermissionResponse(BaseValidatorModel):
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_spice_capacity_configuration' function.
 class UpdateSPICECapacityConfigurationResponse(BaseValidatorModel):
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_template' function.
 class UpdateTemplateResponse(BaseValidatorModel):
     TemplateId: str
     Arn: str
@@ -4255,6 +4526,7 @@ class UpdateTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_theme' function.
 class UpdateThemeResponse(BaseValidatorModel):
     ThemeId: str
     Arn: str
@@ -4265,6 +4537,7 @@ class UpdateThemeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_topic_refresh_schedule' function.
 class UpdateTopicRefreshScheduleResponse(BaseValidatorModel):
     TopicId: str
     TopicArn: str
@@ -4274,6 +4547,7 @@ class UpdateTopicRefreshScheduleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_topic' function.
 class UpdateTopicResponse(BaseValidatorModel):
     TopicId: str
     Arn: str
@@ -4283,12 +4557,14 @@ class UpdateTopicResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_user_custom_permission' function.
 class UpdateUserCustomPermissionResponse(BaseValidatorModel):
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_vpc_connection' function.
 class UpdateVPCConnectionResponse(BaseValidatorModel):
     Arn: str
     VPCConnectionId: str
@@ -4299,6 +4575,7 @@ class UpdateVPCConnectionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_create_topic_reviewed_answer' function.
 class BatchCreateTopicReviewedAnswerResponse(BaseValidatorModel):
     TopicId: str
     TopicArn: str
@@ -4309,6 +4586,7 @@ class BatchCreateTopicReviewedAnswerResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_delete_topic_reviewed_answer' function.
 class BatchDeleteTopicReviewedAnswerResponse(BaseValidatorModel):
     TopicId: str
     TopicArn: str
@@ -4361,6 +4639,7 @@ class NavbarStyle(BaseValidatorModel):
     ContextualNavbar: Optional[Palette] = None
 
 
+# This class is the output for the 'list_brands' function.
 class ListBrandsResponse(BaseValidatorModel):
     Brands: List[BrandSummary]
     ResponseMetadata: ResponseMetadata
@@ -4375,6 +4654,7 @@ class CreateColumnsOperation(BaseValidatorModel):
     Columns: List[CalculatedColumn]
 
 
+# This class is the input for the 'create_custom_permissions' function.
 class CreateCustomPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     CustomPermissionsName: str
@@ -4388,6 +4668,7 @@ class CustomPermissions(BaseValidatorModel):
     Capabilities: Optional[Capabilities] = None
 
 
+# This class is the input for the 'update_custom_permissions' function.
 class UpdateCustomPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     CustomPermissionsName: str
@@ -4494,6 +4775,7 @@ class ConditionalFormattingCustomIconCondition(BaseValidatorModel):
     DisplayConfiguration: Optional[ConditionalFormattingIconDisplayConfiguration] = None
 
 
+# This class is the output for the 'create_account_subscription' function.
 class CreateAccountSubscriptionResponse(BaseValidatorModel):
     SignupResponse: SignupResponse
     Status: int
@@ -4513,6 +4795,7 @@ class DataSetSummary(BaseValidatorModel):
     ColumnLevelPermissionRulesApplied: Optional[bool] = None
 
 
+# This class is the output for the 'create_folder_membership' function.
 class CreateFolderMembershipResponse(BaseValidatorModel):
     Status: int
     FolderMember: FolderMember
@@ -4520,6 +4803,7 @@ class CreateFolderMembershipResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_group_membership' function.
 class CreateGroupMembershipResponse(BaseValidatorModel):
     GroupMember: GroupMember
     RequestId: str
@@ -4527,6 +4811,7 @@ class CreateGroupMembershipResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_group_membership' function.
 class DescribeGroupMembershipResponse(BaseValidatorModel):
     GroupMember: GroupMember
     RequestId: str
@@ -4534,6 +4819,7 @@ class DescribeGroupMembershipResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_group_memberships' function.
 class ListGroupMembershipsResponse(BaseValidatorModel):
     GroupMemberList: List[GroupMember]
     RequestId: str
@@ -4542,6 +4828,7 @@ class ListGroupMembershipsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_group' function.
 class CreateGroupResponse(BaseValidatorModel):
     Group: Group
     RequestId: str
@@ -4549,6 +4836,7 @@ class CreateGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_group' function.
 class DescribeGroupResponse(BaseValidatorModel):
     Group: Group
     RequestId: str
@@ -4556,6 +4844,7 @@ class DescribeGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_groups' function.
 class ListGroupsResponse(BaseValidatorModel):
     GroupList: List[Group]
     RequestId: str
@@ -4564,6 +4853,7 @@ class ListGroupsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_user_groups' function.
 class ListUserGroupsResponse(BaseValidatorModel):
     GroupList: List[Group]
     RequestId: str
@@ -4572,6 +4862,7 @@ class ListUserGroupsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'search_groups' function.
 class SearchGroupsResponse(BaseValidatorModel):
     GroupList: List[Group]
     RequestId: str
@@ -4580,6 +4871,7 @@ class SearchGroupsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_group' function.
 class UpdateGroupResponse(BaseValidatorModel):
     Group: Group
     RequestId: str
@@ -4587,6 +4879,7 @@ class UpdateGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_template_alias' function.
 class CreateTemplateAliasResponse(BaseValidatorModel):
     TemplateAlias: TemplateAlias
     Status: int
@@ -4594,6 +4887,7 @@ class CreateTemplateAliasResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_template_alias' function.
 class DescribeTemplateAliasResponse(BaseValidatorModel):
     TemplateAlias: TemplateAlias
     Status: int
@@ -4601,6 +4895,7 @@ class DescribeTemplateAliasResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_template_aliases' function.
 class ListTemplateAliasesResponse(BaseValidatorModel):
     TemplateAliasList: List[TemplateAlias]
     Status: int
@@ -4609,6 +4904,7 @@ class ListTemplateAliasesResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_template_alias' function.
 class UpdateTemplateAliasResponse(BaseValidatorModel):
     TemplateAlias: TemplateAlias
     Status: int
@@ -4616,6 +4912,7 @@ class UpdateTemplateAliasResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_theme_alias' function.
 class CreateThemeAliasResponse(BaseValidatorModel):
     ThemeAlias: ThemeAlias
     Status: int
@@ -4623,6 +4920,7 @@ class CreateThemeAliasResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_theme_alias' function.
 class DescribeThemeAliasResponse(BaseValidatorModel):
     ThemeAlias: ThemeAlias
     Status: int
@@ -4630,6 +4928,7 @@ class DescribeThemeAliasResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_theme_aliases' function.
 class ListThemeAliasesResponse(BaseValidatorModel):
     ThemeAliasList: List[ThemeAlias]
     Status: int
@@ -4638,6 +4937,7 @@ class ListThemeAliasesResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_theme_alias' function.
 class UpdateThemeAliasResponse(BaseValidatorModel):
     ThemeAlias: ThemeAlias
     Status: int
@@ -4689,6 +4989,7 @@ class VisualInteractionOptions(BaseValidatorModel):
     ContextMenuOption: Optional[ContextMenuOption] = None
 
 
+# This class is the input for the 'search_dashboards' function.
 class SearchDashboardsRequest(BaseValidatorModel):
     AwsAccountId: str
     Filters: List[DashboardSearchFilter]
@@ -4696,6 +4997,7 @@ class SearchDashboardsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the output for the 'list_dashboards' function.
 class ListDashboardsResponse(BaseValidatorModel):
     DashboardSummaryList: List[DashboardSummary]
     Status: int
@@ -4704,6 +5006,7 @@ class ListDashboardsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'search_dashboards' function.
 class SearchDashboardsResponse(BaseValidatorModel):
     DashboardSummaryList: List[DashboardSummary]
     Status: int
@@ -4712,6 +5015,7 @@ class SearchDashboardsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_dashboard_versions' function.
 class ListDashboardVersionsResponse(BaseValidatorModel):
     DashboardVersionSummaryList: List[DashboardVersionSummary]
     Status: int
@@ -4742,6 +5046,7 @@ class DataPathValue(BaseValidatorModel):
     DataPathType: Optional[DataPathType] = None
 
 
+# This class is the input for the 'search_data_sets' function.
 class SearchDataSetsRequest(BaseValidatorModel):
     AwsAccountId: str
     Filters: List[DataSetSearchFilter]
@@ -4749,6 +5054,7 @@ class SearchDataSetsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'search_data_sources' function.
 class SearchDataSourcesRequest(BaseValidatorModel):
     AwsAccountId: str
     Filters: List[DataSourceSearchFilter]
@@ -4756,6 +5062,7 @@ class SearchDataSourcesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the output for the 'search_data_sources' function.
 class SearchDataSourcesResponse(BaseValidatorModel):
     DataSourceSummaries: List[DataSourceSummary]
     Status: int
@@ -4793,6 +5100,7 @@ class DecimalDatasetParameterOutput(BaseValidatorModel):
 DecimalDatasetParameterDefaultValuesUnion = Union[DecimalDatasetParameterDefaultValues, DecimalDatasetParameterDefaultValuesOutput]
 
 
+# This class is the output for the 'describe_analysis_permissions' function.
 class DescribeAnalysisPermissionsResponse(BaseValidatorModel):
     AnalysisId: str
     AnalysisArn: str
@@ -4802,6 +5110,7 @@ class DescribeAnalysisPermissionsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_data_set_permissions' function.
 class DescribeDataSetPermissionsResponse(BaseValidatorModel):
     DataSetArn: str
     DataSetId: str
@@ -4811,6 +5120,7 @@ class DescribeDataSetPermissionsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_data_source_permissions' function.
 class DescribeDataSourcePermissionsResponse(BaseValidatorModel):
     DataSourceArn: str
     DataSourceId: str
@@ -4820,6 +5130,7 @@ class DescribeDataSourcePermissionsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_folder_permissions' function.
 class DescribeFolderPermissionsResponse(BaseValidatorModel):
     Status: int
     FolderId: str
@@ -4830,6 +5141,7 @@ class DescribeFolderPermissionsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_folder_resolved_permissions' function.
 class DescribeFolderResolvedPermissionsResponse(BaseValidatorModel):
     Status: int
     FolderId: str
@@ -4840,6 +5152,7 @@ class DescribeFolderResolvedPermissionsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_template_permissions' function.
 class DescribeTemplatePermissionsResponse(BaseValidatorModel):
     TemplateId: str
     TemplateArn: str
@@ -4849,6 +5162,7 @@ class DescribeTemplatePermissionsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_theme_permissions' function.
 class DescribeThemePermissionsResponse(BaseValidatorModel):
     ThemeId: str
     ThemeArn: str
@@ -4858,6 +5172,7 @@ class DescribeThemePermissionsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_topic_permissions' function.
 class DescribeTopicPermissionsResponse(BaseValidatorModel):
     TopicId: str
     TopicArn: str
@@ -4871,6 +5186,7 @@ class LinkSharingConfigurationOutput(BaseValidatorModel):
     Permissions: Optional[List[ResourcePermissionOutput]] = None
 
 
+# This class is the output for the 'update_analysis_permissions' function.
 class UpdateAnalysisPermissionsResponse(BaseValidatorModel):
     AnalysisArn: str
     AnalysisId: str
@@ -4880,6 +5196,7 @@ class UpdateAnalysisPermissionsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_folder_permissions' function.
 class UpdateFolderPermissionsResponse(BaseValidatorModel):
     Status: int
     Arn: str
@@ -4889,6 +5206,7 @@ class UpdateFolderPermissionsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_template_permissions' function.
 class UpdateTemplatePermissionsResponse(BaseValidatorModel):
     TemplateId: str
     TemplateArn: str
@@ -4898,6 +5216,7 @@ class UpdateTemplatePermissionsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_theme_permissions' function.
 class UpdateThemePermissionsResponse(BaseValidatorModel):
     ThemeId: str
     ThemeArn: str
@@ -4907,6 +5226,7 @@ class UpdateThemePermissionsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_topic_permissions' function.
 class UpdateTopicPermissionsResponse(BaseValidatorModel):
     TopicId: str
     TopicArn: str
@@ -5104,6 +5424,7 @@ class SearchDataSourcesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'describe_folder' function.
 class DescribeFolderResponse(BaseValidatorModel):
     Status: int
     Folder: Folder
@@ -5111,6 +5432,7 @@ class DescribeFolderResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_iam_policy_assignment' function.
 class DescribeIAMPolicyAssignmentResponse(BaseValidatorModel):
     IAMPolicyAssignment: IAMPolicyAssignment
     RequestId: str
@@ -5118,6 +5440,7 @@ class DescribeIAMPolicyAssignmentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_key_registration' function.
 class DescribeKeyRegistrationResponse(BaseValidatorModel):
     AwsAccountId: str
     KeyRegistration: List[RegisteredCustomerManagedKey]
@@ -5126,11 +5449,13 @@ class DescribeKeyRegistrationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_key_registration' function.
 class UpdateKeyRegistrationRequest(BaseValidatorModel):
     AwsAccountId: str
     KeyRegistration: List[RegisteredCustomerManagedKey]
 
 
+# This class is the output for the 'describe_topic_refresh' function.
 class DescribeTopicRefreshResponse(BaseValidatorModel):
     RefreshDetails: TopicRefreshDetails
     RequestId: str
@@ -5138,6 +5463,7 @@ class DescribeTopicRefreshResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_topic_refresh_schedule' function.
 class DescribeTopicRefreshScheduleResponse(BaseValidatorModel):
     TopicId: str
     TopicArn: str
@@ -5155,6 +5481,7 @@ class TopicRefreshScheduleSummary(BaseValidatorModel):
     RefreshSchedule: Optional[TopicRefreshScheduleOutput] = None
 
 
+# This class is the output for the 'describe_user' function.
 class DescribeUserResponse(BaseValidatorModel):
     User: User
     RequestId: str
@@ -5162,6 +5489,7 @@ class DescribeUserResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_users' function.
 class ListUsersResponse(BaseValidatorModel):
     UserList: List[User]
     RequestId: str
@@ -5170,6 +5498,7 @@ class ListUsersResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'register_user' function.
 class RegisterUserResponse(BaseValidatorModel):
     User: User
     UserInvitationUrl: str
@@ -5178,6 +5507,7 @@ class RegisterUserResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_user' function.
 class UpdateUserResponse(BaseValidatorModel):
     User: User
     RequestId: str
@@ -5232,6 +5562,7 @@ class SearchFoldersRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_folders' function.
 class SearchFoldersRequest(BaseValidatorModel):
     AwsAccountId: str
     Filters: List[FolderSearchFilter]
@@ -5239,6 +5570,7 @@ class SearchFoldersRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the output for the 'list_folders' function.
 class ListFoldersResponse(BaseValidatorModel):
     Status: int
     FolderSummaryList: List[FolderSummary]
@@ -5247,6 +5579,7 @@ class ListFoldersResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'search_folders' function.
 class SearchFoldersResponse(BaseValidatorModel):
     Status: int
     FolderSummaryList: List[FolderSummary]
@@ -5347,6 +5680,7 @@ class SearchGroupsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_groups' function.
 class SearchGroupsRequest(BaseValidatorModel):
     AwsAccountId: str
     Namespace: str
@@ -5355,6 +5689,7 @@ class SearchGroupsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the output for the 'list_iam_policy_assignments' function.
 class ListIAMPolicyAssignmentsResponse(BaseValidatorModel):
     IAMPolicyAssignments: List[IAMPolicyAssignmentSummary]
     RequestId: str
@@ -5433,6 +5768,7 @@ class LinkSharingConfiguration(BaseValidatorModel):
 ResourcePermissionUnion = Union[ResourcePermission, ResourcePermissionOutput]
 
 
+# This class is the output for the 'list_folder_members' function.
 class ListFolderMembersResponse(BaseValidatorModel):
     Status: int
     FolderMemberList: List[MemberIdArnPair]
@@ -5441,6 +5777,7 @@ class ListFolderMembersResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_template_versions' function.
 class ListTemplateVersionsResponse(BaseValidatorModel):
     TemplateVersionSummaryList: List[TemplateVersionSummary]
     Status: int
@@ -5449,6 +5786,7 @@ class ListTemplateVersionsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_templates' function.
 class ListTemplatesResponse(BaseValidatorModel):
     TemplateSummaryList: List[TemplateSummary]
     Status: int
@@ -5457,6 +5795,7 @@ class ListTemplatesResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_theme_versions' function.
 class ListThemeVersionsResponse(BaseValidatorModel):
     ThemeVersionSummaryList: List[ThemeVersionSummary]
     Status: int
@@ -5465,6 +5804,7 @@ class ListThemeVersionsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_themes' function.
 class ListThemesResponse(BaseValidatorModel):
     ThemeSummaryList: List[ThemeSummary]
     Status: int
@@ -5473,6 +5813,7 @@ class ListThemesResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_topics' function.
 class ListTopicsResponse(BaseValidatorModel):
     TopicsSummaries: List[TopicSummary]
     RequestId: str
@@ -5481,6 +5822,7 @@ class ListTopicsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'search_topics' function.
 class SearchTopicsResponse(BaseValidatorModel):
     TopicSummaryList: List[TopicSummary]
     Status: int
@@ -5678,6 +6020,7 @@ class SearchTopicsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_topics' function.
 class SearchTopicsRequest(BaseValidatorModel):
     AwsAccountId: str
     Filters: List[TopicSearchFilter]
@@ -5765,6 +6108,7 @@ class StringDatasetParameterOutput(BaseValidatorModel):
 StringDatasetParameterDefaultValuesUnion = Union[StringDatasetParameterDefaultValues, StringDatasetParameterDefaultValuesOutput]
 
 
+# This class is the output for the 'update_key_registration' function.
 class UpdateKeyRegistrationResponse(BaseValidatorModel):
     FailedKeyRegistration: List[FailedKeyRegistrationEntry]
     SuccessfulKeyRegistration: List[SuccessfulKeyRegistrationEntry]
@@ -5874,6 +6218,7 @@ class AnonymousUserDashboardEmbeddingConfiguration(BaseValidatorModel):
     FeatureConfigurations: Optional[AnonymousUserDashboardFeatureConfigurations] = None
 
 
+# This class is the output for the 'describe_asset_bundle_export_job' function.
 class DescribeAssetBundleExportJobResponse(BaseValidatorModel):
     JobStatus: AssetBundleExportJobStatusType
     DownloadUrl: str
@@ -5995,6 +6340,7 @@ class BrandElementStyle(BaseValidatorModel):
 CreateColumnsOperationUnion = Union[CreateColumnsOperation, CreateColumnsOperationOutput]
 
 
+# This class is the output for the 'describe_custom_permissions' function.
 class DescribeCustomPermissionsResponse(BaseValidatorModel):
     Status: int
     CustomPermissions: CustomPermissions
@@ -6002,6 +6348,7 @@ class DescribeCustomPermissionsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_custom_permissions' function.
 class ListCustomPermissionsResponse(BaseValidatorModel):
     Status: int
     CustomPermissionsList: List[CustomPermissions]
@@ -6057,6 +6404,7 @@ class ConditionalFormattingIcon(BaseValidatorModel):
     CustomCondition: Optional[ConditionalFormattingCustomIconCondition] = None
 
 
+# This class is the output for the 'list_data_sets' function.
 class ListDataSetsResponse(BaseValidatorModel):
     DataSetSummaries: List[DataSetSummary]
     RequestId: str
@@ -6065,6 +6413,7 @@ class ListDataSetsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'search_data_sets' function.
 class SearchDataSetsResponse(BaseValidatorModel):
     DataSetSummaries: List[DataSetSummary]
     Status: int
@@ -6149,6 +6498,7 @@ class DecimalDatasetParameter(BaseValidatorModel):
     DefaultValues: Optional[DecimalDatasetParameterDefaultValuesUnion] = None
 
 
+# This class is the output for the 'describe_dashboard_permissions' function.
 class DescribeDashboardPermissionsResponse(BaseValidatorModel):
     DashboardId: str
     DashboardArn: str
@@ -6159,6 +6509,7 @@ class DescribeDashboardPermissionsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_dashboard_permissions' function.
 class UpdateDashboardPermissionsResponse(BaseValidatorModel):
     DashboardArn: str
     DashboardId: str
@@ -6169,6 +6520,7 @@ class UpdateDashboardPermissionsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_topic_refresh_schedules' function.
 class ListTopicRefreshSchedulesResponse(BaseValidatorModel):
     TopicId: str
     TopicArn: str
@@ -6319,6 +6671,7 @@ class SnapshotUserConfiguration(BaseValidatorModel):
     AnonymousUsers: Optional[List[SnapshotAnonymousUser]] = None
 
 
+# This class is the output for the 'predict_qa_results' function.
 class PredictQAResultsResponse(BaseValidatorModel):
     PrimaryResult: QAResult
     AdditionalResults: List[QAResult]
@@ -6410,6 +6763,7 @@ class RefreshConfiguration(BaseValidatorModel):
     IncrementalRefresh: IncrementalRefresh
 
 
+# This class is the output for the 'describe_ingestion' function.
 class DescribeIngestionResponse(BaseValidatorModel):
     Ingestion: Ingestion
     RequestId: str
@@ -6417,6 +6771,7 @@ class DescribeIngestionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_ingestions' function.
 class ListIngestionsResponse(BaseValidatorModel):
     Ingestions: List[Ingestion]
     RequestId: str
@@ -6453,6 +6808,7 @@ class FieldSeriesItem(BaseValidatorModel):
 LinkSharingConfigurationUnion = Union[LinkSharingConfiguration, LinkSharingConfigurationOutput]
 
 
+# This class is the input for the 'create_folder' function.
 class CreateFolderRequest(BaseValidatorModel):
     AwsAccountId: str
     FolderId: str
@@ -6464,6 +6820,7 @@ class CreateFolderRequest(BaseValidatorModel):
     SharingModel: Optional[SharingModelType] = None
 
 
+# This class is the input for the 'update_analysis_permissions' function.
 class UpdateAnalysisPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     AnalysisId: str
@@ -6471,6 +6828,7 @@ class UpdateAnalysisPermissionsRequest(BaseValidatorModel):
     RevokePermissions: Optional[List[ResourcePermissionUnion]] = None
 
 
+# This class is the input for the 'update_dashboard_permissions' function.
 class UpdateDashboardPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
@@ -6480,6 +6838,7 @@ class UpdateDashboardPermissionsRequest(BaseValidatorModel):
     RevokeLinkPermissions: Optional[List[ResourcePermissionUnion]] = None
 
 
+# This class is the input for the 'update_data_set_permissions' function.
 class UpdateDataSetPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSetId: str
@@ -6487,6 +6846,7 @@ class UpdateDataSetPermissionsRequest(BaseValidatorModel):
     RevokePermissions: Optional[List[ResourcePermissionUnion]] = None
 
 
+# This class is the input for the 'update_data_source_permissions' function.
 class UpdateDataSourcePermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSourceId: str
@@ -6494,6 +6854,7 @@ class UpdateDataSourcePermissionsRequest(BaseValidatorModel):
     RevokePermissions: Optional[List[ResourcePermissionUnion]] = None
 
 
+# This class is the input for the 'update_folder_permissions' function.
 class UpdateFolderPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     FolderId: str
@@ -6501,6 +6862,7 @@ class UpdateFolderPermissionsRequest(BaseValidatorModel):
     RevokePermissions: Optional[List[ResourcePermissionUnion]] = None
 
 
+# This class is the input for the 'update_template_permissions' function.
 class UpdateTemplatePermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     TemplateId: str
@@ -6508,6 +6870,7 @@ class UpdateTemplatePermissionsRequest(BaseValidatorModel):
     RevokePermissions: Optional[List[ResourcePermissionUnion]] = None
 
 
+# This class is the input for the 'update_theme_permissions' function.
 class UpdateThemePermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     ThemeId: str
@@ -6515,6 +6878,7 @@ class UpdateThemePermissionsRequest(BaseValidatorModel):
     RevokePermissions: Optional[List[ResourcePermissionUnion]] = None
 
 
+# This class is the input for the 'update_topic_permissions' function.
 class UpdateTopicPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
@@ -6543,6 +6907,7 @@ class TopicNamedEntity(BaseValidatorModel):
     Definition: Optional[List[NamedEntityDefinition]] = None
 
 
+# This class is the output for the 'describe_namespace' function.
 class DescribeNamespaceResponse(BaseValidatorModel):
     Namespace: NamespaceInfoV2
     RequestId: str
@@ -6550,6 +6915,7 @@ class DescribeNamespaceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_namespaces' function.
 class ListNamespacesResponse(BaseValidatorModel):
     Namespaces: List[NamespaceInfoV2]
     RequestId: str
@@ -6558,6 +6924,7 @@ class ListNamespacesResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_vpc_connections' function.
 class ListVPCConnectionsResponse(BaseValidatorModel):
     VPCConnectionSummaries: List[VPCConnectionSummary]
     RequestId: str
@@ -6566,6 +6933,7 @@ class ListVPCConnectionsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_vpc_connection' function.
 class DescribeVPCConnectionResponse(BaseValidatorModel):
     VPCConnection: VPCConnection
     RequestId: str
@@ -6865,6 +7233,7 @@ class AnonymousUserEmbeddingExperienceConfiguration(BaseValidatorModel):
     GenerativeQnA: Optional[AnonymousUserGenerativeQnAEmbeddingConfiguration] = None
 
 
+# This class is the input for the 'start_asset_bundle_export_job' function.
 class StartAssetBundleExportJobRequest(BaseValidatorModel):
     AwsAccountId: str
     AssetBundleExportJobId: str
@@ -6969,6 +7338,7 @@ class PredefinedHierarchy(BaseValidatorModel):
     DrillDownFilters: Optional[List[DrillDownFilter]] = None
 
 
+# This class is the input for the 'create_topic_refresh_schedule' function.
 class CreateTopicRefreshScheduleRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
@@ -6977,6 +7347,7 @@ class CreateTopicRefreshScheduleRequest(BaseValidatorModel):
     DatasetName: Optional[str] = None
 
 
+# This class is the input for the 'update_topic_refresh_schedule' function.
 class UpdateTopicRefreshScheduleRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
@@ -7401,6 +7772,7 @@ class TopicFilter(BaseValidatorModel):
 RedshiftParametersUnion = Union[RedshiftParameters, RedshiftParametersOutput]
 
 
+# This class is the output for the 'describe_refresh_schedule' function.
 class DescribeRefreshScheduleResponse(BaseValidatorModel):
     RefreshSchedule: RefreshScheduleOutput
     Status: int
@@ -7409,6 +7781,7 @@ class DescribeRefreshScheduleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_refresh_schedules' function.
 class ListRefreshSchedulesResponse(BaseValidatorModel):
     RefreshSchedules: List[RefreshScheduleOutput]
     Status: int
@@ -7498,6 +7871,7 @@ class ColumnHierarchyOutput(BaseValidatorModel):
     PredefinedHierarchy: Optional[PredefinedHierarchyOutput] = None
 
 
+# This class is the input for the 'generate_embed_url_for_anonymous_user' function.
 class GenerateEmbedUrlForAnonymousUserRequest(BaseValidatorModel):
     AwsAccountId: str
     Namespace: str
@@ -8073,6 +8447,7 @@ class Logo(BaseValidatorModel):
     LogoSet: LogoSet
 
 
+# This class is the output for the 'describe_data_set_refresh_properties' function.
 class DescribeDataSetRefreshPropertiesResponse(BaseValidatorModel):
     RequestId: str
     Status: int
@@ -8080,6 +8455,7 @@ class DescribeDataSetRefreshPropertiesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_data_set_refresh_properties' function.
 class PutDataSetRefreshPropertiesRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSetId: str
@@ -8228,18 +8604,21 @@ class DataSourceParameters(BaseValidatorModel):
     BigQueryParameters: Optional[BigQueryParameters] = None
 
 
+# This class is the input for the 'create_refresh_schedule' function.
 class CreateRefreshScheduleRequest(BaseValidatorModel):
     DataSetId: str
     AwsAccountId: str
     Schedule: RefreshScheduleUnion
 
 
+# This class is the input for the 'update_refresh_schedule' function.
 class UpdateRefreshScheduleRequest(BaseValidatorModel):
     DataSetId: str
     AwsAccountId: str
     Schedule: RefreshScheduleUnion
 
 
+# This class is the input for the 'generate_embed_url_for_registered_user' function.
 class GenerateEmbedUrlForRegisteredUserRequest(BaseValidatorModel):
     AwsAccountId: str
     UserArn: str
@@ -8248,6 +8627,7 @@ class GenerateEmbedUrlForRegisteredUserRequest(BaseValidatorModel):
     AllowedDomains: Optional[List[str]] = None
 
 
+# This class is the input for the 'generate_embed_url_for_registered_user_with_identity' function.
 class GenerateEmbedUrlForRegisteredUserWithIdentityRequest(BaseValidatorModel):
     AwsAccountId: str
     ExperienceConfiguration: RegisteredUserEmbeddingExperienceConfiguration
@@ -8273,6 +8653,7 @@ class SectionLayoutConfiguration(BaseValidatorModel):
     FreeFormLayout: FreeFormSectionLayoutConfiguration
 
 
+# This class is the output for the 'describe_dashboard_snapshot_job' function.
 class DescribeDashboardSnapshotJobResponse(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
@@ -8302,6 +8683,7 @@ class AssetBundleImportJobOverrideParametersOutput(BaseValidatorModel):
     Folders: Optional[List[AssetBundleImportJobFolderOverrideParameters]] = None
 
 
+# This class is the output for the 'describe_data_source' function.
 class DescribeDataSourceResponse(BaseValidatorModel):
     DataSource: DataSource
     RequestId: str
@@ -8309,6 +8691,7 @@ class DescribeDataSourceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_data_sources' function.
 class ListDataSourcesResponse(BaseValidatorModel):
     DataSources: List[DataSource]
     RequestId: str
@@ -8594,6 +8977,7 @@ class Theme(BaseValidatorModel):
     Type: Optional[ThemeTypeType] = None
 
 
+# This class is the input for the 'create_theme' function.
 class CreateThemeRequest(BaseValidatorModel):
     AwsAccountId: str
     ThemeId: str
@@ -8605,6 +8989,7 @@ class CreateThemeRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_theme' function.
 class UpdateThemeRequest(BaseValidatorModel):
     AwsAccountId: str
     ThemeId: str
@@ -8969,6 +9354,7 @@ class HeaderFooterSectionConfiguration(BaseValidatorModel):
     Style: Optional[SectionStyle] = None
 
 
+# This class is the input for the 'start_dashboard_snapshot_job' function.
 class StartDashboardSnapshotJobRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
@@ -8977,6 +9363,7 @@ class StartDashboardSnapshotJobRequest(BaseValidatorModel):
     SnapshotConfiguration: SnapshotConfigurationUnion
 
 
+# This class is the output for the 'describe_asset_bundle_import_job' function.
 class DescribeAssetBundleImportJobResponse(BaseValidatorModel):
     JobStatus: AssetBundleImportJobStatusType
     Errors: List[AssetBundleImportJobError]
@@ -9023,6 +9410,7 @@ TransformOperationUnion = Union[TransformOperation, TransformOperationOutput]
 ContributionAnalysisTimeRangesUnion = Union[ContributionAnalysisTimeRanges, ContributionAnalysisTimeRangesOutput]
 
 
+# This class is the output for the 'describe_data_set' function.
 class DescribeDataSetResponse(BaseValidatorModel):
     DataSet: DataSet
     RequestId: str
@@ -9145,6 +9533,7 @@ class TableConditionalFormattingOption(BaseValidatorModel):
     Row: Optional[TableRowConditionalFormatting] = None
 
 
+# This class is the input for the 'create_brand' function.
 class CreateBrandRequest(BaseValidatorModel):
     AwsAccountId: str
     BrandId: str
@@ -9152,12 +9541,14 @@ class CreateBrandRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_brand' function.
 class UpdateBrandRequest(BaseValidatorModel):
     AwsAccountId: str
     BrandId: str
     BrandDefinition: Optional[BrandDefinition] = None
 
 
+# This class is the output for the 'create_brand' function.
 class CreateBrandResponse(BaseValidatorModel):
     RequestId: str
     BrandDetail: BrandDetail
@@ -9165,6 +9556,7 @@ class CreateBrandResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_brand_published_version' function.
 class DescribeBrandPublishedVersionResponse(BaseValidatorModel):
     RequestId: str
     BrandDetail: BrandDetail
@@ -9172,6 +9564,7 @@ class DescribeBrandPublishedVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_brand' function.
 class DescribeBrandResponse(BaseValidatorModel):
     RequestId: str
     BrandDetail: BrandDetail
@@ -9179,6 +9572,7 @@ class DescribeBrandResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_brand' function.
 class UpdateBrandResponse(BaseValidatorModel):
     RequestId: str
     BrandDetail: BrandDetail
@@ -9186,6 +9580,7 @@ class UpdateBrandResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_theme' function.
 class DescribeThemeResponse(BaseValidatorModel):
     Theme: Theme
     Status: int
@@ -9273,6 +9668,7 @@ class TooltipOptions(BaseValidatorModel):
     FieldBasedTooltip: Optional[FieldBasedTooltip] = None
 
 
+# This class is the output for the 'describe_topic' function.
 class DescribeTopicResponse(BaseValidatorModel):
     Arn: str
     TopicId: str
@@ -9302,6 +9698,7 @@ class CredentialPair(BaseValidatorModel):
     AlternateDataSourceParameters: Optional[List[DataSourceParametersUnion]] = None
 
 
+# This class is the output for the 'describe_dashboard_snapshot_job_result' function.
 class DescribeDashboardSnapshotJobResultResponse(BaseValidatorModel):
     Arn: str
     JobStatus: SnapshotJobStatusType
@@ -9992,6 +10389,7 @@ class BodySectionConfiguration(BaseValidatorModel):
     RepeatConfiguration: Optional[BodySectionRepeatConfiguration] = None
 
 
+# This class is the input for the 'create_topic' function.
 class CreateTopicRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
@@ -10000,6 +10398,7 @@ class CreateTopicRequest(BaseValidatorModel):
     FolderArns: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_topic' function.
 class UpdateTopicRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
@@ -10050,6 +10449,7 @@ class Sheet(BaseValidatorModel):
     Images: Optional[List[SheetImageOutput]] = None
 
 
+# This class is the output for the 'list_topic_reviewed_answers' function.
 class ListTopicReviewedAnswersResponse(BaseValidatorModel):
     TopicId: str
     TopicArn: str
@@ -10300,6 +10700,7 @@ class SectionBasedLayoutConfiguration(BaseValidatorModel):
     CanvasSizeOptions: SectionBasedLayoutCanvasSizeOptions
 
 
+# This class is the input for the 'start_asset_bundle_import_job' function.
 class StartAssetBundleImportJobRequest(BaseValidatorModel):
     AwsAccountId: str
     AssetBundleImportJobId: str
@@ -10311,6 +10712,7 @@ class StartAssetBundleImportJobRequest(BaseValidatorModel):
     OverrideValidationStrategy: Optional[AssetBundleImportJobOverrideValidationStrategy] = None
 
 
+# This class is the input for the 'create_data_source' function.
 class CreateDataSourceRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSourceId: str
@@ -10325,6 +10727,7 @@ class CreateDataSourceRequest(BaseValidatorModel):
     FolderArns: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_data_source' function.
 class UpdateDataSourceRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSourceId: str
@@ -10335,6 +10738,7 @@ class UpdateDataSourceRequest(BaseValidatorModel):
     SslProperties: Optional[SslProperties] = None
 
 
+# This class is the input for the 'create_data_set' function.
 class CreateDataSetRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSetId: str
@@ -10355,6 +10759,7 @@ class CreateDataSetRequest(BaseValidatorModel):
     PerformanceConfiguration: Optional[PerformanceConfigurationUnion] = None
 
 
+# This class is the input for the 'update_data_set' function.
 class UpdateDataSetRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSetId: str
@@ -11039,6 +11444,7 @@ class LayoutConfiguration(BaseValidatorModel):
 TopicIRUnion = Union[TopicIR, TopicIROutput]
 
 
+# This class is the output for the 'describe_analysis' function.
 class DescribeAnalysisResponse(BaseValidatorModel):
     Analysis: Analysis
     Status: int
@@ -11497,6 +11903,7 @@ class TopicVisual(BaseValidatorModel):
     SupportingVisuals: Optional[List[Dict[str, Any]]] = None
 
 
+# This class is the output for the 'describe_dashboard' function.
 class DescribeDashboardResponse(BaseValidatorModel):
     Dashboard: Dashboard
     Status: int
@@ -11504,6 +11911,7 @@ class DescribeDashboardResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_template' function.
 class DescribeTemplateResponse(BaseValidatorModel):
     Template: Template
     Status: int
@@ -11642,6 +12050,7 @@ class SheetDefinition(BaseValidatorModel):
     ContentType: Optional[SheetContentTypeType] = None
 
 
+# This class is the input for the 'batch_create_topic_reviewed_answer' function.
 class BatchCreateTopicReviewedAnswerRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
@@ -11724,6 +12133,7 @@ class TemplateVersionDefinition(BaseValidatorModel):
     StaticFiles: Optional[List[StaticFile]] = None
 
 
+# This class is the output for the 'describe_analysis_definition' function.
 class DescribeAnalysisDefinitionResponse(BaseValidatorModel):
     AnalysisId: str
     Name: str
@@ -11736,6 +12146,7 @@ class DescribeAnalysisDefinitionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_dashboard_definition' function.
 class DescribeDashboardDefinitionResponse(BaseValidatorModel):
     DashboardId: str
     Errors: List[DashboardError]
@@ -11749,6 +12160,7 @@ class DescribeDashboardDefinitionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_template_definition' function.
 class DescribeTemplateDefinitionResponse(BaseValidatorModel):
     Name: str
     TemplateId: str
@@ -11767,6 +12179,7 @@ DashboardVersionDefinitionUnion = Union[DashboardVersionDefinition, DashboardVer
 TemplateVersionDefinitionUnion = Union[TemplateVersionDefinition, TemplateVersionDefinitionOutput]
 
 
+# This class is the input for the 'create_analysis' function.
 class CreateAnalysisRequest(BaseValidatorModel):
     AwsAccountId: str
     AnalysisId: str
@@ -11781,6 +12194,7 @@ class CreateAnalysisRequest(BaseValidatorModel):
     FolderArns: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_analysis' function.
 class UpdateAnalysisRequest(BaseValidatorModel):
     AwsAccountId: str
     AnalysisId: str
@@ -11792,6 +12206,7 @@ class UpdateAnalysisRequest(BaseValidatorModel):
     ValidationStrategy: Optional[ValidationStrategy] = None
 
 
+# This class is the input for the 'create_dashboard' function.
 class CreateDashboardRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
@@ -11810,6 +12225,7 @@ class CreateDashboardRequest(BaseValidatorModel):
     LinkEntities: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_dashboard' function.
 class UpdateDashboardRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
@@ -11823,6 +12239,7 @@ class UpdateDashboardRequest(BaseValidatorModel):
     ValidationStrategy: Optional[ValidationStrategy] = None
 
 
+# This class is the input for the 'create_template' function.
 class CreateTemplateRequest(BaseValidatorModel):
     AwsAccountId: str
     TemplateId: str
@@ -11835,6 +12252,7 @@ class CreateTemplateRequest(BaseValidatorModel):
     ValidationStrategy: Optional[ValidationStrategy] = None
 
 
+# This class is the input for the 'update_template' function.
 class UpdateTemplateRequest(BaseValidatorModel):
     AwsAccountId: str
     TemplateId: str

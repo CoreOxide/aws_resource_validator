@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'add_source_identifier_to_subscription' function.
 class AddSourceIdentifierToSubscriptionMessage(BaseValidatorModel):
     SubscriptionName: str
     SourceIdentifier: str
@@ -39,6 +40,7 @@ class Tag(BaseValidatorModel):
     Value: Optional[str] = None
 
 
+# This class is the input for the 'apply_pending_maintenance_action' function.
 class ApplyPendingMaintenanceActionMessage(BaseValidatorModel):
     ResourceIdentifier: str
     ApplyAction: str
@@ -102,6 +104,7 @@ class DBClusterSnapshot(BaseValidatorModel):
     StorageType: Optional[str] = None
 
 
+# This class is the input for the 'create_global_cluster' function.
 class CreateGlobalClusterMessage(BaseValidatorModel):
     GlobalClusterIdentifier: str
     SourceDBClusterIdentifier: Optional[str] = None
@@ -168,32 +171,39 @@ class Endpoint(BaseValidatorModel):
     HostedZoneId: Optional[str] = None
 
 
+# This class is the input for the 'delete_db_cluster' function.
 class DeleteDBClusterMessage(BaseValidatorModel):
     DBClusterIdentifier: str
     SkipFinalSnapshot: Optional[bool] = None
     FinalDBSnapshotIdentifier: Optional[str] = None
 
 
+# This class is the input for the 'delete_db_cluster_parameter_group' function.
 class DeleteDBClusterParameterGroupMessage(BaseValidatorModel):
     DBClusterParameterGroupName: str
 
 
+# This class is the input for the 'delete_db_cluster_snapshot' function.
 class DeleteDBClusterSnapshotMessage(BaseValidatorModel):
     DBClusterSnapshotIdentifier: str
 
 
+# This class is the input for the 'delete_db_instance' function.
 class DeleteDBInstanceMessage(BaseValidatorModel):
     DBInstanceIdentifier: str
 
 
+# This class is the input for the 'delete_db_subnet_group' function.
 class DeleteDBSubnetGroupMessage(BaseValidatorModel):
     DBSubnetGroupName: str
 
 
+# This class is the input for the 'delete_event_subscription' function.
 class DeleteEventSubscriptionMessage(BaseValidatorModel):
     SubscriptionName: str
 
 
+# This class is the input for the 'delete_global_cluster' function.
 class DeleteGlobalClusterMessage(BaseValidatorModel):
     GlobalClusterIdentifier: str
 
@@ -209,6 +219,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_db_cluster_snapshot_attributes' function.
 class DescribeDBClusterSnapshotAttributesMessage(BaseValidatorModel):
     DBClusterSnapshotIdentifier: str
 
@@ -234,11 +245,13 @@ class Event(BaseValidatorModel):
     SourceArn: Optional[str] = None
 
 
+# This class is the input for the 'failover_db_cluster' function.
 class FailoverDBClusterMessage(BaseValidatorModel):
     DBClusterIdentifier: Optional[str] = None
     TargetDBInstanceIdentifier: Optional[str] = None
 
 
+# This class is the input for the 'failover_global_cluster' function.
 class FailoverGlobalClusterMessage(BaseValidatorModel):
     GlobalClusterIdentifier: str
     TargetDbClusterIdentifier: str
@@ -252,6 +265,7 @@ class GlobalClusterMember(BaseValidatorModel):
     IsWriter: Optional[bool] = None
 
 
+# This class is the input for the 'modify_db_cluster_snapshot_attribute' function.
 class ModifyDBClusterSnapshotAttributeMessage(BaseValidatorModel):
     DBClusterSnapshotIdentifier: str
     AttributeName: str
@@ -259,6 +273,7 @@ class ModifyDBClusterSnapshotAttributeMessage(BaseValidatorModel):
     ValuesToRemove: Optional[List[str]] = None
 
 
+# This class is the input for the 'modify_db_instance' function.
 class ModifyDBInstanceMessage(BaseValidatorModel):
     DBInstanceIdentifier: str
     DBInstanceClass: Optional[str] = None
@@ -274,12 +289,14 @@ class ModifyDBInstanceMessage(BaseValidatorModel):
     CertificateRotationRestart: Optional[bool] = None
 
 
+# This class is the input for the 'modify_db_subnet_group' function.
 class ModifyDBSubnetGroupMessage(BaseValidatorModel):
     DBSubnetGroupName: str
     SubnetIds: List[str]
     DBSubnetGroupDescription: Optional[str] = None
 
 
+# This class is the input for the 'modify_event_subscription' function.
 class ModifyEventSubscriptionMessage(BaseValidatorModel):
     SubscriptionName: str
     SnsTopicArn: Optional[str] = None
@@ -288,6 +305,7 @@ class ModifyEventSubscriptionMessage(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
+# This class is the input for the 'modify_global_cluster' function.
 class ModifyGlobalClusterMessage(BaseValidatorModel):
     GlobalClusterIdentifier: str
     NewGlobalClusterIdentifier: Optional[str] = None
@@ -308,84 +326,101 @@ class PendingMaintenanceAction(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'reboot_db_instance' function.
 class RebootDBInstanceMessage(BaseValidatorModel):
     DBInstanceIdentifier: str
     ForceFailover: Optional[bool] = None
 
 
+# This class is the input for the 'remove_from_global_cluster' function.
 class RemoveFromGlobalClusterMessage(BaseValidatorModel):
     GlobalClusterIdentifier: str
     DbClusterIdentifier: str
 
 
+# This class is the input for the 'remove_source_identifier_from_subscription' function.
 class RemoveSourceIdentifierFromSubscriptionMessage(BaseValidatorModel):
     SubscriptionName: str
     SourceIdentifier: str
 
 
+# This class is the input for the 'remove_tags_from_resource' function.
 class RemoveTagsFromResourceMessage(BaseValidatorModel):
     ResourceName: str
     TagKeys: List[str]
 
 
+# This class is the input for the 'start_db_cluster' function.
 class StartDBClusterMessage(BaseValidatorModel):
     DBClusterIdentifier: str
 
 
+# This class is the input for the 'stop_db_cluster' function.
 class StopDBClusterMessage(BaseValidatorModel):
     DBClusterIdentifier: str
 
 
+# This class is the input for the 'switchover_global_cluster' function.
 class SwitchoverGlobalClusterMessage(BaseValidatorModel):
     GlobalClusterIdentifier: str
     TargetDbClusterIdentifier: str
 
 
+# This class is the output for the 'add_source_identifier_to_subscription' function.
 class AddSourceIdentifierToSubscriptionResult(BaseValidatorModel):
     EventSubscription: EventSubscription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_event_subscription' function.
 class CreateEventSubscriptionResult(BaseValidatorModel):
     EventSubscription: EventSubscription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reset_db_cluster_parameter_group' function.
 class DBClusterParameterGroupNameMessage(BaseValidatorModel):
     DBClusterParameterGroupName: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_event_subscription' function.
 class DeleteEventSubscriptionResult(BaseValidatorModel):
     EventSubscription: EventSubscription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'remove_tags_from_resource' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_event_subscriptions' function.
 class EventSubscriptionsMessage(BaseValidatorModel):
     Marker: str
     EventSubscriptionsList: List[EventSubscription]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_event_subscription' function.
 class ModifyEventSubscriptionResult(BaseValidatorModel):
     EventSubscription: EventSubscription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'remove_source_identifier_from_subscription' function.
 class RemoveSourceIdentifierFromSubscriptionResult(BaseValidatorModel):
     EventSubscription: EventSubscription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'add_tags_to_resource' function.
 class AddTagsToResourceMessage(BaseValidatorModel):
     ResourceName: str
     Tags: List[Tag]
 
 
+# This class is the input for the 'copy_db_cluster_parameter_group' function.
 class CopyDBClusterParameterGroupMessage(BaseValidatorModel):
     SourceDBClusterParameterGroupIdentifier: str
     TargetDBClusterParameterGroupIdentifier: str
@@ -393,6 +428,7 @@ class CopyDBClusterParameterGroupMessage(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'copy_db_cluster_snapshot' function.
 class CopyDBClusterSnapshotMessage(BaseValidatorModel):
     SourceDBClusterSnapshotIdentifier: str
     TargetDBClusterSnapshotIdentifier: str
@@ -403,6 +439,7 @@ class CopyDBClusterSnapshotMessage(BaseValidatorModel):
     SourceRegion: Optional[str] = None
 
 
+# This class is the input for the 'create_db_cluster' function.
 class CreateDBClusterMessage(BaseValidatorModel):
     DBClusterIdentifier: str
     Engine: str
@@ -430,6 +467,7 @@ class CreateDBClusterMessage(BaseValidatorModel):
     SourceRegion: Optional[str] = None
 
 
+# This class is the input for the 'create_db_cluster_parameter_group' function.
 class CreateDBClusterParameterGroupMessage(BaseValidatorModel):
     DBClusterParameterGroupName: str
     DBParameterGroupFamily: str
@@ -437,12 +475,14 @@ class CreateDBClusterParameterGroupMessage(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_db_cluster_snapshot' function.
 class CreateDBClusterSnapshotMessage(BaseValidatorModel):
     DBClusterSnapshotIdentifier: str
     DBClusterIdentifier: str
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_db_instance' function.
 class CreateDBInstanceMessage(BaseValidatorModel):
     DBInstanceIdentifier: str
     DBInstanceClass: str
@@ -459,6 +499,7 @@ class CreateDBInstanceMessage(BaseValidatorModel):
     CACertificateIdentifier: Optional[str] = None
 
 
+# This class is the input for the 'create_db_subnet_group' function.
 class CreateDBSubnetGroupMessage(BaseValidatorModel):
     DBSubnetGroupName: str
     DBSubnetGroupDescription: str
@@ -466,6 +507,7 @@ class CreateDBSubnetGroupMessage(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_event_subscription' function.
 class CreateEventSubscriptionMessage(BaseValidatorModel):
     SubscriptionName: str
     SnsTopicArn: str
@@ -476,6 +518,7 @@ class CreateEventSubscriptionMessage(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'restore_db_cluster_from_snapshot' function.
 class RestoreDBClusterFromSnapshotMessage(BaseValidatorModel):
     DBClusterIdentifier: str
     SnapshotIdentifier: str
@@ -493,6 +536,7 @@ class RestoreDBClusterFromSnapshotMessage(BaseValidatorModel):
     StorageType: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class TagListMessage(BaseValidatorModel):
     TagList: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -514,12 +558,14 @@ class Subnet(BaseValidatorModel):
     SubnetStatus: Optional[str] = None
 
 
+# This class is the output for the 'describe_certificates' function.
 class CertificateMessage(BaseValidatorModel):
     Certificates: List[Certificate]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'modify_db_cluster' function.
 class ModifyDBClusterMessage(BaseValidatorModel):
     DBClusterIdentifier: str
     NewDBClusterIdentifier: Optional[str] = None
@@ -541,43 +587,51 @@ class ModifyDBClusterMessage(BaseValidatorModel):
     RotateMasterUserPassword: Optional[bool] = None
 
 
+# This class is the output for the 'copy_db_cluster_parameter_group' function.
 class CopyDBClusterParameterGroupResult(BaseValidatorModel):
     DBClusterParameterGroup: DBClusterParameterGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_db_cluster_parameter_group' function.
 class CreateDBClusterParameterGroupResult(BaseValidatorModel):
     DBClusterParameterGroup: DBClusterParameterGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_db_cluster_parameter_groups' function.
 class DBClusterParameterGroupsMessage(BaseValidatorModel):
     Marker: str
     DBClusterParameterGroups: List[DBClusterParameterGroup]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'copy_db_cluster_snapshot' function.
 class CopyDBClusterSnapshotResult(BaseValidatorModel):
     DBClusterSnapshot: DBClusterSnapshot
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_db_cluster_snapshot' function.
 class CreateDBClusterSnapshotResult(BaseValidatorModel):
     DBClusterSnapshot: DBClusterSnapshot
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_db_cluster_snapshots' function.
 class DBClusterSnapshotMessage(BaseValidatorModel):
     Marker: str
     DBClusterSnapshots: List[DBClusterSnapshot]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_db_cluster_snapshot' function.
 class DeleteDBClusterSnapshotResult(BaseValidatorModel):
     DBClusterSnapshot: DBClusterSnapshot
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_db_cluster_parameters' function.
 class DBClusterParameterGroupDetails(BaseValidatorModel):
     Parameters: List[Parameter]
     Marker: str
@@ -590,11 +644,13 @@ class EngineDefaults(BaseValidatorModel):
     Parameters: Optional[List[Parameter]] = None
 
 
+# This class is the input for the 'modify_db_cluster_parameter_group' function.
 class ModifyDBClusterParameterGroupMessage(BaseValidatorModel):
     DBClusterParameterGroupName: str
     Parameters: List[Parameter]
 
 
+# This class is the input for the 'reset_db_cluster_parameter_group' function.
 class ResetDBClusterParameterGroupMessage(BaseValidatorModel):
     DBClusterParameterGroupName: str
     ResetAllParameters: Optional[bool] = None
@@ -656,6 +712,7 @@ class DBEngineVersion(BaseValidatorModel):
     SupportsCertificateRotationWithoutRestart: Optional[bool] = None
 
 
+# This class is the input for the 'describe_certificates' function.
 class DescribeCertificatesMessage(BaseValidatorModel):
     CertificateIdentifier: Optional[str] = None
     Filters: Optional[List[Filter]] = None
@@ -663,6 +720,7 @@ class DescribeCertificatesMessage(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_db_cluster_parameter_groups' function.
 class DescribeDBClusterParameterGroupsMessage(BaseValidatorModel):
     DBClusterParameterGroupName: Optional[str] = None
     Filters: Optional[List[Filter]] = None
@@ -670,6 +728,7 @@ class DescribeDBClusterParameterGroupsMessage(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_db_cluster_parameters' function.
 class DescribeDBClusterParametersMessage(BaseValidatorModel):
     DBClusterParameterGroupName: str
     Source: Optional[str] = None
@@ -678,6 +737,7 @@ class DescribeDBClusterParametersMessage(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_db_cluster_snapshots' function.
 class DescribeDBClusterSnapshotsMessage(BaseValidatorModel):
     DBClusterIdentifier: Optional[str] = None
     DBClusterSnapshotIdentifier: Optional[str] = None
@@ -689,6 +749,7 @@ class DescribeDBClusterSnapshotsMessage(BaseValidatorModel):
     IncludePublic: Optional[bool] = None
 
 
+# This class is the input for the 'describe_db_clusters' function.
 class DescribeDBClustersMessage(BaseValidatorModel):
     DBClusterIdentifier: Optional[str] = None
     Filters: Optional[List[Filter]] = None
@@ -696,6 +757,7 @@ class DescribeDBClustersMessage(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_db_engine_versions' function.
 class DescribeDBEngineVersionsMessage(BaseValidatorModel):
     Engine: Optional[str] = None
     EngineVersion: Optional[str] = None
@@ -708,6 +770,7 @@ class DescribeDBEngineVersionsMessage(BaseValidatorModel):
     ListSupportedTimezones: Optional[bool] = None
 
 
+# This class is the input for the 'describe_db_instances' function.
 class DescribeDBInstancesMessage(BaseValidatorModel):
     DBInstanceIdentifier: Optional[str] = None
     Filters: Optional[List[Filter]] = None
@@ -715,6 +778,7 @@ class DescribeDBInstancesMessage(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_db_subnet_groups' function.
 class DescribeDBSubnetGroupsMessage(BaseValidatorModel):
     DBSubnetGroupName: Optional[str] = None
     Filters: Optional[List[Filter]] = None
@@ -722,6 +786,7 @@ class DescribeDBSubnetGroupsMessage(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_engine_default_cluster_parameters' function.
 class DescribeEngineDefaultClusterParametersMessage(BaseValidatorModel):
     DBParameterGroupFamily: str
     Filters: Optional[List[Filter]] = None
@@ -729,11 +794,13 @@ class DescribeEngineDefaultClusterParametersMessage(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_event_categories' function.
 class DescribeEventCategoriesMessage(BaseValidatorModel):
     SourceType: Optional[str] = None
     Filters: Optional[List[Filter]] = None
 
 
+# This class is the input for the 'describe_event_subscriptions' function.
 class DescribeEventSubscriptionsMessage(BaseValidatorModel):
     SubscriptionName: Optional[str] = None
     Filters: Optional[List[Filter]] = None
@@ -741,6 +808,7 @@ class DescribeEventSubscriptionsMessage(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_global_clusters' function.
 class DescribeGlobalClustersMessage(BaseValidatorModel):
     GlobalClusterIdentifier: Optional[str] = None
     Filters: Optional[List[Filter]] = None
@@ -748,6 +816,7 @@ class DescribeGlobalClustersMessage(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_orderable_db_instance_options' function.
 class DescribeOrderableDBInstanceOptionsMessage(BaseValidatorModel):
     Engine: str
     EngineVersion: Optional[str] = None
@@ -759,6 +828,7 @@ class DescribeOrderableDBInstanceOptionsMessage(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_pending_maintenance_actions' function.
 class DescribePendingMaintenanceActionsMessage(BaseValidatorModel):
     ResourceIdentifier: Optional[str] = None
     Filters: Optional[List[Filter]] = None
@@ -766,6 +836,7 @@ class DescribePendingMaintenanceActionsMessage(BaseValidatorModel):
     MaxRecords: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceMessage(BaseValidatorModel):
     ResourceName: str
     Filters: Optional[List[Filter]] = None
@@ -884,6 +955,7 @@ class DescribeEventsMessagePaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_events' function.
 class DescribeEventsMessage(BaseValidatorModel):
     SourceIdentifier: Optional[str] = None
     SourceType: Optional[SourceTypeType] = None
@@ -896,6 +968,7 @@ class DescribeEventsMessage(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'restore_db_cluster_to_point_in_time' function.
 class RestoreDBClusterToPointInTimeMessage(BaseValidatorModel):
     DBClusterIdentifier: str
     SourceDBClusterIdentifier: str
@@ -912,11 +985,13 @@ class RestoreDBClusterToPointInTimeMessage(BaseValidatorModel):
     StorageType: Optional[str] = None
 
 
+# This class is the output for the 'describe_event_categories' function.
 class EventCategoriesMessage(BaseValidatorModel):
     EventCategoriesMapList: List[EventCategoriesMap]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_events' function.
 class EventsMessage(BaseValidatorModel):
     Marker: str
     Events: List[Event]
@@ -958,6 +1033,7 @@ class ResourcePendingMaintenanceActions(BaseValidatorModel):
     PendingMaintenanceActionDetails: Optional[List[PendingMaintenanceAction]] = None
 
 
+# This class is the output for the 'describe_orderable_db_instance_options' function.
 class OrderableDBInstanceOptionsMessage(BaseValidatorModel):
     OrderableDBInstanceOptions: List[OrderableDBInstanceOption]
     Marker: str
@@ -973,120 +1049,143 @@ class DBSubnetGroup(BaseValidatorModel):
     DBSubnetGroupArn: Optional[str] = None
 
 
+# This class is the output for the 'describe_engine_default_cluster_parameters' function.
 class DescribeEngineDefaultClusterParametersResult(BaseValidatorModel):
     EngineDefaults: EngineDefaults
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_db_cluster_snapshot_attributes' function.
 class DescribeDBClusterSnapshotAttributesResult(BaseValidatorModel):
     DBClusterSnapshotAttributesResult: DBClusterSnapshotAttributesResult
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_db_cluster_snapshot_attribute' function.
 class ModifyDBClusterSnapshotAttributeResult(BaseValidatorModel):
     DBClusterSnapshotAttributesResult: DBClusterSnapshotAttributesResult
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_db_cluster' function.
 class CreateDBClusterResult(BaseValidatorModel):
     DBCluster: DBCluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_db_clusters' function.
 class DBClusterMessage(BaseValidatorModel):
     Marker: str
     DBClusters: List[DBCluster]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_db_cluster' function.
 class DeleteDBClusterResult(BaseValidatorModel):
     DBCluster: DBCluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'failover_db_cluster' function.
 class FailoverDBClusterResult(BaseValidatorModel):
     DBCluster: DBCluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_db_cluster' function.
 class ModifyDBClusterResult(BaseValidatorModel):
     DBCluster: DBCluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'restore_db_cluster_from_snapshot' function.
 class RestoreDBClusterFromSnapshotResult(BaseValidatorModel):
     DBCluster: DBCluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'restore_db_cluster_to_point_in_time' function.
 class RestoreDBClusterToPointInTimeResult(BaseValidatorModel):
     DBCluster: DBCluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_db_cluster' function.
 class StartDBClusterResult(BaseValidatorModel):
     DBCluster: DBCluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_db_cluster' function.
 class StopDBClusterResult(BaseValidatorModel):
     DBCluster: DBCluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_db_engine_versions' function.
 class DBEngineVersionMessage(BaseValidatorModel):
     Marker: str
     DBEngineVersions: List[DBEngineVersion]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_global_cluster' function.
 class CreateGlobalClusterResult(BaseValidatorModel):
     GlobalCluster: GlobalCluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_global_cluster' function.
 class DeleteGlobalClusterResult(BaseValidatorModel):
     GlobalCluster: GlobalCluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'failover_global_cluster' function.
 class FailoverGlobalClusterResult(BaseValidatorModel):
     GlobalCluster: GlobalCluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_global_clusters' function.
 class GlobalClustersMessage(BaseValidatorModel):
     Marker: str
     GlobalClusters: List[GlobalCluster]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_global_cluster' function.
 class ModifyGlobalClusterResult(BaseValidatorModel):
     GlobalCluster: GlobalCluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'remove_from_global_cluster' function.
 class RemoveFromGlobalClusterResult(BaseValidatorModel):
     GlobalCluster: GlobalCluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'switchover_global_cluster' function.
 class SwitchoverGlobalClusterResult(BaseValidatorModel):
     GlobalCluster: GlobalCluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'apply_pending_maintenance_action' function.
 class ApplyPendingMaintenanceActionResult(BaseValidatorModel):
     ResourcePendingMaintenanceActions: ResourcePendingMaintenanceActions
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_pending_maintenance_actions' function.
 class PendingMaintenanceActionsMessage(BaseValidatorModel):
     PendingMaintenanceActions: List[ResourcePendingMaintenanceActions]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_db_subnet_group' function.
 class CreateDBSubnetGroupResult(BaseValidatorModel):
     DBSubnetGroup: DBSubnetGroup
     ResponseMetadata: ResponseMetadata
@@ -1125,38 +1224,45 @@ class DBInstance(BaseValidatorModel):
     PerformanceInsightsKMSKeyId: Optional[str] = None
 
 
+# This class is the output for the 'describe_db_subnet_groups' function.
 class DBSubnetGroupMessage(BaseValidatorModel):
     Marker: str
     DBSubnetGroups: List[DBSubnetGroup]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_db_subnet_group' function.
 class ModifyDBSubnetGroupResult(BaseValidatorModel):
     DBSubnetGroup: DBSubnetGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_db_instance' function.
 class CreateDBInstanceResult(BaseValidatorModel):
     DBInstance: DBInstance
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_db_instances' function.
 class DBInstanceMessage(BaseValidatorModel):
     Marker: str
     DBInstances: List[DBInstance]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_db_instance' function.
 class DeleteDBInstanceResult(BaseValidatorModel):
     DBInstance: DBInstance
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_db_instance' function.
 class ModifyDBInstanceResult(BaseValidatorModel):
     DBInstance: DBInstance
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reboot_db_instance' function.
 class RebootDBInstanceResult(BaseValidatorModel):
     DBInstance: DBInstance
     ResponseMetadata: ResponseMetadata

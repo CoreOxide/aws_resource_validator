@@ -131,6 +131,7 @@ class RecommendationDisruptionCompliance(BaseValidatorModel):
     expectedRtoInSecs: Optional[int] = None
 
 
+# This class is the input for the 'create_app_version_app_component' function.
 class CreateAppVersionAppComponentRequest(BaseValidatorModel):
     appArn: str
     name: str
@@ -148,6 +149,7 @@ class LogicalResourceId(BaseValidatorModel):
     terraformSourceName: Optional[str] = None
 
 
+# This class is the input for the 'create_recommendation_template' function.
 class CreateRecommendationTemplateRequest(BaseValidatorModel):
     assessmentArn: str
     name: str
@@ -164,63 +166,75 @@ class FailurePolicy(BaseValidatorModel):
     rtoInSecs: int
 
 
+# This class is the input for the 'delete_app_assessment' function.
 class DeleteAppAssessmentRequest(BaseValidatorModel):
     assessmentArn: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_app' function.
 class DeleteAppRequest(BaseValidatorModel):
     appArn: str
     clientToken: Optional[str] = None
     forceDelete: Optional[bool] = None
 
 
+# This class is the input for the 'delete_app_version_app_component' function.
 class DeleteAppVersionAppComponentRequest(BaseValidatorModel):
     appArn: str
     id: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_recommendation_template' function.
 class DeleteRecommendationTemplateRequest(BaseValidatorModel):
     recommendationTemplateArn: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_resiliency_policy' function.
 class DeleteResiliencyPolicyRequest(BaseValidatorModel):
     policyArn: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_app_assessment' function.
 class DescribeAppAssessmentRequest(BaseValidatorModel):
     assessmentArn: str
 
 
+# This class is the input for the 'describe_app' function.
 class DescribeAppRequest(BaseValidatorModel):
     appArn: str
 
 
+# This class is the input for the 'describe_app_version_app_component' function.
 class DescribeAppVersionAppComponentRequest(BaseValidatorModel):
     appArn: str
     appVersion: str
     id: str
 
 
+# This class is the input for the 'describe_app_version' function.
 class DescribeAppVersionRequest(BaseValidatorModel):
     appArn: str
     appVersion: str
 
 
+# This class is the input for the 'describe_app_version_resources_resolution_status' function.
 class DescribeAppVersionResourcesResolutionStatusRequest(BaseValidatorModel):
     appArn: str
     appVersion: str
     resolutionId: Optional[str] = None
 
 
+# This class is the input for the 'describe_app_version_template' function.
 class DescribeAppVersionTemplateRequest(BaseValidatorModel):
     appArn: str
     appVersion: str
 
 
+# This class is the input for the 'describe_draft_app_version_resources_import_status' function.
 class DescribeDraftAppVersionResourcesImportStatusRequest(BaseValidatorModel):
     appArn: str
 
@@ -229,6 +243,7 @@ class ErrorDetail(BaseValidatorModel):
     errorMessage: Optional[str] = None
 
 
+# This class is the input for the 'describe_metrics_export' function.
 class DescribeMetricsExportRequest(BaseValidatorModel):
     metricsExportId: str
 
@@ -238,10 +253,12 @@ class S3Location(BaseValidatorModel):
     prefix: Optional[str] = None
 
 
+# This class is the input for the 'describe_resiliency_policy' function.
 class DescribeResiliencyPolicyRequest(BaseValidatorModel):
     policyArn: str
 
 
+# This class is the input for the 'describe_resource_grouping_recommendation_task' function.
 class DescribeResourceGroupingRecommendationTaskRequest(BaseValidatorModel):
     appArn: str
     groupingId: Optional[str] = None
@@ -280,12 +297,14 @@ class PhysicalResourceId(BaseValidatorModel):
     awsRegion: Optional[str] = None
 
 
+# This class is the input for the 'list_alarm_recommendations' function.
 class ListAlarmRecommendationsRequest(BaseValidatorModel):
     assessmentArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_app_assessment_compliance_drifts' function.
 class ListAppAssessmentComplianceDriftsRequest(BaseValidatorModel):
     assessmentArn: str
     maxResults: Optional[int] = None
@@ -298,12 +317,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_app_assessment_resource_drifts' function.
 class ListAppAssessmentResourceDriftsRequest(BaseValidatorModel):
     assessmentArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_app_assessments' function.
 class ListAppAssessmentsRequest(BaseValidatorModel):
     appArn: Optional[str] = None
     assessmentName: Optional[str] = None
@@ -315,18 +336,21 @@ class ListAppAssessmentsRequest(BaseValidatorModel):
     reverseOrder: Optional[bool] = None
 
 
+# This class is the input for the 'list_app_component_compliances' function.
 class ListAppComponentCompliancesRequest(BaseValidatorModel):
     assessmentArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_app_component_recommendations' function.
 class ListAppComponentRecommendationsRequest(BaseValidatorModel):
     assessmentArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_app_input_sources' function.
 class ListAppInputSourcesRequest(BaseValidatorModel):
     appArn: str
     appVersion: str
@@ -334,6 +358,7 @@ class ListAppInputSourcesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_app_version_app_components' function.
 class ListAppVersionAppComponentsRequest(BaseValidatorModel):
     appArn: str
     appVersion: str
@@ -341,6 +366,7 @@ class ListAppVersionAppComponentsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_app_version_resource_mappings' function.
 class ListAppVersionResourceMappingsRequest(BaseValidatorModel):
     appArn: str
     appVersion: str
@@ -348,6 +374,7 @@ class ListAppVersionResourceMappingsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_app_version_resources' function.
 class ListAppVersionResourcesRequest(BaseValidatorModel):
     appArn: str
     appVersion: str
@@ -363,6 +390,7 @@ class Sort(BaseValidatorModel):
     ascending: Optional[bool] = None
 
 
+# This class is the input for the 'list_recommendation_templates' function.
 class ListRecommendationTemplatesRequest(BaseValidatorModel):
     assessmentArn: Optional[str] = None
     maxResults: Optional[int] = None
@@ -373,39 +401,46 @@ class ListRecommendationTemplatesRequest(BaseValidatorModel):
     status: Optional[List[RecommendationTemplateStatusType]] = None
 
 
+# This class is the input for the 'list_resiliency_policies' function.
 class ListResiliencyPoliciesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     policyName: Optional[str] = None
 
 
+# This class is the input for the 'list_resource_grouping_recommendations' function.
 class ListResourceGroupingRecommendationsRequest(BaseValidatorModel):
     appArn: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_sop_recommendations' function.
 class ListSopRecommendationsRequest(BaseValidatorModel):
     assessmentArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_suggested_resiliency_policies' function.
 class ListSuggestedResiliencyPoliciesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'list_test_recommendations' function.
 class ListTestRecommendationsRequest(BaseValidatorModel):
     assessmentArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_unsupported_app_version_resources' function.
 class ListUnsupportedAppVersionResourcesRequest(BaseValidatorModel):
     appArn: str
     appVersion: str
@@ -420,11 +455,13 @@ class PermissionModel(BaseValidatorModel):
     invokerRoleName: Optional[str] = None
 
 
+# This class is the input for the 'publish_app_version' function.
 class PublishAppVersionRequest(BaseValidatorModel):
     appArn: str
     versionName: Optional[str] = None
 
 
+# This class is the input for the 'put_draft_app_version_template' function.
 class PutDraftAppVersionTemplateRequest(BaseValidatorModel):
     appArn: str
     appTemplateBody: str
@@ -435,6 +472,7 @@ class RejectGroupingRecommendationEntry(BaseValidatorModel):
     rejectionReason: Optional[GroupingRecommendationRejectionReasonType] = None
 
 
+# This class is the input for the 'remove_draft_app_version_resource_mappings' function.
 class RemoveDraftAppVersionResourceMappingsRequest(BaseValidatorModel):
     appArn: str
     appRegistryAppNames: Optional[List[str]] = None
@@ -452,6 +490,7 @@ class ScoringComponentResiliencyScore(BaseValidatorModel):
     score: Optional[float] = None
 
 
+# This class is the input for the 'resolve_app_version_resources' function.
 class ResolveAppVersionResourcesRequest(BaseValidatorModel):
     appArn: str
     appVersion: str
@@ -463,6 +502,7 @@ class ResourceError(BaseValidatorModel):
     reason: Optional[str] = None
 
 
+# This class is the input for the 'start_app_assessment' function.
 class StartAppAssessmentRequest(BaseValidatorModel):
     appArn: str
     appVersion: str
@@ -471,11 +511,13 @@ class StartAppAssessmentRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'start_metrics_export' function.
 class StartMetricsExportRequest(BaseValidatorModel):
     bucketName: Optional[str] = None
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'start_resource_grouping_recommendation_task' function.
 class StartResourceGroupingRecommendationTaskRequest(BaseValidatorModel):
     appArn: str
 
@@ -490,6 +532,7 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_app_version_app_component' function.
 class UpdateAppVersionAppComponentRequest(BaseValidatorModel):
     appArn: str
     id: str
@@ -498,44 +541,52 @@ class UpdateAppVersionAppComponentRequest(BaseValidatorModel):
     type: Optional[str] = None
 
 
+# This class is the input for the 'update_app_version' function.
 class UpdateAppVersionRequest(BaseValidatorModel):
     appArn: str
     additionalInfo: Optional[Dict[str, List[str]]] = None
 
 
+# This class is the input for the 'accept_resource_grouping_recommendations' function.
 class AcceptResourceGroupingRecommendationsRequest(BaseValidatorModel):
     appArn: str
     entries: List[AcceptGroupingRecommendationEntry]
 
 
+# This class is the output for the 'accept_resource_grouping_recommendations' function.
 class AcceptResourceGroupingRecommendationsResponse(BaseValidatorModel):
     appArn: str
     failedEntries: List[FailedGroupingRecommendationEntry]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_app_assessment' function.
 class DeleteAppAssessmentResponse(BaseValidatorModel):
     assessmentArn: str
     assessmentStatus: AssessmentStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_app' function.
 class DeleteAppResponse(BaseValidatorModel):
     appArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_recommendation_template' function.
 class DeleteRecommendationTemplateResponse(BaseValidatorModel):
     recommendationTemplateArn: str
     status: RecommendationTemplateStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_resiliency_policy' function.
 class DeleteResiliencyPolicyResponse(BaseValidatorModel):
     policyArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_app_version_resources_resolution_status' function.
 class DescribeAppVersionResourcesResolutionStatusResponse(BaseValidatorModel):
     appArn: str
     appVersion: str
@@ -545,6 +596,7 @@ class DescribeAppVersionResourcesResolutionStatusResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_app_version' function.
 class DescribeAppVersionResponse(BaseValidatorModel):
     additionalInfo: Dict[str, List[str]]
     appArn: str
@@ -552,6 +604,7 @@ class DescribeAppVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_app_version_template' function.
 class DescribeAppVersionTemplateResponse(BaseValidatorModel):
     appArn: str
     appTemplateBody: str
@@ -559,6 +612,7 @@ class DescribeAppVersionTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_resource_grouping_recommendation_task' function.
 class DescribeResourceGroupingRecommendationTaskResponse(BaseValidatorModel):
     errorMessage: str
     groupingId: str
@@ -566,17 +620,20 @@ class DescribeResourceGroupingRecommendationTaskResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_metrics' function.
 class ListMetricsResponse(BaseValidatorModel):
     rows: List[List[str]]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'publish_app_version' function.
 class PublishAppVersionResponse(BaseValidatorModel):
     appArn: str
     appVersion: str
@@ -585,24 +642,28 @@ class PublishAppVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_draft_app_version_template' function.
 class PutDraftAppVersionTemplateResponse(BaseValidatorModel):
     appArn: str
     appVersion: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reject_resource_grouping_recommendations' function.
 class RejectResourceGroupingRecommendationsResponse(BaseValidatorModel):
     appArn: str
     failedEntries: List[FailedGroupingRecommendationEntry]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'remove_draft_app_version_resource_mappings' function.
 class RemoveDraftAppVersionResourceMappingsResponse(BaseValidatorModel):
     appArn: str
     appVersion: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'resolve_app_version_resources' function.
 class ResolveAppVersionResourcesResponse(BaseValidatorModel):
     appArn: str
     appVersion: str
@@ -611,12 +672,14 @@ class ResolveAppVersionResourcesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_metrics_export' function.
 class StartMetricsExportResponse(BaseValidatorModel):
     metricsExportId: str
     status: MetricsExportStatusTypeType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_resource_grouping_recommendation_task' function.
 class StartResourceGroupingRecommendationTaskResponse(BaseValidatorModel):
     appArn: str
     errorMessage: str
@@ -625,6 +688,7 @@ class StartResourceGroupingRecommendationTaskResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_app_version' function.
 class UpdateAppVersionResponse(BaseValidatorModel):
     additionalInfo: Dict[str, List[str]]
     appArn: str
@@ -662,6 +726,7 @@ class ComplianceDrift(BaseValidatorModel):
     expectedValue: Optional[Dict[DisruptionTypeType, DisruptionCompliance]] = None
 
 
+# This class is the output for the 'create_app_version_app_component' function.
 class CreateAppVersionAppComponentResponse(BaseValidatorModel):
     appArn: str
     appComponent: AppComponent
@@ -669,6 +734,7 @@ class CreateAppVersionAppComponentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_app_version_app_component' function.
 class DeleteAppVersionAppComponentResponse(BaseValidatorModel):
     appArn: str
     appComponent: AppComponent
@@ -676,6 +742,7 @@ class DeleteAppVersionAppComponentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_app_version_app_component' function.
 class DescribeAppVersionAppComponentResponse(BaseValidatorModel):
     appArn: str
     appComponent: AppComponent
@@ -683,6 +750,7 @@ class DescribeAppVersionAppComponentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_app_version_app_components' function.
 class ListAppVersionAppComponentsResponse(BaseValidatorModel):
     appArn: str
     appComponents: List[AppComponent]
@@ -691,6 +759,7 @@ class ListAppVersionAppComponentsResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_app_version_app_component' function.
 class UpdateAppVersionAppComponentResponse(BaseValidatorModel):
     appArn: str
     appComponent: AppComponent
@@ -707,6 +776,7 @@ class AppInputSource(BaseValidatorModel):
     terraformSource: Optional[TerraformSource] = None
 
 
+# This class is the input for the 'delete_app_input_source' function.
 class DeleteAppInputSourceRequest(BaseValidatorModel):
     appArn: str
     clientToken: Optional[str] = None
@@ -715,6 +785,7 @@ class DeleteAppInputSourceRequest(BaseValidatorModel):
     terraformSource: Optional[TerraformSource] = None
 
 
+# This class is the output for the 'list_apps' function.
 class ListAppsResponse(BaseValidatorModel):
     appSummaries: List[AppSummary]
     ResponseMetadata: ResponseMetadata
@@ -743,6 +814,7 @@ class App(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'list_app_versions' function.
 class ListAppVersionsResponse(BaseValidatorModel):
     appVersions: List[AppVersionSummary]
     ResponseMetadata: ResponseMetadata
@@ -785,6 +857,7 @@ class ConfigRecommendation(BaseValidatorModel):
     suggestedChanges: Optional[List[str]] = None
 
 
+# This class is the input for the 'create_app_version_resource' function.
 class CreateAppVersionResourceRequest(BaseValidatorModel):
     appArn: str
     appComponents: List[str]
@@ -798,6 +871,7 @@ class CreateAppVersionResourceRequest(BaseValidatorModel):
     resourceName: Optional[str] = None
 
 
+# This class is the input for the 'delete_app_version_resource' function.
 class DeleteAppVersionResourceRequest(BaseValidatorModel):
     appArn: str
     awsAccountId: Optional[str] = None
@@ -808,6 +882,7 @@ class DeleteAppVersionResourceRequest(BaseValidatorModel):
     resourceName: Optional[str] = None
 
 
+# This class is the input for the 'describe_app_version_resource' function.
 class DescribeAppVersionResourceRequest(BaseValidatorModel):
     appArn: str
     appVersion: str
@@ -823,6 +898,7 @@ class ResourceIdentifier(BaseValidatorModel):
     resourceType: Optional[str] = None
 
 
+# This class is the input for the 'update_app_version_resource' function.
 class UpdateAppVersionResourceRequest(BaseValidatorModel):
     appArn: str
     additionalInfo: Optional[Dict[str, List[str]]] = None
@@ -836,6 +912,7 @@ class UpdateAppVersionResourceRequest(BaseValidatorModel):
     resourceType: Optional[str] = None
 
 
+# This class is the input for the 'create_resiliency_policy' function.
 class CreateResiliencyPolicyRequest(BaseValidatorModel):
     policy: Dict[DisruptionTypeType, FailurePolicy]
     policyName: str
@@ -858,6 +935,7 @@ class ResiliencyPolicy(BaseValidatorModel):
     tier: Optional[ResiliencyPolicyTierType] = None
 
 
+# This class is the input for the 'update_resiliency_policy' function.
 class UpdateResiliencyPolicyRequest(BaseValidatorModel):
     policyArn: str
     dataLocationConstraint: Optional[DataLocationConstraintType] = None
@@ -867,6 +945,7 @@ class UpdateResiliencyPolicyRequest(BaseValidatorModel):
     tier: Optional[ResiliencyPolicyTierType] = None
 
 
+# This class is the output for the 'describe_draft_app_version_resources_import_status' function.
 class DescribeDraftAppVersionResourcesImportStatusResponse(BaseValidatorModel):
     appArn: str
     appVersion: str
@@ -877,6 +956,7 @@ class DescribeDraftAppVersionResourcesImportStatusResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_metrics_export' function.
 class DescribeMetricsExportResponse(BaseValidatorModel):
     errorMessage: str
     exportLocation: S3Location
@@ -902,6 +982,7 @@ class RecommendationTemplate(BaseValidatorModel):
     templatesLocation: Optional[S3Location] = None
 
 
+# This class is the output for the 'import_resources_to_draft_app_version' function.
 class ImportResourcesToDraftAppVersionResponse(BaseValidatorModel):
     appArn: str
     appVersion: str
@@ -973,6 +1054,7 @@ class ListResourceGroupingRecommendationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_app_versions' function.
 class ListAppVersionsRequest(BaseValidatorModel):
     appArn: str
     endTime: Optional[Timestamp] = None
@@ -981,6 +1063,7 @@ class ListAppVersionsRequest(BaseValidatorModel):
     startTime: Optional[Timestamp] = None
 
 
+# This class is the input for the 'list_apps' function.
 class ListAppsRequest(BaseValidatorModel):
     appArn: Optional[str] = None
     awsApplicationArn: Optional[str] = None
@@ -1000,6 +1083,7 @@ class ListMetricsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_metrics' function.
 class ListMetricsRequest(BaseValidatorModel):
     conditions: Optional[List[Condition]] = None
     dataSource: Optional[str] = None
@@ -1011,6 +1095,7 @@ class ListMetricsRequest(BaseValidatorModel):
 PermissionModelUnion = Union[PermissionModel, PermissionModelOutput]
 
 
+# This class is the input for the 'reject_resource_grouping_recommendations' function.
 class RejectResourceGroupingRecommendationsRequest(BaseValidatorModel):
     appArn: str
     entries: List[RejectGroupingRecommendationEntry]
@@ -1027,45 +1112,53 @@ class ResourceErrorsDetails(BaseValidatorModel):
     resourceErrors: Optional[List[ResourceError]] = None
 
 
+# This class is the output for the 'list_app_assessments' function.
 class ListAppAssessmentsResponse(BaseValidatorModel):
     assessmentSummaries: List[AppAssessmentSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_app_assessment_compliance_drifts' function.
 class ListAppAssessmentComplianceDriftsResponse(BaseValidatorModel):
     complianceDrifts: List[ComplianceDrift]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'delete_app_input_source' function.
 class DeleteAppInputSourceResponse(BaseValidatorModel):
     appArn: str
     appInputSource: AppInputSource
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_app_input_sources' function.
 class ListAppInputSourcesResponse(BaseValidatorModel):
     appInputSources: List[AppInputSource]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_app' function.
 class CreateAppResponse(BaseValidatorModel):
     app: App
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_app' function.
 class DescribeAppResponse(BaseValidatorModel):
     app: App
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_app' function.
 class UpdateAppResponse(BaseValidatorModel):
     app: App
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_update_recommendation_status' function.
 class BatchUpdateRecommendationStatusResponse(BaseValidatorModel):
     appArn: str
     failedEntries: List[BatchUpdateRecommendationStatusFailedEntry]
@@ -1073,6 +1166,7 @@ class BatchUpdateRecommendationStatusResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'batch_update_recommendation_status' function.
 class BatchUpdateRecommendationStatusRequest(BaseValidatorModel):
     appArn: str
     requestEntries: List[UpdateRecommendationStatusRequestEntry]
@@ -1092,44 +1186,52 @@ class ResourceDrift(BaseValidatorModel):
     resourceIdentifier: Optional[ResourceIdentifier] = None
 
 
+# This class is the output for the 'create_resiliency_policy' function.
 class CreateResiliencyPolicyResponse(BaseValidatorModel):
     policy: ResiliencyPolicy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_resiliency_policy' function.
 class DescribeResiliencyPolicyResponse(BaseValidatorModel):
     policy: ResiliencyPolicy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_resiliency_policies' function.
 class ListResiliencyPoliciesResponse(BaseValidatorModel):
     resiliencyPolicies: List[ResiliencyPolicy]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_suggested_resiliency_policies' function.
 class ListSuggestedResiliencyPoliciesResponse(BaseValidatorModel):
     resiliencyPolicies: List[ResiliencyPolicy]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_resiliency_policy' function.
 class UpdateResiliencyPolicyResponse(BaseValidatorModel):
     policy: ResiliencyPolicy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_recommendation_template' function.
 class CreateRecommendationTemplateResponse(BaseValidatorModel):
     recommendationTemplate: RecommendationTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_recommendation_templates' function.
 class ListRecommendationTemplatesResponse(BaseValidatorModel):
     recommendationTemplates: List[RecommendationTemplate]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'import_resources_to_draft_app_version' function.
 class ImportResourcesToDraftAppVersionRequest(BaseValidatorModel):
     appArn: str
     eksSources: Optional[List[EksSourceUnion]] = None
@@ -1191,6 +1293,7 @@ class GroupingRecommendation(BaseValidatorModel):
     rejectionReason: Optional[GroupingRecommendationRejectionReasonType] = None
 
 
+# This class is the output for the 'create_app_version_resource' function.
 class CreateAppVersionResourceResponse(BaseValidatorModel):
     appArn: str
     appVersion: str
@@ -1198,6 +1301,7 @@ class CreateAppVersionResourceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_app_version_resource' function.
 class DeleteAppVersionResourceResponse(BaseValidatorModel):
     appArn: str
     appVersion: str
@@ -1205,6 +1309,7 @@ class DeleteAppVersionResourceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_app_version_resource' function.
 class DescribeAppVersionResourceResponse(BaseValidatorModel):
     appArn: str
     appVersion: str
@@ -1212,6 +1317,7 @@ class DescribeAppVersionResourceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_app_version_resources' function.
 class ListAppVersionResourcesResponse(BaseValidatorModel):
     physicalResources: List[PhysicalResource]
     resolutionId: str
@@ -1219,6 +1325,7 @@ class ListAppVersionResourcesResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_app_version_resource' function.
 class UpdateAppVersionResourceResponse(BaseValidatorModel):
     appArn: str
     appVersion: str
@@ -1226,11 +1333,13 @@ class UpdateAppVersionResourceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'add_draft_app_version_resource_mappings' function.
 class AddDraftAppVersionResourceMappingsRequest(BaseValidatorModel):
     appArn: str
     resourceMappings: List[ResourceMapping]
 
 
+# This class is the output for the 'add_draft_app_version_resource_mappings' function.
 class AddDraftAppVersionResourceMappingsResponse(BaseValidatorModel):
     appArn: str
     appVersion: str
@@ -1238,12 +1347,14 @@ class AddDraftAppVersionResourceMappingsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_app_version_resource_mappings' function.
 class ListAppVersionResourceMappingsResponse(BaseValidatorModel):
     resourceMappings: List[ResourceMapping]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_unsupported_app_version_resources' function.
 class ListUnsupportedAppVersionResourcesResponse(BaseValidatorModel):
     resolutionId: str
     unsupportedResources: List[UnsupportedResource]
@@ -1251,6 +1362,7 @@ class ListUnsupportedAppVersionResourcesResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_app' function.
 class CreateAppRequest(BaseValidatorModel):
     name: str
     assessmentSchedule: Optional[AppAssessmentScheduleTypeType] = None
@@ -1263,6 +1375,7 @@ class CreateAppRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_app' function.
 class UpdateAppRequest(BaseValidatorModel):
     appArn: str
     assessmentSchedule: Optional[AppAssessmentScheduleTypeType] = None
@@ -1304,53 +1417,62 @@ class AppAssessment(BaseValidatorModel):
     versionName: Optional[str] = None
 
 
+# This class is the output for the 'list_app_component_recommendations' function.
 class ListAppComponentRecommendationsResponse(BaseValidatorModel):
     componentRecommendations: List[ComponentRecommendation]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_app_assessment_resource_drifts' function.
 class ListAppAssessmentResourceDriftsResponse(BaseValidatorModel):
     resourceDrifts: List[ResourceDrift]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_alarm_recommendations' function.
 class ListAlarmRecommendationsResponse(BaseValidatorModel):
     alarmRecommendations: List[AlarmRecommendation]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_sop_recommendations' function.
 class ListSopRecommendationsResponse(BaseValidatorModel):
     sopRecommendations: List[SopRecommendation]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_test_recommendations' function.
 class ListTestRecommendationsResponse(BaseValidatorModel):
     testRecommendations: List[TestRecommendation]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_resource_grouping_recommendations' function.
 class ListResourceGroupingRecommendationsResponse(BaseValidatorModel):
     groupingRecommendations: List[GroupingRecommendation]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_app_component_compliances' function.
 class ListAppComponentCompliancesResponse(BaseValidatorModel):
     componentCompliances: List[AppComponentCompliance]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_app_assessment' function.
 class DescribeAppAssessmentResponse(BaseValidatorModel):
     assessment: AppAssessment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_app_assessment' function.
 class StartAppAssessmentResponse(BaseValidatorModel):
     assessment: AppAssessment
     ResponseMetadata: ResponseMetadata

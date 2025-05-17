@@ -125,20 +125,24 @@ class DeleteInputRequest(BaseValidatorModel):
     inputName: str
 
 
+# This class is the input for the 'describe_alarm_model' function.
 class DescribeAlarmModelRequest(BaseValidatorModel):
     alarmModelName: str
     alarmModelVersion: Optional[str] = None
 
 
+# This class is the input for the 'describe_detector_model_analysis' function.
 class DescribeDetectorModelAnalysisRequest(BaseValidatorModel):
     analysisId: str
 
 
+# This class is the input for the 'describe_detector_model' function.
 class DescribeDetectorModelRequest(BaseValidatorModel):
     detectorModelName: str
     detectorModelVersion: Optional[str] = None
 
 
+# This class is the input for the 'describe_input' function.
 class DescribeInputRequest(BaseValidatorModel):
     inputName: str
 
@@ -175,6 +179,7 @@ class EmailContent(BaseValidatorModel):
     additionalMessage: Optional[str] = None
 
 
+# This class is the input for the 'get_detector_model_analysis_results' function.
 class GetDetectorModelAnalysisResultsRequest(BaseValidatorModel):
     analysisId: str
     nextToken: Optional[str] = None
@@ -199,23 +204,27 @@ class IotSiteWiseAssetModelPropertyIdentifier(BaseValidatorModel):
     propertyId: str
 
 
+# This class is the input for the 'list_alarm_model_versions' function.
 class ListAlarmModelVersionsRequest(BaseValidatorModel):
     alarmModelName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_alarm_models' function.
 class ListAlarmModelsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_detector_model_versions' function.
 class ListDetectorModelVersionsRequest(BaseValidatorModel):
     detectorModelName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_detector_models' function.
 class ListDetectorModelsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -226,11 +235,13 @@ class RoutedResource(BaseValidatorModel):
     arn: Optional[str] = None
 
 
+# This class is the input for the 'list_inputs' function.
 class ListInputsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -280,6 +291,7 @@ class TagResourceRequest(BaseValidatorModel):
     tags: List[Tag]
 
 
+# This class is the output for the 'create_alarm_model' function.
 class CreateAlarmModelResponse(BaseValidatorModel):
     creationTime: datetime
     alarmModelArn: str
@@ -289,37 +301,44 @@ class CreateAlarmModelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_detector_model_analysis' function.
 class DescribeDetectorModelAnalysisResponse(BaseValidatorModel):
     status: AnalysisStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_logging_options' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_alarm_model_versions' function.
 class ListAlarmModelVersionsResponse(BaseValidatorModel):
     alarmModelVersionSummaries: List[AlarmModelVersionSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_alarm_models' function.
 class ListAlarmModelsResponse(BaseValidatorModel):
     alarmModelSummaries: List[AlarmModelSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_detector_model_analysis' function.
 class StartDetectorModelAnalysisResponse(BaseValidatorModel):
     analysisId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_alarm_model' function.
 class UpdateAlarmModelResponse(BaseValidatorModel):
     creationTime: datetime
     alarmModelArn: str
@@ -329,21 +348,25 @@ class UpdateAlarmModelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_detector_model' function.
 class CreateDetectorModelResponse(BaseValidatorModel):
     detectorModelConfiguration: DetectorModelConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_detector_model' function.
 class UpdateDetectorModelResponse(BaseValidatorModel):
     detectorModelConfiguration: DetectorModelConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_input' function.
 class CreateInputResponse(BaseValidatorModel):
     inputConfiguration: InputConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_input' function.
 class UpdateInputResponse(BaseValidatorModel):
     inputConfiguration: InputConfiguration
     ResponseMetadata: ResponseMetadata
@@ -363,12 +386,14 @@ class LoggingOptions(BaseValidatorModel):
     detectorDebugOptions: Optional[List[DetectorDebugOption]] = None
 
 
+# This class is the output for the 'list_detector_models' function.
 class ListDetectorModelsResponse(BaseValidatorModel):
     detectorModelSummaries: List[DetectorModelSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_detector_model_versions' function.
 class ListDetectorModelVersionsResponse(BaseValidatorModel):
     detectorModelVersionSummaries: List[DetectorModelVersionSummary]
     ResponseMetadata: ResponseMetadata
@@ -425,6 +450,7 @@ class SqsAction(BaseValidatorModel):
     payload: Optional[Payload] = None
 
 
+# This class is the output for the 'list_inputs' function.
 class ListInputsResponse(BaseValidatorModel):
     inputSummaries: List[InputSummary]
     ResponseMetadata: ResponseMetadata
@@ -435,6 +461,7 @@ class IotSiteWiseInputIdentifier(BaseValidatorModel):
     iotSiteWiseAssetModelPropertyIdentifier: Optional[IotSiteWiseAssetModelPropertyIdentifier] = None
 
 
+# This class is the output for the 'list_input_routings' function.
 class ListInputRoutingsResponse(BaseValidatorModel):
     routedResources: List[RoutedResource]
     ResponseMetadata: ResponseMetadata
@@ -445,6 +472,7 @@ class RecipientDetail(BaseValidatorModel):
     ssoIdentity: Optional[SSOIdentity] = None
 
 
+# This class is the output for the 'get_detector_model_analysis_results' function.
 class GetDetectorModelAnalysisResultsResponse(BaseValidatorModel):
     analysisResults: List[AnalysisResult]
     ResponseMetadata: ResponseMetadata
@@ -530,11 +558,13 @@ class AlarmAction(BaseValidatorModel):
     iotSiteWise: Optional[IotSiteWiseAction] = None
 
 
+# This class is the output for the 'describe_input' function.
 class DescribeInputResponse(BaseValidatorModel):
     input: Input
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_input' function.
 class CreateInputRequest(BaseValidatorModel):
     inputName: str
     inputDefinition: InputDefinitionUnion
@@ -542,16 +572,19 @@ class CreateInputRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_input' function.
 class UpdateInputRequest(BaseValidatorModel):
     inputName: str
     inputDefinition: InputDefinitionUnion
     inputDescription: Optional[str] = None
 
 
+# This class is the input for the 'put_logging_options' function.
 class PutLoggingOptionsRequest(BaseValidatorModel):
     loggingOptions: LoggingOptionsUnion
 
 
+# This class is the input for the 'list_input_routings' function.
 class ListInputRoutingsRequest(BaseValidatorModel):
     inputIdentifier: InputIdentifier
     maxResults: Optional[int] = None
@@ -666,6 +699,7 @@ class State(BaseValidatorModel):
     onExit: Optional[OnExitLifecycle] = None
 
 
+# This class is the output for the 'describe_alarm_model' function.
 class DescribeAlarmModelResponse(BaseValidatorModel):
     creationTime: datetime
     alarmModelArn: str
@@ -697,6 +731,7 @@ class DetectorModelDefinition(BaseValidatorModel):
     initialStateName: str
 
 
+# This class is the input for the 'create_alarm_model' function.
 class CreateAlarmModelRequest(BaseValidatorModel):
     alarmModelName: str
     roleArn: str
@@ -710,6 +745,7 @@ class CreateAlarmModelRequest(BaseValidatorModel):
     alarmCapabilities: Optional[AlarmCapabilities] = None
 
 
+# This class is the input for the 'update_alarm_model' function.
 class UpdateAlarmModelRequest(BaseValidatorModel):
     alarmModelName: str
     roleArn: str
@@ -728,11 +764,13 @@ class DetectorModel(BaseValidatorModel):
 DetectorModelDefinitionUnion = Union[DetectorModelDefinition, DetectorModelDefinitionOutput]
 
 
+# This class is the output for the 'describe_detector_model' function.
 class DescribeDetectorModelResponse(BaseValidatorModel):
     detectorModel: DetectorModel
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_detector_model' function.
 class CreateDetectorModelRequest(BaseValidatorModel):
     detectorModelName: str
     detectorModelDefinition: DetectorModelDefinitionUnion
@@ -743,10 +781,12 @@ class CreateDetectorModelRequest(BaseValidatorModel):
     evaluationMethod: Optional[EvaluationMethodType] = None
 
 
+# This class is the input for the 'start_detector_model_analysis' function.
 class StartDetectorModelAnalysisRequest(BaseValidatorModel):
     detectorModelDefinition: DetectorModelDefinitionUnion
 
 
+# This class is the input for the 'update_detector_model' function.
 class UpdateDetectorModelRequest(BaseValidatorModel):
     detectorModelName: str
     detectorModelDefinition: DetectorModelDefinitionUnion

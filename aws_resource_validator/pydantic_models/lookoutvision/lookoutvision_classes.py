@@ -35,6 +35,7 @@ class Tag(BaseValidatorModel):
     Value: str
 
 
+# This class is the input for the 'create_project' function.
 class CreateProjectRequest(BaseValidatorModel):
     ProjectName: str
     ClientToken: Optional[str] = None
@@ -65,32 +66,38 @@ class DeleteDatasetRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_model' function.
 class DeleteModelRequest(BaseValidatorModel):
     ProjectName: str
     ModelVersion: str
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_project' function.
 class DeleteProjectRequest(BaseValidatorModel):
     ProjectName: str
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_dataset' function.
 class DescribeDatasetRequest(BaseValidatorModel):
     ProjectName: str
     DatasetType: str
 
 
+# This class is the input for the 'describe_model_packaging_job' function.
 class DescribeModelPackagingJobRequest(BaseValidatorModel):
     ProjectName: str
     JobName: str
 
 
+# This class is the input for the 'describe_model' function.
 class DescribeModelRequest(BaseValidatorModel):
     ProjectName: str
     ModelVersion: str
 
 
+# This class is the input for the 'describe_project' function.
 class DescribeProjectRequest(BaseValidatorModel):
     ProjectName: str
 
@@ -124,6 +131,7 @@ class PaginatorConfig(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'list_model_packaging_jobs' function.
 class ListModelPackagingJobsRequest(BaseValidatorModel):
     ProjectName: str
     NextToken: Optional[str] = None
@@ -142,17 +150,20 @@ class ModelPackagingJobMetadata(BaseValidatorModel):
     LastUpdatedTimestamp: Optional[datetime] = None
 
 
+# This class is the input for the 'list_models' function.
 class ListModelsRequest(BaseValidatorModel):
     ProjectName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_projects' function.
 class ListProjectsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -168,6 +179,7 @@ class OutputS3Object(BaseValidatorModel):
     Key: str
 
 
+# This class is the input for the 'start_model' function.
 class StartModelRequest(BaseValidatorModel):
     ProjectName: str
     ModelVersion: str
@@ -176,6 +188,7 @@ class StartModelRequest(BaseValidatorModel):
     MaxInferenceUnits: Optional[int] = None
 
 
+# This class is the input for the 'stop_model' function.
 class StopModelRequest(BaseValidatorModel):
     ProjectName: str
     ModelVersion: str
@@ -192,6 +205,7 @@ class Anomaly(BaseValidatorModel):
     PixelAnomaly: Optional[PixelAnomaly] = None
 
 
+# This class is the input for the 'detect_anomalies' function.
 class DetectAnomaliesRequest(BaseValidatorModel):
     ProjectName: str
     ModelVersion: str
@@ -199,6 +213,7 @@ class DetectAnomaliesRequest(BaseValidatorModel):
     ContentType: str
 
 
+# This class is the input for the 'update_dataset_entries' function.
 class UpdateDatasetEntriesRequest(BaseValidatorModel):
     ProjectName: str
     DatasetType: str
@@ -213,47 +228,56 @@ class ProjectDescription(BaseValidatorModel):
     Datasets: Optional[List[DatasetMetadata]] = None
 
 
+# This class is the output for the 'create_dataset' function.
 class CreateDatasetResponse(BaseValidatorModel):
     DatasetMetadata: DatasetMetadata
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_model' function.
 class DeleteModelResponse(BaseValidatorModel):
     ModelArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_project' function.
 class DeleteProjectResponse(BaseValidatorModel):
     ProjectArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_dataset_entries' function.
 class ListDatasetEntriesResponse(BaseValidatorModel):
     DatasetEntries: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_model_packaging_job' function.
 class StartModelPackagingJobResponse(BaseValidatorModel):
     JobName: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_model' function.
 class StartModelResponse(BaseValidatorModel):
     Status: ModelHostingStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_model' function.
 class StopModelResponse(BaseValidatorModel):
     Status: ModelHostingStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_dataset_entries' function.
 class UpdateDatasetEntriesResponse(BaseValidatorModel):
     Status: DatasetStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -264,11 +288,13 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the output for the 'create_project' function.
 class CreateProjectResponse(BaseValidatorModel):
     ProjectMetadata: ProjectMetadata
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_projects' function.
 class ListProjectsResponse(BaseValidatorModel):
     Projects: List[ProjectMetadata]
     ResponseMetadata: ResponseMetadata
@@ -344,6 +370,7 @@ class ListDatasetEntriesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_dataset_entries' function.
 class ListDatasetEntriesRequest(BaseValidatorModel):
     ProjectName: str
     DatasetType: str
@@ -356,6 +383,7 @@ class ListDatasetEntriesRequest(BaseValidatorModel):
     SourceRefContains: Optional[str] = None
 
 
+# This class is the output for the 'list_model_packaging_jobs' function.
 class ListModelPackagingJobsResponse(BaseValidatorModel):
     ModelPackagingJobs: List[ModelPackagingJobMetadata]
     ResponseMetadata: ResponseMetadata
@@ -380,11 +408,13 @@ class DetectAnomalyResult(BaseValidatorModel):
     AnomalyMask: Optional[bytes] = None
 
 
+# This class is the output for the 'describe_project' function.
 class DescribeProjectResponse(BaseValidatorModel):
     ProjectDescription: ProjectDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_dataset' function.
 class DescribeDatasetResponse(BaseValidatorModel):
     DatasetDescription: DatasetDescription
     ResponseMetadata: ResponseMetadata
@@ -394,6 +424,7 @@ class DatasetSource(BaseValidatorModel):
     GroundTruthManifest: Optional[DatasetGroundTruthManifest] = None
 
 
+# This class is the input for the 'create_model' function.
 class CreateModelRequest(BaseValidatorModel):
     ProjectName: str
     OutputConfig: OutputConfig
@@ -428,22 +459,26 @@ class ModelPackagingConfiguration(BaseValidatorModel):
     Greengrass: GreengrassConfiguration
 
 
+# This class is the output for the 'create_model' function.
 class CreateModelResponse(BaseValidatorModel):
     ModelMetadata: ModelMetadata
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_models' function.
 class ListModelsResponse(BaseValidatorModel):
     Models: List[ModelMetadata]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'detect_anomalies' function.
 class DetectAnomaliesResponse(BaseValidatorModel):
     DetectAnomalyResult: DetectAnomalyResult
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_dataset' function.
 class CreateDatasetRequest(BaseValidatorModel):
     ProjectName: str
     DatasetType: str
@@ -451,6 +486,7 @@ class CreateDatasetRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_model' function.
 class DescribeModelResponse(BaseValidatorModel):
     ModelDescription: ModelDescription
     ResponseMetadata: ResponseMetadata
@@ -472,11 +508,13 @@ class ModelPackagingDescription(BaseValidatorModel):
 ModelPackagingConfigurationUnion = Union[ModelPackagingConfiguration, ModelPackagingConfigurationOutput]
 
 
+# This class is the output for the 'describe_model_packaging_job' function.
 class DescribeModelPackagingJobResponse(BaseValidatorModel):
     ModelPackagingDescription: ModelPackagingDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_model_packaging_job' function.
 class StartModelPackagingJobRequest(BaseValidatorModel):
     ProjectName: str
     ModelVersion: str

@@ -106,6 +106,7 @@ class SsmActionDefinition(BaseValidatorModel):
     InstanceIds: List[str]
 
 
+# This class is the input for the 'delete_budget_action' function.
 class DeleteBudgetActionRequest(BaseValidatorModel):
     AccountId: str
     BudgetName: str
@@ -123,18 +124,21 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_budget_action' function.
 class DescribeBudgetActionRequest(BaseValidatorModel):
     AccountId: str
     BudgetName: str
     ActionId: str
 
 
+# This class is the input for the 'describe_budget_actions_for_account' function.
 class DescribeBudgetActionsForAccountRequest(BaseValidatorModel):
     AccountId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_budget_actions_for_budget' function.
 class DescribeBudgetActionsForBudgetRequest(BaseValidatorModel):
     AccountId: str
     BudgetName: str
@@ -142,23 +146,27 @@ class DescribeBudgetActionsForBudgetRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_budget_notifications_for_account' function.
 class DescribeBudgetNotificationsForAccountRequest(BaseValidatorModel):
     AccountId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_budget' function.
 class DescribeBudgetRequest(BaseValidatorModel):
     AccountId: str
     BudgetName: str
 
 
+# This class is the input for the 'describe_budgets' function.
 class DescribeBudgetsRequest(BaseValidatorModel):
     AccountId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_notifications_for_budget' function.
 class DescribeNotificationsForBudgetRequest(BaseValidatorModel):
     AccountId: str
     BudgetName: str
@@ -166,6 +174,7 @@ class DescribeNotificationsForBudgetRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'execute_budget_action' function.
 class ExecuteBudgetActionRequest(BaseValidatorModel):
     AccountId: str
     BudgetName: str
@@ -173,6 +182,7 @@ class ExecuteBudgetActionRequest(BaseValidatorModel):
     ExecutionType: ExecutionTypeType
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
@@ -231,6 +241,7 @@ class DeleteSubscriberRequest(BaseValidatorModel):
     Subscriber: Subscriber
 
 
+# This class is the input for the 'describe_subscribers_for_notification' function.
 class DescribeSubscribersForNotificationRequest(BaseValidatorModel):
     AccountId: str
     BudgetName: str
@@ -275,6 +286,7 @@ class TagResourceRequest(BaseValidatorModel):
     ResourceTags: List[ResourceTag]
 
 
+# This class is the output for the 'create_budget_action' function.
 class CreateBudgetActionResponse(BaseValidatorModel):
     AccountId: str
     BudgetName: str
@@ -282,18 +294,21 @@ class CreateBudgetActionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_notifications_for_budget' function.
 class DescribeNotificationsForBudgetResponse(BaseValidatorModel):
     Notifications: List[Notification]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_subscribers_for_notification' function.
 class DescribeSubscribersForNotificationResponse(BaseValidatorModel):
     Subscribers: List[Subscriber]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'execute_budget_action' function.
 class ExecuteBudgetActionResponse(BaseValidatorModel):
     AccountId: str
     BudgetName: str
@@ -302,6 +317,7 @@ class ExecuteBudgetActionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     ResourceTags: List[ResourceTag]
     ResponseMetadata: ResponseMetadata
@@ -355,6 +371,7 @@ class DescribeSubscribersForNotificationRequestPaginate(BaseValidatorModel):
 TimePeriodUnion = Union[TimePeriod, TimePeriodOutput]
 
 
+# This class is the output for the 'describe_budget_notifications_for_account' function.
 class DescribeBudgetNotificationsForAccountResponse(BaseValidatorModel):
     BudgetNotificationsForAccount: List[BudgetNotificationsForAccount]
     ResponseMetadata: ResponseMetadata
@@ -421,6 +438,7 @@ class DescribeBudgetActionHistoriesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_budget_action_histories' function.
 class DescribeBudgetActionHistoriesRequest(BaseValidatorModel):
     AccountId: str
     BudgetName: str
@@ -437,6 +455,7 @@ class DescribeBudgetPerformanceHistoryRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_budget_performance_history' function.
 class DescribeBudgetPerformanceHistoryRequest(BaseValidatorModel):
     AccountId: str
     BudgetName: str
@@ -445,11 +464,13 @@ class DescribeBudgetPerformanceHistoryRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_budget' function.
 class DescribeBudgetResponse(BaseValidatorModel):
     Budget: BudgetOutput
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_budgets' function.
 class DescribeBudgetsResponse(BaseValidatorModel):
     Budgets: List[BudgetOutput]
     ResponseMetadata: ResponseMetadata
@@ -458,6 +479,7 @@ class DescribeBudgetsResponse(BaseValidatorModel):
 BudgetUnion = Union[Budget, BudgetOutput]
 
 
+# This class is the output for the 'describe_budget_performance_history' function.
 class DescribeBudgetPerformanceHistoryResponse(BaseValidatorModel):
     BudgetPerformanceHistory: BudgetPerformanceHistory
     ResponseMetadata: ResponseMetadata
@@ -469,6 +491,7 @@ class ActionHistoryDetails(BaseValidatorModel):
     Action: Action
 
 
+# This class is the output for the 'delete_budget_action' function.
 class DeleteBudgetActionResponse(BaseValidatorModel):
     AccountId: str
     BudgetName: str
@@ -476,6 +499,7 @@ class DeleteBudgetActionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_budget_action' function.
 class DescribeBudgetActionResponse(BaseValidatorModel):
     AccountId: str
     BudgetName: str
@@ -483,18 +507,21 @@ class DescribeBudgetActionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_budget_actions_for_account' function.
 class DescribeBudgetActionsForAccountResponse(BaseValidatorModel):
     Actions: List[Action]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_budget_actions_for_budget' function.
 class DescribeBudgetActionsForBudgetResponse(BaseValidatorModel):
     Actions: List[Action]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_budget_action' function.
 class UpdateBudgetActionResponse(BaseValidatorModel):
     AccountId: str
     BudgetName: str
@@ -503,6 +530,7 @@ class UpdateBudgetActionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_budget_action' function.
 class CreateBudgetActionRequest(BaseValidatorModel):
     AccountId: str
     BudgetName: str
@@ -516,6 +544,7 @@ class CreateBudgetActionRequest(BaseValidatorModel):
     ResourceTags: Optional[List[ResourceTag]] = None
 
 
+# This class is the input for the 'update_budget_action' function.
 class UpdateBudgetActionRequest(BaseValidatorModel):
     AccountId: str
     BudgetName: str
@@ -547,6 +576,7 @@ class ActionHistory(BaseValidatorModel):
     ActionHistoryDetails: ActionHistoryDetails
 
 
+# This class is the output for the 'describe_budget_action_histories' function.
 class DescribeBudgetActionHistoriesResponse(BaseValidatorModel):
     ActionHistories: List[ActionHistory]
     ResponseMetadata: ResponseMetadata

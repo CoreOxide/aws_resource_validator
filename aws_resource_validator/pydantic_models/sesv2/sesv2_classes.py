@@ -267,6 +267,7 @@ class DeleteEmailTemplateRequest(BaseValidatorModel):
     TemplateName: str
 
 
+# This class is the input for the 'delete_multi_region_endpoint' function.
 class DeleteMultiRegionEndpointRequest(BaseValidatorModel):
     EndpointName: str
 
@@ -365,14 +366,17 @@ class SuppressionAttributes(BaseValidatorModel):
     SuppressedReasons: Optional[List[SuppressionListReasonType]] = None
 
 
+# This class is the input for the 'get_blacklist_reports' function.
 class GetBlacklistReportsRequest(BaseValidatorModel):
     BlacklistItemNames: List[str]
 
 
+# This class is the input for the 'get_configuration_set_event_destinations' function.
 class GetConfigurationSetEventDestinationsRequest(BaseValidatorModel):
     ConfigurationSetName: str
 
 
+# This class is the input for the 'get_configuration_set' function.
 class GetConfigurationSetRequest(BaseValidatorModel):
     ConfigurationSetName: str
 
@@ -386,33 +390,40 @@ class SuppressionOptionsOutput(BaseValidatorModel):
     SuppressedReasons: Optional[List[SuppressionListReasonType]] = None
 
 
+# This class is the input for the 'get_contact_list' function.
 class GetContactListRequest(BaseValidatorModel):
     ContactListName: str
 
 
+# This class is the input for the 'get_contact' function.
 class GetContactRequest(BaseValidatorModel):
     ContactListName: str
     EmailAddress: str
 
 
+# This class is the input for the 'get_custom_verification_email_template' function.
 class GetCustomVerificationEmailTemplateRequest(BaseValidatorModel):
     TemplateName: str
 
 
+# This class is the input for the 'get_dedicated_ip_pool' function.
 class GetDedicatedIpPoolRequest(BaseValidatorModel):
     PoolName: str
 
 
+# This class is the input for the 'get_dedicated_ip' function.
 class GetDedicatedIpRequest(BaseValidatorModel):
     Ip: str
 
 
+# This class is the input for the 'get_dedicated_ips' function.
 class GetDedicatedIpsRequest(BaseValidatorModel):
     PoolName: Optional[str] = None
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
+# This class is the input for the 'get_deliverability_test_report' function.
 class GetDeliverabilityTestReportRequest(BaseValidatorModel):
     ReportId: str
 
@@ -425,14 +436,17 @@ class PlacementStatistics(BaseValidatorModel):
     DkimPercentage: Optional[float] = None
 
 
+# This class is the input for the 'get_domain_deliverability_campaign' function.
 class GetDomainDeliverabilityCampaignRequest(BaseValidatorModel):
     CampaignId: str
 
 
+# This class is the input for the 'get_email_identity_policies' function.
 class GetEmailIdentityPoliciesRequest(BaseValidatorModel):
     EmailIdentity: str
 
 
+# This class is the input for the 'get_email_identity' function.
 class GetEmailIdentityRequest(BaseValidatorModel):
     EmailIdentity: str
 
@@ -443,22 +457,27 @@ class MailFromAttributes(BaseValidatorModel):
     BehaviorOnMxFailure: BehaviorOnMxFailureType
 
 
+# This class is the input for the 'get_email_template' function.
 class GetEmailTemplateRequest(BaseValidatorModel):
     TemplateName: str
 
 
+# This class is the input for the 'get_export_job' function.
 class GetExportJobRequest(BaseValidatorModel):
     JobId: str
 
 
+# This class is the input for the 'get_import_job' function.
 class GetImportJobRequest(BaseValidatorModel):
     JobId: str
 
 
+# This class is the input for the 'get_message_insights' function.
 class GetMessageInsightsRequest(BaseValidatorModel):
     MessageId: str
 
 
+# This class is the input for the 'get_multi_region_endpoint' function.
 class GetMultiRegionEndpointRequest(BaseValidatorModel):
     EndpointName: str
 
@@ -467,6 +486,7 @@ class Route(BaseValidatorModel):
     Region: str
 
 
+# This class is the input for the 'get_suppressed_destination' function.
 class GetSuppressedDestinationRequest(BaseValidatorModel):
     EmailAddress: str
 
@@ -495,11 +515,13 @@ class InboxPlacementTrackingOption(BaseValidatorModel):
     TrackedIsps: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_configuration_sets' function.
 class ListConfigurationSetsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
+# This class is the input for the 'list_contact_lists' function.
 class ListContactListsRequest(BaseValidatorModel):
     PageSize: Optional[int] = None
     NextToken: Optional[str] = None
@@ -510,31 +532,37 @@ class TopicFilter(BaseValidatorModel):
     UseDefaultIfPreferenceUnavailable: Optional[bool] = None
 
 
+# This class is the input for the 'list_custom_verification_email_templates' function.
 class ListCustomVerificationEmailTemplatesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
+# This class is the input for the 'list_dedicated_ip_pools' function.
 class ListDedicatedIpPoolsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
+# This class is the input for the 'list_deliverability_test_reports' function.
 class ListDeliverabilityTestReportsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
+# This class is the input for the 'list_email_identities' function.
 class ListEmailIdentitiesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
+# This class is the input for the 'list_email_templates' function.
 class ListEmailTemplatesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
+# This class is the input for the 'list_export_jobs' function.
 class ListExportJobsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
@@ -542,6 +570,7 @@ class ListExportJobsRequest(BaseValidatorModel):
     JobStatus: Optional[JobStatusType] = None
 
 
+# This class is the input for the 'list_import_jobs' function.
 class ListImportJobsRequest(BaseValidatorModel):
     ImportDestinationType: Optional[ImportDestinationTypeType] = None
     NextToken: Optional[str] = None
@@ -559,6 +588,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_multi_region_endpoints' function.
 class ListMultiRegionEndpointsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
@@ -573,6 +603,7 @@ class MultiRegionEndpoint(BaseValidatorModel):
     LastUpdatedTimestamp: Optional[datetime] = None
 
 
+# This class is the input for the 'list_recommendations' function.
 class ListRecommendationsRequest(BaseValidatorModel):
     Filter: Optional[Dict[ListRecommendationsFilterKeyType, str]] = None
     NextToken: Optional[str] = None
@@ -595,6 +626,7 @@ class SuppressedDestinationSummary(BaseValidatorModel):
     LastUpdateTime: datetime
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -722,6 +754,7 @@ class SOARecord(BaseValidatorModel):
     SerialNumber: Optional[int] = None
 
 
+# This class is the input for the 'send_custom_verification_email' function.
 class SendCustomVerificationEmailRequest(BaseValidatorModel):
     EmailAddress: str
     TemplateName: str
@@ -737,6 +770,7 @@ class SuppressionOptions(BaseValidatorModel):
     SuppressedReasons: Optional[List[SuppressionListReasonType]] = None
 
 
+# This class is the input for the 'test_render_email_template' function.
 class TestRenderEmailTemplateRequest(BaseValidatorModel):
     TemplateName: str
     TemplateData: str
@@ -780,12 +814,14 @@ class BatchGetMetricDataQuery(BaseValidatorModel):
     Dimensions: Optional[Dict[MetricDimensionNameType, str]] = None
 
 
+# This class is the input for the 'get_domain_statistics_report' function.
 class GetDomainStatisticsReportRequest(BaseValidatorModel):
     Domain: str
     StartDate: Timestamp
     EndDate: Timestamp
 
 
+# This class is the input for the 'list_domain_deliverability_campaigns' function.
 class ListDomainDeliverabilityCampaignsRequest(BaseValidatorModel):
     StartDate: Timestamp
     EndDate: Timestamp
@@ -794,6 +830,7 @@ class ListDomainDeliverabilityCampaignsRequest(BaseValidatorModel):
     PageSize: Optional[int] = None
 
 
+# This class is the input for the 'list_suppressed_destinations' function.
 class ListSuppressedDestinationsRequest(BaseValidatorModel):
     Reasons: Optional[List[SuppressionListReasonType]] = None
     StartDate: Optional[Timestamp] = None
@@ -807,39 +844,46 @@ class ReputationOptions(BaseValidatorModel):
     LastFreshStart: Optional[Timestamp] = None
 
 
+# This class is the output for the 'batch_get_metric_data' function.
 class BatchGetMetricDataResponse(BaseValidatorModel):
     Results: List[MetricDataResult]
     Errors: List[MetricDataError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_deliverability_test_report' function.
 class CreateDeliverabilityTestReportResponse(BaseValidatorModel):
     ReportId: str
     DeliverabilityTestStatus: DeliverabilityTestStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_export_job' function.
 class CreateExportJobResponse(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_import_job' function.
 class CreateImportJobResponse(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_multi_region_endpoint' function.
 class CreateMultiRegionEndpointResponse(BaseValidatorModel):
     Status: StatusType
     EndpointId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_multi_region_endpoint' function.
 class DeleteMultiRegionEndpointResponse(BaseValidatorModel):
     Status: StatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_custom_verification_email_template' function.
 class GetCustomVerificationEmailTemplateResponse(BaseValidatorModel):
     TemplateName: str
     FromEmailAddress: str
@@ -850,44 +894,52 @@ class GetCustomVerificationEmailTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_email_identity_policies' function.
 class GetEmailIdentityPoliciesResponse(BaseValidatorModel):
     Policies: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_configuration_sets' function.
 class ListConfigurationSetsResponse(BaseValidatorModel):
     ConfigurationSets: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_dedicated_ip_pools' function.
 class ListDedicatedIpPoolsResponse(BaseValidatorModel):
     DedicatedIpPools: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'put_email_identity_dkim_signing_attributes' function.
 class PutEmailIdentityDkimSigningAttributesResponse(BaseValidatorModel):
     DkimStatus: DkimStatusType
     DkimTokens: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'send_custom_verification_email' function.
 class SendCustomVerificationEmailResponse(BaseValidatorModel):
     MessageId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'send_email' function.
 class SendEmailResponse(BaseValidatorModel):
     MessageId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'test_render_email_template' function.
 class TestRenderEmailTemplateResponse(BaseValidatorModel):
     RenderedTemplate: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_blacklist_reports' function.
 class GetBlacklistReportsResponse(BaseValidatorModel):
     BlacklistReport: Dict[str, List[BlacklistEntry]]
     ResponseMetadata: ResponseMetadata
@@ -902,6 +954,7 @@ class Body(BaseValidatorModel):
     Html: Optional[Content] = None
 
 
+# This class is the output for the 'send_bulk_email' function.
 class SendBulkEmailResponse(BaseValidatorModel):
     BulkEmailEntryResults: List[BulkEmailEntryResult]
     ResponseMetadata: ResponseMetadata
@@ -920,6 +973,7 @@ class EventDetails(BaseValidatorModel):
     Complaint: Optional[Complaint] = None
 
 
+# This class is the output for the 'list_contact_lists' function.
 class ListContactListsResponse(BaseValidatorModel):
     ContactLists: List[ContactList]
     ResponseMetadata: ResponseMetadata
@@ -942,6 +996,7 @@ class CreateContactRequest(BaseValidatorModel):
     AttributesData: Optional[str] = None
 
 
+# This class is the output for the 'get_contact' function.
 class GetContactResponse(BaseValidatorModel):
     ContactListName: str
     EmailAddress: str
@@ -968,6 +1023,7 @@ class CreateDedicatedIpPoolRequest(BaseValidatorModel):
     ScalingMode: Optional[ScalingModeType] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -985,6 +1041,7 @@ class CreateContactListRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'get_contact_list' function.
 class GetContactListResponse(BaseValidatorModel):
     ContactListName: str
     Topics: List[Topic]
@@ -1001,6 +1058,7 @@ class UpdateContactListRequest(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'create_email_identity' function.
 class CreateEmailIdentityRequest(BaseValidatorModel):
     EmailIdentity: str
     Tags: Optional[List[Tag]] = None
@@ -1008,12 +1066,14 @@ class CreateEmailIdentityRequest(BaseValidatorModel):
     ConfigurationSetName: Optional[str] = None
 
 
+# This class is the input for the 'put_email_identity_dkim_signing_attributes' function.
 class PutEmailIdentityDkimSigningAttributesRequest(BaseValidatorModel):
     EmailIdentity: str
     SigningAttributesOrigin: DkimSigningAttributesOriginType
     SigningAttributes: Optional[DkimSigningAttributes] = None
 
 
+# This class is the output for the 'create_email_identity' function.
 class CreateEmailIdentityResponse(BaseValidatorModel):
     IdentityType: IdentityTypeType
     VerifiedForSendingStatus: bool
@@ -1026,6 +1086,7 @@ class CreateEmailTemplateRequest(BaseValidatorModel):
     TemplateContent: EmailTemplateContent
 
 
+# This class is the output for the 'get_email_template' function.
 class GetEmailTemplateResponse(BaseValidatorModel):
     TemplateName: str
     TemplateContent: EmailTemplateContent
@@ -1045,6 +1106,7 @@ class UpdateEmailTemplateRequest(BaseValidatorModel):
     TemplateContent: EmailTemplateContent
 
 
+# This class is the output for the 'list_custom_verification_email_templates' function.
 class ListCustomVerificationEmailTemplatesResponse(BaseValidatorModel):
     CustomVerificationEmailTemplates: List[CustomVerificationEmailTemplateMetadata]
     ResponseMetadata: ResponseMetadata
@@ -1063,22 +1125,26 @@ class OverallVolume(BaseValidatorModel):
     DomainIspPlacements: Optional[List[DomainIspPlacement]] = None
 
 
+# This class is the output for the 'get_dedicated_ip_pool' function.
 class GetDedicatedIpPoolResponse(BaseValidatorModel):
     DedicatedIpPool: DedicatedIpPool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_dedicated_ip' function.
 class GetDedicatedIpResponse(BaseValidatorModel):
     DedicatedIp: DedicatedIp
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_dedicated_ips' function.
 class GetDedicatedIpsResponse(BaseValidatorModel):
     DedicatedIps: List[DedicatedIp]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_deliverability_test_reports' function.
 class ListDeliverabilityTestReportsResponse(BaseValidatorModel):
     DeliverabilityTestReports: List[DeliverabilityTestReport]
     ResponseMetadata: ResponseMetadata
@@ -1089,11 +1155,13 @@ class Details(BaseValidatorModel):
     RoutesDetails: List[RouteDetails]
 
 
+# This class is the output for the 'get_domain_deliverability_campaign' function.
 class GetDomainDeliverabilityCampaignResponse(BaseValidatorModel):
     DomainDeliverabilityCampaign: DomainDeliverabilityCampaign
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_domain_deliverability_campaigns' function.
 class ListDomainDeliverabilityCampaignsResponse(BaseValidatorModel):
     DomainDeliverabilityCampaigns: List[DomainDeliverabilityCampaign]
     ResponseMetadata: ResponseMetadata
@@ -1106,12 +1174,14 @@ class DomainDeliverabilityTrackingOptionOutput(BaseValidatorModel):
     InboxPlacementTrackingOption: Optional[InboxPlacementTrackingOptionOutput] = None
 
 
+# This class is the output for the 'list_email_templates' function.
 class ListEmailTemplatesResponse(BaseValidatorModel):
     TemplatesMetadata: List[EmailTemplateMetadata]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_export_jobs' function.
 class ListExportJobsResponse(BaseValidatorModel):
     ExportJobs: List[ExportJobSummary]
     ResponseMetadata: ResponseMetadata
@@ -1139,6 +1209,7 @@ class IspPlacement(BaseValidatorModel):
     PlacementStatistics: Optional[PlacementStatistics] = None
 
 
+# This class is the output for the 'get_multi_region_endpoint' function.
 class GetMultiRegionEndpointResponse(BaseValidatorModel):
     EndpointName: str
     EndpointId: str
@@ -1160,6 +1231,7 @@ class VdmOptions(BaseValidatorModel):
     GuardianOptions: Optional[GuardianOptions] = None
 
 
+# This class is the output for the 'list_email_identities' function.
 class ListEmailIdentitiesResponse(BaseValidatorModel):
     EmailIdentities: List[IdentityInfo]
     ResponseMetadata: ResponseMetadata
@@ -1182,18 +1254,21 @@ class ListMultiRegionEndpointsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_multi_region_endpoints' function.
 class ListMultiRegionEndpointsResponse(BaseValidatorModel):
     MultiRegionEndpoints: List[MultiRegionEndpoint]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_recommendations' function.
 class ListRecommendationsResponse(BaseValidatorModel):
     Recommendations: List[Recommendation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_suppressed_destinations' function.
 class ListSuppressedDestinationsResponse(BaseValidatorModel):
     SuppressedDestinationSummaries: List[SuppressedDestinationSummary]
     ResponseMetadata: ResponseMetadata
@@ -1236,6 +1311,7 @@ class SuppressedDestination(BaseValidatorModel):
 SuppressionOptionsUnion = Union[SuppressionOptions, SuppressionOptionsOutput]
 
 
+# This class is the input for the 'batch_get_metric_data' function.
 class BatchGetMetricDataRequest(BaseValidatorModel):
     Queries: List[BatchGetMetricDataQuery]
 
@@ -1267,6 +1343,7 @@ class InsightsEvent(BaseValidatorModel):
     Details: Optional[EventDetails] = None
 
 
+# This class is the output for the 'list_contacts' function.
 class ListContactsResponse(BaseValidatorModel):
     Contacts: List[Contact]
     ResponseMetadata: ResponseMetadata
@@ -1277,12 +1354,14 @@ class BulkEmailContent(BaseValidatorModel):
     Template: Optional[Template] = None
 
 
+# This class is the output for the 'get_domain_statistics_report' function.
 class GetDomainStatisticsReportResponse(BaseValidatorModel):
     OverallVolume: OverallVolume
     DailyVolumes: List[DailyVolume]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_multi_region_endpoint' function.
 class CreateMultiRegionEndpointRequest(BaseValidatorModel):
     EndpointName: str
     Details: Details
@@ -1298,6 +1377,7 @@ class GetDeliverabilityDashboardOptionsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_deliverability_test_report' function.
 class GetDeliverabilityTestReportResponse(BaseValidatorModel):
     DeliverabilityTestReport: DeliverabilityTestReport
     OverallPlacement: PlacementStatistics
@@ -1323,6 +1403,7 @@ class PutAccountVdmAttributesRequest(BaseValidatorModel):
     VdmAttributes: VdmAttributes
 
 
+# This class is the output for the 'get_configuration_set' function.
 class GetConfigurationSetResponse(BaseValidatorModel):
     ConfigurationSetName: str
     TrackingOptions: TrackingOptions
@@ -1341,11 +1422,13 @@ class PutConfigurationSetVdmOptionsRequest(BaseValidatorModel):
     VdmOptions: Optional[VdmOptions] = None
 
 
+# This class is the input for the 'create_import_job' function.
 class CreateImportJobRequest(BaseValidatorModel):
     ImportDestination: ImportDestination
     ImportDataSource: ImportDataSource
 
 
+# This class is the output for the 'get_import_job' function.
 class GetImportJobResponse(BaseValidatorModel):
     JobId: str
     ImportDestination: ImportDestination
@@ -1374,6 +1457,7 @@ class DomainDeliverabilityTrackingOption(BaseValidatorModel):
     InboxPlacementTrackingOption: Optional[InboxPlacementTrackingOptionUnion] = None
 
 
+# This class is the input for the 'list_contacts' function.
 class ListContactsRequest(BaseValidatorModel):
     ContactListName: str
     Filter: Optional[ListContactsFilter] = None
@@ -1398,6 +1482,7 @@ class BulkEmailEntry(BaseValidatorModel):
     ReplacementHeaders: Optional[List[MessageHeader]] = None
 
 
+# This class is the output for the 'get_email_identity' function.
 class GetEmailIdentityResponse(BaseValidatorModel):
     IdentityType: IdentityTypeType
     FeedbackForwardingStatus: bool
@@ -1412,6 +1497,7 @@ class GetEmailIdentityResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_suppressed_destination' function.
 class GetSuppressedDestinationResponse(BaseValidatorModel):
     SuppressedDestination: SuppressedDestination
     ResponseMetadata: ResponseMetadata
@@ -1435,6 +1521,7 @@ class EmailContent(BaseValidatorModel):
     Template: Optional[Template] = None
 
 
+# This class is the output for the 'get_configuration_set_event_destinations' function.
 class GetConfigurationSetEventDestinationsResponse(BaseValidatorModel):
     EventDestinations: List[EventDestination]
     ResponseMetadata: ResponseMetadata
@@ -1456,6 +1543,7 @@ class EmailInsights(BaseValidatorModel):
     Events: Optional[List[InsightsEvent]] = None
 
 
+# This class is the output for the 'list_import_jobs' function.
 class ListImportJobsResponse(BaseValidatorModel):
     ImportJobs: List[ImportJobSummary]
     ResponseMetadata: ResponseMetadata
@@ -1464,6 +1552,7 @@ class ListImportJobsResponse(BaseValidatorModel):
 DomainDeliverabilityTrackingOptionUnion = Union[DomainDeliverabilityTrackingOption, DomainDeliverabilityTrackingOptionOutput]
 
 
+# This class is the output for the 'get_export_job' function.
 class GetExportJobResponse(BaseValidatorModel):
     JobId: str
     ExportSourceType: ExportSourceTypeType
@@ -1479,6 +1568,7 @@ class GetExportJobResponse(BaseValidatorModel):
 ExportDataSourceUnion = Union[ExportDataSource, ExportDataSourceOutput]
 
 
+# This class is the input for the 'send_bulk_email' function.
 class SendBulkEmailRequest(BaseValidatorModel):
     DefaultContent: BulkEmailContent
     BulkEmailEntries: List[BulkEmailEntry]
@@ -1492,6 +1582,7 @@ class SendBulkEmailRequest(BaseValidatorModel):
     EndpointId: Optional[str] = None
 
 
+# This class is the input for the 'create_deliverability_test_report' function.
 class CreateDeliverabilityTestReportRequest(BaseValidatorModel):
     FromEmailAddress: str
     Content: EmailContent
@@ -1499,6 +1590,7 @@ class CreateDeliverabilityTestReportRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'send_email' function.
 class SendEmailRequest(BaseValidatorModel):
     Content: EmailContent
     FromEmailAddress: Optional[str] = None
@@ -1525,6 +1617,7 @@ class UpdateConfigurationSetEventDestinationRequest(BaseValidatorModel):
     EventDestination: EventDestinationDefinition
 
 
+# This class is the output for the 'get_message_insights' function.
 class GetMessageInsightsResponse(BaseValidatorModel):
     MessageId: str
     FromEmailAddress: str
@@ -1539,6 +1632,7 @@ class PutDeliverabilityDashboardOptionRequest(BaseValidatorModel):
     SubscribedDomains: Optional[List[DomainDeliverabilityTrackingOptionUnion]] = None
 
 
+# This class is the input for the 'create_export_job' function.
 class CreateExportJobRequest(BaseValidatorModel):
     ExportDataSource: ExportDataSourceUnion
     ExportDestination: ExportDestination

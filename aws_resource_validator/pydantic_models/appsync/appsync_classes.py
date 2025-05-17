@@ -56,6 +56,7 @@ class AppSyncRuntime(BaseValidatorModel):
     runtimeVersion: str
 
 
+# This class is the input for the 'associate_api' function.
 class AssociateApiRequest(BaseValidatorModel):
     domainName: str
     apiId: str
@@ -106,6 +107,7 @@ class CodeErrorLocation(BaseValidatorModel):
     span: Optional[int] = None
 
 
+# This class is the input for the 'create_api_cache' function.
 class CreateApiCacheRequest(BaseValidatorModel):
     apiId: str
     ttl: int
@@ -116,6 +118,7 @@ class CreateApiCacheRequest(BaseValidatorModel):
     healthMetricsConfig: Optional[CacheHealthMetricsConfigType] = None
 
 
+# This class is the input for the 'create_api_key' function.
 class CreateApiKeyRequest(BaseValidatorModel):
     apiId: str
     description: Optional[str] = None
@@ -140,6 +143,7 @@ class OpenSearchServiceDataSourceConfig(BaseValidatorModel):
     awsRegion: str
 
 
+# This class is the input for the 'create_domain_name' function.
 class CreateDomainNameRequest(BaseValidatorModel):
     domainName: str
     certificateArn: str
@@ -173,6 +177,7 @@ class UserPoolConfig(BaseValidatorModel):
     appIdClientRegex: Optional[str] = None
 
 
+# This class is the input for the 'create_type' function.
 class CreateTypeRequest(BaseValidatorModel):
     apiId: str
     definition: str
@@ -256,11 +261,13 @@ class DisassociateApiRequest(BaseValidatorModel):
     domainName: str
 
 
+# This class is the input for the 'disassociate_merged_graphql_api' function.
 class DisassociateMergedGraphqlApiRequest(BaseValidatorModel):
     sourceApiIdentifier: str
     associationId: str
 
 
+# This class is the input for the 'disassociate_source_graphql_api' function.
 class DisassociateSourceGraphqlApiRequest(BaseValidatorModel):
     mergedApiIdentifier: str
     associationId: str
@@ -270,6 +277,7 @@ class ErrorDetail(BaseValidatorModel):
     message: Optional[str] = None
 
 
+# This class is the input for the 'evaluate_mapping_template' function.
 class EvaluateMappingTemplateRequest(BaseValidatorModel):
     template: str
     context: str
@@ -284,23 +292,28 @@ class FlushApiCacheRequest(BaseValidatorModel):
     apiId: str
 
 
+# This class is the input for the 'get_api_association' function.
 class GetApiAssociationRequest(BaseValidatorModel):
     domainName: str
 
 
+# This class is the input for the 'get_api_cache' function.
 class GetApiCacheRequest(BaseValidatorModel):
     apiId: str
 
 
+# This class is the input for the 'get_api' function.
 class GetApiRequest(BaseValidatorModel):
     apiId: str
 
 
+# This class is the input for the 'get_channel_namespace' function.
 class GetChannelNamespaceRequest(BaseValidatorModel):
     apiId: str
     name: str
 
 
+# This class is the input for the 'get_data_source_introspection' function.
 class GetDataSourceIntrospectionRequest(BaseValidatorModel):
     introspectionId: str
     includeModelsSDL: Optional[bool] = None
@@ -308,49 +321,59 @@ class GetDataSourceIntrospectionRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_data_source' function.
 class GetDataSourceRequest(BaseValidatorModel):
     apiId: str
     name: str
 
 
+# This class is the input for the 'get_domain_name' function.
 class GetDomainNameRequest(BaseValidatorModel):
     domainName: str
 
 
+# This class is the input for the 'get_function' function.
 class GetFunctionRequest(BaseValidatorModel):
     apiId: str
     functionId: str
 
 
+# This class is the input for the 'get_graphql_api_environment_variables' function.
 class GetGraphqlApiEnvironmentVariablesRequest(BaseValidatorModel):
     apiId: str
 
 
+# This class is the input for the 'get_graphql_api' function.
 class GetGraphqlApiRequest(BaseValidatorModel):
     apiId: str
 
 
+# This class is the input for the 'get_introspection_schema' function.
 class GetIntrospectionSchemaRequest(BaseValidatorModel):
     apiId: str
     format: OutputTypeType
     includeDirectives: Optional[bool] = None
 
 
+# This class is the input for the 'get_resolver' function.
 class GetResolverRequest(BaseValidatorModel):
     apiId: str
     typeName: str
     fieldName: str
 
 
+# This class is the input for the 'get_schema_creation_status' function.
 class GetSchemaCreationStatusRequest(BaseValidatorModel):
     apiId: str
 
 
+# This class is the input for the 'get_source_api_association' function.
 class GetSourceApiAssociationRequest(BaseValidatorModel):
     mergedApiIdentifier: str
     associationId: str
 
 
+# This class is the input for the 'get_type' function.
 class GetTypeRequest(BaseValidatorModel):
     apiId: str
     typeName: str
@@ -367,40 +390,47 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_api_keys' function.
 class ListApiKeysRequest(BaseValidatorModel):
     apiId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_apis' function.
 class ListApisRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_channel_namespaces' function.
 class ListChannelNamespacesRequest(BaseValidatorModel):
     apiId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_data_sources' function.
 class ListDataSourcesRequest(BaseValidatorModel):
     apiId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_domain_names' function.
 class ListDomainNamesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_functions' function.
 class ListFunctionsRequest(BaseValidatorModel):
     apiId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_graphql_apis' function.
 class ListGraphqlApisRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -408,6 +438,7 @@ class ListGraphqlApisRequest(BaseValidatorModel):
     owner: Optional[OwnershipType] = None
 
 
+# This class is the input for the 'list_resolvers_by_function' function.
 class ListResolversByFunctionRequest(BaseValidatorModel):
     apiId: str
     functionId: str
@@ -415,6 +446,7 @@ class ListResolversByFunctionRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_resolvers' function.
 class ListResolversRequest(BaseValidatorModel):
     apiId: str
     typeName: str
@@ -422,6 +454,7 @@ class ListResolversRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_source_api_associations' function.
 class ListSourceApiAssociationsRequest(BaseValidatorModel):
     apiId: str
     nextToken: Optional[str] = None
@@ -438,10 +471,12 @@ class SourceApiAssociationSummary(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'list_types_by_association' function.
 class ListTypesByAssociationRequest(BaseValidatorModel):
     mergedApiIdentifier: str
     associationId: str
@@ -450,6 +485,7 @@ class ListTypesByAssociationRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_types' function.
 class ListTypesRequest(BaseValidatorModel):
     apiId: str
     format: TypeDefinitionFormatType
@@ -465,6 +501,7 @@ class PipelineConfig(BaseValidatorModel):
     functions: Optional[List[str]] = None
 
 
+# This class is the input for the 'put_graphql_api_environment_variables' function.
 class PutGraphqlApiEnvironmentVariablesRequest(BaseValidatorModel):
     apiId: str
     environmentVariables: Dict[str, str]
@@ -484,6 +521,7 @@ class RdsHttpEndpointConfig(BaseValidatorModel):
     awsSecretStoreArn: Optional[str] = None
 
 
+# This class is the input for the 'start_schema_merge' function.
 class StartSchemaMergeRequest(BaseValidatorModel):
     associationId: str
     mergedApiIdentifier: str
@@ -499,6 +537,7 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_api_cache' function.
 class UpdateApiCacheRequest(BaseValidatorModel):
     apiId: str
     ttl: int
@@ -507,6 +546,7 @@ class UpdateApiCacheRequest(BaseValidatorModel):
     healthMetricsConfig: Optional[CacheHealthMetricsConfigType] = None
 
 
+# This class is the input for the 'update_api_key' function.
 class UpdateApiKeyRequest(BaseValidatorModel):
     apiId: str
     id: str
@@ -514,11 +554,13 @@ class UpdateApiKeyRequest(BaseValidatorModel):
     expires: Optional[int] = None
 
 
+# This class is the input for the 'update_domain_name' function.
 class UpdateDomainNameRequest(BaseValidatorModel):
     domainName: str
     description: Optional[str] = None
 
 
+# This class is the input for the 'update_type' function.
 class UpdateTypeRequest(BaseValidatorModel):
     apiId: str
     typeName: str
@@ -533,6 +575,7 @@ class AdditionalAuthenticationProvider(BaseValidatorModel):
     lambdaAuthorizerConfig: Optional[LambdaAuthorizerConfig] = None
 
 
+# This class is the input for the 'evaluate_code' function.
 class EvaluateCodeRequest(BaseValidatorModel):
     runtime: AppSyncRuntime
     code: str
@@ -540,73 +583,87 @@ class EvaluateCodeRequest(BaseValidatorModel):
     function: Optional[str] = None
 
 
+# This class is the output for the 'associate_api' function.
 class AssociateApiResponse(BaseValidatorModel):
     apiAssociation: ApiAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_api_cache' function.
 class CreateApiCacheResponse(BaseValidatorModel):
     apiCache: ApiCache
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_api_key' function.
 class CreateApiKeyResponse(BaseValidatorModel):
     apiKey: ApiKey
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_merged_graphql_api' function.
 class DisassociateMergedGraphqlApiResponse(BaseValidatorModel):
     sourceApiAssociationStatus: SourceApiAssociationStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_source_graphql_api' function.
 class DisassociateSourceGraphqlApiResponse(BaseValidatorModel):
     sourceApiAssociationStatus: SourceApiAssociationStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_api_association' function.
 class GetApiAssociationResponse(BaseValidatorModel):
     apiAssociation: ApiAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_api_cache' function.
 class GetApiCacheResponse(BaseValidatorModel):
     apiCache: ApiCache
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_graphql_api_environment_variables' function.
 class GetGraphqlApiEnvironmentVariablesResponse(BaseValidatorModel):
     environmentVariables: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_introspection_schema' function.
 class GetIntrospectionSchemaResponse(BaseValidatorModel):
     schema: StreamingBody
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_schema_creation_status' function.
 class GetSchemaCreationStatusResponse(BaseValidatorModel):
     status: SchemaStatusType
     details: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_api_keys' function.
 class ListApiKeysResponse(BaseValidatorModel):
     apiKeys: List[ApiKey]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_graphql_api_environment_variables' function.
 class PutGraphqlApiEnvironmentVariablesResponse(BaseValidatorModel):
     environmentVariables: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_data_source_introspection' function.
 class StartDataSourceIntrospectionResponse(BaseValidatorModel):
     introspectionId: str
     introspectionStatus: DataSourceIntrospectionStatusType
@@ -614,26 +671,31 @@ class StartDataSourceIntrospectionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_schema_creation' function.
 class StartSchemaCreationResponse(BaseValidatorModel):
     status: SchemaStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_schema_merge' function.
 class StartSchemaMergeResponse(BaseValidatorModel):
     sourceApiAssociationStatus: SourceApiAssociationStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_api_cache' function.
 class UpdateApiCacheResponse(BaseValidatorModel):
     apiCache: ApiCache
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_api_key' function.
 class UpdateApiKeyResponse(BaseValidatorModel):
     apiKey: ApiKey
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'associate_merged_graphql_api' function.
 class AssociateMergedGraphqlApiRequest(BaseValidatorModel):
     sourceApiIdentifier: str
     mergedApiIdentifier: str
@@ -641,6 +703,7 @@ class AssociateMergedGraphqlApiRequest(BaseValidatorModel):
     sourceApiAssociationConfig: Optional[SourceApiAssociationConfig] = None
 
 
+# This class is the input for the 'associate_source_graphql_api' function.
 class AssociateSourceGraphqlApiRequest(BaseValidatorModel):
     mergedApiIdentifier: str
     sourceApiIdentifier: str
@@ -662,6 +725,7 @@ class SourceApiAssociation(BaseValidatorModel):
     lastSuccessfulMergeDate: Optional[datetime] = None
 
 
+# This class is the input for the 'update_source_api_association' function.
 class UpdateSourceApiAssociationRequest(BaseValidatorModel):
     associationId: str
     mergedApiIdentifier: str
@@ -681,6 +745,7 @@ class ChannelNamespace(BaseValidatorModel):
     lastModified: Optional[datetime] = None
 
 
+# This class is the input for the 'create_channel_namespace' function.
 class CreateChannelNamespaceRequest(BaseValidatorModel):
     apiId: str
     name: str
@@ -690,6 +755,7 @@ class CreateChannelNamespaceRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_channel_namespace' function.
 class UpdateChannelNamespaceRequest(BaseValidatorModel):
     apiId: str
     name: str
@@ -710,6 +776,7 @@ class AuthorizationConfig(BaseValidatorModel):
     awsIamConfig: Optional[AwsIamConfig] = None
 
 
+# This class is the input for the 'start_schema_creation' function.
 class StartSchemaCreationRequest(BaseValidatorModel):
     apiId: str
     definition: Blob
@@ -723,49 +790,58 @@ class CodeError(BaseValidatorModel):
     location: Optional[CodeErrorLocation] = None
 
 
+# This class is the output for the 'create_domain_name' function.
 class CreateDomainNameResponse(BaseValidatorModel):
     domainNameConfig: DomainNameConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_domain_name' function.
 class GetDomainNameResponse(BaseValidatorModel):
     domainNameConfig: DomainNameConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_domain_names' function.
 class ListDomainNamesResponse(BaseValidatorModel):
     domainNameConfigs: List[DomainNameConfig]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_domain_name' function.
 class UpdateDomainNameResponse(BaseValidatorModel):
     domainNameConfig: DomainNameConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_type' function.
 class CreateTypeResponse(BaseValidatorModel):
     type: Type
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_type' function.
 class GetTypeResponse(BaseValidatorModel):
     type: Type
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_types_by_association' function.
 class ListTypesByAssociationResponse(BaseValidatorModel):
     types: List[Type]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_types' function.
 class ListTypesResponse(BaseValidatorModel):
     types: List[Type]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_type' function.
 class UpdateTypeResponse(BaseValidatorModel):
     type: Type
     ResponseMetadata: ResponseMetadata
@@ -785,6 +861,7 @@ class DynamodbDataSourceConfig(BaseValidatorModel):
     versioned: Optional[bool] = None
 
 
+# This class is the output for the 'evaluate_mapping_template' function.
 class EvaluateMappingTemplateResponse(BaseValidatorModel):
     evaluationResult: str
     error: ErrorDetail
@@ -864,6 +941,7 @@ class ListTypesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_source_api_associations' function.
 class ListSourceApiAssociationsResponse(BaseValidatorModel):
     sourceApiAssociationSummaries: List[SourceApiAssociationSummary]
     ResponseMetadata: ResponseMetadata
@@ -872,6 +950,7 @@ class ListSourceApiAssociationsResponse(BaseValidatorModel):
 PipelineConfigUnion = Union[PipelineConfig, PipelineConfigOutput]
 
 
+# This class is the input for the 'start_data_source_introspection' function.
 class StartDataSourceIntrospectionRequest(BaseValidatorModel):
     rdsDataApiConfig: Optional[RdsDataApiConfig] = None
 
@@ -881,6 +960,7 @@ class RelationalDatabaseDataSourceConfig(BaseValidatorModel):
     rdsHttpEndpointConfig: Optional[RdsHttpEndpointConfig] = None
 
 
+# This class is the input for the 'create_graphql_api' function.
 class CreateGraphqlApiRequest(BaseValidatorModel):
     name: str
     authenticationType: AuthenticationTypeType
@@ -927,6 +1007,7 @@ class GraphqlApi(BaseValidatorModel):
     enhancedMetricsConfig: Optional[EnhancedMetricsConfig] = None
 
 
+# This class is the input for the 'update_graphql_api' function.
 class UpdateGraphqlApiRequest(BaseValidatorModel):
     apiId: str
     name: str
@@ -945,42 +1026,50 @@ class UpdateGraphqlApiRequest(BaseValidatorModel):
     enhancedMetricsConfig: Optional[EnhancedMetricsConfig] = None
 
 
+# This class is the output for the 'associate_merged_graphql_api' function.
 class AssociateMergedGraphqlApiResponse(BaseValidatorModel):
     sourceApiAssociation: SourceApiAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_source_graphql_api' function.
 class AssociateSourceGraphqlApiResponse(BaseValidatorModel):
     sourceApiAssociation: SourceApiAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_source_api_association' function.
 class GetSourceApiAssociationResponse(BaseValidatorModel):
     sourceApiAssociation: SourceApiAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_source_api_association' function.
 class UpdateSourceApiAssociationResponse(BaseValidatorModel):
     sourceApiAssociation: SourceApiAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_channel_namespace' function.
 class CreateChannelNamespaceResponse(BaseValidatorModel):
     channelNamespace: ChannelNamespace
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_channel_namespace' function.
 class GetChannelNamespaceResponse(BaseValidatorModel):
     channelNamespace: ChannelNamespace
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_channel_namespaces' function.
 class ListChannelNamespacesResponse(BaseValidatorModel):
     channelNamespaces: List[ChannelNamespace]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_channel_namespace' function.
 class UpdateChannelNamespaceResponse(BaseValidatorModel):
     channelNamespace: ChannelNamespace
     ResponseMetadata: ResponseMetadata
@@ -1020,6 +1109,7 @@ class DataSourceIntrospectionModel(BaseValidatorModel):
     sdl: Optional[str] = None
 
 
+# This class is the input for the 'create_function' function.
 class CreateFunctionRequest(BaseValidatorModel):
     apiId: str
     name: str
@@ -1066,6 +1156,7 @@ class Resolver(BaseValidatorModel):
     metricsConfig: Optional[ResolverLevelMetricsConfigType] = None
 
 
+# This class is the input for the 'update_function' function.
 class UpdateFunctionRequest(BaseValidatorModel):
     apiId: str
     name: str
@@ -1081,6 +1172,7 @@ class UpdateFunctionRequest(BaseValidatorModel):
     code: Optional[str] = None
 
 
+# This class is the input for the 'create_resolver' function.
 class CreateResolverRequest(BaseValidatorModel):
     apiId: str
     typeName: str
@@ -1098,6 +1190,7 @@ class CreateResolverRequest(BaseValidatorModel):
     metricsConfig: Optional[ResolverLevelMetricsConfigType] = None
 
 
+# This class is the input for the 'update_resolver' function.
 class UpdateResolverRequest(BaseValidatorModel):
     apiId: str
     typeName: str
@@ -1115,22 +1208,26 @@ class UpdateResolverRequest(BaseValidatorModel):
     metricsConfig: Optional[ResolverLevelMetricsConfigType] = None
 
 
+# This class is the output for the 'create_graphql_api' function.
 class CreateGraphqlApiResponse(BaseValidatorModel):
     graphqlApi: GraphqlApi
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_graphql_api' function.
 class GetGraphqlApiResponse(BaseValidatorModel):
     graphqlApi: GraphqlApi
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_graphql_apis' function.
 class ListGraphqlApisResponse(BaseValidatorModel):
     graphqlApis: List[GraphqlApi]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_graphql_api' function.
 class UpdateGraphqlApiResponse(BaseValidatorModel):
     graphqlApi: GraphqlApi
     ResponseMetadata: ResponseMetadata
@@ -1151,6 +1248,7 @@ class Api(BaseValidatorModel):
 EventConfigUnion = Union[EventConfig, EventConfigOutput]
 
 
+# This class is the input for the 'create_data_source' function.
 class CreateDataSourceRequest(BaseValidatorModel):
     apiId: str
     name: str
@@ -1183,6 +1281,7 @@ class DataSource(BaseValidatorModel):
     metricsConfig: Optional[DataSourceLevelMetricsConfigType] = None
 
 
+# This class is the input for the 'update_data_source' function.
 class UpdateDataSourceRequest(BaseValidatorModel):
     apiId: str
     name: str
@@ -1199,6 +1298,7 @@ class UpdateDataSourceRequest(BaseValidatorModel):
     metricsConfig: Optional[DataSourceLevelMetricsConfigType] = None
 
 
+# This class is the output for the 'evaluate_code' function.
 class EvaluateCodeResponse(BaseValidatorModel):
     evaluationResult: str
     error: EvaluateCodeErrorDetail
@@ -1213,75 +1313,89 @@ class DataSourceIntrospectionResult(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_function' function.
 class CreateFunctionResponse(BaseValidatorModel):
     functionConfiguration: FunctionConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_function' function.
 class GetFunctionResponse(BaseValidatorModel):
     functionConfiguration: FunctionConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_functions' function.
 class ListFunctionsResponse(BaseValidatorModel):
     functions: List[FunctionConfiguration]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_function' function.
 class UpdateFunctionResponse(BaseValidatorModel):
     functionConfiguration: FunctionConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_resolver' function.
 class CreateResolverResponse(BaseValidatorModel):
     resolver: Resolver
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resolver' function.
 class GetResolverResponse(BaseValidatorModel):
     resolver: Resolver
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_resolvers_by_function' function.
 class ListResolversByFunctionResponse(BaseValidatorModel):
     resolvers: List[Resolver]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_resolvers' function.
 class ListResolversResponse(BaseValidatorModel):
     resolvers: List[Resolver]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_resolver' function.
 class UpdateResolverResponse(BaseValidatorModel):
     resolver: Resolver
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_api' function.
 class CreateApiResponse(BaseValidatorModel):
     api: Api
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_api' function.
 class GetApiResponse(BaseValidatorModel):
     api: Api
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_apis' function.
 class ListApisResponse(BaseValidatorModel):
     apis: List[Api]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_api' function.
 class UpdateApiResponse(BaseValidatorModel):
     api: Api
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_api' function.
 class CreateApiRequest(BaseValidatorModel):
     name: str
     ownerContact: Optional[str] = None
@@ -1289,6 +1403,7 @@ class CreateApiRequest(BaseValidatorModel):
     eventConfig: Optional[EventConfigUnion] = None
 
 
+# This class is the input for the 'update_api' function.
 class UpdateApiRequest(BaseValidatorModel):
     apiId: str
     name: str
@@ -1296,27 +1411,32 @@ class UpdateApiRequest(BaseValidatorModel):
     eventConfig: Optional[EventConfigUnion] = None
 
 
+# This class is the output for the 'create_data_source' function.
 class CreateDataSourceResponse(BaseValidatorModel):
     dataSource: DataSource
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_data_source' function.
 class GetDataSourceResponse(BaseValidatorModel):
     dataSource: DataSource
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_data_sources' function.
 class ListDataSourcesResponse(BaseValidatorModel):
     dataSources: List[DataSource]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_data_source' function.
 class UpdateDataSourceResponse(BaseValidatorModel):
     dataSource: DataSource
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_data_source_introspection' function.
 class GetDataSourceIntrospectionResponse(BaseValidatorModel):
     introspectionId: str
     introspectionStatus: DataSourceIntrospectionStatusType

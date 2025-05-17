@@ -28,6 +28,7 @@ class EventBridgeConfiguration(BaseValidatorModel):
     eventBridgeEnabled: bool
 
 
+# This class is the input for the 'get_data_automation_status' function.
 class GetDataAutomationStatusRequest(BaseValidatorModel):
     invocationArn: str
 
@@ -53,6 +54,7 @@ class Tag(BaseValidatorModel):
     value: str
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceARN: str
 
@@ -66,6 +68,7 @@ class NotificationConfiguration(BaseValidatorModel):
     eventBridgeConfiguration: EventBridgeConfiguration
 
 
+# This class is the output for the 'get_data_automation_status' function.
 class GetDataAutomationStatusResponse(BaseValidatorModel):
     status: AutomationJobStatusType
     errorType: str
@@ -74,11 +77,13 @@ class GetDataAutomationStatusResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'invoke_data_automation_async' function.
 class InvokeDataAutomationAsyncResponse(BaseValidatorModel):
     invocationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -89,6 +94,7 @@ class TagResourceRequest(BaseValidatorModel):
     tags: List[Tag]
 
 
+# This class is the input for the 'invoke_data_automation_async' function.
 class InvokeDataAutomationAsyncRequest(BaseValidatorModel):
     inputConfiguration: InputConfiguration
     outputConfiguration: OutputConfiguration

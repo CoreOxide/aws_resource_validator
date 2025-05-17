@@ -175,10 +175,12 @@ class StartTimerDecisionAttributes(BaseValidatorModel):
     control: Optional[str] = None
 
 
+# This class is the input for the 'deprecate_domain' function.
 class DeprecateDomainInput(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'describe_domain' function.
 class DescribeDomainInput(BaseValidatorModel):
     name: str
 
@@ -356,6 +358,7 @@ class WorkflowExecutionTimedOutEventAttributes(BaseValidatorModel):
     childPolicy: ChildPolicyType
 
 
+# This class is the input for the 'list_activity_types' function.
 class ListActivityTypesInput(BaseValidatorModel):
     domain: str
     registrationStatus: RegistrationStatusType
@@ -365,6 +368,7 @@ class ListActivityTypesInput(BaseValidatorModel):
     reverseOrder: Optional[bool] = None
 
 
+# This class is the input for the 'list_domains' function.
 class ListDomainsInput(BaseValidatorModel):
     registrationStatus: RegistrationStatusType
     nextPageToken: Optional[str] = None
@@ -372,6 +376,7 @@ class ListDomainsInput(BaseValidatorModel):
     reverseOrder: Optional[bool] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInput(BaseValidatorModel):
     resourceArn: str
 
@@ -381,6 +386,7 @@ class ResourceTag(BaseValidatorModel):
     value: Optional[str] = None
 
 
+# This class is the input for the 'list_workflow_types' function.
 class ListWorkflowTypesInput(BaseValidatorModel):
     domain: str
     registrationStatus: RegistrationStatusType
@@ -390,33 +396,39 @@ class ListWorkflowTypesInput(BaseValidatorModel):
     reverseOrder: Optional[bool] = None
 
 
+# This class is the input for the 'record_activity_task_heartbeat' function.
 class RecordActivityTaskHeartbeatInput(BaseValidatorModel):
     taskToken: str
     details: Optional[str] = None
 
 
+# This class is the input for the 'request_cancel_workflow_execution' function.
 class RequestCancelWorkflowExecutionInput(BaseValidatorModel):
     domain: str
     workflowId: str
     runId: Optional[str] = None
 
 
+# This class is the input for the 'respond_activity_task_canceled' function.
 class RespondActivityTaskCanceledInput(BaseValidatorModel):
     taskToken: str
     details: Optional[str] = None
 
 
+# This class is the input for the 'respond_activity_task_completed' function.
 class RespondActivityTaskCompletedInput(BaseValidatorModel):
     taskToken: str
     result: Optional[str] = None
 
 
+# This class is the input for the 'respond_activity_task_failed' function.
 class RespondActivityTaskFailedInput(BaseValidatorModel):
     taskToken: str
     reason: Optional[str] = None
     details: Optional[str] = None
 
 
+# This class is the input for the 'signal_workflow_execution' function.
 class SignalWorkflowExecutionInput(BaseValidatorModel):
     domain: str
     workflowId: str
@@ -425,6 +437,7 @@ class SignalWorkflowExecutionInput(BaseValidatorModel):
     input: Optional[str] = None
 
 
+# This class is the input for the 'terminate_workflow_execution' function.
 class TerminateWorkflowExecutionInput(BaseValidatorModel):
     domain: str
     workflowId: str
@@ -434,10 +447,12 @@ class TerminateWorkflowExecutionInput(BaseValidatorModel):
     childPolicy: Optional[ChildPolicyType] = None
 
 
+# This class is the input for the 'undeprecate_domain' function.
 class UndeprecateDomainInput(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceInput(BaseValidatorModel):
     resourceArn: str
     tagKeys: List[str]
@@ -459,16 +474,19 @@ class ActivityTypeInfo(BaseValidatorModel):
     deprecationDate: Optional[datetime] = None
 
 
+# This class is the input for the 'delete_activity_type' function.
 class DeleteActivityTypeInput(BaseValidatorModel):
     domain: str
     activityType: ActivityType
 
 
+# This class is the input for the 'deprecate_activity_type' function.
 class DeprecateActivityTypeInput(BaseValidatorModel):
     domain: str
     activityType: ActivityType
 
 
+# This class is the input for the 'describe_activity_type' function.
 class DescribeActivityTypeInput(BaseValidatorModel):
     domain: str
     activityType: ActivityType
@@ -481,6 +499,7 @@ class ScheduleActivityTaskFailedEventAttributes(BaseValidatorModel):
     decisionTaskCompletedEventId: int
 
 
+# This class is the input for the 'undeprecate_activity_type' function.
 class UndeprecateActivityTypeInput(BaseValidatorModel):
     domain: str
     activityType: ActivityType
@@ -521,11 +540,13 @@ class ContinueAsNewWorkflowExecutionDecisionAttributes(BaseValidatorModel):
     lambdaRole: Optional[str] = None
 
 
+# This class is the input for the 'count_pending_activity_tasks' function.
 class CountPendingActivityTasksInput(BaseValidatorModel):
     domain: str
     taskList: TaskList
 
 
+# This class is the input for the 'count_pending_decision_tasks' function.
 class CountPendingDecisionTasksInput(BaseValidatorModel):
     domain: str
     taskList: TaskList
@@ -546,12 +567,14 @@ class DecisionTaskScheduledEventAttributes(BaseValidatorModel):
     scheduleToStartTimeout: Optional[str] = None
 
 
+# This class is the input for the 'poll_for_activity_task' function.
 class PollForActivityTaskInput(BaseValidatorModel):
     domain: str
     taskList: TaskList
     identity: Optional[str] = None
 
 
+# This class is the input for the 'poll_for_decision_task' function.
 class PollForDecisionTaskInput(BaseValidatorModel):
     domain: str
     taskList: TaskList
@@ -562,6 +585,7 @@ class PollForDecisionTaskInput(BaseValidatorModel):
     startAtPreviousStartedEvent: Optional[bool] = None
 
 
+# This class is the input for the 'register_activity_type' function.
 class RegisterActivityTypeInput(BaseValidatorModel):
     domain: str
     name: str
@@ -575,6 +599,7 @@ class RegisterActivityTypeInput(BaseValidatorModel):
     defaultTaskScheduleToCloseTimeout: Optional[str] = None
 
 
+# This class is the input for the 'register_workflow_type' function.
 class RegisterWorkflowTypeInput(BaseValidatorModel):
     domain: str
     name: str
@@ -619,32 +644,38 @@ class WorkflowTypeConfiguration(BaseValidatorModel):
     defaultLambdaRole: Optional[str] = None
 
 
+# This class is the output for the 'record_activity_task_heartbeat' function.
 class ActivityTaskStatus(BaseValidatorModel):
     cancelRequested: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'untag_resource' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'count_pending_decision_tasks' function.
 class PendingTaskCount(BaseValidatorModel):
     count: int
     truncated: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_workflow_execution' function.
 class Run(BaseValidatorModel):
     runId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'count_open_workflow_executions' function.
 class WorkflowExecutionCount(BaseValidatorModel):
     count: int
     truncated: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'poll_for_activity_task' function.
 class ActivityTask(BaseValidatorModel):
     taskToken: str
     activityId: str
@@ -655,6 +686,7 @@ class ActivityTask(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'describe_workflow_execution' function.
 class DescribeWorkflowExecutionInput(BaseValidatorModel):
     domain: str
     execution: WorkflowExecution
@@ -670,6 +702,7 @@ class ExternalWorkflowExecutionSignaledEventAttributes(BaseValidatorModel):
     initiatedEventId: int
 
 
+# This class is the input for the 'get_workflow_execution_history' function.
 class GetWorkflowExecutionHistoryInput(BaseValidatorModel):
     domain: str
     execution: WorkflowExecution
@@ -737,16 +770,19 @@ class ChildWorkflowExecutionTimedOutEventAttributes(BaseValidatorModel):
     startedEventId: int
 
 
+# This class is the input for the 'delete_workflow_type' function.
 class DeleteWorkflowTypeInput(BaseValidatorModel):
     domain: str
     workflowType: WorkflowType
 
 
+# This class is the input for the 'deprecate_workflow_type' function.
 class DeprecateWorkflowTypeInput(BaseValidatorModel):
     domain: str
     workflowType: WorkflowType
 
 
+# This class is the input for the 'describe_workflow_type' function.
 class DescribeWorkflowTypeInput(BaseValidatorModel):
     domain: str
     workflowType: WorkflowType
@@ -790,6 +826,7 @@ class StartChildWorkflowExecutionInitiatedEventAttributes(BaseValidatorModel):
     lambdaRole: Optional[str] = None
 
 
+# This class is the input for the 'start_workflow_execution' function.
 class StartWorkflowExecutionInput(BaseValidatorModel):
     domain: str
     workflowId: str
@@ -804,6 +841,7 @@ class StartWorkflowExecutionInput(BaseValidatorModel):
     lambdaRole: Optional[str] = None
 
 
+# This class is the input for the 'undeprecate_workflow_type' function.
 class UndeprecateWorkflowTypeInput(BaseValidatorModel):
     domain: str
     workflowType: WorkflowType
@@ -858,12 +896,14 @@ class WorkflowTypeInfo(BaseValidatorModel):
     deprecationDate: Optional[datetime] = None
 
 
+# This class is the output for the 'describe_domain' function.
 class DomainDetail(BaseValidatorModel):
     domainInfo: DomainInfo
     configuration: DomainConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_domains' function.
 class DomainInfos(BaseValidatorModel):
     domainInfos: List[DomainInfo]
     nextPageToken: str
@@ -913,11 +953,13 @@ class PollForDecisionTaskInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceOutput(BaseValidatorModel):
     tags: List[ResourceTag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'register_domain' function.
 class RegisterDomainInput(BaseValidatorModel):
     name: str
     workflowExecutionRetentionPeriodInDays: str
@@ -925,17 +967,20 @@ class RegisterDomainInput(BaseValidatorModel):
     tags: Optional[List[ResourceTag]] = None
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceInput(BaseValidatorModel):
     resourceArn: str
     tags: List[ResourceTag]
 
 
+# This class is the output for the 'list_activity_types' function.
 class ActivityTypeInfos(BaseValidatorModel):
     typeInfos: List[ActivityTypeInfo]
     nextPageToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_activity_type' function.
 class ActivityTypeDetail(BaseValidatorModel):
     typeInfo: ActivityTypeInfo
     configuration: ActivityTypeConfiguration
@@ -959,6 +1004,7 @@ class Decision(BaseValidatorModel):
     scheduleLambdaFunctionDecisionAttributes: Optional[ScheduleLambdaFunctionDecisionAttributes] = None
 
 
+# This class is the output for the 'describe_workflow_execution' function.
 class WorkflowExecutionDetail(BaseValidatorModel):
     executionInfo: WorkflowExecutionInfo
     executionConfiguration: WorkflowExecutionConfiguration
@@ -968,6 +1014,7 @@ class WorkflowExecutionDetail(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_open_workflow_executions' function.
 class WorkflowExecutionInfos(BaseValidatorModel):
     executionInfos: List[WorkflowExecutionInfo]
     nextPageToken: str
@@ -1034,18 +1081,21 @@ class HistoryEvent(BaseValidatorModel):
     startLambdaFunctionFailedEventAttributes: Optional[StartLambdaFunctionFailedEventAttributes] = None
 
 
+# This class is the output for the 'describe_workflow_type' function.
 class WorkflowTypeDetail(BaseValidatorModel):
     typeInfo: WorkflowTypeInfo
     configuration: WorkflowTypeConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_workflow_types' function.
 class WorkflowTypeInfos(BaseValidatorModel):
     typeInfos: List[WorkflowTypeInfo]
     nextPageToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'count_closed_workflow_executions' function.
 class CountClosedWorkflowExecutionsInput(BaseValidatorModel):
     domain: str
     startTimeFilter: Optional[ExecutionTimeFilter] = None
@@ -1056,6 +1106,7 @@ class CountClosedWorkflowExecutionsInput(BaseValidatorModel):
     closeStatusFilter: Optional[CloseStatusFilter] = None
 
 
+# This class is the input for the 'count_open_workflow_executions' function.
 class CountOpenWorkflowExecutionsInput(BaseValidatorModel):
     domain: str
     startTimeFilter: ExecutionTimeFilter
@@ -1076,6 +1127,7 @@ class ListClosedWorkflowExecutionsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_closed_workflow_executions' function.
 class ListClosedWorkflowExecutionsInput(BaseValidatorModel):
     domain: str
     startTimeFilter: Optional[ExecutionTimeFilter] = None
@@ -1099,6 +1151,7 @@ class ListOpenWorkflowExecutionsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_open_workflow_executions' function.
 class ListOpenWorkflowExecutionsInput(BaseValidatorModel):
     domain: str
     startTimeFilter: ExecutionTimeFilter
@@ -1110,6 +1163,7 @@ class ListOpenWorkflowExecutionsInput(BaseValidatorModel):
     executionFilter: Optional[WorkflowExecutionFilter] = None
 
 
+# This class is the input for the 'respond_decision_task_completed' function.
 class RespondDecisionTaskCompletedInput(BaseValidatorModel):
     taskToken: str
     decisions: Optional[List[Decision]] = None
@@ -1118,6 +1172,7 @@ class RespondDecisionTaskCompletedInput(BaseValidatorModel):
     taskListScheduleToStartTimeout: Optional[str] = None
 
 
+# This class is the output for the 'poll_for_decision_task' function.
 class DecisionTask(BaseValidatorModel):
     taskToken: str
     startedEventId: int
@@ -1129,6 +1184,7 @@ class DecisionTask(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_workflow_execution_history' function.
 class History(BaseValidatorModel):
     events: List[HistoryEvent]
     nextPageToken: str

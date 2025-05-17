@@ -18,6 +18,7 @@ class AliasListEntry(BaseValidatorModel):
 Blob = Union[str, bytes, IO[Any], StreamingBody]
 
 
+# This class is the input for the 'cancel_key_deletion' function.
 class CancelKeyDeletionRequest(BaseValidatorModel):
     KeyId: str
 
@@ -34,6 +35,7 @@ class ConnectCustomKeyStoreRequest(BaseValidatorModel):
     CustomKeyStoreId: str
 
 
+# This class is the input for the 'create_alias' function.
 class CreateAliasRequest(BaseValidatorModel):
     AliasName: str
     TargetKeyId: str
@@ -57,6 +59,7 @@ class XksProxyConfigurationType(BaseValidatorModel):
     VpcEndpointServiceName: Optional[str] = None
 
 
+# This class is the input for the 'delete_alias' function.
 class DeleteAliasRequest(BaseValidatorModel):
     AliasName: str
 
@@ -65,6 +68,7 @@ class DeleteCustomKeyStoreRequest(BaseValidatorModel):
     CustomKeyStoreId: str
 
 
+# This class is the input for the 'delete_imported_key_material' function.
 class DeleteImportedKeyMaterialRequest(BaseValidatorModel):
     KeyId: str
 
@@ -75,6 +79,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_custom_key_stores' function.
 class DescribeCustomKeyStoresRequest(BaseValidatorModel):
     CustomKeyStoreId: Optional[str] = None
     CustomKeyStoreName: Optional[str] = None
@@ -82,15 +87,18 @@ class DescribeCustomKeyStoresRequest(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_key' function.
 class DescribeKeyRequest(BaseValidatorModel):
     KeyId: str
     GrantTokens: Optional[List[str]] = None
 
 
+# This class is the input for the 'disable_key' function.
 class DisableKeyRequest(BaseValidatorModel):
     KeyId: str
 
 
+# This class is the input for the 'disable_key_rotation' function.
 class DisableKeyRotationRequest(BaseValidatorModel):
     KeyId: str
 
@@ -99,15 +107,18 @@ class DisconnectCustomKeyStoreRequest(BaseValidatorModel):
     CustomKeyStoreId: str
 
 
+# This class is the input for the 'enable_key' function.
 class EnableKeyRequest(BaseValidatorModel):
     KeyId: str
 
 
+# This class is the input for the 'enable_key_rotation' function.
 class EnableKeyRotationRequest(BaseValidatorModel):
     KeyId: str
     RotationPeriodInDays: Optional[int] = None
 
 
+# This class is the input for the 'generate_data_key_pair_without_plaintext' function.
 class GenerateDataKeyPairWithoutPlaintextRequest(BaseValidatorModel):
     KeyId: str
     KeyPairSpec: DataKeyPairSpecType
@@ -116,6 +127,7 @@ class GenerateDataKeyPairWithoutPlaintextRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'generate_data_key_without_plaintext' function.
 class GenerateDataKeyWithoutPlaintextRequest(BaseValidatorModel):
     KeyId: str
     EncryptionContext: Optional[Dict[str, str]] = None
@@ -125,21 +137,25 @@ class GenerateDataKeyWithoutPlaintextRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'get_key_policy' function.
 class GetKeyPolicyRequest(BaseValidatorModel):
     KeyId: str
     PolicyName: Optional[str] = None
 
 
+# This class is the input for the 'get_key_rotation_status' function.
 class GetKeyRotationStatusRequest(BaseValidatorModel):
     KeyId: str
 
 
+# This class is the input for the 'get_parameters_for_import' function.
 class GetParametersForImportRequest(BaseValidatorModel):
     KeyId: str
     WrappingAlgorithm: AlgorithmSpecType
     WrappingKeySpec: WrappingKeySpecType
 
 
+# This class is the input for the 'get_public_key' function.
 class GetPublicKeyRequest(BaseValidatorModel):
     KeyId: str
     GrantTokens: Optional[List[str]] = None
@@ -166,12 +182,14 @@ class XksKeyConfigurationType(BaseValidatorModel):
     Id: Optional[str] = None
 
 
+# This class is the input for the 'list_aliases' function.
 class ListAliasesRequest(BaseValidatorModel):
     KeyId: Optional[str] = None
     Limit: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'list_grants' function.
 class ListGrantsRequest(BaseValidatorModel):
     KeyId: str
     Limit: Optional[int] = None
@@ -180,12 +198,14 @@ class ListGrantsRequest(BaseValidatorModel):
     GranteePrincipal: Optional[str] = None
 
 
+# This class is the input for the 'list_key_policies' function.
 class ListKeyPoliciesRequest(BaseValidatorModel):
     KeyId: str
     Limit: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'list_key_rotations' function.
 class ListKeyRotationsRequest(BaseValidatorModel):
     KeyId: str
     Limit: Optional[int] = None
@@ -198,17 +218,20 @@ class RotationsListEntry(BaseValidatorModel):
     RotationType: Optional[RotationTypeType] = None
 
 
+# This class is the input for the 'list_keys' function.
 class ListKeysRequest(BaseValidatorModel):
     Limit: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'list_resource_tags' function.
 class ListResourceTagsRequest(BaseValidatorModel):
     KeyId: str
     Limit: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'list_retirable_grants' function.
 class ListRetirableGrantsRequest(BaseValidatorModel):
     RetiringPrincipal: str
     Limit: Optional[int] = None
@@ -220,6 +243,7 @@ class MultiRegionKey(BaseValidatorModel):
     Region: Optional[str] = None
 
 
+# This class is the input for the 'put_key_policy' function.
 class PutKeyPolicyRequest(BaseValidatorModel):
     KeyId: str
     Policy: str
@@ -227,6 +251,7 @@ class PutKeyPolicyRequest(BaseValidatorModel):
     BypassPolicyLockoutSafetyCheck: Optional[bool] = None
 
 
+# This class is the input for the 'retire_grant' function.
 class RetireGrantRequest(BaseValidatorModel):
     GrantToken: Optional[str] = None
     KeyId: Optional[str] = None
@@ -234,41 +259,49 @@ class RetireGrantRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'revoke_grant' function.
 class RevokeGrantRequest(BaseValidatorModel):
     KeyId: str
     GrantId: str
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'rotate_key_on_demand' function.
 class RotateKeyOnDemandRequest(BaseValidatorModel):
     KeyId: str
 
 
+# This class is the input for the 'schedule_key_deletion' function.
 class ScheduleKeyDeletionRequest(BaseValidatorModel):
     KeyId: str
     PendingWindowInDays: Optional[int] = None
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     KeyId: str
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_alias' function.
 class UpdateAliasRequest(BaseValidatorModel):
     AliasName: str
     TargetKeyId: str
 
 
+# This class is the input for the 'update_key_description' function.
 class UpdateKeyDescriptionRequest(BaseValidatorModel):
     KeyId: str
     Description: str
 
 
+# This class is the input for the 'update_primary_region' function.
 class UpdatePrimaryRegionRequest(BaseValidatorModel):
     KeyId: str
     PrimaryRegion: str
 
 
+# This class is the input for the 'encrypt' function.
 class EncryptRequest(BaseValidatorModel):
     KeyId: str
     Plaintext: Blob
@@ -278,6 +311,7 @@ class EncryptRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'generate_mac' function.
 class GenerateMacRequest(BaseValidatorModel):
     Message: Blob
     KeyId: str
@@ -286,6 +320,7 @@ class GenerateMacRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 're_encrypt' function.
 class ReEncryptRequest(BaseValidatorModel):
     CiphertextBlob: Blob
     DestinationKeyId: str
@@ -303,6 +338,7 @@ class RecipientInfo(BaseValidatorModel):
     AttestationDocument: Optional[Blob] = None
 
 
+# This class is the input for the 'sign' function.
 class SignRequest(BaseValidatorModel):
     KeyId: str
     Message: Blob
@@ -312,6 +348,7 @@ class SignRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'verify_mac' function.
 class VerifyMacRequest(BaseValidatorModel):
     Message: Blob
     KeyId: str
@@ -321,6 +358,7 @@ class VerifyMacRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'verify' function.
 class VerifyRequest(BaseValidatorModel):
     KeyId: str
     Message: Blob
@@ -331,22 +369,26 @@ class VerifyRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the output for the 'cancel_key_deletion' function.
 class CancelKeyDeletionResponse(BaseValidatorModel):
     KeyId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_custom_key_store' function.
 class CreateCustomKeyStoreResponse(BaseValidatorModel):
     CustomKeyStoreId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_grant' function.
 class CreateGrantResponse(BaseValidatorModel):
     GrantToken: str
     GrantId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'decrypt' function.
 class DecryptResponse(BaseValidatorModel):
     KeyId: str
     Plaintext: bytes
@@ -355,6 +397,7 @@ class DecryptResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'derive_shared_secret' function.
 class DeriveSharedSecretResponse(BaseValidatorModel):
     KeyId: str
     SharedSecret: bytes
@@ -364,10 +407,12 @@ class DeriveSharedSecretResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_primary_region' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'encrypt' function.
 class EncryptResponse(BaseValidatorModel):
     CiphertextBlob: bytes
     KeyId: str
@@ -375,6 +420,7 @@ class EncryptResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'generate_data_key_pair' function.
 class GenerateDataKeyPairResponse(BaseValidatorModel):
     PrivateKeyCiphertextBlob: bytes
     PrivateKeyPlaintext: bytes
@@ -385,6 +431,7 @@ class GenerateDataKeyPairResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'generate_data_key_pair_without_plaintext' function.
 class GenerateDataKeyPairWithoutPlaintextResponse(BaseValidatorModel):
     PrivateKeyCiphertextBlob: bytes
     PublicKey: bytes
@@ -393,6 +440,7 @@ class GenerateDataKeyPairWithoutPlaintextResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'generate_data_key' function.
 class GenerateDataKeyResponse(BaseValidatorModel):
     CiphertextBlob: bytes
     Plaintext: bytes
@@ -401,12 +449,14 @@ class GenerateDataKeyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'generate_data_key_without_plaintext' function.
 class GenerateDataKeyWithoutPlaintextResponse(BaseValidatorModel):
     CiphertextBlob: bytes
     KeyId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'generate_mac' function.
 class GenerateMacResponse(BaseValidatorModel):
     Mac: bytes
     MacAlgorithm: MacAlgorithmSpecType
@@ -414,18 +464,21 @@ class GenerateMacResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'generate_random' function.
 class GenerateRandomResponse(BaseValidatorModel):
     Plaintext: bytes
     CiphertextForRecipient: bytes
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_key_policy' function.
 class GetKeyPolicyResponse(BaseValidatorModel):
     Policy: str
     PolicyName: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_key_rotation_status' function.
 class GetKeyRotationStatusResponse(BaseValidatorModel):
     KeyRotationEnabled: bool
     KeyId: str
@@ -435,6 +488,7 @@ class GetKeyRotationStatusResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_parameters_for_import' function.
 class GetParametersForImportResponse(BaseValidatorModel):
     KeyId: str
     ImportToken: bytes
@@ -443,6 +497,7 @@ class GetParametersForImportResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_public_key' function.
 class GetPublicKeyResponse(BaseValidatorModel):
     KeyId: str
     PublicKey: bytes
@@ -455,6 +510,7 @@ class GetPublicKeyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_aliases' function.
 class ListAliasesResponse(BaseValidatorModel):
     Aliases: List[AliasListEntry]
     NextMarker: str
@@ -462,6 +518,7 @@ class ListAliasesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_key_policies' function.
 class ListKeyPoliciesResponse(BaseValidatorModel):
     PolicyNames: List[str]
     NextMarker: str
@@ -469,6 +526,7 @@ class ListKeyPoliciesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 're_encrypt' function.
 class ReEncryptResponse(BaseValidatorModel):
     CiphertextBlob: bytes
     SourceKeyId: str
@@ -478,11 +536,13 @@ class ReEncryptResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'rotate_key_on_demand' function.
 class RotateKeyOnDemandResponse(BaseValidatorModel):
     KeyId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'schedule_key_deletion' function.
 class ScheduleKeyDeletionResponse(BaseValidatorModel):
     KeyId: str
     DeletionDate: datetime
@@ -491,6 +551,7 @@ class ScheduleKeyDeletionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'sign' function.
 class SignResponse(BaseValidatorModel):
     KeyId: str
     Signature: bytes
@@ -498,6 +559,7 @@ class SignResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'verify_mac' function.
 class VerifyMacResponse(BaseValidatorModel):
     KeyId: str
     MacValid: bool
@@ -505,6 +567,7 @@ class VerifyMacResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'verify' function.
 class VerifyResponse(BaseValidatorModel):
     KeyId: str
     SignatureValid: bool
@@ -512,6 +575,7 @@ class VerifyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_custom_key_store' function.
 class CreateCustomKeyStoreRequest(BaseValidatorModel):
     CustomKeyStoreName: str
     CloudHsmClusterId: Optional[str] = None
@@ -537,6 +601,7 @@ class UpdateCustomKeyStoreRequest(BaseValidatorModel):
     XksProxyConnectivity: Optional[XksProxyConnectivityTypeType] = None
 
 
+# This class is the input for the 'create_key' function.
 class CreateKeyRequest(BaseValidatorModel):
     Policy: Optional[str] = None
     Description: Optional[str] = None
@@ -551,6 +616,7 @@ class CreateKeyRequest(BaseValidatorModel):
     XksKeyId: Optional[str] = None
 
 
+# This class is the output for the 'list_resource_tags' function.
 class ListResourceTagsResponse(BaseValidatorModel):
     Tags: List[Tag]
     NextMarker: str
@@ -558,6 +624,7 @@ class ListResourceTagsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'replicate_key' function.
 class ReplicateKeyRequest(BaseValidatorModel):
     KeyId: str
     ReplicaRegion: str
@@ -567,6 +634,7 @@ class ReplicateKeyRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     KeyId: str
     Tags: List[Tag]
@@ -648,6 +716,7 @@ class ImportKeyMaterialRequest(BaseValidatorModel):
     ExpirationModel: Optional[ExpirationModelTypeType] = None
 
 
+# This class is the output for the 'list_keys' function.
 class ListKeysResponse(BaseValidatorModel):
     Keys: List[KeyListEntry]
     NextMarker: str
@@ -655,6 +724,7 @@ class ListKeysResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_key_rotations' function.
 class ListKeyRotationsResponse(BaseValidatorModel):
     Rotations: List[RotationsListEntry]
     NextMarker: str
@@ -668,6 +738,7 @@ class MultiRegionConfiguration(BaseValidatorModel):
     ReplicaKeys: Optional[List[MultiRegionKey]] = None
 
 
+# This class is the input for the 'decrypt' function.
 class DecryptRequest(BaseValidatorModel):
     CiphertextBlob: Blob
     EncryptionContext: Optional[Dict[str, str]] = None
@@ -678,6 +749,7 @@ class DecryptRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'derive_shared_secret' function.
 class DeriveSharedSecretRequest(BaseValidatorModel):
     KeyId: str
     KeyAgreementAlgorithm: Literal['ECDH']
@@ -687,6 +759,7 @@ class DeriveSharedSecretRequest(BaseValidatorModel):
     Recipient: Optional[RecipientInfo] = None
 
 
+# This class is the input for the 'generate_data_key_pair' function.
 class GenerateDataKeyPairRequest(BaseValidatorModel):
     KeyId: str
     KeyPairSpec: DataKeyPairSpecType
@@ -696,6 +769,7 @@ class GenerateDataKeyPairRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'generate_data_key' function.
 class GenerateDataKeyRequest(BaseValidatorModel):
     KeyId: str
     EncryptionContext: Optional[Dict[str, str]] = None
@@ -706,12 +780,14 @@ class GenerateDataKeyRequest(BaseValidatorModel):
     DryRun: Optional[bool] = None
 
 
+# This class is the input for the 'generate_random' function.
 class GenerateRandomRequest(BaseValidatorModel):
     NumberOfBytes: Optional[int] = None
     CustomKeyStoreId: Optional[str] = None
     Recipient: Optional[RecipientInfo] = None
 
 
+# This class is the output for the 'describe_custom_key_stores' function.
 class DescribeCustomKeyStoresResponse(BaseValidatorModel):
     CustomKeyStores: List[CustomKeyStoresListEntry]
     NextMarker: str
@@ -719,6 +795,7 @@ class DescribeCustomKeyStoresResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_retirable_grants' function.
 class ListGrantsResponse(BaseValidatorModel):
     Grants: List[GrantListEntry]
     NextMarker: str
@@ -726,6 +803,7 @@ class ListGrantsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_grant' function.
 class CreateGrantRequest(BaseValidatorModel):
     KeyId: str
     GranteePrincipal: str
@@ -765,16 +843,19 @@ class KeyMetadata(BaseValidatorModel):
     XksKeyConfiguration: Optional[XksKeyConfigurationType] = None
 
 
+# This class is the output for the 'create_key' function.
 class CreateKeyResponse(BaseValidatorModel):
     KeyMetadata: KeyMetadata
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_key' function.
 class DescribeKeyResponse(BaseValidatorModel):
     KeyMetadata: KeyMetadata
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'replicate_key' function.
 class ReplicateKeyResponse(BaseValidatorModel):
     ReplicaKeyMetadata: KeyMetadata
     ReplicaPolicy: str

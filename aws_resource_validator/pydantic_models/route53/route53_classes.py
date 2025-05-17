@@ -13,6 +13,7 @@ class AccountLimit(BaseValidatorModel):
     Value: int
 
 
+# This class is the input for the 'activate_key_signing_key' function.
 class ActivateKeySigningKeyRequest(BaseValidatorModel):
     HostedZoneId: str
     Name: str
@@ -94,6 +95,7 @@ class Coordinates(BaseValidatorModel):
     Longitude: str
 
 
+# This class is the input for the 'create_cidr_collection' function.
 class CreateCidrCollectionRequest(BaseValidatorModel):
     Name: str
     CallerReference: str
@@ -110,6 +112,7 @@ class DelegationSet(BaseValidatorModel):
     CallerReference: Optional[str] = None
 
 
+# This class is the input for the 'create_key_signing_key' function.
 class CreateKeySigningKeyRequest(BaseValidatorModel):
     CallerReference: str
     HostedZoneId: str
@@ -137,6 +140,7 @@ class KeySigningKey(BaseValidatorModel):
     LastModifiedDate: Optional[datetime] = None
 
 
+# This class is the input for the 'create_query_logging_config' function.
 class CreateQueryLoggingConfigRequest(BaseValidatorModel):
     HostedZoneId: str
     CloudWatchLogsLogGroupArn: str
@@ -148,11 +152,13 @@ class QueryLoggingConfig(BaseValidatorModel):
     CloudWatchLogsLogGroupArn: str
 
 
+# This class is the input for the 'create_reusable_delegation_set' function.
 class CreateReusableDelegationSetRequest(BaseValidatorModel):
     CallerReference: str
     HostedZoneId: Optional[str] = None
 
 
+# This class is the input for the 'create_traffic_policy_instance' function.
 class CreateTrafficPolicyInstanceRequest(BaseValidatorModel):
     HostedZoneId: str
     Name: str
@@ -173,6 +179,7 @@ class TrafficPolicyInstance(BaseValidatorModel):
     TrafficPolicyType: RRTypeType
 
 
+# This class is the input for the 'create_traffic_policy' function.
 class CreateTrafficPolicyRequest(BaseValidatorModel):
     Name: str
     Document: str
@@ -188,6 +195,7 @@ class TrafficPolicy(BaseValidatorModel):
     Comment: Optional[str] = None
 
 
+# This class is the input for the 'create_traffic_policy_version' function.
 class CreateTrafficPolicyVersionRequest(BaseValidatorModel):
     Id: str
     Document: str
@@ -199,6 +207,7 @@ class DNSSECStatus(BaseValidatorModel):
     StatusMessage: Optional[str] = None
 
 
+# This class is the input for the 'deactivate_key_signing_key' function.
 class DeactivateKeySigningKeyRequest(BaseValidatorModel):
     HostedZoneId: str
     Name: str
@@ -212,10 +221,12 @@ class DeleteHealthCheckRequest(BaseValidatorModel):
     HealthCheckId: str
 
 
+# This class is the input for the 'delete_hosted_zone' function.
 class DeleteHostedZoneRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'delete_key_signing_key' function.
 class DeleteKeySigningKeyRequest(BaseValidatorModel):
     HostedZoneId: str
     Name: str
@@ -238,10 +249,12 @@ class DeleteTrafficPolicyRequest(BaseValidatorModel):
     Version: int
 
 
+# This class is the input for the 'disable_hosted_zone_dnssec' function.
 class DisableHostedZoneDNSSECRequest(BaseValidatorModel):
     HostedZoneId: str
 
 
+# This class is the input for the 'enable_hosted_zone_dnssec' function.
 class EnableHostedZoneDNSSECRequest(BaseValidatorModel):
     HostedZoneId: str
 
@@ -261,10 +274,12 @@ class GeoLocation(BaseValidatorModel):
     SubdivisionCode: Optional[str] = None
 
 
+# This class is the input for the 'get_account_limit' function.
 class GetAccountLimitRequest(BaseValidatorModel):
     Type: AccountLimitTypeType
 
 
+# This class is the input for the 'get_change' function.
 class GetChangeRequest(BaseValidatorModel):
     Id: str
 
@@ -274,28 +289,34 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'get_dnssec' function.
 class GetDNSSECRequest(BaseValidatorModel):
     HostedZoneId: str
 
 
+# This class is the input for the 'get_geo_location' function.
 class GetGeoLocationRequest(BaseValidatorModel):
     ContinentCode: Optional[str] = None
     CountryCode: Optional[str] = None
     SubdivisionCode: Optional[str] = None
 
 
+# This class is the input for the 'get_health_check_last_failure_reason' function.
 class GetHealthCheckLastFailureReasonRequest(BaseValidatorModel):
     HealthCheckId: str
 
 
+# This class is the input for the 'get_health_check' function.
 class GetHealthCheckRequest(BaseValidatorModel):
     HealthCheckId: str
 
 
+# This class is the input for the 'get_health_check_status' function.
 class GetHealthCheckStatusRequest(BaseValidatorModel):
     HealthCheckId: str
 
 
+# This class is the input for the 'get_hosted_zone_limit' function.
 class GetHostedZoneLimitRequest(BaseValidatorModel):
     Type: HostedZoneLimitTypeType
     HostedZoneId: str
@@ -306,14 +327,17 @@ class HostedZoneLimit(BaseValidatorModel):
     Value: int
 
 
+# This class is the input for the 'get_hosted_zone' function.
 class GetHostedZoneRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_query_logging_config' function.
 class GetQueryLoggingConfigRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_reusable_delegation_set_limit' function.
 class GetReusableDelegationSetLimitRequest(BaseValidatorModel):
     Type: Literal['MAX_ZONES_BY_REUSABLE_DELEGATION_SET']
     DelegationSetId: str
@@ -324,14 +348,17 @@ class ReusableDelegationSetLimit(BaseValidatorModel):
     Value: int
 
 
+# This class is the input for the 'get_reusable_delegation_set' function.
 class GetReusableDelegationSetRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_traffic_policy_instance' function.
 class GetTrafficPolicyInstanceRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_traffic_policy' function.
 class GetTrafficPolicyRequest(BaseValidatorModel):
     Id: str
     Version: int
@@ -358,6 +385,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_cidr_blocks' function.
 class ListCidrBlocksRequest(BaseValidatorModel):
     CollectionId: str
     LocationName: Optional[str] = None
@@ -365,11 +393,13 @@ class ListCidrBlocksRequest(BaseValidatorModel):
     MaxResults: Optional[str] = None
 
 
+# This class is the input for the 'list_cidr_collections' function.
 class ListCidrCollectionsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[str] = None
 
 
+# This class is the input for the 'list_cidr_locations' function.
 class ListCidrLocationsRequest(BaseValidatorModel):
     CollectionId: str
     NextToken: Optional[str] = None
@@ -380,6 +410,7 @@ class LocationSummary(BaseValidatorModel):
     LocationName: Optional[str] = None
 
 
+# This class is the input for the 'list_geo_locations' function.
 class ListGeoLocationsRequest(BaseValidatorModel):
     StartContinentCode: Optional[str] = None
     StartCountryCode: Optional[str] = None
@@ -387,17 +418,20 @@ class ListGeoLocationsRequest(BaseValidatorModel):
     MaxItems: Optional[str] = None
 
 
+# This class is the input for the 'list_health_checks' function.
 class ListHealthChecksRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
+# This class is the input for the 'list_hosted_zones_by_name' function.
 class ListHostedZonesByNameRequest(BaseValidatorModel):
     DNSName: Optional[str] = None
     HostedZoneId: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
+# This class is the input for the 'list_hosted_zones_by_vpc' function.
 class ListHostedZonesByVPCRequest(BaseValidatorModel):
     VPCId: str
     VPCRegion: VPCRegionType
@@ -405,6 +439,7 @@ class ListHostedZonesByVPCRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_hosted_zones' function.
 class ListHostedZonesRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
@@ -412,12 +447,14 @@ class ListHostedZonesRequest(BaseValidatorModel):
     HostedZoneType: Optional[Literal['PrivateHostedZone']] = None
 
 
+# This class is the input for the 'list_query_logging_configs' function.
 class ListQueryLoggingConfigsRequest(BaseValidatorModel):
     HostedZoneId: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[str] = None
 
 
+# This class is the input for the 'list_resource_record_sets' function.
 class ListResourceRecordSetsRequest(BaseValidatorModel):
     HostedZoneId: str
     StartRecordName: Optional[str] = None
@@ -426,21 +463,25 @@ class ListResourceRecordSetsRequest(BaseValidatorModel):
     MaxItems: Optional[str] = None
 
 
+# This class is the input for the 'list_reusable_delegation_sets' function.
 class ListReusableDelegationSetsRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceType: TagResourceTypeType
     ResourceId: str
 
 
+# This class is the input for the 'list_tags_for_resources' function.
 class ListTagsForResourcesRequest(BaseValidatorModel):
     ResourceType: TagResourceTypeType
     ResourceIds: List[str]
 
 
+# This class is the input for the 'list_traffic_policies' function.
 class ListTrafficPoliciesRequest(BaseValidatorModel):
     TrafficPolicyIdMarker: Optional[str] = None
     MaxItems: Optional[str] = None
@@ -454,6 +495,7 @@ class TrafficPolicySummary(BaseValidatorModel):
     TrafficPolicyCount: int
 
 
+# This class is the input for the 'list_traffic_policy_instances_by_hosted_zone' function.
 class ListTrafficPolicyInstancesByHostedZoneRequest(BaseValidatorModel):
     HostedZoneId: str
     TrafficPolicyInstanceNameMarker: Optional[str] = None
@@ -461,6 +503,7 @@ class ListTrafficPolicyInstancesByHostedZoneRequest(BaseValidatorModel):
     MaxItems: Optional[str] = None
 
 
+# This class is the input for the 'list_traffic_policy_instances_by_policy' function.
 class ListTrafficPolicyInstancesByPolicyRequest(BaseValidatorModel):
     TrafficPolicyId: str
     TrafficPolicyVersion: int
@@ -470,6 +513,7 @@ class ListTrafficPolicyInstancesByPolicyRequest(BaseValidatorModel):
     MaxItems: Optional[str] = None
 
 
+# This class is the input for the 'list_traffic_policy_instances' function.
 class ListTrafficPolicyInstancesRequest(BaseValidatorModel):
     HostedZoneIdMarker: Optional[str] = None
     TrafficPolicyInstanceNameMarker: Optional[str] = None
@@ -477,12 +521,14 @@ class ListTrafficPolicyInstancesRequest(BaseValidatorModel):
     MaxItems: Optional[str] = None
 
 
+# This class is the input for the 'list_traffic_policy_versions' function.
 class ListTrafficPolicyVersionsRequest(BaseValidatorModel):
     Id: str
     TrafficPolicyVersionMarker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
+# This class is the input for the 'list_vpc_association_authorizations' function.
 class ListVPCAssociationAuthorizationsRequest(BaseValidatorModel):
     HostedZoneId: str
     NextToken: Optional[str] = None
@@ -493,6 +539,7 @@ class ResourceRecord(BaseValidatorModel):
     Value: str
 
 
+# This class is the input for the 'test_dns_answer' function.
 class TestDNSAnswerRequest(BaseValidatorModel):
     HostedZoneId: str
     RecordName: str
@@ -502,17 +549,20 @@ class TestDNSAnswerRequest(BaseValidatorModel):
     EDNS0ClientSubnetMask: Optional[str] = None
 
 
+# This class is the input for the 'update_hosted_zone_comment' function.
 class UpdateHostedZoneCommentRequest(BaseValidatorModel):
     Id: str
     Comment: Optional[str] = None
 
 
+# This class is the input for the 'update_traffic_policy_comment' function.
 class UpdateTrafficPolicyCommentRequest(BaseValidatorModel):
     Id: str
     Version: int
     Comment: str
 
 
+# This class is the input for the 'update_traffic_policy_instance' function.
 class UpdateTrafficPolicyInstanceRequest(BaseValidatorModel):
     Id: str
     TTL: int
@@ -520,62 +570,74 @@ class UpdateTrafficPolicyInstanceRequest(BaseValidatorModel):
     TrafficPolicyVersion: int
 
 
+# This class is the output for the 'activate_key_signing_key' function.
 class ActivateKeySigningKeyResponse(BaseValidatorModel):
     ChangeInfo: ChangeInfo
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_vpc_with_hosted_zone' function.
 class AssociateVPCWithHostedZoneResponse(BaseValidatorModel):
     ChangeInfo: ChangeInfo
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'change_cidr_collection' function.
 class ChangeCidrCollectionResponse(BaseValidatorModel):
     Id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'change_resource_record_sets' function.
 class ChangeResourceRecordSetsResponse(BaseValidatorModel):
     ChangeInfo: ChangeInfo
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'deactivate_key_signing_key' function.
 class DeactivateKeySigningKeyResponse(BaseValidatorModel):
     ChangeInfo: ChangeInfo
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_hosted_zone' function.
 class DeleteHostedZoneResponse(BaseValidatorModel):
     ChangeInfo: ChangeInfo
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_key_signing_key' function.
 class DeleteKeySigningKeyResponse(BaseValidatorModel):
     ChangeInfo: ChangeInfo
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disable_hosted_zone_dnssec' function.
 class DisableHostedZoneDNSSECResponse(BaseValidatorModel):
     ChangeInfo: ChangeInfo
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_vpc_from_hosted_zone' function.
 class DisassociateVPCFromHostedZoneResponse(BaseValidatorModel):
     ChangeInfo: ChangeInfo
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enable_hosted_zone_dnssec' function.
 class EnableHostedZoneDNSSECResponse(BaseValidatorModel):
     ChangeInfo: ChangeInfo
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_account_limit' function.
 class GetAccountLimitResponse(BaseValidatorModel):
     Limit: AccountLimit
     Count: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_change' function.
 class GetChangeResponse(BaseValidatorModel):
     ChangeInfo: ChangeInfo
     ResponseMetadata: ResponseMetadata
@@ -601,6 +663,7 @@ class GetTrafficPolicyInstanceCountResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'test_dns_answer' function.
 class TestDNSAnswerResponse(BaseValidatorModel):
     Nameserver: str
     RecordName: str
@@ -653,6 +716,7 @@ class HealthCheckConfig(BaseValidatorModel):
     RoutingControlArn: Optional[str] = None
 
 
+# This class is the input for the 'update_health_check' function.
 class UpdateHealthCheckRequest(BaseValidatorModel):
     HealthCheckId: str
     HealthCheckVersion: Optional[int] = None
@@ -673,17 +737,20 @@ class UpdateHealthCheckRequest(BaseValidatorModel):
     ResetElements: Optional[List[ResettableElementNameType]] = None
 
 
+# This class is the input for the 'associate_vpc_with_hosted_zone' function.
 class AssociateVPCWithHostedZoneRequest(BaseValidatorModel):
     HostedZoneId: str
     VPC: VPC
     Comment: Optional[str] = None
 
 
+# This class is the input for the 'create_vpc_association_authorization' function.
 class CreateVPCAssociationAuthorizationRequest(BaseValidatorModel):
     HostedZoneId: str
     VPC: VPC
 
 
+# This class is the output for the 'create_vpc_association_authorization' function.
 class CreateVPCAssociationAuthorizationResponse(BaseValidatorModel):
     HostedZoneId: str
     VPC: VPC
@@ -695,12 +762,14 @@ class DeleteVPCAssociationAuthorizationRequest(BaseValidatorModel):
     VPC: VPC
 
 
+# This class is the input for the 'disassociate_vpc_from_hosted_zone' function.
 class DisassociateVPCFromHostedZoneRequest(BaseValidatorModel):
     HostedZoneId: str
     VPC: VPC
     Comment: Optional[str] = None
 
 
+# This class is the output for the 'list_vpc_association_authorizations' function.
 class ListVPCAssociationAuthorizationsResponse(BaseValidatorModel):
     HostedZoneId: str
     VPCs: List[VPC]
@@ -708,6 +777,7 @@ class ListVPCAssociationAuthorizationsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'change_cidr_collection' function.
 class ChangeCidrCollectionRequest(BaseValidatorModel):
     Id: str
     Changes: List[CidrCollectionChange]
@@ -727,12 +797,14 @@ class ResourceTagSet(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'list_cidr_blocks' function.
 class ListCidrBlocksResponse(BaseValidatorModel):
     CidrBlocks: List[CidrBlockSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_cidr_collection' function.
 class CreateCidrCollectionResponse(BaseValidatorModel):
     Collection: CidrCollection
     Location: str
@@ -750,6 +822,7 @@ class CloudWatchAlarmConfiguration(BaseValidatorModel):
     Dimensions: Optional[List[Dimension]] = None
 
 
+# This class is the output for the 'list_cidr_collections' function.
 class ListCidrCollectionsResponse(BaseValidatorModel):
     CidrCollections: List[CollectionSummary]
     ResponseMetadata: ResponseMetadata
@@ -763,6 +836,7 @@ class GeoProximityLocation(BaseValidatorModel):
     Bias: Optional[int] = None
 
 
+# This class is the input for the 'create_hosted_zone' function.
 class CreateHostedZoneRequest(BaseValidatorModel):
     Name: str
     CallerReference: str
@@ -771,17 +845,20 @@ class CreateHostedZoneRequest(BaseValidatorModel):
     DelegationSetId: Optional[str] = None
 
 
+# This class is the output for the 'create_reusable_delegation_set' function.
 class CreateReusableDelegationSetResponse(BaseValidatorModel):
     DelegationSet: DelegationSet
     Location: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_reusable_delegation_set' function.
 class GetReusableDelegationSetResponse(BaseValidatorModel):
     DelegationSet: DelegationSet
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_reusable_delegation_sets' function.
 class ListReusableDelegationSetsResponse(BaseValidatorModel):
     DelegationSets: List[DelegationSet]
     Marker: str
@@ -791,6 +868,7 @@ class ListReusableDelegationSetsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_key_signing_key' function.
 class CreateKeySigningKeyResponse(BaseValidatorModel):
     ChangeInfo: ChangeInfo
     KeySigningKey: KeySigningKey
@@ -798,34 +876,40 @@ class CreateKeySigningKeyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_query_logging_config' function.
 class CreateQueryLoggingConfigResponse(BaseValidatorModel):
     QueryLoggingConfig: QueryLoggingConfig
     Location: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_query_logging_config' function.
 class GetQueryLoggingConfigResponse(BaseValidatorModel):
     QueryLoggingConfig: QueryLoggingConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_query_logging_configs' function.
 class ListQueryLoggingConfigsResponse(BaseValidatorModel):
     QueryLoggingConfigs: List[QueryLoggingConfig]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_traffic_policy_instance' function.
 class CreateTrafficPolicyInstanceResponse(BaseValidatorModel):
     TrafficPolicyInstance: TrafficPolicyInstance
     Location: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_traffic_policy_instance' function.
 class GetTrafficPolicyInstanceResponse(BaseValidatorModel):
     TrafficPolicyInstance: TrafficPolicyInstance
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_traffic_policy_instances_by_hosted_zone' function.
 class ListTrafficPolicyInstancesByHostedZoneResponse(BaseValidatorModel):
     TrafficPolicyInstances: List[TrafficPolicyInstance]
     TrafficPolicyInstanceNameMarker: str
@@ -835,6 +919,7 @@ class ListTrafficPolicyInstancesByHostedZoneResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_traffic_policy_instances_by_policy' function.
 class ListTrafficPolicyInstancesByPolicyResponse(BaseValidatorModel):
     TrafficPolicyInstances: List[TrafficPolicyInstance]
     HostedZoneIdMarker: str
@@ -845,6 +930,7 @@ class ListTrafficPolicyInstancesByPolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_traffic_policy_instances' function.
 class ListTrafficPolicyInstancesResponse(BaseValidatorModel):
     TrafficPolicyInstances: List[TrafficPolicyInstance]
     HostedZoneIdMarker: str
@@ -855,28 +941,33 @@ class ListTrafficPolicyInstancesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_traffic_policy_instance' function.
 class UpdateTrafficPolicyInstanceResponse(BaseValidatorModel):
     TrafficPolicyInstance: TrafficPolicyInstance
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_traffic_policy' function.
 class CreateTrafficPolicyResponse(BaseValidatorModel):
     TrafficPolicy: TrafficPolicy
     Location: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_traffic_policy_version' function.
 class CreateTrafficPolicyVersionResponse(BaseValidatorModel):
     TrafficPolicy: TrafficPolicy
     Location: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_traffic_policy' function.
 class GetTrafficPolicyResponse(BaseValidatorModel):
     TrafficPolicy: TrafficPolicy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_traffic_policy_versions' function.
 class ListTrafficPolicyVersionsResponse(BaseValidatorModel):
     TrafficPolicies: List[TrafficPolicy]
     IsTruncated: bool
@@ -885,22 +976,26 @@ class ListTrafficPolicyVersionsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_traffic_policy_comment' function.
 class UpdateTrafficPolicyCommentResponse(BaseValidatorModel):
     TrafficPolicy: TrafficPolicy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_dnssec' function.
 class GetDNSSECResponse(BaseValidatorModel):
     Status: DNSSECStatus
     KeySigningKeys: List[KeySigningKey]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_geo_location' function.
 class GetGeoLocationResponse(BaseValidatorModel):
     GeoLocationDetails: GeoLocationDetails
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_geo_locations' function.
 class ListGeoLocationsResponse(BaseValidatorModel):
     GeoLocationDetailsList: List[GeoLocationDetails]
     IsTruncated: bool
@@ -916,12 +1011,14 @@ class GetChangeRequestWait(BaseValidatorModel):
     WaiterConfig: Optional[WaiterConfig] = None
 
 
+# This class is the output for the 'get_hosted_zone_limit' function.
 class GetHostedZoneLimitResponse(BaseValidatorModel):
     Limit: HostedZoneLimit
     Count: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_reusable_delegation_set_limit' function.
 class GetReusableDelegationSetLimitResponse(BaseValidatorModel):
     Limit: ReusableDelegationSetLimit
     Count: int
@@ -990,12 +1087,14 @@ class ListVPCAssociationAuthorizationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_cidr_locations' function.
 class ListCidrLocationsResponse(BaseValidatorModel):
     CidrLocations: List[LocationSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_traffic_policies' function.
 class ListTrafficPoliciesResponse(BaseValidatorModel):
     TrafficPolicySummaries: List[TrafficPolicySummary]
     IsTruncated: bool
@@ -1006,11 +1105,13 @@ class ListTrafficPoliciesResponse(BaseValidatorModel):
 HealthCheckConfigUnion = Union[HealthCheckConfig, HealthCheckConfigOutput]
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     ResourceTagSet: ResourceTagSet
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resources' function.
 class ListTagsForResourcesResponse(BaseValidatorModel):
     ResourceTagSets: List[ResourceTagSet]
     ResponseMetadata: ResponseMetadata
@@ -1061,16 +1162,19 @@ class ResourceRecordSet(BaseValidatorModel):
     GeoProximityLocation: Optional[GeoProximityLocation] = None
 
 
+# This class is the output for the 'get_health_check_last_failure_reason' function.
 class GetHealthCheckLastFailureReasonResponse(BaseValidatorModel):
     HealthCheckObservations: List[HealthCheckObservation]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_health_check_status' function.
 class GetHealthCheckStatusResponse(BaseValidatorModel):
     HealthCheckObservations: List[HealthCheckObservation]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_hosted_zone' function.
 class CreateHostedZoneResponse(BaseValidatorModel):
     HostedZone: HostedZone
     ChangeInfo: ChangeInfo
@@ -1080,6 +1184,7 @@ class CreateHostedZoneResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_hosted_zone' function.
 class GetHostedZoneResponse(BaseValidatorModel):
     HostedZone: HostedZone
     DelegationSet: DelegationSet
@@ -1087,6 +1192,7 @@ class GetHostedZoneResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_hosted_zones_by_name' function.
 class ListHostedZonesByNameResponse(BaseValidatorModel):
     HostedZones: List[HostedZone]
     DNSName: str
@@ -1098,6 +1204,7 @@ class ListHostedZonesByNameResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_hosted_zones' function.
 class ListHostedZonesResponse(BaseValidatorModel):
     HostedZones: List[HostedZone]
     Marker: str
@@ -1107,11 +1214,13 @@ class ListHostedZonesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_hosted_zone_comment' function.
 class UpdateHostedZoneCommentResponse(BaseValidatorModel):
     HostedZone: HostedZone
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_hosted_zones_by_vpc' function.
 class ListHostedZonesByVPCResponse(BaseValidatorModel):
     HostedZoneSummaries: List[HostedZoneSummary]
     MaxItems: str
@@ -1119,22 +1228,26 @@ class ListHostedZonesByVPCResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_health_check' function.
 class CreateHealthCheckRequest(BaseValidatorModel):
     CallerReference: str
     HealthCheckConfig: HealthCheckConfigUnion
 
 
+# This class is the output for the 'create_health_check' function.
 class CreateHealthCheckResponse(BaseValidatorModel):
     HealthCheck: HealthCheck
     Location: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_health_check' function.
 class GetHealthCheckResponse(BaseValidatorModel):
     HealthCheck: HealthCheck
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_health_checks' function.
 class ListHealthChecksResponse(BaseValidatorModel):
     HealthChecks: List[HealthCheck]
     Marker: str
@@ -1144,11 +1257,13 @@ class ListHealthChecksResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_health_check' function.
 class UpdateHealthCheckResponse(BaseValidatorModel):
     HealthCheck: HealthCheck
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_resource_record_sets' function.
 class ListResourceRecordSetsResponse(BaseValidatorModel):
     ResourceRecordSets: List[ResourceRecordSetOutput]
     IsTruncated: bool
@@ -1171,6 +1286,7 @@ class ChangeBatch(BaseValidatorModel):
     Comment: Optional[str] = None
 
 
+# This class is the input for the 'change_resource_record_sets' function.
 class ChangeResourceRecordSetsRequest(BaseValidatorModel):
     HostedZoneId: str
     ChangeBatch: ChangeBatch

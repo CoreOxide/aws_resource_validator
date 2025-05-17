@@ -13,6 +13,7 @@ class AWSLocation(BaseValidatorModel):
     SubnetArn: Optional[str] = None
 
 
+# This class is the input for the 'accept_attachment' function.
 class AcceptAttachmentRequest(BaseValidatorModel):
     AttachmentId: str
 
@@ -30,6 +31,7 @@ class AccountStatus(BaseValidatorModel):
     SLRDeploymentStatus: Optional[str] = None
 
 
+# This class is the input for the 'associate_connect_peer' function.
 class AssociateConnectPeerRequest(BaseValidatorModel):
     GlobalNetworkId: str
     ConnectPeerId: str
@@ -45,6 +47,7 @@ class ConnectPeerAssociation(BaseValidatorModel):
     State: Optional[ConnectPeerAssociationStateType] = None
 
 
+# This class is the input for the 'associate_customer_gateway' function.
 class AssociateCustomerGatewayRequest(BaseValidatorModel):
     CustomerGatewayArn: str
     GlobalNetworkId: str
@@ -60,6 +63,7 @@ class CustomerGatewayAssociation(BaseValidatorModel):
     State: Optional[CustomerGatewayAssociationStateType] = None
 
 
+# This class is the input for the 'associate_link' function.
 class AssociateLinkRequest(BaseValidatorModel):
     GlobalNetworkId: str
     DeviceId: str
@@ -73,6 +77,7 @@ class LinkAssociation(BaseValidatorModel):
     LinkAssociationState: Optional[LinkAssociationStateType] = None
 
 
+# This class is the input for the 'associate_transit_gateway_connect_peer' function.
 class AssociateTransitGatewayConnectPeerRequest(BaseValidatorModel):
     GlobalNetworkId: str
     TransitGatewayConnectPeerArn: str
@@ -196,42 +201,51 @@ class VpcOptions(BaseValidatorModel):
     ApplianceModeSupport: Optional[bool] = None
 
 
+# This class is the input for the 'delete_attachment' function.
 class DeleteAttachmentRequest(BaseValidatorModel):
     AttachmentId: str
 
 
+# This class is the input for the 'delete_connect_peer' function.
 class DeleteConnectPeerRequest(BaseValidatorModel):
     ConnectPeerId: str
 
 
+# This class is the input for the 'delete_connection' function.
 class DeleteConnectionRequest(BaseValidatorModel):
     GlobalNetworkId: str
     ConnectionId: str
 
 
+# This class is the input for the 'delete_core_network_policy_version' function.
 class DeleteCoreNetworkPolicyVersionRequest(BaseValidatorModel):
     CoreNetworkId: str
     PolicyVersionId: int
 
 
+# This class is the input for the 'delete_core_network' function.
 class DeleteCoreNetworkRequest(BaseValidatorModel):
     CoreNetworkId: str
 
 
+# This class is the input for the 'delete_device' function.
 class DeleteDeviceRequest(BaseValidatorModel):
     GlobalNetworkId: str
     DeviceId: str
 
 
+# This class is the input for the 'delete_global_network' function.
 class DeleteGlobalNetworkRequest(BaseValidatorModel):
     GlobalNetworkId: str
 
 
+# This class is the input for the 'delete_link' function.
 class DeleteLinkRequest(BaseValidatorModel):
     GlobalNetworkId: str
     LinkId: str
 
 
+# This class is the input for the 'delete_peering' function.
 class DeletePeeringRequest(BaseValidatorModel):
     PeeringId: str
 
@@ -240,11 +254,13 @@ class DeleteResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'delete_site' function.
 class DeleteSiteRequest(BaseValidatorModel):
     GlobalNetworkId: str
     SiteId: str
 
 
+# This class is the input for the 'deregister_transit_gateway' function.
 class DeregisterTransitGatewayRequest(BaseValidatorModel):
     GlobalNetworkId: str
     TransitGatewayArn: str
@@ -256,28 +272,33 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_global_networks' function.
 class DescribeGlobalNetworksRequest(BaseValidatorModel):
     GlobalNetworkIds: Optional[List[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'disassociate_connect_peer' function.
 class DisassociateConnectPeerRequest(BaseValidatorModel):
     GlobalNetworkId: str
     ConnectPeerId: str
 
 
+# This class is the input for the 'disassociate_customer_gateway' function.
 class DisassociateCustomerGatewayRequest(BaseValidatorModel):
     GlobalNetworkId: str
     CustomerGatewayArn: str
 
 
+# This class is the input for the 'disassociate_link' function.
 class DisassociateLinkRequest(BaseValidatorModel):
     GlobalNetworkId: str
     DeviceId: str
     LinkId: str
 
 
+# This class is the input for the 'disassociate_transit_gateway_connect_peer' function.
 class DisassociateTransitGatewayConnectPeerRequest(BaseValidatorModel):
     GlobalNetworkId: str
     TransitGatewayConnectPeerArn: str
@@ -293,10 +314,12 @@ class ExecuteCoreNetworkChangeSetRequest(BaseValidatorModel):
     PolicyVersionId: int
 
 
+# This class is the input for the 'get_connect_attachment' function.
 class GetConnectAttachmentRequest(BaseValidatorModel):
     AttachmentId: str
 
 
+# This class is the input for the 'get_connect_peer_associations' function.
 class GetConnectPeerAssociationsRequest(BaseValidatorModel):
     GlobalNetworkId: str
     ConnectPeerIds: Optional[List[str]] = None
@@ -304,10 +327,12 @@ class GetConnectPeerAssociationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_connect_peer' function.
 class GetConnectPeerRequest(BaseValidatorModel):
     ConnectPeerId: str
 
 
+# This class is the input for the 'get_connections' function.
 class GetConnectionsRequest(BaseValidatorModel):
     GlobalNetworkId: str
     ConnectionIds: Optional[List[str]] = None
@@ -316,6 +341,7 @@ class GetConnectionsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_core_network_change_events' function.
 class GetCoreNetworkChangeEventsRequest(BaseValidatorModel):
     CoreNetworkId: str
     PolicyVersionId: int
@@ -323,6 +349,7 @@ class GetCoreNetworkChangeEventsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_core_network_change_set' function.
 class GetCoreNetworkChangeSetRequest(BaseValidatorModel):
     CoreNetworkId: str
     PolicyVersionId: int
@@ -330,16 +357,19 @@ class GetCoreNetworkChangeSetRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_core_network_policy' function.
 class GetCoreNetworkPolicyRequest(BaseValidatorModel):
     CoreNetworkId: str
     PolicyVersionId: Optional[int] = None
     Alias: Optional[CoreNetworkPolicyAliasType] = None
 
 
+# This class is the input for the 'get_core_network' function.
 class GetCoreNetworkRequest(BaseValidatorModel):
     CoreNetworkId: str
 
 
+# This class is the input for the 'get_customer_gateway_associations' function.
 class GetCustomerGatewayAssociationsRequest(BaseValidatorModel):
     GlobalNetworkId: str
     CustomerGatewayArns: Optional[List[str]] = None
@@ -347,6 +377,7 @@ class GetCustomerGatewayAssociationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_devices' function.
 class GetDevicesRequest(BaseValidatorModel):
     GlobalNetworkId: str
     DeviceIds: Optional[List[str]] = None
@@ -355,10 +386,12 @@ class GetDevicesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_direct_connect_gateway_attachment' function.
 class GetDirectConnectGatewayAttachmentRequest(BaseValidatorModel):
     AttachmentId: str
 
 
+# This class is the input for the 'get_link_associations' function.
 class GetLinkAssociationsRequest(BaseValidatorModel):
     GlobalNetworkId: str
     DeviceId: Optional[str] = None
@@ -367,6 +400,7 @@ class GetLinkAssociationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_links' function.
 class GetLinksRequest(BaseValidatorModel):
     GlobalNetworkId: str
     LinkIds: Optional[List[str]] = None
@@ -377,6 +411,7 @@ class GetLinksRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_network_resource_counts' function.
 class GetNetworkResourceCountsRequest(BaseValidatorModel):
     GlobalNetworkId: str
     ResourceType: Optional[str] = None
@@ -389,6 +424,7 @@ class NetworkResourceCount(BaseValidatorModel):
     Count: Optional[int] = None
 
 
+# This class is the input for the 'get_network_resource_relationships' function.
 class GetNetworkResourceRelationshipsRequest(BaseValidatorModel):
     GlobalNetworkId: str
     CoreNetworkId: Optional[str] = None
@@ -406,6 +442,7 @@ class Relationship(BaseValidatorModel):
     To: Optional[str] = None
 
 
+# This class is the input for the 'get_network_resources' function.
 class GetNetworkResourcesRequest(BaseValidatorModel):
     GlobalNetworkId: str
     CoreNetworkId: Optional[str] = None
@@ -418,6 +455,7 @@ class GetNetworkResourcesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_network_telemetry' function.
 class GetNetworkTelemetryRequest(BaseValidatorModel):
     GlobalNetworkId: str
     CoreNetworkId: Optional[str] = None
@@ -430,19 +468,23 @@ class GetNetworkTelemetryRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_resource_policy' function.
 class GetResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'get_route_analysis' function.
 class GetRouteAnalysisRequest(BaseValidatorModel):
     GlobalNetworkId: str
     RouteAnalysisId: str
 
 
+# This class is the input for the 'get_site_to_site_vpn_attachment' function.
 class GetSiteToSiteVpnAttachmentRequest(BaseValidatorModel):
     AttachmentId: str
 
 
+# This class is the input for the 'get_sites' function.
 class GetSitesRequest(BaseValidatorModel):
     GlobalNetworkId: str
     SiteIds: Optional[List[str]] = None
@@ -450,6 +492,7 @@ class GetSitesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_transit_gateway_connect_peer_associations' function.
 class GetTransitGatewayConnectPeerAssociationsRequest(BaseValidatorModel):
     GlobalNetworkId: str
     TransitGatewayConnectPeerArns: Optional[List[str]] = None
@@ -457,10 +500,12 @@ class GetTransitGatewayConnectPeerAssociationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_transit_gateway_peering' function.
 class GetTransitGatewayPeeringRequest(BaseValidatorModel):
     PeeringId: str
 
 
+# This class is the input for the 'get_transit_gateway_registrations' function.
 class GetTransitGatewayRegistrationsRequest(BaseValidatorModel):
     GlobalNetworkId: str
     TransitGatewayArns: Optional[List[str]] = None
@@ -468,14 +513,17 @@ class GetTransitGatewayRegistrationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_transit_gateway_route_table_attachment' function.
 class GetTransitGatewayRouteTableAttachmentRequest(BaseValidatorModel):
     AttachmentId: str
 
 
+# This class is the input for the 'get_vpc_attachment' function.
 class GetVpcAttachmentRequest(BaseValidatorModel):
     AttachmentId: str
 
 
+# This class is the input for the 'list_attachments' function.
 class ListAttachmentsRequest(BaseValidatorModel):
     CoreNetworkId: Optional[str] = None
     AttachmentType: Optional[AttachmentTypeType] = None
@@ -485,6 +533,7 @@ class ListAttachmentsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_connect_peers' function.
 class ListConnectPeersRequest(BaseValidatorModel):
     CoreNetworkId: Optional[str] = None
     ConnectAttachmentId: Optional[str] = None
@@ -492,22 +541,26 @@ class ListConnectPeersRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_core_network_policy_versions' function.
 class ListCoreNetworkPolicyVersionsRequest(BaseValidatorModel):
     CoreNetworkId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_core_networks' function.
 class ListCoreNetworksRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_organization_service_access_status' function.
 class ListOrganizationServiceAccessStatusRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_peerings' function.
 class ListPeeringsRequest(BaseValidatorModel):
     CoreNetworkId: Optional[str] = None
     PeeringType: Optional[Literal['TRANSIT_GATEWAY']] = None
@@ -517,6 +570,7 @@ class ListPeeringsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -548,6 +602,7 @@ class PermissionsErrorContext(BaseValidatorModel):
     MissingPermission: Optional[str] = None
 
 
+# This class is the input for the 'put_core_network_policy' function.
 class PutCoreNetworkPolicyRequest(BaseValidatorModel):
     CoreNetworkId: str
     PolicyDocument: str
@@ -561,15 +616,18 @@ class PutResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'register_transit_gateway' function.
 class RegisterTransitGatewayRequest(BaseValidatorModel):
     GlobalNetworkId: str
     TransitGatewayArn: str
 
 
+# This class is the input for the 'reject_attachment' function.
 class RejectAttachmentRequest(BaseValidatorModel):
     AttachmentId: str
 
 
+# This class is the input for the 'restore_core_network_policy_version' function.
 class RestoreCoreNetworkPolicyVersionRequest(BaseValidatorModel):
     CoreNetworkId: str
     PolicyVersionId: int
@@ -596,6 +654,7 @@ class WhenSentTo(BaseValidatorModel):
     WhenSentToSegmentsList: Optional[List[str]] = None
 
 
+# This class is the input for the 'start_organization_service_access_update' function.
 class StartOrganizationServiceAccessUpdateRequest(BaseValidatorModel):
     Action: str
 
@@ -610,6 +669,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_connection' function.
 class UpdateConnectionRequest(BaseValidatorModel):
     GlobalNetworkId: str
     ConnectionId: str
@@ -618,32 +678,38 @@ class UpdateConnectionRequest(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'update_core_network' function.
 class UpdateCoreNetworkRequest(BaseValidatorModel):
     CoreNetworkId: str
     Description: Optional[str] = None
 
 
+# This class is the input for the 'update_direct_connect_gateway_attachment' function.
 class UpdateDirectConnectGatewayAttachmentRequest(BaseValidatorModel):
     AttachmentId: str
     EdgeLocations: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_global_network' function.
 class UpdateGlobalNetworkRequest(BaseValidatorModel):
     GlobalNetworkId: str
     Description: Optional[str] = None
 
 
+# This class is the input for the 'update_network_resource_metadata' function.
 class UpdateNetworkResourceMetadataRequest(BaseValidatorModel):
     GlobalNetworkId: str
     ResourceArn: str
     Metadata: Dict[str, str]
 
 
+# This class is the output for the 'get_resource_policy' function.
 class GetResourcePolicyResponse(BaseValidatorModel):
     PolicyDocument: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_network_resource_metadata' function.
 class UpdateNetworkResourceMetadataResponse(BaseValidatorModel):
     ResourceArn: str
     Metadata: Dict[str, str]
@@ -657,64 +723,76 @@ class OrganizationStatus(BaseValidatorModel):
     AccountStatusList: Optional[List[AccountStatus]] = None
 
 
+# This class is the output for the 'associate_connect_peer' function.
 class AssociateConnectPeerResponse(BaseValidatorModel):
     ConnectPeerAssociation: ConnectPeerAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_connect_peer' function.
 class DisassociateConnectPeerResponse(BaseValidatorModel):
     ConnectPeerAssociation: ConnectPeerAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_connect_peer_associations' function.
 class GetConnectPeerAssociationsResponse(BaseValidatorModel):
     ConnectPeerAssociations: List[ConnectPeerAssociation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'associate_customer_gateway' function.
 class AssociateCustomerGatewayResponse(BaseValidatorModel):
     CustomerGatewayAssociation: CustomerGatewayAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_customer_gateway' function.
 class DisassociateCustomerGatewayResponse(BaseValidatorModel):
     CustomerGatewayAssociation: CustomerGatewayAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_customer_gateway_associations' function.
 class GetCustomerGatewayAssociationsResponse(BaseValidatorModel):
     CustomerGatewayAssociations: List[CustomerGatewayAssociation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'associate_link' function.
 class AssociateLinkResponse(BaseValidatorModel):
     LinkAssociation: LinkAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_link' function.
 class DisassociateLinkResponse(BaseValidatorModel):
     LinkAssociation: LinkAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_link_associations' function.
 class GetLinkAssociationsResponse(BaseValidatorModel):
     LinkAssociations: List[LinkAssociation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'associate_transit_gateway_connect_peer' function.
 class AssociateTransitGatewayConnectPeerResponse(BaseValidatorModel):
     TransitGatewayConnectPeerAssociation: TransitGatewayConnectPeerAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_transit_gateway_connect_peer' function.
 class DisassociateTransitGatewayConnectPeerResponse(BaseValidatorModel):
     TransitGatewayConnectPeerAssociation: TransitGatewayConnectPeerAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_transit_gateway_connect_peer_associations' function.
 class GetTransitGatewayConnectPeerAssociationsResponse(BaseValidatorModel):
     TransitGatewayConnectPeerAssociations: List[TransitGatewayConnectPeerAssociation]
     ResponseMetadata: ResponseMetadata
@@ -756,6 +834,7 @@ class CoreNetworkSummary(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_connection' function.
 class CreateConnectionRequest(BaseValidatorModel):
     GlobalNetworkId: str
     DeviceId: str
@@ -766,6 +845,7 @@ class CreateConnectionRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_core_network' function.
 class CreateCoreNetworkRequest(BaseValidatorModel):
     GlobalNetworkId: str
     Description: Optional[str] = None
@@ -774,6 +854,7 @@ class CreateCoreNetworkRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'create_direct_connect_gateway_attachment' function.
 class CreateDirectConnectGatewayAttachmentRequest(BaseValidatorModel):
     CoreNetworkId: str
     DirectConnectGatewayArn: str
@@ -782,11 +863,13 @@ class CreateDirectConnectGatewayAttachmentRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'create_global_network' function.
 class CreateGlobalNetworkRequest(BaseValidatorModel):
     Description: Optional[str] = None
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_site_to_site_vpn_attachment' function.
 class CreateSiteToSiteVpnAttachmentRequest(BaseValidatorModel):
     CoreNetworkId: str
     VpnConnectionArn: str
@@ -794,6 +877,7 @@ class CreateSiteToSiteVpnAttachmentRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'create_transit_gateway_peering' function.
 class CreateTransitGatewayPeeringRequest(BaseValidatorModel):
     CoreNetworkId: str
     TransitGatewayArn: str
@@ -801,6 +885,7 @@ class CreateTransitGatewayPeeringRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'create_transit_gateway_route_table_attachment' function.
 class CreateTransitGatewayRouteTableAttachmentRequest(BaseValidatorModel):
     PeeringId: str
     TransitGatewayRouteTableArn: str
@@ -817,6 +902,7 @@ class GlobalNetwork(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     TagList: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -853,6 +939,7 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the input for the 'create_link' function.
 class CreateLinkRequest(BaseValidatorModel):
     GlobalNetworkId: str
     Bandwidth: Bandwidth
@@ -877,6 +964,7 @@ class Link(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_link' function.
 class UpdateLinkRequest(BaseValidatorModel):
     GlobalNetworkId: str
     LinkId: str
@@ -886,6 +974,7 @@ class UpdateLinkRequest(BaseValidatorModel):
     Provider: Optional[str] = None
 
 
+# This class is the input for the 'create_connect_peer' function.
 class CreateConnectPeerRequest(BaseValidatorModel):
     ConnectAttachmentId: str
     PeerAddress: str
@@ -897,6 +986,7 @@ class CreateConnectPeerRequest(BaseValidatorModel):
     SubnetArn: Optional[str] = None
 
 
+# This class is the input for the 'create_connect_attachment' function.
 class CreateConnectAttachmentRequest(BaseValidatorModel):
     CoreNetworkId: str
     EdgeLocation: str
@@ -952,6 +1042,7 @@ class CoreNetworkPolicy(BaseValidatorModel):
     PolicyDocument: Optional[str] = None
 
 
+# This class is the output for the 'list_core_network_policy_versions' function.
 class ListCoreNetworkPolicyVersionsResponse(BaseValidatorModel):
     CoreNetworkPolicyVersions: List[CoreNetworkPolicyVersion]
     ResponseMetadata: ResponseMetadata
@@ -964,6 +1055,7 @@ class RouteTableIdentifier(BaseValidatorModel):
     CoreNetworkNetworkFunctionGroup: Optional[CoreNetworkNetworkFunctionGroupIdentifier] = None
 
 
+# This class is the input for the 'create_device' function.
 class CreateDeviceRequest(BaseValidatorModel):
     GlobalNetworkId: str
     AWSLocation: Optional[AWSLocation] = None
@@ -977,6 +1069,7 @@ class CreateDeviceRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_site' function.
 class CreateSiteRequest(BaseValidatorModel):
     GlobalNetworkId: str
     Description: Optional[str] = None
@@ -1012,6 +1105,7 @@ class Site(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_device' function.
 class UpdateDeviceRequest(BaseValidatorModel):
     GlobalNetworkId: str
     DeviceId: str
@@ -1025,6 +1119,7 @@ class UpdateDeviceRequest(BaseValidatorModel):
     SiteId: Optional[str] = None
 
 
+# This class is the input for the 'update_site' function.
 class UpdateSiteRequest(BaseValidatorModel):
     GlobalNetworkId: str
     SiteId: str
@@ -1032,6 +1127,7 @@ class UpdateSiteRequest(BaseValidatorModel):
     Location: Optional[Location] = None
 
 
+# This class is the input for the 'create_vpc_attachment' function.
 class CreateVpcAttachmentRequest(BaseValidatorModel):
     CoreNetworkId: str
     VpcArn: str
@@ -1041,6 +1137,7 @@ class CreateVpcAttachmentRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'update_vpc_attachment' function.
 class UpdateVpcAttachmentRequest(BaseValidatorModel):
     AttachmentId: str
     AddSubnetArns: Optional[List[str]] = None
@@ -1195,12 +1292,14 @@ class ListPeeringsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'get_network_resource_counts' function.
 class GetNetworkResourceCountsResponse(BaseValidatorModel):
     NetworkResourceCounts: List[NetworkResourceCount]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_network_resource_relationships' function.
 class GetNetworkResourceRelationshipsResponse(BaseValidatorModel):
     Relationships: List[Relationship]
     ResponseMetadata: ResponseMetadata
@@ -1234,6 +1333,7 @@ class PeeringError(BaseValidatorModel):
     MissingPermissionsContext: Optional[PermissionsErrorContext] = None
 
 
+# This class is the input for the 'start_route_analysis' function.
 class StartRouteAnalysisRequest(BaseValidatorModel):
     GlobalNetworkId: str
     Source: RouteAnalysisEndpointOptionsSpecification
@@ -1248,71 +1348,84 @@ class TransitGatewayRegistration(BaseValidatorModel):
     State: Optional[TransitGatewayRegistrationStateReason] = None
 
 
+# This class is the output for the 'list_organization_service_access_status' function.
 class ListOrganizationServiceAccessStatusResponse(BaseValidatorModel):
     OrganizationStatus: OrganizationStatus
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_organization_service_access_update' function.
 class StartOrganizationServiceAccessUpdateResponse(BaseValidatorModel):
     OrganizationStatus: OrganizationStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_connect_peers' function.
 class ListConnectPeersResponse(BaseValidatorModel):
     ConnectPeers: List[ConnectPeerSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_connection' function.
 class CreateConnectionResponse(BaseValidatorModel):
     Connection: Connection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_connection' function.
 class DeleteConnectionResponse(BaseValidatorModel):
     Connection: Connection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_connections' function.
 class GetConnectionsResponse(BaseValidatorModel):
     Connections: List[Connection]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_connection' function.
 class UpdateConnectionResponse(BaseValidatorModel):
     Connection: Connection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_core_networks' function.
 class ListCoreNetworksResponse(BaseValidatorModel):
     CoreNetworks: List[CoreNetworkSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_global_network' function.
 class CreateGlobalNetworkResponse(BaseValidatorModel):
     GlobalNetwork: GlobalNetwork
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_global_network' function.
 class DeleteGlobalNetworkResponse(BaseValidatorModel):
     GlobalNetwork: GlobalNetwork
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_global_networks' function.
 class DescribeGlobalNetworksResponse(BaseValidatorModel):
     GlobalNetworks: List[GlobalNetwork]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_global_network' function.
 class UpdateGlobalNetworkResponse(BaseValidatorModel):
     GlobalNetwork: GlobalNetwork
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_network_resources' function.
 class GetNetworkResourcesResponse(BaseValidatorModel):
     NetworkResources: List[NetworkResource]
     ResponseMetadata: ResponseMetadata
@@ -1340,22 +1453,26 @@ class Attachment(BaseValidatorModel):
     LastModificationErrors: Optional[List[AttachmentError]] = None
 
 
+# This class is the output for the 'create_link' function.
 class CreateLinkResponse(BaseValidatorModel):
     Link: Link
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_link' function.
 class DeleteLinkResponse(BaseValidatorModel):
     Link: Link
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_links' function.
 class GetLinksResponse(BaseValidatorModel):
     Links: List[Link]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_link' function.
 class UpdateLinkResponse(BaseValidatorModel):
     Link: Link
     ResponseMetadata: ResponseMetadata
@@ -1374,12 +1491,14 @@ class ConnectPeer(BaseValidatorModel):
     LastModificationErrors: Optional[List[ConnectPeerError]] = None
 
 
+# This class is the output for the 'get_network_telemetry' function.
 class GetNetworkTelemetryResponse(BaseValidatorModel):
     NetworkTelemetry: List[NetworkTelemetry]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_core_network_change_events' function.
 class GetCoreNetworkChangeEventsResponse(BaseValidatorModel):
     CoreNetworkChangeEvents: List[CoreNetworkChangeEvent]
     ResponseMetadata: ResponseMetadata
@@ -1399,26 +1518,31 @@ class CoreNetwork(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'delete_core_network_policy_version' function.
 class DeleteCoreNetworkPolicyVersionResponse(BaseValidatorModel):
     CoreNetworkPolicy: CoreNetworkPolicy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_core_network_policy' function.
 class GetCoreNetworkPolicyResponse(BaseValidatorModel):
     CoreNetworkPolicy: CoreNetworkPolicy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_core_network_policy' function.
 class PutCoreNetworkPolicyResponse(BaseValidatorModel):
     CoreNetworkPolicy: CoreNetworkPolicy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'restore_core_network_policy_version' function.
 class RestoreCoreNetworkPolicyVersionResponse(BaseValidatorModel):
     CoreNetworkPolicy: CoreNetworkPolicy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'get_network_routes' function.
 class GetNetworkRoutesRequest(BaseValidatorModel):
     GlobalNetworkId: str
     RouteTableIdentifier: RouteTableIdentifier
@@ -1432,43 +1556,51 @@ class GetNetworkRoutesRequest(BaseValidatorModel):
     DestinationFilters: Optional[Dict[str, List[str]]] = None
 
 
+# This class is the output for the 'create_device' function.
 class CreateDeviceResponse(BaseValidatorModel):
     Device: Device
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_device' function.
 class DeleteDeviceResponse(BaseValidatorModel):
     Device: Device
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_devices' function.
 class GetDevicesResponse(BaseValidatorModel):
     Devices: List[Device]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_device' function.
 class UpdateDeviceResponse(BaseValidatorModel):
     Device: Device
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_site' function.
 class CreateSiteResponse(BaseValidatorModel):
     Site: Site
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_site' function.
 class DeleteSiteResponse(BaseValidatorModel):
     Site: Site
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_sites' function.
 class GetSitesResponse(BaseValidatorModel):
     Sites: List[Site]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_site' function.
 class UpdateSiteResponse(BaseValidatorModel):
     Site: Site
     ResponseMetadata: ResponseMetadata
@@ -1486,6 +1618,7 @@ class RouteAnalysisPath(BaseValidatorModel):
     Path: Optional[List[PathComponent]] = None
 
 
+# This class is the output for the 'get_network_routes' function.
 class GetNetworkRoutesResponse(BaseValidatorModel):
     RouteTableArn: str
     CoreNetworkSegmentEdge: CoreNetworkSegmentEdgeIdentifier
@@ -1509,22 +1642,26 @@ class Peering(BaseValidatorModel):
     LastModificationErrors: Optional[List[PeeringError]] = None
 
 
+# This class is the output for the 'deregister_transit_gateway' function.
 class DeregisterTransitGatewayResponse(BaseValidatorModel):
     TransitGatewayRegistration: TransitGatewayRegistration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_transit_gateway_registrations' function.
 class GetTransitGatewayRegistrationsResponse(BaseValidatorModel):
     TransitGatewayRegistrations: List[TransitGatewayRegistration]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'register_transit_gateway' function.
 class RegisterTransitGatewayResponse(BaseValidatorModel):
     TransitGatewayRegistration: TransitGatewayRegistration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'accept_attachment' function.
 class AcceptAttachmentResponse(BaseValidatorModel):
     Attachment: Attachment
     ResponseMetadata: ResponseMetadata
@@ -1536,6 +1673,7 @@ class ConnectAttachment(BaseValidatorModel):
     Options: Optional[ConnectAttachmentOptions] = None
 
 
+# This class is the output for the 'delete_attachment' function.
 class DeleteAttachmentResponse(BaseValidatorModel):
     Attachment: Attachment
     ResponseMetadata: ResponseMetadata
@@ -1546,12 +1684,14 @@ class DirectConnectGatewayAttachment(BaseValidatorModel):
     DirectConnectGatewayArn: Optional[str] = None
 
 
+# This class is the output for the 'list_attachments' function.
 class ListAttachmentsResponse(BaseValidatorModel):
     Attachments: List[Attachment]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'reject_attachment' function.
 class RejectAttachmentResponse(BaseValidatorModel):
     Attachment: Attachment
     ResponseMetadata: ResponseMetadata
@@ -1574,36 +1714,43 @@ class VpcAttachment(BaseValidatorModel):
     Options: Optional[VpcOptions] = None
 
 
+# This class is the output for the 'create_connect_peer' function.
 class CreateConnectPeerResponse(BaseValidatorModel):
     ConnectPeer: ConnectPeer
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_connect_peer' function.
 class DeleteConnectPeerResponse(BaseValidatorModel):
     ConnectPeer: ConnectPeer
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_connect_peer' function.
 class GetConnectPeerResponse(BaseValidatorModel):
     ConnectPeer: ConnectPeer
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_core_network' function.
 class CreateCoreNetworkResponse(BaseValidatorModel):
     CoreNetwork: CoreNetwork
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_core_network' function.
 class DeleteCoreNetworkResponse(BaseValidatorModel):
     CoreNetwork: CoreNetwork
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_core_network' function.
 class GetCoreNetworkResponse(BaseValidatorModel):
     CoreNetwork: CoreNetwork
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_core_network' function.
 class UpdateCoreNetworkResponse(BaseValidatorModel):
     CoreNetwork: CoreNetwork
     ResponseMetadata: ResponseMetadata
@@ -1635,11 +1782,13 @@ class RouteAnalysis(BaseValidatorModel):
     ReturnPath: Optional[RouteAnalysisPath] = None
 
 
+# This class is the output for the 'delete_peering' function.
 class DeletePeeringResponse(BaseValidatorModel):
     Peering: Peering
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_peerings' function.
 class ListPeeringsResponse(BaseValidatorModel):
     Peerings: List[Peering]
     ResponseMetadata: ResponseMetadata
@@ -1652,61 +1801,73 @@ class TransitGatewayPeering(BaseValidatorModel):
     TransitGatewayPeeringAttachmentId: Optional[str] = None
 
 
+# This class is the output for the 'create_connect_attachment' function.
 class CreateConnectAttachmentResponse(BaseValidatorModel):
     ConnectAttachment: ConnectAttachment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_connect_attachment' function.
 class GetConnectAttachmentResponse(BaseValidatorModel):
     ConnectAttachment: ConnectAttachment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_direct_connect_gateway_attachment' function.
 class CreateDirectConnectGatewayAttachmentResponse(BaseValidatorModel):
     DirectConnectGatewayAttachment: DirectConnectGatewayAttachment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_direct_connect_gateway_attachment' function.
 class GetDirectConnectGatewayAttachmentResponse(BaseValidatorModel):
     DirectConnectGatewayAttachment: DirectConnectGatewayAttachment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_direct_connect_gateway_attachment' function.
 class UpdateDirectConnectGatewayAttachmentResponse(BaseValidatorModel):
     DirectConnectGatewayAttachment: DirectConnectGatewayAttachment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_site_to_site_vpn_attachment' function.
 class CreateSiteToSiteVpnAttachmentResponse(BaseValidatorModel):
     SiteToSiteVpnAttachment: SiteToSiteVpnAttachment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_site_to_site_vpn_attachment' function.
 class GetSiteToSiteVpnAttachmentResponse(BaseValidatorModel):
     SiteToSiteVpnAttachment: SiteToSiteVpnAttachment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_transit_gateway_route_table_attachment' function.
 class CreateTransitGatewayRouteTableAttachmentResponse(BaseValidatorModel):
     TransitGatewayRouteTableAttachment: TransitGatewayRouteTableAttachment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_transit_gateway_route_table_attachment' function.
 class GetTransitGatewayRouteTableAttachmentResponse(BaseValidatorModel):
     TransitGatewayRouteTableAttachment: TransitGatewayRouteTableAttachment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_vpc_attachment' function.
 class CreateVpcAttachmentResponse(BaseValidatorModel):
     VpcAttachment: VpcAttachment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_vpc_attachment' function.
 class GetVpcAttachmentResponse(BaseValidatorModel):
     VpcAttachment: VpcAttachment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_vpc_attachment' function.
 class UpdateVpcAttachmentResponse(BaseValidatorModel):
     VpcAttachment: VpcAttachment
     ResponseMetadata: ResponseMetadata
@@ -1721,26 +1882,31 @@ class CoreNetworkChange(BaseValidatorModel):
     IdentifierPath: Optional[str] = None
 
 
+# This class is the output for the 'get_route_analysis' function.
 class GetRouteAnalysisResponse(BaseValidatorModel):
     RouteAnalysis: RouteAnalysis
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_route_analysis' function.
 class StartRouteAnalysisResponse(BaseValidatorModel):
     RouteAnalysis: RouteAnalysis
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_transit_gateway_peering' function.
 class CreateTransitGatewayPeeringResponse(BaseValidatorModel):
     TransitGatewayPeering: TransitGatewayPeering
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_transit_gateway_peering' function.
 class GetTransitGatewayPeeringResponse(BaseValidatorModel):
     TransitGatewayPeering: TransitGatewayPeering
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_core_network_change_set' function.
 class GetCoreNetworkChangeSetResponse(BaseValidatorModel):
     CoreNetworkChanges: List[CoreNetworkChange]
     ResponseMetadata: ResponseMetadata

@@ -39,6 +39,7 @@ class SnsDestination(BaseValidatorModel):
     TopicArn: Optional[str] = None
 
 
+# This class is the input for the 'get_configuration_set_event_destinations' function.
 class GetConfigurationSetEventDestinationsRequest(BaseValidatorModel):
     ConfigurationSetName: str
 
@@ -51,6 +52,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'list_configuration_sets' function.
 class ListConfigurationSetsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     PageSize: Optional[str] = None
@@ -85,12 +87,14 @@ class EventDestination(BaseValidatorModel):
     SnsDestination: Optional[SnsDestination] = None
 
 
+# This class is the output for the 'list_configuration_sets' function.
 class ListConfigurationSetsResponse(BaseValidatorModel):
     ConfigurationSets: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'send_voice_message' function.
 class SendVoiceMessageResponse(BaseValidatorModel):
     MessageId: str
     ResponseMetadata: ResponseMetadata
@@ -114,11 +118,13 @@ class UpdateConfigurationSetEventDestinationRequest(BaseValidatorModel):
     EventDestination: Optional[EventDestinationDefinition] = None
 
 
+# This class is the output for the 'get_configuration_set_event_destinations' function.
 class GetConfigurationSetEventDestinationsResponse(BaseValidatorModel):
     EventDestinations: List[EventDestination]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'send_voice_message' function.
 class SendVoiceMessageRequest(BaseValidatorModel):
     CallerId: Optional[str] = None
     ConfigurationSetName: Optional[str] = None

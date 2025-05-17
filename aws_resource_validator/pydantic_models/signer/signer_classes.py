@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'add_profile_permission' function.
 class AddProfilePermissionRequest(BaseValidatorModel):
     profileName: str
     action: str
@@ -27,10 +28,12 @@ class ResponseMetadata(BaseValidatorModel):
 Blob = Union[str, bytes, IO[Any], StreamingBody]
 
 
+# This class is the input for the 'cancel_signing_profile' function.
 class CancelSigningProfileRequest(BaseValidatorModel):
     profileName: str
 
 
+# This class is the input for the 'describe_signing_job' function.
 class DescribeSigningJobRequest(BaseValidatorModel):
     jobId: str
 
@@ -62,6 +65,7 @@ class EncryptionAlgorithmOptions(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'get_signing_platform' function.
 class GetSigningPlatformRequest(BaseValidatorModel):
     platformId: str
 
@@ -71,6 +75,7 @@ class SigningImageFormat(BaseValidatorModel):
     defaultFormat: ImageFormatType
 
 
+# This class is the input for the 'get_signing_profile' function.
 class GetSigningProfileRequest(BaseValidatorModel):
     profileName: str
     profileOwner: Optional[str] = None
@@ -92,6 +97,7 @@ class HashAlgorithmOptions(BaseValidatorModel):
     defaultValue: HashAlgorithmType
 
 
+# This class is the input for the 'list_profile_permissions' function.
 class ListProfilePermissionsRequest(BaseValidatorModel):
     profileName: str
     nextToken: Optional[str] = None
@@ -110,6 +116,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_signing_platforms' function.
 class ListSigningPlatformsRequest(BaseValidatorModel):
     category: Optional[str] = None
     partner: Optional[str] = None
@@ -118,6 +125,7 @@ class ListSigningPlatformsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_signing_profiles' function.
 class ListSigningProfilesRequest(BaseValidatorModel):
     includeCanceled: Optional[bool] = None
     maxResults: Optional[int] = None
@@ -126,16 +134,19 @@ class ListSigningProfilesRequest(BaseValidatorModel):
     statuses: Optional[List[SigningProfileStatusType]] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'remove_profile_permission' function.
 class RemoveProfilePermissionRequest(BaseValidatorModel):
     profileName: str
     revisionId: str
     statementId: str
 
 
+# This class is the input for the 'revoke_signature' function.
 class RevokeSignatureRequest(BaseValidatorModel):
     jobId: str
     reason: str
@@ -168,25 +179,30 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the output for the 'add_profile_permission' function.
 class AddProfilePermissionResponse(BaseValidatorModel):
     revisionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'revoke_signing_profile' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_revocation_status' function.
 class GetRevocationStatusResponse(BaseValidatorModel):
     revokedEntities: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_signing_profile' function.
 class PutSigningProfileResponse(BaseValidatorModel):
     arn: str
     profileVersion: str
@@ -194,11 +210,13 @@ class PutSigningProfileResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'remove_profile_permission' function.
 class RemoveProfilePermissionResponse(BaseValidatorModel):
     revisionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'sign_payload' function.
 class SignPayloadResponse(BaseValidatorModel):
     jobId: str
     jobOwner: str
@@ -207,12 +225,14 @@ class SignPayloadResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_signing_job' function.
 class StartSigningJobResponse(BaseValidatorModel):
     jobId: str
     jobOwner: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'sign_payload' function.
 class SignPayloadRequest(BaseValidatorModel):
     profileName: str
     payload: Blob
@@ -229,6 +249,7 @@ class Destination(BaseValidatorModel):
     s3: Optional[S3Destination] = None
 
 
+# This class is the input for the 'get_revocation_status' function.
 class GetRevocationStatusRequest(BaseValidatorModel):
     signatureTimestamp: Timestamp
     platformId: str
@@ -237,6 +258,7 @@ class GetRevocationStatusRequest(BaseValidatorModel):
     certificateHashes: List[str]
 
 
+# This class is the input for the 'list_signing_jobs' function.
 class ListSigningJobsRequest(BaseValidatorModel):
     status: Optional[SigningStatusType] = None
     platformId: Optional[str] = None
@@ -249,6 +271,7 @@ class ListSigningJobsRequest(BaseValidatorModel):
     jobInvoker: Optional[str] = None
 
 
+# This class is the input for the 'revoke_signing_profile' function.
 class RevokeSigningProfileRequest(BaseValidatorModel):
     profileName: str
     profileVersion: str
@@ -275,6 +298,7 @@ class SigningConfiguration(BaseValidatorModel):
     hashAlgorithmOptions: HashAlgorithmOptions
 
 
+# This class is the output for the 'list_profile_permissions' function.
 class ListProfilePermissionsResponse(BaseValidatorModel):
     revisionId: str
     policySizeBytes: int
@@ -321,12 +345,14 @@ class SigningPlatformOverrides(BaseValidatorModel):
     signingImageFormat: Optional[ImageFormatType] = None
 
 
+# This class is the output for the 'list_signing_profiles' function.
 class ListSigningProfilesResponse(BaseValidatorModel):
     profiles: List[SigningProfile]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_signing_platform' function.
 class GetSigningPlatformResponse(BaseValidatorModel):
     platformId: str
     displayName: str
@@ -369,6 +395,7 @@ class SigningJob(BaseValidatorModel):
     jobInvoker: Optional[str] = None
 
 
+# This class is the input for the 'start_signing_job' function.
 class StartSigningJobRequest(BaseValidatorModel):
     source: Source
     destination: Destination
@@ -377,6 +404,7 @@ class StartSigningJobRequest(BaseValidatorModel):
     profileOwner: Optional[str] = None
 
 
+# This class is the output for the 'describe_signing_job' function.
 class DescribeSigningJobResponse(BaseValidatorModel):
     jobId: str
     source: Source
@@ -400,6 +428,7 @@ class DescribeSigningJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_signing_profile' function.
 class GetSigningProfileResponse(BaseValidatorModel):
     profileName: str
     profileVersion: str
@@ -418,6 +447,7 @@ class GetSigningProfileResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_signing_profile' function.
 class PutSigningProfileRequest(BaseValidatorModel):
     profileName: str
     platformId: str
@@ -428,12 +458,14 @@ class PutSigningProfileRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'list_signing_platforms' function.
 class ListSigningPlatformsResponse(BaseValidatorModel):
     platforms: List[SigningPlatform]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_signing_jobs' function.
 class ListSigningJobsResponse(BaseValidatorModel):
     jobs: List[SigningJob]
     ResponseMetadata: ResponseMetadata

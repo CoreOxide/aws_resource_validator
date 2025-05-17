@@ -34,6 +34,7 @@ class ChannelListConfiguration(BaseValidatorModel):
     InputType: Optional[InputTypeType] = None
 
 
+# This class is the input for the 'create_channel_group' function.
 class CreateChannelGroupRequest(BaseValidatorModel):
     ChannelGroupName: str
     ClientToken: Optional[str] = None
@@ -144,20 +145,24 @@ class ForceEndpointErrorConfiguration(BaseValidatorModel):
     EndpointErrorConditions: Optional[List[EndpointErrorConditionType]] = None
 
 
+# This class is the input for the 'get_channel_group' function.
 class GetChannelGroupRequest(BaseValidatorModel):
     ChannelGroupName: str
 
 
+# This class is the input for the 'get_channel_policy' function.
 class GetChannelPolicyRequest(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
 
 
+# This class is the input for the 'get_channel' function.
 class GetChannelRequest(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
 
 
+# This class is the input for the 'get_harvest_job' function.
 class GetHarvestJobRequest(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
@@ -170,12 +175,14 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'get_origin_endpoint_policy' function.
 class GetOriginEndpointPolicyRequest(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
     OriginEndpointName: str
 
 
+# This class is the input for the 'get_origin_endpoint' function.
 class GetOriginEndpointRequest(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
@@ -200,11 +207,13 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_channel_groups' function.
 class ListChannelGroupsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_channels' function.
 class ListChannelsRequest(BaseValidatorModel):
     ChannelGroupName: str
     MaxResults: Optional[int] = None
@@ -216,6 +225,7 @@ class ListDashManifestConfiguration(BaseValidatorModel):
     Url: Optional[str] = None
 
 
+# This class is the input for the 'list_harvest_jobs' function.
 class ListHarvestJobsRequest(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: Optional[str] = None
@@ -237,6 +247,7 @@ class ListLowLatencyHlsManifestConfiguration(BaseValidatorModel):
     Url: Optional[str] = None
 
 
+# This class is the input for the 'list_origin_endpoints' function.
 class ListOriginEndpointsRequest(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
@@ -244,6 +255,7 @@ class ListOriginEndpointsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -269,22 +281,26 @@ class Scte(BaseValidatorModel):
     ScteFilter: Optional[List[ScteFilterType]] = None
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Dict[str, str]
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_channel_group' function.
 class UpdateChannelGroupRequest(BaseValidatorModel):
     ChannelGroupName: str
     ETag: Optional[str] = None
     Description: Optional[str] = None
 
 
+# This class is the output for the 'create_channel_group' function.
 class CreateChannelGroupResponse(BaseValidatorModel):
     ChannelGroupName: str
     Arn: str
@@ -297,10 +313,12 @@ class CreateChannelGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'untag_resource' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_channel_group' function.
 class GetChannelGroupResponse(BaseValidatorModel):
     ChannelGroupName: str
     Arn: str
@@ -313,6 +331,7 @@ class GetChannelGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_channel_policy' function.
 class GetChannelPolicyResponse(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
@@ -320,6 +339,7 @@ class GetChannelPolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_origin_endpoint_policy' function.
 class GetOriginEndpointPolicyResponse(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
@@ -328,23 +348,27 @@ class GetOriginEndpointPolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_channel_groups' function.
 class ListChannelGroupsResponse(BaseValidatorModel):
     Items: List[ChannelGroupListConfiguration]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_channels' function.
 class ListChannelsResponse(BaseValidatorModel):
     Items: List[ChannelListConfiguration]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_channel_group' function.
 class UpdateChannelGroupResponse(BaseValidatorModel):
     ChannelGroupName: str
     Arn: str
@@ -357,6 +381,7 @@ class UpdateChannelGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_channel' function.
 class CreateChannelRequest(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
@@ -368,6 +393,7 @@ class CreateChannelRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_channel' function.
 class UpdateChannelRequest(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
@@ -377,6 +403,7 @@ class UpdateChannelRequest(BaseValidatorModel):
     OutputHeaderConfiguration: Optional[OutputHeaderConfiguration] = None
 
 
+# This class is the output for the 'create_channel' function.
 class CreateChannelResponse(BaseValidatorModel):
     Arn: str
     ChannelName: str
@@ -393,6 +420,7 @@ class CreateChannelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_channel' function.
 class GetChannelResponse(BaseValidatorModel):
     Arn: str
     ChannelName: str
@@ -409,6 +437,7 @@ class GetChannelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_channel' function.
 class UpdateChannelResponse(BaseValidatorModel):
     Arn: str
     ChannelName: str
@@ -573,6 +602,7 @@ FilterConfigurationUnion = Union[FilterConfiguration, FilterConfigurationOutput]
 HarvesterScheduleConfigurationUnion = Union[HarvesterScheduleConfiguration, HarvesterScheduleConfigurationOutput]
 
 
+# This class is the output for the 'create_harvest_job' function.
 class CreateHarvestJobResponse(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
@@ -592,6 +622,7 @@ class CreateHarvestJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_harvest_job' function.
 class GetHarvestJobResponse(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
@@ -630,6 +661,7 @@ class HarvestJob(BaseValidatorModel):
 HarvestedManifestsUnion = Union[HarvestedManifests, HarvestedManifestsOutput]
 
 
+# This class is the output for the 'list_origin_endpoints' function.
 class ListOriginEndpointsResponse(BaseValidatorModel):
     Items: List[OriginEndpointListConfiguration]
     ResponseMetadata: ResponseMetadata
@@ -690,12 +722,14 @@ class CreateLowLatencyHlsManifestConfiguration(BaseValidatorModel):
     FilterConfiguration: Optional[FilterConfigurationUnion] = None
 
 
+# This class is the output for the 'list_harvest_jobs' function.
 class ListHarvestJobsResponse(BaseValidatorModel):
     Items: List[HarvestJob]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_harvest_job' function.
 class CreateHarvestJobRequest(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
@@ -709,6 +743,7 @@ class CreateHarvestJobRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_origin_endpoint' function.
 class CreateOriginEndpointResponse(BaseValidatorModel):
     Arn: str
     ChannelGroupName: str
@@ -729,6 +764,7 @@ class CreateOriginEndpointResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_origin_endpoint' function.
 class GetOriginEndpointResponse(BaseValidatorModel):
     Arn: str
     ChannelGroupName: str
@@ -749,6 +785,7 @@ class GetOriginEndpointResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_origin_endpoint' function.
 class UpdateOriginEndpointResponse(BaseValidatorModel):
     Arn: str
     ChannelGroupName: str
@@ -771,6 +808,7 @@ class UpdateOriginEndpointResponse(BaseValidatorModel):
 SegmentUnion = Union[Segment, SegmentOutput]
 
 
+# This class is the input for the 'create_origin_endpoint' function.
 class CreateOriginEndpointRequest(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str
@@ -787,6 +825,7 @@ class CreateOriginEndpointRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_origin_endpoint' function.
 class UpdateOriginEndpointRequest(BaseValidatorModel):
     ChannelGroupName: str
     ChannelName: str

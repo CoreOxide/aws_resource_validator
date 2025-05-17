@@ -18,6 +18,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_services' function.
 class DescribeServicesRequest(BaseValidatorModel):
     ServiceCode: Optional[str] = None
     FormatVersion: Optional[str] = None
@@ -44,6 +45,7 @@ class Filter(BaseValidatorModel):
     Value: str
 
 
+# This class is the input for the 'get_attribute_values' function.
 class GetAttributeValuesRequest(BaseValidatorModel):
     ServiceCode: str
     AttributeName: str
@@ -51,6 +53,7 @@ class GetAttributeValuesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_price_list_file_url' function.
 class GetPriceListFileUrlRequest(BaseValidatorModel):
     PriceListArn: str
     FileFormat: str
@@ -77,17 +80,20 @@ class GetAttributeValuesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'get_attribute_values' function.
 class GetAttributeValuesResponse(BaseValidatorModel):
     AttributeValues: List[AttributeValue]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_price_list_file_url' function.
 class GetPriceListFileUrlResponse(BaseValidatorModel):
     Url: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_products' function.
 class GetProductsResponse(BaseValidatorModel):
     FormatVersion: str
     PriceList: List[str]
@@ -95,6 +101,7 @@ class GetProductsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_services' function.
 class DescribeServicesResponse(BaseValidatorModel):
     Services: List[Service]
     FormatVersion: str
@@ -109,6 +116,7 @@ class GetProductsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_products' function.
 class GetProductsRequest(BaseValidatorModel):
     ServiceCode: str
     Filters: Optional[List[Filter]] = None
@@ -125,6 +133,7 @@ class ListPriceListsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_price_lists' function.
 class ListPriceListsRequest(BaseValidatorModel):
     ServiceCode: str
     EffectiveDate: Timestamp
@@ -134,6 +143,7 @@ class ListPriceListsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the output for the 'list_price_lists' function.
 class ListPriceListsResponse(BaseValidatorModel):
     PriceLists: List[PriceList]
     ResponseMetadata: ResponseMetadata

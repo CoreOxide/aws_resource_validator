@@ -40,6 +40,7 @@ class RepositoryLinkInfo(BaseValidatorModel):
     EncryptionKeyArn: Optional[str] = None
 
 
+# This class is the input for the 'create_sync_configuration' function.
 class CreateSyncConfigurationInput(BaseValidatorModel):
     Branch: str
     ConfigFile: str
@@ -84,10 +85,12 @@ class DeleteSyncConfigurationInput(BaseValidatorModel):
     ResourceName: str
 
 
+# This class is the input for the 'get_connection' function.
 class GetConnectionInput(BaseValidatorModel):
     ConnectionArn: str
 
 
+# This class is the input for the 'get_host' function.
 class GetHostInput(BaseValidatorModel):
     HostArn: str
 
@@ -99,16 +102,19 @@ class VpcConfigurationOutput(BaseValidatorModel):
     TlsCertificate: Optional[str] = None
 
 
+# This class is the input for the 'get_repository_link' function.
 class GetRepositoryLinkInput(BaseValidatorModel):
     RepositoryLinkId: str
 
 
+# This class is the input for the 'get_repository_sync_status' function.
 class GetRepositorySyncStatusInput(BaseValidatorModel):
     Branch: str
     RepositoryLinkId: str
     SyncType: Literal['CFN_STACK_SYNC']
 
 
+# This class is the input for the 'get_resource_sync_status' function.
 class GetResourceSyncStatusInput(BaseValidatorModel):
     ResourceName: str
     SyncType: Literal['CFN_STACK_SYNC']
@@ -123,16 +129,19 @@ class Revision(BaseValidatorModel):
     Sha: str
 
 
+# This class is the input for the 'get_sync_blocker_summary' function.
 class GetSyncBlockerSummaryInput(BaseValidatorModel):
     SyncType: Literal['CFN_STACK_SYNC']
     ResourceName: str
 
 
+# This class is the input for the 'get_sync_configuration' function.
 class GetSyncConfigurationInput(BaseValidatorModel):
     SyncType: Literal['CFN_STACK_SYNC']
     ResourceName: str
 
 
+# This class is the input for the 'list_connections' function.
 class ListConnectionsInput(BaseValidatorModel):
     ProviderTypeFilter: Optional[ProviderTypeType] = None
     HostArnFilter: Optional[str] = None
@@ -140,16 +149,19 @@ class ListConnectionsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_hosts' function.
 class ListHostsInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_repository_links' function.
 class ListRepositoryLinksInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_repository_sync_definitions' function.
 class ListRepositorySyncDefinitionsInput(BaseValidatorModel):
     RepositoryLinkId: str
     SyncType: Literal['CFN_STACK_SYNC']
@@ -162,6 +174,7 @@ class RepositorySyncDefinition(BaseValidatorModel):
     Target: str
 
 
+# This class is the input for the 'list_sync_configurations' function.
 class ListSyncConfigurationsInput(BaseValidatorModel):
     RepositoryLinkId: str
     SyncType: Literal['CFN_STACK_SYNC']
@@ -169,6 +182,7 @@ class ListSyncConfigurationsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInput(BaseValidatorModel):
     ResourceArn: str
 
@@ -197,12 +211,14 @@ class UntagResourceInput(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_repository_link' function.
 class UpdateRepositoryLinkInput(BaseValidatorModel):
     RepositoryLinkId: str
     ConnectionArn: Optional[str] = None
     EncryptionKeyArn: Optional[str] = None
 
 
+# This class is the input for the 'update_sync_blocker' function.
 class UpdateSyncBlockerInput(BaseValidatorModel):
     Id: str
     SyncType: Literal['CFN_STACK_SYNC']
@@ -210,6 +226,7 @@ class UpdateSyncBlockerInput(BaseValidatorModel):
     ResolvedReason: str
 
 
+# This class is the input for the 'update_sync_configuration' function.
 class UpdateSyncConfigurationInput(BaseValidatorModel):
     ResourceName: str
     SyncType: Literal['CFN_STACK_SYNC']
@@ -229,6 +246,7 @@ class VpcConfiguration(BaseValidatorModel):
     TlsCertificate: Optional[str] = None
 
 
+# This class is the input for the 'create_connection' function.
 class CreateConnectionInput(BaseValidatorModel):
     ConnectionName: str
     ProviderType: Optional[ProviderTypeType] = None
@@ -236,6 +254,7 @@ class CreateConnectionInput(BaseValidatorModel):
     HostArn: Optional[str] = None
 
 
+# This class is the input for the 'create_repository_link' function.
 class CreateRepositoryLinkInput(BaseValidatorModel):
     ConnectionArn: str
     OwnerId: str
@@ -249,76 +268,90 @@ class TagResourceInput(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the output for the 'create_connection' function.
 class CreateConnectionOutput(BaseValidatorModel):
     ConnectionArn: str
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_host' function.
 class CreateHostOutput(BaseValidatorModel):
     HostArn: str
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_connection' function.
 class GetConnectionOutput(BaseValidatorModel):
     Connection: Connection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_connections' function.
 class ListConnectionsOutput(BaseValidatorModel):
     Connections: List[Connection]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceOutput(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_repository_link' function.
 class CreateRepositoryLinkOutput(BaseValidatorModel):
     RepositoryLinkInfo: RepositoryLinkInfo
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_repository_link' function.
 class GetRepositoryLinkOutput(BaseValidatorModel):
     RepositoryLinkInfo: RepositoryLinkInfo
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_repository_links' function.
 class ListRepositoryLinksOutput(BaseValidatorModel):
     RepositoryLinks: List[RepositoryLinkInfo]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_repository_link' function.
 class UpdateRepositoryLinkOutput(BaseValidatorModel):
     RepositoryLinkInfo: RepositoryLinkInfo
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_sync_configuration' function.
 class CreateSyncConfigurationOutput(BaseValidatorModel):
     SyncConfiguration: SyncConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_sync_configuration' function.
 class GetSyncConfigurationOutput(BaseValidatorModel):
     SyncConfiguration: SyncConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_sync_configurations' function.
 class ListSyncConfigurationsOutput(BaseValidatorModel):
     SyncConfigurations: List[SyncConfiguration]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_sync_configuration' function.
 class UpdateSyncConfigurationOutput(BaseValidatorModel):
     SyncConfiguration: SyncConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_host' function.
 class GetHostOutput(BaseValidatorModel):
     Name: str
     Status: str
@@ -338,6 +371,7 @@ class Host(BaseValidatorModel):
     StatusMessage: Optional[str] = None
 
 
+# This class is the output for the 'list_repository_sync_definitions' function.
 class ListRepositorySyncDefinitionsOutput(BaseValidatorModel):
     RepositorySyncDefinitions: List[RepositorySyncDefinition]
     ResponseMetadata: ResponseMetadata
@@ -372,17 +406,20 @@ class SyncBlocker(BaseValidatorModel):
 VpcConfigurationUnion = Union[VpcConfiguration, VpcConfigurationOutput]
 
 
+# This class is the output for the 'list_hosts' function.
 class ListHostsOutput(BaseValidatorModel):
     Hosts: List[Host]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_repository_sync_status' function.
 class GetRepositorySyncStatusOutput(BaseValidatorModel):
     LatestSync: RepositorySyncAttempt
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_sync_status' function.
 class GetResourceSyncStatusOutput(BaseValidatorModel):
     DesiredState: Revision
     LatestSuccessfulSync: ResourceSyncAttempt
@@ -396,6 +433,7 @@ class SyncBlockerSummary(BaseValidatorModel):
     LatestBlockers: Optional[List[SyncBlocker]] = None
 
 
+# This class is the output for the 'update_sync_blocker' function.
 class UpdateSyncBlockerOutput(BaseValidatorModel):
     ResourceName: str
     ParentResourceName: str
@@ -403,6 +441,7 @@ class UpdateSyncBlockerOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_host' function.
 class CreateHostInput(BaseValidatorModel):
     Name: str
     ProviderType: ProviderTypeType
@@ -417,6 +456,7 @@ class UpdateHostInput(BaseValidatorModel):
     VpcConfiguration: Optional[VpcConfigurationUnion] = None
 
 
+# This class is the output for the 'get_sync_blocker_summary' function.
 class GetSyncBlockerSummaryOutput(BaseValidatorModel):
     SyncBlockerSummary: SyncBlockerSummary
     ResponseMetadata: ResponseMetadata

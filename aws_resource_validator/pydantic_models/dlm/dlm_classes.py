@@ -100,6 +100,7 @@ class FastRestoreRule(BaseValidatorModel):
     IntervalUnit: Optional[RetentionIntervalUnitValuesType] = None
 
 
+# This class is the input for the 'get_lifecycle_policies' function.
 class GetLifecyclePoliciesRequest(BaseValidatorModel):
     PolicyIds: Optional[List[str]] = None
     State: Optional[GettablePolicyStateValuesType] = None
@@ -118,10 +119,12 @@ class LifecyclePolicySummary(BaseValidatorModel):
     DefaultPolicy: Optional[bool] = None
 
 
+# This class is the input for the 'get_lifecycle_policy' function.
 class GetLifecyclePolicyRequest(BaseValidatorModel):
     PolicyId: str
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -158,11 +161,13 @@ class ArchiveRetainRule(BaseValidatorModel):
     RetentionArchiveTier: RetentionArchiveTier
 
 
+# This class is the output for the 'create_lifecycle_policy' function.
 class CreateLifecyclePolicyResponse(BaseValidatorModel):
     PolicyId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
@@ -236,6 +241,7 @@ class Parameters(BaseValidatorModel):
     ExcludeDataVolumeTags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'get_lifecycle_policies' function.
 class GetLifecyclePoliciesResponse(BaseValidatorModel):
     Policies: List[LifecyclePolicySummary]
     ResponseMetadata: ResponseMetadata
@@ -339,11 +345,13 @@ class LifecyclePolicy(BaseValidatorModel):
 PolicyDetailsUnion = Union[PolicyDetails, PolicyDetailsOutput]
 
 
+# This class is the output for the 'get_lifecycle_policy' function.
 class GetLifecyclePolicyResponse(BaseValidatorModel):
     Policy: LifecyclePolicy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_lifecycle_policy' function.
 class CreateLifecyclePolicyRequest(BaseValidatorModel):
     ExecutionRoleArn: str
     Description: str

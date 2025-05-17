@@ -34,6 +34,7 @@ class DeleteScopeInput(BaseValidatorModel):
     scopeId: str
 
 
+# This class is the input for the 'get_monitor' function.
 class GetMonitorInput(BaseValidatorModel):
     monitorName: str
 
@@ -44,6 +45,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'get_query_results_monitor_top_contributors' function.
 class GetQueryResultsMonitorTopContributorsInput(BaseValidatorModel):
     monitorName: str
     queryId: str
@@ -51,6 +53,7 @@ class GetQueryResultsMonitorTopContributorsInput(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_query_results_workload_insights_top_contributors_data' function.
 class GetQueryResultsWorkloadInsightsTopContributorsDataInput(BaseValidatorModel):
     scopeId: str
     queryId: str
@@ -64,6 +67,7 @@ class WorkloadInsightsTopContributorsDataPoint(BaseValidatorModel):
     label: str
 
 
+# This class is the input for the 'get_query_results_workload_insights_top_contributors' function.
 class GetQueryResultsWorkloadInsightsTopContributorsInput(BaseValidatorModel):
     scopeId: str
     queryId: str
@@ -83,21 +87,25 @@ class WorkloadInsightsTopContributorsRow(BaseValidatorModel):
     localVpcArn: Optional[str] = None
 
 
+# This class is the input for the 'get_query_status_monitor_top_contributors' function.
 class GetQueryStatusMonitorTopContributorsInput(BaseValidatorModel):
     monitorName: str
     queryId: str
 
 
+# This class is the input for the 'get_query_status_workload_insights_top_contributors_data' function.
 class GetQueryStatusWorkloadInsightsTopContributorsDataInput(BaseValidatorModel):
     scopeId: str
     queryId: str
 
 
+# This class is the input for the 'get_query_status_workload_insights_top_contributors' function.
 class GetQueryStatusWorkloadInsightsTopContributorsInput(BaseValidatorModel):
     scopeId: str
     queryId: str
 
 
+# This class is the input for the 'get_scope' function.
 class GetScopeInput(BaseValidatorModel):
     scopeId: str
 
@@ -111,6 +119,7 @@ class KubernetesMetadata(BaseValidatorModel):
     remotePodNamespace: Optional[str] = None
 
 
+# This class is the input for the 'list_monitors' function.
 class ListMonitorsInput(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -123,6 +132,7 @@ class MonitorSummary(BaseValidatorModel):
     monitorStatus: MonitorStatusType
 
 
+# This class is the input for the 'list_scopes' function.
 class ListScopesInput(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -134,6 +144,7 @@ class ScopeSummary(BaseValidatorModel):
     scopeArn: str
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInput(BaseValidatorModel):
     resourceArn: str
 
@@ -176,6 +187,7 @@ class UntagResourceInput(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'create_monitor' function.
 class CreateMonitorInput(BaseValidatorModel):
     monitorName: str
     localResources: List[MonitorLocalResource]
@@ -185,6 +197,7 @@ class CreateMonitorInput(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_monitor' function.
 class UpdateMonitorInput(BaseValidatorModel):
     monitorName: str
     localResourcesToAdd: Optional[List[MonitorLocalResource]] = None
@@ -194,6 +207,7 @@ class UpdateMonitorInput(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the output for the 'create_monitor' function.
 class CreateMonitorOutput(BaseValidatorModel):
     monitorArn: str
     monitorName: str
@@ -206,6 +220,7 @@ class CreateMonitorOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_scope' function.
 class CreateScopeOutput(BaseValidatorModel):
     scopeId: str
     status: ScopeStatusType
@@ -214,6 +229,7 @@ class CreateScopeOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_monitor' function.
 class GetMonitorOutput(BaseValidatorModel):
     monitorArn: str
     monitorName: str
@@ -226,41 +242,49 @@ class GetMonitorOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_query_status_monitor_top_contributors' function.
 class GetQueryStatusMonitorTopContributorsOutput(BaseValidatorModel):
     status: QueryStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_query_status_workload_insights_top_contributors_data' function.
 class GetQueryStatusWorkloadInsightsTopContributorsDataOutput(BaseValidatorModel):
     status: QueryStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_query_status_workload_insights_top_contributors' function.
 class GetQueryStatusWorkloadInsightsTopContributorsOutput(BaseValidatorModel):
     status: QueryStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceOutput(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_query_monitor_top_contributors' function.
 class StartQueryMonitorTopContributorsOutput(BaseValidatorModel):
     queryId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_query_workload_insights_top_contributors_data' function.
 class StartQueryWorkloadInsightsTopContributorsDataOutput(BaseValidatorModel):
     queryId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_query_workload_insights_top_contributors' function.
 class StartQueryWorkloadInsightsTopContributorsOutput(BaseValidatorModel):
     queryId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_monitor' function.
 class UpdateMonitorOutput(BaseValidatorModel):
     monitorArn: str
     monitorName: str
@@ -273,6 +297,7 @@ class UpdateMonitorOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_scope' function.
 class UpdateScopeOutput(BaseValidatorModel):
     scopeId: str
     status: ScopeStatusType
@@ -308,6 +333,7 @@ class ListScopesInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'get_query_results_workload_insights_top_contributors_data' function.
 class GetQueryResultsWorkloadInsightsTopContributorsDataOutput(BaseValidatorModel):
     unit: MetricUnitType
     datapoints: List[WorkloadInsightsTopContributorsDataPoint]
@@ -315,18 +341,21 @@ class GetQueryResultsWorkloadInsightsTopContributorsDataOutput(BaseValidatorMode
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_query_results_workload_insights_top_contributors' function.
 class GetQueryResultsWorkloadInsightsTopContributorsOutput(BaseValidatorModel):
     topContributors: List[WorkloadInsightsTopContributorsRow]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_monitors' function.
 class ListMonitorsOutput(BaseValidatorModel):
     monitors: List[MonitorSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_scopes' function.
 class ListScopesOutput(BaseValidatorModel):
     scopes: List[ScopeSummary]
     ResponseMetadata: ResponseMetadata
@@ -361,6 +390,7 @@ class MonitorTopContributorsRow(BaseValidatorModel):
     remoteVpcArn: Optional[str] = None
 
 
+# This class is the input for the 'start_query_monitor_top_contributors' function.
 class StartQueryMonitorTopContributorsInput(BaseValidatorModel):
     monitorName: str
     startTime: Timestamp
@@ -370,6 +400,7 @@ class StartQueryMonitorTopContributorsInput(BaseValidatorModel):
     limit: Optional[int] = None
 
 
+# This class is the input for the 'start_query_workload_insights_top_contributors_data' function.
 class StartQueryWorkloadInsightsTopContributorsDataInput(BaseValidatorModel):
     scopeId: str
     startTime: Timestamp
@@ -378,6 +409,7 @@ class StartQueryWorkloadInsightsTopContributorsDataInput(BaseValidatorModel):
     destinationCategory: DestinationCategoryType
 
 
+# This class is the input for the 'start_query_workload_insights_top_contributors' function.
 class StartQueryWorkloadInsightsTopContributorsInput(BaseValidatorModel):
     scopeId: str
     startTime: Timestamp
@@ -392,6 +424,7 @@ class TargetIdentifier(BaseValidatorModel):
     targetType: Literal['ACCOUNT']
 
 
+# This class is the output for the 'get_query_results_monitor_top_contributors' function.
 class GetQueryResultsMonitorTopContributorsOutput(BaseValidatorModel):
     unit: MetricUnitType
     topContributors: List[MonitorTopContributorsRow]
@@ -404,12 +437,14 @@ class TargetResource(BaseValidatorModel):
     region: str
 
 
+# This class is the input for the 'create_scope' function.
 class CreateScopeInput(BaseValidatorModel):
     targets: List[TargetResource]
     clientToken: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'get_scope' function.
 class GetScopeOutput(BaseValidatorModel):
     scopeId: str
     status: ScopeStatusType
@@ -419,6 +454,7 @@ class GetScopeOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_scope' function.
 class UpdateScopeInput(BaseValidatorModel):
     scopeId: str
     resourcesToAdd: Optional[List[TargetResource]] = None

@@ -14,6 +14,7 @@ class InternalStreamFailure(BaseValidatorModel):
     Message: Optional[str] = None
 
 
+# This class is the input for the 'invoke_endpoint_async' function.
 class InvokeEndpointAsyncInput(BaseValidatorModel):
     EndpointName: str
     InputLocation: str
@@ -42,6 +43,7 @@ class PayloadPart(BaseValidatorModel):
     Bytes: Optional[bytes] = None
 
 
+# This class is the input for the 'invoke_endpoint' function.
 class InvokeEndpointInput(BaseValidatorModel):
     EndpointName: str
     Body: Blob
@@ -57,6 +59,7 @@ class InvokeEndpointInput(BaseValidatorModel):
     SessionId: Optional[str] = None
 
 
+# This class is the input for the 'invoke_endpoint_with_response_stream' function.
 class InvokeEndpointWithResponseStreamInput(BaseValidatorModel):
     EndpointName: str
     Body: Blob
@@ -70,6 +73,7 @@ class InvokeEndpointWithResponseStreamInput(BaseValidatorModel):
     SessionId: Optional[str] = None
 
 
+# This class is the output for the 'invoke_endpoint_async' function.
 class InvokeEndpointAsyncOutput(BaseValidatorModel):
     InferenceId: str
     OutputLocation: str
@@ -77,6 +81,7 @@ class InvokeEndpointAsyncOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'invoke_endpoint' function.
 class InvokeEndpointOutput(BaseValidatorModel):
     Body: StreamingBody
     ContentType: str
@@ -93,6 +98,7 @@ class ResponseStream(BaseValidatorModel):
     InternalStreamFailure: Optional[InternalStreamFailure] = None
 
 
+# This class is the output for the 'invoke_endpoint_with_response_stream' function.
 class InvokeEndpointWithResponseStreamOutput(BaseValidatorModel):
     Body: EventStream[ResponseStream]
     ContentType: str

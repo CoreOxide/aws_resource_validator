@@ -184,6 +184,7 @@ class CreateAccessConfigRequest(BaseValidatorModel):
     authenticationMode: Optional[AuthenticationModeType] = None
 
 
+# This class is the input for the 'create_access_entry' function.
 class CreateAccessEntryRequest(BaseValidatorModel):
     clusterName: str
     principalArn: str
@@ -243,6 +244,7 @@ class Taint(BaseValidatorModel):
     effect: Optional[TaintEffectType] = None
 
 
+# This class is the input for the 'create_pod_identity_association' function.
 class CreatePodIdentityAssociationRequest(BaseValidatorModel):
     clusterName: str
     namespace: str
@@ -270,49 +272,59 @@ class DeleteAccessEntryRequest(BaseValidatorModel):
     principalArn: str
 
 
+# This class is the input for the 'delete_addon' function.
 class DeleteAddonRequest(BaseValidatorModel):
     clusterName: str
     addonName: str
     preserve: Optional[bool] = None
 
 
+# This class is the input for the 'delete_cluster' function.
 class DeleteClusterRequest(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'delete_eks_anywhere_subscription' function.
 class DeleteEksAnywhereSubscriptionRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'delete_fargate_profile' function.
 class DeleteFargateProfileRequest(BaseValidatorModel):
     clusterName: str
     fargateProfileName: str
 
 
+# This class is the input for the 'delete_nodegroup' function.
 class DeleteNodegroupRequest(BaseValidatorModel):
     clusterName: str
     nodegroupName: str
 
 
+# This class is the input for the 'delete_pod_identity_association' function.
 class DeletePodIdentityAssociationRequest(BaseValidatorModel):
     clusterName: str
     associationId: str
 
 
+# This class is the input for the 'deregister_cluster' function.
 class DeregisterClusterRequest(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'describe_access_entry' function.
 class DescribeAccessEntryRequest(BaseValidatorModel):
     clusterName: str
     principalArn: str
 
 
+# This class is the input for the 'describe_addon_configuration' function.
 class DescribeAddonConfigurationRequest(BaseValidatorModel):
     addonName: str
     addonVersion: str
 
 
+# This class is the input for the 'describe_addon' function.
 class DescribeAddonRequest(BaseValidatorModel):
     clusterName: str
     addonName: str
@@ -329,6 +341,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_addon_versions' function.
 class DescribeAddonVersionsRequest(BaseValidatorModel):
     kubernetesVersion: Optional[str] = None
     maxResults: Optional[int] = None
@@ -339,10 +352,12 @@ class DescribeAddonVersionsRequest(BaseValidatorModel):
     owners: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_cluster' function.
 class DescribeClusterRequest(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'describe_cluster_versions' function.
 class DescribeClusterVersionsRequest(BaseValidatorModel):
     clusterType: Optional[str] = None
     maxResults: Optional[int] = None
@@ -354,10 +369,12 @@ class DescribeClusterVersionsRequest(BaseValidatorModel):
     versionStatus: Optional[VersionStatusType] = None
 
 
+# This class is the input for the 'describe_eks_anywhere_subscription' function.
 class DescribeEksAnywhereSubscriptionRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'describe_fargate_profile' function.
 class DescribeFargateProfileRequest(BaseValidatorModel):
     clusterName: str
     fargateProfileName: str
@@ -368,21 +385,25 @@ class IdentityProviderConfig(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'describe_insight' function.
 class DescribeInsightRequest(BaseValidatorModel):
     clusterName: str
     id: str
 
 
+# This class is the input for the 'describe_nodegroup' function.
 class DescribeNodegroupRequest(BaseValidatorModel):
     clusterName: str
     nodegroupName: str
 
 
+# This class is the input for the 'describe_pod_identity_association' function.
 class DescribePodIdentityAssociationRequest(BaseValidatorModel):
     clusterName: str
     associationId: str
 
 
+# This class is the input for the 'describe_update' function.
 class DescribeUpdateRequest(BaseValidatorModel):
     name: str
     updateId: str
@@ -467,6 +488,7 @@ class Issue(BaseValidatorModel):
     resourceIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_access_entries' function.
 class ListAccessEntriesRequest(BaseValidatorModel):
     clusterName: str
     associatedPolicyArn: Optional[str] = None
@@ -474,17 +496,20 @@ class ListAccessEntriesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_access_policies' function.
 class ListAccessPoliciesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_addons' function.
 class ListAddonsRequest(BaseValidatorModel):
     clusterName: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_associated_access_policies' function.
 class ListAssociatedAccessPoliciesRequest(BaseValidatorModel):
     clusterName: str
     principalArn: str
@@ -492,36 +517,42 @@ class ListAssociatedAccessPoliciesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_clusters' function.
 class ListClustersRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     include: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_eks_anywhere_subscriptions' function.
 class ListEksAnywhereSubscriptionsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     includeStatus: Optional[List[EksAnywhereSubscriptionStatusType]] = None
 
 
+# This class is the input for the 'list_fargate_profiles' function.
 class ListFargateProfilesRequest(BaseValidatorModel):
     clusterName: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_identity_provider_configs' function.
 class ListIdentityProviderConfigsRequest(BaseValidatorModel):
     clusterName: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_nodegroups' function.
 class ListNodegroupsRequest(BaseValidatorModel):
     clusterName: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_pod_identity_associations' function.
 class ListPodIdentityAssociationsRequest(BaseValidatorModel):
     clusterName: str
     namespace: Optional[str] = None
@@ -539,10 +570,12 @@ class PodIdentityAssociationSummary(BaseValidatorModel):
     ownerArn: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'list_updates' function.
 class ListUpdatesRequest(BaseValidatorModel):
     name: str
     nodegroupName: Optional[str] = None
@@ -601,6 +634,7 @@ class UpdateAccessConfigRequest(BaseValidatorModel):
     authenticationMode: Optional[AuthenticationModeType] = None
 
 
+# This class is the input for the 'update_access_entry' function.
 class UpdateAccessEntryRequest(BaseValidatorModel):
     clusterName: str
     principalArn: str
@@ -609,12 +643,14 @@ class UpdateAccessEntryRequest(BaseValidatorModel):
     username: Optional[str] = None
 
 
+# This class is the input for the 'update_cluster_version' function.
 class UpdateClusterVersionRequest(BaseValidatorModel):
     name: str
     version: str
     clientRequestToken: Optional[str] = None
 
 
+# This class is the input for the 'update_eks_anywhere_subscription' function.
 class UpdateEksAnywhereSubscriptionRequest(BaseValidatorModel):
     id: str
     autoRenew: bool
@@ -631,6 +667,7 @@ class UpdateParam(BaseValidatorModel):
     value: Optional[str] = None
 
 
+# This class is the input for the 'update_pod_identity_association' function.
 class UpdatePodIdentityAssociationRequest(BaseValidatorModel):
     clusterName: str
     associationId: str
@@ -651,6 +688,7 @@ class AddonHealth(BaseValidatorModel):
     issues: Optional[List[AddonIssue]] = None
 
 
+# This class is the input for the 'create_addon' function.
 class CreateAddonRequest(BaseValidatorModel):
     clusterName: str
     addonName: str
@@ -663,6 +701,7 @@ class CreateAddonRequest(BaseValidatorModel):
     podIdentityAssociations: Optional[List[AddonPodIdentityAssociations]] = None
 
 
+# This class is the input for the 'update_addon' function.
 class UpdateAddonRequest(BaseValidatorModel):
     clusterName: str
     addonName: str
@@ -683,16 +722,19 @@ class AddonVersionInfo(BaseValidatorModel):
     requiresIamPermissions: Optional[bool] = None
 
 
+# This class is the output for the 'create_access_entry' function.
 class CreateAccessEntryResponse(BaseValidatorModel):
     accessEntry: AccessEntry
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_access_entry' function.
 class DescribeAccessEntryResponse(BaseValidatorModel):
     accessEntry: AccessEntry
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_addon_configuration' function.
 class DescribeAddonConfigurationResponse(BaseValidatorModel):
     addonName: str
     addonVersion: str
@@ -701,58 +743,68 @@ class DescribeAddonConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_access_entries' function.
 class ListAccessEntriesResponse(BaseValidatorModel):
     accessEntries: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_access_policies' function.
 class ListAccessPoliciesResponse(BaseValidatorModel):
     accessPolicies: List[AccessPolicy]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_addons' function.
 class ListAddonsResponse(BaseValidatorModel):
     addons: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_clusters' function.
 class ListClustersResponse(BaseValidatorModel):
     clusters: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_fargate_profiles' function.
 class ListFargateProfilesResponse(BaseValidatorModel):
     fargateProfileNames: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_nodegroups' function.
 class ListNodegroupsResponse(BaseValidatorModel):
     nodegroups: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_updates' function.
 class ListUpdatesResponse(BaseValidatorModel):
     updateIds: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_access_entry' function.
 class UpdateAccessEntryResponse(BaseValidatorModel):
     accessEntry: AccessEntry
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'associate_identity_provider_config' function.
 class AssociateIdentityProviderConfigRequest(BaseValidatorModel):
     clusterName: str
     oidc: OidcIdentityProviderConfigRequest
@@ -785,12 +837,14 @@ class ClusterHealth(BaseValidatorModel):
     issues: Optional[List[ClusterIssue]] = None
 
 
+# This class is the output for the 'describe_cluster_versions' function.
 class DescribeClusterVersionsResponse(BaseValidatorModel):
     clusterVersions: List[ClusterVersionInformation]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'register_cluster' function.
 class RegisterClusterRequest(BaseValidatorModel):
     name: str
     connectorConfig: ConnectorConfigRequest
@@ -810,6 +864,7 @@ class OutpostConfigResponse(BaseValidatorModel):
     controlPlanePlacement: Optional[ControlPlanePlacementResponse] = None
 
 
+# This class is the input for the 'create_eks_anywhere_subscription' function.
 class CreateEksAnywhereSubscriptionRequest(BaseValidatorModel):
     name: str
     term: EksAnywhereSubscriptionTerm
@@ -820,6 +875,7 @@ class CreateEksAnywhereSubscriptionRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_nodegroup_version' function.
 class UpdateNodegroupVersionRequest(BaseValidatorModel):
     clusterName: str
     nodegroupName: str
@@ -835,21 +891,25 @@ class UpdateTaintsPayload(BaseValidatorModel):
     removeTaints: Optional[List[Taint]] = None
 
 
+# This class is the output for the 'create_pod_identity_association' function.
 class CreatePodIdentityAssociationResponse(BaseValidatorModel):
     association: PodIdentityAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_pod_identity_association' function.
 class DeletePodIdentityAssociationResponse(BaseValidatorModel):
     association: PodIdentityAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_pod_identity_association' function.
 class DescribePodIdentityAssociationResponse(BaseValidatorModel):
     association: PodIdentityAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_pod_identity_association' function.
 class UpdatePodIdentityAssociationResponse(BaseValidatorModel):
     association: PodIdentityAssociation
     ResponseMetadata: ResponseMetadata
@@ -980,17 +1040,20 @@ class ListUpdatesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_identity_provider_config' function.
 class DescribeIdentityProviderConfigRequest(BaseValidatorModel):
     clusterName: str
     identityProviderConfig: IdentityProviderConfig
 
 
+# This class is the input for the 'disassociate_identity_provider_config' function.
 class DisassociateIdentityProviderConfigRequest(BaseValidatorModel):
     clusterName: str
     identityProviderConfig: IdentityProviderConfig
     clientRequestToken: Optional[str] = None
 
 
+# This class is the output for the 'list_identity_provider_configs' function.
 class ListIdentityProviderConfigsResponse(BaseValidatorModel):
     identityProviderConfigs: List[IdentityProviderConfig]
     ResponseMetadata: ResponseMetadata
@@ -1073,6 +1136,7 @@ class ListInsightsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_insights' function.
 class ListInsightsRequest(BaseValidatorModel):
     clusterName: str
     filter: Optional[InsightsFilter] = None
@@ -1084,6 +1148,7 @@ class NodegroupHealth(BaseValidatorModel):
     issues: Optional[List[Issue]] = None
 
 
+# This class is the output for the 'list_pod_identity_associations' function.
 class ListPodIdentityAssociationsResponse(BaseValidatorModel):
     associations: List[PodIdentityAssociationSummary]
     ResponseMetadata: ResponseMetadata
@@ -1118,6 +1183,7 @@ class Update(BaseValidatorModel):
     errors: Optional[List[ErrorDetail]] = None
 
 
+# This class is the output for the 'associate_access_policy' function.
 class AssociateAccessPolicyResponse(BaseValidatorModel):
     clusterName: str
     principalArn: str
@@ -1125,6 +1191,7 @@ class AssociateAccessPolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_associated_access_policies' function.
 class ListAssociatedAccessPoliciesResponse(BaseValidatorModel):
     clusterName: str
     principalArn: str
@@ -1133,6 +1200,7 @@ class ListAssociatedAccessPoliciesResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'associate_access_policy' function.
 class AssociateAccessPolicyRequest(BaseValidatorModel):
     clusterName: str
     principalArn: str
@@ -1172,6 +1240,7 @@ class InsightCategorySpecificSummary(BaseValidatorModel):
     addonCompatibilityDetails: Optional[List[AddonCompatibilityDetail]] = None
 
 
+# This class is the input for the 'update_nodegroup_config' function.
 class UpdateNodegroupConfigRequest(BaseValidatorModel):
     clusterName: str
     nodegroupName: str
@@ -1183,27 +1252,32 @@ class UpdateNodegroupConfigRequest(BaseValidatorModel):
     clientRequestToken: Optional[str] = None
 
 
+# This class is the output for the 'create_eks_anywhere_subscription' function.
 class CreateEksAnywhereSubscriptionResponse(BaseValidatorModel):
     subscription: EksAnywhereSubscription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_eks_anywhere_subscription' function.
 class DeleteEksAnywhereSubscriptionResponse(BaseValidatorModel):
     subscription: EksAnywhereSubscription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_eks_anywhere_subscription' function.
 class DescribeEksAnywhereSubscriptionResponse(BaseValidatorModel):
     subscription: EksAnywhereSubscription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_eks_anywhere_subscriptions' function.
 class ListEksAnywhereSubscriptionsResponse(BaseValidatorModel):
     subscriptions: List[EksAnywhereSubscription]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_eks_anywhere_subscription' function.
 class UpdateEksAnywhereSubscriptionResponse(BaseValidatorModel):
     subscription: EksAnywhereSubscription
     ResponseMetadata: ResponseMetadata
@@ -1224,6 +1298,7 @@ class FargateProfile(BaseValidatorModel):
     health: Optional[FargateProfileHealth] = None
 
 
+# This class is the input for the 'create_fargate_profile' function.
 class CreateFargateProfileRequest(BaseValidatorModel):
     fargateProfileName: str
     clusterName: str
@@ -1234,11 +1309,13 @@ class CreateFargateProfileRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'describe_identity_provider_config' function.
 class DescribeIdentityProviderConfigResponse(BaseValidatorModel):
     identityProviderConfig: IdentityProviderConfigResponse
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_insights' function.
 class ListInsightsResponse(BaseValidatorModel):
     insights: List[InsightSummary]
     ResponseMetadata: ResponseMetadata
@@ -1274,6 +1351,7 @@ class Nodegroup(BaseValidatorModel):
 LoggingUnion = Union[Logging, LoggingOutput]
 
 
+# This class is the input for the 'create_nodegroup' function.
 class CreateNodegroupRequest(BaseValidatorModel):
     clusterName: str
     nodegroupName: str
@@ -1330,67 +1408,80 @@ class RemoteNetworkConfigRequest(BaseValidatorModel):
     remotePodNetworks: Optional[List[RemotePodNetworkUnion]] = None
 
 
+# This class is the output for the 'associate_encryption_config' function.
 class AssociateEncryptionConfigResponse(BaseValidatorModel):
     update: Update
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_identity_provider_config' function.
 class AssociateIdentityProviderConfigResponse(BaseValidatorModel):
     update: Update
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_update' function.
 class DescribeUpdateResponse(BaseValidatorModel):
     update: Update
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_identity_provider_config' function.
 class DisassociateIdentityProviderConfigResponse(BaseValidatorModel):
     update: Update
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_addon' function.
 class UpdateAddonResponse(BaseValidatorModel):
     update: Update
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_cluster_config' function.
 class UpdateClusterConfigResponse(BaseValidatorModel):
     update: Update
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_cluster_version' function.
 class UpdateClusterVersionResponse(BaseValidatorModel):
     update: Update
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_nodegroup_config' function.
 class UpdateNodegroupConfigResponse(BaseValidatorModel):
     update: Update
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_nodegroup_version' function.
 class UpdateNodegroupVersionResponse(BaseValidatorModel):
     update: Update
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_addon' function.
 class CreateAddonResponse(BaseValidatorModel):
     addon: Addon
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_addon' function.
 class DeleteAddonResponse(BaseValidatorModel):
     addon: Addon
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_addon' function.
 class DescribeAddonResponse(BaseValidatorModel):
     addon: Addon
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_addon_versions' function.
 class DescribeAddonVersionsResponse(BaseValidatorModel):
     addons: List[AddonInfo]
     ResponseMetadata: ResponseMetadata
@@ -1412,42 +1503,50 @@ class Insight(BaseValidatorModel):
     categorySpecificSummary: Optional[InsightCategorySpecificSummary] = None
 
 
+# This class is the input for the 'associate_encryption_config' function.
 class AssociateEncryptionConfigRequest(BaseValidatorModel):
     clusterName: str
     encryptionConfig: List[EncryptionConfigUnion]
     clientRequestToken: Optional[str] = None
 
 
+# This class is the output for the 'create_fargate_profile' function.
 class CreateFargateProfileResponse(BaseValidatorModel):
     fargateProfile: FargateProfile
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_fargate_profile' function.
 class DeleteFargateProfileResponse(BaseValidatorModel):
     fargateProfile: FargateProfile
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_fargate_profile' function.
 class DescribeFargateProfileResponse(BaseValidatorModel):
     fargateProfile: FargateProfile
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_nodegroup' function.
 class CreateNodegroupResponse(BaseValidatorModel):
     nodegroup: Nodegroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_nodegroup' function.
 class DeleteNodegroupResponse(BaseValidatorModel):
     nodegroup: Nodegroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_nodegroup' function.
 class DescribeNodegroupResponse(BaseValidatorModel):
     nodegroup: Nodegroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_cluster_config' function.
 class UpdateClusterConfigRequest(BaseValidatorModel):
     name: str
     resourcesVpcConfig: Optional[VpcConfigRequest] = None
@@ -1461,31 +1560,37 @@ class UpdateClusterConfigRequest(BaseValidatorModel):
     storageConfig: Optional[StorageConfigRequest] = None
 
 
+# This class is the output for the 'create_cluster' function.
 class CreateClusterResponse(BaseValidatorModel):
     cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_cluster' function.
 class DeleteClusterResponse(BaseValidatorModel):
     cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'deregister_cluster' function.
 class DeregisterClusterResponse(BaseValidatorModel):
     cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_cluster' function.
 class DescribeClusterResponse(BaseValidatorModel):
     cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_cluster' function.
 class RegisterClusterResponse(BaseValidatorModel):
     cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_cluster' function.
 class CreateClusterRequest(BaseValidatorModel):
     name: str
     roleArn: str
@@ -1506,6 +1611,7 @@ class CreateClusterRequest(BaseValidatorModel):
     storageConfig: Optional[StorageConfigRequest] = None
 
 
+# This class is the output for the 'describe_insight' function.
 class DescribeInsightResponse(BaseValidatorModel):
     insight: Insight
     ResponseMetadata: ResponseMetadata

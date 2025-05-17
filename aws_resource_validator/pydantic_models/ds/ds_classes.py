@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'accept_shared_directory' function.
 class AcceptSharedDirectoryRequest(BaseValidatorModel):
     SharedDirectoryId: str
 
@@ -83,6 +84,7 @@ class DirectoryConnectSettings(BaseValidatorModel):
     CustomerUserName: str
 
 
+# This class is the input for the 'create_alias' function.
 class CreateAliasRequest(BaseValidatorModel):
     DirectoryId: str
     Alias: str
@@ -99,11 +101,13 @@ class CreateLogSubscriptionRequest(BaseValidatorModel):
     LogGroupName: str
 
 
+# This class is the input for the 'create_snapshot' function.
 class CreateSnapshotRequest(BaseValidatorModel):
     DirectoryId: str
     Name: Optional[str] = None
 
 
+# This class is the input for the 'create_trust' function.
 class CreateTrustRequest(BaseValidatorModel):
     DirectoryId: str
     RemoteDomainName: str
@@ -119,6 +123,7 @@ class DeleteConditionalForwarderRequest(BaseValidatorModel):
     RemoteDomainName: str
 
 
+# This class is the input for the 'delete_directory' function.
 class DeleteDirectoryRequest(BaseValidatorModel):
     DirectoryId: str
 
@@ -127,10 +132,12 @@ class DeleteLogSubscriptionRequest(BaseValidatorModel):
     DirectoryId: str
 
 
+# This class is the input for the 'delete_snapshot' function.
 class DeleteSnapshotRequest(BaseValidatorModel):
     SnapshotId: str
 
 
+# This class is the input for the 'delete_trust' function.
 class DeleteTrustRequest(BaseValidatorModel):
     TrustId: str
     DeleteAssociatedConditionalForwarder: Optional[bool] = None
@@ -146,6 +153,7 @@ class DeregisterEventTopicRequest(BaseValidatorModel):
     TopicName: str
 
 
+# This class is the input for the 'describe_certificate' function.
 class DescribeCertificateRequest(BaseValidatorModel):
     DirectoryId: str
     CertificateId: str
@@ -157,6 +165,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_client_authentication_settings' function.
 class DescribeClientAuthenticationSettingsRequest(BaseValidatorModel):
     DirectoryId: str
     Type: Optional[ClientAuthenticationTypeType] = None
@@ -164,21 +173,25 @@ class DescribeClientAuthenticationSettingsRequest(BaseValidatorModel):
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'describe_conditional_forwarders' function.
 class DescribeConditionalForwardersRequest(BaseValidatorModel):
     DirectoryId: str
     RemoteDomainNames: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_directories' function.
 class DescribeDirectoriesRequest(BaseValidatorModel):
     DirectoryIds: Optional[List[str]] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'describe_directory_data_access' function.
 class DescribeDirectoryDataAccessRequest(BaseValidatorModel):
     DirectoryId: str
 
 
+# This class is the input for the 'describe_domain_controllers' function.
 class DescribeDomainControllersRequest(BaseValidatorModel):
     DirectoryId: str
     DomainControllerIds: Optional[List[str]] = None
@@ -199,6 +212,7 @@ class DomainController(BaseValidatorModel):
     StatusLastUpdatedDateTime: Optional[datetime] = None
 
 
+# This class is the input for the 'describe_event_topics' function.
 class DescribeEventTopicsRequest(BaseValidatorModel):
     DirectoryId: Optional[str] = None
     TopicNames: Optional[List[str]] = None
@@ -212,6 +226,7 @@ class EventTopic(BaseValidatorModel):
     Status: Optional[TopicStatusType] = None
 
 
+# This class is the input for the 'describe_ldaps_settings' function.
 class DescribeLDAPSSettingsRequest(BaseValidatorModel):
     DirectoryId: str
     Type: Optional[Literal['Client']] = None
@@ -225,12 +240,14 @@ class LDAPSSettingInfo(BaseValidatorModel):
     LastUpdatedDateTime: Optional[datetime] = None
 
 
+# This class is the input for the 'describe_regions' function.
 class DescribeRegionsRequest(BaseValidatorModel):
     DirectoryId: str
     RegionName: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_settings' function.
 class DescribeSettingsRequest(BaseValidatorModel):
     DirectoryId: str
     Status: Optional[DirectoryConfigurationStatusType] = None
@@ -251,6 +268,7 @@ class SettingEntry(BaseValidatorModel):
     DataType: Optional[str] = None
 
 
+# This class is the input for the 'describe_shared_directories' function.
 class DescribeSharedDirectoriesRequest(BaseValidatorModel):
     OwnerDirectoryId: str
     SharedDirectoryIds: Optional[List[str]] = None
@@ -258,6 +276,7 @@ class DescribeSharedDirectoriesRequest(BaseValidatorModel):
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'describe_snapshots' function.
 class DescribeSnapshotsRequest(BaseValidatorModel):
     DirectoryId: Optional[str] = None
     SnapshotIds: Optional[List[str]] = None
@@ -274,6 +293,7 @@ class Snapshot(BaseValidatorModel):
     StartTime: Optional[datetime] = None
 
 
+# This class is the input for the 'describe_trusts' function.
 class DescribeTrustsRequest(BaseValidatorModel):
     DirectoryId: Optional[str] = None
     TrustIds: Optional[List[str]] = None
@@ -295,6 +315,7 @@ class Trust(BaseValidatorModel):
     SelectiveAuth: Optional[SelectiveAuthType] = None
 
 
+# This class is the input for the 'describe_update_directory' function.
 class DescribeUpdateDirectoryRequest(BaseValidatorModel):
     DirectoryId: str
     UpdateType: Literal['OS']
@@ -400,6 +421,7 @@ class EnableSsoRequest(BaseValidatorModel):
     Password: Optional[str] = None
 
 
+# This class is the input for the 'get_snapshot_limits' function.
 class GetSnapshotLimitsRequest(BaseValidatorModel):
     DirectoryId: str
 
@@ -419,18 +441,21 @@ class IpRouteInfo(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'list_certificates' function.
 class ListCertificatesRequest(BaseValidatorModel):
     DirectoryId: str
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'list_ip_routes' function.
 class ListIpRoutesRequest(BaseValidatorModel):
     DirectoryId: str
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'list_log_subscriptions' function.
 class ListLogSubscriptionsRequest(BaseValidatorModel):
     DirectoryId: Optional[str] = None
     NextToken: Optional[str] = None
@@ -443,6 +468,7 @@ class LogSubscription(BaseValidatorModel):
     SubscriptionCreatedDateTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_schema_extensions' function.
 class ListSchemaExtensionsRequest(BaseValidatorModel):
     DirectoryId: str
     NextToken: Optional[str] = None
@@ -459,6 +485,7 @@ class SchemaExtensionInfo(BaseValidatorModel):
     EndDateTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceId: str
     NextToken: Optional[str] = None
@@ -485,6 +512,7 @@ class RegisterEventTopicRequest(BaseValidatorModel):
     TopicName: str
 
 
+# This class is the input for the 'reject_shared_directory' function.
 class RejectSharedDirectoryRequest(BaseValidatorModel):
     SharedDirectoryId: str
 
@@ -523,6 +551,7 @@ class ShareTarget(BaseValidatorModel):
     Type: Literal['ACCOUNT']
 
 
+# This class is the input for the 'start_schema_extension' function.
 class StartSchemaExtensionRequest(BaseValidatorModel):
     DirectoryId: str
     CreateSnapshotBeforeSchemaExtension: bool
@@ -546,112 +575,134 @@ class UpdateNumberOfDomainControllersRequest(BaseValidatorModel):
     DesiredNumber: int
 
 
+# This class is the input for the 'update_trust' function.
 class UpdateTrustRequest(BaseValidatorModel):
     TrustId: str
     SelectiveAuth: Optional[SelectiveAuthType] = None
 
 
+# This class is the input for the 'verify_trust' function.
 class VerifyTrustRequest(BaseValidatorModel):
     TrustId: str
 
 
+# This class is the output for the 'connect_directory' function.
 class ConnectDirectoryResult(BaseValidatorModel):
     DirectoryId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_alias' function.
 class CreateAliasResult(BaseValidatorModel):
     DirectoryId: str
     Alias: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_directory' function.
 class CreateDirectoryResult(BaseValidatorModel):
     DirectoryId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_microsoft_ad' function.
 class CreateMicrosoftADResult(BaseValidatorModel):
     DirectoryId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_snapshot' function.
 class CreateSnapshotResult(BaseValidatorModel):
     SnapshotId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_trust' function.
 class CreateTrustResult(BaseValidatorModel):
     TrustId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_directory' function.
 class DeleteDirectoryResult(BaseValidatorModel):
     DirectoryId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_snapshot' function.
 class DeleteSnapshotResult(BaseValidatorModel):
     SnapshotId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_trust' function.
 class DeleteTrustResult(BaseValidatorModel):
     TrustId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_directory_data_access' function.
 class DescribeDirectoryDataAccessResult(BaseValidatorModel):
     DataAccessStatus: DataAccessStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_certificate' function.
 class RegisterCertificateResult(BaseValidatorModel):
     CertificateId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reject_shared_directory' function.
 class RejectSharedDirectoryResult(BaseValidatorModel):
     SharedDirectoryId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'share_directory' function.
 class ShareDirectoryResult(BaseValidatorModel):
     SharedDirectoryId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_schema_extension' function.
 class StartSchemaExtensionResult(BaseValidatorModel):
     SchemaExtensionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'unshare_directory' function.
 class UnshareDirectoryResult(BaseValidatorModel):
     SharedDirectoryId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_settings' function.
 class UpdateSettingsResult(BaseValidatorModel):
     DirectoryId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_trust' function.
 class UpdateTrustResult(BaseValidatorModel):
     RequestId: str
     TrustId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'verify_trust' function.
 class VerifyTrustResult(BaseValidatorModel):
     TrustId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'accept_shared_directory' function.
 class AcceptSharedDirectoryResult(BaseValidatorModel):
     SharedDirectory: SharedDirectory
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_shared_directories' function.
 class DescribeSharedDirectoriesResult(BaseValidatorModel):
     SharedDirectories: List[SharedDirectory]
     ResponseMetadata: ResponseMetadata
@@ -669,6 +720,7 @@ class AddTagsToResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResult(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -681,6 +733,7 @@ class Computer(BaseValidatorModel):
     ComputerAttributes: Optional[List[Attribute]] = None
 
 
+# This class is the input for the 'create_computer' function.
 class CreateComputerRequest(BaseValidatorModel):
     DirectoryId: str
     ComputerName: str
@@ -689,6 +742,7 @@ class CreateComputerRequest(BaseValidatorModel):
     ComputerAttributes: Optional[List[Attribute]] = None
 
 
+# This class is the output for the 'list_certificates' function.
 class ListCertificatesResult(BaseValidatorModel):
     CertificatesInfo: List[CertificateInfo]
     ResponseMetadata: ResponseMetadata
@@ -706,6 +760,7 @@ class Certificate(BaseValidatorModel):
     ClientCertAuthSettings: Optional[ClientCertAuthSettings] = None
 
 
+# This class is the input for the 'register_certificate' function.
 class RegisterCertificateRequest(BaseValidatorModel):
     DirectoryId: str
     CertificateData: str
@@ -713,17 +768,20 @@ class RegisterCertificateRequest(BaseValidatorModel):
     ClientCertAuthSettings: Optional[ClientCertAuthSettings] = None
 
 
+# This class is the output for the 'describe_client_authentication_settings' function.
 class DescribeClientAuthenticationSettingsResult(BaseValidatorModel):
     ClientAuthenticationSettingsInfo: List[ClientAuthenticationSettingInfo]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_conditional_forwarders' function.
 class DescribeConditionalForwardersResult(BaseValidatorModel):
     ConditionalForwarders: List[ConditionalForwarder]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'connect_directory' function.
 class ConnectDirectoryRequest(BaseValidatorModel):
     Name: str
     Password: str
@@ -813,23 +871,27 @@ class ListTagsForResourceRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'describe_domain_controllers' function.
 class DescribeDomainControllersResult(BaseValidatorModel):
     DomainControllers: List[DomainController]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_event_topics' function.
 class DescribeEventTopicsResult(BaseValidatorModel):
     EventTopics: List[EventTopic]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_ldaps_settings' function.
 class DescribeLDAPSSettingsResult(BaseValidatorModel):
     LDAPSSettingsInfo: List[LDAPSSettingInfo]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_settings' function.
 class DescribeSettingsResult(BaseValidatorModel):
     DirectoryId: str
     SettingEntries: List[SettingEntry]
@@ -837,12 +899,14 @@ class DescribeSettingsResult(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_snapshots' function.
 class DescribeSnapshotsResult(BaseValidatorModel):
     Snapshots: List[Snapshot]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_trusts' function.
 class DescribeTrustsResult(BaseValidatorModel):
     Trusts: List[Trust]
     ResponseMetadata: ResponseMetadata
@@ -877,23 +941,27 @@ class RegionDescription(BaseValidatorModel):
 DirectoryVpcSettingsUnion = Union[DirectoryVpcSettings, DirectoryVpcSettingsOutput]
 
 
+# This class is the output for the 'get_snapshot_limits' function.
 class GetSnapshotLimitsResult(BaseValidatorModel):
     SnapshotLimits: SnapshotLimits
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_ip_routes' function.
 class ListIpRoutesResult(BaseValidatorModel):
     IpRoutesInfo: List[IpRouteInfo]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_log_subscriptions' function.
 class ListLogSubscriptionsResult(BaseValidatorModel):
     LogSubscriptions: List[LogSubscription]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_schema_extensions' function.
 class ListSchemaExtensionsResult(BaseValidatorModel):
     SchemaExtensionsInfo: List[SchemaExtensionInfo]
     ResponseMetadata: ResponseMetadata
@@ -913,11 +981,13 @@ class UpdateValue(BaseValidatorModel):
 RadiusSettingsUnion = Union[RadiusSettings, RadiusSettingsOutput]
 
 
+# This class is the input for the 'update_settings' function.
 class UpdateSettingsRequest(BaseValidatorModel):
     DirectoryId: str
     Settings: List[Setting]
 
 
+# This class is the input for the 'share_directory' function.
 class ShareDirectoryRequest(BaseValidatorModel):
     DirectoryId: str
     ShareTarget: ShareTarget
@@ -925,16 +995,19 @@ class ShareDirectoryRequest(BaseValidatorModel):
     ShareNotes: Optional[str] = None
 
 
+# This class is the input for the 'unshare_directory' function.
 class UnshareDirectoryRequest(BaseValidatorModel):
     DirectoryId: str
     UnshareTarget: UnshareTarget
 
 
+# This class is the output for the 'create_computer' function.
 class CreateComputerResult(BaseValidatorModel):
     Computer: Computer
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_certificate' function.
 class DescribeCertificateResult(BaseValidatorModel):
     Certificate: Certificate
     ResponseMetadata: ResponseMetadata
@@ -969,6 +1042,7 @@ class DirectoryDescription(BaseValidatorModel):
     OsVersion: Optional[OSVersionType] = None
 
 
+# This class is the output for the 'describe_regions' function.
 class DescribeRegionsResult(BaseValidatorModel):
     RegionsDescription: List[RegionDescription]
     ResponseMetadata: ResponseMetadata
@@ -981,6 +1055,7 @@ class AddRegionRequest(BaseValidatorModel):
     VPCSettings: DirectoryVpcSettingsUnion
 
 
+# This class is the input for the 'create_directory' function.
 class CreateDirectoryRequest(BaseValidatorModel):
     Name: str
     Password: str
@@ -991,6 +1066,7 @@ class CreateDirectoryRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_microsoft_ad' function.
 class CreateMicrosoftADRequest(BaseValidatorModel):
     Name: str
     Password: str
@@ -1022,12 +1098,14 @@ class UpdateRadiusRequest(BaseValidatorModel):
     RadiusSettings: RadiusSettingsUnion
 
 
+# This class is the output for the 'describe_directories' function.
 class DescribeDirectoriesResult(BaseValidatorModel):
     DirectoryDescriptions: List[DirectoryDescription]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_update_directory' function.
 class DescribeUpdateDirectoryResult(BaseValidatorModel):
     UpdateActivities: List[UpdateInfoEntry]
     ResponseMetadata: ResponseMetadata

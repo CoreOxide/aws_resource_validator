@@ -14,6 +14,7 @@ class ActionSource(BaseValidatorModel):
     SourceId: Optional[str] = None
 
 
+# This class is the input for the 'add_association' function.
 class AddAssociationRequest(BaseValidatorModel):
     SourceArn: str
     DestinationArn: str
@@ -109,6 +110,7 @@ class ArtifactSourceType(BaseValidatorModel):
     Value: str
 
 
+# This class is the input for the 'associate_trial_component' function.
 class AssociateTrialComponentRequest(BaseValidatorModel):
     TrialComponentName: str
     TrialName: str
@@ -248,6 +250,7 @@ class BatchDeleteClusterNodesError(BaseValidatorModel):
     NodeId: str
 
 
+# This class is the input for the 'batch_delete_cluster_nodes' function.
 class BatchDeleteClusterNodesRequest(BaseValidatorModel):
     ClusterName: str
     NodeIds: List[str]
@@ -258,6 +261,7 @@ class BatchDescribeModelPackageError(BaseValidatorModel):
     ErrorResponse: str
 
 
+# This class is the input for the 'batch_describe_model_package' function.
 class BatchDescribeModelPackageInput(BaseValidatorModel):
     ModelPackageArnList: List[str]
 
@@ -680,6 +684,7 @@ class UiTemplate(BaseValidatorModel):
     Content: str
 
 
+# This class is the input for the 'create_image_version' function.
 class CreateImageVersionRequest(BaseValidatorModel):
     BaseImage: str
     ClientToken: str
@@ -749,6 +754,7 @@ class OptimizationJobOutputConfig(BaseValidatorModel):
     KmsKeyId: Optional[str] = None
 
 
+# This class is the input for the 'create_partner_app_presigned_url' function.
 class CreatePartnerAppPresignedUrlRequest(BaseValidatorModel):
     Arn: str
     ExpiresInSeconds: Optional[int] = None
@@ -769,6 +775,7 @@ class PipelineDefinitionS3Location(BaseValidatorModel):
     VersionId: Optional[str] = None
 
 
+# This class is the input for the 'create_presigned_domain_url' function.
 class CreatePresignedDomainUrlRequest(BaseValidatorModel):
     DomainId: str
     UserProfileName: str
@@ -778,12 +785,14 @@ class CreatePresignedDomainUrlRequest(BaseValidatorModel):
     LandingUri: Optional[str] = None
 
 
+# This class is the input for the 'create_presigned_mlflow_tracking_server_url' function.
 class CreatePresignedMlflowTrackingServerUrlRequest(BaseValidatorModel):
     TrackingServerName: str
     ExpiresInSeconds: Optional[int] = None
     SessionExpirationDurationInSeconds: Optional[int] = None
 
 
+# This class is the input for the 'create_presigned_notebook_instance_url' function.
 class CreatePresignedNotebookInstanceUrlInput(BaseValidatorModel):
     NotebookInstanceName: str
     SessionExpirationDurationInSeconds: Optional[int] = None
@@ -1034,18 +1043,22 @@ class DefaultEbsStorageSettings(BaseValidatorModel):
     MaximumEbsVolumeSizeInGb: int
 
 
+# This class is the input for the 'delete_action' function.
 class DeleteActionRequest(BaseValidatorModel):
     ActionName: str
 
 
+# This class is the input for the 'delete_algorithm' function.
 class DeleteAlgorithmInput(BaseValidatorModel):
     AlgorithmName: str
 
 
+# This class is the input for the 'delete_app_image_config' function.
 class DeleteAppImageConfigRequest(BaseValidatorModel):
     AppImageConfigName: str
 
 
+# This class is the input for the 'delete_app' function.
 class DeleteAppRequest(BaseValidatorModel):
     DomainId: str
     AppType: AppTypeType
@@ -1054,39 +1067,48 @@ class DeleteAppRequest(BaseValidatorModel):
     SpaceName: Optional[str] = None
 
 
+# This class is the input for the 'delete_association' function.
 class DeleteAssociationRequest(BaseValidatorModel):
     SourceArn: str
     DestinationArn: str
 
 
+# This class is the input for the 'delete_cluster' function.
 class DeleteClusterRequest(BaseValidatorModel):
     ClusterName: str
 
 
+# This class is the input for the 'delete_cluster_scheduler_config' function.
 class DeleteClusterSchedulerConfigRequest(BaseValidatorModel):
     ClusterSchedulerConfigId: str
 
 
+# This class is the input for the 'delete_code_repository' function.
 class DeleteCodeRepositoryInput(BaseValidatorModel):
     CodeRepositoryName: str
 
 
+# This class is the input for the 'delete_compilation_job' function.
 class DeleteCompilationJobRequest(BaseValidatorModel):
     CompilationJobName: str
 
 
+# This class is the input for the 'delete_compute_quota' function.
 class DeleteComputeQuotaRequest(BaseValidatorModel):
     ComputeQuotaId: str
 
 
+# This class is the input for the 'delete_context' function.
 class DeleteContextRequest(BaseValidatorModel):
     ContextName: str
 
 
+# This class is the input for the 'delete_data_quality_job_definition' function.
 class DeleteDataQualityJobDefinitionRequest(BaseValidatorModel):
     JobDefinitionName: str
 
 
+# This class is the input for the 'delete_device_fleet' function.
 class DeleteDeviceFleetRequest(BaseValidatorModel):
     DeviceFleetName: str
 
@@ -1095,27 +1117,33 @@ class RetentionPolicy(BaseValidatorModel):
     HomeEfsFileSystem: Optional[RetentionTypeType] = None
 
 
+# This class is the input for the 'delete_edge_deployment_plan' function.
 class DeleteEdgeDeploymentPlanRequest(BaseValidatorModel):
     EdgeDeploymentPlanName: str
 
 
+# This class is the input for the 'delete_edge_deployment_stage' function.
 class DeleteEdgeDeploymentStageRequest(BaseValidatorModel):
     EdgeDeploymentPlanName: str
     StageName: str
 
 
+# This class is the input for the 'delete_endpoint_config' function.
 class DeleteEndpointConfigInput(BaseValidatorModel):
     EndpointConfigName: str
 
 
+# This class is the input for the 'delete_endpoint' function.
 class DeleteEndpointInput(BaseValidatorModel):
     EndpointName: str
 
 
+# This class is the input for the 'delete_experiment' function.
 class DeleteExperimentRequest(BaseValidatorModel):
     ExperimentName: str
 
 
+# This class is the input for the 'delete_feature_group' function.
 class DeleteFeatureGroupRequest(BaseValidatorModel):
     FeatureGroupName: str
 
@@ -1124,12 +1152,14 @@ class DeleteFlowDefinitionRequest(BaseValidatorModel):
     FlowDefinitionName: str
 
 
+# This class is the input for the 'delete_hub_content_reference' function.
 class DeleteHubContentReferenceRequest(BaseValidatorModel):
     HubName: str
     HubContentType: HubContentTypeType
     HubContentName: str
 
 
+# This class is the input for the 'delete_hub_content' function.
 class DeleteHubContentRequest(BaseValidatorModel):
     HubName: str
     HubContentType: HubContentTypeType
@@ -1137,6 +1167,7 @@ class DeleteHubContentRequest(BaseValidatorModel):
     HubContentVersion: str
 
 
+# This class is the input for the 'delete_hub' function.
 class DeleteHubRequest(BaseValidatorModel):
     HubName: str
 
@@ -1145,6 +1176,7 @@ class DeleteHumanTaskUiRequest(BaseValidatorModel):
     HumanTaskUiName: str
 
 
+# This class is the input for the 'delete_hyper_parameter_tuning_job' function.
 class DeleteHyperParameterTuningJobRequest(BaseValidatorModel):
     HyperParameterTuningJobName: str
 
@@ -1159,85 +1191,105 @@ class DeleteImageVersionRequest(BaseValidatorModel):
     Alias: Optional[str] = None
 
 
+# This class is the input for the 'delete_inference_component' function.
 class DeleteInferenceComponentInput(BaseValidatorModel):
     InferenceComponentName: str
 
 
+# This class is the input for the 'delete_inference_experiment' function.
 class DeleteInferenceExperimentRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'delete_mlflow_tracking_server' function.
 class DeleteMlflowTrackingServerRequest(BaseValidatorModel):
     TrackingServerName: str
 
 
+# This class is the input for the 'delete_model_bias_job_definition' function.
 class DeleteModelBiasJobDefinitionRequest(BaseValidatorModel):
     JobDefinitionName: str
 
 
+# This class is the input for the 'delete_model_card' function.
 class DeleteModelCardRequest(BaseValidatorModel):
     ModelCardName: str
 
 
+# This class is the input for the 'delete_model_explainability_job_definition' function.
 class DeleteModelExplainabilityJobDefinitionRequest(BaseValidatorModel):
     JobDefinitionName: str
 
 
+# This class is the input for the 'delete_model' function.
 class DeleteModelInput(BaseValidatorModel):
     ModelName: str
 
 
+# This class is the input for the 'delete_model_package_group' function.
 class DeleteModelPackageGroupInput(BaseValidatorModel):
     ModelPackageGroupName: str
 
 
+# This class is the input for the 'delete_model_package_group_policy' function.
 class DeleteModelPackageGroupPolicyInput(BaseValidatorModel):
     ModelPackageGroupName: str
 
 
+# This class is the input for the 'delete_model_package' function.
 class DeleteModelPackageInput(BaseValidatorModel):
     ModelPackageName: str
 
 
+# This class is the input for the 'delete_model_quality_job_definition' function.
 class DeleteModelQualityJobDefinitionRequest(BaseValidatorModel):
     JobDefinitionName: str
 
 
+# This class is the input for the 'delete_monitoring_schedule' function.
 class DeleteMonitoringScheduleRequest(BaseValidatorModel):
     MonitoringScheduleName: str
 
 
+# This class is the input for the 'delete_notebook_instance' function.
 class DeleteNotebookInstanceInput(BaseValidatorModel):
     NotebookInstanceName: str
 
 
+# This class is the input for the 'delete_notebook_instance_lifecycle_config' function.
 class DeleteNotebookInstanceLifecycleConfigInput(BaseValidatorModel):
     NotebookInstanceLifecycleConfigName: str
 
 
+# This class is the input for the 'delete_optimization_job' function.
 class DeleteOptimizationJobRequest(BaseValidatorModel):
     OptimizationJobName: str
 
 
+# This class is the input for the 'delete_partner_app' function.
 class DeletePartnerAppRequest(BaseValidatorModel):
     Arn: str
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_pipeline' function.
 class DeletePipelineRequest(BaseValidatorModel):
     PipelineName: str
     ClientRequestToken: str
 
 
+# This class is the input for the 'delete_project' function.
 class DeleteProjectInput(BaseValidatorModel):
     ProjectName: str
 
 
+# This class is the input for the 'delete_space' function.
 class DeleteSpaceRequest(BaseValidatorModel):
     DomainId: str
     SpaceName: str
 
 
+# This class is the input for the 'delete_studio_lifecycle_config' function.
 class DeleteStudioLifecycleConfigRequest(BaseValidatorModel):
     StudioLifecycleConfigName: str
 
@@ -1247,14 +1299,17 @@ class DeleteTagsInput(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'delete_trial_component' function.
 class DeleteTrialComponentRequest(BaseValidatorModel):
     TrialComponentName: str
 
 
+# This class is the input for the 'delete_trial' function.
 class DeleteTrialRequest(BaseValidatorModel):
     TrialName: str
 
 
+# This class is the input for the 'delete_user_profile' function.
 class DeleteUserProfileRequest(BaseValidatorModel):
     DomainId: str
     UserProfileName: str
@@ -1264,6 +1319,7 @@ class DeleteWorkforceRequest(BaseValidatorModel):
     WorkforceName: str
 
 
+# This class is the input for the 'delete_workteam' function.
 class DeleteWorkteamRequest(BaseValidatorModel):
     WorkteamName: str
 
@@ -1300,6 +1356,7 @@ class EdgeDeploymentStatus(BaseValidatorModel):
     EdgeDeploymentStageStartTime: Optional[datetime] = None
 
 
+# This class is the input for the 'deregister_devices' function.
 class DeregisterDevicesRequest(BaseValidatorModel):
     DeviceFleetName: str
     DeviceNames: List[str]
@@ -1309,18 +1366,22 @@ class DerivedInformation(BaseValidatorModel):
     DerivedDataInputConfig: Optional[str] = None
 
 
+# This class is the input for the 'describe_action' function.
 class DescribeActionRequest(BaseValidatorModel):
     ActionName: str
 
 
+# This class is the input for the 'describe_algorithm' function.
 class DescribeAlgorithmInput(BaseValidatorModel):
     AlgorithmName: str
 
 
+# This class is the input for the 'describe_app_image_config' function.
 class DescribeAppImageConfigRequest(BaseValidatorModel):
     AppImageConfigName: str
 
 
+# This class is the input for the 'describe_app' function.
 class DescribeAppRequest(BaseValidatorModel):
     DomainId: str
     AppType: AppTypeType
@@ -1329,10 +1390,12 @@ class DescribeAppRequest(BaseValidatorModel):
     SpaceName: Optional[str] = None
 
 
+# This class is the input for the 'describe_artifact' function.
 class DescribeArtifactRequest(BaseValidatorModel):
     ArtifactArn: str
 
 
+# This class is the input for the 'describe_auto_ml_job' function.
 class DescribeAutoMLJobRequest(BaseValidatorModel):
     AutoMLJobName: str
 
@@ -1341,28 +1404,34 @@ class ModelDeployResult(BaseValidatorModel):
     EndpointName: Optional[str] = None
 
 
+# This class is the input for the 'describe_auto_ml_job_v2' function.
 class DescribeAutoMLJobV2Request(BaseValidatorModel):
     AutoMLJobName: str
 
 
+# This class is the input for the 'describe_cluster_node' function.
 class DescribeClusterNodeRequest(BaseValidatorModel):
     ClusterName: str
     NodeId: str
 
 
+# This class is the input for the 'describe_cluster' function.
 class DescribeClusterRequest(BaseValidatorModel):
     ClusterName: str
 
 
+# This class is the input for the 'describe_cluster_scheduler_config' function.
 class DescribeClusterSchedulerConfigRequest(BaseValidatorModel):
     ClusterSchedulerConfigId: str
     ClusterSchedulerConfigVersion: Optional[int] = None
 
 
+# This class is the input for the 'describe_code_repository' function.
 class DescribeCodeRepositoryInput(BaseValidatorModel):
     CodeRepositoryName: str
 
 
+# This class is the input for the 'describe_compilation_job' function.
 class DescribeCompilationJobRequest(BaseValidatorModel):
     CompilationJobName: str
 
@@ -1380,23 +1449,28 @@ class NeoVpcConfigOutput(BaseValidatorModel):
     Subnets: List[str]
 
 
+# This class is the input for the 'describe_compute_quota' function.
 class DescribeComputeQuotaRequest(BaseValidatorModel):
     ComputeQuotaId: str
     ComputeQuotaVersion: Optional[int] = None
 
 
+# This class is the input for the 'describe_context' function.
 class DescribeContextRequest(BaseValidatorModel):
     ContextName: str
 
 
+# This class is the input for the 'describe_data_quality_job_definition' function.
 class DescribeDataQualityJobDefinitionRequest(BaseValidatorModel):
     JobDefinitionName: str
 
 
+# This class is the input for the 'describe_device_fleet' function.
 class DescribeDeviceFleetRequest(BaseValidatorModel):
     DeviceFleetName: str
 
 
+# This class is the input for the 'describe_device' function.
 class DescribeDeviceRequest(BaseValidatorModel):
     DeviceName: str
     DeviceFleetName: str
@@ -1410,16 +1484,19 @@ class EdgeModel(BaseValidatorModel):
     LatestInference: Optional[datetime] = None
 
 
+# This class is the input for the 'describe_domain' function.
 class DescribeDomainRequest(BaseValidatorModel):
     DomainId: str
 
 
+# This class is the input for the 'describe_edge_deployment_plan' function.
 class DescribeEdgeDeploymentPlanRequest(BaseValidatorModel):
     EdgeDeploymentPlanName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_edge_packaging_job' function.
 class DescribeEdgePackagingJobRequest(BaseValidatorModel):
     EdgePackagingJobName: str
 
@@ -1431,10 +1508,12 @@ class EdgePresetDeploymentOutput(BaseValidatorModel):
     StatusMessage: Optional[str] = None
 
 
+# This class is the input for the 'describe_endpoint_config' function.
 class DescribeEndpointConfigInput(BaseValidatorModel):
     EndpointConfigName: str
 
 
+# This class is the input for the 'describe_endpoint' function.
 class DescribeEndpointInput(BaseValidatorModel):
     EndpointName: str
 
@@ -1444,6 +1523,7 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'describe_experiment' function.
 class DescribeExperimentRequest(BaseValidatorModel):
     ExperimentName: str
 
@@ -1453,6 +1533,7 @@ class ExperimentSource(BaseValidatorModel):
     SourceType: Optional[str] = None
 
 
+# This class is the input for the 'describe_feature_group' function.
 class DescribeFeatureGroupRequest(BaseValidatorModel):
     FeatureGroupName: str
     NextToken: Optional[str] = None
@@ -1474,6 +1555,7 @@ class ThroughputConfigDescription(BaseValidatorModel):
     ProvisionedWriteCapacityUnits: Optional[int] = None
 
 
+# This class is the input for the 'describe_feature_metadata' function.
 class DescribeFeatureMetadataRequest(BaseValidatorModel):
     FeatureGroupName: str
     FeatureName: str
@@ -1484,10 +1566,12 @@ class FeatureParameter(BaseValidatorModel):
     Value: Optional[str] = None
 
 
+# This class is the input for the 'describe_flow_definition' function.
 class DescribeFlowDefinitionRequest(BaseValidatorModel):
     FlowDefinitionName: str
 
 
+# This class is the input for the 'describe_hub_content' function.
 class DescribeHubContentRequest(BaseValidatorModel):
     HubName: str
     HubContentType: HubContentTypeType
@@ -1500,10 +1584,12 @@ class HubContentDependency(BaseValidatorModel):
     DependencyCopyPath: Optional[str] = None
 
 
+# This class is the input for the 'describe_hub' function.
 class DescribeHubRequest(BaseValidatorModel):
     HubName: str
 
 
+# This class is the input for the 'describe_human_task_ui' function.
 class DescribeHumanTaskUiRequest(BaseValidatorModel):
     HumanTaskUiName: str
 
@@ -1513,6 +1599,7 @@ class UiTemplateInfo(BaseValidatorModel):
     ContentSha256: Optional[str] = None
 
 
+# This class is the input for the 'describe_hyper_parameter_tuning_job' function.
 class DescribeHyperParameterTuningJobRequest(BaseValidatorModel):
     HyperParameterTuningJobName: str
 
@@ -1540,16 +1627,19 @@ class TrainingJobStatusCounters(BaseValidatorModel):
     Stopped: Optional[int] = None
 
 
+# This class is the input for the 'describe_image' function.
 class DescribeImageRequest(BaseValidatorModel):
     ImageName: str
 
 
+# This class is the input for the 'describe_image_version' function.
 class DescribeImageVersionRequest(BaseValidatorModel):
     ImageName: str
     Version: Optional[int] = None
     Alias: Optional[str] = None
 
 
+# This class is the input for the 'describe_inference_component' function.
 class DescribeInferenceComponentInput(BaseValidatorModel):
     InferenceComponentName: str
 
@@ -1559,6 +1649,7 @@ class InferenceComponentRuntimeConfigSummary(BaseValidatorModel):
     CurrentCopyCount: Optional[int] = None
 
 
+# This class is the input for the 'describe_inference_experiment' function.
 class DescribeInferenceExperimentRequest(BaseValidatorModel):
     Name: str
 
@@ -1575,10 +1666,12 @@ class InferenceExperimentScheduleOutput(BaseValidatorModel):
     EndTime: Optional[datetime] = None
 
 
+# This class is the input for the 'describe_inference_recommendations_job' function.
 class DescribeInferenceRecommendationsJobRequest(BaseValidatorModel):
     JobName: str
 
 
+# This class is the input for the 'describe_labeling_job' function.
 class DescribeLabelingJobRequest(BaseValidatorModel):
     LabelingJobName: str
 
@@ -1596,14 +1689,17 @@ class LabelingJobOutput(BaseValidatorModel):
     FinalActiveLearningModelArn: Optional[str] = None
 
 
+# This class is the input for the 'describe_lineage_group' function.
 class DescribeLineageGroupRequest(BaseValidatorModel):
     LineageGroupName: str
 
 
+# This class is the input for the 'describe_mlflow_tracking_server' function.
 class DescribeMlflowTrackingServerRequest(BaseValidatorModel):
     TrackingServerName: str
 
 
+# This class is the input for the 'describe_model_bias_job_definition' function.
 class DescribeModelBiasJobDefinitionRequest(BaseValidatorModel):
     JobDefinitionName: str
 
@@ -1614,6 +1710,7 @@ class ModelBiasAppSpecificationOutput(BaseValidatorModel):
     Environment: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'describe_model_card_export_job' function.
 class DescribeModelCardExportJobRequest(BaseValidatorModel):
     ModelCardExportJobArn: str
 
@@ -1622,11 +1719,13 @@ class ModelCardExportArtifacts(BaseValidatorModel):
     S3ExportArtifacts: str
 
 
+# This class is the input for the 'describe_model_card' function.
 class DescribeModelCardRequest(BaseValidatorModel):
     ModelCardName: str
     ModelCardVersion: Optional[int] = None
 
 
+# This class is the input for the 'describe_model_explainability_job_definition' function.
 class DescribeModelExplainabilityJobDefinitionRequest(BaseValidatorModel):
     JobDefinitionName: str
 
@@ -1637,18 +1736,22 @@ class ModelExplainabilityAppSpecificationOutput(BaseValidatorModel):
     Environment: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'describe_model' function.
 class DescribeModelInput(BaseValidatorModel):
     ModelName: str
 
 
+# This class is the input for the 'describe_model_package_group' function.
 class DescribeModelPackageGroupInput(BaseValidatorModel):
     ModelPackageGroupName: str
 
 
+# This class is the input for the 'describe_model_package' function.
 class DescribeModelPackageInput(BaseValidatorModel):
     ModelPackageName: str
 
 
+# This class is the input for the 'describe_model_quality_job_definition' function.
 class DescribeModelQualityJobDefinitionRequest(BaseValidatorModel):
     JobDefinitionName: str
 
@@ -1663,6 +1766,7 @@ class ModelQualityAppSpecificationOutput(BaseValidatorModel):
     Environment: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'describe_monitoring_schedule' function.
 class DescribeMonitoringScheduleRequest(BaseValidatorModel):
     MonitoringScheduleName: str
 
@@ -1680,14 +1784,17 @@ class MonitoringExecutionSummary(BaseValidatorModel):
     MonitoringType: Optional[MonitoringTypeType] = None
 
 
+# This class is the input for the 'describe_notebook_instance' function.
 class DescribeNotebookInstanceInput(BaseValidatorModel):
     NotebookInstanceName: str
 
 
+# This class is the input for the 'describe_notebook_instance_lifecycle_config' function.
 class DescribeNotebookInstanceLifecycleConfigInput(BaseValidatorModel):
     NotebookInstanceLifecycleConfigName: str
 
 
+# This class is the input for the 'describe_optimization_job' function.
 class DescribeOptimizationJobRequest(BaseValidatorModel):
     OptimizationJobName: str
 
@@ -1701,6 +1808,7 @@ class OptimizationVpcConfigOutput(BaseValidatorModel):
     Subnets: List[str]
 
 
+# This class is the input for the 'describe_partner_app' function.
 class DescribePartnerAppRequest(BaseValidatorModel):
     Arn: str
 
@@ -1715,10 +1823,12 @@ class PartnerAppConfigOutput(BaseValidatorModel):
     Arguments: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'describe_pipeline_definition_for_execution' function.
 class DescribePipelineDefinitionForExecutionRequest(BaseValidatorModel):
     PipelineExecutionArn: str
 
 
+# This class is the input for the 'describe_pipeline_execution' function.
 class DescribePipelineExecutionRequest(BaseValidatorModel):
     PipelineExecutionArn: str
 
@@ -1728,14 +1838,17 @@ class PipelineExperimentConfig(BaseValidatorModel):
     TrialName: Optional[str] = None
 
 
+# This class is the input for the 'describe_pipeline' function.
 class DescribePipelineRequest(BaseValidatorModel):
     PipelineName: str
 
 
+# This class is the input for the 'describe_processing_job' function.
 class DescribeProcessingJobRequest(BaseValidatorModel):
     ProcessingJobName: str
 
 
+# This class is the input for the 'describe_project' function.
 class DescribeProjectInput(BaseValidatorModel):
     ProjectName: str
 
@@ -1745,15 +1858,18 @@ class ServiceCatalogProvisionedProductDetails(BaseValidatorModel):
     ProvisionedProductStatusMessage: Optional[str] = None
 
 
+# This class is the input for the 'describe_space' function.
 class DescribeSpaceRequest(BaseValidatorModel):
     DomainId: str
     SpaceName: str
 
 
+# This class is the input for the 'describe_studio_lifecycle_config' function.
 class DescribeStudioLifecycleConfigRequest(BaseValidatorModel):
     StudioLifecycleConfigName: str
 
 
+# This class is the input for the 'describe_subscribed_workteam' function.
 class DescribeSubscribedWorkteamRequest(BaseValidatorModel):
     WorkteamArn: str
 
@@ -1766,6 +1882,7 @@ class SubscribedWorkteam(BaseValidatorModel):
     ListingId: Optional[str] = None
 
 
+# This class is the input for the 'describe_training_job' function.
 class DescribeTrainingJobRequest(BaseValidatorModel):
     TrainingJobName: str
 
@@ -1814,6 +1931,7 @@ class WarmPoolStatus(BaseValidatorModel):
     ReusedByJob: Optional[str] = None
 
 
+# This class is the input for the 'describe_training_plan' function.
 class DescribeTrainingPlanRequest(BaseValidatorModel):
     TrainingPlanName: str
 
@@ -1830,10 +1948,12 @@ class ReservedCapacitySummary(BaseValidatorModel):
     EndTime: Optional[datetime] = None
 
 
+# This class is the input for the 'describe_transform_job' function.
 class DescribeTransformJobRequest(BaseValidatorModel):
     TransformJobName: str
 
 
+# This class is the input for the 'describe_trial_component' function.
 class DescribeTrialComponentRequest(BaseValidatorModel):
     TrialComponentName: str
 
@@ -1855,6 +1975,7 @@ class TrialComponentSource(BaseValidatorModel):
     SourceType: Optional[str] = None
 
 
+# This class is the input for the 'describe_trial' function.
 class DescribeTrialRequest(BaseValidatorModel):
     TrialName: str
 
@@ -1864,15 +1985,18 @@ class TrialSource(BaseValidatorModel):
     SourceType: Optional[str] = None
 
 
+# This class is the input for the 'describe_user_profile' function.
 class DescribeUserProfileRequest(BaseValidatorModel):
     DomainId: str
     UserProfileName: str
 
 
+# This class is the input for the 'describe_workforce' function.
 class DescribeWorkforceRequest(BaseValidatorModel):
     WorkforceName: str
 
 
+# This class is the input for the 'describe_workteam' function.
 class DescribeWorkteamRequest(BaseValidatorModel):
     WorkteamName: str
 
@@ -1926,6 +2050,7 @@ class Device(BaseValidatorModel):
     IotThingName: Optional[str] = None
 
 
+# This class is the input for the 'disassociate_trial_component' function.
 class DisassociateTrialComponentRequest(BaseValidatorModel):
     TrialComponentName: str
     TrialName: str
@@ -2082,14 +2207,17 @@ class FlowDefinitionSummary(BaseValidatorModel):
     FailureReason: Optional[str] = None
 
 
+# This class is the input for the 'get_device_fleet_report' function.
 class GetDeviceFleetReportRequest(BaseValidatorModel):
     DeviceFleetName: str
 
 
+# This class is the input for the 'get_lineage_group_policy' function.
 class GetLineageGroupPolicyRequest(BaseValidatorModel):
     LineageGroupName: str
 
 
+# This class is the input for the 'get_model_package_group_policy' function.
 class GetModelPackageGroupPolicyInput(BaseValidatorModel):
     ModelPackageGroupName: str
 
@@ -2357,6 +2485,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_aliases' function.
 class ListAliasesRequest(BaseValidatorModel):
     ImageName: str
     Alias: Optional[str] = None
@@ -2365,6 +2494,7 @@ class ListAliasesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_apps' function.
 class ListAppsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -2375,6 +2505,7 @@ class ListAppsRequest(BaseValidatorModel):
     SpaceNameEquals: Optional[str] = None
 
 
+# This class is the input for the 'list_candidates_for_auto_ml_job' function.
 class ListCandidatesForAutoMLJobRequest(BaseValidatorModel):
     AutoMLJobName: str
     StatusEquals: Optional[CandidateStatusType] = None
@@ -2392,11 +2523,13 @@ class MonitoringJobDefinitionSummary(BaseValidatorModel):
     EndpointName: str
 
 
+# This class is the input for the 'list_domains' function.
 class ListDomainsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_inference_recommendations_job_steps' function.
 class ListInferenceRecommendationsJobStepsRequest(BaseValidatorModel):
     JobName: str
     Status: Optional[RecommendationJobStatusType] = None
@@ -2482,6 +2615,7 @@ class MonitoringAlertHistorySummary(BaseValidatorModel):
     AlertStatus: MonitoringAlertStatusType
 
 
+# This class is the input for the 'list_monitoring_alerts' function.
 class ListMonitoringAlertsRequest(BaseValidatorModel):
     MonitoringScheduleName: str
     NextToken: Optional[str] = None
@@ -2531,6 +2665,7 @@ class OptimizationJobSummary(BaseValidatorModel):
     LastModifiedTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_partner_apps' function.
 class ListPartnerAppsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -2544,6 +2679,7 @@ class PartnerAppSummary(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_pipeline_execution_steps' function.
 class ListPipelineExecutionStepsRequest(BaseValidatorModel):
     PipelineExecutionArn: Optional[str] = None
     NextToken: Optional[str] = None
@@ -2560,6 +2696,7 @@ class PipelineExecutionSummary(BaseValidatorModel):
     PipelineExecutionFailureReason: Optional[str] = None
 
 
+# This class is the input for the 'list_pipeline_parameters_for_execution' function.
 class ListPipelineParametersForExecutionRequest(BaseValidatorModel):
     PipelineExecutionArn: str
     NextToken: Optional[str] = None
@@ -2609,6 +2746,7 @@ class ResourceCatalog(BaseValidatorModel):
     CreationTime: datetime
 
 
+# This class is the input for the 'list_spaces' function.
 class ListSpacesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -2618,6 +2756,7 @@ class ListSpacesRequest(BaseValidatorModel):
     SpaceNameContains: Optional[str] = None
 
 
+# This class is the input for the 'list_stage_devices' function.
 class ListStageDevicesRequest(BaseValidatorModel):
     EdgeDeploymentPlanName: str
     StageName: str
@@ -2634,18 +2773,21 @@ class StudioLifecycleConfigDetails(BaseValidatorModel):
     StudioLifecycleConfigAppType: Optional[StudioLifecycleConfigAppTypeType] = None
 
 
+# This class is the input for the 'list_subscribed_workteams' function.
 class ListSubscribedWorkteamsRequest(BaseValidatorModel):
     NameContains: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags' function.
 class ListTagsInput(BaseValidatorModel):
     ResourceArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_training_jobs_for_hyper_parameter_tuning_job' function.
 class ListTrainingJobsForHyperParameterTuningJobRequest(BaseValidatorModel):
     HyperParameterTuningJobName: str
     NextToken: Optional[str] = None
@@ -2670,6 +2812,7 @@ class TransformJobSummary(BaseValidatorModel):
     FailureReason: Optional[str] = None
 
 
+# This class is the input for the 'list_user_profiles' function.
 class ListUserProfilesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -2687,6 +2830,7 @@ class UserProfileDetails(BaseValidatorModel):
     LastModifiedTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_workforces' function.
 class ListWorkforcesRequest(BaseValidatorModel):
     SortBy: Optional[ListWorkforcesSortByOptionsType] = None
     SortOrder: Optional[SortOrderType] = None
@@ -2695,6 +2839,7 @@ class ListWorkforcesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_workteams' function.
 class ListWorkteamsRequest(BaseValidatorModel):
     SortBy: Optional[ListWorkteamsSortByOptionsType] = None
     SortOrder: Optional[SortOrderType] = None
@@ -3054,6 +3199,7 @@ class USD(BaseValidatorModel):
     TenthFractionsOfACent: Optional[int] = None
 
 
+# This class is the input for the 'put_model_package_group_policy' function.
 class PutModelPackageGroupPolicyInput(BaseValidatorModel):
     ModelPackageGroupName: str
     ResourcePolicy: str
@@ -3135,6 +3281,7 @@ class SelectedStep(BaseValidatorModel):
     StepName: str
 
 
+# This class is the input for the 'send_pipeline_execution_step_failure' function.
 class SendPipelineExecutionStepFailureRequest(BaseValidatorModel):
     CallbackToken: str
     FailureReason: Optional[str] = None
@@ -3174,85 +3321,105 @@ class Stairs(BaseValidatorModel):
     UsersPerStep: Optional[int] = None
 
 
+# This class is the input for the 'start_edge_deployment_stage' function.
 class StartEdgeDeploymentStageRequest(BaseValidatorModel):
     EdgeDeploymentPlanName: str
     StageName: str
 
 
+# This class is the input for the 'start_inference_experiment' function.
 class StartInferenceExperimentRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'start_mlflow_tracking_server' function.
 class StartMlflowTrackingServerRequest(BaseValidatorModel):
     TrackingServerName: str
 
 
+# This class is the input for the 'start_monitoring_schedule' function.
 class StartMonitoringScheduleRequest(BaseValidatorModel):
     MonitoringScheduleName: str
 
 
+# This class is the input for the 'start_notebook_instance' function.
 class StartNotebookInstanceInput(BaseValidatorModel):
     NotebookInstanceName: str
 
 
+# This class is the input for the 'stop_auto_ml_job' function.
 class StopAutoMLJobRequest(BaseValidatorModel):
     AutoMLJobName: str
 
 
+# This class is the input for the 'stop_compilation_job' function.
 class StopCompilationJobRequest(BaseValidatorModel):
     CompilationJobName: str
 
 
+# This class is the input for the 'stop_edge_deployment_stage' function.
 class StopEdgeDeploymentStageRequest(BaseValidatorModel):
     EdgeDeploymentPlanName: str
     StageName: str
 
 
+# This class is the input for the 'stop_edge_packaging_job' function.
 class StopEdgePackagingJobRequest(BaseValidatorModel):
     EdgePackagingJobName: str
 
 
+# This class is the input for the 'stop_hyper_parameter_tuning_job' function.
 class StopHyperParameterTuningJobRequest(BaseValidatorModel):
     HyperParameterTuningJobName: str
 
 
+# This class is the input for the 'stop_inference_recommendations_job' function.
 class StopInferenceRecommendationsJobRequest(BaseValidatorModel):
     JobName: str
 
 
+# This class is the input for the 'stop_labeling_job' function.
 class StopLabelingJobRequest(BaseValidatorModel):
     LabelingJobName: str
 
 
+# This class is the input for the 'stop_mlflow_tracking_server' function.
 class StopMlflowTrackingServerRequest(BaseValidatorModel):
     TrackingServerName: str
 
 
+# This class is the input for the 'stop_monitoring_schedule' function.
 class StopMonitoringScheduleRequest(BaseValidatorModel):
     MonitoringScheduleName: str
 
 
+# This class is the input for the 'stop_notebook_instance' function.
 class StopNotebookInstanceInput(BaseValidatorModel):
     NotebookInstanceName: str
 
 
+# This class is the input for the 'stop_optimization_job' function.
 class StopOptimizationJobRequest(BaseValidatorModel):
     OptimizationJobName: str
 
 
+# This class is the input for the 'stop_pipeline_execution' function.
 class StopPipelineExecutionRequest(BaseValidatorModel):
     PipelineExecutionArn: str
     ClientRequestToken: str
 
 
+# This class is the input for the 'stop_processing_job' function.
 class StopProcessingJobRequest(BaseValidatorModel):
     ProcessingJobName: str
 
 
+# This class is the input for the 'stop_training_job' function.
 class StopTrainingJobRequest(BaseValidatorModel):
     TrainingJobName: str
 
 
+# This class is the input for the 'stop_transform_job' function.
 class StopTransformJobRequest(BaseValidatorModel):
     TransformJobName: str
 
@@ -3296,6 +3463,7 @@ class TransformS3DataSource(BaseValidatorModel):
     S3Uri: str
 
 
+# This class is the input for the 'update_action' function.
 class UpdateActionRequest(BaseValidatorModel):
     ActionName: str
     Description: Optional[str] = None
@@ -3304,6 +3472,7 @@ class UpdateActionRequest(BaseValidatorModel):
     PropertiesToRemove: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_artifact' function.
 class UpdateArtifactRequest(BaseValidatorModel):
     ArtifactArn: str
     ArtifactName: Optional[str] = None
@@ -3311,10 +3480,12 @@ class UpdateArtifactRequest(BaseValidatorModel):
     PropertiesToRemove: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_cluster_software' function.
 class UpdateClusterSoftwareRequest(BaseValidatorModel):
     ClusterName: str
 
 
+# This class is the input for the 'update_context' function.
 class UpdateContextRequest(BaseValidatorModel):
     ContextName: str
     Description: Optional[str] = None
@@ -3326,12 +3497,14 @@ class VariantProperty(BaseValidatorModel):
     VariantPropertyType: VariantPropertyTypeType
 
 
+# This class is the input for the 'update_experiment' function.
 class UpdateExperimentRequest(BaseValidatorModel):
     ExperimentName: str
     DisplayName: Optional[str] = None
     Description: Optional[str] = None
 
 
+# This class is the input for the 'update_hub_content_reference' function.
 class UpdateHubContentReferenceRequest(BaseValidatorModel):
     HubName: str
     HubContentName: str
@@ -3339,6 +3512,7 @@ class UpdateHubContentReferenceRequest(BaseValidatorModel):
     MinVersion: Optional[str] = None
 
 
+# This class is the input for the 'update_hub_content' function.
 class UpdateHubContentRequest(BaseValidatorModel):
     HubName: str
     HubContentName: str
@@ -3351,6 +3525,7 @@ class UpdateHubContentRequest(BaseValidatorModel):
     SupportStatus: Optional[HubContentSupportStatusType] = None
 
 
+# This class is the input for the 'update_hub' function.
 class UpdateHubRequest(BaseValidatorModel):
     HubName: str
     HubDescription: Optional[str] = None
@@ -3358,6 +3533,7 @@ class UpdateHubRequest(BaseValidatorModel):
     HubSearchKeywords: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_image' function.
 class UpdateImageRequest(BaseValidatorModel):
     ImageName: str
     DeleteProperties: Optional[List[str]] = None
@@ -3366,6 +3542,7 @@ class UpdateImageRequest(BaseValidatorModel):
     RoleArn: Optional[str] = None
 
 
+# This class is the input for the 'update_image_version' function.
 class UpdateImageVersionRequest(BaseValidatorModel):
     ImageName: str
     Alias: Optional[str] = None
@@ -3381,6 +3558,7 @@ class UpdateImageVersionRequest(BaseValidatorModel):
     ReleaseNotes: Optional[str] = None
 
 
+# This class is the input for the 'update_mlflow_tracking_server' function.
 class UpdateMlflowTrackingServerRequest(BaseValidatorModel):
     TrackingServerName: str
     ArtifactStoreUri: Optional[str] = None
@@ -3389,12 +3567,14 @@ class UpdateMlflowTrackingServerRequest(BaseValidatorModel):
     WeeklyMaintenanceWindowStart: Optional[str] = None
 
 
+# This class is the input for the 'update_model_card' function.
 class UpdateModelCardRequest(BaseValidatorModel):
     ModelCardName: str
     Content: Optional[str] = None
     ModelCardStatus: Optional[ModelCardStatusType] = None
 
 
+# This class is the input for the 'update_monitoring_alert' function.
 class UpdateMonitoringAlertRequest(BaseValidatorModel):
     MonitoringScheduleName: str
     MonitoringAlertName: str
@@ -3402,6 +3582,7 @@ class UpdateMonitoringAlertRequest(BaseValidatorModel):
     EvaluationPeriod: int
 
 
+# This class is the input for the 'update_trial' function.
 class UpdateTrialRequest(BaseValidatorModel):
     TrialName: str
     DisplayName: Optional[str] = None
@@ -3424,90 +3605,107 @@ class ActionSummary(BaseValidatorModel):
     LastModifiedTime: Optional[datetime] = None
 
 
+# This class is the output for the 'add_association' function.
 class AddAssociationResponse(BaseValidatorModel):
     SourceArn: str
     DestinationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_trial_component' function.
 class AssociateTrialComponentResponse(BaseValidatorModel):
     TrialComponentArn: str
     TrialArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_action' function.
 class CreateActionResponse(BaseValidatorModel):
     ActionArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_algorithm' function.
 class CreateAlgorithmOutput(BaseValidatorModel):
     AlgorithmArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_app_image_config' function.
 class CreateAppImageConfigResponse(BaseValidatorModel):
     AppImageConfigArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_app' function.
 class CreateAppResponse(BaseValidatorModel):
     AppArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_artifact' function.
 class CreateArtifactResponse(BaseValidatorModel):
     ArtifactArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_auto_ml_job' function.
 class CreateAutoMLJobResponse(BaseValidatorModel):
     AutoMLJobArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_auto_ml_job_v2' function.
 class CreateAutoMLJobV2Response(BaseValidatorModel):
     AutoMLJobArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_cluster' function.
 class CreateClusterResponse(BaseValidatorModel):
     ClusterArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_cluster_scheduler_config' function.
 class CreateClusterSchedulerConfigResponse(BaseValidatorModel):
     ClusterSchedulerConfigArn: str
     ClusterSchedulerConfigId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_code_repository' function.
 class CreateCodeRepositoryOutput(BaseValidatorModel):
     CodeRepositoryArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_compilation_job' function.
 class CreateCompilationJobResponse(BaseValidatorModel):
     CompilationJobArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_compute_quota' function.
 class CreateComputeQuotaResponse(BaseValidatorModel):
     ComputeQuotaArn: str
     ComputeQuotaId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_context' function.
 class CreateContextResponse(BaseValidatorModel):
     ContextArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_data_quality_job_definition' function.
 class CreateDataQualityJobDefinitionResponse(BaseValidatorModel):
     JobDefinitionArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_domain' function.
 class CreateDomainResponse(BaseValidatorModel):
     DomainArn: str
     DomainId: str
@@ -3515,309 +3713,370 @@ class CreateDomainResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_edge_deployment_plan' function.
 class CreateEdgeDeploymentPlanResponse(BaseValidatorModel):
     EdgeDeploymentPlanArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_endpoint_config' function.
 class CreateEndpointConfigOutput(BaseValidatorModel):
     EndpointConfigArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_endpoint' function.
 class CreateEndpointOutput(BaseValidatorModel):
     EndpointArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_experiment' function.
 class CreateExperimentResponse(BaseValidatorModel):
     ExperimentArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_feature_group' function.
 class CreateFeatureGroupResponse(BaseValidatorModel):
     FeatureGroupArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_flow_definition' function.
 class CreateFlowDefinitionResponse(BaseValidatorModel):
     FlowDefinitionArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_hub_content_reference' function.
 class CreateHubContentReferenceResponse(BaseValidatorModel):
     HubArn: str
     HubContentArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_hub' function.
 class CreateHubResponse(BaseValidatorModel):
     HubArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_human_task_ui' function.
 class CreateHumanTaskUiResponse(BaseValidatorModel):
     HumanTaskUiArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_hyper_parameter_tuning_job' function.
 class CreateHyperParameterTuningJobResponse(BaseValidatorModel):
     HyperParameterTuningJobArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_image' function.
 class CreateImageResponse(BaseValidatorModel):
     ImageArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_image_version' function.
 class CreateImageVersionResponse(BaseValidatorModel):
     ImageVersionArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_inference_component' function.
 class CreateInferenceComponentOutput(BaseValidatorModel):
     InferenceComponentArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_inference_experiment' function.
 class CreateInferenceExperimentResponse(BaseValidatorModel):
     InferenceExperimentArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_inference_recommendations_job' function.
 class CreateInferenceRecommendationsJobResponse(BaseValidatorModel):
     JobArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_labeling_job' function.
 class CreateLabelingJobResponse(BaseValidatorModel):
     LabelingJobArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_mlflow_tracking_server' function.
 class CreateMlflowTrackingServerResponse(BaseValidatorModel):
     TrackingServerArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_model_bias_job_definition' function.
 class CreateModelBiasJobDefinitionResponse(BaseValidatorModel):
     JobDefinitionArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_model_card_export_job' function.
 class CreateModelCardExportJobResponse(BaseValidatorModel):
     ModelCardExportJobArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_model_card' function.
 class CreateModelCardResponse(BaseValidatorModel):
     ModelCardArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_model_explainability_job_definition' function.
 class CreateModelExplainabilityJobDefinitionResponse(BaseValidatorModel):
     JobDefinitionArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_model' function.
 class CreateModelOutput(BaseValidatorModel):
     ModelArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_model_package_group' function.
 class CreateModelPackageGroupOutput(BaseValidatorModel):
     ModelPackageGroupArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_model_package' function.
 class CreateModelPackageOutput(BaseValidatorModel):
     ModelPackageArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_model_quality_job_definition' function.
 class CreateModelQualityJobDefinitionResponse(BaseValidatorModel):
     JobDefinitionArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_monitoring_schedule' function.
 class CreateMonitoringScheduleResponse(BaseValidatorModel):
     MonitoringScheduleArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_notebook_instance_lifecycle_config' function.
 class CreateNotebookInstanceLifecycleConfigOutput(BaseValidatorModel):
     NotebookInstanceLifecycleConfigArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_notebook_instance' function.
 class CreateNotebookInstanceOutput(BaseValidatorModel):
     NotebookInstanceArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_optimization_job' function.
 class CreateOptimizationJobResponse(BaseValidatorModel):
     OptimizationJobArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_partner_app_presigned_url' function.
 class CreatePartnerAppPresignedUrlResponse(BaseValidatorModel):
     Url: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_partner_app' function.
 class CreatePartnerAppResponse(BaseValidatorModel):
     Arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_pipeline' function.
 class CreatePipelineResponse(BaseValidatorModel):
     PipelineArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_presigned_domain_url' function.
 class CreatePresignedDomainUrlResponse(BaseValidatorModel):
     AuthorizedUrl: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_presigned_mlflow_tracking_server_url' function.
 class CreatePresignedMlflowTrackingServerUrlResponse(BaseValidatorModel):
     AuthorizedUrl: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_presigned_notebook_instance_url' function.
 class CreatePresignedNotebookInstanceUrlOutput(BaseValidatorModel):
     AuthorizedUrl: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_processing_job' function.
 class CreateProcessingJobResponse(BaseValidatorModel):
     ProcessingJobArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_project' function.
 class CreateProjectOutput(BaseValidatorModel):
     ProjectArn: str
     ProjectId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_space' function.
 class CreateSpaceResponse(BaseValidatorModel):
     SpaceArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_studio_lifecycle_config' function.
 class CreateStudioLifecycleConfigResponse(BaseValidatorModel):
     StudioLifecycleConfigArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_training_job' function.
 class CreateTrainingJobResponse(BaseValidatorModel):
     TrainingJobArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_training_plan' function.
 class CreateTrainingPlanResponse(BaseValidatorModel):
     TrainingPlanArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_transform_job' function.
 class CreateTransformJobResponse(BaseValidatorModel):
     TransformJobArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_trial_component' function.
 class CreateTrialComponentResponse(BaseValidatorModel):
     TrialComponentArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_trial' function.
 class CreateTrialResponse(BaseValidatorModel):
     TrialArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_user_profile' function.
 class CreateUserProfileResponse(BaseValidatorModel):
     UserProfileArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_workforce' function.
 class CreateWorkforceResponse(BaseValidatorModel):
     WorkforceArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_workteam' function.
 class CreateWorkteamResponse(BaseValidatorModel):
     WorkteamArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_action' function.
 class DeleteActionResponse(BaseValidatorModel):
     ActionArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_artifact' function.
 class DeleteArtifactResponse(BaseValidatorModel):
     ArtifactArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_association' function.
 class DeleteAssociationResponse(BaseValidatorModel):
     SourceArn: str
     DestinationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_cluster' function.
 class DeleteClusterResponse(BaseValidatorModel):
     ClusterArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_context' function.
 class DeleteContextResponse(BaseValidatorModel):
     ContextArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_experiment' function.
 class DeleteExperimentResponse(BaseValidatorModel):
     ExperimentArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_inference_experiment' function.
 class DeleteInferenceExperimentResponse(BaseValidatorModel):
     InferenceExperimentArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_mlflow_tracking_server' function.
 class DeleteMlflowTrackingServerResponse(BaseValidatorModel):
     TrackingServerArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_partner_app' function.
 class DeletePartnerAppResponse(BaseValidatorModel):
     Arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_pipeline' function.
 class DeletePipelineResponse(BaseValidatorModel):
     PipelineArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_trial_component' function.
 class DeleteTrialComponentResponse(BaseValidatorModel):
     TrialComponentArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_trial' function.
 class DeleteTrialResponse(BaseValidatorModel):
     TrialArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_workteam' function.
 class DeleteWorkteamResponse(BaseValidatorModel):
     Success: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_image' function.
 class DescribeImageResponse(BaseValidatorModel):
     CreationTime: datetime
     Description: str
@@ -3831,6 +4090,7 @@ class DescribeImageResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_image_version' function.
 class DescribeImageVersionResponse(BaseValidatorModel):
     BaseImage: str
     ContainerImage: str
@@ -3851,12 +4111,14 @@ class DescribeImageVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_pipeline_definition_for_execution' function.
 class DescribePipelineDefinitionForExecutionResponse(BaseValidatorModel):
     PipelineDefinition: str
     CreationTime: datetime
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_studio_lifecycle_config' function.
 class DescribeStudioLifecycleConfigResponse(BaseValidatorModel):
     StudioLifecycleConfigArn: str
     StudioLifecycleConfigName: str
@@ -3867,22 +4129,26 @@ class DescribeStudioLifecycleConfigResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_trial_component' function.
 class DisassociateTrialComponentResponse(BaseValidatorModel):
     TrialComponentArn: str
     TrialArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_feature_metadata' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_lineage_group_policy' function.
 class GetLineageGroupPolicyResponse(BaseValidatorModel):
     LineageGroupArn: str
     ResourcePolicy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_model_package_group_policy' function.
 class GetModelPackageGroupPolicyOutput(BaseValidatorModel):
     ResourcePolicy: str
     ResponseMetadata: ResponseMetadata
@@ -3893,263 +4159,314 @@ class GetSagemakerServicecatalogPortfolioStatusOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_hub_content' function.
 class ImportHubContentResponse(BaseValidatorModel):
     HubArn: str
     HubContentArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_aliases' function.
 class ListAliasesResponse(BaseValidatorModel):
     SageMakerImageVersionAliases: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'put_model_package_group_policy' function.
 class PutModelPackageGroupPolicyOutput(BaseValidatorModel):
     ModelPackageGroupArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'retry_pipeline_execution' function.
 class RetryPipelineExecutionResponse(BaseValidatorModel):
     PipelineExecutionArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'send_pipeline_execution_step_failure' function.
 class SendPipelineExecutionStepFailureResponse(BaseValidatorModel):
     PipelineExecutionArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'send_pipeline_execution_step_success' function.
 class SendPipelineExecutionStepSuccessResponse(BaseValidatorModel):
     PipelineExecutionArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_inference_experiment' function.
 class StartInferenceExperimentResponse(BaseValidatorModel):
     InferenceExperimentArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_mlflow_tracking_server' function.
 class StartMlflowTrackingServerResponse(BaseValidatorModel):
     TrackingServerArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_pipeline_execution' function.
 class StartPipelineExecutionResponse(BaseValidatorModel):
     PipelineExecutionArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_inference_experiment' function.
 class StopInferenceExperimentResponse(BaseValidatorModel):
     InferenceExperimentArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_mlflow_tracking_server' function.
 class StopMlflowTrackingServerResponse(BaseValidatorModel):
     TrackingServerArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_pipeline_execution' function.
 class StopPipelineExecutionResponse(BaseValidatorModel):
     PipelineExecutionArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_action' function.
 class UpdateActionResponse(BaseValidatorModel):
     ActionArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_app_image_config' function.
 class UpdateAppImageConfigResponse(BaseValidatorModel):
     AppImageConfigArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_artifact' function.
 class UpdateArtifactResponse(BaseValidatorModel):
     ArtifactArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_cluster' function.
 class UpdateClusterResponse(BaseValidatorModel):
     ClusterArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_cluster_scheduler_config' function.
 class UpdateClusterSchedulerConfigResponse(BaseValidatorModel):
     ClusterSchedulerConfigArn: str
     ClusterSchedulerConfigVersion: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_cluster_software' function.
 class UpdateClusterSoftwareResponse(BaseValidatorModel):
     ClusterArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_code_repository' function.
 class UpdateCodeRepositoryOutput(BaseValidatorModel):
     CodeRepositoryArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_compute_quota' function.
 class UpdateComputeQuotaResponse(BaseValidatorModel):
     ComputeQuotaArn: str
     ComputeQuotaVersion: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_context' function.
 class UpdateContextResponse(BaseValidatorModel):
     ContextArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_domain' function.
 class UpdateDomainResponse(BaseValidatorModel):
     DomainArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_endpoint' function.
 class UpdateEndpointOutput(BaseValidatorModel):
     EndpointArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_endpoint_weights_and_capacities' function.
 class UpdateEndpointWeightsAndCapacitiesOutput(BaseValidatorModel):
     EndpointArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_experiment' function.
 class UpdateExperimentResponse(BaseValidatorModel):
     ExperimentArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_feature_group' function.
 class UpdateFeatureGroupResponse(BaseValidatorModel):
     FeatureGroupArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_hub_content_reference' function.
 class UpdateHubContentReferenceResponse(BaseValidatorModel):
     HubArn: str
     HubContentArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_hub_content' function.
 class UpdateHubContentResponse(BaseValidatorModel):
     HubArn: str
     HubContentArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_hub' function.
 class UpdateHubResponse(BaseValidatorModel):
     HubArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_image' function.
 class UpdateImageResponse(BaseValidatorModel):
     ImageArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_image_version' function.
 class UpdateImageVersionResponse(BaseValidatorModel):
     ImageVersionArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_inference_component' function.
 class UpdateInferenceComponentOutput(BaseValidatorModel):
     InferenceComponentArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_inference_component_runtime_config' function.
 class UpdateInferenceComponentRuntimeConfigOutput(BaseValidatorModel):
     InferenceComponentArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_inference_experiment' function.
 class UpdateInferenceExperimentResponse(BaseValidatorModel):
     InferenceExperimentArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_mlflow_tracking_server' function.
 class UpdateMlflowTrackingServerResponse(BaseValidatorModel):
     TrackingServerArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_model_card' function.
 class UpdateModelCardResponse(BaseValidatorModel):
     ModelCardArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_model_package' function.
 class UpdateModelPackageOutput(BaseValidatorModel):
     ModelPackageArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_monitoring_alert' function.
 class UpdateMonitoringAlertResponse(BaseValidatorModel):
     MonitoringScheduleArn: str
     MonitoringAlertName: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_monitoring_schedule' function.
 class UpdateMonitoringScheduleResponse(BaseValidatorModel):
     MonitoringScheduleArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_partner_app' function.
 class UpdatePartnerAppResponse(BaseValidatorModel):
     Arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_pipeline_execution' function.
 class UpdatePipelineExecutionResponse(BaseValidatorModel):
     PipelineExecutionArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_pipeline' function.
 class UpdatePipelineResponse(BaseValidatorModel):
     PipelineArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_project' function.
 class UpdateProjectOutput(BaseValidatorModel):
     ProjectArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_space' function.
 class UpdateSpaceResponse(BaseValidatorModel):
     SpaceArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_training_job' function.
 class UpdateTrainingJobResponse(BaseValidatorModel):
     TrainingJobArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_trial_component' function.
 class UpdateTrialComponentResponse(BaseValidatorModel):
     TrialComponentArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_trial' function.
 class UpdateTrialResponse(BaseValidatorModel):
     TrialArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_user_profile' function.
 class UpdateUserProfileResponse(BaseValidatorModel):
     UserProfileArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'add_tags' function.
 class AddTagsInput(BaseValidatorModel):
     ResourceArn: str
     Tags: List[Tag]
 
 
+# This class is the output for the 'add_tags' function.
 class AddTagsOutput(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_experiment' function.
 class CreateExperimentRequest(BaseValidatorModel):
     ExperimentName: str
     DisplayName: Optional[str] = None
@@ -4157,6 +4474,7 @@ class CreateExperimentRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_hub_content_reference' function.
 class CreateHubContentReferenceRequest(BaseValidatorModel):
     HubName: str
     SageMakerPublicHubContentArn: str
@@ -4165,6 +4483,7 @@ class CreateHubContentReferenceRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_image' function.
 class CreateImageRequest(BaseValidatorModel):
     ImageName: str
     RoleArn: str
@@ -4173,6 +4492,7 @@ class CreateImageRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_mlflow_tracking_server' function.
 class CreateMlflowTrackingServerRequest(BaseValidatorModel):
     TrackingServerName: str
     ArtifactStoreUri: str
@@ -4184,12 +4504,14 @@ class CreateMlflowTrackingServerRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_model_package_group' function.
 class CreateModelPackageGroupInput(BaseValidatorModel):
     ModelPackageGroupName: str
     ModelPackageGroupDescription: Optional[str] = None
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_studio_lifecycle_config' function.
 class CreateStudioLifecycleConfigRequest(BaseValidatorModel):
     StudioLifecycleConfigName: str
     StudioLifecycleConfigContent: str
@@ -4197,12 +4519,14 @@ class CreateStudioLifecycleConfigRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_training_plan' function.
 class CreateTrainingPlanRequest(BaseValidatorModel):
     TrainingPlanName: str
     TrainingPlanOfferingId: str
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'import_hub_content' function.
 class ImportHubContentRequest(BaseValidatorModel):
     HubContentName: str
     HubContentType: HubContentTypeType
@@ -4218,6 +4542,7 @@ class ImportHubContentRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'list_tags' function.
 class ListTagsOutput(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -4251,6 +4576,7 @@ class AlgorithmStatusDetails(BaseValidatorModel):
     ImageScanStatuses: Optional[List[AlgorithmStatusItem]] = None
 
 
+# This class is the output for the 'list_algorithms' function.
 class ListAlgorithmsOutput(BaseValidatorModel):
     AlgorithmSummaryList: List[AlgorithmSummary]
     ResponseMetadata: ResponseMetadata
@@ -4268,6 +4594,7 @@ class AppDetails(BaseValidatorModel):
     ResourceSpec: Optional[ResourceSpec] = None
 
 
+# This class is the input for the 'create_app' function.
 class CreateAppRequest(BaseValidatorModel):
     DomainId: str
     AppType: AppTypeType
@@ -4278,6 +4605,7 @@ class CreateAppRequest(BaseValidatorModel):
     ResourceSpec: Optional[ResourceSpec] = None
 
 
+# This class is the output for the 'describe_app' function.
 class DescribeAppResponse(BaseValidatorModel):
     AppArn: str
     AppType: AppTypeType
@@ -4450,6 +4778,7 @@ class NetworkConfig(BaseValidatorModel):
 VpcConfigUnion = Union[VpcConfig, VpcConfigOutput]
 
 
+# This class is the output for the 'batch_delete_cluster_nodes' function.
 class BatchDeleteClusterNodesResponse(BaseValidatorModel):
     Failed: List[BatchDeleteClusterNodesError]
     Successful: List[str]
@@ -4497,6 +4826,7 @@ class LambdaStepMetadata(BaseValidatorModel):
     OutputParameters: Optional[List[OutputParameter]] = None
 
 
+# This class is the input for the 'send_pipeline_execution_step_success' function.
 class SendPipelineExecutionStepSuccessRequest(BaseValidatorModel):
     CallbackToken: str
     OutputParameters: Optional[List[OutputParameter]] = None
@@ -4608,12 +4938,14 @@ class ClusterOrchestrator(BaseValidatorModel):
     Eks: ClusterOrchestratorEksConfig
 
 
+# This class is the output for the 'list_cluster_scheduler_configs' function.
 class ListClusterSchedulerConfigsResponse(BaseValidatorModel):
     ClusterSchedulerConfigSummaries: List[ClusterSchedulerConfigSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_clusters' function.
 class ListClustersResponse(BaseValidatorModel):
     NextToken: str
     ClusterSummaries: List[ClusterSummary]
@@ -4670,12 +5002,14 @@ class CodeRepositorySummary(BaseValidatorModel):
     GitConfig: Optional[GitConfig] = None
 
 
+# This class is the input for the 'create_code_repository' function.
 class CreateCodeRepositoryInput(BaseValidatorModel):
     CodeRepositoryName: str
     GitConfig: GitConfig
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'describe_code_repository' function.
 class DescribeCodeRepositoryOutput(BaseValidatorModel):
     CodeRepositoryName: str
     CodeRepositoryArn: str
@@ -4715,6 +5049,7 @@ class DebugHookConfig(BaseValidatorModel):
     CollectionConfigurations: Optional[List[CollectionConfiguration]] = None
 
 
+# This class is the output for the 'list_compilation_jobs' function.
 class ListCompilationJobsResponse(BaseValidatorModel):
     CompilationJobSummaries: List[CompilationJobSummary]
     ResponseMetadata: ResponseMetadata
@@ -4742,6 +5077,7 @@ class ContextSummary(BaseValidatorModel):
     LastModifiedTime: Optional[datetime] = None
 
 
+# This class is the input for the 'create_context' function.
 class CreateContextRequest(BaseValidatorModel):
     ContextName: str
     Source: ContextSource
@@ -4757,6 +5093,7 @@ class TuningJobCompletionCriteria(BaseValidatorModel):
     ConvergenceDetected: Optional[ConvergenceDetected] = None
 
 
+# This class is the input for the 'create_action' function.
 class CreateActionRequest(BaseValidatorModel):
     ActionName: str
     Source: ActionSource
@@ -4768,6 +5105,7 @@ class CreateActionRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_trial' function.
 class CreateTrialRequest(BaseValidatorModel):
     TrialName: str
     ExperimentName: str
@@ -4776,6 +5114,7 @@ class CreateTrialRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_device_fleet' function.
 class CreateDeviceFleetRequest(BaseValidatorModel):
     DeviceFleetName: str
     OutputConfig: EdgeOutputConfig
@@ -4785,6 +5124,7 @@ class CreateDeviceFleetRequest(BaseValidatorModel):
     EnableIotRoleAlias: Optional[bool] = None
 
 
+# This class is the input for the 'create_edge_packaging_job' function.
 class CreateEdgePackagingJobRequest(BaseValidatorModel):
     EdgePackagingJobName: str
     CompilationJobName: str
@@ -4796,6 +5136,7 @@ class CreateEdgePackagingJobRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'describe_device_fleet' function.
 class DescribeDeviceFleetResponse(BaseValidatorModel):
     DeviceFleetName: str
     DeviceFleetArn: str
@@ -4808,6 +5149,7 @@ class DescribeDeviceFleetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_device_fleet' function.
 class UpdateDeviceFleetRequest(BaseValidatorModel):
     DeviceFleetName: str
     OutputConfig: EdgeOutputConfig
@@ -4816,6 +5158,7 @@ class UpdateDeviceFleetRequest(BaseValidatorModel):
     EnableIotRoleAlias: Optional[bool] = None
 
 
+# This class is the input for the 'create_hub' function.
 class CreateHubRequest(BaseValidatorModel):
     HubName: str
     HubDescription: str
@@ -4825,6 +5168,7 @@ class CreateHubRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'describe_hub' function.
 class DescribeHubResponse(BaseValidatorModel):
     HubName: str
     HubArn: str
@@ -4839,17 +5183,20 @@ class DescribeHubResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_human_task_ui' function.
 class CreateHumanTaskUiRequest(BaseValidatorModel):
     HumanTaskUiName: str
     UiTemplate: UiTemplate
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_inference_component_runtime_config' function.
 class UpdateInferenceComponentRuntimeConfigInput(BaseValidatorModel):
     InferenceComponentName: str
     DesiredRuntimeConfig: InferenceComponentRuntimeConfig
 
 
+# This class is the input for the 'create_model_card_export_job' function.
 class CreateModelCardExportJobRequest(BaseValidatorModel):
     ModelCardName: str
     ModelCardExportJobName: str
@@ -4857,6 +5204,7 @@ class CreateModelCardExportJobRequest(BaseValidatorModel):
     ModelCardVersion: Optional[int] = None
 
 
+# This class is the input for the 'create_model_card' function.
 class CreateModelCardRequest(BaseValidatorModel):
     ModelCardName: str
     Content: str
@@ -4865,6 +5213,7 @@ class CreateModelCardRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_notebook_instance' function.
 class CreateNotebookInstanceInput(BaseValidatorModel):
     NotebookInstanceName: str
     InstanceType: InstanceTypeType
@@ -4884,6 +5233,7 @@ class CreateNotebookInstanceInput(BaseValidatorModel):
     InstanceMetadataServiceConfiguration: Optional[InstanceMetadataServiceConfiguration] = None
 
 
+# This class is the output for the 'describe_notebook_instance' function.
 class DescribeNotebookInstanceOutput(BaseValidatorModel):
     NotebookInstanceArn: str
     NotebookInstanceName: str
@@ -4927,12 +5277,14 @@ class UpdateNotebookInstanceInput(BaseValidatorModel):
     InstanceMetadataServiceConfiguration: Optional[InstanceMetadataServiceConfiguration] = None
 
 
+# This class is the input for the 'create_notebook_instance_lifecycle_config' function.
 class CreateNotebookInstanceLifecycleConfigInput(BaseValidatorModel):
     NotebookInstanceLifecycleConfigName: str
     OnCreate: Optional[List[NotebookInstanceLifecycleHook]] = None
     OnStart: Optional[List[NotebookInstanceLifecycleHook]] = None
 
 
+# This class is the output for the 'describe_notebook_instance_lifecycle_config' function.
 class DescribeNotebookInstanceLifecycleConfigOutput(BaseValidatorModel):
     NotebookInstanceLifecycleConfigArn: str
     NotebookInstanceLifecycleConfigName: str
@@ -4949,12 +5301,14 @@ class UpdateNotebookInstanceLifecycleConfigInput(BaseValidatorModel):
     OnStart: Optional[List[NotebookInstanceLifecycleHook]] = None
 
 
+# This class is the input for the 'retry_pipeline_execution' function.
 class RetryPipelineExecutionRequest(BaseValidatorModel):
     PipelineExecutionArn: str
     ClientRequestToken: str
     ParallelismConfiguration: Optional[ParallelismConfiguration] = None
 
 
+# This class is the input for the 'update_pipeline_execution' function.
 class UpdatePipelineExecutionRequest(BaseValidatorModel):
     PipelineExecutionArn: str
     PipelineExecutionDescription: Optional[str] = None
@@ -4962,6 +5316,7 @@ class UpdatePipelineExecutionRequest(BaseValidatorModel):
     ParallelismConfiguration: Optional[ParallelismConfiguration] = None
 
 
+# This class is the input for the 'create_pipeline' function.
 class CreatePipelineRequest(BaseValidatorModel):
     PipelineName: str
     ClientRequestToken: str
@@ -4974,6 +5329,7 @@ class CreatePipelineRequest(BaseValidatorModel):
     ParallelismConfiguration: Optional[ParallelismConfiguration] = None
 
 
+# This class is the input for the 'update_pipeline' function.
 class UpdatePipelineRequest(BaseValidatorModel):
     PipelineName: str
     PipelineDisplayName: Optional[str] = None
@@ -4989,6 +5345,7 @@ class InferenceExperimentSchedule(BaseValidatorModel):
     EndTime: Optional[Timestamp] = None
 
 
+# This class is the input for the 'list_actions' function.
 class ListActionsRequest(BaseValidatorModel):
     SourceUri: Optional[str] = None
     ActionType: Optional[str] = None
@@ -5000,6 +5357,7 @@ class ListActionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_algorithms' function.
 class ListAlgorithmsInput(BaseValidatorModel):
     CreationTimeAfter: Optional[Timestamp] = None
     CreationTimeBefore: Optional[Timestamp] = None
@@ -5010,6 +5368,7 @@ class ListAlgorithmsInput(BaseValidatorModel):
     SortOrder: Optional[SortOrderType] = None
 
 
+# This class is the input for the 'list_app_image_configs' function.
 class ListAppImageConfigsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -5022,6 +5381,7 @@ class ListAppImageConfigsRequest(BaseValidatorModel):
     SortOrder: Optional[SortOrderType] = None
 
 
+# This class is the input for the 'list_artifacts' function.
 class ListArtifactsRequest(BaseValidatorModel):
     SourceUri: Optional[str] = None
     ArtifactType: Optional[str] = None
@@ -5033,6 +5393,7 @@ class ListArtifactsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_associations' function.
 class ListAssociationsRequest(BaseValidatorModel):
     SourceArn: Optional[str] = None
     DestinationArn: Optional[str] = None
@@ -5047,6 +5408,7 @@ class ListAssociationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_auto_ml_jobs' function.
 class ListAutoMLJobsRequest(BaseValidatorModel):
     CreationTimeAfter: Optional[Timestamp] = None
     CreationTimeBefore: Optional[Timestamp] = None
@@ -5060,6 +5422,7 @@ class ListAutoMLJobsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_cluster_nodes' function.
 class ListClusterNodesRequest(BaseValidatorModel):
     ClusterName: str
     CreationTimeAfter: Optional[Timestamp] = None
@@ -5071,6 +5434,7 @@ class ListClusterNodesRequest(BaseValidatorModel):
     SortOrder: Optional[SortOrderType] = None
 
 
+# This class is the input for the 'list_cluster_scheduler_configs' function.
 class ListClusterSchedulerConfigsRequest(BaseValidatorModel):
     CreatedAfter: Optional[Timestamp] = None
     CreatedBefore: Optional[Timestamp] = None
@@ -5083,6 +5447,7 @@ class ListClusterSchedulerConfigsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_clusters' function.
 class ListClustersRequest(BaseValidatorModel):
     CreationTimeAfter: Optional[Timestamp] = None
     CreationTimeBefore: Optional[Timestamp] = None
@@ -5094,6 +5459,7 @@ class ListClustersRequest(BaseValidatorModel):
     TrainingPlanArn: Optional[str] = None
 
 
+# This class is the input for the 'list_code_repositories' function.
 class ListCodeRepositoriesInput(BaseValidatorModel):
     CreationTimeAfter: Optional[Timestamp] = None
     CreationTimeBefore: Optional[Timestamp] = None
@@ -5106,6 +5472,7 @@ class ListCodeRepositoriesInput(BaseValidatorModel):
     SortOrder: Optional[CodeRepositorySortOrderType] = None
 
 
+# This class is the input for the 'list_compilation_jobs' function.
 class ListCompilationJobsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -5119,6 +5486,7 @@ class ListCompilationJobsRequest(BaseValidatorModel):
     SortOrder: Optional[SortOrderType] = None
 
 
+# This class is the input for the 'list_compute_quotas' function.
 class ListComputeQuotasRequest(BaseValidatorModel):
     CreatedAfter: Optional[Timestamp] = None
     CreatedBefore: Optional[Timestamp] = None
@@ -5131,6 +5499,7 @@ class ListComputeQuotasRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_contexts' function.
 class ListContextsRequest(BaseValidatorModel):
     SourceUri: Optional[str] = None
     ContextType: Optional[str] = None
@@ -5142,6 +5511,7 @@ class ListContextsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_data_quality_job_definitions' function.
 class ListDataQualityJobDefinitionsRequest(BaseValidatorModel):
     EndpointName: Optional[str] = None
     SortBy: Optional[MonitoringJobDefinitionSortKeyType] = None
@@ -5153,6 +5523,7 @@ class ListDataQualityJobDefinitionsRequest(BaseValidatorModel):
     CreationTimeAfter: Optional[Timestamp] = None
 
 
+# This class is the input for the 'list_device_fleets' function.
 class ListDeviceFleetsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -5165,6 +5536,7 @@ class ListDeviceFleetsRequest(BaseValidatorModel):
     SortOrder: Optional[SortOrderType] = None
 
 
+# This class is the input for the 'list_devices' function.
 class ListDevicesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -5173,6 +5545,7 @@ class ListDevicesRequest(BaseValidatorModel):
     DeviceFleetName: Optional[str] = None
 
 
+# This class is the input for the 'list_edge_deployment_plans' function.
 class ListEdgeDeploymentPlansRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -5186,6 +5559,7 @@ class ListEdgeDeploymentPlansRequest(BaseValidatorModel):
     SortOrder: Optional[SortOrderType] = None
 
 
+# This class is the input for the 'list_edge_packaging_jobs' function.
 class ListEdgePackagingJobsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -5200,6 +5574,7 @@ class ListEdgePackagingJobsRequest(BaseValidatorModel):
     SortOrder: Optional[SortOrderType] = None
 
 
+# This class is the input for the 'list_endpoint_configs' function.
 class ListEndpointConfigsInput(BaseValidatorModel):
     SortBy: Optional[EndpointConfigSortKeyType] = None
     SortOrder: Optional[OrderKeyType] = None
@@ -5210,6 +5585,7 @@ class ListEndpointConfigsInput(BaseValidatorModel):
     CreationTimeAfter: Optional[Timestamp] = None
 
 
+# This class is the input for the 'list_endpoints' function.
 class ListEndpointsInput(BaseValidatorModel):
     SortBy: Optional[EndpointSortKeyType] = None
     SortOrder: Optional[OrderKeyType] = None
@@ -5223,6 +5599,7 @@ class ListEndpointsInput(BaseValidatorModel):
     StatusEquals: Optional[EndpointStatusType] = None
 
 
+# This class is the input for the 'list_experiments' function.
 class ListExperimentsRequest(BaseValidatorModel):
     CreatedAfter: Optional[Timestamp] = None
     CreatedBefore: Optional[Timestamp] = None
@@ -5232,6 +5609,7 @@ class ListExperimentsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_feature_groups' function.
 class ListFeatureGroupsRequest(BaseValidatorModel):
     NameContains: Optional[str] = None
     FeatureGroupStatusEquals: Optional[FeatureGroupStatusType] = None
@@ -5244,6 +5622,7 @@ class ListFeatureGroupsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_flow_definitions' function.
 class ListFlowDefinitionsRequest(BaseValidatorModel):
     CreationTimeAfter: Optional[Timestamp] = None
     CreationTimeBefore: Optional[Timestamp] = None
@@ -5252,6 +5631,7 @@ class ListFlowDefinitionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_hub_content_versions' function.
 class ListHubContentVersionsRequest(BaseValidatorModel):
     HubName: str
     HubContentType: HubContentTypeType
@@ -5266,6 +5646,7 @@ class ListHubContentVersionsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_hub_contents' function.
 class ListHubContentsRequest(BaseValidatorModel):
     HubName: str
     HubContentType: HubContentTypeType
@@ -5279,6 +5660,7 @@ class ListHubContentsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_hubs' function.
 class ListHubsRequest(BaseValidatorModel):
     NameContains: Optional[str] = None
     CreationTimeBefore: Optional[Timestamp] = None
@@ -5291,6 +5673,7 @@ class ListHubsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_human_task_uis' function.
 class ListHumanTaskUisRequest(BaseValidatorModel):
     CreationTimeAfter: Optional[Timestamp] = None
     CreationTimeBefore: Optional[Timestamp] = None
@@ -5299,6 +5682,7 @@ class ListHumanTaskUisRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_hyper_parameter_tuning_jobs' function.
 class ListHyperParameterTuningJobsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -5312,6 +5696,7 @@ class ListHyperParameterTuningJobsRequest(BaseValidatorModel):
     StatusEquals: Optional[HyperParameterTuningJobStatusType] = None
 
 
+# This class is the input for the 'list_image_versions' function.
 class ListImageVersionsRequest(BaseValidatorModel):
     ImageName: str
     CreationTimeAfter: Optional[Timestamp] = None
@@ -5324,6 +5709,7 @@ class ListImageVersionsRequest(BaseValidatorModel):
     SortOrder: Optional[ImageVersionSortOrderType] = None
 
 
+# This class is the input for the 'list_images' function.
 class ListImagesRequest(BaseValidatorModel):
     CreationTimeAfter: Optional[Timestamp] = None
     CreationTimeBefore: Optional[Timestamp] = None
@@ -5336,6 +5722,7 @@ class ListImagesRequest(BaseValidatorModel):
     SortOrder: Optional[ImageSortOrderType] = None
 
 
+# This class is the input for the 'list_inference_components' function.
 class ListInferenceComponentsInput(BaseValidatorModel):
     SortBy: Optional[InferenceComponentSortKeyType] = None
     SortOrder: Optional[OrderKeyType] = None
@@ -5351,6 +5738,7 @@ class ListInferenceComponentsInput(BaseValidatorModel):
     VariantNameEquals: Optional[str] = None
 
 
+# This class is the input for the 'list_inference_experiments' function.
 class ListInferenceExperimentsRequest(BaseValidatorModel):
     NameContains: Optional[str] = None
     Type: Optional[Literal['ShadowMode']] = None
@@ -5365,6 +5753,7 @@ class ListInferenceExperimentsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_inference_recommendations_jobs' function.
 class ListInferenceRecommendationsJobsRequest(BaseValidatorModel):
     CreationTimeAfter: Optional[Timestamp] = None
     CreationTimeBefore: Optional[Timestamp] = None
@@ -5380,6 +5769,7 @@ class ListInferenceRecommendationsJobsRequest(BaseValidatorModel):
     ModelPackageVersionArnEquals: Optional[str] = None
 
 
+# This class is the input for the 'list_labeling_jobs_for_workteam' function.
 class ListLabelingJobsForWorkteamRequest(BaseValidatorModel):
     WorkteamArn: str
     MaxResults: Optional[int] = None
@@ -5391,6 +5781,7 @@ class ListLabelingJobsForWorkteamRequest(BaseValidatorModel):
     SortOrder: Optional[SortOrderType] = None
 
 
+# This class is the input for the 'list_labeling_jobs' function.
 class ListLabelingJobsRequest(BaseValidatorModel):
     CreationTimeAfter: Optional[Timestamp] = None
     CreationTimeBefore: Optional[Timestamp] = None
@@ -5404,6 +5795,7 @@ class ListLabelingJobsRequest(BaseValidatorModel):
     StatusEquals: Optional[LabelingJobStatusType] = None
 
 
+# This class is the input for the 'list_lineage_groups' function.
 class ListLineageGroupsRequest(BaseValidatorModel):
     CreatedAfter: Optional[Timestamp] = None
     CreatedBefore: Optional[Timestamp] = None
@@ -5413,6 +5805,7 @@ class ListLineageGroupsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_mlflow_tracking_servers' function.
 class ListMlflowTrackingServersRequest(BaseValidatorModel):
     CreatedAfter: Optional[Timestamp] = None
     CreatedBefore: Optional[Timestamp] = None
@@ -5424,6 +5817,7 @@ class ListMlflowTrackingServersRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_model_bias_job_definitions' function.
 class ListModelBiasJobDefinitionsRequest(BaseValidatorModel):
     EndpointName: Optional[str] = None
     SortBy: Optional[MonitoringJobDefinitionSortKeyType] = None
@@ -5435,6 +5829,7 @@ class ListModelBiasJobDefinitionsRequest(BaseValidatorModel):
     CreationTimeAfter: Optional[Timestamp] = None
 
 
+# This class is the input for the 'list_model_card_export_jobs' function.
 class ListModelCardExportJobsRequest(BaseValidatorModel):
     ModelCardName: str
     ModelCardVersion: Optional[int] = None
@@ -5448,6 +5843,7 @@ class ListModelCardExportJobsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_model_card_versions' function.
 class ListModelCardVersionsRequest(BaseValidatorModel):
     ModelCardName: str
     CreationTimeAfter: Optional[Timestamp] = None
@@ -5459,6 +5855,7 @@ class ListModelCardVersionsRequest(BaseValidatorModel):
     SortOrder: Optional[ModelCardSortOrderType] = None
 
 
+# This class is the input for the 'list_model_cards' function.
 class ListModelCardsRequest(BaseValidatorModel):
     CreationTimeAfter: Optional[Timestamp] = None
     CreationTimeBefore: Optional[Timestamp] = None
@@ -5470,6 +5867,7 @@ class ListModelCardsRequest(BaseValidatorModel):
     SortOrder: Optional[ModelCardSortOrderType] = None
 
 
+# This class is the input for the 'list_model_explainability_job_definitions' function.
 class ListModelExplainabilityJobDefinitionsRequest(BaseValidatorModel):
     EndpointName: Optional[str] = None
     SortBy: Optional[MonitoringJobDefinitionSortKeyType] = None
@@ -5481,6 +5879,7 @@ class ListModelExplainabilityJobDefinitionsRequest(BaseValidatorModel):
     CreationTimeAfter: Optional[Timestamp] = None
 
 
+# This class is the input for the 'list_model_package_groups' function.
 class ListModelPackageGroupsInput(BaseValidatorModel):
     CreationTimeAfter: Optional[Timestamp] = None
     CreationTimeBefore: Optional[Timestamp] = None
@@ -5492,6 +5891,7 @@ class ListModelPackageGroupsInput(BaseValidatorModel):
     CrossAccountFilterOption: Optional[CrossAccountFilterOptionType] = None
 
 
+# This class is the input for the 'list_model_packages' function.
 class ListModelPackagesInput(BaseValidatorModel):
     CreationTimeAfter: Optional[Timestamp] = None
     CreationTimeBefore: Optional[Timestamp] = None
@@ -5505,6 +5905,7 @@ class ListModelPackagesInput(BaseValidatorModel):
     SortOrder: Optional[SortOrderType] = None
 
 
+# This class is the input for the 'list_model_quality_job_definitions' function.
 class ListModelQualityJobDefinitionsRequest(BaseValidatorModel):
     EndpointName: Optional[str] = None
     SortBy: Optional[MonitoringJobDefinitionSortKeyType] = None
@@ -5516,6 +5917,7 @@ class ListModelQualityJobDefinitionsRequest(BaseValidatorModel):
     CreationTimeAfter: Optional[Timestamp] = None
 
 
+# This class is the input for the 'list_models' function.
 class ListModelsInput(BaseValidatorModel):
     SortBy: Optional[ModelSortKeyType] = None
     SortOrder: Optional[OrderKeyType] = None
@@ -5526,6 +5928,7 @@ class ListModelsInput(BaseValidatorModel):
     CreationTimeAfter: Optional[Timestamp] = None
 
 
+# This class is the input for the 'list_monitoring_alert_history' function.
 class ListMonitoringAlertHistoryRequest(BaseValidatorModel):
     MonitoringScheduleName: Optional[str] = None
     MonitoringAlertName: Optional[str] = None
@@ -5538,6 +5941,7 @@ class ListMonitoringAlertHistoryRequest(BaseValidatorModel):
     StatusEquals: Optional[MonitoringAlertStatusType] = None
 
 
+# This class is the input for the 'list_monitoring_executions' function.
 class ListMonitoringExecutionsRequest(BaseValidatorModel):
     MonitoringScheduleName: Optional[str] = None
     EndpointName: Optional[str] = None
@@ -5556,6 +5960,7 @@ class ListMonitoringExecutionsRequest(BaseValidatorModel):
     MonitoringTypeEquals: Optional[MonitoringTypeType] = None
 
 
+# This class is the input for the 'list_monitoring_schedules' function.
 class ListMonitoringSchedulesRequest(BaseValidatorModel):
     EndpointName: Optional[str] = None
     SortBy: Optional[MonitoringScheduleSortKeyType] = None
@@ -5572,6 +5977,7 @@ class ListMonitoringSchedulesRequest(BaseValidatorModel):
     MonitoringTypeEquals: Optional[MonitoringTypeType] = None
 
 
+# This class is the input for the 'list_notebook_instance_lifecycle_configs' function.
 class ListNotebookInstanceLifecycleConfigsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -5584,6 +5990,7 @@ class ListNotebookInstanceLifecycleConfigsInput(BaseValidatorModel):
     LastModifiedTimeAfter: Optional[Timestamp] = None
 
 
+# This class is the input for the 'list_notebook_instances' function.
 class ListNotebookInstancesInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -5600,6 +6007,7 @@ class ListNotebookInstancesInput(BaseValidatorModel):
     AdditionalCodeRepositoryEquals: Optional[str] = None
 
 
+# This class is the input for the 'list_optimization_jobs' function.
 class ListOptimizationJobsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -5614,6 +6022,7 @@ class ListOptimizationJobsRequest(BaseValidatorModel):
     SortOrder: Optional[SortOrderType] = None
 
 
+# This class is the input for the 'list_pipeline_executions' function.
 class ListPipelineExecutionsRequest(BaseValidatorModel):
     PipelineName: str
     CreatedAfter: Optional[Timestamp] = None
@@ -5624,6 +6033,7 @@ class ListPipelineExecutionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_pipelines' function.
 class ListPipelinesRequest(BaseValidatorModel):
     PipelineNamePrefix: Optional[str] = None
     CreatedAfter: Optional[Timestamp] = None
@@ -5634,6 +6044,7 @@ class ListPipelinesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_processing_jobs' function.
 class ListProcessingJobsRequest(BaseValidatorModel):
     CreationTimeAfter: Optional[Timestamp] = None
     CreationTimeBefore: Optional[Timestamp] = None
@@ -5647,6 +6058,7 @@ class ListProcessingJobsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_projects' function.
 class ListProjectsInput(BaseValidatorModel):
     CreationTimeAfter: Optional[Timestamp] = None
     CreationTimeBefore: Optional[Timestamp] = None
@@ -5657,6 +6069,7 @@ class ListProjectsInput(BaseValidatorModel):
     SortOrder: Optional[ProjectSortOrderType] = None
 
 
+# This class is the input for the 'list_resource_catalogs' function.
 class ListResourceCatalogsRequest(BaseValidatorModel):
     NameContains: Optional[str] = None
     CreationTimeAfter: Optional[Timestamp] = None
@@ -5667,6 +6080,7 @@ class ListResourceCatalogsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_studio_lifecycle_configs' function.
 class ListStudioLifecycleConfigsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -5680,6 +6094,7 @@ class ListStudioLifecycleConfigsRequest(BaseValidatorModel):
     SortOrder: Optional[SortOrderType] = None
 
 
+# This class is the input for the 'list_training_jobs' function.
 class ListTrainingJobsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -5695,6 +6110,7 @@ class ListTrainingJobsRequest(BaseValidatorModel):
     TrainingPlanArnEquals: Optional[str] = None
 
 
+# This class is the input for the 'list_transform_jobs' function.
 class ListTransformJobsRequest(BaseValidatorModel):
     CreationTimeAfter: Optional[Timestamp] = None
     CreationTimeBefore: Optional[Timestamp] = None
@@ -5708,6 +6124,7 @@ class ListTransformJobsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_trial_components' function.
 class ListTrialComponentsRequest(BaseValidatorModel):
     ExperimentName: Optional[str] = None
     TrialName: Optional[str] = None
@@ -5720,6 +6137,7 @@ class ListTrialComponentsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_trials' function.
 class ListTrialsRequest(BaseValidatorModel):
     ExperimentName: Optional[str] = None
     TrialComponentName: Optional[str] = None
@@ -5741,6 +6159,7 @@ class QueryFilters(BaseValidatorModel):
     Properties: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'search_training_plan_offerings' function.
 class SearchTrainingPlanOfferingsRequest(BaseValidatorModel):
     InstanceType: ReservedCapacityInstanceTypeType
     InstanceCount: int
@@ -5750,6 +6169,7 @@ class SearchTrainingPlanOfferingsRequest(BaseValidatorModel):
     DurationHours: Optional[int] = None
 
 
+# This class is the input for the 'create_trial_component' function.
 class CreateTrialComponentRequest(BaseValidatorModel):
     TrialComponentName: str
     DisplayName: Optional[str] = None
@@ -5763,6 +6183,7 @@ class CreateTrialComponentRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_trial_component' function.
 class UpdateTrialComponentRequest(BaseValidatorModel):
     TrialComponentName: str
     DisplayName: Optional[str] = None
@@ -5830,6 +6251,7 @@ class DefaultSpaceStorageSettings(BaseValidatorModel):
     DefaultEbsStorageSettings: Optional[DefaultEbsStorageSettings] = None
 
 
+# This class is the input for the 'delete_domain' function.
 class DeleteDomainRequest(BaseValidatorModel):
     DomainId: str
     RetentionPolicy: Optional[RetentionPolicy] = None
@@ -5853,6 +6275,7 @@ class DeploymentStageStatusSummary(BaseValidatorModel):
     DeploymentStatus: EdgeDeploymentStatus
 
 
+# This class is the output for the 'describe_device' function.
 class DescribeDeviceResponse(BaseValidatorModel):
     DeviceArn: str
     DeviceName: str
@@ -5868,6 +6291,7 @@ class DescribeDeviceResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_edge_packaging_job' function.
 class DescribeEdgePackagingJobResponse(BaseValidatorModel):
     EdgePackagingJobArn: str
     EdgePackagingJobName: str
@@ -5973,6 +6397,7 @@ class FeatureGroupSummary(BaseValidatorModel):
     OfflineStoreStatus: Optional[OfflineStoreStatus] = None
 
 
+# This class is the output for the 'describe_feature_metadata' function.
 class DescribeFeatureMetadataResponse(BaseValidatorModel):
     FeatureGroupArn: str
     FeatureGroupName: str
@@ -5996,6 +6421,7 @@ class FeatureMetadata(BaseValidatorModel):
     Parameters: Optional[List[FeatureParameter]] = None
 
 
+# This class is the input for the 'update_feature_metadata' function.
 class UpdateFeatureMetadataRequest(BaseValidatorModel):
     FeatureGroupName: str
     FeatureName: str
@@ -6004,6 +6430,7 @@ class UpdateFeatureMetadataRequest(BaseValidatorModel):
     ParameterRemovals: Optional[List[str]] = None
 
 
+# This class is the output for the 'describe_hub_content' function.
 class DescribeHubContentResponse(BaseValidatorModel):
     HubContentName: str
     HubContentArn: str
@@ -6028,6 +6455,7 @@ class DescribeHubContentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_human_task_ui' function.
 class DescribeHumanTaskUiResponse(BaseValidatorModel):
     HumanTaskUiArn: str
     HumanTaskUiName: str
@@ -6050,6 +6478,7 @@ class InferenceExperimentSummary(BaseValidatorModel):
     RoleArn: Optional[str] = None
 
 
+# This class is the output for the 'describe_model_card_export_job' function.
 class DescribeModelCardExportJobResponse(BaseValidatorModel):
     ModelCardExportJobName: str
     ModelCardExportJobArn: str
@@ -6064,12 +6493,14 @@ class DescribeModelCardExportJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_monitoring_executions' function.
 class ListMonitoringExecutionsResponse(BaseValidatorModel):
     MonitoringExecutionSummaries: List[MonitoringExecutionSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_partner_app' function.
 class DescribePartnerAppResponse(BaseValidatorModel):
     Arn: str
     Name: str
@@ -6088,11 +6519,13 @@ class DescribePartnerAppResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_subscribed_workteam' function.
 class DescribeSubscribedWorkteamResponse(BaseValidatorModel):
     SubscribedWorkteam: SubscribedWorkteam
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_subscribed_workteams' function.
 class ListSubscribedWorkteamsResponse(BaseValidatorModel):
     SubscribedWorkteams: List[SubscribedWorkteam]
     ResponseMetadata: ResponseMetadata
@@ -6111,6 +6544,7 @@ class TrainingJobSummary(BaseValidatorModel):
     TrainingPlanArn: Optional[str] = None
 
 
+# This class is the output for the 'describe_training_plan' function.
 class DescribeTrainingPlanResponse(BaseValidatorModel):
     TrainingPlanArn: str
     TrainingPlanName: str
@@ -6164,12 +6598,14 @@ class DesiredWeightAndCapacity(BaseValidatorModel):
     ServerlessUpdateConfig: Optional[ProductionVariantServerlessUpdateConfig] = None
 
 
+# This class is the output for the 'list_stage_devices' function.
 class ListStageDevicesResponse(BaseValidatorModel):
     DeviceDeploymentSummaries: List[DeviceDeploymentSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_device_fleets' function.
 class ListDeviceFleetsResponse(BaseValidatorModel):
     DeviceFleetSummaries: List[DeviceFleetSummary]
     ResponseMetadata: ResponseMetadata
@@ -6190,12 +6626,14 @@ class DeviceSummary(BaseValidatorModel):
     AgentVersion: Optional[str] = None
 
 
+# This class is the input for the 'register_devices' function.
 class RegisterDevicesRequest(BaseValidatorModel):
     DeviceFleetName: str
     Devices: List[Device]
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_devices' function.
 class UpdateDevicesRequest(BaseValidatorModel):
     DeviceFleetName: str
     Devices: List[Device]
@@ -6203,6 +6641,7 @@ class UpdateDevicesRequest(BaseValidatorModel):
 DockerSettingsUnion = Union[DockerSettings, DockerSettingsOutput]
 
 
+# This class is the output for the 'list_domains' function.
 class ListDomainsResponse(BaseValidatorModel):
     Domains: List[DomainDetails]
     ResponseMetadata: ResponseMetadata
@@ -6224,12 +6663,14 @@ class SpaceStorageSettings(BaseValidatorModel):
     EbsStorageSettings: Optional[EbsStorageSettings] = None
 
 
+# This class is the output for the 'list_edge_deployment_plans' function.
 class ListEdgeDeploymentPlansResponse(BaseValidatorModel):
     EdgeDeploymentPlanSummaries: List[EdgeDeploymentPlanSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_device_fleet_report' function.
 class GetDeviceFleetReportResponse(BaseValidatorModel):
     DeviceFleetArn: str
     DeviceFleetName: str
@@ -6242,12 +6683,14 @@ class GetDeviceFleetReportResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_edge_packaging_jobs' function.
 class ListEdgePackagingJobsResponse(BaseValidatorModel):
     EdgePackagingJobSummaries: List[EdgePackagingJobSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_endpoint_configs' function.
 class ListEndpointConfigsOutput(BaseValidatorModel):
     EndpointConfigs: List[EndpointConfigSummary]
     ResponseMetadata: ResponseMetadata
@@ -6267,6 +6710,7 @@ class EndpointPerformance(BaseValidatorModel):
     EndpointInfo: EndpointInfo
 
 
+# This class is the output for the 'list_endpoints' function.
 class ListEndpointsOutput(BaseValidatorModel):
     Endpoints: List[EndpointSummary]
     ResponseMetadata: ResponseMetadata
@@ -6299,12 +6743,14 @@ class HyperParameterTrainingJobSummary(BaseValidatorModel):
     ObjectiveStatus: Optional[ObjectiveStatusType] = None
 
 
+# This class is the output for the 'list_flow_definitions' function.
 class ListFlowDefinitionsResponse(BaseValidatorModel):
     FlowDefinitionSummaries: List[FlowDefinitionSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_scaling_configuration_recommendation' function.
 class GetScalingConfigurationRecommendationRequest(BaseValidatorModel):
     InferenceRecommendationsJobName: str
     RecommendationId: Optional[str] = None
@@ -6313,11 +6759,13 @@ class GetScalingConfigurationRecommendationRequest(BaseValidatorModel):
     ScalingPolicyObjective: Optional[ScalingPolicyObjective] = None
 
 
+# This class is the output for the 'get_search_suggestions' function.
 class GetSearchSuggestionsResponse(BaseValidatorModel):
     PropertyNameSuggestions: List[PropertyNameSuggestion]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_code_repository' function.
 class UpdateCodeRepositoryInput(BaseValidatorModel):
     CodeRepositoryName: str
     GitConfig: Optional[GitConfigForUpdate] = None
@@ -6337,18 +6785,21 @@ class StudioWebPortalSettings(BaseValidatorModel):
     HiddenSageMakerImageVersionAliases: Optional[List[HiddenSageMakerImage]] = None
 
 
+# This class is the output for the 'list_hub_content_versions' function.
 class ListHubContentVersionsResponse(BaseValidatorModel):
     HubContentSummaries: List[HubContentInfo]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_hub_contents' function.
 class ListHubContentsResponse(BaseValidatorModel):
     HubContentSummaries: List[HubContentInfo]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_hubs' function.
 class ListHubsResponse(BaseValidatorModel):
     HubSummaries: List[HubInfo]
     ResponseMetadata: ResponseMetadata
@@ -6359,6 +6810,7 @@ class HumanLoopActivationConfig(BaseValidatorModel):
     HumanLoopActivationConditionsConfig: HumanLoopActivationConditionsConfig
 
 
+# This class is the output for the 'list_human_task_uis' function.
 class ListHumanTaskUisResponse(BaseValidatorModel):
     HumanTaskUiSummaries: List[HumanTaskUiSummary]
     ResponseMetadata: ResponseMetadata
@@ -6426,12 +6878,14 @@ class ImageConfig(BaseValidatorModel):
     RepositoryAuthConfig: Optional[RepositoryAuthConfig] = None
 
 
+# This class is the output for the 'list_images' function.
 class ListImagesResponse(BaseValidatorModel):
     Images: List[Image]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_image_versions' function.
 class ListImageVersionsResponse(BaseValidatorModel):
     ImageVersions: List[ImageVersion]
     ResponseMetadata: ResponseMetadata
@@ -6453,12 +6907,14 @@ class InferenceComponentSpecification(BaseValidatorModel):
     BaseInferenceComponentName: Optional[str] = None
 
 
+# This class is the output for the 'list_inference_components' function.
 class ListInferenceComponentsOutput(BaseValidatorModel):
     InferenceComponents: List[InferenceComponentSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_inference_recommendations_jobs' function.
 class ListInferenceRecommendationsJobsResponse(BaseValidatorModel):
     InferenceRecommendationsJobs: List[InferenceRecommendationsJob]
     ResponseMetadata: ResponseMetadata
@@ -6528,6 +6984,7 @@ class LabelingJobDataSource(BaseValidatorModel):
     SnsDataSource: Optional[LabelingJobSnsDataSource] = None
 
 
+# This class is the output for the 'list_lineage_groups' function.
 class ListLineageGroupsResponse(BaseValidatorModel):
     LineageGroupSummaries: List[LineageGroupSummary]
     ResponseMetadata: ResponseMetadata
@@ -7280,150 +7737,175 @@ class ListWorkteamsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_data_quality_job_definitions' function.
 class ListDataQualityJobDefinitionsResponse(BaseValidatorModel):
     JobDefinitionSummaries: List[MonitoringJobDefinitionSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_model_bias_job_definitions' function.
 class ListModelBiasJobDefinitionsResponse(BaseValidatorModel):
     JobDefinitionSummaries: List[MonitoringJobDefinitionSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_model_explainability_job_definitions' function.
 class ListModelExplainabilityJobDefinitionsResponse(BaseValidatorModel):
     JobDefinitionSummaries: List[MonitoringJobDefinitionSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_model_quality_job_definitions' function.
 class ListModelQualityJobDefinitionsResponse(BaseValidatorModel):
     JobDefinitionSummaries: List[MonitoringJobDefinitionSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_mlflow_tracking_servers' function.
 class ListMlflowTrackingServersResponse(BaseValidatorModel):
     TrackingServerSummaries: List[TrackingServerSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_model_card_export_jobs' function.
 class ListModelCardExportJobsResponse(BaseValidatorModel):
     ModelCardExportJobSummaries: List[ModelCardExportJobSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_model_card_versions' function.
 class ListModelCardVersionsResponse(BaseValidatorModel):
     ModelCardVersionSummaryList: List[ModelCardVersionSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_model_cards' function.
 class ListModelCardsResponse(BaseValidatorModel):
     ModelCardSummaries: List[ModelCardSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_model_metadata' function.
 class ListModelMetadataResponse(BaseValidatorModel):
     ModelMetadataSummaries: List[ModelMetadataSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_model_package_groups' function.
 class ListModelPackageGroupsOutput(BaseValidatorModel):
     ModelPackageGroupSummaryList: List[ModelPackageGroupSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_model_packages' function.
 class ListModelPackagesOutput(BaseValidatorModel):
     ModelPackageSummaryList: List[ModelPackageSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_models' function.
 class ListModelsOutput(BaseValidatorModel):
     Models: List[ModelSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_monitoring_alert_history' function.
 class ListMonitoringAlertHistoryResponse(BaseValidatorModel):
     MonitoringAlertHistory: List[MonitoringAlertHistorySummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_monitoring_schedules' function.
 class ListMonitoringSchedulesResponse(BaseValidatorModel):
     MonitoringScheduleSummaries: List[MonitoringScheduleSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_notebook_instance_lifecycle_configs' function.
 class ListNotebookInstanceLifecycleConfigsOutput(BaseValidatorModel):
     NotebookInstanceLifecycleConfigs: List[NotebookInstanceLifecycleConfigSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_notebook_instances' function.
 class ListNotebookInstancesOutput(BaseValidatorModel):
     NotebookInstances: List[NotebookInstanceSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_optimization_jobs' function.
 class ListOptimizationJobsResponse(BaseValidatorModel):
     OptimizationJobSummaries: List[OptimizationJobSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_partner_apps' function.
 class ListPartnerAppsResponse(BaseValidatorModel):
     Summaries: List[PartnerAppSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_pipeline_executions' function.
 class ListPipelineExecutionsResponse(BaseValidatorModel):
     PipelineExecutionSummaries: List[PipelineExecutionSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_pipeline_parameters_for_execution' function.
 class ListPipelineParametersForExecutionResponse(BaseValidatorModel):
     PipelineParameters: List[Parameter]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_pipelines' function.
 class ListPipelinesResponse(BaseValidatorModel):
     PipelineSummaries: List[PipelineSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_processing_jobs' function.
 class ListProcessingJobsResponse(BaseValidatorModel):
     ProcessingJobSummaries: List[ProcessingJobSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_projects' function.
 class ListProjectsOutput(BaseValidatorModel):
     ProjectSummaryList: List[ProjectSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_resource_catalogs' function.
 class ListResourceCatalogsResponse(BaseValidatorModel):
     ResourceCatalogs: List[ResourceCatalog]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_studio_lifecycle_configs' function.
 class ListStudioLifecycleConfigsResponse(BaseValidatorModel):
     StudioLifecycleConfigs: List[StudioLifecycleConfigDetails]
     ResponseMetadata: ResponseMetadata
@@ -7439,6 +7921,7 @@ class ListTrainingPlansRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_training_plans' function.
 class ListTrainingPlansRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -7449,12 +7932,14 @@ class ListTrainingPlansRequest(BaseValidatorModel):
     Filters: Optional[List[TrainingPlanFilter]] = None
 
 
+# This class is the output for the 'list_transform_jobs' function.
 class ListTransformJobsResponse(BaseValidatorModel):
     TransformJobSummaries: List[TransformJobSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_user_profiles' function.
 class ListUserProfilesResponse(BaseValidatorModel):
     UserProfiles: List[UserProfileDetails]
     ResponseMetadata: ResponseMetadata
@@ -7723,6 +8208,7 @@ class PublicWorkforceTaskPrice(BaseValidatorModel):
     AmountInUsd: Optional[USD] = None
 
 
+# This class is the output for the 'query_lineage' function.
 class QueryLineageResponse(BaseValidatorModel):
     Vertices: List[Vertex]
     Edges: List[Edge]
@@ -7761,6 +8247,7 @@ class RecommendationJobContainerConfig(BaseValidatorModel):
     SupportedResponseMIMETypes: Optional[List[str]] = None
 
 
+# This class is the input for the 'render_ui_template' function.
 class RenderUiTemplateRequest(BaseValidatorModel):
     Task: RenderableTask
     RoleArn: str
@@ -7768,6 +8255,7 @@ class RenderUiTemplateRequest(BaseValidatorModel):
     HumanTaskUiArn: Optional[str] = None
 
 
+# This class is the output for the 'render_ui_template' function.
 class RenderUiTemplateResponse(BaseValidatorModel):
     RenderedContent: str
     Errors: List[RenderingError]
@@ -7847,6 +8335,7 @@ class Workforce(BaseValidatorModel):
     FailureReason: Optional[str] = None
 
 
+# This class is the output for the 'list_actions' function.
 class ListActionsResponse(BaseValidatorModel):
     ActionSummaries: List[ActionSummary]
     ResponseMetadata: ResponseMetadata
@@ -7855,6 +8344,7 @@ class ListActionsResponse(BaseValidatorModel):
 HyperParameterAlgorithmSpecificationUnion = Union[HyperParameterAlgorithmSpecification, HyperParameterAlgorithmSpecificationOutput]
 
 
+# This class is the output for the 'list_apps' function.
 class ListAppsResponse(BaseValidatorModel):
     Apps: List[AppDetails]
     ResponseMetadata: ResponseMetadata
@@ -7996,6 +8486,7 @@ class AutoMLJobChannel(BaseValidatorModel):
     DataSource: Optional[AutoMLDataSource] = None
 
 
+# This class is the output for the 'list_auto_ml_jobs' function.
 class ListAutoMLJobsResponse(BaseValidatorModel):
     AutoMLJobSummaries: List[AutoMLJobSummary]
     ResponseMetadata: ResponseMetadata
@@ -8171,6 +8662,7 @@ class ClusterNodeDetails(BaseValidatorModel):
     Placement: Optional[ClusterInstancePlacement] = None
 
 
+# This class is the output for the 'list_cluster_nodes' function.
 class ListClusterNodesResponse(BaseValidatorModel):
     NextToken: str
     ClusterNodeSummaries: List[ClusterNodeSummary]
@@ -8181,6 +8673,7 @@ CodeEditorAppImageConfigUnion = Union[CodeEditorAppImageConfig, CodeEditorAppIma
 JupyterLabAppImageConfigUnion = Union[JupyterLabAppImageConfig, JupyterLabAppImageConfigOutput]
 
 
+# This class is the output for the 'list_code_repositories' function.
 class ListCodeRepositoriesOutput(BaseValidatorModel):
     CodeRepositorySummaryList: List[CodeRepositorySummary]
     ResponseMetadata: ResponseMetadata
@@ -8212,6 +8705,7 @@ class ComputeQuotaSummary(BaseValidatorModel):
 ComputeQuotaConfigUnion = Union[ComputeQuotaConfig, ComputeQuotaConfigOutput]
 
 
+# This class is the output for the 'list_contexts' function.
 class ListContextsResponse(BaseValidatorModel):
     ContextSummaries: List[ContextSummary]
     ResponseMetadata: ResponseMetadata
@@ -8220,6 +8714,7 @@ class ListContextsResponse(BaseValidatorModel):
 InferenceExperimentScheduleUnion = Union[InferenceExperimentSchedule, InferenceExperimentScheduleOutput]
 
 
+# This class is the input for the 'query_lineage' function.
 class QueryLineageRequest(BaseValidatorModel):
     StartArns: Optional[List[str]] = None
     Direction: Optional[DirectionType] = None
@@ -8245,6 +8740,7 @@ class InferenceComponentSpecificationSummary(BaseValidatorModel):
     BaseInferenceComponentName: Optional[str] = None
 
 
+# This class is the output for the 'describe_edge_deployment_plan' function.
 class DescribeEdgeDeploymentPlanResponse(BaseValidatorModel):
     EdgeDeploymentPlanArn: str
     EdgeDeploymentPlanName: str
@@ -8260,42 +8756,49 @@ class DescribeEdgeDeploymentPlanResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_experiments' function.
 class ListExperimentsResponse(BaseValidatorModel):
     ExperimentSummaries: List[ExperimentSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_feature_groups' function.
 class ListFeatureGroupsResponse(BaseValidatorModel):
     FeatureGroupSummaries: List[FeatureGroupSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_inference_experiments' function.
 class ListInferenceExperimentsResponse(BaseValidatorModel):
     InferenceExperiments: List[InferenceExperimentSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_training_jobs' function.
 class ListTrainingJobsResponse(BaseValidatorModel):
     TrainingJobSummaries: List[TrainingJobSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_training_plans' function.
 class ListTrainingPlansResponse(BaseValidatorModel):
     TrainingPlanSummaries: List[TrainingPlanSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_trials' function.
 class ListTrialsResponse(BaseValidatorModel):
     TrialSummaries: List[TrialSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'update_endpoint_weights_and_capacities' function.
 class UpdateEndpointWeightsAndCapacitiesInput(BaseValidatorModel):
     EndpointName: str
     DesiredWeightsAndCapacities: List[DesiredWeightAndCapacity]
@@ -8307,6 +8810,7 @@ class DeploymentStage(BaseValidatorModel):
     DeploymentConfig: Optional[EdgeDeploymentConfig] = None
 
 
+# This class is the output for the 'list_devices' function.
 class ListDevicesResponse(BaseValidatorModel):
     DeviceSummaries: List[DeviceSummary]
     ResponseMetadata: ResponseMetadata
@@ -8366,6 +8870,7 @@ class SearchExpression(BaseValidatorModel):
     Operator: Optional[BooleanOperatorType] = None
 
 
+# This class is the output for the 'list_training_jobs_for_hyper_parameter_tuning_job' function.
 class ListTrainingJobsForHyperParameterTuningJobResponse(BaseValidatorModel):
     TrainingJobSummaries: List[HyperParameterTrainingJobSummary]
     ResponseMetadata: ResponseMetadata
@@ -8374,6 +8879,7 @@ class ListTrainingJobsForHyperParameterTuningJobResponse(BaseValidatorModel):
 HyperParameterTuningResourceConfigUnion = Union[HyperParameterTuningResourceConfig, HyperParameterTuningResourceConfigOutput]
 
 
+# This class is the output for the 'list_hyper_parameter_tuning_jobs' function.
 class ListHyperParameterTuningJobsResponse(BaseValidatorModel):
     HyperParameterTuningJobSummaries: List[HyperParameterTuningJobSummary]
     ResponseMetadata: ResponseMetadata
@@ -8394,6 +8900,7 @@ class AssociationSummary(BaseValidatorModel):
     CreatedBy: Optional[UserContext] = None
 
 
+# This class is the output for the 'describe_action' function.
 class DescribeActionResponse(BaseValidatorModel):
     ActionName: str
     ActionArn: str
@@ -8411,6 +8918,7 @@ class DescribeActionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_artifact' function.
 class DescribeArtifactResponse(BaseValidatorModel):
     ArtifactName: str
     ArtifactArn: str
@@ -8426,6 +8934,7 @@ class DescribeArtifactResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_compute_quota' function.
 class DescribeComputeQuotaResponse(BaseValidatorModel):
     ComputeQuotaArn: str
     ComputeQuotaId: str
@@ -8445,6 +8954,7 @@ class DescribeComputeQuotaResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_context' function.
 class DescribeContextResponse(BaseValidatorModel):
     ContextName: str
     ContextArn: str
@@ -8460,6 +8970,7 @@ class DescribeContextResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_experiment' function.
 class DescribeExperimentResponse(BaseValidatorModel):
     ExperimentName: str
     ExperimentArn: str
@@ -8473,6 +8984,7 @@ class DescribeExperimentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_lineage_group' function.
 class DescribeLineageGroupResponse(BaseValidatorModel):
     LineageGroupName: str
     LineageGroupArn: str
@@ -8485,6 +8997,7 @@ class DescribeLineageGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_mlflow_tracking_server' function.
 class DescribeMlflowTrackingServerResponse(BaseValidatorModel):
     TrackingServerArn: str
     TrackingServerName: str
@@ -8504,6 +9017,7 @@ class DescribeMlflowTrackingServerResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_model_card' function.
 class DescribeModelCardResponse(BaseValidatorModel):
     ModelCardArn: str
     ModelCardName: str
@@ -8519,6 +9033,7 @@ class DescribeModelCardResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_model_package_group' function.
 class DescribeModelPackageGroupOutput(BaseValidatorModel):
     ModelPackageGroupName: str
     ModelPackageGroupArn: str
@@ -8529,6 +9044,7 @@ class DescribeModelPackageGroupOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_pipeline' function.
 class DescribePipelineResponse(BaseValidatorModel):
     PipelineArn: str
     PipelineName: str
@@ -8546,6 +9062,7 @@ class DescribePipelineResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_trial_component' function.
 class DescribeTrialComponentResponse(BaseValidatorModel):
     TrialComponentName: str
     TrialComponentArn: str
@@ -8568,6 +9085,7 @@ class DescribeTrialComponentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_trial' function.
 class DescribeTrialResponse(BaseValidatorModel):
     TrialName: str
     TrialArn: str
@@ -8689,6 +9207,7 @@ class InferenceComponentDeploymentConfig(BaseValidatorModel):
     AutoRollbackConfiguration: Optional[AutoRollbackConfig] = None
 
 
+# This class is the input for the 'create_inference_component' function.
 class CreateInferenceComponentInput(BaseValidatorModel):
     InferenceComponentName: str
     EndpointName: str
@@ -8741,6 +9260,7 @@ class AppImageConfigDetails(BaseValidatorModel):
     CodeEditorAppImageConfig: Optional[CodeEditorAppImageConfigOutput] = None
 
 
+# This class is the output for the 'describe_app_image_config' function.
 class DescribeAppImageConfigResponse(BaseValidatorModel):
     AppImageConfigArn: str
     AppImageConfigName: str
@@ -8754,6 +9274,7 @@ class DescribeAppImageConfigResponse(BaseValidatorModel):
 KernelGatewayImageConfigUnion = Union[KernelGatewayImageConfig, KernelGatewayImageConfigOutput]
 
 
+# This class is the output for the 'list_labeling_jobs_for_workteam' function.
 class ListLabelingJobsForWorkteamResponse(BaseValidatorModel):
     LabelingJobSummaryList: List[LabelingJobForWorkteamSummary]
     ResponseMetadata: ResponseMetadata
@@ -8821,6 +9342,7 @@ class ListModelMetadataRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_model_metadata' function.
 class ListModelMetadataRequest(BaseValidatorModel):
     SearchExpression: Optional[ModelMetadataSearchExpression] = None
     NextToken: Optional[str] = None
@@ -8882,6 +9404,7 @@ class OptimizationJobModelSource(BaseValidatorModel):
     S3: Optional[OptimizationJobModelSourceS3] = None
 
 
+# This class is the input for the 'create_compilation_job' function.
 class CreateCompilationJobRequest(BaseValidatorModel):
     CompilationJobName: str
     RoleArn: str
@@ -8893,6 +9416,7 @@ class CreateCompilationJobRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'describe_compilation_job' function.
 class DescribeCompilationJobResponse(BaseValidatorModel):
     CompilationJobName: str
     CompilationJobArn: str
@@ -8915,6 +9439,7 @@ class DescribeCompilationJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_partner_app' function.
 class CreatePartnerAppRequest(BaseValidatorModel):
     Name: str
     Type: PartnerAppTypeType
@@ -8928,6 +9453,7 @@ class CreatePartnerAppRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_partner_app' function.
 class UpdatePartnerAppRequest(BaseValidatorModel):
     Arn: str
     MaintenanceConfig: Optional[PartnerAppMaintenanceConfig] = None
@@ -8945,6 +9471,7 @@ class PendingDeploymentSummary(BaseValidatorModel):
     ShadowProductionVariants: Optional[List[PendingProductionVariantSummary]] = None
 
 
+# This class is the output for the 'describe_cluster_scheduler_config' function.
 class DescribeClusterSchedulerConfigResponse(BaseValidatorModel):
     ClusterSchedulerConfigArn: str
     ClusterSchedulerConfigId: str
@@ -8974,6 +9501,7 @@ class ProcessingOutputConfig(BaseValidatorModel):
     KmsKeyId: Optional[str] = None
 
 
+# This class is the input for the 'update_training_job' function.
 class UpdateTrainingJobRequest(BaseValidatorModel):
     TrainingJobName: str
     ProfilerConfig: Optional[ProfilerConfigForUpdate] = None
@@ -8982,11 +9510,13 @@ class UpdateTrainingJobRequest(BaseValidatorModel):
     RemoteDebugConfig: Optional[RemoteDebugConfigForUpdate] = None
 
 
+# This class is the input for the 'get_search_suggestions' function.
 class GetSearchSuggestionsRequest(BaseValidatorModel):
     Resource: ResourceTypeType
     SuggestionQuery: Optional[SuggestionQuery] = None
 
 
+# This class is the output for the 'describe_project' function.
 class DescribeProjectOutput(BaseValidatorModel):
     ProjectArn: str
     ProjectName: str
@@ -9019,6 +9549,7 @@ class Project(BaseValidatorModel):
 ServiceCatalogProvisioningDetailsUnion = Union[ServiceCatalogProvisioningDetails, ServiceCatalogProvisioningDetailsOutput]
 
 
+# This class is the input for the 'update_project' function.
 class UpdateProjectInput(BaseValidatorModel):
     ProjectName: str
     ProjectDescription: Optional[str] = None
@@ -9080,11 +9611,13 @@ class HumanTaskConfig(BaseValidatorModel):
     PublicWorkforceTaskPrice: Optional[PublicWorkforceTaskPrice] = None
 
 
+# This class is the output for the 'search_training_plan_offerings' function.
 class SearchTrainingPlanOfferingsResponse(BaseValidatorModel):
     TrainingPlanOfferings: List[TrainingPlanOffering]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_pipeline_execution' function.
 class DescribePipelineExecutionResponse(BaseValidatorModel):
     PipelineArn: str
     PipelineExecutionArn: str
@@ -9123,6 +9656,7 @@ SelectiveExecutionConfigUnion = Union[SelectiveExecutionConfig, SelectiveExecuti
 ShadowModeConfigUnion = Union[ShadowModeConfig, ShadowModeConfigOutput]
 
 
+# This class is the input for the 'create_workforce' function.
 class CreateWorkforceRequest(BaseValidatorModel):
     WorkforceName: str
     CognitoConfig: Optional[CognitoConfig] = None
@@ -9132,6 +9666,7 @@ class CreateWorkforceRequest(BaseValidatorModel):
     WorkforceVpcConfig: Optional[WorkforceVpcConfigRequest] = None
 
 
+# This class is the input for the 'update_workforce' function.
 class UpdateWorkforceRequest(BaseValidatorModel):
     WorkforceName: str
     SourceIpConfig: Optional[SourceIpConfigUnion] = None
@@ -9185,17 +9720,20 @@ class TransformInput(BaseValidatorModel):
     SplitType: Optional[SplitTypeType] = None
 
 
+# This class is the output for the 'describe_workforce' function.
 class DescribeWorkforceResponse(BaseValidatorModel):
     Workforce: Workforce
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_workforces' function.
 class ListWorkforcesResponse(BaseValidatorModel):
     Workforces: List[Workforce]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_workforce' function.
 class UpdateWorkforceResponse(BaseValidatorModel):
     Workforce: Workforce
     ResponseMetadata: ResponseMetadata
@@ -9267,12 +9805,14 @@ class UserSettings(BaseValidatorModel):
     AutoMountHomeEFS: Optional[AutoMountHomeEFSType] = None
 
 
+# This class is the output for the 'list_artifacts' function.
 class ListArtifactsResponse(BaseValidatorModel):
     ArtifactSummaries: List[ArtifactSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_artifact' function.
 class CreateArtifactRequest(BaseValidatorModel):
     Source: ArtifactSourceUnion
     ArtifactType: str
@@ -9282,6 +9822,7 @@ class CreateArtifactRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'delete_artifact' function.
 class DeleteArtifactRequest(BaseValidatorModel):
     ArtifactArn: Optional[str] = None
     Source: Optional[ArtifactSourceUnion] = None
@@ -9323,6 +9864,7 @@ class PipelineExecutionStep(BaseValidatorModel):
     SelectiveExecutionResult: Optional[SelectiveExecutionResult] = None
 
 
+# This class is the output for the 'describe_auto_ml_job' function.
 class DescribeAutoMLJobResponse(BaseValidatorModel):
     AutoMLJobName: str
     AutoMLJobArn: str
@@ -9348,6 +9890,7 @@ class DescribeAutoMLJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_candidates_for_auto_ml_job' function.
 class ListCandidatesForAutoMLJobResponse(BaseValidatorModel):
     Candidates: List[AutoMLCandidate]
     ResponseMetadata: ResponseMetadata
@@ -9413,6 +9956,7 @@ class ExplainerConfig(BaseValidatorModel):
     ClarifyExplainerConfig: Optional[ClarifyExplainerConfig] = None
 
 
+# This class is the output for the 'describe_cluster' function.
 class DescribeClusterResponse(BaseValidatorModel):
     ClusterArn: str
     ClusterName: str
@@ -9426,6 +9970,7 @@ class DescribeClusterResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_cluster' function.
 class CreateClusterRequest(BaseValidatorModel):
     ClusterName: str
     InstanceGroups: List[ClusterInstanceGroupSpecification]
@@ -9435,6 +9980,7 @@ class CreateClusterRequest(BaseValidatorModel):
     NodeRecovery: Optional[ClusterNodeRecoveryType] = None
 
 
+# This class is the input for the 'update_cluster' function.
 class UpdateClusterRequest(BaseValidatorModel):
     ClusterName: str
     InstanceGroups: List[ClusterInstanceGroupSpecification]
@@ -9442,11 +9988,13 @@ class UpdateClusterRequest(BaseValidatorModel):
     InstanceGroupsToDelete: Optional[List[str]] = None
 
 
+# This class is the output for the 'describe_cluster_node' function.
 class DescribeClusterNodeResponse(BaseValidatorModel):
     NodeDetails: ClusterNodeDetails
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_feature_group' function.
 class CreateFeatureGroupRequest(BaseValidatorModel):
     FeatureGroupName: str
     RecordIdentifierFeatureName: str
@@ -9460,6 +10008,7 @@ class CreateFeatureGroupRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'describe_feature_group' function.
 class DescribeFeatureGroupResponse(BaseValidatorModel):
     FeatureGroupArn: str
     FeatureGroupName: str
@@ -9501,6 +10050,7 @@ class FeatureGroup(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_feature_group' function.
 class UpdateFeatureGroupRequest(BaseValidatorModel):
     FeatureGroupName: str
     FeatureAdditions: Optional[List[FeatureDefinition]] = None
@@ -9508,12 +10058,14 @@ class UpdateFeatureGroupRequest(BaseValidatorModel):
     ThroughputConfig: Optional[ThroughputConfigUpdate] = None
 
 
+# This class is the output for the 'list_compute_quotas' function.
 class ListComputeQuotasResponse(BaseValidatorModel):
     ComputeQuotaSummaries: List[ComputeQuotaSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_compute_quota' function.
 class CreateComputeQuotaRequest(BaseValidatorModel):
     Name: str
     ClusterArn: str
@@ -9524,6 +10076,7 @@ class CreateComputeQuotaRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_compute_quota' function.
 class UpdateComputeQuotaRequest(BaseValidatorModel):
     ComputeQuotaId: str
     TargetVersion: int
@@ -9533,6 +10086,7 @@ class UpdateComputeQuotaRequest(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'create_edge_deployment_plan' function.
 class CreateEdgeDeploymentPlanRequest(BaseValidatorModel):
     EdgeDeploymentPlanName: str
     ModelConfigs: List[EdgeDeploymentModelConfig]
@@ -9541,6 +10095,7 @@ class CreateEdgeDeploymentPlanRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_edge_deployment_stage' function.
 class CreateEdgeDeploymentStageRequest(BaseValidatorModel):
     EdgeDeploymentPlanName: str
     Stages: List[DeploymentStage]
@@ -9575,6 +10130,7 @@ class SearchRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search' function.
 class SearchRequest(BaseValidatorModel):
     Resource: ResourceTypeType
     SearchExpression: Optional[SearchExpression] = None
@@ -9586,6 +10142,7 @@ class SearchRequest(BaseValidatorModel):
     VisibilityConditions: Optional[List[VisibilityConditions]] = None
 
 
+# This class is the output for the 'list_associations' function.
 class ListAssociationsResponse(BaseValidatorModel):
     AssociationSummaries: List[AssociationSummary]
     ResponseMetadata: ResponseMetadata
@@ -9607,6 +10164,7 @@ class Trial(BaseValidatorModel):
     TrialComponentSummaries: Optional[List[TrialComponentSimpleSummary]] = None
 
 
+# This class is the output for the 'list_trial_components' function.
 class ListTrialComponentsResponse(BaseValidatorModel):
     TrialComponentSummaries: List[TrialComponentSummary]
     ResponseMetadata: ResponseMetadata
@@ -9627,6 +10185,7 @@ class Workteam(BaseValidatorModel):
     WorkerAccessConfiguration: Optional[WorkerAccessConfiguration] = None
 
 
+# This class is the output for the 'describe_inference_component' function.
 class DescribeInferenceComponentOutput(BaseValidatorModel):
     InferenceComponentName: str
     InferenceComponentArn: str
@@ -9669,12 +10228,14 @@ class TrainingSpecification(BaseValidatorModel):
     AdditionalS3DataSource: Optional[AdditionalS3DataSource] = None
 
 
+# This class is the output for the 'list_app_image_configs' function.
 class ListAppImageConfigsResponse(BaseValidatorModel):
     AppImageConfigs: List[AppImageConfigDetails]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_app_image_config' function.
 class CreateAppImageConfigRequest(BaseValidatorModel):
     AppImageConfigName: str
     Tags: Optional[List[Tag]] = None
@@ -9683,6 +10244,7 @@ class CreateAppImageConfigRequest(BaseValidatorModel):
     CodeEditorAppImageConfig: Optional[CodeEditorAppImageConfigUnion] = None
 
 
+# This class is the input for the 'update_app_image_config' function.
 class UpdateAppImageConfigRequest(BaseValidatorModel):
     AppImageConfigName: str
     KernelGatewayImageConfig: Optional[KernelGatewayImageConfigUnion] = None
@@ -9793,12 +10355,14 @@ class SourceAlgorithm(BaseValidatorModel):
     ModelDataETag: Optional[str] = None
 
 
+# This class is the output for the 'list_monitoring_alerts' function.
 class ListMonitoringAlertsResponse(BaseValidatorModel):
     MonitoringAlertSummaries: List[MonitoringAlertSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_inference_experiment' function.
 class DescribeInferenceExperimentResponse(BaseValidatorModel):
     Arn: str
     Name: str
@@ -9819,6 +10383,7 @@ class DescribeInferenceExperimentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'stop_inference_experiment' function.
 class StopInferenceExperimentRequest(BaseValidatorModel):
     Name: str
     ModelVariantActions: Dict[str, ModelVariantActionType]
@@ -9887,6 +10452,7 @@ MonitoringOutputConfigUnion = Union[MonitoringOutputConfig, MonitoringOutputConf
 MemberDefinitionUnion = Union[MemberDefinition, MemberDefinitionOutput]
 
 
+# This class is the output for the 'describe_optimization_job' function.
 class DescribeOptimizationJobResponse(BaseValidatorModel):
     OptimizationJobArn: str
     OptimizationJobStatus: OptimizationJobStatusType
@@ -9908,6 +10474,7 @@ class DescribeOptimizationJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_cluster_scheduler_config' function.
 class CreateClusterSchedulerConfigRequest(BaseValidatorModel):
     Name: str
     ClusterArn: str
@@ -9916,6 +10483,7 @@ class CreateClusterSchedulerConfigRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_cluster_scheduler_config' function.
 class UpdateClusterSchedulerConfigRequest(BaseValidatorModel):
     ClusterSchedulerConfigId: str
     TargetVersion: int
@@ -9923,6 +10491,7 @@ class UpdateClusterSchedulerConfigRequest(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the output for the 'describe_processing_job' function.
 class DescribeProcessingJobResponse(BaseValidatorModel):
     ProcessingInputs: List[ProcessingInput]
     ProcessingOutputConfig: ProcessingOutputConfigOutput
@@ -9975,6 +10544,7 @@ class ProcessingJob(BaseValidatorModel):
 ProcessingOutputConfigUnion = Union[ProcessingOutputConfig, ProcessingOutputConfigOutput]
 
 
+# This class is the input for the 'create_project' function.
 class CreateProjectInput(BaseValidatorModel):
     ProjectName: str
     ServiceCatalogProvisioningDetails: ServiceCatalogProvisioningDetailsUnion
@@ -9982,6 +10552,7 @@ class CreateProjectInput(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'describe_flow_definition' function.
 class DescribeFlowDefinitionResponse(BaseValidatorModel):
     FlowDefinitionArn: str
     FlowDefinitionName: str
@@ -9998,6 +10569,7 @@ class DescribeFlowDefinitionResponse(BaseValidatorModel):
 HumanLoopConfigUnion = Union[HumanLoopConfig, HumanLoopConfigOutput]
 
 
+# This class is the output for the 'describe_labeling_job' function.
 class DescribeLabelingJobResponse(BaseValidatorModel):
     LabelingJobStatus: LabelingJobStatusType
     LabelCounters: LabelCounters
@@ -10022,6 +10594,7 @@ class DescribeLabelingJobResponse(BaseValidatorModel):
 HumanTaskConfigUnion = Union[HumanTaskConfig, HumanTaskConfigOutput]
 
 
+# This class is the input for the 'start_pipeline_execution' function.
 class StartPipelineExecutionRequest(BaseValidatorModel):
     PipelineName: str
     ClientRequestToken: str
@@ -10032,6 +10605,7 @@ class StartPipelineExecutionRequest(BaseValidatorModel):
     SelectiveExecutionConfig: Optional[SelectiveExecutionConfigUnion] = None
 
 
+# This class is the input for the 'create_inference_experiment' function.
 class CreateInferenceExperimentRequest(BaseValidatorModel):
     Name: str
     Type: Literal['ShadowMode']
@@ -10046,6 +10620,7 @@ class CreateInferenceExperimentRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_inference_experiment' function.
 class UpdateInferenceExperimentRequest(BaseValidatorModel):
     Name: str
     Schedule: Optional[InferenceExperimentScheduleUnion] = None
@@ -10077,6 +10652,7 @@ class SpaceSettings(BaseValidatorModel):
 AlgorithmSpecificationUnion = Union[AlgorithmSpecification, AlgorithmSpecificationOutput]
 
 
+# This class is the input for the 'create_transform_job' function.
 class CreateTransformJobRequest(BaseValidatorModel):
     TransformJobName: str
     ModelName: str
@@ -10094,6 +10670,7 @@ class CreateTransformJobRequest(BaseValidatorModel):
     ExperimentConfig: Optional[ExperimentConfig] = None
 
 
+# This class is the output for the 'describe_transform_job' function.
 class DescribeTransformJobResponse(BaseValidatorModel):
     TransformJobName: str
     TransformJobArn: str
@@ -10164,6 +10741,7 @@ class TransformJob(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'describe_domain' function.
 class DescribeDomainResponse(BaseValidatorModel):
     DomainArn: str
     DomainId: str
@@ -10191,6 +10769,7 @@ class DescribeDomainResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_user_profile' function.
 class DescribeUserProfileResponse(BaseValidatorModel):
     DomainId: str
     UserProfileArn: str
@@ -10210,6 +10789,7 @@ DefaultSpaceSettingsUnion = Union[DefaultSpaceSettings, DefaultSpaceSettingsOutp
 UserSettingsUnion = Union[UserSettings, UserSettingsOutput]
 
 
+# This class is the output for the 'describe_auto_ml_job_v2' function.
 class DescribeAutoMLJobV2Response(BaseValidatorModel):
     AutoMLJobName: str
     AutoMLJobArn: str
@@ -10239,6 +10819,7 @@ class DescribeAutoMLJobV2Response(BaseValidatorModel):
 AutoMLProblemTypeConfigUnion = Union[AutoMLProblemTypeConfig, AutoMLProblemTypeConfigOutput]
 
 
+# This class is the input for the 'create_auto_ml_job' function.
 class CreateAutoMLJobRequest(BaseValidatorModel):
     AutoMLJobName: str
     InputDataConfig: List[AutoMLChannel]
@@ -10252,6 +10833,7 @@ class CreateAutoMLJobRequest(BaseValidatorModel):
     ModelDeployConfig: Optional[ModelDeployConfig] = None
 
 
+# This class is the output for the 'list_pipeline_execution_steps' function.
 class ListPipelineExecutionStepsResponse(BaseValidatorModel):
     PipelineExecutionSteps: List[PipelineExecutionStep]
     ResponseMetadata: ResponseMetadata
@@ -10260,6 +10842,7 @@ class ListPipelineExecutionStepsResponse(BaseValidatorModel):
 DeploymentConfigUnion = Union[DeploymentConfig, DeploymentConfigOutput]
 
 
+# This class is the output for the 'describe_inference_recommendations_job' function.
 class DescribeInferenceRecommendationsJobResponse(BaseValidatorModel):
     JobName: str
     JobDescription: str
@@ -10282,6 +10865,7 @@ HyperParameterTuningJobConfigUnion = Union[HyperParameterTuningJobConfig, HyperP
 RecommendationJobInputConfigUnion = Union[RecommendationJobInputConfig, RecommendationJobInputConfigOutput]
 
 
+# This class is the output for the 'describe_endpoint_config' function.
 class DescribeEndpointConfigOutput(BaseValidatorModel):
     EndpointConfigName: str
     EndpointConfigArn: str
@@ -10298,6 +10882,7 @@ class DescribeEndpointConfigOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_endpoint' function.
 class DescribeEndpointOutput(BaseValidatorModel):
     EndpointName: str
     EndpointArn: str
@@ -10318,34 +10903,40 @@ class DescribeEndpointOutput(BaseValidatorModel):
 ExplainerConfigUnion = Union[ExplainerConfig, ExplainerConfigOutput]
 
 
+# This class is the output for the 'list_spaces' function.
 class ListSpacesResponse(BaseValidatorModel):
     Spaces: List[SpaceDetails]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_inference_recommendations_job_steps' function.
 class ListInferenceRecommendationsJobStepsResponse(BaseValidatorModel):
     Steps: List[InferenceRecommendationsJobStep]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_workteam' function.
 class DescribeWorkteamResponse(BaseValidatorModel):
     Workteam: Workteam
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_workteams' function.
 class ListWorkteamsResponse(BaseValidatorModel):
     Workteams: List[Workteam]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_workteam' function.
 class UpdateWorkteamResponse(BaseValidatorModel):
     Workteam: Workteam
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_inference_component' function.
 class UpdateInferenceComponentInput(BaseValidatorModel):
     InferenceComponentName: str
     Specification: Optional[InferenceComponentSpecification] = None
@@ -10355,6 +10946,7 @@ class UpdateInferenceComponentInput(BaseValidatorModel):
 TrainingSpecificationUnion = Union[TrainingSpecification, TrainingSpecificationOutput]
 
 
+# This class is the output for the 'list_labeling_jobs' function.
 class ListLabelingJobsResponse(BaseValidatorModel):
     LabelingJobSummaryList: List[LabelingJobSummary]
     ResponseMetadata: ResponseMetadata
@@ -10369,6 +10961,7 @@ class DynamicScalingConfiguration(BaseValidatorModel):
     ScalingPolicies: Optional[List[ScalingPolicy]] = None
 
 
+# This class is the output for the 'describe_training_job' function.
 class DescribeTrainingJobResponse(BaseValidatorModel):
     TrainingJobName: str
     TrainingJobArn: str
@@ -10489,6 +11082,7 @@ class TrainingJob(BaseValidatorModel):
 DataSourceUnion = Union[DataSource, DataSourceOutput]
 
 
+# This class is the output for the 'describe_model' function.
 class DescribeModelOutput(BaseValidatorModel):
     ModelName: str
     PrimaryContainer: ContainerDefinitionOutput
@@ -10555,6 +11149,7 @@ class SourceAlgorithmSpecification(BaseValidatorModel):
     SourceAlgorithms: List[SourceAlgorithm]
 
 
+# This class is the input for the 'create_optimization_job' function.
 class CreateOptimizationJobRequest(BaseValidatorModel):
     OptimizationJobName: str
     RoleArn: str
@@ -10568,6 +11163,7 @@ class CreateOptimizationJobRequest(BaseValidatorModel):
     VpcConfig: Optional[OptimizationVpcConfigUnion] = None
 
 
+# This class is the output for the 'describe_data_quality_job_definition' function.
 class DescribeDataQualityJobDefinitionResponse(BaseValidatorModel):
     JobDefinitionArn: str
     JobDefinitionName: str
@@ -10583,6 +11179,7 @@ class DescribeDataQualityJobDefinitionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_model_bias_job_definition' function.
 class DescribeModelBiasJobDefinitionResponse(BaseValidatorModel):
     JobDefinitionArn: str
     JobDefinitionName: str
@@ -10598,6 +11195,7 @@ class DescribeModelBiasJobDefinitionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_model_explainability_job_definition' function.
 class DescribeModelExplainabilityJobDefinitionResponse(BaseValidatorModel):
     JobDefinitionArn: str
     JobDefinitionName: str
@@ -10613,6 +11211,7 @@ class DescribeModelExplainabilityJobDefinitionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_model_quality_job_definition' function.
 class DescribeModelQualityJobDefinitionResponse(BaseValidatorModel):
     JobDefinitionArn: str
     JobDefinitionName: str
@@ -10660,6 +11259,7 @@ class MonitoringJobDefinition(BaseValidatorModel):
     NetworkConfig: Optional[NetworkConfig] = None
 
 
+# This class is the input for the 'create_workteam' function.
 class CreateWorkteamRequest(BaseValidatorModel):
     WorkteamName: str
     MemberDefinitions: List[MemberDefinitionUnion]
@@ -10670,6 +11270,7 @@ class CreateWorkteamRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_workteam' function.
 class UpdateWorkteamRequest(BaseValidatorModel):
     WorkteamName: str
     MemberDefinitions: Optional[List[MemberDefinitionUnion]] = None
@@ -10678,6 +11279,7 @@ class UpdateWorkteamRequest(BaseValidatorModel):
     WorkerAccessConfiguration: Optional[WorkerAccessConfiguration] = None
 
 
+# This class is the input for the 'create_processing_job' function.
 class CreateProcessingJobRequest(BaseValidatorModel):
     ProcessingJobName: str
     ProcessingResources: ProcessingResources
@@ -10692,6 +11294,7 @@ class CreateProcessingJobRequest(BaseValidatorModel):
     ExperimentConfig: Optional[ExperimentConfig] = None
 
 
+# This class is the input for the 'create_flow_definition' function.
 class CreateFlowDefinitionRequest(BaseValidatorModel):
     FlowDefinitionName: str
     OutputConfig: FlowDefinitionOutputConfig
@@ -10702,6 +11305,7 @@ class CreateFlowDefinitionRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_labeling_job' function.
 class CreateLabelingJobRequest(BaseValidatorModel):
     LabelingJobName: str
     LabelAttributeName: str
@@ -10715,6 +11319,7 @@ class CreateLabelingJobRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'describe_space' function.
 class DescribeSpaceResponse(BaseValidatorModel):
     DomainId: str
     SpaceArn: str
@@ -10744,6 +11349,7 @@ class ModelPackageValidationProfile(BaseValidatorModel):
     TransformJobDefinition: TransformJobDefinition
 
 
+# This class is the input for the 'create_domain' function.
 class CreateDomainRequest(BaseValidatorModel):
     DomainName: str
     AuthMode: AuthModeType
@@ -10760,6 +11366,7 @@ class CreateDomainRequest(BaseValidatorModel):
     DefaultSpaceSettings: Optional[DefaultSpaceSettingsUnion] = None
 
 
+# This class is the input for the 'create_user_profile' function.
 class CreateUserProfileRequest(BaseValidatorModel):
     DomainId: str
     UserProfileName: str
@@ -10769,6 +11376,7 @@ class CreateUserProfileRequest(BaseValidatorModel):
     UserSettings: Optional[UserSettingsUnion] = None
 
 
+# This class is the input for the 'update_domain' function.
 class UpdateDomainRequest(BaseValidatorModel):
     DomainId: str
     DefaultUserSettings: Optional[UserSettingsUnion] = None
@@ -10780,12 +11388,14 @@ class UpdateDomainRequest(BaseValidatorModel):
     TagPropagation: Optional[TagPropagationType] = None
 
 
+# This class is the input for the 'update_user_profile' function.
 class UpdateUserProfileRequest(BaseValidatorModel):
     DomainId: str
     UserProfileName: str
     UserSettings: Optional[UserSettingsUnion] = None
 
 
+# This class is the input for the 'create_auto_ml_job_v2' function.
 class CreateAutoMLJobV2Request(BaseValidatorModel):
     AutoMLJobName: str
     AutoMLJobInputDataConfig: List[AutoMLJobChannel]
@@ -10800,6 +11410,7 @@ class CreateAutoMLJobV2Request(BaseValidatorModel):
     AutoMLComputeConfig: Optional[AutoMLComputeConfig] = None
 
 
+# This class is the input for the 'create_endpoint' function.
 class CreateEndpointInput(BaseValidatorModel):
     EndpointName: str
     EndpointConfigName: str
@@ -10807,6 +11418,7 @@ class CreateEndpointInput(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_endpoint' function.
 class UpdateEndpointInput(BaseValidatorModel):
     EndpointName: str
     EndpointConfigName: str
@@ -10816,6 +11428,7 @@ class UpdateEndpointInput(BaseValidatorModel):
     RetainDeploymentConfig: Optional[bool] = None
 
 
+# This class is the input for the 'create_inference_recommendations_job' function.
 class CreateInferenceRecommendationsJobRequest(BaseValidatorModel):
     JobName: str
     JobType: RecommendationJobTypeType
@@ -10827,6 +11440,7 @@ class CreateInferenceRecommendationsJobRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_endpoint_config' function.
 class CreateEndpointConfigInput(BaseValidatorModel):
     EndpointConfigName: str
     ProductionVariants: List[ProductionVariant]
@@ -10841,6 +11455,7 @@ class CreateEndpointConfigInput(BaseValidatorModel):
     EnableNetworkIsolation: Optional[bool] = None
 
 
+# This class is the output for the 'get_scaling_configuration_recommendation' function.
 class GetScalingConfigurationRecommendationResponse(BaseValidatorModel):
     InferenceRecommendationsJobName: str
     RecommendationId: str
@@ -10852,6 +11467,7 @@ class GetScalingConfigurationRecommendationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_hyper_parameter_tuning_job' function.
 class DescribeHyperParameterTuningJobResponse(BaseValidatorModel):
     HyperParameterTuningJobName: str
     HyperParameterTuningJobArn: str
@@ -10918,6 +11534,7 @@ class Channel(BaseValidatorModel):
     ShuffleConfig: Optional[ShuffleConfig] = None
 
 
+# This class is the input for the 'create_model' function.
 class CreateModelInput(BaseValidatorModel):
     ModelName: str
     PrimaryContainer: Optional[ContainerDefinitionUnion] = None
@@ -10961,6 +11578,7 @@ class MonitoringScheduleConfigOutput(BaseValidatorModel):
     MonitoringType: Optional[MonitoringTypeType] = None
 
 
+# This class is the input for the 'create_data_quality_job_definition' function.
 class CreateDataQualityJobDefinitionRequest(BaseValidatorModel):
     JobDefinitionName: str
     DataQualityAppSpecification: DataQualityAppSpecificationUnion
@@ -10974,6 +11592,7 @@ class CreateDataQualityJobDefinitionRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_model_bias_job_definition' function.
 class CreateModelBiasJobDefinitionRequest(BaseValidatorModel):
     JobDefinitionName: str
     ModelBiasAppSpecification: ModelBiasAppSpecificationUnion
@@ -10987,6 +11606,7 @@ class CreateModelBiasJobDefinitionRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_model_explainability_job_definition' function.
 class CreateModelExplainabilityJobDefinitionRequest(BaseValidatorModel):
     JobDefinitionName: str
     ModelExplainabilityAppSpecification: ModelExplainabilityAppSpecificationUnion
@@ -11000,6 +11620,7 @@ class CreateModelExplainabilityJobDefinitionRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_model_quality_job_definition' function.
 class CreateModelQualityJobDefinitionRequest(BaseValidatorModel):
     JobDefinitionName: str
     ModelQualityAppSpecification: ModelQualityAppSpecificationUnion
@@ -11020,6 +11641,7 @@ class MonitoringScheduleConfig(BaseValidatorModel):
     MonitoringType: Optional[MonitoringTypeType] = None
 
 
+# This class is the input for the 'create_space' function.
 class CreateSpaceRequest(BaseValidatorModel):
     DomainId: str
     SpaceName: str
@@ -11030,6 +11652,7 @@ class CreateSpaceRequest(BaseValidatorModel):
     SpaceDisplayName: Optional[str] = None
 
 
+# This class is the input for the 'update_space' function.
 class UpdateSpaceRequest(BaseValidatorModel):
     DomainId: str
     SpaceName: str
@@ -11087,6 +11710,7 @@ class TrainingJobDefinition(BaseValidatorModel):
     HyperParameters: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'batch_describe_model_package' function.
 class BatchDescribeModelPackageOutput(BaseValidatorModel):
     ModelPackageSummaries: Dict[str, BatchDescribeModelPackageSummary]
     BatchDescribeModelPackageErrorMap: Dict[str, BatchDescribeModelPackageError]
@@ -11095,6 +11719,7 @@ class BatchDescribeModelPackageOutput(BaseValidatorModel):
 AdditionalInferenceSpecificationDefinitionUnion = Union[AdditionalInferenceSpecificationDefinition, AdditionalInferenceSpecificationDefinitionOutput]
 
 
+# This class is the output for the 'describe_monitoring_schedule' function.
 class DescribeMonitoringScheduleResponse(BaseValidatorModel):
     MonitoringScheduleArn: str
     MonitoringScheduleName: str
@@ -11140,6 +11765,7 @@ class MonitoringSchedule(BaseValidatorModel):
 MonitoringScheduleConfigUnion = Union[MonitoringScheduleConfig, MonitoringScheduleConfigOutput]
 
 
+# This class is the output for the 'describe_model_package' function.
 class DescribeModelPackageOutput(BaseValidatorModel):
     ModelPackageName: str
     ModelPackageGroupName: str
@@ -11210,6 +11836,7 @@ class ModelPackage(BaseValidatorModel):
 ModelPackageValidationSpecificationUnion = Union[ModelPackageValidationSpecification, ModelPackageValidationSpecificationOutput]
 
 
+# This class is the output for the 'describe_algorithm' function.
 class DescribeAlgorithmOutput(BaseValidatorModel):
     AlgorithmName: str
     AlgorithmArn: str
@@ -11225,6 +11852,7 @@ class DescribeAlgorithmOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_training_job' function.
 class CreateTrainingJobRequest(BaseValidatorModel):
     TrainingJobName: str
     AlgorithmSpecification: AlgorithmSpecificationUnion
@@ -11280,6 +11908,7 @@ class AlgorithmValidationProfile(BaseValidatorModel):
     TransformJobDefinition: Optional[TransformJobDefinition] = None
 
 
+# This class is the input for the 'update_model_package' function.
 class UpdateModelPackageInput(BaseValidatorModel):
     ModelPackageArn: str
     ModelApprovalStatus: Optional[ModelApprovalStatusType] = None
@@ -11317,17 +11946,20 @@ class Endpoint(BaseValidatorModel):
     ShadowProductionVariants: Optional[List[ProductionVariantSummary]] = None
 
 
+# This class is the input for the 'create_monitoring_schedule' function.
 class CreateMonitoringScheduleRequest(BaseValidatorModel):
     MonitoringScheduleName: str
     MonitoringScheduleConfig: MonitoringScheduleConfigUnion
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_monitoring_schedule' function.
 class UpdateMonitoringScheduleRequest(BaseValidatorModel):
     MonitoringScheduleName: str
     MonitoringScheduleConfig: MonitoringScheduleConfigUnion
 
 
+# This class is the input for the 'create_model_package' function.
 class CreateModelPackageInput(BaseValidatorModel):
     ModelPackageName: Optional[str] = None
     ModelPackageGroupName: Optional[str] = None
@@ -11379,6 +12011,7 @@ class SearchRecord(BaseValidatorModel):
     Model: Optional[ModelDashboardModel] = None
 
 
+# This class is the input for the 'create_hyper_parameter_tuning_job' function.
 class CreateHyperParameterTuningJobRequest(BaseValidatorModel):
     HyperParameterTuningJobName: str
     HyperParameterTuningJobConfig: HyperParameterTuningJobConfigUnion
@@ -11391,12 +12024,14 @@ class CreateHyperParameterTuningJobRequest(BaseValidatorModel):
 AlgorithmValidationSpecificationUnion = Union[AlgorithmValidationSpecification, AlgorithmValidationSpecificationOutput]
 
 
+# This class is the output for the 'search' function.
 class SearchResponse(BaseValidatorModel):
     Results: List[SearchRecord]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_algorithm' function.
 class CreateAlgorithmInput(BaseValidatorModel):
     AlgorithmName: str
     TrainingSpecification: TrainingSpecificationUnion

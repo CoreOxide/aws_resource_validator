@@ -40,6 +40,7 @@ class Job(BaseValidatorModel):
     JobId: Optional[str] = None
 
 
+# This class is the input for the 'create_package' function.
 class CreatePackageRequest(BaseValidatorModel):
     PackageName: str
     Tags: Optional[Dict[str, str]] = None
@@ -53,6 +54,7 @@ class StorageLocation(BaseValidatorModel):
     RepoPrefixLocation: str
 
 
+# This class is the input for the 'delete_device' function.
 class DeleteDeviceRequest(BaseValidatorModel):
     DeviceId: str
 
@@ -70,18 +72,22 @@ class DeregisterPackageVersionRequest(BaseValidatorModel):
     UpdatedLatestPatchVersion: Optional[str] = None
 
 
+# This class is the input for the 'describe_application_instance_details' function.
 class DescribeApplicationInstanceDetailsRequest(BaseValidatorModel):
     ApplicationInstanceId: str
 
 
+# This class is the input for the 'describe_application_instance' function.
 class DescribeApplicationInstanceRequest(BaseValidatorModel):
     ApplicationInstanceId: str
 
 
+# This class is the input for the 'describe_device_job' function.
 class DescribeDeviceJobRequest(BaseValidatorModel):
     JobId: str
 
 
+# This class is the input for the 'describe_device' function.
 class DescribeDeviceRequest(BaseValidatorModel):
     DeviceId: str
 
@@ -92,6 +98,7 @@ class LatestDeviceJob(BaseValidatorModel):
     Status: Optional[UpdateProgressType] = None
 
 
+# This class is the input for the 'describe_node_from_template_job' function.
 class DescribeNodeFromTemplateJobRequest(BaseValidatorModel):
     JobId: str
 
@@ -101,19 +108,23 @@ class JobResourceTagsOutput(BaseValidatorModel):
     Tags: Dict[str, str]
 
 
+# This class is the input for the 'describe_node' function.
 class DescribeNodeRequest(BaseValidatorModel):
     NodeId: str
     OwnerAccount: Optional[str] = None
 
 
+# This class is the input for the 'describe_package_import_job' function.
 class DescribePackageImportJobRequest(BaseValidatorModel):
     JobId: str
 
 
+# This class is the input for the 'describe_package' function.
 class DescribePackageRequest(BaseValidatorModel):
     PackageId: str
 
 
+# This class is the input for the 'describe_package_version' function.
 class DescribePackageVersionRequest(BaseValidatorModel):
     PackageId: str
     PackageVersion: str
@@ -159,6 +170,7 @@ class JobResourceTags(BaseValidatorModel):
     Tags: Dict[str, str]
 
 
+# This class is the input for the 'list_application_instance_dependencies' function.
 class ListApplicationInstanceDependenciesRequest(BaseValidatorModel):
     ApplicationInstanceId: str
     MaxResults: Optional[int] = None
@@ -171,6 +183,7 @@ class PackageObject(BaseValidatorModel):
     PatchVersion: str
 
 
+# This class is the input for the 'list_application_instance_node_instances' function.
 class ListApplicationInstanceNodeInstancesRequest(BaseValidatorModel):
     ApplicationInstanceId: str
     MaxResults: Optional[int] = None
@@ -187,6 +200,7 @@ class NodeInstance(BaseValidatorModel):
     PackageVersion: Optional[str] = None
 
 
+# This class is the input for the 'list_application_instances' function.
 class ListApplicationInstancesRequest(BaseValidatorModel):
     DeviceId: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -194,12 +208,14 @@ class ListApplicationInstancesRequest(BaseValidatorModel):
     StatusFilter: Optional[StatusFilterType] = None
 
 
+# This class is the input for the 'list_devices_jobs' function.
 class ListDevicesJobsRequest(BaseValidatorModel):
     DeviceId: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_devices' function.
 class ListDevicesRequest(BaseValidatorModel):
     DeviceAggregatedStatusFilter: Optional[DeviceAggregatedStatusType] = None
     MaxResults: Optional[int] = None
@@ -209,6 +225,7 @@ class ListDevicesRequest(BaseValidatorModel):
     SortOrder: Optional[SortOrderType] = None
 
 
+# This class is the input for the 'list_node_from_template_jobs' function.
 class ListNodeFromTemplateJobsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -223,6 +240,7 @@ class NodeFromTemplateJob(BaseValidatorModel):
     TemplateType: Optional[Literal['RTSP_CAMERA_STREAM']] = None
 
 
+# This class is the input for the 'list_nodes' function.
 class ListNodesRequest(BaseValidatorModel):
     Category: Optional[NodeCategoryType] = None
     MaxResults: Optional[int] = None
@@ -247,6 +265,7 @@ class Node(BaseValidatorModel):
     PackageArn: Optional[str] = None
 
 
+# This class is the input for the 'list_package_import_jobs' function.
 class ListPackageImportJobsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -261,6 +280,7 @@ class PackageImportJob(BaseValidatorModel):
     StatusMessage: Optional[str] = None
 
 
+# This class is the input for the 'list_packages' function.
 class ListPackagesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -274,6 +294,7 @@ class PackageListItem(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -350,6 +371,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_device_metadata' function.
 class UpdateDeviceMetadataRequest(BaseValidatorModel):
     DeviceId: str
     Description: Optional[str] = None
@@ -370,6 +392,7 @@ class ApplicationInstance(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_application_instance' function.
 class CreateApplicationInstanceRequest(BaseValidatorModel):
     DefaultRuntimeContextDevice: str
     ManifestPayload: ManifestPayload
@@ -381,26 +404,31 @@ class CreateApplicationInstanceRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_application_instance' function.
 class CreateApplicationInstanceResponse(BaseValidatorModel):
     ApplicationInstanceId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_node_from_template_job' function.
 class CreateNodeFromTemplateJobResponse(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_package_import_job' function.
 class CreatePackageImportJobResponse(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_device' function.
 class DeleteDeviceResponse(BaseValidatorModel):
     DeviceId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_application_instance_details' function.
 class DescribeApplicationInstanceDetailsResponse(BaseValidatorModel):
     ApplicationInstanceId: str
     ApplicationInstanceIdToReplace: str
@@ -413,6 +441,7 @@ class DescribeApplicationInstanceDetailsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_application_instance' function.
 class DescribeApplicationInstanceResponse(BaseValidatorModel):
     ApplicationInstanceId: str
     ApplicationInstanceIdToReplace: str
@@ -432,6 +461,7 @@ class DescribeApplicationInstanceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_device_job' function.
 class DescribeDeviceJobResponse(BaseValidatorModel):
     CreatedTime: datetime
     DeviceArn: str
@@ -445,6 +475,7 @@ class DescribeDeviceJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_package_version' function.
 class DescribePackageVersionResponse(BaseValidatorModel):
     IsLatestPatch: bool
     OwnerAccount: str
@@ -459,11 +490,13 @@ class DescribePackageVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'provision_device' function.
 class ProvisionDeviceResponse(BaseValidatorModel):
     Arn: str
     Certificates: bytes
@@ -473,21 +506,25 @@ class ProvisionDeviceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'signal_application_instance_node_instances' function.
 class SignalApplicationInstanceNodeInstancesResponse(BaseValidatorModel):
     ApplicationInstanceId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_device_metadata' function.
 class UpdateDeviceMetadataResponse(BaseValidatorModel):
     DeviceId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_job_for_devices' function.
 class CreateJobForDevicesResponse(BaseValidatorModel):
     Jobs: List[Job]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_package' function.
 class CreatePackageResponse(BaseValidatorModel):
     Arn: str
     PackageId: str
@@ -495,6 +532,7 @@ class CreatePackageResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_package' function.
 class DescribePackageResponse(BaseValidatorModel):
     Arn: str
     CreatedTime: datetime
@@ -523,6 +561,7 @@ class Device(BaseValidatorModel):
     Type: Optional[DeviceTypeType] = None
 
 
+# This class is the output for the 'describe_node_from_template_job' function.
 class DescribeNodeFromTemplateJobResponse(BaseValidatorModel):
     CreatedTime: datetime
     JobId: str
@@ -543,6 +582,7 @@ class DeviceJobConfig(BaseValidatorModel):
     OTAJobConfig: Optional[OTAJobConfig] = None
 
 
+# This class is the output for the 'list_devices_jobs' function.
 class ListDevicesJobsResponse(BaseValidatorModel):
     DeviceJobs: List[DeviceJob]
     ResponseMetadata: ResponseMetadata
@@ -561,36 +601,42 @@ class EthernetPayload(BaseValidatorModel):
 JobResourceTagsUnion = Union[JobResourceTags, JobResourceTagsOutput]
 
 
+# This class is the output for the 'list_application_instance_dependencies' function.
 class ListApplicationInstanceDependenciesResponse(BaseValidatorModel):
     PackageObjects: List[PackageObject]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_application_instance_node_instances' function.
 class ListApplicationInstanceNodeInstancesResponse(BaseValidatorModel):
     NodeInstances: List[NodeInstance]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_node_from_template_jobs' function.
 class ListNodeFromTemplateJobsResponse(BaseValidatorModel):
     NodeFromTemplateJobs: List[NodeFromTemplateJob]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_nodes' function.
 class ListNodesResponse(BaseValidatorModel):
     Nodes: List[Node]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_package_import_jobs' function.
 class ListPackageImportJobsResponse(BaseValidatorModel):
     PackageImportJobs: List[PackageImportJob]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_packages' function.
 class ListPackagesResponse(BaseValidatorModel):
     Packages: List[PackageListItem]
     ResponseMetadata: ResponseMetadata
@@ -609,6 +655,7 @@ class NodeInterface(BaseValidatorModel):
     Outputs: List[NodeOutputPort]
 
 
+# This class is the input for the 'signal_application_instance_node_instances' function.
 class SignalApplicationInstanceNodeInstancesRequest(BaseValidatorModel):
     ApplicationInstanceId: str
     NodeSignals: List[NodeSignal]
@@ -629,18 +676,21 @@ class PackageVersionInputConfig(BaseValidatorModel):
     S3Location: S3Location
 
 
+# This class is the output for the 'list_application_instances' function.
 class ListApplicationInstancesResponse(BaseValidatorModel):
     ApplicationInstances: List[ApplicationInstance]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_devices' function.
 class ListDevicesResponse(BaseValidatorModel):
     Devices: List[Device]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_job_for_devices' function.
 class CreateJobForDevicesRequest(BaseValidatorModel):
     DeviceIds: List[str]
     JobType: JobTypeType
@@ -659,6 +709,7 @@ class NetworkPayload(BaseValidatorModel):
     Ntp: Optional[NtpPayload] = None
 
 
+# This class is the input for the 'create_node_from_template_job' function.
 class CreateNodeFromTemplateJobRequest(BaseValidatorModel):
     NodeName: str
     OutputPackageName: str
@@ -669,6 +720,7 @@ class CreateNodeFromTemplateJobRequest(BaseValidatorModel):
     NodeDescription: Optional[str] = None
 
 
+# This class is the output for the 'describe_node' function.
 class DescribeNodeResponse(BaseValidatorModel):
     AssetName: str
     Category: NodeCategoryType
@@ -691,6 +743,7 @@ class PackageImportJobInputConfig(BaseValidatorModel):
     PackageVersionInputConfig: Optional[PackageVersionInputConfig] = None
 
 
+# This class is the output for the 'describe_device' function.
 class DescribeDeviceResponse(BaseValidatorModel):
     AlternateSoftwares: List[AlternateSoftwareMetadata]
     Arn: str
@@ -717,6 +770,7 @@ class DescribeDeviceResponse(BaseValidatorModel):
 NetworkPayloadUnion = Union[NetworkPayload, NetworkPayloadOutput]
 
 
+# This class is the input for the 'create_package_import_job' function.
 class CreatePackageImportJobRequest(BaseValidatorModel):
     ClientToken: str
     InputConfig: PackageImportJobInputConfig
@@ -725,6 +779,7 @@ class CreatePackageImportJobRequest(BaseValidatorModel):
     JobTags: Optional[List[JobResourceTagsUnion]] = None
 
 
+# This class is the output for the 'describe_package_import_job' function.
 class DescribePackageImportJobResponse(BaseValidatorModel):
     ClientToken: str
     CreatedTime: datetime
@@ -740,6 +795,7 @@ class DescribePackageImportJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'provision_device' function.
 class ProvisionDeviceRequest(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None

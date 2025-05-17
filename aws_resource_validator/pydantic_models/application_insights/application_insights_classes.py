@@ -68,6 +68,7 @@ class CreateComponentRequest(BaseValidatorModel):
     ResourceList: List[str]
 
 
+# This class is the input for the 'create_log_pattern' function.
 class CreateLogPatternRequest(BaseValidatorModel):
     ResourceGroupName: str
     PatternSetName: str
@@ -98,11 +99,13 @@ class DeleteLogPatternRequest(BaseValidatorModel):
     PatternName: str
 
 
+# This class is the input for the 'describe_application' function.
 class DescribeApplicationRequest(BaseValidatorModel):
     ResourceGroupName: str
     AccountId: Optional[str] = None
 
 
+# This class is the input for the 'describe_component_configuration_recommendation' function.
 class DescribeComponentConfigurationRecommendationRequest(BaseValidatorModel):
     ResourceGroupName: str
     ComponentName: str
@@ -111,18 +114,21 @@ class DescribeComponentConfigurationRecommendationRequest(BaseValidatorModel):
     RecommendationType: Optional[RecommendationTypeType] = None
 
 
+# This class is the input for the 'describe_component_configuration' function.
 class DescribeComponentConfigurationRequest(BaseValidatorModel):
     ResourceGroupName: str
     ComponentName: str
     AccountId: Optional[str] = None
 
 
+# This class is the input for the 'describe_component' function.
 class DescribeComponentRequest(BaseValidatorModel):
     ResourceGroupName: str
     ComponentName: str
     AccountId: Optional[str] = None
 
 
+# This class is the input for the 'describe_log_pattern' function.
 class DescribeLogPatternRequest(BaseValidatorModel):
     ResourceGroupName: str
     PatternSetName: str
@@ -130,6 +136,7 @@ class DescribeLogPatternRequest(BaseValidatorModel):
     AccountId: Optional[str] = None
 
 
+# This class is the input for the 'describe_observation' function.
 class DescribeObservationRequest(BaseValidatorModel):
     ObservationId: str
     AccountId: Optional[str] = None
@@ -183,11 +190,13 @@ class Observation(BaseValidatorModel):
     XRayNodeType: Optional[str] = None
 
 
+# This class is the input for the 'describe_problem_observations' function.
 class DescribeProblemObservationsRequest(BaseValidatorModel):
     ProblemId: str
     AccountId: Optional[str] = None
 
 
+# This class is the input for the 'describe_problem' function.
 class DescribeProblemRequest(BaseValidatorModel):
     ProblemId: str
     AccountId: Optional[str] = None
@@ -212,6 +221,7 @@ class Problem(BaseValidatorModel):
     ResolutionMethod: Optional[ResolutionMethodType] = None
 
 
+# This class is the input for the 'describe_workload' function.
 class DescribeWorkloadRequest(BaseValidatorModel):
     ResourceGroupName: str
     ComponentName: str
@@ -219,12 +229,14 @@ class DescribeWorkloadRequest(BaseValidatorModel):
     AccountId: Optional[str] = None
 
 
+# This class is the input for the 'list_applications' function.
 class ListApplicationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     AccountId: Optional[str] = None
 
 
+# This class is the input for the 'list_components' function.
 class ListComponentsRequest(BaseValidatorModel):
     ResourceGroupName: str
     MaxResults: Optional[int] = None
@@ -234,6 +246,7 @@ class ListComponentsRequest(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'list_log_pattern_sets' function.
 class ListLogPatternSetsRequest(BaseValidatorModel):
     ResourceGroupName: str
     MaxResults: Optional[int] = None
@@ -241,6 +254,7 @@ class ListLogPatternSetsRequest(BaseValidatorModel):
     AccountId: Optional[str] = None
 
 
+# This class is the input for the 'list_log_patterns' function.
 class ListLogPatternsRequest(BaseValidatorModel):
     ResourceGroupName: str
     PatternSetName: Optional[str] = None
@@ -249,10 +263,12 @@ class ListLogPatternsRequest(BaseValidatorModel):
     AccountId: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
 
+# This class is the input for the 'list_workloads' function.
 class ListWorkloadsRequest(BaseValidatorModel):
     ResourceGroupName: str
     ComponentName: str
@@ -281,6 +297,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_application' function.
 class UpdateApplicationRequest(BaseValidatorModel):
     ResourceGroupName: str
     OpsCenterEnabled: Optional[bool] = None
@@ -308,6 +325,7 @@ class UpdateComponentRequest(BaseValidatorModel):
     ResourceList: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_log_pattern' function.
 class UpdateLogPatternRequest(BaseValidatorModel):
     ResourceGroupName: str
     PatternSetName: str
@@ -322,12 +340,14 @@ class UpdateProblemRequest(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
 
 
+# This class is the input for the 'add_workload' function.
 class AddWorkloadRequest(BaseValidatorModel):
     ResourceGroupName: str
     ComponentName: str
     WorkloadConfiguration: WorkloadConfiguration
 
 
+# This class is the input for the 'update_workload' function.
 class UpdateWorkloadRequest(BaseValidatorModel):
     ResourceGroupName: str
     ComponentName: str
@@ -335,17 +355,20 @@ class UpdateWorkloadRequest(BaseValidatorModel):
     WorkloadId: Optional[str] = None
 
 
+# This class is the output for the 'add_workload' function.
 class AddWorkloadResponse(BaseValidatorModel):
     WorkloadId: str
     WorkloadConfiguration: WorkloadConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_component_configuration_recommendation' function.
 class DescribeComponentConfigurationRecommendationResponse(BaseValidatorModel):
     ComponentConfiguration: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_component_configuration' function.
 class DescribeComponentConfigurationResponse(BaseValidatorModel):
     Monitor: bool
     Tier: TierType
@@ -353,6 +376,7 @@ class DescribeComponentConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_workload' function.
 class DescribeWorkloadResponse(BaseValidatorModel):
     WorkloadId: str
     WorkloadRemarks: str
@@ -360,6 +384,7 @@ class DescribeWorkloadResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_log_pattern_sets' function.
 class ListLogPatternSetsResponse(BaseValidatorModel):
     ResourceGroupName: str
     AccountId: str
@@ -368,51 +393,60 @@ class ListLogPatternSetsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_workload' function.
 class UpdateWorkloadResponse(BaseValidatorModel):
     WorkloadId: str
     WorkloadConfiguration: WorkloadConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_component' function.
 class DescribeComponentResponse(BaseValidatorModel):
     ApplicationComponent: ApplicationComponent
     ResourceList: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_components' function.
 class ListComponentsResponse(BaseValidatorModel):
     ApplicationComponentList: List[ApplicationComponent]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_application' function.
 class CreateApplicationResponse(BaseValidatorModel):
     ApplicationInfo: ApplicationInfo
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_application' function.
 class DescribeApplicationResponse(BaseValidatorModel):
     ApplicationInfo: ApplicationInfo
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_applications' function.
 class ListApplicationsResponse(BaseValidatorModel):
     ApplicationInfoList: List[ApplicationInfo]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_application' function.
 class UpdateApplicationResponse(BaseValidatorModel):
     ApplicationInfo: ApplicationInfo
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_configuration_history' function.
 class ListConfigurationHistoryResponse(BaseValidatorModel):
     EventList: List[ConfigurationEvent]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_application' function.
 class CreateApplicationRequest(BaseValidatorModel):
     ResourceGroupName: Optional[str] = None
     OpsCenterEnabled: Optional[bool] = None
@@ -426,6 +460,7 @@ class CreateApplicationRequest(BaseValidatorModel):
     AttachMissingPermission: Optional[bool] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -436,12 +471,14 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the output for the 'create_log_pattern' function.
 class CreateLogPatternResponse(BaseValidatorModel):
     LogPattern: LogPattern
     ResourceGroupName: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_log_pattern' function.
 class DescribeLogPatternResponse(BaseValidatorModel):
     ResourceGroupName: str
     AccountId: str
@@ -449,6 +486,7 @@ class DescribeLogPatternResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_log_patterns' function.
 class ListLogPatternsResponse(BaseValidatorModel):
     ResourceGroupName: str
     AccountId: str
@@ -457,12 +495,14 @@ class ListLogPatternsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_log_pattern' function.
 class UpdateLogPatternResponse(BaseValidatorModel):
     ResourceGroupName: str
     LogPattern: LogPattern
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_observation' function.
 class DescribeObservationResponse(BaseValidatorModel):
     Observation: Observation
     ResponseMetadata: ResponseMetadata
@@ -472,12 +512,14 @@ class RelatedObservations(BaseValidatorModel):
     ObservationList: Optional[List[Observation]] = None
 
 
+# This class is the output for the 'describe_problem' function.
 class DescribeProblemResponse(BaseValidatorModel):
     Problem: Problem
     SNSNotificationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_problems' function.
 class ListProblemsResponse(BaseValidatorModel):
     ProblemList: List[Problem]
     ResourceGroupName: str
@@ -486,6 +528,7 @@ class ListProblemsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_configuration_history' function.
 class ListConfigurationHistoryRequest(BaseValidatorModel):
     ResourceGroupName: Optional[str] = None
     StartTime: Optional[Timestamp] = None
@@ -496,6 +539,7 @@ class ListConfigurationHistoryRequest(BaseValidatorModel):
     AccountId: Optional[str] = None
 
 
+# This class is the input for the 'list_problems' function.
 class ListProblemsRequest(BaseValidatorModel):
     AccountId: Optional[str] = None
     ResourceGroupName: Optional[str] = None
@@ -507,12 +551,14 @@ class ListProblemsRequest(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
 
 
+# This class is the output for the 'list_workloads' function.
 class ListWorkloadsResponse(BaseValidatorModel):
     WorkloadList: List[Workload]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_problem_observations' function.
 class DescribeProblemObservationsResponse(BaseValidatorModel):
     RelatedObservations: RelatedObservations
     ResponseMetadata: ResponseMetadata

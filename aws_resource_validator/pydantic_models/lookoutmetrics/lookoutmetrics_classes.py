@@ -170,10 +170,12 @@ class DeleteAnomalyDetectorRequest(BaseValidatorModel):
     AnomalyDetectorArn: str
 
 
+# This class is the input for the 'describe_alert' function.
 class DescribeAlertRequest(BaseValidatorModel):
     AlertArn: str
 
 
+# This class is the input for the 'describe_anomaly_detection_executions' function.
 class DescribeAnomalyDetectionExecutionsRequest(BaseValidatorModel):
     AnomalyDetectorArn: str
     Timestamp: Optional[str] = None
@@ -187,10 +189,12 @@ class ExecutionStatus(BaseValidatorModel):
     FailureReason: Optional[str] = None
 
 
+# This class is the input for the 'describe_anomaly_detector' function.
 class DescribeAnomalyDetectorRequest(BaseValidatorModel):
     AnomalyDetectorArn: str
 
 
+# This class is the input for the 'describe_metric_set' function.
 class DescribeMetricSetRequest(BaseValidatorModel):
     MetricSetArn: str
 
@@ -215,11 +219,13 @@ class Filter(BaseValidatorModel):
     FilterOperation: Optional[Literal['EQUALS']] = None
 
 
+# This class is the input for the 'get_anomaly_group' function.
 class GetAnomalyGroupRequest(BaseValidatorModel):
     AnomalyGroupId: str
     AnomalyDetectorArn: str
 
 
+# This class is the input for the 'get_data_quality_metrics' function.
 class GetDataQualityMetricsRequest(BaseValidatorModel):
     AnomalyDetectorArn: str
     MetricSetArn: Optional[str] = None
@@ -237,17 +243,20 @@ class InterMetricImpactDetails(BaseValidatorModel):
     ContributionPercentage: Optional[float] = None
 
 
+# This class is the input for the 'list_alerts' function.
 class ListAlertsRequest(BaseValidatorModel):
     AnomalyDetectorArn: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_anomaly_detectors' function.
 class ListAnomalyDetectorsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_anomaly_group_related_metrics' function.
 class ListAnomalyGroupRelatedMetricsRequest(BaseValidatorModel):
     AnomalyDetectorArn: str
     AnomalyGroupId: str
@@ -256,6 +265,7 @@ class ListAnomalyGroupRelatedMetricsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_anomaly_group_summaries' function.
 class ListAnomalyGroupSummariesRequest(BaseValidatorModel):
     AnomalyDetectorArn: str
     SensitivityThreshold: int
@@ -263,6 +273,7 @@ class ListAnomalyGroupSummariesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_anomaly_group_time_series' function.
 class ListAnomalyGroupTimeSeriesRequest(BaseValidatorModel):
     AnomalyDetectorArn: str
     AnomalyGroupId: str
@@ -271,6 +282,7 @@ class ListAnomalyGroupTimeSeriesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_metric_sets' function.
 class ListMetricSetsRequest(BaseValidatorModel):
     AnomalyDetectorArn: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -287,6 +299,7 @@ class MetricSetSummary(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -326,6 +339,7 @@ class AlertFilters(BaseValidatorModel):
     DimensionFilterList: Optional[List[DimensionFilter]] = None
 
 
+# This class is the input for the 'create_anomaly_detector' function.
 class CreateAnomalyDetectorRequest(BaseValidatorModel):
     AnomalyDetectorName: str
     AnomalyDetectorConfig: AnomalyDetectorConfig
@@ -334,6 +348,7 @@ class CreateAnomalyDetectorRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_anomaly_detector' function.
 class UpdateAnomalyDetectorRequest(BaseValidatorModel):
     AnomalyDetectorArn: str
     KmsKeyArn: Optional[str] = None
@@ -352,6 +367,7 @@ class PutFeedbackRequest(BaseValidatorModel):
     AnomalyGroupTimeSeriesFeedback: AnomalyGroupTimeSeriesFeedback
 
 
+# This class is the input for the 'get_feedback' function.
 class GetFeedbackRequest(BaseValidatorModel):
     AnomalyDetectorArn: str
     AnomalyGroupTimeSeriesFeedback: AnomalyGroupTimeSeries
@@ -384,21 +400,25 @@ class AutoDetectionMetricSource(BaseValidatorModel):
     S3SourceConfig: Optional[AutoDetectionS3SourceConfig] = None
 
 
+# This class is the output for the 'create_alert' function.
 class CreateAlertResponse(BaseValidatorModel):
     AlertArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_anomaly_detector' function.
 class CreateAnomalyDetectorResponse(BaseValidatorModel):
     AnomalyDetectorArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_metric_set' function.
 class CreateMetricSetResponse(BaseValidatorModel):
     MetricSetArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_anomaly_detector' function.
 class DescribeAnomalyDetectorResponse(BaseValidatorModel):
     AnomalyDetectorArn: str
     AnomalyDetectorName: str
@@ -413,39 +433,46 @@ class DescribeAnomalyDetectorResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_sample_data' function.
 class GetSampleDataResponse(BaseValidatorModel):
     HeaderValues: List[str]
     SampleRows: List[List[str]]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_alerts' function.
 class ListAlertsResponse(BaseValidatorModel):
     AlertSummaryList: List[AlertSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_anomaly_detectors' function.
 class ListAnomalyDetectorsResponse(BaseValidatorModel):
     AnomalyDetectorSummaryList: List[AnomalyDetectorSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_alert' function.
 class UpdateAlertResponse(BaseValidatorModel):
     AlertArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_anomaly_detector' function.
 class UpdateAnomalyDetectorResponse(BaseValidatorModel):
     AnomalyDetectorArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_metric_set' function.
 class UpdateMetricSetResponse(BaseValidatorModel):
     MetricSetArn: str
     ResponseMetadata: ResponseMetadata
@@ -458,6 +485,7 @@ class MetricSetDataQualityMetric(BaseValidatorModel):
     DataQualityMetricList: Optional[List[DataQualityMetric]] = None
 
 
+# This class is the output for the 'describe_anomaly_detection_executions' function.
 class DescribeAnomalyDetectionExecutionsResponse(BaseValidatorModel):
     ExecutionList: List[ExecutionStatus]
     ResponseMetadata: ResponseMetadata
@@ -490,18 +518,21 @@ class MetricSetDimensionFilter(BaseValidatorModel):
     FilterList: Optional[List[Filter]] = None
 
 
+# This class is the output for the 'get_feedback' function.
 class GetFeedbackResponse(BaseValidatorModel):
     AnomalyGroupTimeSeriesFeedback: List[TimeSeriesFeedback]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_anomaly_group_related_metrics' function.
 class ListAnomalyGroupRelatedMetricsResponse(BaseValidatorModel):
     InterMetricImpactList: List[InterMetricImpactDetails]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_metric_sets' function.
 class ListMetricSetsResponse(BaseValidatorModel):
     MetricSetSummaryList: List[MetricSetSummary]
     ResponseMetadata: ResponseMetadata
@@ -568,6 +599,7 @@ class Alert(BaseValidatorModel):
 AlertFiltersUnion = Union[AlertFilters, AlertFiltersOutput]
 
 
+# This class is the output for the 'list_anomaly_group_summaries' function.
 class ListAnomalyGroupSummariesResponse(BaseValidatorModel):
     AnomalyGroupSummaryList: List[AnomalyGroupSummary]
     AnomalyGroupStatistics: AnomalyGroupStatistics
@@ -589,6 +621,7 @@ class DetectedJsonFormatDescriptor(BaseValidatorModel):
     Charset: Optional[DetectedField] = None
 
 
+# This class is the input for the 'detect_metric_set_config' function.
 class DetectMetricSetConfigRequest(BaseValidatorModel):
     AnomalyDetectorArn: str
     AutoDetectionMetricSource: AutoDetectionMetricSource
@@ -608,6 +641,7 @@ class ContributionMatrix(BaseValidatorModel):
     DimensionContributionList: Optional[List[DimensionContribution]] = None
 
 
+# This class is the output for the 'list_anomaly_group_time_series' function.
 class ListAnomalyGroupTimeSeriesResponse(BaseValidatorModel):
     AnomalyGroupId: str
     MetricName: str
@@ -626,11 +660,13 @@ class S3SourceConfigOutput(BaseValidatorModel):
 MetricSetDimensionFilterUnion = Union[MetricSetDimensionFilter, MetricSetDimensionFilterOutput]
 
 
+# This class is the output for the 'describe_alert' function.
 class DescribeAlertResponse(BaseValidatorModel):
     Alert: Alert
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_alert' function.
 class CreateAlertRequest(BaseValidatorModel):
     AlertName: str
     AnomalyDetectorArn: str
@@ -641,6 +677,7 @@ class CreateAlertRequest(BaseValidatorModel):
     AlertFilters: Optional[AlertFiltersUnion] = None
 
 
+# This class is the input for the 'update_alert' function.
 class UpdateAlertRequest(BaseValidatorModel):
     AlertArn: str
     AlertDescription: Optional[str] = None
@@ -663,6 +700,7 @@ class S3SourceConfig(BaseValidatorModel):
     FileFormatDescriptor: Optional[FileFormatDescriptor] = None
 
 
+# This class is the output for the 'get_data_quality_metrics' function.
 class GetDataQualityMetricsResponse(BaseValidatorModel):
     AnomalyDetectorDataQualityMetricList: List[AnomalyDetectorDataQualityMetric]
     ResponseMetadata: ResponseMetadata
@@ -712,6 +750,7 @@ class AnomalyGroup(BaseValidatorModel):
     MetricLevelImpactList: Optional[List[MetricLevelImpact]] = None
 
 
+# This class is the output for the 'describe_metric_set' function.
 class DescribeMetricSetResponse(BaseValidatorModel):
     MetricSetArn: str
     AnomalyDetectorArn: str
@@ -734,12 +773,14 @@ class DetectedMetricSource(BaseValidatorModel):
     S3SourceConfig: Optional[DetectedS3SourceConfig] = None
 
 
+# This class is the input for the 'get_sample_data' function.
 class GetSampleDataRequest(BaseValidatorModel):
     S3SourceConfig: Optional[SampleDataS3SourceConfig] = None
 
 MetricSourceUnion = Union[MetricSource, MetricSourceOutput]
 
 
+# This class is the output for the 'get_anomaly_group' function.
 class GetAnomalyGroupResponse(BaseValidatorModel):
     AnomalyGroup: AnomalyGroup
     ResponseMetadata: ResponseMetadata
@@ -751,6 +792,7 @@ class DetectedMetricSetConfig(BaseValidatorModel):
     MetricSource: Optional[DetectedMetricSource] = None
 
 
+# This class is the input for the 'create_metric_set' function.
 class CreateMetricSetRequest(BaseValidatorModel):
     AnomalyDetectorArn: str
     MetricSetName: str
@@ -766,6 +808,7 @@ class CreateMetricSetRequest(BaseValidatorModel):
     DimensionFilterList: Optional[List[MetricSetDimensionFilterUnion]] = None
 
 
+# This class is the input for the 'update_metric_set' function.
 class UpdateMetricSetRequest(BaseValidatorModel):
     MetricSetArn: str
     MetricSetDescription: Optional[str] = None
@@ -778,6 +821,7 @@ class UpdateMetricSetRequest(BaseValidatorModel):
     DimensionFilterList: Optional[List[MetricSetDimensionFilterUnion]] = None
 
 
+# This class is the output for the 'detect_metric_set_config' function.
 class DetectMetricSetConfigResponse(BaseValidatorModel):
     DetectedMetricSetConfig: DetectedMetricSetConfig
     ResponseMetadata: ResponseMetadata

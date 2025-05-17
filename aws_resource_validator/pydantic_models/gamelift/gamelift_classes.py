@@ -231,6 +231,7 @@ class MatchmakingRuleSet(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
 
 
+# This class is the input for the 'create_player_session' function.
 class CreatePlayerSessionInput(BaseValidatorModel):
     GameSessionId: str
     PlayerId: str
@@ -252,12 +253,14 @@ class PlayerSession(BaseValidatorModel):
     PlayerData: Optional[str] = None
 
 
+# This class is the input for the 'create_player_sessions' function.
 class CreatePlayerSessionsInput(BaseValidatorModel):
     GameSessionId: str
     PlayerIds: List[str]
     PlayerDataMap: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_vpc_peering_authorization' function.
 class CreateVpcPeeringAuthorizationInput(BaseValidatorModel):
     GameLiftAwsAccountId: str
     PeerVpcId: str
@@ -277,10 +280,12 @@ class CreateVpcPeeringConnectionInput(BaseValidatorModel):
     PeerVpcId: str
 
 
+# This class is the input for the 'delete_alias' function.
 class DeleteAliasInput(BaseValidatorModel):
     AliasId: str
 
 
+# This class is the input for the 'delete_build' function.
 class DeleteBuildInput(BaseValidatorModel):
     BuildId: str
 
@@ -295,15 +300,18 @@ class DeleteContainerGroupDefinitionInput(BaseValidatorModel):
     VersionCountToRetain: Optional[int] = None
 
 
+# This class is the input for the 'delete_fleet' function.
 class DeleteFleetInput(BaseValidatorModel):
     FleetId: str
 
 
+# This class is the input for the 'delete_fleet_locations' function.
 class DeleteFleetLocationsInput(BaseValidatorModel):
     FleetId: str
     Locations: List[str]
 
 
+# This class is the input for the 'delete_game_server_group' function.
 class DeleteGameServerGroupInput(BaseValidatorModel):
     GameServerGroupName: str
     DeleteOption: Optional[GameServerGroupDeleteOptionType] = None
@@ -325,11 +333,13 @@ class DeleteMatchmakingRuleSetInput(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'delete_scaling_policy' function.
 class DeleteScalingPolicyInput(BaseValidatorModel):
     Name: str
     FleetId: str
 
 
+# This class is the input for the 'delete_script' function.
 class DeleteScriptInput(BaseValidatorModel):
     ScriptId: str
 
@@ -355,33 +365,40 @@ class DeregisterComputeInput(BaseValidatorModel):
     ComputeName: str
 
 
+# This class is the input for the 'deregister_game_server' function.
 class DeregisterGameServerInput(BaseValidatorModel):
     GameServerGroupName: str
     GameServerId: str
 
 
+# This class is the input for the 'describe_alias' function.
 class DescribeAliasInput(BaseValidatorModel):
     AliasId: str
 
 
+# This class is the input for the 'describe_build' function.
 class DescribeBuildInput(BaseValidatorModel):
     BuildId: str
 
 
+# This class is the input for the 'describe_compute' function.
 class DescribeComputeInput(BaseValidatorModel):
     FleetId: str
     ComputeName: str
 
 
+# This class is the input for the 'describe_container_fleet' function.
 class DescribeContainerFleetInput(BaseValidatorModel):
     FleetId: str
 
 
+# This class is the input for the 'describe_container_group_definition' function.
 class DescribeContainerGroupDefinitionInput(BaseValidatorModel):
     Name: str
     VersionNumber: Optional[int] = None
 
 
+# This class is the input for the 'describe_ec2_instance_limits' function.
 class DescribeEC2InstanceLimitsInput(BaseValidatorModel):
     EC2InstanceType: Optional[EC2InstanceTypeType] = None
     Location: Optional[str] = None
@@ -400,18 +417,21 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_fleet_attributes' function.
 class DescribeFleetAttributesInput(BaseValidatorModel):
     FleetIds: Optional[List[str]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_fleet_capacity' function.
 class DescribeFleetCapacityInput(BaseValidatorModel):
     FleetIds: Optional[List[str]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_fleet_deployment' function.
 class DescribeFleetDeploymentInput(BaseValidatorModel):
     FleetId: str
     DeploymentId: Optional[str] = None
@@ -433,6 +453,7 @@ class Event(BaseValidatorModel):
     Count: Optional[int] = None
 
 
+# This class is the input for the 'describe_fleet_location_attributes' function.
 class DescribeFleetLocationAttributesInput(BaseValidatorModel):
     FleetId: str
     Locations: Optional[List[str]] = None
@@ -440,11 +461,13 @@ class DescribeFleetLocationAttributesInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_fleet_location_capacity' function.
 class DescribeFleetLocationCapacityInput(BaseValidatorModel):
     FleetId: str
     Location: str
 
 
+# This class is the input for the 'describe_fleet_location_utilization' function.
 class DescribeFleetLocationUtilizationInput(BaseValidatorModel):
     FleetId: str
     Location: str
@@ -460,26 +483,31 @@ class FleetUtilization(BaseValidatorModel):
     Location: Optional[str] = None
 
 
+# This class is the input for the 'describe_fleet_port_settings' function.
 class DescribeFleetPortSettingsInput(BaseValidatorModel):
     FleetId: str
     Location: Optional[str] = None
 
 
+# This class is the input for the 'describe_fleet_utilization' function.
 class DescribeFleetUtilizationInput(BaseValidatorModel):
     FleetIds: Optional[List[str]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_game_server_group' function.
 class DescribeGameServerGroupInput(BaseValidatorModel):
     GameServerGroupName: str
 
 
+# This class is the input for the 'describe_game_server' function.
 class DescribeGameServerInput(BaseValidatorModel):
     GameServerGroupName: str
     GameServerId: str
 
 
+# This class is the input for the 'describe_game_server_instances' function.
 class DescribeGameServerInstancesInput(BaseValidatorModel):
     GameServerGroupName: str
     InstanceIds: Optional[List[str]] = None
@@ -494,6 +522,7 @@ class GameServerInstance(BaseValidatorModel):
     InstanceStatus: Optional[GameServerInstanceStatusType] = None
 
 
+# This class is the input for the 'describe_game_session_details' function.
 class DescribeGameSessionDetailsInput(BaseValidatorModel):
     FleetId: Optional[str] = None
     GameSessionId: Optional[str] = None
@@ -504,16 +533,19 @@ class DescribeGameSessionDetailsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_game_session_placement' function.
 class DescribeGameSessionPlacementInput(BaseValidatorModel):
     PlacementId: str
 
 
+# This class is the input for the 'describe_game_session_queues' function.
 class DescribeGameSessionQueuesInput(BaseValidatorModel):
     Names: Optional[List[str]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_game_sessions' function.
 class DescribeGameSessionsInput(BaseValidatorModel):
     FleetId: Optional[str] = None
     GameSessionId: Optional[str] = None
@@ -524,6 +556,7 @@ class DescribeGameSessionsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_instances' function.
 class DescribeInstancesInput(BaseValidatorModel):
     FleetId: str
     InstanceId: Optional[str] = None
@@ -545,6 +578,7 @@ class Instance(BaseValidatorModel):
     Location: Optional[str] = None
 
 
+# This class is the input for the 'describe_matchmaking_configurations' function.
 class DescribeMatchmakingConfigurationsInput(BaseValidatorModel):
     Names: Optional[List[str]] = None
     RuleSetName: Optional[str] = None
@@ -552,16 +586,19 @@ class DescribeMatchmakingConfigurationsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_matchmaking' function.
 class DescribeMatchmakingInput(BaseValidatorModel):
     TicketIds: List[str]
 
 
+# This class is the input for the 'describe_matchmaking_rule_sets' function.
 class DescribeMatchmakingRuleSetsInput(BaseValidatorModel):
     Names: Optional[List[str]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_player_sessions' function.
 class DescribePlayerSessionsInput(BaseValidatorModel):
     GameSessionId: Optional[str] = None
     PlayerId: Optional[str] = None
@@ -571,10 +608,12 @@ class DescribePlayerSessionsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_runtime_configuration' function.
 class DescribeRuntimeConfigurationInput(BaseValidatorModel):
     FleetId: str
 
 
+# This class is the input for the 'describe_scaling_policies' function.
 class DescribeScalingPoliciesInput(BaseValidatorModel):
     FleetId: str
     StatusFilter: Optional[ScalingStatusTypeType] = None
@@ -583,10 +622,12 @@ class DescribeScalingPoliciesInput(BaseValidatorModel):
     Location: Optional[str] = None
 
 
+# This class is the input for the 'describe_script' function.
 class DescribeScriptInput(BaseValidatorModel):
     ScriptId: str
 
 
+# This class is the input for the 'describe_vpc_peering_connections' function.
 class DescribeVpcPeeringConnectionsInput(BaseValidatorModel):
     FleetId: Optional[str] = None
 
@@ -651,20 +692,24 @@ class PriorityConfigurationOutput(BaseValidatorModel):
     LocationOrder: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_compute_access' function.
 class GetComputeAccessInput(BaseValidatorModel):
     FleetId: str
     ComputeName: str
 
 
+# This class is the input for the 'get_compute_auth_token' function.
 class GetComputeAuthTokenInput(BaseValidatorModel):
     FleetId: str
     ComputeName: str
 
 
+# This class is the input for the 'get_game_session_log_url' function.
 class GetGameSessionLogUrlInput(BaseValidatorModel):
     GameSessionId: str
 
 
+# This class is the input for the 'get_instance_access' function.
 class GetInstanceAccessInput(BaseValidatorModel):
     FleetId: str
     InstanceId: str
@@ -675,6 +720,7 @@ class InstanceCredentials(BaseValidatorModel):
     Secret: Optional[str] = None
 
 
+# This class is the input for the 'list_aliases' function.
 class ListAliasesInput(BaseValidatorModel):
     RoutingStrategyType: Optional[RoutingStrategyTypeType] = None
     Name: Optional[str] = None
@@ -682,12 +728,14 @@ class ListAliasesInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_builds' function.
 class ListBuildsInput(BaseValidatorModel):
     Status: Optional[BuildStatusType] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_compute' function.
 class ListComputeInput(BaseValidatorModel):
     FleetId: str
     Location: Optional[str] = None
@@ -697,30 +745,35 @@ class ListComputeInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_container_fleets' function.
 class ListContainerFleetsInput(BaseValidatorModel):
     ContainerGroupDefinitionName: Optional[str] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_container_group_definition_versions' function.
 class ListContainerGroupDefinitionVersionsInput(BaseValidatorModel):
     Name: str
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_container_group_definitions' function.
 class ListContainerGroupDefinitionsInput(BaseValidatorModel):
     ContainerGroupType: Optional[ContainerGroupTypeType] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_fleet_deployments' function.
 class ListFleetDeploymentsInput(BaseValidatorModel):
     FleetId: Optional[str] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_fleets' function.
 class ListFleetsInput(BaseValidatorModel):
     BuildId: Optional[str] = None
     ScriptId: Optional[str] = None
@@ -728,11 +781,13 @@ class ListFleetsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_game_server_groups' function.
 class ListGameServerGroupsInput(BaseValidatorModel):
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_game_servers' function.
 class ListGameServersInput(BaseValidatorModel):
     GameServerGroupName: str
     SortOrder: Optional[SortOrderType] = None
@@ -740,17 +795,20 @@ class ListGameServersInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_locations' function.
 class ListLocationsInput(BaseValidatorModel):
     Filters: Optional[List[LocationFilterType]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_scripts' function.
 class ListScriptsInput(BaseValidatorModel):
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
@@ -769,6 +827,7 @@ class TargetConfiguration(BaseValidatorModel):
     TargetValue: float
 
 
+# This class is the input for the 'register_compute' function.
 class RegisterComputeInput(BaseValidatorModel):
     FleetId: str
     ComputeName: str
@@ -778,6 +837,7 @@ class RegisterComputeInput(BaseValidatorModel):
     Location: Optional[str] = None
 
 
+# This class is the input for the 'register_game_server' function.
 class RegisterGameServerInput(BaseValidatorModel):
     GameServerGroupName: str
     GameServerId: str
@@ -786,14 +846,17 @@ class RegisterGameServerInput(BaseValidatorModel):
     GameServerData: Optional[str] = None
 
 
+# This class is the input for the 'request_upload_credentials' function.
 class RequestUploadCredentialsInput(BaseValidatorModel):
     BuildId: str
 
 
+# This class is the input for the 'resolve_alias' function.
 class ResolveAliasInput(BaseValidatorModel):
     AliasId: str
 
 
+# This class is the input for the 'resume_game_server_group' function.
 class ResumeGameServerGroupInput(BaseValidatorModel):
     GameServerGroupName: str
     ResumeActions: List[Literal['REPLACE_INSTANCE_TYPES']]
@@ -805,6 +868,7 @@ class ServerProcess(BaseValidatorModel):
     Parameters: Optional[str] = None
 
 
+# This class is the input for the 'search_game_sessions' function.
 class SearchGameSessionsInput(BaseValidatorModel):
     FleetId: Optional[str] = None
     AliasId: Optional[str] = None
@@ -815,18 +879,21 @@ class SearchGameSessionsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'start_fleet_actions' function.
 class StartFleetActionsInput(BaseValidatorModel):
     FleetId: str
     Actions: List[Literal['AUTO_SCALING']]
     Location: Optional[str] = None
 
 
+# This class is the input for the 'stop_fleet_actions' function.
 class StopFleetActionsInput(BaseValidatorModel):
     FleetId: str
     Actions: List[Literal['AUTO_SCALING']]
     Location: Optional[str] = None
 
 
+# This class is the input for the 'stop_game_session_placement' function.
 class StopGameSessionPlacementInput(BaseValidatorModel):
     PlacementId: str
 
@@ -835,11 +902,13 @@ class StopMatchmakingInput(BaseValidatorModel):
     TicketId: str
 
 
+# This class is the input for the 'suspend_game_server_group' function.
 class SuspendGameServerGroupInput(BaseValidatorModel):
     GameServerGroupName: str
     SuspendActions: List[Literal['REPLACE_INSTANCE_TYPES']]
 
 
+# This class is the input for the 'terminate_game_session' function.
 class TerminateGameSessionInput(BaseValidatorModel):
     GameSessionId: str
     TerminationMode: TerminationModeType
@@ -850,12 +919,14 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_build' function.
 class UpdateBuildInput(BaseValidatorModel):
     BuildId: str
     Name: Optional[str] = None
     Version: Optional[str] = None
 
 
+# This class is the input for the 'update_fleet_capacity' function.
 class UpdateFleetCapacityInput(BaseValidatorModel):
     FleetId: str
     DesiredInstances: Optional[int] = None
@@ -864,6 +935,7 @@ class UpdateFleetCapacityInput(BaseValidatorModel):
     Location: Optional[str] = None
 
 
+# This class is the input for the 'update_game_server' function.
 class UpdateGameServerInput(BaseValidatorModel):
     GameServerGroupName: str
     GameServerId: str
@@ -872,6 +944,7 @@ class UpdateGameServerInput(BaseValidatorModel):
     HealthCheck: Optional[Literal['HEALTHY']] = None
 
 
+# This class is the input for the 'validate_matchmaking_rule_set' function.
 class ValidateMatchmakingRuleSetInput(BaseValidatorModel):
     RuleSetBody: str
 
@@ -891,6 +964,7 @@ class Alias(BaseValidatorModel):
     LastUpdatedTime: Optional[datetime] = None
 
 
+# This class is the input for the 'update_alias' function.
 class UpdateAliasInput(BaseValidatorModel):
     AliasId: str
     Name: Optional[str] = None
@@ -907,6 +981,7 @@ class PlayerOutput(BaseValidatorModel):
 AttributeValueUnion = Union[AttributeValue, AttributeValueOutput]
 
 
+# This class is the input for the 'claim_game_server' function.
 class ClaimGameServerInput(BaseValidatorModel):
     GameServerGroupName: str
     GameServerId: Optional[str] = None
@@ -914,25 +989,30 @@ class ClaimGameServerInput(BaseValidatorModel):
     FilterOption: Optional[ClaimFilterOption] = None
 
 
+# This class is the output for the 'claim_game_server' function.
 class ClaimGameServerOutput(BaseValidatorModel):
     GameServer: GameServer
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_build' function.
 class DescribeBuildOutput(BaseValidatorModel):
     Build: Build
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_game_server' function.
 class DescribeGameServerOutput(BaseValidatorModel):
     GameServer: GameServer
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'deregister_game_server' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_compute_auth_token' function.
 class GetComputeAuthTokenOutput(BaseValidatorModel):
     FleetId: str
     FleetArn: str
@@ -943,68 +1023,80 @@ class GetComputeAuthTokenOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_game_session_log_url' function.
 class GetGameSessionLogUrlOutput(BaseValidatorModel):
     PreSignedUrl: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_builds' function.
 class ListBuildsOutput(BaseValidatorModel):
     Builds: List[Build]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_fleets' function.
 class ListFleetsOutput(BaseValidatorModel):
     FleetIds: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_game_servers' function.
 class ListGameServersOutput(BaseValidatorModel):
     GameServers: List[GameServer]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'put_scaling_policy' function.
 class PutScalingPolicyOutput(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_game_server' function.
 class RegisterGameServerOutput(BaseValidatorModel):
     GameServer: GameServer
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'resolve_alias' function.
 class ResolveAliasOutput(BaseValidatorModel):
     FleetId: str
     FleetArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_fleet_actions' function.
 class StartFleetActionsOutput(BaseValidatorModel):
     FleetId: str
     FleetArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_fleet_actions' function.
 class StopFleetActionsOutput(BaseValidatorModel):
     FleetId: str
     FleetArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_build' function.
 class UpdateBuildOutput(BaseValidatorModel):
     Build: Build
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_fleet_attributes' function.
 class UpdateFleetAttributesOutput(BaseValidatorModel):
     FleetId: str
     FleetArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_fleet_capacity' function.
 class UpdateFleetCapacityOutput(BaseValidatorModel):
     FleetId: str
     FleetArn: str
@@ -1012,17 +1104,20 @@ class UpdateFleetCapacityOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_fleet_port_settings' function.
 class UpdateFleetPortSettingsOutput(BaseValidatorModel):
     FleetId: str
     FleetArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_game_server' function.
 class UpdateGameServerOutput(BaseValidatorModel):
     GameServer: GameServer
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'validate_matchmaking_rule_set' function.
 class ValidateMatchmakingRuleSetOutput(BaseValidatorModel):
     Valid: bool
     ResponseMetadata: ResponseMetadata
@@ -1047,6 +1142,7 @@ class Compute(BaseValidatorModel):
     GameServerContainerGroupDefinitionArn: Optional[str] = None
 
 
+# This class is the output for the 'describe_fleet_port_settings' function.
 class DescribeFleetPortSettingsOutput(BaseValidatorModel):
     FleetId: str
     FleetArn: str
@@ -1056,6 +1152,7 @@ class DescribeFleetPortSettingsOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_fleet_port_settings' function.
 class UpdateFleetPortSettingsInput(BaseValidatorModel):
     FleetId: str
     InboundPermissionAuthorizations: Optional[List[IpPermission]] = None
@@ -1089,6 +1186,7 @@ class ContainerFleet(BaseValidatorModel):
 ContainerHealthCheckUnion = Union[ContainerHealthCheck, ContainerHealthCheckOutput]
 
 
+# This class is the output for the 'get_compute_access' function.
 class GetComputeAccessOutput(BaseValidatorModel):
     FleetId: str
     FleetArn: str
@@ -1108,6 +1206,7 @@ class ContainerPortConfiguration(BaseValidatorModel):
     ContainerPortRanges: List[ContainerPortRange]
 
 
+# This class is the input for the 'create_alias' function.
 class CreateAliasInput(BaseValidatorModel):
     Name: str
     RoutingStrategy: RoutingStrategy
@@ -1115,17 +1214,20 @@ class CreateAliasInput(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_location' function.
 class CreateLocationInput(BaseValidatorModel):
     LocationName: str
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_matchmaking_rule_set' function.
 class CreateMatchmakingRuleSetInput(BaseValidatorModel):
     Name: str
     RuleSetBody: str
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -1136,6 +1238,7 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the input for the 'create_build' function.
 class CreateBuildInput(BaseValidatorModel):
     Name: Optional[str] = None
     Version: Optional[str] = None
@@ -1145,6 +1248,7 @@ class CreateBuildInput(BaseValidatorModel):
     ServerSdkVersion: Optional[str] = None
 
 
+# This class is the output for the 'create_build' function.
 class CreateBuildOutput(BaseValidatorModel):
     Build: Build
     UploadCredentials: AwsCredentials
@@ -1152,6 +1256,7 @@ class CreateBuildOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_script' function.
 class CreateScriptInput(BaseValidatorModel):
     Name: Optional[str] = None
     Version: Optional[str] = None
@@ -1160,6 +1265,7 @@ class CreateScriptInput(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'request_upload_credentials' function.
 class RequestUploadCredentialsOutput(BaseValidatorModel):
     UploadCredentials: AwsCredentials
     StorageLocation: S3Location
@@ -1176,6 +1282,7 @@ class Script(BaseValidatorModel):
     StorageLocation: Optional[S3Location] = None
 
 
+# This class is the input for the 'update_script' function.
 class UpdateScriptInput(BaseValidatorModel):
     ScriptId: str
     Name: Optional[str] = None
@@ -1184,6 +1291,7 @@ class UpdateScriptInput(BaseValidatorModel):
     ZipFile: Optional[Blob] = None
 
 
+# This class is the input for the 'create_container_fleet' function.
 class CreateContainerFleetInput(BaseValidatorModel):
     FleetRoleArn: str
     Description: Optional[str] = None
@@ -1202,6 +1310,7 @@ class CreateContainerFleetInput(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_fleet_locations' function.
 class CreateFleetLocationsInput(BaseValidatorModel):
     FleetId: str
     Locations: List[LocationConfiguration]
@@ -1236,6 +1345,7 @@ class FleetAttributes(BaseValidatorModel):
     InstanceRoleCredentialsProvider: Optional[Literal['SHARED_CREDENTIAL_FILE']] = None
 
 
+# This class is the input for the 'update_fleet_attributes' function.
 class UpdateFleetAttributesInput(BaseValidatorModel):
     FleetId: str
     Name: Optional[str] = None
@@ -1246,6 +1356,7 @@ class UpdateFleetAttributesInput(BaseValidatorModel):
     AnywhereConfiguration: Optional[AnywhereConfiguration] = None
 
 
+# This class is the output for the 'create_fleet_locations' function.
 class CreateFleetLocationsOutput(BaseValidatorModel):
     FleetId: str
     FleetArn: str
@@ -1253,6 +1364,7 @@ class CreateFleetLocationsOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_fleet_locations' function.
 class DeleteFleetLocationsOutput(BaseValidatorModel):
     FleetId: str
     FleetArn: str
@@ -1281,6 +1393,7 @@ class GameServerGroup(BaseValidatorModel):
     LastUpdatedTime: Optional[datetime] = None
 
 
+# This class is the input for the 'update_game_server_group' function.
 class UpdateGameServerGroupInput(BaseValidatorModel):
     GameServerGroupName: str
     RoleArn: Optional[str] = None
@@ -1289,6 +1402,7 @@ class UpdateGameServerGroupInput(BaseValidatorModel):
     BalancingStrategy: Optional[BalancingStrategyType] = None
 
 
+# This class is the input for the 'create_game_session' function.
 class CreateGameSessionInput(BaseValidatorModel):
     MaximumPlayerSessionCount: int
     FleetId: Optional[str] = None
@@ -1302,6 +1416,7 @@ class CreateGameSessionInput(BaseValidatorModel):
     Location: Optional[str] = None
 
 
+# This class is the input for the 'create_matchmaking_configuration' function.
 class CreateMatchmakingConfigurationInput(BaseValidatorModel):
     Name: str
     RequestTimeoutSeconds: int
@@ -1362,6 +1477,7 @@ class MatchmakingConfiguration(BaseValidatorModel):
     FlexMatchMode: Optional[FlexMatchModeType] = None
 
 
+# This class is the input for the 'update_game_session' function.
 class UpdateGameSessionInput(BaseValidatorModel):
     GameSessionId: str
     MaximumPlayerSessionCount: Optional[int] = None
@@ -1371,6 +1487,7 @@ class UpdateGameSessionInput(BaseValidatorModel):
     GameProperties: Optional[List[GameProperty]] = None
 
 
+# This class is the input for the 'update_matchmaking_configuration' function.
 class UpdateMatchmakingConfigurationInput(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
@@ -1388,44 +1505,52 @@ class UpdateMatchmakingConfigurationInput(BaseValidatorModel):
     FlexMatchMode: Optional[FlexMatchModeType] = None
 
 
+# This class is the output for the 'create_location' function.
 class CreateLocationOutput(BaseValidatorModel):
     Location: LocationModel
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_locations' function.
 class ListLocationsOutput(BaseValidatorModel):
     Locations: List[LocationModel]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_matchmaking_rule_set' function.
 class CreateMatchmakingRuleSetOutput(BaseValidatorModel):
     RuleSet: MatchmakingRuleSet
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_matchmaking_rule_sets' function.
 class DescribeMatchmakingRuleSetsOutput(BaseValidatorModel):
     RuleSets: List[MatchmakingRuleSet]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_player_session' function.
 class CreatePlayerSessionOutput(BaseValidatorModel):
     PlayerSession: PlayerSession
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_player_sessions' function.
 class CreatePlayerSessionsOutput(BaseValidatorModel):
     PlayerSessions: List[PlayerSession]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_player_sessions' function.
 class DescribePlayerSessionsOutput(BaseValidatorModel):
     PlayerSessions: List[PlayerSession]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_vpc_peering_authorization' function.
 class CreateVpcPeeringAuthorizationOutput(BaseValidatorModel):
     VpcPeeringAuthorization: VpcPeeringAuthorization
     ResponseMetadata: ResponseMetadata
@@ -1448,6 +1573,7 @@ class FleetDeployment(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
 
 
+# This class is the input for the 'update_container_fleet' function.
 class UpdateContainerFleetInput(BaseValidatorModel):
     FleetId: str
     GameServerContainerGroupDefinitionName: Optional[str] = None
@@ -1465,6 +1591,7 @@ class UpdateContainerFleetInput(BaseValidatorModel):
     RemoveAttributes: Optional[List[Literal['PER_INSTANCE_CONTAINER_GROUP_DEFINITION']]] = None
 
 
+# This class is the output for the 'describe_ec2_instance_limits' function.
 class DescribeEC2InstanceLimitsOutput(BaseValidatorModel):
     EC2InstanceLimits: List[EC2InstanceLimit]
     ResponseMetadata: ResponseMetadata
@@ -1627,6 +1754,7 @@ class DescribeFleetEventsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_fleet_events' function.
 class DescribeFleetEventsInput(BaseValidatorModel):
     FleetId: str
     StartTime: Optional[Timestamp] = None
@@ -1635,29 +1763,34 @@ class DescribeFleetEventsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_fleet_events' function.
 class DescribeFleetEventsOutput(BaseValidatorModel):
     Events: List[Event]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_fleet_location_utilization' function.
 class DescribeFleetLocationUtilizationOutput(BaseValidatorModel):
     FleetUtilization: FleetUtilization
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_fleet_utilization' function.
 class DescribeFleetUtilizationOutput(BaseValidatorModel):
     FleetUtilization: List[FleetUtilization]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_game_server_instances' function.
 class DescribeGameServerInstancesOutput(BaseValidatorModel):
     GameServerInstances: List[GameServerInstance]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_instances' function.
 class DescribeInstancesOutput(BaseValidatorModel):
     Instances: List[Instance]
     ResponseMetadata: ResponseMetadata
@@ -1734,6 +1867,7 @@ PriorityConfigurationOverrideUnion = Union[PriorityConfigurationOverride, Priori
 PriorityConfigurationUnion = Union[PriorityConfiguration, PriorityConfigurationOutput]
 
 
+# This class is the input for the 'put_scaling_policy' function.
 class PutScalingPolicyInput(BaseValidatorModel):
     Name: str
     FleetId: str
@@ -1786,22 +1920,26 @@ class VpcPeeringConnection(BaseValidatorModel):
     GameLiftVpcId: Optional[str] = None
 
 
+# This class is the output for the 'create_alias' function.
 class CreateAliasOutput(BaseValidatorModel):
     Alias: Alias
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_alias' function.
 class DescribeAliasOutput(BaseValidatorModel):
     Alias: Alias
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_aliases' function.
 class ListAliasesOutput(BaseValidatorModel):
     Aliases: List[Alias]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_alias' function.
 class UpdateAliasOutput(BaseValidatorModel):
     Alias: Alias
     ResponseMetadata: ResponseMetadata
@@ -1814,38 +1952,45 @@ class Player(BaseValidatorModel):
     LatencyInMs: Optional[Dict[str, int]] = None
 
 
+# This class is the output for the 'describe_compute' function.
 class DescribeComputeOutput(BaseValidatorModel):
     Compute: Compute
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_compute' function.
 class ListComputeOutput(BaseValidatorModel):
     ComputeList: List[Compute]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'register_compute' function.
 class RegisterComputeOutput(BaseValidatorModel):
     Compute: Compute
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_container_fleet' function.
 class CreateContainerFleetOutput(BaseValidatorModel):
     ContainerFleet: ContainerFleet
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_container_fleet' function.
 class DescribeContainerFleetOutput(BaseValidatorModel):
     ContainerFleet: ContainerFleet
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_container_fleets' function.
 class ListContainerFleetsOutput(BaseValidatorModel):
     ContainerFleets: List[ContainerFleet]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_container_fleet' function.
 class UpdateContainerFleetOutput(BaseValidatorModel):
     ContainerFleet: ContainerFleet
     ResponseMetadata: ResponseMetadata
@@ -1878,39 +2023,46 @@ class SupportContainerDefinition(BaseValidatorModel):
 ContainerPortConfigurationUnion = Union[ContainerPortConfiguration, ContainerPortConfigurationOutput]
 
 
+# This class is the output for the 'create_script' function.
 class CreateScriptOutput(BaseValidatorModel):
     Script: Script
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_script' function.
 class DescribeScriptOutput(BaseValidatorModel):
     Script: Script
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_scripts' function.
 class ListScriptsOutput(BaseValidatorModel):
     Scripts: List[Script]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_script' function.
 class UpdateScriptOutput(BaseValidatorModel):
     Script: Script
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_fleet' function.
 class CreateFleetOutput(BaseValidatorModel):
     FleetAttributes: FleetAttributes
     LocationStates: List[LocationState]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_fleet_attributes' function.
 class DescribeFleetAttributesOutput(BaseValidatorModel):
     FleetAttributes: List[FleetAttributes]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_fleet_location_attributes' function.
 class DescribeFleetLocationAttributesOutput(BaseValidatorModel):
     FleetId: str
     FleetArn: str
@@ -1919,47 +2071,56 @@ class DescribeFleetLocationAttributesOutput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_game_server_group' function.
 class CreateGameServerGroupOutput(BaseValidatorModel):
     GameServerGroup: GameServerGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_game_server_group' function.
 class DeleteGameServerGroupOutput(BaseValidatorModel):
     GameServerGroup: GameServerGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_game_server_group' function.
 class DescribeGameServerGroupOutput(BaseValidatorModel):
     GameServerGroup: GameServerGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_game_server_groups' function.
 class ListGameServerGroupsOutput(BaseValidatorModel):
     GameServerGroups: List[GameServerGroup]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'resume_game_server_group' function.
 class ResumeGameServerGroupOutput(BaseValidatorModel):
     GameServerGroup: GameServerGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'suspend_game_server_group' function.
 class SuspendGameServerGroupOutput(BaseValidatorModel):
     GameServerGroup: GameServerGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_game_server_group' function.
 class UpdateGameServerGroupOutput(BaseValidatorModel):
     GameServerGroup: GameServerGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_game_session' function.
 class CreateGameSessionOutput(BaseValidatorModel):
     GameSession: GameSession
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_game_sessions' function.
 class DescribeGameSessionsOutput(BaseValidatorModel):
     GameSessions: List[GameSession]
     ResponseMetadata: ResponseMetadata
@@ -1971,61 +2132,72 @@ class GameSessionDetail(BaseValidatorModel):
     ProtectionPolicy: Optional[ProtectionPolicyType] = None
 
 
+# This class is the output for the 'search_game_sessions' function.
 class SearchGameSessionsOutput(BaseValidatorModel):
     GameSessions: List[GameSession]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'terminate_game_session' function.
 class TerminateGameSessionOutput(BaseValidatorModel):
     GameSession: GameSession
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_game_session' function.
 class UpdateGameSessionOutput(BaseValidatorModel):
     GameSession: GameSession
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_matchmaking_configuration' function.
 class CreateMatchmakingConfigurationOutput(BaseValidatorModel):
     Configuration: MatchmakingConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_matchmaking_configurations' function.
 class DescribeMatchmakingConfigurationsOutput(BaseValidatorModel):
     Configurations: List[MatchmakingConfiguration]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_matchmaking_configuration' function.
 class UpdateMatchmakingConfigurationOutput(BaseValidatorModel):
     Configuration: MatchmakingConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_fleet_deployment' function.
 class DescribeFleetDeploymentOutput(BaseValidatorModel):
     FleetDeployment: FleetDeployment
     LocationalDeployments: Dict[str, LocationalDeployment]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_fleet_deployments' function.
 class ListFleetDeploymentsOutput(BaseValidatorModel):
     FleetDeployments: List[FleetDeployment]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_fleet_capacity' function.
 class DescribeFleetCapacityOutput(BaseValidatorModel):
     FleetCapacity: List[FleetCapacity]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_fleet_location_capacity' function.
 class DescribeFleetLocationCapacityOutput(BaseValidatorModel):
     FleetCapacity: FleetCapacity
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_game_server_group' function.
 class CreateGameServerGroupInput(BaseValidatorModel):
     GameServerGroupName: str
     RoleArn: str
@@ -2054,42 +2226,50 @@ class MatchmakingTicket(BaseValidatorModel):
     EstimatedWaitTime: Optional[int] = None
 
 
+# This class is the output for the 'describe_game_session_placement' function.
 class DescribeGameSessionPlacementOutput(BaseValidatorModel):
     GameSessionPlacement: GameSessionPlacement
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_game_session_placement' function.
 class StartGameSessionPlacementOutput(BaseValidatorModel):
     GameSessionPlacement: GameSessionPlacement
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_game_session_placement' function.
 class StopGameSessionPlacementOutput(BaseValidatorModel):
     GameSessionPlacement: GameSessionPlacement
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_game_session_queue' function.
 class CreateGameSessionQueueOutput(BaseValidatorModel):
     GameSessionQueue: GameSessionQueue
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_game_session_queues' function.
 class DescribeGameSessionQueuesOutput(BaseValidatorModel):
     GameSessionQueues: List[GameSessionQueue]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_game_session_queue' function.
 class UpdateGameSessionQueueOutput(BaseValidatorModel):
     GameSessionQueue: GameSessionQueue
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_instance_access' function.
 class GetInstanceAccessOutput(BaseValidatorModel):
     InstanceAccess: InstanceAccess
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_game_session_placement' function.
 class StartGameSessionPlacementInput(BaseValidatorModel):
     PlacementId: str
     GameSessionQueueName: str
@@ -2102,6 +2282,7 @@ class StartGameSessionPlacementInput(BaseValidatorModel):
     PriorityConfigurationOverride: Optional[PriorityConfigurationOverrideUnion] = None
 
 
+# This class is the input for the 'create_game_session_queue' function.
 class CreateGameSessionQueueInput(BaseValidatorModel):
     Name: str
     TimeoutInSeconds: Optional[int] = None
@@ -2114,6 +2295,7 @@ class CreateGameSessionQueueInput(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_game_session_queue' function.
 class UpdateGameSessionQueueInput(BaseValidatorModel):
     Name: str
     TimeoutInSeconds: Optional[int] = None
@@ -2125,17 +2307,20 @@ class UpdateGameSessionQueueInput(BaseValidatorModel):
     NotificationTarget: Optional[str] = None
 
 
+# This class is the output for the 'describe_scaling_policies' function.
 class DescribeScalingPoliciesOutput(BaseValidatorModel):
     ScalingPolicies: List[ScalingPolicy]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_runtime_configuration' function.
 class DescribeRuntimeConfigurationOutput(BaseValidatorModel):
     RuntimeConfiguration: RuntimeConfigurationOutput
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_runtime_configuration' function.
 class UpdateRuntimeConfigurationOutput(BaseValidatorModel):
     RuntimeConfiguration: RuntimeConfigurationOutput
     ResponseMetadata: ResponseMetadata
@@ -2143,6 +2328,7 @@ class UpdateRuntimeConfigurationOutput(BaseValidatorModel):
 RuntimeConfigurationUnion = Union[RuntimeConfiguration, RuntimeConfigurationOutput]
 
 
+# This class is the output for the 'describe_vpc_peering_connections' function.
 class DescribeVpcPeeringConnectionsOutput(BaseValidatorModel):
     VpcPeeringConnections: List[VpcPeeringConnection]
     ResponseMetadata: ResponseMetadata
@@ -2189,27 +2375,32 @@ class SupportContainerDefinitionInput(BaseValidatorModel):
     Vcpu: Optional[float] = None
 
 
+# This class is the output for the 'describe_game_session_details' function.
 class DescribeGameSessionDetailsOutput(BaseValidatorModel):
     GameSessionDetails: List[GameSessionDetail]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_matchmaking' function.
 class DescribeMatchmakingOutput(BaseValidatorModel):
     TicketList: List[MatchmakingTicket]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_match_backfill' function.
 class StartMatchBackfillOutput(BaseValidatorModel):
     MatchmakingTicket: MatchmakingTicket
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_matchmaking' function.
 class StartMatchmakingOutput(BaseValidatorModel):
     MatchmakingTicket: MatchmakingTicket
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_fleet' function.
 class CreateFleetInput(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
@@ -2236,11 +2427,13 @@ class CreateFleetInput(BaseValidatorModel):
     InstanceRoleCredentialsProvider: Optional[Literal['SHARED_CREDENTIAL_FILE']] = None
 
 
+# This class is the input for the 'update_runtime_configuration' function.
 class UpdateRuntimeConfigurationInput(BaseValidatorModel):
     FleetId: str
     RuntimeConfiguration: RuntimeConfigurationUnion
 
 
+# This class is the input for the 'start_match_backfill' function.
 class StartMatchBackfillInput(BaseValidatorModel):
     ConfigurationName: str
     Players: List[PlayerUnion]
@@ -2248,39 +2441,46 @@ class StartMatchBackfillInput(BaseValidatorModel):
     GameSessionArn: Optional[str] = None
 
 
+# This class is the input for the 'start_matchmaking' function.
 class StartMatchmakingInput(BaseValidatorModel):
     ConfigurationName: str
     Players: List[PlayerUnion]
     TicketId: Optional[str] = None
 
 
+# This class is the output for the 'create_container_group_definition' function.
 class CreateContainerGroupDefinitionOutput(BaseValidatorModel):
     ContainerGroupDefinition: ContainerGroupDefinition
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_container_group_definition' function.
 class DescribeContainerGroupDefinitionOutput(BaseValidatorModel):
     ContainerGroupDefinition: ContainerGroupDefinition
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_container_group_definition_versions' function.
 class ListContainerGroupDefinitionVersionsOutput(BaseValidatorModel):
     ContainerGroupDefinitions: List[ContainerGroupDefinition]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_container_group_definitions' function.
 class ListContainerGroupDefinitionsOutput(BaseValidatorModel):
     ContainerGroupDefinitions: List[ContainerGroupDefinition]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_container_group_definition' function.
 class UpdateContainerGroupDefinitionOutput(BaseValidatorModel):
     ContainerGroupDefinition: ContainerGroupDefinition
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_container_group_definition' function.
 class CreateContainerGroupDefinitionInput(BaseValidatorModel):
     Name: str
     TotalMemoryLimitMebibytes: int
@@ -2293,6 +2493,7 @@ class CreateContainerGroupDefinitionInput(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_container_group_definition' function.
 class UpdateContainerGroupDefinitionInput(BaseValidatorModel):
     Name: str
     GameServerContainerDefinition: Optional[GameServerContainerDefinitionInput] = None

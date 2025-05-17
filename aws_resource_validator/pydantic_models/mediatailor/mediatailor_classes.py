@@ -82,6 +82,7 @@ class LogConfigurationForChannel(BaseValidatorModel):
     LogTypes: Optional[List[Literal['AS_RUN']]] = None
 
 
+# This class is the input for the 'configure_logs_for_channel' function.
 class ConfigureLogsForChannelRequest(BaseValidatorModel):
     ChannelName: str
     LogTypes: List[Literal['AS_RUN']]
@@ -95,6 +96,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'configure_logs_for_playback_configuration' function.
 class ConfigureLogsForPlaybackConfigurationRequest(BaseValidatorModel):
     PercentEnabled: int
     PlaybackConfigurationName: str
@@ -184,29 +186,35 @@ class DeleteVodSourceRequest(BaseValidatorModel):
     VodSourceName: str
 
 
+# This class is the input for the 'describe_channel' function.
 class DescribeChannelRequest(BaseValidatorModel):
     ChannelName: str
 
 
+# This class is the input for the 'describe_live_source' function.
 class DescribeLiveSourceRequest(BaseValidatorModel):
     LiveSourceName: str
     SourceLocationName: str
 
 
+# This class is the input for the 'describe_program' function.
 class DescribeProgramRequest(BaseValidatorModel):
     ChannelName: str
     ProgramName: str
 
 
+# This class is the input for the 'describe_source_location' function.
 class DescribeSourceLocationRequest(BaseValidatorModel):
     SourceLocationName: str
 
 
+# This class is the input for the 'describe_vod_source' function.
 class DescribeVodSourceRequest(BaseValidatorModel):
     SourceLocationName: str
     VodSourceName: str
 
 
+# This class is the input for the 'get_channel_policy' function.
 class GetChannelPolicyRequest(BaseValidatorModel):
     ChannelName: str
 
@@ -217,6 +225,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'get_channel_schedule' function.
 class GetChannelScheduleRequest(BaseValidatorModel):
     ChannelName: str
     DurationMinutes: Optional[str] = None
@@ -225,6 +234,7 @@ class GetChannelScheduleRequest(BaseValidatorModel):
     Audience: Optional[str] = None
 
 
+# This class is the input for the 'get_playback_configuration' function.
 class GetPlaybackConfigurationRequest(BaseValidatorModel):
     Name: str
 
@@ -243,6 +253,7 @@ class LogConfiguration(BaseValidatorModel):
     EnabledLoggingStrategies: Optional[List[LoggingStrategyType]] = None
 
 
+# This class is the input for the 'get_prefetch_schedule' function.
 class GetPrefetchScheduleRequest(BaseValidatorModel):
     Name: str
     PlaybackConfigurationName: str
@@ -258,28 +269,33 @@ class HlsPlaylistSettings(BaseValidatorModel):
     AdMarkupType: Optional[List[AdMarkupTypeType]] = None
 
 
+# This class is the input for the 'list_alerts' function.
 class ListAlertsRequest(BaseValidatorModel):
     ResourceArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_channels' function.
 class ListChannelsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_live_sources' function.
 class ListLiveSourcesRequest(BaseValidatorModel):
     SourceLocationName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_playback_configurations' function.
 class ListPlaybackConfigurationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_prefetch_schedules' function.
 class ListPrefetchSchedulesRequest(BaseValidatorModel):
     PlaybackConfigurationName: str
     MaxResults: Optional[int] = None
@@ -287,15 +303,18 @@ class ListPrefetchSchedulesRequest(BaseValidatorModel):
     StreamId: Optional[str] = None
 
 
+# This class is the input for the 'list_source_locations' function.
 class ListSourceLocationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'list_vod_sources' function.
 class ListVodSourcesRequest(BaseValidatorModel):
     SourceLocationName: str
     MaxResults: Optional[int] = None
@@ -343,11 +362,13 @@ class StopChannelRequest(BaseValidatorModel):
     ChannelName: str
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Dict[str, str]
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: List[str]
@@ -373,12 +394,14 @@ class PrefetchConsumptionOutput(BaseValidatorModel):
     StartTime: Optional[datetime] = None
 
 
+# This class is the output for the 'configure_logs_for_channel' function.
 class ConfigureLogsForChannelResponse(BaseValidatorModel):
     ChannelName: str
     LogTypes: List[Literal['AS_RUN']]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'configure_logs_for_playback_configuration' function.
 class ConfigureLogsForPlaybackConfigurationResponse(BaseValidatorModel):
     PercentEnabled: int
     PlaybackConfigurationName: str
@@ -386,26 +409,31 @@ class ConfigureLogsForPlaybackConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'untag_resource' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_channel_policy' function.
 class GetChannelPolicyResponse(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_alerts' function.
 class ListAlertsResponse(BaseValidatorModel):
     Items: List[Alert]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_live_source' function.
 class CreateLiveSourceRequest(BaseValidatorModel):
     HttpPackageConfigurations: List[HttpPackageConfiguration]
     LiveSourceName: str
@@ -413,6 +441,7 @@ class CreateLiveSourceRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_live_source' function.
 class CreateLiveSourceResponse(BaseValidatorModel):
     Arn: str
     CreationTime: datetime
@@ -424,6 +453,7 @@ class CreateLiveSourceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_vod_source' function.
 class CreateVodSourceRequest(BaseValidatorModel):
     HttpPackageConfigurations: List[HttpPackageConfiguration]
     SourceLocationName: str
@@ -431,6 +461,7 @@ class CreateVodSourceRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_vod_source' function.
 class CreateVodSourceResponse(BaseValidatorModel):
     Arn: str
     CreationTime: datetime
@@ -442,6 +473,7 @@ class CreateVodSourceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_live_source' function.
 class DescribeLiveSourceResponse(BaseValidatorModel):
     Arn: str
     CreationTime: datetime
@@ -453,6 +485,7 @@ class DescribeLiveSourceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_vod_source' function.
 class DescribeVodSourceResponse(BaseValidatorModel):
     AdBreakOpportunities: List[AdBreakOpportunity]
     Arn: str
@@ -475,12 +508,14 @@ class LiveSource(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_live_source' function.
 class UpdateLiveSourceRequest(BaseValidatorModel):
     HttpPackageConfigurations: List[HttpPackageConfiguration]
     LiveSourceName: str
     SourceLocationName: str
 
 
+# This class is the output for the 'update_live_source' function.
 class UpdateLiveSourceResponse(BaseValidatorModel):
     Arn: str
     CreationTime: datetime
@@ -492,12 +527,14 @@ class UpdateLiveSourceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_vod_source' function.
 class UpdateVodSourceRequest(BaseValidatorModel):
     HttpPackageConfigurations: List[HttpPackageConfiguration]
     SourceLocationName: str
     VodSourceName: str
 
 
+# This class is the output for the 'update_vod_source' function.
 class UpdateVodSourceResponse(BaseValidatorModel):
     Arn: str
     CreationTime: datetime
@@ -613,6 +650,7 @@ class UpdateProgramScheduleConfiguration(BaseValidatorModel):
     ClipRange: Optional[ClipRange] = None
 
 
+# This class is the input for the 'create_source_location' function.
 class CreateSourceLocationRequest(BaseValidatorModel):
     HttpConfiguration: HttpConfiguration
     SourceLocationName: str
@@ -622,6 +660,7 @@ class CreateSourceLocationRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_source_location' function.
 class CreateSourceLocationResponse(BaseValidatorModel):
     AccessConfiguration: AccessConfiguration
     Arn: str
@@ -635,6 +674,7 @@ class CreateSourceLocationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_source_location' function.
 class DescribeSourceLocationResponse(BaseValidatorModel):
     AccessConfiguration: AccessConfiguration
     Arn: str
@@ -660,6 +700,7 @@ class SourceLocation(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_source_location' function.
 class UpdateSourceLocationRequest(BaseValidatorModel):
     HttpConfiguration: HttpConfiguration
     SourceLocationName: str
@@ -668,6 +709,7 @@ class UpdateSourceLocationRequest(BaseValidatorModel):
     SegmentDeliveryConfigurations: Optional[List[SegmentDeliveryConfiguration]] = None
 
 
+# This class is the output for the 'update_source_location' function.
 class UpdateSourceLocationResponse(BaseValidatorModel):
     AccessConfiguration: AccessConfiguration
     Arn: str
@@ -681,6 +723,7 @@ class UpdateSourceLocationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_playback_configuration' function.
 class GetPlaybackConfigurationResponse(BaseValidatorModel):
     AdDecisionServerUrl: str
     AvailSuppression: AvailSuppression
@@ -730,6 +773,7 @@ class PlaybackConfiguration(BaseValidatorModel):
     AdConditioningConfiguration: Optional[AdConditioningConfiguration] = None
 
 
+# This class is the input for the 'put_playback_configuration' function.
 class PutPlaybackConfigurationRequest(BaseValidatorModel):
     Name: str
     AdDecisionServerUrl: Optional[str] = None
@@ -749,6 +793,7 @@ class PutPlaybackConfigurationRequest(BaseValidatorModel):
     AdConditioningConfiguration: Optional[AdConditioningConfiguration] = None
 
 
+# This class is the output for the 'put_playback_configuration' function.
 class PutPlaybackConfigurationResponse(BaseValidatorModel):
     AdDecisionServerUrl: str
     AvailSuppression: AvailSuppression
@@ -774,6 +819,7 @@ class PutPlaybackConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_prefetch_schedule' function.
 class CreatePrefetchScheduleResponse(BaseValidatorModel):
     Arn: str
     Consumption: PrefetchConsumptionOutput
@@ -784,6 +830,7 @@ class CreatePrefetchScheduleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_prefetch_schedule' function.
 class GetPrefetchScheduleResponse(BaseValidatorModel):
     Arn: str
     Consumption: PrefetchConsumptionOutput
@@ -803,12 +850,14 @@ class PrefetchSchedule(BaseValidatorModel):
     StreamId: Optional[str] = None
 
 
+# This class is the output for the 'list_live_sources' function.
 class ListLiveSourcesResponse(BaseValidatorModel):
     Items: List[LiveSource]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_vod_sources' function.
 class ListVodSourcesResponse(BaseValidatorModel):
     Items: List[VodSource]
     ResponseMetadata: ResponseMetadata
@@ -830,6 +879,7 @@ class Channel(BaseValidatorModel):
     Audiences: Optional[List[str]] = None
 
 
+# This class is the output for the 'create_channel' function.
 class CreateChannelResponse(BaseValidatorModel):
     Arn: str
     ChannelName: str
@@ -846,6 +896,7 @@ class CreateChannelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_channel' function.
 class DescribeChannelResponse(BaseValidatorModel):
     Arn: str
     ChannelName: str
@@ -863,6 +914,7 @@ class DescribeChannelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_channel' function.
 class UpdateChannelResponse(BaseValidatorModel):
     Arn: str
     ChannelName: str
@@ -890,6 +942,7 @@ PrefetchConsumptionUnion = Union[PrefetchConsumption, PrefetchConsumptionOutput]
 PrefetchRetrievalUnion = Union[PrefetchRetrieval, PrefetchRetrievalOutput]
 
 
+# This class is the output for the 'get_channel_schedule' function.
 class GetChannelScheduleResponse(BaseValidatorModel):
     Items: List[ScheduleEntry]
     ResponseMetadata: ResponseMetadata
@@ -907,30 +960,35 @@ class AdBreakOutput(BaseValidatorModel):
 TimeSignalMessageUnion = Union[TimeSignalMessage, TimeSignalMessageOutput]
 
 
+# This class is the output for the 'list_source_locations' function.
 class ListSourceLocationsResponse(BaseValidatorModel):
     Items: List[SourceLocation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_playback_configurations' function.
 class ListPlaybackConfigurationsResponse(BaseValidatorModel):
     Items: List[PlaybackConfiguration]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_prefetch_schedules' function.
 class ListPrefetchSchedulesResponse(BaseValidatorModel):
     Items: List[PrefetchSchedule]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_channels' function.
 class ListChannelsResponse(BaseValidatorModel):
     Items: List[Channel]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_channel' function.
 class CreateChannelRequest(BaseValidatorModel):
     ChannelName: str
     Outputs: List[RequestOutputItem]
@@ -942,6 +1000,7 @@ class CreateChannelRequest(BaseValidatorModel):
     Audiences: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_channel' function.
 class UpdateChannelRequest(BaseValidatorModel):
     ChannelName: str
     Outputs: List[RequestOutputItem]
@@ -950,6 +1009,7 @@ class UpdateChannelRequest(BaseValidatorModel):
     Audiences: Optional[List[str]] = None
 
 
+# This class is the input for the 'create_prefetch_schedule' function.
 class CreatePrefetchScheduleRequest(BaseValidatorModel):
     Consumption: PrefetchConsumptionUnion
     Name: str
@@ -984,6 +1044,7 @@ class AudienceMediaOutput(BaseValidatorModel):
 AdBreakUnion = Union[AdBreak, AdBreakOutput]
 
 
+# This class is the output for the 'create_program' function.
 class CreateProgramResponse(BaseValidatorModel):
     AdBreaks: List[AdBreakOutput]
     Arn: str
@@ -1000,6 +1061,7 @@ class CreateProgramResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_program' function.
 class DescribeProgramResponse(BaseValidatorModel):
     AdBreaks: List[AdBreakOutput]
     Arn: str
@@ -1016,6 +1078,7 @@ class DescribeProgramResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_program' function.
 class UpdateProgramResponse(BaseValidatorModel):
     AdBreaks: List[AdBreakOutput]
     Arn: str
@@ -1051,6 +1114,7 @@ class AudienceMedia(BaseValidatorModel):
 AudienceMediaUnion = Union[AudienceMedia, AudienceMediaOutput]
 
 
+# This class is the input for the 'create_program' function.
 class CreateProgramRequest(BaseValidatorModel):
     ChannelName: str
     ProgramName: str
@@ -1062,6 +1126,7 @@ class CreateProgramRequest(BaseValidatorModel):
     AudienceMedia: Optional[List[AudienceMediaUnion]] = None
 
 
+# This class is the input for the 'update_program' function.
 class UpdateProgramRequest(BaseValidatorModel):
     ChannelName: str
     ProgramName: str

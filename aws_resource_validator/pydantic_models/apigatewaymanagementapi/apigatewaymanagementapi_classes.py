@@ -10,6 +10,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 Blob = Union[str, bytes, IO[Any], StreamingBody]
 
 
+# This class is the input for the 'delete_connection' function.
 class DeleteConnectionRequest(BaseValidatorModel):
     ConnectionId: str
 
@@ -22,6 +23,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'get_connection' function.
 class GetConnectionRequest(BaseValidatorModel):
     ConnectionId: str
 
@@ -31,15 +33,18 @@ class Identity(BaseValidatorModel):
     UserAgent: str
 
 
+# This class is the input for the 'post_to_connection' function.
 class PostToConnectionRequest(BaseValidatorModel):
     Data: Blob
     ConnectionId: str
 
 
+# This class is the output for the 'post_to_connection' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_connection' function.
 class GetConnectionResponse(BaseValidatorModel):
     ConnectedAt: datetime
     Identity: Identity

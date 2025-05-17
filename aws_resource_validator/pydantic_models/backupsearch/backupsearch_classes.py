@@ -62,6 +62,7 @@ class S3ExportSpecification(BaseValidatorModel):
     DestinationPrefix: Optional[str] = None
 
 
+# This class is the input for the 'get_search_job' function.
 class GetSearchJobInput(BaseValidatorModel):
     SearchJobIdentifier: str
 
@@ -79,6 +80,7 @@ class SearchScopeSummary(BaseValidatorModel):
     TotalItemsToScanCount: Optional[int] = None
 
 
+# This class is the input for the 'get_search_result_export_job' function.
 class GetSearchResultExportJobInput(BaseValidatorModel):
     ExportJobIdentifier: str
 
@@ -89,6 +91,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_search_job_backups' function.
 class ListSearchJobBackupsInput(BaseValidatorModel):
     SearchJobIdentifier: str
     NextToken: Optional[str] = None
@@ -105,18 +108,21 @@ class SearchJobBackupsResult(BaseValidatorModel):
     BackupCreationTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_search_job_results' function.
 class ListSearchJobResultsInput(BaseValidatorModel):
     SearchJobIdentifier: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_search_jobs' function.
 class ListSearchJobsInput(BaseValidatorModel):
     ByStatus: Optional[SearchJobStateType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_search_result_export_jobs' function.
 class ListSearchResultExportJobsInput(BaseValidatorModel):
     Status: Optional[ExportJobStatusType] = None
     SearchJobIdentifier: Optional[str] = None
@@ -124,6 +130,7 @@ class ListSearchResultExportJobsInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -190,17 +197,20 @@ class ExportSpecification(BaseValidatorModel):
     s3ExportSpecification: Optional[S3ExportSpecification] = None
 
 
+# This class is the output for the 'list_search_result_export_jobs' function.
 class ListSearchResultExportJobsOutput(BaseValidatorModel):
     ExportJobs: List[ExportJobSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_search_job' function.
 class StartSearchJobOutput(BaseValidatorModel):
     SearchJobArn: str
     CreationTime: datetime
@@ -208,6 +218,7 @@ class StartSearchJobOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_search_result_export_job' function.
 class StartSearchResultExportJobOutput(BaseValidatorModel):
     ExportJobArn: str
     ExportJobIdentifier: str
@@ -246,6 +257,7 @@ class ListSearchResultExportJobsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_search_job_backups' function.
 class ListSearchJobBackupsOutput(BaseValidatorModel):
     Results: List[SearchJobBackupsResult]
     ResponseMetadata: ResponseMetadata
@@ -285,6 +297,7 @@ class ItemFiltersOutput(BaseValidatorModel):
     EBSItemFilters: Optional[List[EBSItemFilterOutput]] = None
 
 
+# This class is the output for the 'get_search_result_export_job' function.
 class GetSearchResultExportJobOutput(BaseValidatorModel):
     ExportJobIdentifier: str
     ExportJobArn: str
@@ -297,6 +310,7 @@ class GetSearchResultExportJobOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_search_result_export_job' function.
 class StartSearchResultExportJobInput(BaseValidatorModel):
     SearchJobIdentifier: str
     ExportSpecification: ExportSpecification
@@ -305,12 +319,14 @@ class StartSearchResultExportJobInput(BaseValidatorModel):
     RoleArn: Optional[str] = None
 
 
+# This class is the output for the 'list_search_jobs' function.
 class ListSearchJobsOutput(BaseValidatorModel):
     SearchJobs: List[SearchJobSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_search_job_results' function.
 class ListSearchJobResultsOutput(BaseValidatorModel):
     Results: List[ResultItem]
     ResponseMetadata: ResponseMetadata
@@ -324,6 +340,7 @@ class ItemFilters(BaseValidatorModel):
     EBSItemFilters: Optional[List[EBSItemFilter]] = None
 
 
+# This class is the output for the 'get_search_job' function.
 class GetSearchJobOutput(BaseValidatorModel):
     Name: str
     SearchScopeSummary: SearchScopeSummary
@@ -342,6 +359,7 @@ class GetSearchJobOutput(BaseValidatorModel):
 ItemFiltersUnion = Union[ItemFilters, ItemFiltersOutput]
 
 
+# This class is the input for the 'start_search_job' function.
 class StartSearchJobInput(BaseValidatorModel):
     SearchScope: SearchScopeUnion
     Tags: Optional[Dict[str, str]] = None

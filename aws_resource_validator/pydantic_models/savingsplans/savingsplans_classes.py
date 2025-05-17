@@ -64,6 +64,7 @@ class SavingsPlan(BaseValidatorModel):
     returnableUntil: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -77,6 +78,7 @@ class ParentSavingsPlanOffering(BaseValidatorModel):
     planDescription: Optional[str] = None
 
 
+# This class is the input for the 'return_savings_plan' function.
 class ReturnSavingsPlanRequest(BaseValidatorModel):
     savingsPlanId: str
     clientToken: Optional[str] = None
@@ -107,6 +109,7 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'create_savings_plan' function.
 class CreateSavingsPlanRequest(BaseValidatorModel):
     savingsPlanOfferingId: str
     commitment: str
@@ -116,21 +119,25 @@ class CreateSavingsPlanRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_savings_plan' function.
 class CreateSavingsPlanResponse(BaseValidatorModel):
     savingsPlanId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'return_savings_plan' function.
 class ReturnSavingsPlanResponse(BaseValidatorModel):
     savingsPlanId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'describe_savings_plan_rates' function.
 class DescribeSavingsPlanRatesRequest(BaseValidatorModel):
     savingsPlanId: str
     filters: Optional[List[SavingsPlanRateFilter]] = None
@@ -138,6 +145,7 @@ class DescribeSavingsPlanRatesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_savings_plans_offering_rates' function.
 class DescribeSavingsPlansOfferingRatesRequest(BaseValidatorModel):
     savingsPlanOfferingIds: Optional[List[str]] = None
     savingsPlanPaymentOptions: Optional[List[SavingsPlanPaymentOptionType]] = None
@@ -151,6 +159,7 @@ class DescribeSavingsPlansOfferingRatesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_savings_plans_offerings' function.
 class DescribeSavingsPlansOfferingsRequest(BaseValidatorModel):
     offeringIds: Optional[List[str]] = None
     paymentOptions: Optional[List[SavingsPlanPaymentOptionType]] = None
@@ -167,6 +176,7 @@ class DescribeSavingsPlansOfferingsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_savings_plans' function.
 class DescribeSavingsPlansRequest(BaseValidatorModel):
     savingsPlanArns: Optional[List[str]] = None
     savingsPlanIds: Optional[List[str]] = None
@@ -176,6 +186,7 @@ class DescribeSavingsPlansRequest(BaseValidatorModel):
     filters: Optional[List[SavingsPlanFilter]] = None
 
 
+# This class is the output for the 'describe_savings_plans' function.
 class DescribeSavingsPlansResponse(BaseValidatorModel):
     savingsPlans: List[SavingsPlan]
     ResponseMetadata: ResponseMetadata
@@ -218,18 +229,21 @@ class SavingsPlanRate(BaseValidatorModel):
     properties: Optional[List[SavingsPlanRateProperty]] = None
 
 
+# This class is the output for the 'describe_savings_plans_offerings' function.
 class DescribeSavingsPlansOfferingsResponse(BaseValidatorModel):
     searchResults: List[SavingsPlanOffering]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_savings_plans_offering_rates' function.
 class DescribeSavingsPlansOfferingRatesResponse(BaseValidatorModel):
     searchResults: List[SavingsPlanOfferingRate]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_savings_plan_rates' function.
 class DescribeSavingsPlanRatesResponse(BaseValidatorModel):
     savingsPlanId: str
     searchResults: List[SavingsPlanRate]

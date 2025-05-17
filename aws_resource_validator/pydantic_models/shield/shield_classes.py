@@ -79,6 +79,7 @@ class DeleteProtectionRequest(BaseValidatorModel):
     ProtectionId: str
 
 
+# This class is the input for the 'describe_attack' function.
 class DescribeAttackRequest(BaseValidatorModel):
     AttackId: str
 
@@ -88,6 +89,7 @@ class TimeRangeOutput(BaseValidatorModel):
     ToExclusive: Optional[datetime] = None
 
 
+# This class is the input for the 'describe_protection_group' function.
 class DescribeProtectionGroupRequest(BaseValidatorModel):
     ProtectionGroupId: str
 
@@ -101,6 +103,7 @@ class ProtectionGroup(BaseValidatorModel):
     ProtectionGroupArn: Optional[str] = None
 
 
+# This class is the input for the 'describe_protection' function.
 class DescribeProtectionRequest(BaseValidatorModel):
     ProtectionId: Optional[str] = None
     ResourceArn: Optional[str] = None
@@ -143,12 +146,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_resources_in_protection_group' function.
 class ListResourcesInProtectionGroupRequest(BaseValidatorModel):
     ProtectionGroupId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
@@ -230,6 +235,7 @@ class CreateProtectionGroupRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_protection' function.
 class CreateProtectionRequest(BaseValidatorModel):
     Name: str
     ResourceArn: str
@@ -241,6 +247,7 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the output for the 'create_protection' function.
 class CreateProtectionResponse(BaseValidatorModel):
     ProtectionId: str
     ResponseMetadata: ResponseMetadata
@@ -262,34 +269,40 @@ class GetSubscriptionStateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_resources_in_protection_group' function.
 class ListResourcesInProtectionGroupResponse(BaseValidatorModel):
     ResourceArns: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_protection_group' function.
 class DescribeProtectionGroupResponse(BaseValidatorModel):
     ProtectionGroup: ProtectionGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_protection_groups' function.
 class ListProtectionGroupsResponse(BaseValidatorModel):
     ProtectionGroups: List[ProtectionGroup]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_protections' function.
 class ListProtectionsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     InclusionFilters: Optional[InclusionProtectionFilters] = None
 
 
+# This class is the input for the 'list_protection_groups' function.
 class ListProtectionGroupsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -332,6 +345,7 @@ class SubResourceSummary(BaseValidatorModel):
     Counters: Optional[List[SummarizedCounter]] = None
 
 
+# This class is the output for the 'list_attacks' function.
 class ListAttacksResponse(BaseValidatorModel):
     AttackSummaries: List[AttackSummary]
     ResponseMetadata: ResponseMetadata
@@ -360,11 +374,13 @@ class UpdateApplicationLayerAutomaticResponseRequest(BaseValidatorModel):
 TimeRangeUnion = Union[TimeRange, TimeRangeOutput]
 
 
+# This class is the output for the 'describe_protection' function.
 class DescribeProtectionResponse(BaseValidatorModel):
     Protection: Protection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_protections' function.
 class ListProtectionsResponse(BaseValidatorModel):
     Protections: List[Protection]
     ResponseMetadata: ResponseMetadata
@@ -400,6 +416,7 @@ class ListAttacksRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_attacks' function.
 class ListAttacksRequest(BaseValidatorModel):
     ResourceArns: Optional[List[str]] = None
     StartTime: Optional[TimeRangeUnion] = None
@@ -408,6 +425,7 @@ class ListAttacksRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the output for the 'describe_attack' function.
 class DescribeAttackResponse(BaseValidatorModel):
     Attack: AttackDetail
     ResponseMetadata: ResponseMetadata

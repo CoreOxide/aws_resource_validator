@@ -54,6 +54,7 @@ class ProjectAppConfigResourceConfig(BaseValidatorModel):
     environmentId: Optional[str] = None
 
 
+# This class is the input for the 'create_segment' function.
 class CreateSegmentRequest(BaseValidatorModel):
     name: str
     pattern: str
@@ -96,6 +97,7 @@ class DeleteSegmentRequest(BaseValidatorModel):
     segment: str
 
 
+# This class is the input for the 'evaluate_feature' function.
 class EvaluateFeatureRequest(BaseValidatorModel):
     entityId: str
     feature: str
@@ -151,25 +153,30 @@ class Treatment(BaseValidatorModel):
     featureVariations: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'get_experiment' function.
 class GetExperimentRequest(BaseValidatorModel):
     experiment: str
     project: str
 
 
+# This class is the input for the 'get_feature' function.
 class GetFeatureRequest(BaseValidatorModel):
     feature: str
     project: str
 
 
+# This class is the input for the 'get_launch' function.
 class GetLaunchRequest(BaseValidatorModel):
     launch: str
     project: str
 
 
+# This class is the input for the 'get_project' function.
 class GetProjectRequest(BaseValidatorModel):
     project: str
 
 
+# This class is the input for the 'get_segment' function.
 class GetSegmentRequest(BaseValidatorModel):
     segment: str
 
@@ -191,6 +198,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_experiments' function.
 class ListExperimentsRequest(BaseValidatorModel):
     project: str
     maxResults: Optional[int] = None
@@ -198,12 +206,14 @@ class ListExperimentsRequest(BaseValidatorModel):
     status: Optional[ExperimentStatusType] = None
 
 
+# This class is the input for the 'list_features' function.
 class ListFeaturesRequest(BaseValidatorModel):
     project: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_launches' function.
 class ListLaunchesRequest(BaseValidatorModel):
     project: str
     maxResults: Optional[int] = None
@@ -211,6 +221,7 @@ class ListLaunchesRequest(BaseValidatorModel):
     status: Optional[LaunchStatusType] = None
 
 
+# This class is the input for the 'list_projects' function.
 class ListProjectsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -231,6 +242,7 @@ class ProjectSummary(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_segment_references' function.
 class ListSegmentReferencesRequest(BaseValidatorModel):
     segment: str
     type: SegmentReferenceResourceTypeType
@@ -248,11 +260,13 @@ class RefResource(BaseValidatorModel):
     status: Optional[str] = None
 
 
+# This class is the input for the 'list_segments' function.
 class ListSegmentsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -307,11 +321,13 @@ class SegmentOverride(BaseValidatorModel):
     weights: Dict[str, int]
 
 
+# This class is the input for the 'start_launch' function.
 class StartLaunchRequest(BaseValidatorModel):
     launch: str
     project: str
 
 
+# This class is the input for the 'stop_experiment' function.
 class StopExperimentRequest(BaseValidatorModel):
     experiment: str
     project: str
@@ -319,6 +335,7 @@ class StopExperimentRequest(BaseValidatorModel):
     reason: Optional[str] = None
 
 
+# This class is the input for the 'stop_launch' function.
 class StopLaunchRequest(BaseValidatorModel):
     launch: str
     project: str
@@ -331,6 +348,7 @@ class TagResourceRequest(BaseValidatorModel):
     tags: Dict[str, str]
 
 
+# This class is the input for the 'test_segment_pattern' function.
 class TestSegmentPatternRequest(BaseValidatorModel):
     pattern: str
     payload: str
@@ -341,58 +359,69 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'batch_evaluate_feature' function.
 class BatchEvaluateFeatureRequest(BaseValidatorModel):
     project: str
     requests: List[EvaluationRequest]
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_experiment' function.
 class StartExperimentResponse(BaseValidatorModel):
     startedTime: datetime
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_experiment' function.
 class StopExperimentResponse(BaseValidatorModel):
     endedTime: datetime
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_launch' function.
 class StopLaunchResponse(BaseValidatorModel):
     endedTime: datetime
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'test_segment_pattern' function.
 class TestSegmentPatternResponse(BaseValidatorModel):
     match: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_project' function.
 class UpdateProjectRequest(BaseValidatorModel):
     project: str
     appConfigResource: Optional[ProjectAppConfigResourceConfig] = None
     description: Optional[str] = None
 
 
+# This class is the output for the 'create_segment' function.
 class CreateSegmentResponse(BaseValidatorModel):
     segment: Segment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_segment' function.
 class GetSegmentResponse(BaseValidatorModel):
     segment: Segment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_segments' function.
 class ListSegmentsResponse(BaseValidatorModel):
     segments: List[Segment]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'evaluate_feature' function.
 class EvaluateFeatureResponse(BaseValidatorModel):
     details: str
     reason: str
@@ -440,6 +469,7 @@ class Event(BaseValidatorModel):
     type: EventTypeType
 
 
+# This class is the input for the 'get_experiment_results' function.
 class GetExperimentResultsRequest(BaseValidatorModel):
     experiment: str
     metricNames: List[str]
@@ -453,12 +483,14 @@ class GetExperimentResultsRequest(BaseValidatorModel):
     startTime: Optional[Timestamp] = None
 
 
+# This class is the input for the 'start_experiment' function.
 class StartExperimentRequest(BaseValidatorModel):
     analysisCompleteTime: Timestamp
     experiment: str
     project: str
 
 
+# This class is the output for the 'get_experiment_results' function.
 class GetExperimentResultsResponse(BaseValidatorModel):
     details: str
     reports: List[ExperimentReport]
@@ -498,12 +530,14 @@ class ListSegmentsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_projects' function.
 class ListProjectsResponse(BaseValidatorModel):
     projects: List[ProjectSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_segment_references' function.
 class ListSegmentReferencesResponse(BaseValidatorModel):
     referencedBy: List[RefResource]
     ResponseMetadata: ResponseMetadata
@@ -533,6 +567,7 @@ class ProjectDataDeliveryConfig(BaseValidatorModel):
     s3Destination: Optional[S3DestinationConfig] = None
 
 
+# This class is the input for the 'update_project_data_delivery' function.
 class UpdateProjectDataDeliveryRequest(BaseValidatorModel):
     project: str
     cloudWatchLogs: Optional[CloudWatchLogsDestinationConfig] = None
@@ -544,6 +579,7 @@ class ProjectDataDelivery(BaseValidatorModel):
     s3Destination: Optional[S3Destination] = None
 
 
+# This class is the output for the 'put_project_events' function.
 class PutProjectEventsResponse(BaseValidatorModel):
     eventResults: List[PutProjectEventsResultEntry]
     failedEventCount: int
@@ -558,11 +594,13 @@ class ScheduledSplit(BaseValidatorModel):
 SegmentOverrideUnion = Union[SegmentOverride, SegmentOverrideOutput]
 
 
+# This class is the output for the 'batch_evaluate_feature' function.
 class BatchEvaluateFeatureResponse(BaseValidatorModel):
     results: List[EvaluationResult]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_feature' function.
 class CreateFeatureRequest(BaseValidatorModel):
     name: str
     project: str
@@ -574,6 +612,7 @@ class CreateFeatureRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_feature' function.
 class UpdateFeatureRequest(BaseValidatorModel):
     feature: str
     project: str
@@ -602,17 +641,20 @@ class Feature(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'list_features' function.
 class ListFeaturesResponse(BaseValidatorModel):
     features: List[FeatureSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'put_project_events' function.
 class PutProjectEventsRequest(BaseValidatorModel):
     events: List[Event]
     project: str
 
 
+# This class is the input for the 'create_experiment' function.
 class CreateExperimentRequest(BaseValidatorModel):
     metricGoals: List[MetricGoalConfig]
     name: str
@@ -626,6 +668,7 @@ class CreateExperimentRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_experiment' function.
 class UpdateExperimentRequest(BaseValidatorModel):
     experiment: str
     project: str
@@ -660,6 +703,7 @@ class Experiment(BaseValidatorModel):
     treatments: Optional[List[Treatment]] = None
 
 
+# This class is the input for the 'create_project' function.
 class CreateProjectRequest(BaseValidatorModel):
     name: str
     appConfigResource: Optional[ProjectAppConfigResourceConfig] = None
@@ -695,57 +739,68 @@ class ScheduledSplitConfig(BaseValidatorModel):
     segmentOverrides: Optional[List[SegmentOverrideUnion]] = None
 
 
+# This class is the output for the 'create_feature' function.
 class CreateFeatureResponse(BaseValidatorModel):
     feature: Feature
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_feature' function.
 class GetFeatureResponse(BaseValidatorModel):
     feature: Feature
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_feature' function.
 class UpdateFeatureResponse(BaseValidatorModel):
     feature: Feature
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_experiment' function.
 class CreateExperimentResponse(BaseValidatorModel):
     experiment: Experiment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_experiment' function.
 class GetExperimentResponse(BaseValidatorModel):
     experiment: Experiment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_experiments' function.
 class ListExperimentsResponse(BaseValidatorModel):
     experiments: List[Experiment]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_experiment' function.
 class UpdateExperimentResponse(BaseValidatorModel):
     experiment: Experiment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_project' function.
 class CreateProjectResponse(BaseValidatorModel):
     project: Project
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_project' function.
 class GetProjectResponse(BaseValidatorModel):
     project: Project
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_project_data_delivery' function.
 class UpdateProjectDataDeliveryResponse(BaseValidatorModel):
     project: Project
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_project' function.
 class UpdateProjectResponse(BaseValidatorModel):
     project: Project
     ResponseMetadata: ResponseMetadata
@@ -773,32 +828,38 @@ class ScheduledSplitsLaunchConfig(BaseValidatorModel):
     steps: List[ScheduledSplitConfig]
 
 
+# This class is the output for the 'create_launch' function.
 class CreateLaunchResponse(BaseValidatorModel):
     launch: Launch
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_launch' function.
 class GetLaunchResponse(BaseValidatorModel):
     launch: Launch
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_launches' function.
 class ListLaunchesResponse(BaseValidatorModel):
     launches: List[Launch]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_launch' function.
 class StartLaunchResponse(BaseValidatorModel):
     launch: Launch
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_launch' function.
 class UpdateLaunchResponse(BaseValidatorModel):
     launch: Launch
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_launch' function.
 class CreateLaunchRequest(BaseValidatorModel):
     groups: List[LaunchGroupConfig]
     name: str
@@ -810,6 +871,7 @@ class CreateLaunchRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_launch' function.
 class UpdateLaunchRequest(BaseValidatorModel):
     launch: str
     project: str

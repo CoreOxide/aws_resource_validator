@@ -80,6 +80,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_blueprint_version' function.
 class CreateBlueprintVersionRequest(BaseValidatorModel):
     blueprintArn: str
     clientToken: Optional[str] = None
@@ -102,6 +103,7 @@ class DeleteBlueprintRequest(BaseValidatorModel):
     blueprintVersion: Optional[str] = None
 
 
+# This class is the input for the 'delete_data_automation_project' function.
 class DeleteDataAutomationProjectRequest(BaseValidatorModel):
     projectArn: str
 
@@ -138,12 +140,14 @@ class DocumentStandardGenerativeField(BaseValidatorModel):
     state: StateType
 
 
+# This class is the input for the 'get_blueprint' function.
 class GetBlueprintRequest(BaseValidatorModel):
     blueprintArn: str
     blueprintVersion: Optional[str] = None
     blueprintStage: Optional[BlueprintStageType] = None
 
 
+# This class is the input for the 'get_data_automation_project' function.
 class GetDataAutomationProjectRequest(BaseValidatorModel):
     projectArn: str
     projectStage: Optional[DataAutomationProjectStageType] = None
@@ -179,6 +183,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceARN: str
 
@@ -220,6 +225,7 @@ class AudioStandardExtraction(BaseValidatorModel):
     category: AudioExtractionCategory
 
 
+# This class is the input for the 'list_data_automation_projects' function.
 class ListDataAutomationProjectsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -236,6 +242,7 @@ class CustomOutputConfiguration(BaseValidatorModel):
     blueprints: Optional[List[BlueprintItem]] = None
 
 
+# This class is the input for the 'update_blueprint' function.
 class UpdateBlueprintRequest(BaseValidatorModel):
     blueprintArn: str
     schema: str
@@ -243,6 +250,7 @@ class UpdateBlueprintRequest(BaseValidatorModel):
     encryptionConfiguration: Optional[EncryptionConfiguration] = None
 
 
+# This class is the input for the 'create_blueprint' function.
 class CreateBlueprintRequest(BaseValidatorModel):
     blueprintName: str
     type: TypeType
@@ -258,16 +266,19 @@ class TagResourceRequest(BaseValidatorModel):
     tags: List[Tag]
 
 
+# This class is the output for the 'create_blueprint' function.
 class CreateBlueprintResponse(BaseValidatorModel):
     blueprint: Blueprint
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_blueprint_version' function.
 class CreateBlueprintVersionResponse(BaseValidatorModel):
     blueprint: Blueprint
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_data_automation_project' function.
 class CreateDataAutomationProjectResponse(BaseValidatorModel):
     projectArn: str
     projectStage: DataAutomationProjectStageType
@@ -275,33 +286,39 @@ class CreateDataAutomationProjectResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_data_automation_project' function.
 class DeleteDataAutomationProjectResponse(BaseValidatorModel):
     projectArn: str
     status: DataAutomationProjectStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_blueprint' function.
 class GetBlueprintResponse(BaseValidatorModel):
     blueprint: Blueprint
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_blueprints' function.
 class ListBlueprintsResponse(BaseValidatorModel):
     blueprints: List[BlueprintSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_blueprint' function.
 class UpdateBlueprintResponse(BaseValidatorModel):
     blueprint: Blueprint
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_data_automation_project' function.
 class UpdateDataAutomationProjectResponse(BaseValidatorModel):
     projectArn: str
     projectStage: DataAutomationProjectStageType
@@ -309,6 +326,7 @@ class UpdateDataAutomationProjectResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'list_blueprints' function.
 class ListBlueprintsRequest(BaseValidatorModel):
     blueprintArn: Optional[str] = None
     resourceOwner: Optional[ResourceOwnerType] = None
@@ -318,6 +336,7 @@ class ListBlueprintsRequest(BaseValidatorModel):
     projectFilter: Optional[DataAutomationProjectFilter] = None
 
 
+# This class is the output for the 'list_data_automation_projects' function.
 class ListDataAutomationProjectsResponse(BaseValidatorModel):
     projects: List[DataAutomationProjectSummary]
     ResponseMetadata: ResponseMetadata
@@ -462,11 +481,13 @@ class DataAutomationProject(BaseValidatorModel):
 StandardOutputConfigurationUnion = Union[StandardOutputConfiguration, StandardOutputConfigurationOutput]
 
 
+# This class is the output for the 'get_data_automation_project' function.
 class GetDataAutomationProjectResponse(BaseValidatorModel):
     project: DataAutomationProject
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_data_automation_project' function.
 class CreateDataAutomationProjectRequest(BaseValidatorModel):
     projectName: str
     standardOutputConfiguration: StandardOutputConfigurationUnion
@@ -479,6 +500,7 @@ class CreateDataAutomationProjectRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_data_automation_project' function.
 class UpdateDataAutomationProjectRequest(BaseValidatorModel):
     projectArn: str
     standardOutputConfiguration: StandardOutputConfigurationUnion

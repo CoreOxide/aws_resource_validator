@@ -43,6 +43,7 @@ class Cors(BaseValidatorModel):
     MaxAge: Optional[int] = None
 
 
+# This class is the input for the 'create_api_mapping' function.
 class CreateApiMappingRequest(BaseValidatorModel):
     ApiId: str
     DomainName: str
@@ -58,6 +59,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_deployment' function.
 class CreateDeploymentRequest(BaseValidatorModel):
     ApiId: str
     Description: Optional[str] = None
@@ -92,6 +94,7 @@ class TlsConfigInput(BaseValidatorModel):
     ServerNameToVerify: Optional[str] = None
 
 
+# This class is the input for the 'create_integration_response' function.
 class CreateIntegrationResponseRequest(BaseValidatorModel):
     ApiId: str
     IntegrationId: str
@@ -106,6 +109,7 @@ class TlsConfig(BaseValidatorModel):
     ServerNameToVerify: Optional[str] = None
 
 
+# This class is the input for the 'create_model' function.
 class CreateModelRequest(BaseValidatorModel):
     ApiId: str
     Name: str
@@ -126,6 +130,7 @@ class RouteSettings(BaseValidatorModel):
     ThrottlingRateLimit: Optional[float] = None
 
 
+# This class is the input for the 'create_vpc_link' function.
 class CreateVpcLinkRequest(BaseValidatorModel):
     Name: str
     SubnetIds: List[str]
@@ -133,77 +138,92 @@ class CreateVpcLinkRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'delete_access_log_settings' function.
 class DeleteAccessLogSettingsRequest(BaseValidatorModel):
     ApiId: str
     StageName: str
 
 
+# This class is the input for the 'delete_api_mapping' function.
 class DeleteApiMappingRequest(BaseValidatorModel):
     ApiMappingId: str
     DomainName: str
 
 
+# This class is the input for the 'delete_api' function.
 class DeleteApiRequest(BaseValidatorModel):
     ApiId: str
 
 
+# This class is the input for the 'delete_authorizer' function.
 class DeleteAuthorizerRequest(BaseValidatorModel):
     ApiId: str
     AuthorizerId: str
 
 
+# This class is the input for the 'delete_cors_configuration' function.
 class DeleteCorsConfigurationRequest(BaseValidatorModel):
     ApiId: str
 
 
+# This class is the input for the 'delete_deployment' function.
 class DeleteDeploymentRequest(BaseValidatorModel):
     ApiId: str
     DeploymentId: str
 
 
+# This class is the input for the 'delete_domain_name' function.
 class DeleteDomainNameRequest(BaseValidatorModel):
     DomainName: str
 
 
+# This class is the input for the 'delete_integration' function.
 class DeleteIntegrationRequest(BaseValidatorModel):
     ApiId: str
     IntegrationId: str
 
 
+# This class is the input for the 'delete_integration_response' function.
 class DeleteIntegrationResponseRequest(BaseValidatorModel):
     ApiId: str
     IntegrationId: str
     IntegrationResponseId: str
 
 
+# This class is the input for the 'delete_model' function.
 class DeleteModelRequest(BaseValidatorModel):
     ApiId: str
     ModelId: str
 
 
+# This class is the input for the 'delete_route_request_parameter' function.
 class DeleteRouteRequestParameterRequest(BaseValidatorModel):
     ApiId: str
     RequestParameterKey: str
     RouteId: str
 
 
+# This class is the input for the 'delete_route' function.
 class DeleteRouteRequest(BaseValidatorModel):
     ApiId: str
     RouteId: str
 
 
+# This class is the input for the 'delete_route_response' function.
 class DeleteRouteResponseRequest(BaseValidatorModel):
     ApiId: str
     RouteId: str
     RouteResponseId: str
 
 
+# This class is the input for the 'delete_route_settings' function.
 class DeleteRouteSettingsRequest(BaseValidatorModel):
     ApiId: str
     RouteKey: str
     StageName: str
 
 
+# This class is the input for the 'delete_stage' function.
 class DeleteStageRequest(BaseValidatorModel):
     ApiId: str
     StageName: str
@@ -224,6 +244,7 @@ class Deployment(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'export_api' function.
 class ExportApiRequest(BaseValidatorModel):
     ApiId: str
     OutputType: JSONYAMLType
@@ -233,17 +254,20 @@ class ExportApiRequest(BaseValidatorModel):
     StageName: Optional[str] = None
 
 
+# This class is the input for the 'get_api_mapping' function.
 class GetApiMappingRequest(BaseValidatorModel):
     ApiMappingId: str
     DomainName: str
 
 
+# This class is the input for the 'get_api_mappings' function.
 class GetApiMappingsRequest(BaseValidatorModel):
     DomainName: str
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_api' function.
 class GetApiRequest(BaseValidatorModel):
     ApiId: str
 
@@ -254,53 +278,63 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'get_apis' function.
 class GetApisRequest(BaseValidatorModel):
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_authorizer' function.
 class GetAuthorizerRequest(BaseValidatorModel):
     ApiId: str
     AuthorizerId: str
 
 
+# This class is the input for the 'get_authorizers' function.
 class GetAuthorizersRequest(BaseValidatorModel):
     ApiId: str
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_deployment' function.
 class GetDeploymentRequest(BaseValidatorModel):
     ApiId: str
     DeploymentId: str
 
 
+# This class is the input for the 'get_deployments' function.
 class GetDeploymentsRequest(BaseValidatorModel):
     ApiId: str
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_domain_name' function.
 class GetDomainNameRequest(BaseValidatorModel):
     DomainName: str
 
 
+# This class is the input for the 'get_domain_names' function.
 class GetDomainNamesRequest(BaseValidatorModel):
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_integration' function.
 class GetIntegrationRequest(BaseValidatorModel):
     ApiId: str
     IntegrationId: str
 
 
+# This class is the input for the 'get_integration_response' function.
 class GetIntegrationResponseRequest(BaseValidatorModel):
     ApiId: str
     IntegrationId: str
     IntegrationResponseId: str
 
 
+# This class is the input for the 'get_integration_responses' function.
 class GetIntegrationResponsesRequest(BaseValidatorModel):
     ApiId: str
     IntegrationId: str
@@ -317,22 +351,26 @@ class IntegrationResponse(BaseValidatorModel):
     TemplateSelectionExpression: Optional[str] = None
 
 
+# This class is the input for the 'get_integrations' function.
 class GetIntegrationsRequest(BaseValidatorModel):
     ApiId: str
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_model' function.
 class GetModelRequest(BaseValidatorModel):
     ApiId: str
     ModelId: str
 
 
+# This class is the input for the 'get_model_template' function.
 class GetModelTemplateRequest(BaseValidatorModel):
     ApiId: str
     ModelId: str
 
 
+# This class is the input for the 'get_models' function.
 class GetModelsRequest(BaseValidatorModel):
     ApiId: str
     MaxResults: Optional[str] = None
@@ -347,17 +385,20 @@ class Model(BaseValidatorModel):
     Schema: Optional[str] = None
 
 
+# This class is the input for the 'get_route' function.
 class GetRouteRequest(BaseValidatorModel):
     ApiId: str
     RouteId: str
 
 
+# This class is the input for the 'get_route_response' function.
 class GetRouteResponseRequest(BaseValidatorModel):
     ApiId: str
     RouteId: str
     RouteResponseId: str
 
 
+# This class is the input for the 'get_route_responses' function.
 class GetRouteResponsesRequest(BaseValidatorModel):
     ApiId: str
     RouteId: str
@@ -365,31 +406,37 @@ class GetRouteResponsesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_routes' function.
 class GetRoutesRequest(BaseValidatorModel):
     ApiId: str
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_stage' function.
 class GetStageRequest(BaseValidatorModel):
     ApiId: str
     StageName: str
 
 
+# This class is the input for the 'get_stages' function.
 class GetStagesRequest(BaseValidatorModel):
     ApiId: str
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_tags' function.
 class GetTagsRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'get_vpc_link' function.
 class GetVpcLinkRequest(BaseValidatorModel):
     VpcLinkId: str
 
 
+# This class is the input for the 'get_vpc_links' function.
 class GetVpcLinksRequest(BaseValidatorModel):
     MaxResults: Optional[str] = None
     NextToken: Optional[str] = None
@@ -407,6 +454,7 @@ class VpcLink(BaseValidatorModel):
     VpcLinkVersion: Optional[Literal['V2']] = None
 
 
+# This class is the input for the 'import_api' function.
 class ImportApiRequest(BaseValidatorModel):
     Body: str
     Basepath: Optional[str] = None
@@ -418,6 +466,7 @@ class JWTConfiguration(BaseValidatorModel):
     Issuer: Optional[str] = None
 
 
+# This class is the input for the 'reimport_api' function.
 class ReimportApiRequest(BaseValidatorModel):
     ApiId: str
     Body: str
@@ -425,6 +474,7 @@ class ReimportApiRequest(BaseValidatorModel):
     FailOnWarnings: Optional[bool] = None
 
 
+# This class is the input for the 'reset_authorizers_cache' function.
 class ResetAuthorizersCacheRequest(BaseValidatorModel):
     ApiId: str
     StageName: str
@@ -435,11 +485,13 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_api_mapping' function.
 class UpdateApiMappingRequest(BaseValidatorModel):
     ApiId: str
     ApiMappingId: str
@@ -448,12 +500,14 @@ class UpdateApiMappingRequest(BaseValidatorModel):
     Stage: Optional[str] = None
 
 
+# This class is the input for the 'update_deployment' function.
 class UpdateDeploymentRequest(BaseValidatorModel):
     ApiId: str
     DeploymentId: str
     Description: Optional[str] = None
 
 
+# This class is the input for the 'update_integration_response' function.
 class UpdateIntegrationResponseRequest(BaseValidatorModel):
     ApiId: str
     IntegrationId: str
@@ -465,6 +519,7 @@ class UpdateIntegrationResponseRequest(BaseValidatorModel):
     TemplateSelectionExpression: Optional[str] = None
 
 
+# This class is the input for the 'update_model' function.
 class UpdateModelRequest(BaseValidatorModel):
     ApiId: str
     ModelId: str
@@ -474,6 +529,7 @@ class UpdateModelRequest(BaseValidatorModel):
     Schema: Optional[str] = None
 
 
+# This class is the input for the 'update_vpc_link' function.
 class UpdateVpcLinkRequest(BaseValidatorModel):
     VpcLinkId: str
     Name: Optional[str] = None
@@ -514,6 +570,7 @@ class Authorizer(BaseValidatorModel):
 CorsUnion = Union[Cors, CorsOutput]
 
 
+# This class is the output for the 'create_api_mapping' function.
 class CreateApiMappingResponse(BaseValidatorModel):
     ApiId: str
     ApiMappingId: str
@@ -522,6 +579,7 @@ class CreateApiMappingResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_api' function.
 class CreateApiResponse(BaseValidatorModel):
     ApiEndpoint: str
     ApiGatewayManaged: bool
@@ -542,6 +600,7 @@ class CreateApiResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_authorizer' function.
 class CreateAuthorizerResponse(BaseValidatorModel):
     AuthorizerCredentialsArn: str
     AuthorizerId: str
@@ -557,6 +616,7 @@ class CreateAuthorizerResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_deployment' function.
 class CreateDeploymentResponse(BaseValidatorModel):
     AutoDeployed: bool
     CreatedDate: datetime
@@ -567,6 +627,7 @@ class CreateDeploymentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_integration_response' function.
 class CreateIntegrationResponseResponse(BaseValidatorModel):
     ContentHandlingStrategy: ContentHandlingStrategyType
     IntegrationResponseId: str
@@ -577,6 +638,7 @@ class CreateIntegrationResponseResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_model' function.
 class CreateModelResponse(BaseValidatorModel):
     ContentType: str
     Description: str
@@ -586,6 +648,7 @@ class CreateModelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_vpc_link' function.
 class CreateVpcLinkResponse(BaseValidatorModel):
     CreatedDate: datetime
     Name: str
@@ -599,15 +662,18 @@ class CreateVpcLinkResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'untag_resource' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'export_api' function.
 class ExportApiResponse(BaseValidatorModel):
     body: StreamingBody
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_api_mapping' function.
 class GetApiMappingResponse(BaseValidatorModel):
     ApiId: str
     ApiMappingId: str
@@ -616,12 +682,14 @@ class GetApiMappingResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_api_mappings' function.
 class GetApiMappingsResponse(BaseValidatorModel):
     Items: List[ApiMapping]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_api' function.
 class GetApiResponse(BaseValidatorModel):
     ApiEndpoint: str
     ApiGatewayManaged: bool
@@ -642,6 +710,7 @@ class GetApiResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_authorizer' function.
 class GetAuthorizerResponse(BaseValidatorModel):
     AuthorizerCredentialsArn: str
     AuthorizerId: str
@@ -657,6 +726,7 @@ class GetAuthorizerResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_deployment' function.
 class GetDeploymentResponse(BaseValidatorModel):
     AutoDeployed: bool
     CreatedDate: datetime
@@ -667,6 +737,7 @@ class GetDeploymentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_integration_response' function.
 class GetIntegrationResponseResponse(BaseValidatorModel):
     ContentHandlingStrategy: ContentHandlingStrategyType
     IntegrationResponseId: str
@@ -677,6 +748,7 @@ class GetIntegrationResponseResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_model' function.
 class GetModelResponse(BaseValidatorModel):
     ContentType: str
     Description: str
@@ -686,16 +758,19 @@ class GetModelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_model_template' function.
 class GetModelTemplateResponse(BaseValidatorModel):
     Value: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_tags' function.
 class GetTagsResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_vpc_link' function.
 class GetVpcLinkResponse(BaseValidatorModel):
     CreatedDate: datetime
     Name: str
@@ -709,6 +784,7 @@ class GetVpcLinkResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_api' function.
 class ImportApiResponse(BaseValidatorModel):
     ApiEndpoint: str
     ApiGatewayManaged: bool
@@ -729,6 +805,7 @@ class ImportApiResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reimport_api' function.
 class ReimportApiResponse(BaseValidatorModel):
     ApiEndpoint: str
     ApiGatewayManaged: bool
@@ -749,6 +826,7 @@ class ReimportApiResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_api_mapping' function.
 class UpdateApiMappingResponse(BaseValidatorModel):
     ApiId: str
     ApiMappingId: str
@@ -757,6 +835,7 @@ class UpdateApiMappingResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_api' function.
 class UpdateApiResponse(BaseValidatorModel):
     ApiEndpoint: str
     ApiGatewayManaged: bool
@@ -777,6 +856,7 @@ class UpdateApiResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_authorizer' function.
 class UpdateAuthorizerResponse(BaseValidatorModel):
     AuthorizerCredentialsArn: str
     AuthorizerId: str
@@ -792,6 +872,7 @@ class UpdateAuthorizerResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_deployment' function.
 class UpdateDeploymentResponse(BaseValidatorModel):
     AutoDeployed: bool
     CreatedDate: datetime
@@ -802,6 +883,7 @@ class UpdateDeploymentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_integration_response' function.
 class UpdateIntegrationResponseResponse(BaseValidatorModel):
     ContentHandlingStrategy: ContentHandlingStrategyType
     IntegrationResponseId: str
@@ -812,6 +894,7 @@ class UpdateIntegrationResponseResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_model' function.
 class UpdateModelResponse(BaseValidatorModel):
     ContentType: str
     Description: str
@@ -821,6 +904,7 @@ class UpdateModelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_vpc_link' function.
 class UpdateVpcLinkResponse(BaseValidatorModel):
     CreatedDate: datetime
     Name: str
@@ -834,6 +918,7 @@ class UpdateVpcLinkResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_domain_name' function.
 class CreateDomainNameResponse(BaseValidatorModel):
     ApiMappingSelectionExpression: str
     DomainName: str
@@ -851,6 +936,7 @@ class DomainName(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'get_domain_name' function.
 class GetDomainNameResponse(BaseValidatorModel):
     ApiMappingSelectionExpression: str
     DomainName: str
@@ -860,6 +946,7 @@ class GetDomainNameResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_domain_name' function.
 class UpdateDomainNameResponse(BaseValidatorModel):
     ApiMappingSelectionExpression: str
     DomainName: str
@@ -869,6 +956,7 @@ class UpdateDomainNameResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_integration' function.
 class CreateIntegrationRequest(BaseValidatorModel):
     ApiId: str
     IntegrationType: IntegrationTypeType
@@ -890,6 +978,7 @@ class CreateIntegrationRequest(BaseValidatorModel):
     TlsConfig: Optional[TlsConfigInput] = None
 
 
+# This class is the input for the 'update_integration' function.
 class UpdateIntegrationRequest(BaseValidatorModel):
     ApiId: str
     IntegrationId: str
@@ -912,6 +1001,7 @@ class UpdateIntegrationRequest(BaseValidatorModel):
     TlsConfig: Optional[TlsConfigInput] = None
 
 
+# This class is the output for the 'create_integration' function.
 class CreateIntegrationResult(BaseValidatorModel):
     ApiGatewayManaged: bool
     ConnectionId: str
@@ -936,6 +1026,7 @@ class CreateIntegrationResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_integration' function.
 class GetIntegrationResult(BaseValidatorModel):
     ApiGatewayManaged: bool
     ConnectionId: str
@@ -983,6 +1074,7 @@ class Integration(BaseValidatorModel):
     TlsConfig: Optional[TlsConfig] = None
 
 
+# This class is the output for the 'update_integration' function.
 class UpdateIntegrationResult(BaseValidatorModel):
     ApiGatewayManaged: bool
     ConnectionId: str
@@ -1007,6 +1099,7 @@ class UpdateIntegrationResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_route' function.
 class CreateRouteRequest(BaseValidatorModel):
     ApiId: str
     RouteKey: str
@@ -1022,6 +1115,7 @@ class CreateRouteRequest(BaseValidatorModel):
     Target: Optional[str] = None
 
 
+# This class is the input for the 'create_route_response' function.
 class CreateRouteResponseRequest(BaseValidatorModel):
     ApiId: str
     RouteId: str
@@ -1031,6 +1125,7 @@ class CreateRouteResponseRequest(BaseValidatorModel):
     ResponseParameters: Optional[Dict[str, ParameterConstraints]] = None
 
 
+# This class is the output for the 'create_route_response' function.
 class CreateRouteResponseResponse(BaseValidatorModel):
     ModelSelectionExpression: str
     ResponseModels: Dict[str, str]
@@ -1040,6 +1135,7 @@ class CreateRouteResponseResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_route' function.
 class CreateRouteResult(BaseValidatorModel):
     ApiGatewayManaged: bool
     ApiKeyRequired: bool
@@ -1057,6 +1153,7 @@ class CreateRouteResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_route_response' function.
 class GetRouteResponseResponse(BaseValidatorModel):
     ModelSelectionExpression: str
     ResponseModels: Dict[str, str]
@@ -1066,6 +1163,7 @@ class GetRouteResponseResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_route' function.
 class GetRouteResult(BaseValidatorModel):
     ApiGatewayManaged: bool
     ApiKeyRequired: bool
@@ -1107,6 +1205,7 @@ class Route(BaseValidatorModel):
     Target: Optional[str] = None
 
 
+# This class is the input for the 'update_route' function.
 class UpdateRouteRequest(BaseValidatorModel):
     ApiId: str
     RouteId: str
@@ -1123,6 +1222,7 @@ class UpdateRouteRequest(BaseValidatorModel):
     Target: Optional[str] = None
 
 
+# This class is the input for the 'update_route_response' function.
 class UpdateRouteResponseRequest(BaseValidatorModel):
     ApiId: str
     RouteId: str
@@ -1133,6 +1233,7 @@ class UpdateRouteResponseRequest(BaseValidatorModel):
     RouteResponseKey: Optional[str] = None
 
 
+# This class is the output for the 'update_route_response' function.
 class UpdateRouteResponseResponse(BaseValidatorModel):
     ModelSelectionExpression: str
     ResponseModels: Dict[str, str]
@@ -1142,6 +1243,7 @@ class UpdateRouteResponseResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_route' function.
 class UpdateRouteResult(BaseValidatorModel):
     ApiGatewayManaged: bool
     ApiKeyRequired: bool
@@ -1159,6 +1261,7 @@ class UpdateRouteResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_stage' function.
 class CreateStageRequest(BaseValidatorModel):
     ApiId: str
     StageName: str
@@ -1173,6 +1276,7 @@ class CreateStageRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_stage' function.
 class CreateStageResponse(BaseValidatorModel):
     AccessLogSettings: AccessLogSettings
     ApiGatewayManaged: bool
@@ -1191,6 +1295,7 @@ class CreateStageResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_stage' function.
 class GetStageResponse(BaseValidatorModel):
     AccessLogSettings: AccessLogSettings
     ApiGatewayManaged: bool
@@ -1226,6 +1331,7 @@ class Stage(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_stage' function.
 class UpdateStageRequest(BaseValidatorModel):
     ApiId: str
     StageName: str
@@ -1239,6 +1345,7 @@ class UpdateStageRequest(BaseValidatorModel):
     StageVariables: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'update_stage' function.
 class UpdateStageResponse(BaseValidatorModel):
     AccessLogSettings: AccessLogSettings
     ApiGatewayManaged: bool
@@ -1257,6 +1364,7 @@ class UpdateStageResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_deployments' function.
 class GetDeploymentsResponse(BaseValidatorModel):
     Items: List[Deployment]
     ResponseMetadata: ResponseMetadata
@@ -1326,18 +1434,21 @@ class GetStagesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'get_integration_responses' function.
 class GetIntegrationResponsesResponse(BaseValidatorModel):
     Items: List[IntegrationResponse]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_models' function.
 class GetModelsResponse(BaseValidatorModel):
     Items: List[Model]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_vpc_links' function.
 class GetVpcLinksResponse(BaseValidatorModel):
     Items: List[VpcLink]
     ResponseMetadata: ResponseMetadata
@@ -1346,18 +1457,21 @@ class GetVpcLinksResponse(BaseValidatorModel):
 JWTConfigurationUnion = Union[JWTConfiguration, JWTConfigurationOutput]
 
 
+# This class is the output for the 'get_apis' function.
 class GetApisResponse(BaseValidatorModel):
     Items: List[Api]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_authorizers' function.
 class GetAuthorizersResponse(BaseValidatorModel):
     Items: List[Authorizer]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_api' function.
 class CreateApiRequest(BaseValidatorModel):
     Name: str
     ProtocolType: ProtocolTypeType
@@ -1374,6 +1488,7 @@ class CreateApiRequest(BaseValidatorModel):
     Version: Optional[str] = None
 
 
+# This class is the input for the 'update_api' function.
 class UpdateApiRequest(BaseValidatorModel):
     ApiId: str
     ApiKeySelectionExpression: Optional[str] = None
@@ -1389,30 +1504,35 @@ class UpdateApiRequest(BaseValidatorModel):
     Version: Optional[str] = None
 
 
+# This class is the output for the 'get_domain_names' function.
 class GetDomainNamesResponse(BaseValidatorModel):
     Items: List[DomainName]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_integrations' function.
 class GetIntegrationsResponse(BaseValidatorModel):
     Items: List[Integration]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_route_responses' function.
 class GetRouteResponsesResponse(BaseValidatorModel):
     Items: List[RouteResponse]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_routes' function.
 class GetRoutesResponse(BaseValidatorModel):
     Items: List[Route]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_stages' function.
 class GetStagesResponse(BaseValidatorModel):
     Items: List[Stage]
     ResponseMetadata: ResponseMetadata
@@ -1421,6 +1541,7 @@ class GetStagesResponse(BaseValidatorModel):
 DomainNameConfigurationUnion = Union[DomainNameConfiguration, DomainNameConfigurationOutput]
 
 
+# This class is the input for the 'create_authorizer' function.
 class CreateAuthorizerRequest(BaseValidatorModel):
     ApiId: str
     AuthorizerType: AuthorizerTypeType
@@ -1435,6 +1556,7 @@ class CreateAuthorizerRequest(BaseValidatorModel):
     JwtConfiguration: Optional[JWTConfigurationUnion] = None
 
 
+# This class is the input for the 'update_authorizer' function.
 class UpdateAuthorizerRequest(BaseValidatorModel):
     ApiId: str
     AuthorizerId: str
@@ -1450,6 +1572,7 @@ class UpdateAuthorizerRequest(BaseValidatorModel):
     Name: Optional[str] = None
 
 
+# This class is the input for the 'create_domain_name' function.
 class CreateDomainNameRequest(BaseValidatorModel):
     DomainName: str
     DomainNameConfigurations: Optional[List[DomainNameConfigurationUnion]] = None
@@ -1457,6 +1580,7 @@ class CreateDomainNameRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_domain_name' function.
 class UpdateDomainNameRequest(BaseValidatorModel):
     DomainName: str
     DomainNameConfigurations: Optional[List[DomainNameConfigurationUnion]] = None

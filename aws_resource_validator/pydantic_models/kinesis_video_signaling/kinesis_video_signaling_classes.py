@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'get_ice_server_config' function.
 class GetIceServerConfigRequest(BaseValidatorModel):
     ChannelARN: str
     ClientId: Optional[str] = None
@@ -30,17 +31,20 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'send_alexa_offer_to_master' function.
 class SendAlexaOfferToMasterRequest(BaseValidatorModel):
     ChannelARN: str
     SenderClientId: str
     MessagePayload: str
 
 
+# This class is the output for the 'get_ice_server_config' function.
 class GetIceServerConfigResponse(BaseValidatorModel):
     IceServerList: List[IceServer]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'send_alexa_offer_to_master' function.
 class SendAlexaOfferToMasterResponse(BaseValidatorModel):
     Answer: str
     ResponseMetadata: ResponseMetadata

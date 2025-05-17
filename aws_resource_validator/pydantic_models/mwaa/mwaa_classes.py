@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'create_cli_token' function.
 class CreateCliTokenRequest(BaseValidatorModel):
     Name: str
 
@@ -20,6 +21,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_web_login_token' function.
 class CreateWebLoginTokenRequest(BaseValidatorModel):
     Name: str
 
@@ -38,10 +40,12 @@ class NetworkConfigurationOutput(BaseValidatorModel):
     SecurityGroupIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_environment' function.
 class GetEnvironmentInput(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'invoke_rest_api' function.
 class InvokeRestApiRequest(BaseValidatorModel):
     Name: str
     Path: str
@@ -61,11 +65,13 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_environments' function.
 class ListEnvironmentsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInput(BaseValidatorModel):
     ResourceArn: str
 
@@ -109,17 +115,20 @@ class UpdateNetworkConfigurationInput(BaseValidatorModel):
     SecurityGroupIds: List[str]
 
 
+# This class is the output for the 'create_cli_token' function.
 class CreateCliTokenResponse(BaseValidatorModel):
     CliToken: str
     WebServerHostname: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_environment' function.
 class CreateEnvironmentOutput(BaseValidatorModel):
     Arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_web_login_token' function.
 class CreateWebLoginTokenResponse(BaseValidatorModel):
     WebToken: str
     WebServerHostname: str
@@ -128,23 +137,27 @@ class CreateWebLoginTokenResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'invoke_rest_api' function.
 class InvokeRestApiResponse(BaseValidatorModel):
     RestApiStatusCode: int
     RestApiResponse: Dict[str, Any]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_environments' function.
 class ListEnvironmentsOutput(BaseValidatorModel):
     Environments: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceOutput(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_environment' function.
 class UpdateEnvironmentOutput(BaseValidatorModel):
     Arn: str
     ResponseMetadata: ResponseMetadata
@@ -188,6 +201,7 @@ class MetricDatum(BaseValidatorModel):
 NetworkConfigurationUnion = Union[NetworkConfiguration, NetworkConfigurationOutput]
 
 
+# This class is the input for the 'update_environment' function.
 class UpdateEnvironmentInput(BaseValidatorModel):
     Name: str
     ExecutionRoleArn: Optional[str] = None
@@ -255,6 +269,7 @@ class PublishMetricsInput(BaseValidatorModel):
     MetricData: List[MetricDatum]
 
 
+# This class is the input for the 'create_environment' function.
 class CreateEnvironmentInput(BaseValidatorModel):
     Name: str
     ExecutionRoleArn: str
@@ -283,6 +298,7 @@ class CreateEnvironmentInput(BaseValidatorModel):
     MaxWebservers: Optional[int] = None
 
 
+# This class is the output for the 'get_environment' function.
 class GetEnvironmentOutput(BaseValidatorModel):
     Environment: Environment
     ResponseMetadata: ResponseMetadata

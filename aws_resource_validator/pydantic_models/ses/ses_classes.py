@@ -69,6 +69,7 @@ class TrackingOptions(BaseValidatorModel):
     CustomRedirectDomain: Optional[str] = None
 
 
+# This class is the input for the 'create_custom_verification_email_template' function.
 class CreateCustomVerificationEmailTemplateRequest(BaseValidatorModel):
     TemplateName: str
     FromEmailAddress: str
@@ -110,6 +111,7 @@ class DeleteConfigurationSetTrackingOptionsRequest(BaseValidatorModel):
     ConfigurationSetName: str
 
 
+# This class is the input for the 'delete_custom_verification_email_template' function.
 class DeleteCustomVerificationEmailTemplateRequest(BaseValidatorModel):
     TemplateName: str
 
@@ -140,6 +142,7 @@ class DeleteTemplateRequest(BaseValidatorModel):
     TemplateName: str
 
 
+# This class is the input for the 'delete_verified_email_address' function.
 class DeleteVerifiedEmailAddressRequest(BaseValidatorModel):
     EmailAddress: str
 
@@ -161,6 +164,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'describe_configuration_set' function.
 class DescribeConfigurationSetRequest(BaseValidatorModel):
     ConfigurationSetName: str
     ConfigurationSetAttributeNames: Optional[List[ConfigurationSetAttributeType]] = None
@@ -172,11 +176,13 @@ class ReputationOptions(BaseValidatorModel):
     LastFreshStart: Optional[datetime] = None
 
 
+# This class is the input for the 'describe_receipt_rule' function.
 class DescribeReceiptRuleRequest(BaseValidatorModel):
     RuleSetName: str
     RuleName: str
 
 
+# This class is the input for the 'describe_receipt_rule_set' function.
 class DescribeReceiptRuleSetRequest(BaseValidatorModel):
     RuleSetName: str
 
@@ -195,10 +201,12 @@ class ExtensionField(BaseValidatorModel):
     Value: str
 
 
+# This class is the input for the 'get_custom_verification_email_template' function.
 class GetCustomVerificationEmailTemplateRequest(BaseValidatorModel):
     TemplateName: str
 
 
+# This class is the input for the 'get_identity_dkim_attributes' function.
 class GetIdentityDkimAttributesRequest(BaseValidatorModel):
     Identities: List[str]
 
@@ -209,6 +217,7 @@ class IdentityDkimAttributes(BaseValidatorModel):
     DkimTokens: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_identity_mail_from_domain_attributes' function.
 class GetIdentityMailFromDomainAttributesRequest(BaseValidatorModel):
     Identities: List[str]
 
@@ -219,6 +228,7 @@ class IdentityMailFromDomainAttributes(BaseValidatorModel):
     BehaviorOnMXFailure: BehaviorOnMXFailureType
 
 
+# This class is the input for the 'get_identity_notification_attributes' function.
 class GetIdentityNotificationAttributesRequest(BaseValidatorModel):
     Identities: List[str]
 
@@ -233,11 +243,13 @@ class IdentityNotificationAttributes(BaseValidatorModel):
     HeadersInDeliveryNotificationsEnabled: Optional[bool] = None
 
 
+# This class is the input for the 'get_identity_policies' function.
 class GetIdentityPoliciesRequest(BaseValidatorModel):
     Identity: str
     PolicyNames: List[str]
 
 
+# This class is the input for the 'get_identity_verification_attributes' function.
 class GetIdentityVerificationAttributesRequest(BaseValidatorModel):
     Identities: List[str]
 
@@ -260,6 +272,7 @@ class SendDataPoint(BaseValidatorModel):
     Rejects: Optional[int] = None
 
 
+# This class is the input for the 'get_template' function.
 class GetTemplateRequest(BaseValidatorModel):
     TemplateName: str
 
@@ -276,30 +289,36 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_configuration_sets' function.
 class ListConfigurationSetsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
+# This class is the input for the 'list_custom_verification_email_templates' function.
 class ListCustomVerificationEmailTemplatesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_identities' function.
 class ListIdentitiesRequest(BaseValidatorModel):
     IdentityType: Optional[IdentityTypeType] = None
     NextToken: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
+# This class is the input for the 'list_identity_policies' function.
 class ListIdentityPoliciesRequest(BaseValidatorModel):
     Identity: str
 
 
+# This class is the input for the 'list_receipt_rule_sets' function.
 class ListReceiptRuleSetsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_templates' function.
 class ListTemplatesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxItems: Optional[int] = None
@@ -351,6 +370,7 @@ class ReorderReceiptRuleSetRequest(BaseValidatorModel):
     RuleNames: List[str]
 
 
+# This class is the input for the 'send_custom_verification_email' function.
 class SendCustomVerificationEmailRequest(BaseValidatorModel):
     EmailAddress: str
     TemplateName: str
@@ -395,25 +415,30 @@ class SetReceiptRulePositionRequest(BaseValidatorModel):
     After: Optional[str] = None
 
 
+# This class is the input for the 'test_render_template' function.
 class TestRenderTemplateRequest(BaseValidatorModel):
     TemplateName: str
     TemplateData: str
 
 
+# This class is the input for the 'update_account_sending_enabled' function.
 class UpdateAccountSendingEnabledRequest(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
+# This class is the input for the 'update_configuration_set_reputation_metrics_enabled' function.
 class UpdateConfigurationSetReputationMetricsEnabledRequest(BaseValidatorModel):
     ConfigurationSetName: str
     Enabled: bool
 
 
+# This class is the input for the 'update_configuration_set_sending_enabled' function.
 class UpdateConfigurationSetSendingEnabledRequest(BaseValidatorModel):
     ConfigurationSetName: str
     Enabled: bool
 
 
+# This class is the input for the 'update_custom_verification_email_template' function.
 class UpdateCustomVerificationEmailTemplateRequest(BaseValidatorModel):
     TemplateName: str
     FromEmailAddress: Optional[str] = None
@@ -423,14 +448,17 @@ class UpdateCustomVerificationEmailTemplateRequest(BaseValidatorModel):
     FailureRedirectionURL: Optional[str] = None
 
 
+# This class is the input for the 'verify_domain_dkim' function.
 class VerifyDomainDkimRequest(BaseValidatorModel):
     Domain: str
 
 
+# This class is the input for the 'verify_domain_identity' function.
 class VerifyDomainIdentityRequest(BaseValidatorModel):
     Domain: str
 
 
+# This class is the input for the 'verify_email_address' function.
 class VerifyEmailAddressRequest(BaseValidatorModel):
     EmailAddress: str
 
@@ -454,6 +482,7 @@ class BulkEmailDestination(BaseValidatorModel):
     ReplacementTemplateData: Optional[str] = None
 
 
+# This class is the input for the 'send_templated_email' function.
 class SendTemplatedEmailRequest(BaseValidatorModel):
     Source: str
     Destination: Destination
@@ -503,6 +532,7 @@ class PutConfigurationSetDeliveryOptionsRequest(BaseValidatorModel):
     DeliveryOptions: Optional[DeliveryOptions] = None
 
 
+# This class is the output for the 'verify_email_address' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
@@ -512,6 +542,7 @@ class GetAccountSendingEnabledResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_custom_verification_email_template' function.
 class GetCustomVerificationEmailTemplateResponse(BaseValidatorModel):
     TemplateName: str
     FromEmailAddress: str
@@ -522,6 +553,7 @@ class GetCustomVerificationEmailTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_identity_policies' function.
 class GetIdentityPoliciesResponse(BaseValidatorModel):
     Policies: Dict[str, str]
     ResponseMetadata: ResponseMetadata
@@ -534,34 +566,40 @@ class GetSendQuotaResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_template' function.
 class GetTemplateResponse(BaseValidatorModel):
     Template: Template
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_configuration_sets' function.
 class ListConfigurationSetsResponse(BaseValidatorModel):
     ConfigurationSets: List[ConfigurationSet]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_custom_verification_email_templates' function.
 class ListCustomVerificationEmailTemplatesResponse(BaseValidatorModel):
     CustomVerificationEmailTemplates: List[CustomVerificationEmailTemplate]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_identities' function.
 class ListIdentitiesResponse(BaseValidatorModel):
     Identities: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_identity_policies' function.
 class ListIdentityPoliciesResponse(BaseValidatorModel):
     PolicyNames: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_receipt_rule_sets' function.
 class ListReceiptRuleSetsResponse(BaseValidatorModel):
     RuleSets: List[ReceiptRuleSetMetadata]
     ResponseMetadata: ResponseMetadata
@@ -573,61 +611,73 @@ class ListVerifiedEmailAddressesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'send_bounce' function.
 class SendBounceResponse(BaseValidatorModel):
     MessageId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'send_bulk_templated_email' function.
 class SendBulkTemplatedEmailResponse(BaseValidatorModel):
     Status: List[BulkEmailDestinationStatus]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'send_custom_verification_email' function.
 class SendCustomVerificationEmailResponse(BaseValidatorModel):
     MessageId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'send_email' function.
 class SendEmailResponse(BaseValidatorModel):
     MessageId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'send_raw_email' function.
 class SendRawEmailResponse(BaseValidatorModel):
     MessageId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'send_templated_email' function.
 class SendTemplatedEmailResponse(BaseValidatorModel):
     MessageId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'test_render_template' function.
 class TestRenderTemplateResponse(BaseValidatorModel):
     RenderedTemplate: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'verify_domain_dkim' function.
 class VerifyDomainDkimResponse(BaseValidatorModel):
     DkimTokens: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'verify_domain_identity' function.
 class VerifyDomainIdentityResponse(BaseValidatorModel):
     VerificationToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_identity_dkim_attributes' function.
 class GetIdentityDkimAttributesResponse(BaseValidatorModel):
     DkimAttributes: Dict[str, IdentityDkimAttributes]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_identity_mail_from_domain_attributes' function.
 class GetIdentityMailFromDomainAttributesResponse(BaseValidatorModel):
     MailFromDomainAttributes: Dict[str, IdentityMailFromDomainAttributes]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_identity_notification_attributes' function.
 class GetIdentityNotificationAttributesResponse(BaseValidatorModel):
     NotificationAttributes: Dict[str, IdentityNotificationAttributes]
     ResponseMetadata: ResponseMetadata
@@ -638,6 +688,7 @@ class GetIdentityVerificationAttributesRequestWait(BaseValidatorModel):
     WaiterConfig: Optional[WaiterConfig] = None
 
 
+# This class is the output for the 'get_identity_verification_attributes' function.
 class GetIdentityVerificationAttributesResponse(BaseValidatorModel):
     VerificationAttributes: Dict[str, IdentityVerificationAttributes]
     ResponseMetadata: ResponseMetadata
@@ -669,6 +720,7 @@ class ListTemplatesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_templates' function.
 class ListTemplatesResponse(BaseValidatorModel):
     TemplatesMetadata: List[TemplateMetadata]
     ResponseMetadata: ResponseMetadata
@@ -707,6 +759,7 @@ class ReceiptFilter(BaseValidatorModel):
     IpFilter: ReceiptIpFilter
 
 
+# This class is the input for the 'send_raw_email' function.
 class SendRawEmailRequest(BaseValidatorModel):
     RawMessage: RawMessage
     Source: Optional[str] = None
@@ -723,6 +776,7 @@ class Message(BaseValidatorModel):
     Body: Body
 
 
+# This class is the input for the 'send_bulk_templated_email' function.
 class SendBulkTemplatedEmailRequest(BaseValidatorModel):
     Source: str
     Template: str
@@ -789,6 +843,7 @@ class ListReceiptFiltersResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'send_email' function.
 class SendEmailRequest(BaseValidatorModel):
     Source: str
     Destination: Destination
@@ -801,6 +856,7 @@ class SendEmailRequest(BaseValidatorModel):
     ConfigurationSetName: Optional[str] = None
 
 
+# This class is the output for the 'describe_configuration_set' function.
 class DescribeConfigurationSetResponse(BaseValidatorModel):
     ConfigurationSet: ConfigurationSet
     EventDestinations: List[EventDestinationOutput]
@@ -812,6 +868,7 @@ class DescribeConfigurationSetResponse(BaseValidatorModel):
 EventDestinationUnion = Union[EventDestination, EventDestinationOutput]
 
 
+# This class is the input for the 'send_bounce' function.
 class SendBounceRequest(BaseValidatorModel):
     OriginalMessageId: str
     BounceSender: str
@@ -827,11 +884,13 @@ class DescribeActiveReceiptRuleSetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_receipt_rule' function.
 class DescribeReceiptRuleResponse(BaseValidatorModel):
     Rule: ReceiptRuleOutput
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_receipt_rule_set' function.
 class DescribeReceiptRuleSetResponse(BaseValidatorModel):
     Metadata: ReceiptRuleSetMetadata
     Rules: List[ReceiptRuleOutput]

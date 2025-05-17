@@ -67,10 +67,12 @@ class DbParameterGroupSummary(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'delete_db_cluster' function.
 class DeleteDbClusterInput(BaseValidatorModel):
     dbClusterId: str
 
 
+# This class is the input for the 'delete_db_instance' function.
 class DeleteDbInstanceInput(BaseValidatorModel):
     identifier: str
 
@@ -80,14 +82,17 @@ class Duration(BaseValidatorModel):
     value: int
 
 
+# This class is the input for the 'get_db_cluster' function.
 class GetDbClusterInput(BaseValidatorModel):
     dbClusterId: str
 
 
+# This class is the input for the 'get_db_instance' function.
 class GetDbInstanceInput(BaseValidatorModel):
     identifier: str
 
 
+# This class is the input for the 'get_db_parameter_group' function.
 class GetDbParameterGroupInput(BaseValidatorModel):
     identifier: str
 
@@ -98,27 +103,32 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_db_clusters' function.
 class ListDbClustersInput(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_db_instances_for_cluster' function.
 class ListDbInstancesForClusterInput(BaseValidatorModel):
     dbClusterId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_db_instances' function.
 class ListDbInstancesInput(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_db_parameter_groups' function.
 class ListDbParameterGroupsInput(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -128,59 +138,70 @@ class S3Configuration(BaseValidatorModel):
     enabled: bool
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Dict[str, str]
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: List[str]
 
 
+# This class is the output for the 'create_db_cluster' function.
 class CreateDbClusterOutput(BaseValidatorModel):
     dbClusterId: str
     dbClusterStatus: ClusterStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_db_cluster' function.
 class DeleteDbClusterOutput(BaseValidatorModel):
     dbClusterStatus: ClusterStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'untag_resource' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_db_cluster' function.
 class UpdateDbClusterOutput(BaseValidatorModel):
     dbClusterStatus: ClusterStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_db_clusters' function.
 class ListDbClustersOutput(BaseValidatorModel):
     items: List[DbClusterSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_db_instances_for_cluster' function.
 class ListDbInstancesForClusterOutput(BaseValidatorModel):
     items: List[DbInstanceForClusterSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_db_instances' function.
 class ListDbInstancesOutput(BaseValidatorModel):
     items: List[DbInstanceSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_db_parameter_groups' function.
 class ListDbParameterGroupsOutput(BaseValidatorModel):
     items: List[DbParameterGroupSummary]
     ResponseMetadata: ResponseMetadata
@@ -249,6 +270,7 @@ class Parameters(BaseValidatorModel):
     InfluxDBv2: Optional[InfluxDBv2Parameters] = None
 
 
+# This class is the input for the 'create_db_cluster' function.
 class CreateDbClusterInput(BaseValidatorModel):
     name: str
     password: str
@@ -270,6 +292,7 @@ class CreateDbClusterInput(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_db_instance' function.
 class CreateDbInstanceInput(BaseValidatorModel):
     name: str
     password: str
@@ -290,6 +313,7 @@ class CreateDbInstanceInput(BaseValidatorModel):
     networkType: Optional[NetworkTypeType] = None
 
 
+# This class is the output for the 'create_db_instance' function.
 class CreateDbInstanceOutput(BaseValidatorModel):
     id: str
     name: str
@@ -315,6 +339,7 @@ class CreateDbInstanceOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_db_instance' function.
 class DeleteDbInstanceOutput(BaseValidatorModel):
     id: str
     name: str
@@ -340,6 +365,7 @@ class DeleteDbInstanceOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_db_cluster' function.
 class GetDbClusterOutput(BaseValidatorModel):
     id: str
     name: str
@@ -363,6 +389,7 @@ class GetDbClusterOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_db_instance' function.
 class GetDbInstanceOutput(BaseValidatorModel):
     id: str
     name: str
@@ -388,6 +415,7 @@ class GetDbInstanceOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_db_cluster' function.
 class UpdateDbClusterInput(BaseValidatorModel):
     dbClusterId: str
     logDeliveryConfiguration: Optional[LogDeliveryConfiguration] = None
@@ -397,6 +425,7 @@ class UpdateDbClusterInput(BaseValidatorModel):
     failoverMode: Optional[FailoverModeType] = None
 
 
+# This class is the input for the 'update_db_instance' function.
 class UpdateDbInstanceInput(BaseValidatorModel):
     identifier: str
     logDeliveryConfiguration: Optional[LogDeliveryConfiguration] = None
@@ -408,6 +437,7 @@ class UpdateDbInstanceInput(BaseValidatorModel):
     allocatedStorage: Optional[int] = None
 
 
+# This class is the output for the 'update_db_instance' function.
 class UpdateDbInstanceOutput(BaseValidatorModel):
     id: str
     name: str
@@ -433,6 +463,7 @@ class UpdateDbInstanceOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_db_parameter_group' function.
 class CreateDbParameterGroupInput(BaseValidatorModel):
     name: str
     description: Optional[str] = None
@@ -440,6 +471,7 @@ class CreateDbParameterGroupInput(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_db_parameter_group' function.
 class CreateDbParameterGroupOutput(BaseValidatorModel):
     id: str
     name: str
@@ -449,6 +481,7 @@ class CreateDbParameterGroupOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_db_parameter_group' function.
 class GetDbParameterGroupOutput(BaseValidatorModel):
     id: str
     name: str

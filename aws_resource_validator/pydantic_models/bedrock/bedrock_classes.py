@@ -19,6 +19,7 @@ class BatchDeleteEvaluationJobItem(BaseValidatorModel):
     jobStatus: EvaluationJobStatusType
 
 
+# This class is the input for the 'batch_delete_evaluation_job' function.
 class BatchDeleteEvaluationJobRequest(BaseValidatorModel):
     jobIdentifiers: List[str]
 
@@ -57,6 +58,7 @@ class Tag(BaseValidatorModel):
     value: str
 
 
+# This class is the input for the 'create_guardrail_version' function.
 class CreateGuardrailVersionRequest(BaseValidatorModel):
     guardrailIdentifier: str
     description: Optional[str] = None
@@ -175,6 +177,7 @@ class FoundationModelLifecycle(BaseValidatorModel):
     status: FoundationModelLifecycleStatusType
 
 
+# This class is the input for the 'get_custom_model' function.
 class GetCustomModelRequest(BaseValidatorModel):
     modelIdentifier: str
 
@@ -187,23 +190,28 @@ class ValidatorMetric(BaseValidatorModel):
     validationLoss: Optional[float] = None
 
 
+# This class is the input for the 'get_evaluation_job' function.
 class GetEvaluationJobRequest(BaseValidatorModel):
     jobIdentifier: str
 
 
+# This class is the input for the 'get_foundation_model' function.
 class GetFoundationModelRequest(BaseValidatorModel):
     modelIdentifier: str
 
 
+# This class is the input for the 'get_guardrail' function.
 class GetGuardrailRequest(BaseValidatorModel):
     guardrailIdentifier: str
     guardrailVersion: Optional[str] = None
 
 
+# This class is the input for the 'get_imported_model' function.
 class GetImportedModelRequest(BaseValidatorModel):
     modelIdentifier: str
 
 
+# This class is the input for the 'get_inference_profile' function.
 class GetInferenceProfileRequest(BaseValidatorModel):
     inferenceProfileIdentifier: str
 
@@ -212,14 +220,17 @@ class InferenceProfileModel(BaseValidatorModel):
     modelArn: Optional[str] = None
 
 
+# This class is the input for the 'get_marketplace_model_endpoint' function.
 class GetMarketplaceModelEndpointRequest(BaseValidatorModel):
     endpointArn: str
 
 
+# This class is the input for the 'get_model_copy_job' function.
 class GetModelCopyJobRequest(BaseValidatorModel):
     jobArn: str
 
 
+# This class is the input for the 'get_model_customization_job' function.
 class GetModelCustomizationJobRequest(BaseValidatorModel):
     jobIdentifier: str
 
@@ -229,18 +240,22 @@ class VpcConfigOutput(BaseValidatorModel):
     securityGroupIds: List[str]
 
 
+# This class is the input for the 'get_model_import_job' function.
 class GetModelImportJobRequest(BaseValidatorModel):
     jobIdentifier: str
 
 
+# This class is the input for the 'get_model_invocation_job' function.
 class GetModelInvocationJobRequest(BaseValidatorModel):
     jobIdentifier: str
 
 
+# This class is the input for the 'get_prompt_router' function.
 class GetPromptRouterRequest(BaseValidatorModel):
     promptRouterArn: str
 
 
+# This class is the input for the 'get_provisioned_model_throughput' function.
 class GetProvisionedModelThroughputRequest(BaseValidatorModel):
     provisionedModelId: str
 
@@ -381,6 +396,7 @@ class PaginatorConfig(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'list_foundation_models' function.
 class ListFoundationModelsRequest(BaseValidatorModel):
     byProvider: Optional[str] = None
     byCustomizationType: Optional[ModelCustomizationType] = None
@@ -388,18 +404,21 @@ class ListFoundationModelsRequest(BaseValidatorModel):
     byInferenceType: Optional[InferenceTypeType] = None
 
 
+# This class is the input for the 'list_guardrails' function.
 class ListGuardrailsRequest(BaseValidatorModel):
     guardrailIdentifier: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_inference_profiles' function.
 class ListInferenceProfilesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     typeEquals: Optional[InferenceProfileTypeType] = None
 
 
+# This class is the input for the 'list_marketplace_model_endpoints' function.
 class ListMarketplaceModelEndpointsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -439,6 +458,7 @@ class ModelImportJobSummary(BaseValidatorModel):
     importedModelName: Optional[str] = None
 
 
+# This class is the input for the 'list_prompt_routers' function.
 class ListPromptRoutersRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -460,6 +480,7 @@ class ProvisionedModelSummary(BaseValidatorModel):
     commitmentExpirationTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceARN: str
 
@@ -484,6 +505,7 @@ class QueryTransformationConfiguration(BaseValidatorModel):
     type: Literal['QUERY_DECOMPOSITION']
 
 
+# This class is the input for the 'register_marketplace_model_endpoint' function.
 class RegisterMarketplaceModelEndpointRequest(BaseValidatorModel):
     endpointIdentifier: str
     modelSourceIdentifier: str
@@ -531,17 +553,20 @@ class Validator(BaseValidatorModel):
     s3Uri: str
 
 
+# This class is the output for the 'batch_delete_evaluation_job' function.
 class BatchDeleteEvaluationJobResponse(BaseValidatorModel):
     errors: List[BatchDeleteEvaluationJobError]
     evaluationJobs: List[BatchDeleteEvaluationJobItem]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_evaluation_job' function.
 class CreateEvaluationJobResponse(BaseValidatorModel):
     jobArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_guardrail' function.
 class CreateGuardrailResponse(BaseValidatorModel):
     guardrailId: str
     guardrailArn: str
@@ -550,48 +575,57 @@ class CreateGuardrailResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_guardrail_version' function.
 class CreateGuardrailVersionResponse(BaseValidatorModel):
     guardrailId: str
     version: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_inference_profile' function.
 class CreateInferenceProfileResponse(BaseValidatorModel):
     inferenceProfileArn: str
     status: Literal['ACTIVE']
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_model_copy_job' function.
 class CreateModelCopyJobResponse(BaseValidatorModel):
     jobArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_model_customization_job' function.
 class CreateModelCustomizationJobResponse(BaseValidatorModel):
     jobArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_model_import_job' function.
 class CreateModelImportJobResponse(BaseValidatorModel):
     jobArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_model_invocation_job' function.
 class CreateModelInvocationJobResponse(BaseValidatorModel):
     jobArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_prompt_router' function.
 class CreatePromptRouterResponse(BaseValidatorModel):
     promptRouterArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_provisioned_model_throughput' function.
 class CreateProvisionedModelThroughputResponse(BaseValidatorModel):
     provisionedModelArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_provisioned_model_throughput' function.
 class GetProvisionedModelThroughputResponse(BaseValidatorModel):
     modelUnits: int
     desiredModelUnits: int
@@ -609,6 +643,7 @@ class GetProvisionedModelThroughputResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_guardrail' function.
 class UpdateGuardrailResponse(BaseValidatorModel):
     guardrailId: str
     guardrailArn: str
@@ -637,6 +672,7 @@ class CloudWatchConfig(BaseValidatorModel):
     largeDataDeliveryS3Config: Optional[S3Config] = None
 
 
+# This class is the input for the 'create_model_copy_job' function.
 class CreateModelCopyJobRequest(BaseValidatorModel):
     sourceModelArn: str
     targetModelName: str
@@ -645,6 +681,7 @@ class CreateModelCopyJobRequest(BaseValidatorModel):
     clientRequestToken: Optional[str] = None
 
 
+# This class is the input for the 'create_provisioned_model_throughput' function.
 class CreateProvisionedModelThroughputRequest(BaseValidatorModel):
     modelUnits: int
     provisionedModelName: str
@@ -654,6 +691,7 @@ class CreateProvisionedModelThroughputRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'get_model_copy_job' function.
 class GetModelCopyJobResponse(BaseValidatorModel):
     jobArn: str
     status: ModelCopyJobStatusType
@@ -669,6 +707,7 @@ class GetModelCopyJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -693,6 +732,7 @@ class TagResourceRequest(BaseValidatorModel):
     tags: List[Tag]
 
 
+# This class is the input for the 'create_inference_profile' function.
 class CreateInferenceProfileRequest(BaseValidatorModel):
     inferenceProfileName: str
     modelSource: InferenceProfileModelSource
@@ -701,6 +741,7 @@ class CreateInferenceProfileRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_prompt_router' function.
 class CreatePromptRouterRequest(BaseValidatorModel):
     promptRouterName: str
     models: List[PromptRouterTargetModel]
@@ -711,6 +752,7 @@ class CreatePromptRouterRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'get_prompt_router' function.
 class GetPromptRouterResponse(BaseValidatorModel):
     promptRouterName: str
     routingCriteria: RoutingCriteria
@@ -738,6 +780,7 @@ class PromptRouterSummary(BaseValidatorModel):
     updatedAt: Optional[datetime] = None
 
 
+# This class is the output for the 'list_custom_models' function.
 class ListCustomModelsResponse(BaseValidatorModel):
     modelSummaries: List[CustomModelSummary]
     ResponseMetadata: ResponseMetadata
@@ -759,6 +802,7 @@ class EvaluationDataset(BaseValidatorModel):
     datasetLocation: Optional[EvaluationDatasetLocation] = None
 
 
+# This class is the output for the 'list_evaluation_jobs' function.
 class ListEvaluationJobsResponse(BaseValidatorModel):
     jobSummaries: List[EvaluationSummary]
     ResponseMetadata: ResponseMetadata
@@ -829,6 +873,7 @@ class FoundationModelSummary(BaseValidatorModel):
     modelLifecycle: Optional[FoundationModelLifecycle] = None
 
 
+# This class is the output for the 'get_inference_profile' function.
 class GetInferenceProfileResponse(BaseValidatorModel):
     inferenceProfileName: str
     description: str
@@ -888,6 +933,7 @@ class GuardrailSensitiveInformationPolicy(BaseValidatorModel):
     regexes: Optional[List[GuardrailRegex]] = None
 
 
+# This class is the output for the 'list_guardrails' function.
 class ListGuardrailsResponse(BaseValidatorModel):
     guardrails: List[GuardrailSummary]
     ResponseMetadata: ResponseMetadata
@@ -912,6 +958,7 @@ class GuardrailWordPolicy(BaseValidatorModel):
     managedWordLists: Optional[List[GuardrailManagedWords]] = None
 
 
+# This class is the output for the 'list_imported_models' function.
 class ListImportedModelsResponse(BaseValidatorModel):
     modelSummaries: List[ImportedModelSummary]
     ResponseMetadata: ResponseMetadata
@@ -958,6 +1005,7 @@ class ListCustomModelsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_custom_models' function.
 class ListCustomModelsRequest(BaseValidatorModel):
     creationTimeBefore: Optional[Timestamp] = None
     creationTimeAfter: Optional[Timestamp] = None
@@ -982,6 +1030,7 @@ class ListEvaluationJobsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_evaluation_jobs' function.
 class ListEvaluationJobsRequest(BaseValidatorModel):
     creationTimeAfter: Optional[Timestamp] = None
     creationTimeBefore: Optional[Timestamp] = None
@@ -1003,6 +1052,7 @@ class ListImportedModelsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_imported_models' function.
 class ListImportedModelsRequest(BaseValidatorModel):
     creationTimeBefore: Optional[Timestamp] = None
     creationTimeAfter: Optional[Timestamp] = None
@@ -1025,6 +1075,7 @@ class ListModelCopyJobsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_model_copy_jobs' function.
 class ListModelCopyJobsRequest(BaseValidatorModel):
     creationTimeAfter: Optional[Timestamp] = None
     creationTimeBefore: Optional[Timestamp] = None
@@ -1048,6 +1099,7 @@ class ListModelCustomizationJobsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_model_customization_jobs' function.
 class ListModelCustomizationJobsRequest(BaseValidatorModel):
     creationTimeAfter: Optional[Timestamp] = None
     creationTimeBefore: Optional[Timestamp] = None
@@ -1069,6 +1121,7 @@ class ListModelImportJobsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_model_import_jobs' function.
 class ListModelImportJobsRequest(BaseValidatorModel):
     creationTimeAfter: Optional[Timestamp] = None
     creationTimeBefore: Optional[Timestamp] = None
@@ -1090,6 +1143,7 @@ class ListModelInvocationJobsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_model_invocation_jobs' function.
 class ListModelInvocationJobsRequest(BaseValidatorModel):
     submitTimeAfter: Optional[Timestamp] = None
     submitTimeBefore: Optional[Timestamp] = None
@@ -1112,6 +1166,7 @@ class ListProvisionedModelThroughputsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_provisioned_model_throughputs' function.
 class ListProvisionedModelThroughputsRequest(BaseValidatorModel):
     creationTimeAfter: Optional[Timestamp] = None
     creationTimeBefore: Optional[Timestamp] = None
@@ -1124,24 +1179,28 @@ class ListProvisionedModelThroughputsRequest(BaseValidatorModel):
     sortOrder: Optional[SortOrderType] = None
 
 
+# This class is the output for the 'list_marketplace_model_endpoints' function.
 class ListMarketplaceModelEndpointsResponse(BaseValidatorModel):
     marketplaceModelEndpoints: List[MarketplaceModelEndpointSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_model_customization_jobs' function.
 class ListModelCustomizationJobsResponse(BaseValidatorModel):
     modelCustomizationJobSummaries: List[ModelCustomizationJobSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_model_import_jobs' function.
 class ListModelImportJobsResponse(BaseValidatorModel):
     modelImportJobSummaries: List[ModelImportJobSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_provisioned_model_throughputs' function.
 class ListProvisionedModelThroughputsResponse(BaseValidatorModel):
     provisionedModelSummaries: List[ProvisionedModelSummary]
     ResponseMetadata: ResponseMetadata
@@ -1211,12 +1270,14 @@ class LoggingConfig(BaseValidatorModel):
     videoDataDeliveryEnabled: Optional[bool] = None
 
 
+# This class is the output for the 'list_model_copy_jobs' function.
 class ListModelCopyJobsResponse(BaseValidatorModel):
     modelCopyJobSummaries: List[ModelCopyJobSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_prompt_routers' function.
 class ListPromptRoutersResponse(BaseValidatorModel):
     promptRouterSummaries: List[PromptRouterSummary]
     ResponseMetadata: ResponseMetadata
@@ -1255,16 +1316,19 @@ class KnowledgeBaseVectorSearchConfiguration(BaseValidatorModel):
     filter: Optional[RetrievalFilter] = None
 
 
+# This class is the output for the 'get_foundation_model' function.
 class GetFoundationModelResponse(BaseValidatorModel):
     modelDetails: FoundationModelDetails
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_foundation_models' function.
 class ListFoundationModelsResponse(BaseValidatorModel):
     modelSummaries: List[FoundationModelSummary]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_inference_profiles' function.
 class ListInferenceProfilesResponse(BaseValidatorModel):
     inferenceProfileSummaries: List[InferenceProfileSummary]
     ResponseMetadata: ResponseMetadata
@@ -1275,6 +1339,7 @@ class EndpointConfigOutput(BaseValidatorModel):
     sageMaker: Optional[SageMakerEndpointOutput] = None
 
 
+# This class is the input for the 'create_guardrail' function.
 class CreateGuardrailRequest(BaseValidatorModel):
     name: str
     blockedInputMessaging: str
@@ -1290,6 +1355,7 @@ class CreateGuardrailRequest(BaseValidatorModel):
     clientRequestToken: Optional[str] = None
 
 
+# This class is the input for the 'update_guardrail' function.
 class UpdateGuardrailRequest(BaseValidatorModel):
     guardrailIdentifier: str
     name: str
@@ -1304,6 +1370,7 @@ class UpdateGuardrailRequest(BaseValidatorModel):
     kmsKeyId: Optional[str] = None
 
 
+# This class is the output for the 'get_guardrail' function.
 class GetGuardrailResponse(BaseValidatorModel):
     name: str
     description: str
@@ -1354,6 +1421,7 @@ class GenerationConfiguration(BaseValidatorModel):
     additionalModelRequestFields: Optional[Dict[str, Dict[str, Any]]] = None
 
 
+# This class is the output for the 'get_imported_model' function.
 class GetImportedModelResponse(BaseValidatorModel):
     modelArn: str
     modelName: str
@@ -1367,6 +1435,7 @@ class GetImportedModelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_model_import_job' function.
 class GetModelImportJobResponse(BaseValidatorModel):
     jobArn: str
     jobName: str
@@ -1384,6 +1453,7 @@ class GetModelImportJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_model_invocation_job' function.
 class GetModelInvocationJobResponse(BaseValidatorModel):
     jobArn: str
     jobName: str
@@ -1437,6 +1507,7 @@ class EndpointConfig(BaseValidatorModel):
     sageMaker: Optional[SageMakerEndpoint] = None
 
 
+# This class is the input for the 'create_model_import_job' function.
 class CreateModelImportJobRequest(BaseValidatorModel):
     jobName: str
     importedModelName: str
@@ -1449,6 +1520,7 @@ class CreateModelImportJobRequest(BaseValidatorModel):
     importedModelKmsKeyId: Optional[str] = None
 
 
+# This class is the input for the 'create_model_invocation_job' function.
 class CreateModelInvocationJobRequest(BaseValidatorModel):
     jobName: str
     roleArn: str
@@ -1526,6 +1598,7 @@ class ExternalSourcesRetrieveAndGenerateConfiguration(BaseValidatorModel):
     generationConfiguration: Optional[ExternalSourcesGenerationConfiguration] = None
 
 
+# This class is the output for the 'list_model_invocation_jobs' function.
 class ListModelInvocationJobsResponse(BaseValidatorModel):
     invocationJobSummaries: List[ModelInvocationJobSummary]
     ResponseMetadata: ResponseMetadata
@@ -1580,26 +1653,31 @@ class RetrieveConfig(BaseValidatorModel):
     knowledgeBaseRetrievalConfiguration: KnowledgeBaseRetrievalConfiguration
 
 
+# This class is the output for the 'create_marketplace_model_endpoint' function.
 class CreateMarketplaceModelEndpointResponse(BaseValidatorModel):
     marketplaceModelEndpoint: MarketplaceModelEndpoint
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_marketplace_model_endpoint' function.
 class GetMarketplaceModelEndpointResponse(BaseValidatorModel):
     marketplaceModelEndpoint: MarketplaceModelEndpoint
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_marketplace_model_endpoint' function.
 class RegisterMarketplaceModelEndpointResponse(BaseValidatorModel):
     marketplaceModelEndpoint: MarketplaceModelEndpoint
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_marketplace_model_endpoint' function.
 class UpdateMarketplaceModelEndpointResponse(BaseValidatorModel):
     marketplaceModelEndpoint: MarketplaceModelEndpoint
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_custom_model' function.
 class GetCustomModelResponse(BaseValidatorModel):
     modelArn: str
     modelName: str
@@ -1619,6 +1697,7 @@ class GetCustomModelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_model_customization_job' function.
 class GetModelCustomizationJobResponse(BaseValidatorModel):
     jobArn: str
     jobName: str
@@ -1647,6 +1726,7 @@ class GetModelCustomizationJobResponse(BaseValidatorModel):
 TrainingDataConfigUnion = Union[TrainingDataConfig, TrainingDataConfigOutput]
 
 
+# This class is the input for the 'create_marketplace_model_endpoint' function.
 class CreateMarketplaceModelEndpointRequest(BaseValidatorModel):
     modelSourceIdentifier: str
     endpointConfig: EndpointConfigUnion
@@ -1656,6 +1736,7 @@ class CreateMarketplaceModelEndpointRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_marketplace_model_endpoint' function.
 class UpdateMarketplaceModelEndpointRequest(BaseValidatorModel):
     endpointArn: str
     endpointConfig: EndpointConfigUnion
@@ -1676,6 +1757,7 @@ class RetrieveAndGenerateConfiguration(BaseValidatorModel):
     externalSourcesConfiguration: Optional[ExternalSourcesRetrieveAndGenerateConfiguration] = None
 
 
+# This class is the input for the 'create_model_customization_job' function.
 class CreateModelCustomizationJobRequest(BaseValidatorModel):
     jobName: str
     customModelName: str
@@ -1722,6 +1804,7 @@ class EvaluationInferenceConfig(BaseValidatorModel):
     ragConfigs: Optional[List[RAGConfig]] = None
 
 
+# This class is the output for the 'get_evaluation_job' function.
 class GetEvaluationJobResponse(BaseValidatorModel):
     jobName: str
     status: EvaluationJobStatusType
@@ -1742,6 +1825,7 @@ class GetEvaluationJobResponse(BaseValidatorModel):
 EvaluationInferenceConfigUnion = Union[EvaluationInferenceConfig, EvaluationInferenceConfigOutput]
 
 
+# This class is the input for the 'create_evaluation_job' function.
 class CreateEvaluationJobRequest(BaseValidatorModel):
     jobName: str
     roleArn: str

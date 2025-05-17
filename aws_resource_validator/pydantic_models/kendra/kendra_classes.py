@@ -93,6 +93,7 @@ class BatchDeleteFeaturedResultsSetError(BaseValidatorModel):
     ErrorMessage: str
 
 
+# This class is the input for the 'batch_delete_featured_results_set' function.
 class BatchDeleteFeaturedResultsSetRequest(BaseValidatorModel):
     IndexId: str
     FeaturedResultsSetIds: List[str]
@@ -126,6 +127,7 @@ class CapacityUnitsConfiguration(BaseValidatorModel):
     QueryCapacityUnits: int
 
 
+# This class is the input for the 'clear_query_suggestions' function.
 class ClearQuerySuggestionsRequest(BaseValidatorModel):
     IndexId: str
 
@@ -263,6 +265,7 @@ class DeleteAccessControlConfigurationRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'delete_data_source' function.
 class DeleteDataSourceRequest(BaseValidatorModel):
     Id: str
     IndexId: str
@@ -273,15 +276,18 @@ class DeleteExperienceRequest(BaseValidatorModel):
     IndexId: str
 
 
+# This class is the input for the 'delete_faq' function.
 class DeleteFaqRequest(BaseValidatorModel):
     Id: str
     IndexId: str
 
 
+# This class is the input for the 'delete_index' function.
 class DeleteIndexRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'delete_principal_mapping' function.
 class DeletePrincipalMappingRequest(BaseValidatorModel):
     IndexId: str
     GroupId: str
@@ -289,26 +295,31 @@ class DeletePrincipalMappingRequest(BaseValidatorModel):
     OrderingId: Optional[int] = None
 
 
+# This class is the input for the 'delete_query_suggestions_block_list' function.
 class DeleteQuerySuggestionsBlockListRequest(BaseValidatorModel):
     IndexId: str
     Id: str
 
 
+# This class is the input for the 'delete_thesaurus' function.
 class DeleteThesaurusRequest(BaseValidatorModel):
     Id: str
     IndexId: str
 
 
+# This class is the input for the 'describe_access_control_configuration' function.
 class DescribeAccessControlConfigurationRequest(BaseValidatorModel):
     IndexId: str
     Id: str
 
 
+# This class is the input for the 'describe_data_source' function.
 class DescribeDataSourceRequest(BaseValidatorModel):
     Id: str
     IndexId: str
 
 
+# This class is the input for the 'describe_experience' function.
 class DescribeExperienceRequest(BaseValidatorModel):
     Id: str
     IndexId: str
@@ -319,11 +330,13 @@ class ExperienceEndpoint(BaseValidatorModel):
     Endpoint: Optional[str] = None
 
 
+# This class is the input for the 'describe_faq' function.
 class DescribeFaqRequest(BaseValidatorModel):
     Id: str
     IndexId: str
 
 
+# This class is the input for the 'describe_featured_results_set' function.
 class DescribeFeaturedResultsSetRequest(BaseValidatorModel):
     IndexId: str
     FeaturedResultsSetId: str
@@ -339,10 +352,12 @@ class FeaturedDocumentWithMetadata(BaseValidatorModel):
     URI: Optional[str] = None
 
 
+# This class is the input for the 'describe_index' function.
 class DescribeIndexRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'describe_principal_mapping' function.
 class DescribePrincipalMappingRequest(BaseValidatorModel):
     IndexId: str
     GroupId: str
@@ -357,20 +372,24 @@ class GroupOrderingIdSummary(BaseValidatorModel):
     FailureReason: Optional[str] = None
 
 
+# This class is the input for the 'describe_query_suggestions_block_list' function.
 class DescribeQuerySuggestionsBlockListRequest(BaseValidatorModel):
     IndexId: str
     Id: str
 
 
+# This class is the input for the 'describe_query_suggestions_config' function.
 class DescribeQuerySuggestionsConfigRequest(BaseValidatorModel):
     IndexId: str
 
 
+# This class is the input for the 'describe_thesaurus' function.
 class DescribeThesaurusRequest(BaseValidatorModel):
     Id: str
     IndexId: str
 
 
+# This class is the input for the 'disassociate_personas_from_entities' function.
 class DisassociatePersonasFromEntitiesRequest(BaseValidatorModel):
     Id: str
     IndexId: str
@@ -443,6 +462,7 @@ class FeaturedResultsSetSummary(BaseValidatorModel):
     CreationTimestamp: Optional[int] = None
 
 
+# This class is the input for the 'get_snapshots' function.
 class GetSnapshotsRequest(BaseValidatorModel):
     IndexId: str
     Interval: IntervalType
@@ -521,18 +541,21 @@ class JwtTokenTypeConfiguration(BaseValidatorModel):
     ClaimRegex: Optional[str] = None
 
 
+# This class is the input for the 'list_access_control_configurations' function.
 class ListAccessControlConfigurationsRequest(BaseValidatorModel):
     IndexId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_data_sources' function.
 class ListDataSourcesRequest(BaseValidatorModel):
     IndexId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_entity_personas' function.
 class ListEntityPersonasRequest(BaseValidatorModel):
     Id: str
     IndexId: str
@@ -547,30 +570,35 @@ class PersonasSummary(BaseValidatorModel):
     UpdatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'list_experience_entities' function.
 class ListExperienceEntitiesRequest(BaseValidatorModel):
     Id: str
     IndexId: str
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_experiences' function.
 class ListExperiencesRequest(BaseValidatorModel):
     IndexId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_faqs' function.
 class ListFaqsRequest(BaseValidatorModel):
     IndexId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_featured_results_sets' function.
 class ListFeaturedResultsSetsRequest(BaseValidatorModel):
     IndexId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_groups_older_than_ordering_id' function.
 class ListGroupsOlderThanOrderingIdRequest(BaseValidatorModel):
     IndexId: str
     OrderingId: int
@@ -579,11 +607,13 @@ class ListGroupsOlderThanOrderingIdRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_indices' function.
 class ListIndicesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_query_suggestions_block_lists' function.
 class ListQuerySuggestionsBlockListsRequest(BaseValidatorModel):
     IndexId: str
     NextToken: Optional[str] = None
@@ -599,10 +629,12 @@ class QuerySuggestionsBlockListSummary(BaseValidatorModel):
     ItemCount: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
 
+# This class is the input for the 'list_thesauri' function.
 class ListThesauriRequest(BaseValidatorModel):
     IndexId: str
     NextToken: Optional[str] = None
@@ -661,11 +693,13 @@ class SiteMapsConfiguration(BaseValidatorModel):
     SiteMaps: List[str]
 
 
+# This class is the input for the 'start_data_source_sync_job' function.
 class StartDataSourceSyncJobRequest(BaseValidatorModel):
     Id: str
     IndexId: str
 
 
+# This class is the input for the 'stop_data_source_sync_job' function.
 class StopDataSourceSyncJobRequest(BaseValidatorModel):
     Id: str
     IndexId: str
@@ -952,6 +986,7 @@ class OneDriveUsers(BaseValidatorModel):
     OneDriveUserS3Path: Optional[S3Path] = None
 
 
+# This class is the input for the 'update_query_suggestions_block_list' function.
 class UpdateQuerySuggestionsBlockListRequest(BaseValidatorModel):
     IndexId: str
     Id: str
@@ -961,6 +996,7 @@ class UpdateQuerySuggestionsBlockListRequest(BaseValidatorModel):
     RoleArn: Optional[str] = None
 
 
+# This class is the input for the 'update_thesaurus' function.
 class UpdateThesaurusRequest(BaseValidatorModel):
     Id: str
     IndexId: str
@@ -1064,63 +1100,75 @@ class SlackConfiguration(BaseValidatorModel):
     FieldMappings: Optional[List[DataSourceToIndexFieldMapping]] = None
 
 
+# This class is the input for the 'associate_entities_to_experience' function.
 class AssociateEntitiesToExperienceRequest(BaseValidatorModel):
     Id: str
     IndexId: str
     EntityList: List[EntityConfiguration]
 
 
+# This class is the input for the 'disassociate_entities_from_experience' function.
 class DisassociateEntitiesFromExperienceRequest(BaseValidatorModel):
     Id: str
     IndexId: str
     EntityList: List[EntityConfiguration]
 
 
+# This class is the output for the 'associate_entities_to_experience' function.
 class AssociateEntitiesToExperienceResponse(BaseValidatorModel):
     FailedEntityList: List[FailedEntity]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_personas_to_entities' function.
 class AssociatePersonasToEntitiesResponse(BaseValidatorModel):
     FailedEntityList: List[FailedEntity]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_access_control_configuration' function.
 class CreateAccessControlConfigurationResponse(BaseValidatorModel):
     Id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_data_source' function.
 class CreateDataSourceResponse(BaseValidatorModel):
     Id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_experience' function.
 class CreateExperienceResponse(BaseValidatorModel):
     Id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_faq' function.
 class CreateFaqResponse(BaseValidatorModel):
     Id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_index' function.
 class CreateIndexResponse(BaseValidatorModel):
     Id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_query_suggestions_block_list' function.
 class CreateQuerySuggestionsBlockListResponse(BaseValidatorModel):
     Id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_thesaurus' function.
 class CreateThesaurusResponse(BaseValidatorModel):
     Id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_faq' function.
 class DescribeFaqResponse(BaseValidatorModel):
     Id: str
     IndexId: str
@@ -1137,6 +1185,7 @@ class DescribeFaqResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_query_suggestions_block_list' function.
 class DescribeQuerySuggestionsBlockListResponse(BaseValidatorModel):
     IndexId: str
     Id: str
@@ -1153,6 +1202,7 @@ class DescribeQuerySuggestionsBlockListResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_thesaurus' function.
 class DescribeThesaurusResponse(BaseValidatorModel):
     Id: str
     IndexId: str
@@ -1170,31 +1220,37 @@ class DescribeThesaurusResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_entities_from_experience' function.
 class DisassociateEntitiesFromExperienceResponse(BaseValidatorModel):
     FailedEntityList: List[FailedEntity]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_personas_from_entities' function.
 class DisassociatePersonasFromEntitiesResponse(BaseValidatorModel):
     FailedEntityList: List[FailedEntity]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_thesaurus' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_access_control_configurations' function.
 class ListAccessControlConfigurationsResponse(BaseValidatorModel):
     AccessControlConfigurations: List[AccessControlConfigurationSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_data_source_sync_job' function.
 class StartDataSourceSyncJobResponse(BaseValidatorModel):
     ExecutionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'associate_personas_to_entities' function.
 class AssociatePersonasToEntitiesRequest(BaseValidatorModel):
     Id: str
     IndexId: str
@@ -1219,28 +1275,33 @@ class AuthenticationConfiguration(BaseValidatorModel):
     BasicAuthentication: Optional[List[BasicAuthenticationConfiguration]] = None
 
 
+# This class is the input for the 'batch_delete_document' function.
 class BatchDeleteDocumentRequest(BaseValidatorModel):
     IndexId: str
     DocumentIdList: List[str]
     DataSourceSyncJobMetricTarget: Optional[DataSourceSyncJobMetricTarget] = None
 
 
+# This class is the output for the 'batch_delete_document' function.
 class BatchDeleteDocumentResponse(BaseValidatorModel):
     FailedDocuments: List[BatchDeleteDocumentResponseFailedDocument]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_delete_featured_results_set' function.
 class BatchDeleteFeaturedResultsSetResponse(BaseValidatorModel):
     Errors: List[BatchDeleteFeaturedResultsSetError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_get_document_status' function.
 class BatchGetDocumentStatusResponse(BaseValidatorModel):
     Errors: List[BatchGetDocumentStatusResponseError]
     DocumentStatusList: List[Status]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_put_document' function.
 class BatchPutDocumentResponse(BaseValidatorModel):
     FailedDocuments: List[BatchPutDocumentResponseFailedDocument]
     ResponseMetadata: ResponseMetadata
@@ -1360,6 +1421,7 @@ class HierarchicalPrincipal(BaseValidatorModel):
     PrincipalList: List[Principal]
 
 
+# This class is the input for the 'create_faq' function.
 class CreateFaqRequest(BaseValidatorModel):
     IndexId: str
     Name: str
@@ -1372,6 +1434,7 @@ class CreateFaqRequest(BaseValidatorModel):
     LanguageCode: Optional[str] = None
 
 
+# This class is the input for the 'create_query_suggestions_block_list' function.
 class CreateQuerySuggestionsBlockListRequest(BaseValidatorModel):
     IndexId: str
     Name: str
@@ -1382,6 +1445,7 @@ class CreateQuerySuggestionsBlockListRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_thesaurus' function.
 class CreateThesaurusRequest(BaseValidatorModel):
     IndexId: str
     Name: str
@@ -1392,6 +1456,7 @@ class CreateThesaurusRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -1402,6 +1467,7 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the input for the 'create_featured_results_set' function.
 class CreateFeaturedResultsSetRequest(BaseValidatorModel):
     IndexId: str
     FeaturedResultsSetName: str
@@ -1424,6 +1490,7 @@ class FeaturedResultsSet(BaseValidatorModel):
     CreationTimestamp: Optional[int] = None
 
 
+# This class is the input for the 'update_featured_results_set' function.
 class UpdateFeaturedResultsSetRequest(BaseValidatorModel):
     IndexId: str
     FeaturedResultsSetId: str
@@ -1441,6 +1508,7 @@ class UserContext(BaseValidatorModel):
     DataSourceGroups: Optional[List[DataSourceGroup]] = None
 
 
+# This class is the output for the 'list_data_sources' function.
 class ListDataSourcesResponse(BaseValidatorModel):
     SummaryItems: List[DataSourceSummary]
     ResponseMetadata: ResponseMetadata
@@ -1466,6 +1534,7 @@ class ExperiencesSummary(BaseValidatorModel):
     Endpoints: Optional[List[ExperienceEndpoint]] = None
 
 
+# This class is the output for the 'describe_featured_results_set' function.
 class DescribeFeaturedResultsSetResponse(BaseValidatorModel):
     FeaturedResultsSetId: str
     FeaturedResultsSetName: str
@@ -1479,6 +1548,7 @@ class DescribeFeaturedResultsSetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_principal_mapping' function.
 class DescribePrincipalMappingResponse(BaseValidatorModel):
     IndexId: str
     DataSourceId: str
@@ -1551,18 +1621,21 @@ class ExperienceConfiguration(BaseValidatorModel):
     UserIdentityConfiguration: Optional[UserIdentityConfiguration] = None
 
 
+# This class is the output for the 'list_faqs' function.
 class ListFaqsResponse(BaseValidatorModel):
     FaqSummaryItems: List[FaqSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_featured_results_sets' function.
 class ListFeaturedResultsSetsResponse(BaseValidatorModel):
     FeaturedResultsSetSummaryItems: List[FeaturedResultsSetSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_snapshots' function.
 class GetSnapshotsResponse(BaseValidatorModel):
     SnapShotTimeFilter: TimeRangeOutput
     SnapshotsDataHeader: List[str]
@@ -1577,6 +1650,7 @@ class GroupMembers(BaseValidatorModel):
     S3PathforGroupMembers: Optional[S3Path] = None
 
 
+# This class is the output for the 'list_groups_older_than_ordering_id' function.
 class ListGroupsOlderThanOrderingIdResponse(BaseValidatorModel):
     GroupsSummaries: List[GroupSummary]
     ResponseMetadata: ResponseMetadata
@@ -1588,6 +1662,7 @@ class TextWithHighlights(BaseValidatorModel):
     Highlights: Optional[List[Highlight]] = None
 
 
+# This class is the output for the 'list_indices' function.
 class ListIndicesResponse(BaseValidatorModel):
     IndexConfigurationSummaryItems: List[IndexConfigurationSummary]
     ResponseMetadata: ResponseMetadata
@@ -1604,18 +1679,21 @@ class UserTokenConfiguration(BaseValidatorModel):
     JsonTokenTypeConfiguration: Optional[JsonTokenTypeConfiguration] = None
 
 
+# This class is the output for the 'list_entity_personas' function.
 class ListEntityPersonasResponse(BaseValidatorModel):
     SummaryItems: List[PersonasSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_query_suggestions_block_lists' function.
 class ListQuerySuggestionsBlockListsResponse(BaseValidatorModel):
     BlockListSummaryItems: List[QuerySuggestionsBlockListSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_thesauri' function.
 class ListThesauriResponse(BaseValidatorModel):
     ThesaurusSummaryItems: List[ThesaurusSummary]
     ResponseMetadata: ResponseMetadata
@@ -1761,6 +1839,7 @@ class OneDriveConfiguration(BaseValidatorModel):
     DisableLocalGroups: Optional[bool] = None
 
 
+# This class is the output for the 'describe_query_suggestions_config' function.
 class DescribeQuerySuggestionsConfigResponse(BaseValidatorModel):
     Mode: ModeType
     Status: QuerySuggestionsStatusType
@@ -1775,6 +1854,7 @@ class DescribeQuerySuggestionsConfigResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_query_suggestions_config' function.
 class UpdateQuerySuggestionsConfigRequest(BaseValidatorModel):
     IndexId: str
     Mode: Optional[ModeType] = None
@@ -1785,6 +1865,7 @@ class UpdateQuerySuggestionsConfigRequest(BaseValidatorModel):
     AttributeSuggestionsConfig: Optional[AttributeSuggestionsUpdateConfig] = None
 
 
+# This class is the input for the 'submit_feedback' function.
 class SubmitFeedbackRequest(BaseValidatorModel):
     IndexId: str
     QueryId: str
@@ -1838,6 +1919,7 @@ class ConfluenceConfiguration(BaseValidatorModel):
     AuthenticationType: Optional[ConfluenceAuthenticationTypeType] = None
 
 
+# This class is the output for the 'describe_access_control_configuration' function.
 class DescribeAccessControlConfigurationResponse(BaseValidatorModel):
     Name: str
     Description: str
@@ -1849,22 +1931,26 @@ class DescribeAccessControlConfigurationResponse(BaseValidatorModel):
 HierarchicalPrincipalUnion = Union[HierarchicalPrincipal, HierarchicalPrincipalOutput]
 
 
+# This class is the output for the 'create_featured_results_set' function.
 class CreateFeaturedResultsSetResponse(BaseValidatorModel):
     FeaturedResultsSet: FeaturedResultsSet
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_featured_results_set' function.
 class UpdateFeaturedResultsSetResponse(BaseValidatorModel):
     FeaturedResultsSet: FeaturedResultsSet
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_data_source_sync_jobs' function.
 class ListDataSourceSyncJobsResponse(BaseValidatorModel):
     History: List[DataSourceSyncJob]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_experiences' function.
 class ListExperiencesResponse(BaseValidatorModel):
     SummaryItems: List[ExperiencesSummary]
     ResponseMetadata: ResponseMetadata
@@ -1905,12 +1991,14 @@ class FacetResult(BaseValidatorModel):
     DocumentAttributeValueCountPairs: Optional[List[DocumentAttributeValueCountPair]] = None
 
 
+# This class is the output for the 'list_experience_entities' function.
 class ListExperienceEntitiesResponse(BaseValidatorModel):
     SummaryItems: List[ExperienceEntitiesSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_experience' function.
 class DescribeExperienceResponse(BaseValidatorModel):
     Id: str
     IndexId: str
@@ -1928,6 +2016,7 @@ class DescribeExperienceResponse(BaseValidatorModel):
 ExperienceConfigurationUnion = Union[ExperienceConfiguration, ExperienceConfigurationOutput]
 
 
+# This class is the input for the 'put_principal_mapping' function.
 class PutPrincipalMappingRequest(BaseValidatorModel):
     IndexId: str
     GroupId: str
@@ -1950,6 +2039,7 @@ class ExpandedResultItem(BaseValidatorModel):
     DocumentAttributes: Optional[List[DocumentAttributeOutput]] = None
 
 
+# This class is the input for the 'create_index' function.
 class CreateIndexRequest(BaseValidatorModel):
     Name: str
     RoleArn: str
@@ -1963,6 +2053,7 @@ class CreateIndexRequest(BaseValidatorModel):
     UserGroupResolutionConfiguration: Optional[UserGroupResolutionConfiguration] = None
 
 
+# This class is the output for the 'describe_index' function.
 class DescribeIndexResponse(BaseValidatorModel):
     Name: str
     Id: str
@@ -2069,6 +2160,7 @@ class DocumentAttribute(BaseValidatorModel):
     Value: DocumentAttributeValueUnion
 
 
+# This class is the input for the 'list_data_source_sync_jobs' function.
 class ListDataSourceSyncJobsRequest(BaseValidatorModel):
     Id: str
     IndexId: str
@@ -2078,6 +2170,7 @@ class ListDataSourceSyncJobsRequest(BaseValidatorModel):
     StatusFilter: Optional[DataSourceSyncJobStatusType] = None
 
 
+# This class is the input for the 'create_access_control_configuration' function.
 class CreateAccessControlConfigurationRequest(BaseValidatorModel):
     IndexId: str
     Name: str
@@ -2096,6 +2189,7 @@ class UpdateAccessControlConfigurationRequest(BaseValidatorModel):
     HierarchicalAccessControlList: Optional[List[HierarchicalPrincipalUnion]] = None
 
 
+# This class is the output for the 'retrieve' function.
 class RetrieveResult(BaseValidatorModel):
     QueryId: str
     ResultItems: List[RetrieveResultItem]
@@ -2109,6 +2203,7 @@ class CustomDocumentEnrichmentConfigurationOutput(BaseValidatorModel):
     RoleArn: Optional[str] = None
 
 
+# This class is the input for the 'create_experience' function.
 class CreateExperienceRequest(BaseValidatorModel):
     Name: str
     IndexId: str
@@ -2118,6 +2213,7 @@ class CreateExperienceRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'update_experience' function.
 class UpdateExperienceRequest(BaseValidatorModel):
     Id: str
     IndexId: str
@@ -2225,6 +2321,7 @@ class QueryResultItem(BaseValidatorModel):
     CollapsedResultDetail: Optional[CollapsedResultDetail] = None
 
 
+# This class is the input for the 'update_index' function.
 class UpdateIndexRequest(BaseValidatorModel):
     Id: str
     Name: Optional[str] = None
@@ -2237,12 +2334,14 @@ class UpdateIndexRequest(BaseValidatorModel):
     UserGroupResolutionConfiguration: Optional[UserGroupResolutionConfiguration] = None
 
 
+# This class is the output for the 'get_query_suggestions' function.
 class GetQuerySuggestionsResponse(BaseValidatorModel):
     QuerySuggestionsId: str
     Suggestions: List[Suggestion]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_data_source' function.
 class DescribeDataSourceResponse(BaseValidatorModel):
     Id: str
     IndexId: str
@@ -2296,6 +2395,7 @@ class Document(BaseValidatorModel):
     AccessControlConfigurationId: Optional[str] = None
 
 
+# This class is the output for the 'query' function.
 class QueryResult(BaseValidatorModel):
     QueryId: str
     ResultItems: List[QueryResultItem]
@@ -2307,6 +2407,7 @@ class QueryResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_data_source' function.
 class CreateDataSourceRequest(BaseValidatorModel):
     Name: str
     IndexId: str
@@ -2322,6 +2423,7 @@ class CreateDataSourceRequest(BaseValidatorModel):
     CustomDocumentEnrichmentConfiguration: Optional[CustomDocumentEnrichmentConfigurationUnion] = None
 
 
+# This class is the input for the 'update_data_source' function.
 class UpdateDataSourceRequest(BaseValidatorModel):
     Id: str
     IndexId: str
@@ -2342,6 +2444,7 @@ class AttributeSuggestionsGetConfig(BaseValidatorModel):
     UserContext: Optional[UserContext] = None
 
 
+# This class is the input for the 'query' function.
 class QueryRequest(BaseValidatorModel):
     IndexId: str
     QueryText: Optional[str] = None
@@ -2360,6 +2463,7 @@ class QueryRequest(BaseValidatorModel):
     CollapseConfiguration: Optional[CollapseConfiguration] = None
 
 
+# This class is the input for the 'retrieve' function.
 class RetrieveRequest(BaseValidatorModel):
     IndexId: str
     QueryText: str
@@ -2371,11 +2475,13 @@ class RetrieveRequest(BaseValidatorModel):
     UserContext: Optional[UserContext] = None
 
 
+# This class is the input for the 'batch_get_document_status' function.
 class BatchGetDocumentStatusRequest(BaseValidatorModel):
     IndexId: str
     DocumentInfoList: List[DocumentInfo]
 
 
+# This class is the input for the 'batch_put_document' function.
 class BatchPutDocumentRequest(BaseValidatorModel):
     IndexId: str
     Documents: List[Document]
@@ -2383,6 +2489,7 @@ class BatchPutDocumentRequest(BaseValidatorModel):
     CustomDocumentEnrichmentConfiguration: Optional[CustomDocumentEnrichmentConfigurationUnion] = None
 
 
+# This class is the input for the 'get_query_suggestions' function.
 class GetQuerySuggestionsRequest(BaseValidatorModel):
     IndexId: str
     QueryText: str

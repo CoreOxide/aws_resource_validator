@@ -93,6 +93,7 @@ class VpcConfigurationOutput(BaseValidatorModel):
     ipAddressType: Optional[Literal['IP_V4']] = None
 
 
+# This class is the input for the 'create_kx_database' function.
 class CreateKxDatabaseRequest(BaseValidatorModel):
     environmentId: str
     databaseName: str
@@ -107,6 +108,7 @@ class KxDataviewSegmentConfigurationOutput(BaseValidatorModel):
     onDemand: Optional[bool] = None
 
 
+# This class is the input for the 'create_kx_environment' function.
 class CreateKxEnvironmentRequest(BaseValidatorModel):
     name: str
     kmsKeyId: str
@@ -115,6 +117,7 @@ class CreateKxEnvironmentRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'create_kx_scaling_group' function.
 class CreateKxScalingGroupRequest(BaseValidatorModel):
     clientToken: str
     environmentId: str
@@ -124,6 +127,7 @@ class CreateKxScalingGroupRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_kx_user' function.
 class CreateKxUserRequest(BaseValidatorModel):
     environmentId: str
     userName: str
@@ -212,52 +216,62 @@ class FederationParameters(BaseValidatorModel):
     attributeMap: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'get_environment' function.
 class GetEnvironmentRequest(BaseValidatorModel):
     environmentId: str
 
 
+# This class is the input for the 'get_kx_changeset' function.
 class GetKxChangesetRequest(BaseValidatorModel):
     environmentId: str
     databaseName: str
     changesetId: str
 
 
+# This class is the input for the 'get_kx_cluster' function.
 class GetKxClusterRequest(BaseValidatorModel):
     environmentId: str
     clusterName: str
 
 
+# This class is the input for the 'get_kx_connection_string' function.
 class GetKxConnectionStringRequest(BaseValidatorModel):
     userArn: str
     environmentId: str
     clusterName: str
 
 
+# This class is the input for the 'get_kx_database' function.
 class GetKxDatabaseRequest(BaseValidatorModel):
     environmentId: str
     databaseName: str
 
 
+# This class is the input for the 'get_kx_dataview' function.
 class GetKxDataviewRequest(BaseValidatorModel):
     environmentId: str
     databaseName: str
     dataviewName: str
 
 
+# This class is the input for the 'get_kx_environment' function.
 class GetKxEnvironmentRequest(BaseValidatorModel):
     environmentId: str
 
 
+# This class is the input for the 'get_kx_scaling_group' function.
 class GetKxScalingGroupRequest(BaseValidatorModel):
     environmentId: str
     scalingGroupName: str
 
 
+# This class is the input for the 'get_kx_user' function.
 class GetKxUserRequest(BaseValidatorModel):
     userName: str
     environmentId: str
 
 
+# This class is the input for the 'get_kx_volume' function.
 class GetKxVolumeRequest(BaseValidatorModel):
     environmentId: str
     volumeName: str
@@ -352,11 +366,13 @@ class KxVolume(BaseValidatorModel):
     lastModifiedTimestamp: Optional[datetime] = None
 
 
+# This class is the input for the 'list_environments' function.
 class ListEnvironmentsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_kx_changesets' function.
 class ListKxChangesetsRequest(BaseValidatorModel):
     environmentId: str
     databaseName: str
@@ -364,6 +380,7 @@ class ListKxChangesetsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_kx_cluster_nodes' function.
 class ListKxClusterNodesRequest(BaseValidatorModel):
     environmentId: str
     clusterName: str
@@ -371,6 +388,7 @@ class ListKxClusterNodesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_kx_clusters' function.
 class ListKxClustersRequest(BaseValidatorModel):
     environmentId: str
     clusterType: Optional[KxClusterTypeType] = None
@@ -378,12 +396,14 @@ class ListKxClustersRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_kx_databases' function.
 class ListKxDatabasesRequest(BaseValidatorModel):
     environmentId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_kx_dataviews' function.
 class ListKxDataviewsRequest(BaseValidatorModel):
     environmentId: str
     databaseName: str
@@ -397,23 +417,27 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_kx_environments' function.
 class ListKxEnvironmentsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_kx_scaling_groups' function.
 class ListKxScalingGroupsRequest(BaseValidatorModel):
     environmentId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_kx_users' function.
 class ListKxUsersRequest(BaseValidatorModel):
     environmentId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_kx_volumes' function.
 class ListKxVolumesRequest(BaseValidatorModel):
     environmentId: str
     maxResults: Optional[int] = None
@@ -421,6 +445,7 @@ class ListKxVolumesRequest(BaseValidatorModel):
     volumeType: Optional[Literal['NAS_1']] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -444,6 +469,7 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_kx_database' function.
 class UpdateKxDatabaseRequest(BaseValidatorModel):
     environmentId: str
     databaseName: str
@@ -451,6 +477,7 @@ class UpdateKxDatabaseRequest(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'update_kx_environment' function.
 class UpdateKxEnvironmentRequest(BaseValidatorModel):
     environmentId: str
     name: Optional[str] = None
@@ -458,6 +485,7 @@ class UpdateKxEnvironmentRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'update_kx_user' function.
 class UpdateKxUserRequest(BaseValidatorModel):
     environmentId: str
     userName: str
@@ -472,6 +500,7 @@ class VpcConfiguration(BaseValidatorModel):
     ipAddressType: Optional[Literal['IP_V4']] = None
 
 
+# This class is the input for the 'create_kx_changeset' function.
 class CreateKxChangesetRequest(BaseValidatorModel):
     environmentId: str
     databaseName: str
@@ -479,6 +508,7 @@ class CreateKxChangesetRequest(BaseValidatorModel):
     clientToken: str
 
 
+# This class is the output for the 'create_environment' function.
 class CreateEnvironmentResponse(BaseValidatorModel):
     environmentId: str
     environmentArn: str
@@ -486,6 +516,7 @@ class CreateEnvironmentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_kx_database' function.
 class CreateKxDatabaseResponse(BaseValidatorModel):
     databaseName: str
     databaseArn: str
@@ -496,6 +527,7 @@ class CreateKxDatabaseResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_kx_environment' function.
 class CreateKxEnvironmentResponse(BaseValidatorModel):
     name: str
     status: EnvironmentStatusType
@@ -507,6 +539,7 @@ class CreateKxEnvironmentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_kx_scaling_group' function.
 class CreateKxScalingGroupResponse(BaseValidatorModel):
     environmentId: str
     scalingGroupName: str
@@ -518,6 +551,7 @@ class CreateKxScalingGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_kx_user' function.
 class CreateKxUserResponse(BaseValidatorModel):
     userName: str
     userArn: str
@@ -526,11 +560,13 @@ class CreateKxUserResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_kx_connection_string' function.
 class GetKxConnectionStringResponse(BaseValidatorModel):
     signedConnectionString: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_kx_database' function.
 class GetKxDatabaseResponse(BaseValidatorModel):
     databaseName: str
     databaseArn: str
@@ -545,6 +581,7 @@ class GetKxDatabaseResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_kx_scaling_group' function.
 class GetKxScalingGroupResponse(BaseValidatorModel):
     scalingGroupName: str
     scalingGroupArn: str
@@ -558,6 +595,7 @@ class GetKxScalingGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_kx_user' function.
 class GetKxUserResponse(BaseValidatorModel):
     userName: str
     userArn: str
@@ -566,11 +604,13 @@ class GetKxUserResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_kx_database' function.
 class UpdateKxDatabaseResponse(BaseValidatorModel):
     databaseName: str
     environmentId: str
@@ -579,6 +619,7 @@ class UpdateKxDatabaseResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_kx_user' function.
 class UpdateKxUserResponse(BaseValidatorModel):
     userName: str
     userArn: str
@@ -587,6 +628,7 @@ class UpdateKxUserResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_kx_changeset' function.
 class CreateKxChangesetResponse(BaseValidatorModel):
     changesetId: str
     databaseName: str
@@ -599,6 +641,7 @@ class CreateKxChangesetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_kx_changeset' function.
 class GetKxChangesetResponse(BaseValidatorModel):
     changesetId: str
     databaseName: str
@@ -628,6 +671,7 @@ class KxCluster(BaseValidatorModel):
     createdTimestamp: Optional[datetime] = None
 
 
+# This class is the output for the 'create_kx_dataview' function.
 class CreateKxDataviewResponse(BaseValidatorModel):
     dataviewName: str
     databaseName: str
@@ -660,6 +704,7 @@ class KxDataviewConfigurationOutput(BaseValidatorModel):
     segmentConfigurations: Optional[List[KxDataviewSegmentConfigurationOutput]] = None
 
 
+# This class is the input for the 'create_kx_volume' function.
 class CreateKxVolumeRequest(BaseValidatorModel):
     environmentId: str
     volumeType: Literal['NAS_1']
@@ -672,6 +717,7 @@ class CreateKxVolumeRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_kx_volume' function.
 class CreateKxVolumeResponse(BaseValidatorModel):
     environmentId: str
     volumeName: str
@@ -687,6 +733,7 @@ class CreateKxVolumeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_kx_volume' function.
 class UpdateKxVolumeRequest(BaseValidatorModel):
     environmentId: str
     volumeName: str
@@ -712,6 +759,7 @@ class Environment(BaseValidatorModel):
 FederationParametersUnion = Union[FederationParameters, FederationParametersOutput]
 
 
+# This class is the output for the 'get_kx_volume' function.
 class GetKxVolumeResponse(BaseValidatorModel):
     environmentId: str
     volumeName: str
@@ -729,6 +777,7 @@ class GetKxVolumeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_kx_volume' function.
 class UpdateKxVolumeResponse(BaseValidatorModel):
     environmentId: str
     volumeName: str
@@ -746,6 +795,7 @@ class UpdateKxVolumeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_kx_changesets' function.
 class ListKxChangesetsResponse(BaseValidatorModel):
     kxChangesets: List[KxChangesetListEntry]
     ResponseMetadata: ResponseMetadata
@@ -764,6 +814,7 @@ class UpdateKxClusterCodeConfigurationRequest(BaseValidatorModel):
 KxDatabaseCacheConfigurationUnion = Union[KxDatabaseCacheConfiguration, KxDatabaseCacheConfigurationOutput]
 
 
+# This class is the output for the 'list_kx_databases' function.
 class ListKxDatabasesResponse(BaseValidatorModel):
     kxDatabases: List[KxDatabaseListEntry]
     ResponseMetadata: ResponseMetadata
@@ -772,24 +823,28 @@ class ListKxDatabasesResponse(BaseValidatorModel):
 KxDataviewSegmentConfigurationUnion = Union[KxDataviewSegmentConfiguration, KxDataviewSegmentConfigurationOutput]
 
 
+# This class is the output for the 'list_kx_cluster_nodes' function.
 class ListKxClusterNodesResponse(BaseValidatorModel):
     nodes: List[KxNode]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_kx_scaling_groups' function.
 class ListKxScalingGroupsResponse(BaseValidatorModel):
     scalingGroups: List[KxScalingGroup]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_kx_users' function.
 class ListKxUsersResponse(BaseValidatorModel):
     users: List[KxUser]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_kx_volumes' function.
 class ListKxVolumesResponse(BaseValidatorModel):
     kxVolumeSummaries: List[KxVolume]
     ResponseMetadata: ResponseMetadata
@@ -813,12 +868,14 @@ TickerplantLogConfigurationUnion = Union[TickerplantLogConfiguration, Tickerplan
 VpcConfigurationUnion = Union[VpcConfiguration, VpcConfigurationOutput]
 
 
+# This class is the output for the 'list_kx_clusters' function.
 class ListKxClustersResponse(BaseValidatorModel):
     kxClusterSummaries: List[KxCluster]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_kx_dataview' function.
 class GetKxDataviewResponse(BaseValidatorModel):
     databaseName: str
     dataviewName: str
@@ -856,6 +913,7 @@ class KxDataviewListEntry(BaseValidatorModel):
     statusReason: Optional[str] = None
 
 
+# This class is the output for the 'update_kx_dataview' function.
 class UpdateKxDataviewResponse(BaseValidatorModel):
     environmentId: str
     databaseName: str
@@ -882,22 +940,26 @@ class KxDatabaseConfigurationOutput(BaseValidatorModel):
     dataviewConfiguration: Optional[KxDataviewConfigurationOutput] = None
 
 
+# This class is the output for the 'get_environment' function.
 class GetEnvironmentResponse(BaseValidatorModel):
     environment: Environment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_environments' function.
 class ListEnvironmentsResponse(BaseValidatorModel):
     environments: List[Environment]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_environment' function.
 class UpdateEnvironmentResponse(BaseValidatorModel):
     environment: Environment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_environment' function.
 class CreateEnvironmentRequest(BaseValidatorModel):
     name: str
     description: Optional[str] = None
@@ -909,6 +971,7 @@ class CreateEnvironmentRequest(BaseValidatorModel):
     dataBundles: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_environment' function.
 class UpdateEnvironmentRequest(BaseValidatorModel):
     environmentId: str
     name: Optional[str] = None
@@ -917,6 +980,7 @@ class UpdateEnvironmentRequest(BaseValidatorModel):
     federationParameters: Optional[FederationParametersUnion] = None
 
 
+# This class is the input for the 'create_kx_dataview' function.
 class CreateKxDataviewRequest(BaseValidatorModel):
     environmentId: str
     databaseName: str
@@ -939,6 +1003,7 @@ class KxDataviewConfiguration(BaseValidatorModel):
     segmentConfigurations: Optional[List[KxDataviewSegmentConfigurationUnion]] = None
 
 
+# This class is the input for the 'update_kx_dataview' function.
 class UpdateKxDataviewRequest(BaseValidatorModel):
     environmentId: str
     databaseName: str
@@ -961,12 +1026,14 @@ class TransitGatewayConfiguration(BaseValidatorModel):
     attachmentNetworkAclConfiguration: Optional[List[NetworkACLEntry]] = None
 
 
+# This class is the output for the 'list_kx_dataviews' function.
 class ListKxDataviewsResponse(BaseValidatorModel):
     kxDataviews: List[KxDataviewListEntry]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_kx_cluster' function.
 class CreateKxClusterResponse(BaseValidatorModel):
     environmentId: str
     status: KxClusterStatusType
@@ -995,6 +1062,7 @@ class CreateKxClusterResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_kx_cluster' function.
 class GetKxClusterResponse(BaseValidatorModel):
     status: KxClusterStatusType
     statusReason: str
@@ -1024,6 +1092,7 @@ class GetKxClusterResponse(BaseValidatorModel):
 KxDataviewConfigurationUnion = Union[KxDataviewConfiguration, KxDataviewConfigurationOutput]
 
 
+# This class is the output for the 'get_kx_environment' function.
 class GetKxEnvironmentResponse(BaseValidatorModel):
     name: str
     environmentId: str
@@ -1065,6 +1134,7 @@ class KxEnvironment(BaseValidatorModel):
     certificateAuthorityArn: Optional[str] = None
 
 
+# This class is the output for the 'update_kx_environment_network' function.
 class UpdateKxEnvironmentNetworkResponse(BaseValidatorModel):
     name: str
     environmentId: str
@@ -1085,6 +1155,7 @@ class UpdateKxEnvironmentNetworkResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_kx_environment' function.
 class UpdateKxEnvironmentResponse(BaseValidatorModel):
     name: str
     environmentId: str
@@ -1115,12 +1186,14 @@ class KxDatabaseConfiguration(BaseValidatorModel):
     dataviewConfiguration: Optional[KxDataviewConfigurationUnion] = None
 
 
+# This class is the output for the 'list_kx_environments' function.
 class ListKxEnvironmentsResponse(BaseValidatorModel):
     environments: List[KxEnvironment]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'update_kx_environment_network' function.
 class UpdateKxEnvironmentNetworkRequest(BaseValidatorModel):
     environmentId: str
     transitGatewayConfiguration: Optional[TransitGatewayConfigurationUnion] = None
@@ -1130,6 +1203,7 @@ class UpdateKxEnvironmentNetworkRequest(BaseValidatorModel):
 KxDatabaseConfigurationUnion = Union[KxDatabaseConfiguration, KxDatabaseConfigurationOutput]
 
 
+# This class is the input for the 'create_kx_cluster' function.
 class CreateKxClusterRequest(BaseValidatorModel):
     environmentId: str
     clusterName: str

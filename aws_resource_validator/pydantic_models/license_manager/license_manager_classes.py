@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'accept_grant' function.
 class AcceptGrantRequest(BaseValidatorModel):
     GrantArn: str
 
@@ -54,6 +55,7 @@ class ProvisionalConfiguration(BaseValidatorModel):
     MaxTimeToLiveInMinutes: int
 
 
+# This class is the input for the 'create_grant' function.
 class CreateGrantRequest(BaseValidatorModel):
     ClientToken: str
     GrantName: str
@@ -100,6 +102,7 @@ class Issuer(BaseValidatorModel):
     SignKey: Optional[str] = None
 
 
+# This class is the input for the 'create_token' function.
 class CreateTokenRequest(BaseValidatorModel):
     LicenseArn: str
     ClientToken: str
@@ -108,6 +111,7 @@ class CreateTokenRequest(BaseValidatorModel):
     TokenProperties: Optional[List[str]] = None
 
 
+# This class is the input for the 'delete_grant' function.
 class DeleteGrantRequest(BaseValidatorModel):
     GrantArn: str
     Version: str
@@ -122,6 +126,7 @@ class DeleteLicenseManagerReportGeneratorRequest(BaseValidatorModel):
     LicenseManagerReportGeneratorArn: str
 
 
+# This class is the input for the 'delete_license' function.
 class DeleteLicenseRequest(BaseValidatorModel):
     LicenseArn: str
     SourceVersion: str
@@ -138,6 +143,7 @@ class EntitlementUsage(BaseValidatorModel):
     MaxCount: Optional[str] = None
 
 
+# This class is the input for the 'extend_license_consumption' function.
 class ExtendLicenseConsumptionRequest(BaseValidatorModel):
     LicenseConsumptionToken: str
     DryRun: Optional[bool] = None
@@ -148,16 +154,19 @@ class Filter(BaseValidatorModel):
     Values: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_access_token' function.
 class GetAccessTokenRequest(BaseValidatorModel):
     Token: str
     TokenProperties: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_grant' function.
 class GetGrantRequest(BaseValidatorModel):
     GrantArn: str
     Version: Optional[str] = None
 
 
+# This class is the input for the 'get_license_configuration' function.
 class GetLicenseConfigurationRequest(BaseValidatorModel):
     LicenseConfigurationArn: str
 
@@ -167,19 +176,23 @@ class ManagedResourceSummary(BaseValidatorModel):
     AssociationCount: Optional[int] = None
 
 
+# This class is the input for the 'get_license_conversion_task' function.
 class GetLicenseConversionTaskRequest(BaseValidatorModel):
     LicenseConversionTaskId: str
 
 
+# This class is the input for the 'get_license_manager_report_generator' function.
 class GetLicenseManagerReportGeneratorRequest(BaseValidatorModel):
     LicenseManagerReportGeneratorArn: str
 
 
+# This class is the input for the 'get_license' function.
 class GetLicenseRequest(BaseValidatorModel):
     LicenseArn: str
     Version: Optional[str] = None
 
 
+# This class is the input for the 'get_license_usage' function.
 class GetLicenseUsageRequest(BaseValidatorModel):
     LicenseArn: str
 
@@ -234,24 +247,28 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_associations_for_license_configuration' function.
 class ListAssociationsForLicenseConfigurationRequest(BaseValidatorModel):
     LicenseConfigurationArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_failures_for_license_configuration_operations' function.
 class ListFailuresForLicenseConfigurationOperationsRequest(BaseValidatorModel):
     LicenseConfigurationArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_license_specifications_for_resource' function.
 class ListLicenseSpecificationsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_license_versions' function.
 class ListLicenseVersionsRequest(BaseValidatorModel):
     LicenseArn: str
     NextToken: Optional[str] = None
@@ -267,6 +284,7 @@ class ResourceInventory(BaseValidatorModel):
     ResourceOwningAccountId: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -293,6 +311,7 @@ class ProductInformationFilter(BaseValidatorModel):
     ProductInformationFilterValue: Optional[List[str]] = None
 
 
+# This class is the input for the 'reject_grant' function.
 class RejectGrantRequest(BaseValidatorModel):
     GrantArn: str
 
@@ -315,6 +334,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the output for the 'accept_grant' function.
 class AcceptGrantResponse(BaseValidatorModel):
     GrantArn: str
     Status: GrantStatusType
@@ -322,6 +342,7 @@ class AcceptGrantResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_grant' function.
 class CreateGrantResponse(BaseValidatorModel):
     GrantArn: str
     Status: GrantStatusType
@@ -329,6 +350,7 @@ class CreateGrantResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_grant_version' function.
 class CreateGrantVersionResponse(BaseValidatorModel):
     GrantArn: str
     Status: GrantStatusType
@@ -336,21 +358,25 @@ class CreateGrantVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_license_configuration' function.
 class CreateLicenseConfigurationResponse(BaseValidatorModel):
     LicenseConfigurationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_license_conversion_task_for_resource' function.
 class CreateLicenseConversionTaskForResourceResponse(BaseValidatorModel):
     LicenseConversionTaskId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_license_manager_report_generator' function.
 class CreateLicenseManagerReportGeneratorResponse(BaseValidatorModel):
     LicenseManagerReportGeneratorArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_license' function.
 class CreateLicenseResponse(BaseValidatorModel):
     LicenseArn: str
     Status: LicenseStatusType
@@ -358,6 +384,7 @@ class CreateLicenseResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_license_version' function.
 class CreateLicenseVersionResponse(BaseValidatorModel):
     LicenseArn: str
     Version: str
@@ -365,6 +392,7 @@ class CreateLicenseVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_token' function.
 class CreateTokenResponse(BaseValidatorModel):
     TokenId: str
     TokenType: Literal['REFRESH_TOKEN']
@@ -372,6 +400,7 @@ class CreateTokenResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_grant' function.
 class DeleteGrantResponse(BaseValidatorModel):
     GrantArn: str
     Status: GrantStatusType
@@ -379,23 +408,27 @@ class DeleteGrantResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_license' function.
 class DeleteLicenseResponse(BaseValidatorModel):
     Status: LicenseDeletionStatusType
     DeletionDate: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'extend_license_consumption' function.
 class ExtendLicenseConsumptionResponse(BaseValidatorModel):
     LicenseConsumptionToken: str
     Expiration: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_access_token' function.
 class GetAccessTokenResponse(BaseValidatorModel):
     AccessToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reject_grant' function.
 class RejectGrantResponse(BaseValidatorModel):
     GrantArn: str
     Status: GrantStatusType
@@ -403,6 +436,7 @@ class RejectGrantResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'checkout_license' function.
 class CheckoutLicenseRequest(BaseValidatorModel):
     ProductSKU: str
     CheckoutType: CheckoutTypeType
@@ -413,6 +447,7 @@ class CheckoutLicenseRequest(BaseValidatorModel):
     NodeId: Optional[str] = None
 
 
+# This class is the output for the 'checkout_license' function.
 class CheckoutLicenseResponse(BaseValidatorModel):
     CheckoutType: CheckoutTypeType
     LicenseConsumptionToken: str
@@ -425,6 +460,7 @@ class CheckoutLicenseResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'checkout_borrow_license' function.
 class CheckoutBorrowLicenseRequest(BaseValidatorModel):
     LicenseArn: str
     Entitlements: List[EntitlementData]
@@ -434,6 +470,7 @@ class CheckoutBorrowLicenseRequest(BaseValidatorModel):
     CheckoutMetadata: Optional[List[Metadata]] = None
 
 
+# This class is the output for the 'checkout_borrow_license' function.
 class CheckoutBorrowLicenseResponse(BaseValidatorModel):
     LicenseArn: str
     LicenseConsumptionToken: str
@@ -463,6 +500,7 @@ class ConsumptionConfiguration(BaseValidatorModel):
     BorrowConfiguration: Optional[BorrowConfiguration] = None
 
 
+# This class is the input for the 'create_grant_version' function.
 class CreateGrantVersionRequest(BaseValidatorModel):
     ClientToken: str
     GrantArn: str
@@ -488,6 +526,7 @@ class Grant(BaseValidatorModel):
     Options: Optional[Options] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -498,12 +537,14 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the input for the 'create_license_conversion_task_for_resource' function.
 class CreateLicenseConversionTaskForResourceRequest(BaseValidatorModel):
     ResourceArn: str
     SourceLicenseContext: LicenseConversionContext
     DestinationLicenseContext: LicenseConversionContext
 
 
+# This class is the output for the 'get_license_conversion_task' function.
 class GetLicenseConversionTaskResponse(BaseValidatorModel):
     LicenseConversionTaskId: str
     ResourceArn: str
@@ -533,6 +574,7 @@ class LicenseUsage(BaseValidatorModel):
     EntitlementUsages: Optional[List[EntitlementUsage]] = None
 
 
+# This class is the input for the 'list_distributed_grants' function.
 class ListDistributedGrantsRequest(BaseValidatorModel):
     GrantArns: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -540,6 +582,7 @@ class ListDistributedGrantsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_license_configurations' function.
 class ListLicenseConfigurationsRequest(BaseValidatorModel):
     LicenseConfigurationArns: Optional[List[str]] = None
     MaxResults: Optional[int] = None
@@ -547,18 +590,21 @@ class ListLicenseConfigurationsRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
 
 
+# This class is the input for the 'list_license_conversion_tasks' function.
 class ListLicenseConversionTasksRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filters: Optional[List[Filter]] = None
 
 
+# This class is the input for the 'list_license_manager_report_generators' function.
 class ListLicenseManagerReportGeneratorsRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_licenses' function.
 class ListLicensesRequest(BaseValidatorModel):
     LicenseArns: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -566,6 +612,7 @@ class ListLicensesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_received_grants_for_organization' function.
 class ListReceivedGrantsForOrganizationRequest(BaseValidatorModel):
     LicenseArn: str
     Filters: Optional[List[Filter]] = None
@@ -573,6 +620,7 @@ class ListReceivedGrantsForOrganizationRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_received_grants' function.
 class ListReceivedGrantsRequest(BaseValidatorModel):
     GrantArns: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -580,12 +628,14 @@ class ListReceivedGrantsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_received_licenses_for_organization' function.
 class ListReceivedLicensesForOrganizationRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_received_licenses' function.
 class ListReceivedLicensesRequest(BaseValidatorModel):
     LicenseArns: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -593,6 +643,7 @@ class ListReceivedLicensesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tokens' function.
 class ListTokensRequest(BaseValidatorModel):
     TokenIds: Optional[List[str]] = None
     Filters: Optional[List[Filter]] = None
@@ -600,6 +651,7 @@ class ListTokensRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_usage_for_license_configuration' function.
 class ListUsageForLicenseConfigurationRequest(BaseValidatorModel):
     LicenseConfigurationArn: str
     MaxResults: Optional[int] = None
@@ -623,24 +675,28 @@ class UpdateServiceSettingsRequest(BaseValidatorModel):
     EnableCrossAccountsDiscovery: Optional[bool] = None
 
 
+# This class is the input for the 'list_resource_inventory' function.
 class ListResourceInventoryRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[List[InventoryFilter]] = None
 
 
+# This class is the output for the 'list_associations_for_license_configuration' function.
 class ListAssociationsForLicenseConfigurationResponse(BaseValidatorModel):
     LicenseConfigurationAssociations: List[LicenseConfigurationAssociation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_usage_for_license_configuration' function.
 class ListUsageForLicenseConfigurationResponse(BaseValidatorModel):
     LicenseConfigurationUsageList: List[LicenseConfigurationUsage]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_license_specifications_for_resource' function.
 class ListLicenseSpecificationsForResourceResponse(BaseValidatorModel):
     LicenseSpecifications: List[LicenseSpecification]
     ResponseMetadata: ResponseMetadata
@@ -680,12 +736,14 @@ class ListUsageForLicenseConfigurationRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_resource_inventory' function.
 class ListResourceInventoryResponse(BaseValidatorModel):
     ResourceInventoryList: List[ResourceInventory]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tokens' function.
 class ListTokensResponse(BaseValidatorModel):
     Tokens: List[TokenData]
     ResponseMetadata: ResponseMetadata
@@ -717,12 +775,14 @@ class ReportGenerator(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'list_failures_for_license_configuration_operations' function.
 class ListFailuresForLicenseConfigurationOperationsResponse(BaseValidatorModel):
     LicenseOperationFailureList: List[LicenseOperationFailure]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_license' function.
 class CreateLicenseRequest(BaseValidatorModel):
     LicenseName: str
     ProductName: str
@@ -737,6 +797,7 @@ class CreateLicenseRequest(BaseValidatorModel):
     LicenseMetadata: Optional[List[Metadata]] = None
 
 
+# This class is the input for the 'create_license_version' function.
 class CreateLicenseVersionRequest(BaseValidatorModel):
     LicenseArn: str
     LicenseName: str
@@ -787,40 +848,47 @@ class License(BaseValidatorModel):
     Version: Optional[str] = None
 
 
+# This class is the output for the 'get_grant' function.
 class GetGrantResponse(BaseValidatorModel):
     Grant: Grant
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_distributed_grants' function.
 class ListDistributedGrantsResponse(BaseValidatorModel):
     Grants: List[Grant]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_received_grants_for_organization' function.
 class ListReceivedGrantsForOrganizationResponse(BaseValidatorModel):
     Grants: List[Grant]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_received_grants' function.
 class ListReceivedGrantsResponse(BaseValidatorModel):
     Grants: List[Grant]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_license_conversion_tasks' function.
 class ListLicenseConversionTasksResponse(BaseValidatorModel):
     LicenseConversionTasks: List[LicenseConversionTask]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_license_usage' function.
 class GetLicenseUsageResponse(BaseValidatorModel):
     LicenseUsage: LicenseUsage
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_license_configuration' function.
 class GetLicenseConfigurationResponse(BaseValidatorModel):
     LicenseConfigurationId: str
     LicenseConfigurationArn: str
@@ -866,6 +934,7 @@ class ProductInformation(BaseValidatorModel):
     ProductInformationFilterList: List[ProductInformationFilterUnion]
 
 
+# This class is the input for the 'create_license_manager_report_generator' function.
 class CreateLicenseManagerReportGeneratorRequest(BaseValidatorModel):
     ReportGeneratorName: str
     Type: List[ReportTypeType]
@@ -886,46 +955,54 @@ class UpdateLicenseManagerReportGeneratorRequest(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the output for the 'get_license_manager_report_generator' function.
 class GetLicenseManagerReportGeneratorResponse(BaseValidatorModel):
     ReportGenerator: ReportGenerator
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_license_manager_report_generators' function.
 class ListLicenseManagerReportGeneratorsResponse(BaseValidatorModel):
     ReportGenerators: List[ReportGenerator]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_received_licenses_for_organization' function.
 class ListReceivedLicensesForOrganizationResponse(BaseValidatorModel):
     Licenses: List[GrantedLicense]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_received_licenses' function.
 class ListReceivedLicensesResponse(BaseValidatorModel):
     Licenses: List[GrantedLicense]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_license' function.
 class GetLicenseResponse(BaseValidatorModel):
     License: License
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_license_versions' function.
 class ListLicenseVersionsResponse(BaseValidatorModel):
     Licenses: List[License]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_licenses' function.
 class ListLicensesResponse(BaseValidatorModel):
     Licenses: List[License]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_license_configurations' function.
 class ListLicenseConfigurationsResponse(BaseValidatorModel):
     LicenseConfigurations: List[LicenseConfiguration]
     ResponseMetadata: ResponseMetadata
@@ -934,6 +1011,7 @@ class ListLicenseConfigurationsResponse(BaseValidatorModel):
 ProductInformationUnion = Union[ProductInformation, ProductInformationOutput]
 
 
+# This class is the input for the 'create_license_configuration' function.
 class CreateLicenseConfigurationRequest(BaseValidatorModel):
     Name: str
     LicenseCountingType: LicenseCountingTypeType

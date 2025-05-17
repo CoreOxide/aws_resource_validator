@@ -57,6 +57,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_ingest_configuration' function.
 class CreateIngestConfigurationRequest(BaseValidatorModel):
     ingestProtocol: IngestProtocolType
     name: Optional[str] = None
@@ -80,6 +81,7 @@ class IngestConfiguration(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_participant_token' function.
 class CreateParticipantTokenRequest(BaseValidatorModel):
     stageArn: str
     duration: Optional[int] = None
@@ -154,18 +156,22 @@ class Event(BaseValidatorModel):
     errorCode: Optional[EventErrorCodeType] = None
 
 
+# This class is the input for the 'get_composition' function.
 class GetCompositionRequest(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'get_encoder_configuration' function.
 class GetEncoderConfigurationRequest(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'get_ingest_configuration' function.
 class GetIngestConfigurationRequest(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'get_participant' function.
 class GetParticipantRequest(BaseValidatorModel):
     stageArn: str
     sessionId: str
@@ -191,6 +197,7 @@ class Participant(BaseValidatorModel):
     protocol: Optional[ParticipantProtocolType] = None
 
 
+# This class is the input for the 'get_public_key' function.
 class GetPublicKeyRequest(BaseValidatorModel):
     arn: str
 
@@ -203,10 +210,12 @@ class PublicKey(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'get_stage' function.
 class GetStageRequest(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'get_stage_session' function.
 class GetStageSessionRequest(BaseValidatorModel):
     stageArn: str
     sessionId: str
@@ -218,6 +227,7 @@ class StageSession(BaseValidatorModel):
     endTime: Optional[datetime] = None
 
 
+# This class is the input for the 'get_storage_configuration' function.
 class GetStorageConfigurationRequest(BaseValidatorModel):
     arn: str
 
@@ -230,6 +240,7 @@ class GridConfiguration(BaseValidatorModel):
     gridGap: Optional[int] = None
 
 
+# This class is the input for the 'import_public_key' function.
 class ImportPublicKeyRequest(BaseValidatorModel):
     publicKeyMaterial: str
     name: Optional[str] = None
@@ -259,6 +270,7 @@ class PipConfiguration(BaseValidatorModel):
     pipHeight: Optional[int] = None
 
 
+# This class is the input for the 'list_compositions' function.
 class ListCompositionsRequest(BaseValidatorModel):
     filterByStageArn: Optional[str] = None
     filterByEncoderConfigurationArn: Optional[str] = None
@@ -266,6 +278,7 @@ class ListCompositionsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_encoder_configurations' function.
 class ListEncoderConfigurationsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -277,6 +290,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_ingest_configurations' function.
 class ListIngestConfigurationsRequest(BaseValidatorModel):
     filterByStageArn: Optional[str] = None
     filterByState: Optional[IngestConfigurationStateType] = None
@@ -284,6 +298,7 @@ class ListIngestConfigurationsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_participant_events' function.
 class ListParticipantEventsRequest(BaseValidatorModel):
     stageArn: str
     sessionId: str
@@ -292,6 +307,7 @@ class ListParticipantEventsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_participants' function.
 class ListParticipantsRequest(BaseValidatorModel):
     stageArn: str
     sessionId: str
@@ -312,6 +328,7 @@ class ParticipantSummary(BaseValidatorModel):
     recordingState: Optional[ParticipantRecordingStateType] = None
 
 
+# This class is the input for the 'list_public_keys' function.
 class ListPublicKeysRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -323,6 +340,7 @@ class PublicKeySummary(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_stage_sessions' function.
 class ListStageSessionsRequest(BaseValidatorModel):
     stageArn: str
     nextToken: Optional[str] = None
@@ -335,6 +353,7 @@ class StageSessionSummary(BaseValidatorModel):
     endTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_stages' function.
 class ListStagesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -347,11 +366,13 @@ class StageSummary(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_storage_configurations' function.
 class ListStorageConfigurationsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -381,6 +402,7 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_ingest_configuration' function.
 class UpdateIngestConfigurationRequest(BaseValidatorModel):
     arn: str
     stageArn: Optional[str] = None
@@ -412,6 +434,7 @@ class CompositionSummary(BaseValidatorModel):
 CompositionThumbnailConfigurationUnion = Union[CompositionThumbnailConfiguration, CompositionThumbnailConfigurationOutput]
 
 
+# This class is the input for the 'create_encoder_configuration' function.
 class CreateEncoderConfigurationRequest(BaseValidatorModel):
     name: Optional[str] = None
     video: Optional[Video] = None
@@ -425,31 +448,37 @@ class EncoderConfiguration(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_ingest_configuration' function.
 class CreateIngestConfigurationResponse(BaseValidatorModel):
     ingestConfiguration: IngestConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_ingest_configuration' function.
 class GetIngestConfigurationResponse(BaseValidatorModel):
     ingestConfiguration: IngestConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_ingest_configuration' function.
 class UpdateIngestConfigurationResponse(BaseValidatorModel):
     ingestConfiguration: IngestConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_participant_token' function.
 class CreateParticipantTokenResponse(BaseValidatorModel):
     participantToken: ParticipantToken
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_storage_configuration' function.
 class CreateStorageConfigurationRequest(BaseValidatorModel):
     s3: S3StorageConfiguration
     name: Optional[str] = None
@@ -474,38 +503,45 @@ class DestinationDetail(BaseValidatorModel):
     s3: Optional[S3Detail] = None
 
 
+# This class is the output for the 'list_encoder_configurations' function.
 class ListEncoderConfigurationsResponse(BaseValidatorModel):
     encoderConfigurations: List[EncoderConfigurationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_participant_events' function.
 class ListParticipantEventsResponse(BaseValidatorModel):
     events: List[Event]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_participant' function.
 class GetParticipantResponse(BaseValidatorModel):
     participant: Participant
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_public_key' function.
 class GetPublicKeyResponse(BaseValidatorModel):
     publicKey: PublicKey
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_public_key' function.
 class ImportPublicKeyResponse(BaseValidatorModel):
     publicKey: PublicKey
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_stage_session' function.
 class GetStageSessionResponse(BaseValidatorModel):
     stageSession: StageSession
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_ingest_configurations' function.
 class ListIngestConfigurationsResponse(BaseValidatorModel):
     ingestConfigurations: List[IngestConfigurationSummary]
     ResponseMetadata: ResponseMetadata
@@ -527,24 +563,28 @@ class ListPublicKeysRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_participants' function.
 class ListParticipantsResponse(BaseValidatorModel):
     participants: List[ParticipantSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_public_keys' function.
 class ListPublicKeysResponse(BaseValidatorModel):
     publicKeys: List[PublicKeySummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_stage_sessions' function.
 class ListStageSessionsResponse(BaseValidatorModel):
     stageSessions: List[StageSessionSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_stages' function.
 class ListStagesResponse(BaseValidatorModel):
     stages: List[StageSummary]
     ResponseMetadata: ResponseMetadata
@@ -569,6 +609,7 @@ class Stage(BaseValidatorModel):
 AutoParticipantRecordingConfigurationUnion = Union[AutoParticipantRecordingConfiguration, AutoParticipantRecordingConfigurationOutput]
 
 
+# This class is the output for the 'list_compositions' function.
 class ListCompositionsResponse(BaseValidatorModel):
     compositions: List[CompositionSummary]
     ResponseMetadata: ResponseMetadata
@@ -582,27 +623,32 @@ class S3DestinationConfiguration(BaseValidatorModel):
     thumbnailConfigurations: Optional[List[CompositionThumbnailConfigurationUnion]] = None
 
 
+# This class is the output for the 'create_encoder_configuration' function.
 class CreateEncoderConfigurationResponse(BaseValidatorModel):
     encoderConfiguration: EncoderConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_encoder_configuration' function.
 class GetEncoderConfigurationResponse(BaseValidatorModel):
     encoderConfiguration: EncoderConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_storage_configurations' function.
 class ListStorageConfigurationsResponse(BaseValidatorModel):
     storageConfigurations: List[StorageConfigurationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_storage_configuration' function.
 class CreateStorageConfigurationResponse(BaseValidatorModel):
     storageConfiguration: StorageConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_storage_configuration' function.
 class GetStorageConfigurationResponse(BaseValidatorModel):
     storageConfiguration: StorageConfiguration
     ResponseMetadata: ResponseMetadata
@@ -614,22 +660,26 @@ class DestinationConfigurationOutput(BaseValidatorModel):
     s3: Optional[S3DestinationConfigurationOutput] = None
 
 
+# This class is the output for the 'create_stage' function.
 class CreateStageResponse(BaseValidatorModel):
     stage: Stage
     participantTokens: List[ParticipantToken]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_stage' function.
 class GetStageResponse(BaseValidatorModel):
     stage: Stage
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_stage' function.
 class UpdateStageResponse(BaseValidatorModel):
     stage: Stage
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_stage' function.
 class CreateStageRequest(BaseValidatorModel):
     name: Optional[str] = None
     participantTokenConfigurations: Optional[List[ParticipantTokenConfiguration]] = None
@@ -637,6 +687,7 @@ class CreateStageRequest(BaseValidatorModel):
     autoParticipantRecordingConfiguration: Optional[AutoParticipantRecordingConfigurationUnion] = None
 
 
+# This class is the input for the 'update_stage' function.
 class UpdateStageRequest(BaseValidatorModel):
     arn: str
     name: Optional[str] = None
@@ -673,16 +724,19 @@ class Composition(BaseValidatorModel):
 DestinationConfigurationUnion = Union[DestinationConfiguration, DestinationConfigurationOutput]
 
 
+# This class is the output for the 'get_composition' function.
 class GetCompositionResponse(BaseValidatorModel):
     composition: Composition
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_composition' function.
 class StartCompositionResponse(BaseValidatorModel):
     composition: Composition
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_composition' function.
 class StartCompositionRequest(BaseValidatorModel):
     stageArn: str
     destinations: List[DestinationConfigurationUnion]

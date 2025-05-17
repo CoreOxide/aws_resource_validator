@@ -18,6 +18,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_voices' function.
 class DescribeVoicesInput(BaseValidatorModel):
     Engine: Optional[EngineType] = None
     LanguageCode: Optional[LanguageCodeType] = None
@@ -43,6 +44,7 @@ class Voice(BaseValidatorModel):
     SupportedEngines: Optional[List[EngineType]] = None
 
 
+# This class is the input for the 'get_lexicon' function.
 class GetLexiconInput(BaseValidatorModel):
     Name: str
 
@@ -61,6 +63,7 @@ class Lexicon(BaseValidatorModel):
     Name: Optional[str] = None
 
 
+# This class is the input for the 'get_speech_synthesis_task' function.
 class GetSpeechSynthesisTaskInput(BaseValidatorModel):
     TaskId: str
 
@@ -83,10 +86,12 @@ class SynthesisTask(BaseValidatorModel):
     LanguageCode: Optional[LanguageCodeType] = None
 
 
+# This class is the input for the 'list_lexicons' function.
 class ListLexiconsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_speech_synthesis_tasks' function.
 class ListSpeechSynthesisTasksInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -98,6 +103,7 @@ class PutLexiconInput(BaseValidatorModel):
     Content: str
 
 
+# This class is the input for the 'start_speech_synthesis_task' function.
 class StartSpeechSynthesisTaskInput(BaseValidatorModel):
     OutputFormat: OutputFormatType
     OutputS3BucketName: str
@@ -113,6 +119,7 @@ class StartSpeechSynthesisTaskInput(BaseValidatorModel):
     TextType: Optional[TextTypeType] = None
 
 
+# This class is the input for the 'synthesize_speech' function.
 class SynthesizeSpeechInput(BaseValidatorModel):
     OutputFormat: OutputFormatType
     Text: str
@@ -141,6 +148,7 @@ class ListSpeechSynthesisTasksInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'synthesize_speech' function.
 class SynthesizeSpeechOutput(BaseValidatorModel):
     AudioStream: StreamingBody
     ContentType: str
@@ -148,6 +156,7 @@ class SynthesizeSpeechOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_voices' function.
 class DescribeVoicesOutput(BaseValidatorModel):
     Voices: List[Voice]
     ResponseMetadata: ResponseMetadata
@@ -159,28 +168,33 @@ class LexiconDescription(BaseValidatorModel):
     Attributes: Optional[LexiconAttributes] = None
 
 
+# This class is the output for the 'get_lexicon' function.
 class GetLexiconOutput(BaseValidatorModel):
     Lexicon: Lexicon
     LexiconAttributes: LexiconAttributes
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_speech_synthesis_task' function.
 class GetSpeechSynthesisTaskOutput(BaseValidatorModel):
     SynthesisTask: SynthesisTask
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_speech_synthesis_tasks' function.
 class ListSpeechSynthesisTasksOutput(BaseValidatorModel):
     SynthesisTasks: List[SynthesisTask]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_speech_synthesis_task' function.
 class StartSpeechSynthesisTaskOutput(BaseValidatorModel):
     SynthesisTask: SynthesisTask
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_lexicons' function.
 class ListLexiconsOutput(BaseValidatorModel):
     Lexicons: List[LexiconDescription]
     ResponseMetadata: ResponseMetadata

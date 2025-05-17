@@ -73,6 +73,7 @@ class BatchGetVariableError(BaseValidatorModel):
     message: Optional[str] = None
 
 
+# This class is the input for the 'batch_get_variable' function.
 class BatchGetVariableRequest(BaseValidatorModel):
     names: List[str]
 
@@ -196,6 +197,7 @@ class DeleteEventTypeRequest(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'delete_events_by_event_type' function.
 class DeleteEventsByEventTypeRequest(BaseValidatorModel):
     eventTypeName: str
 
@@ -231,6 +233,7 @@ class DeleteVariableRequest(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'describe_detector' function.
 class DescribeDetectorRequest(BaseValidatorModel):
     detectorId: str
     nextToken: Optional[str] = None
@@ -244,6 +247,7 @@ class DetectorVersionSummary(BaseValidatorModel):
     lastUpdatedTime: Optional[str] = None
 
 
+# This class is the input for the 'describe_model_versions' function.
 class DescribeModelVersionsRequest(BaseValidatorModel):
     modelId: Optional[str] = None
     modelVersionNumber: Optional[str] = None
@@ -341,39 +345,46 @@ class FilterCondition(BaseValidatorModel):
     value: Optional[str] = None
 
 
+# This class is the input for the 'get_batch_import_jobs' function.
 class GetBatchImportJobsRequest(BaseValidatorModel):
     jobId: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_batch_prediction_jobs' function.
 class GetBatchPredictionJobsRequest(BaseValidatorModel):
     jobId: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_delete_events_by_event_type_status' function.
 class GetDeleteEventsByEventTypeStatusRequest(BaseValidatorModel):
     eventTypeName: str
 
 
+# This class is the input for the 'get_detector_version' function.
 class GetDetectorVersionRequest(BaseValidatorModel):
     detectorId: str
     detectorVersionId: str
 
 
+# This class is the input for the 'get_detectors' function.
 class GetDetectorsRequest(BaseValidatorModel):
     detectorId: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_entity_types' function.
 class GetEntityTypesRequest(BaseValidatorModel):
     name: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_event_prediction_metadata' function.
 class GetEventPredictionMetadataRequest(BaseValidatorModel):
     eventId: str
     eventTypeName: str
@@ -387,17 +398,20 @@ class RuleResult(BaseValidatorModel):
     outcomes: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_event' function.
 class GetEventRequest(BaseValidatorModel):
     eventId: str
     eventTypeName: str
 
 
+# This class is the input for the 'get_event_types' function.
 class GetEventTypesRequest(BaseValidatorModel):
     name: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_external_models' function.
 class GetExternalModelsRequest(BaseValidatorModel):
     modelEndpoint: Optional[str] = None
     nextToken: Optional[str] = None
@@ -408,6 +422,7 @@ class KMSKey(BaseValidatorModel):
     kmsEncryptionKeyArn: Optional[str] = None
 
 
+# This class is the input for the 'get_labels' function.
 class GetLabelsRequest(BaseValidatorModel):
     name: Optional[str] = None
     nextToken: Optional[str] = None
@@ -422,24 +437,28 @@ class Label(BaseValidatorModel):
     arn: Optional[str] = None
 
 
+# This class is the input for the 'get_list_elements' function.
 class GetListElementsRequest(BaseValidatorModel):
     name: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_lists_metadata' function.
 class GetListsMetadataRequest(BaseValidatorModel):
     name: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_model_version' function.
 class GetModelVersionRequest(BaseValidatorModel):
     modelId: str
     modelType: ModelTypeEnumType
     modelVersionNumber: str
 
 
+# This class is the input for the 'get_models' function.
 class GetModelsRequest(BaseValidatorModel):
     modelId: Optional[str] = None
     modelType: Optional[ModelTypeEnumType] = None
@@ -457,6 +476,7 @@ class Model(BaseValidatorModel):
     arn: Optional[str] = None
 
 
+# This class is the input for the 'get_outcomes' function.
 class GetOutcomesRequest(BaseValidatorModel):
     name: Optional[str] = None
     nextToken: Optional[str] = None
@@ -471,6 +491,7 @@ class Outcome(BaseValidatorModel):
     arn: Optional[str] = None
 
 
+# This class is the input for the 'get_rules' function.
 class GetRulesRequest(BaseValidatorModel):
     detectorId: str
     ruleId: Optional[str] = None
@@ -492,6 +513,7 @@ class RuleDetail(BaseValidatorModel):
     arn: Optional[str] = None
 
 
+# This class is the input for the 'get_variables' function.
 class GetVariablesRequest(BaseValidatorModel):
     name: Optional[str] = None
     nextToken: Optional[str] = None
@@ -518,6 +540,7 @@ class PredictionTimeRange(BaseValidatorModel):
     endTime: str
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceARN: str
     nextToken: Optional[str] = None
@@ -669,6 +692,7 @@ class CreateModelRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_rule' function.
 class CreateRuleRequest(BaseValidatorModel):
     ruleId: str
     detectorId: str
@@ -719,16 +743,19 @@ class TagResourceRequest(BaseValidatorModel):
     tags: List[Tag]
 
 
+# This class is the input for the 'batch_create_variable' function.
 class BatchCreateVariableRequest(BaseValidatorModel):
     variableEntries: List[VariableEntry]
     tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'batch_create_variable' function.
 class BatchCreateVariableResult(BaseValidatorModel):
     errors: List[BatchCreateVariableError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_detector_version' function.
 class CreateDetectorVersionResult(BaseValidatorModel):
     detectorId: str
     detectorVersionId: str
@@ -736,6 +763,7 @@ class CreateDetectorVersionResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_model_version' function.
 class CreateModelVersionResult(BaseValidatorModel):
     modelId: str
     modelType: ModelTypeEnumType
@@ -744,36 +772,42 @@ class CreateModelVersionResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_events_by_event_type' function.
 class DeleteEventsByEventTypeResult(BaseValidatorModel):
     eventTypeName: str
     eventsDeletionStatus: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_delete_events_by_event_type_status' function.
 class GetDeleteEventsByEventTypeStatusResult(BaseValidatorModel):
     eventTypeName: str
     eventsDeletionStatus: AsyncJobStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_list_elements' function.
 class GetListElementsResult(BaseValidatorModel):
     elements: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_lists_metadata' function.
 class GetListsMetadataResult(BaseValidatorModel):
     lists: List[AllowDenyList]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResult(BaseValidatorModel):
     tags: List[Tag]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_model_version' function.
 class UpdateModelVersionResult(BaseValidatorModel):
     modelId: str
     modelType: ModelTypeEnumType
@@ -782,24 +816,28 @@ class UpdateModelVersionResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_get_variable' function.
 class BatchGetVariableResult(BaseValidatorModel):
     variables: List[Variable]
     errors: List[BatchGetVariableError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_variables' function.
 class GetVariablesResult(BaseValidatorModel):
     variables: List[Variable]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_batch_import_jobs' function.
 class GetBatchImportJobsResult(BaseValidatorModel):
     batchImports: List[BatchImport]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_batch_prediction_jobs' function.
 class GetBatchPredictionJobsResult(BaseValidatorModel):
     batchPredictions: List[BatchPrediction]
     ResponseMetadata: ResponseMetadata
@@ -816,6 +854,7 @@ class ModelScores(BaseValidatorModel):
     scores: Optional[Dict[str, float]] = None
 
 
+# This class is the input for the 'create_detector_version' function.
 class CreateDetectorVersionRequest(BaseValidatorModel):
     detectorId: str
     rules: List[Rule]
@@ -826,6 +865,7 @@ class CreateDetectorVersionRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'create_rule' function.
 class CreateRuleResult(BaseValidatorModel):
     rule: Rule
     ResponseMetadata: ResponseMetadata
@@ -835,6 +875,7 @@ class DeleteRuleRequest(BaseValidatorModel):
     rule: Rule
 
 
+# This class is the output for the 'get_detector_version' function.
 class GetDetectorVersionResult(BaseValidatorModel):
     detectorId: str
     detectorVersionId: str
@@ -865,6 +906,7 @@ class UpdateRuleMetadataRequest(BaseValidatorModel):
     description: str
 
 
+# This class is the input for the 'update_rule_version' function.
 class UpdateRuleVersionRequest(BaseValidatorModel):
     rule: Rule
     expression: str
@@ -874,6 +916,7 @@ class UpdateRuleVersionRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'update_rule_version' function.
 class UpdateRuleVersionResult(BaseValidatorModel):
     rule: Rule
     ResponseMetadata: ResponseMetadata
@@ -884,6 +927,7 @@ class DataValidationMetrics(BaseValidatorModel):
     fieldLevelMessages: Optional[List[FieldValidationMessage]] = None
 
 
+# This class is the output for the 'describe_detector' function.
 class DescribeDetectorResult(BaseValidatorModel):
     detectorId: str
     detectorVersionSummaries: List[DetectorVersionSummary]
@@ -892,6 +936,7 @@ class DescribeDetectorResult(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_detectors' function.
 class GetDetectorsResult(BaseValidatorModel):
     detectors: List[Detector]
     ResponseMetadata: ResponseMetadata
@@ -918,6 +963,7 @@ class SendEventRequest(BaseValidatorModel):
     labelTimestamp: Optional[str] = None
 
 
+# This class is the output for the 'get_entity_types' function.
 class GetEntityTypesResult(BaseValidatorModel):
     entityTypes: List[EntityType]
     ResponseMetadata: ResponseMetadata
@@ -935,6 +981,7 @@ class PutEventTypeRequest(BaseValidatorModel):
     eventOrchestration: Optional[EventOrchestration] = None
 
 
+# This class is the output for the 'list_event_predictions' function.
 class ListEventPredictionsResult(BaseValidatorModel):
     eventPredictionSummaries: List[EventPredictionSummary]
     ResponseMetadata: ResponseMetadata
@@ -977,24 +1024,28 @@ class GetKMSEncryptionKeyResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_labels' function.
 class GetLabelsResult(BaseValidatorModel):
     labels: List[Label]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_models' function.
 class GetModelsResult(BaseValidatorModel):
     models: List[Model]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_outcomes' function.
 class GetOutcomesResult(BaseValidatorModel):
     outcomes: List[Outcome]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_rules' function.
 class GetRulesResult(BaseValidatorModel):
     ruleDetails: List[RuleDetail]
     ResponseMetadata: ResponseMetadata
@@ -1015,6 +1066,7 @@ class TrainingDataSchema(BaseValidatorModel):
     labelSchema: Optional[LabelSchema] = None
 
 
+# This class is the input for the 'list_event_predictions' function.
 class ListEventPredictionsRequest(BaseValidatorModel):
     eventId: Optional[FilterCondition] = None
     eventType: Optional[FilterCondition] = None
@@ -1051,6 +1103,7 @@ class PredictionExplanations(BaseValidatorModel):
     aggregatedVariablesImpactExplanations: Optional[List[AggregatedVariablesImpactExplanation]] = None
 
 
+# This class is the input for the 'get_event_prediction' function.
 class GetEventPredictionRequest(BaseValidatorModel):
     detectorId: str
     eventId: str
@@ -1062,17 +1115,20 @@ class GetEventPredictionRequest(BaseValidatorModel):
     externalModelEndpointDataBlobs: Optional[Dict[str, ModelEndpointDataBlob]] = None
 
 
+# This class is the output for the 'get_event' function.
 class GetEventResult(BaseValidatorModel):
     event: Event
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_event_types' function.
 class GetEventTypesResult(BaseValidatorModel):
     eventTypes: List[EventType]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_event_prediction' function.
 class GetEventPredictionResult(BaseValidatorModel):
     modelScores: List[ModelScores]
     ruleResults: List[RuleResult]
@@ -1080,12 +1136,14 @@ class GetEventPredictionResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_external_models' function.
 class GetExternalModelsResult(BaseValidatorModel):
     externalModels: List[ExternalModel]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'update_model_version' function.
 class UpdateModelVersionRequest(BaseValidatorModel):
     modelId: str
     modelType: ModelTypeEnumType
@@ -1095,6 +1153,7 @@ class UpdateModelVersionRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'get_model_version' function.
 class GetModelVersionResult(BaseValidatorModel):
     modelId: str
     modelType: ModelTypeEnumType
@@ -1142,6 +1201,7 @@ class ModelVersionEvaluation(BaseValidatorModel):
     predictionExplanations: Optional[PredictionExplanations] = None
 
 
+# This class is the input for the 'create_model_version' function.
 class CreateModelVersionRequest(BaseValidatorModel):
     modelId: str
     modelType: ModelTypeEnumType
@@ -1172,6 +1232,7 @@ class TrainingResultV2(BaseValidatorModel):
     aggregatedVariablesImportanceMetrics: Optional[AggregatedVariablesImportanceMetrics] = None
 
 
+# This class is the output for the 'get_event_prediction_metadata' function.
 class GetEventPredictionMetadataResult(BaseValidatorModel):
     eventId: str
     eventTypeName: str
@@ -1207,6 +1268,7 @@ class ModelVersionDetail(BaseValidatorModel):
     trainingResultV2: Optional[TrainingResultV2] = None
 
 
+# This class is the output for the 'describe_model_versions' function.
 class DescribeModelVersionsResult(BaseValidatorModel):
     modelVersionDetails: List[ModelVersionDetail]
     ResponseMetadata: ResponseMetadata

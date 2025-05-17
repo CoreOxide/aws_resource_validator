@@ -114,6 +114,7 @@ class DeleteTaskRequest(BaseValidatorModel):
     TaskArn: str
 
 
+# This class is the input for the 'describe_agent' function.
 class DescribeAgentRequest(BaseValidatorModel):
     AgentArn: str
 
@@ -125,14 +126,17 @@ class PrivateLinkConfig(BaseValidatorModel):
     SecurityGroupArns: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_discovery_job' function.
 class DescribeDiscoveryJobRequest(BaseValidatorModel):
     DiscoveryJobArn: str
 
 
+# This class is the input for the 'describe_location_azure_blob' function.
 class DescribeLocationAzureBlobRequest(BaseValidatorModel):
     LocationArn: str
 
 
+# This class is the input for the 'describe_location_efs' function.
 class DescribeLocationEfsRequest(BaseValidatorModel):
     LocationArn: str
 
@@ -142,26 +146,32 @@ class Ec2ConfigOutput(BaseValidatorModel):
     SecurityGroupArns: List[str]
 
 
+# This class is the input for the 'describe_location_fsx_lustre' function.
 class DescribeLocationFsxLustreRequest(BaseValidatorModel):
     LocationArn: str
 
 
+# This class is the input for the 'describe_location_fsx_ontap' function.
 class DescribeLocationFsxOntapRequest(BaseValidatorModel):
     LocationArn: str
 
 
+# This class is the input for the 'describe_location_fsx_open_zfs' function.
 class DescribeLocationFsxOpenZfsRequest(BaseValidatorModel):
     LocationArn: str
 
 
+# This class is the input for the 'describe_location_fsx_windows' function.
 class DescribeLocationFsxWindowsRequest(BaseValidatorModel):
     LocationArn: str
 
 
+# This class is the input for the 'describe_location_hdfs' function.
 class DescribeLocationHdfsRequest(BaseValidatorModel):
     LocationArn: str
 
 
+# This class is the input for the 'describe_location_nfs' function.
 class DescribeLocationNfsRequest(BaseValidatorModel):
     LocationArn: str
 
@@ -170,18 +180,22 @@ class OnPremConfigOutput(BaseValidatorModel):
     AgentArns: List[str]
 
 
+# This class is the input for the 'describe_location_object_storage' function.
 class DescribeLocationObjectStorageRequest(BaseValidatorModel):
     LocationArn: str
 
 
+# This class is the input for the 'describe_location_s3' function.
 class DescribeLocationS3Request(BaseValidatorModel):
     LocationArn: str
 
 
+# This class is the input for the 'describe_location_smb' function.
 class DescribeLocationSmbRequest(BaseValidatorModel):
     LocationArn: str
 
 
+# This class is the input for the 'describe_storage_system' function.
 class DescribeStorageSystemRequest(BaseValidatorModel):
     StorageSystemArn: str
 
@@ -194,6 +208,7 @@ class PaginatorConfig(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'describe_storage_system_resources' function.
 class DescribeStorageSystemResourcesRequest(BaseValidatorModel):
     DiscoveryJobArn: str
     ResourceType: DiscoveryResourceTypeType
@@ -203,6 +218,7 @@ class DescribeStorageSystemResourcesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_task_execution' function.
 class DescribeTaskExecutionRequest(BaseValidatorModel):
     TaskExecutionArn: str
 
@@ -237,6 +253,7 @@ class TaskExecutionResultDetail(BaseValidatorModel):
     ErrorDetail: Optional[str] = None
 
 
+# This class is the input for the 'describe_task' function.
 class DescribeTaskRequest(BaseValidatorModel):
     TaskArn: str
 
@@ -276,11 +293,13 @@ class Latency(BaseValidatorModel):
     Other: Optional[float] = None
 
 
+# This class is the input for the 'list_agents' function.
 class ListAgentsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_discovery_jobs' function.
 class ListDiscoveryJobsRequest(BaseValidatorModel):
     StorageSystemArn: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -298,6 +317,7 @@ class LocationListEntry(BaseValidatorModel):
     LocationUri: Optional[str] = None
 
 
+# This class is the input for the 'list_storage_systems' function.
 class ListStorageSystemsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -308,12 +328,14 @@ class StorageSystemListEntry(BaseValidatorModel):
     Name: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_task_executions' function.
 class ListTaskExecutionsRequest(BaseValidatorModel):
     TaskArn: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -440,6 +462,7 @@ class UpdateStorageSystemRequest(BaseValidatorModel):
     Credentials: Optional[Credentials] = None
 
 
+# This class is the input for the 'add_storage_system' function.
 class AddStorageSystemRequest(BaseValidatorModel):
     ServerConfiguration: DiscoveryServerConfiguration
     SystemType: Literal['NetAppONTAP']
@@ -451,6 +474,7 @@ class AddStorageSystemRequest(BaseValidatorModel):
     Name: Optional[str] = None
 
 
+# This class is the input for the 'create_agent' function.
 class CreateAgentRequest(BaseValidatorModel):
     ActivationKey: str
     AgentName: Optional[str] = None
@@ -460,6 +484,7 @@ class CreateAgentRequest(BaseValidatorModel):
     SecurityGroupArns: Optional[List[str]] = None
 
 
+# This class is the input for the 'create_location_fsx_lustre' function.
 class CreateLocationFsxLustreRequest(BaseValidatorModel):
     FsxFilesystemArn: str
     SecurityGroupArns: List[str]
@@ -467,6 +492,7 @@ class CreateLocationFsxLustreRequest(BaseValidatorModel):
     Tags: Optional[List[TagListEntry]] = None
 
 
+# This class is the input for the 'create_location_fsx_windows' function.
 class CreateLocationFsxWindowsRequest(BaseValidatorModel):
     FsxFilesystemArn: str
     SecurityGroupArns: List[str]
@@ -477,6 +503,7 @@ class CreateLocationFsxWindowsRequest(BaseValidatorModel):
     Domain: Optional[str] = None
 
 
+# This class is the input for the 'start_discovery_job' function.
 class StartDiscoveryJobRequest(BaseValidatorModel):
     StorageSystemArn: str
     CollectionDurationMinutes: int
@@ -489,76 +516,91 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[TagListEntry]
 
 
+# This class is the output for the 'add_storage_system' function.
 class AddStorageSystemResponse(BaseValidatorModel):
     StorageSystemArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_agent' function.
 class CreateAgentResponse(BaseValidatorModel):
     AgentArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_location_azure_blob' function.
 class CreateLocationAzureBlobResponse(BaseValidatorModel):
     LocationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_location_efs' function.
 class CreateLocationEfsResponse(BaseValidatorModel):
     LocationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_location_fsx_lustre' function.
 class CreateLocationFsxLustreResponse(BaseValidatorModel):
     LocationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_location_fsx_ontap' function.
 class CreateLocationFsxOntapResponse(BaseValidatorModel):
     LocationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_location_fsx_open_zfs' function.
 class CreateLocationFsxOpenZfsResponse(BaseValidatorModel):
     LocationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_location_fsx_windows' function.
 class CreateLocationFsxWindowsResponse(BaseValidatorModel):
     LocationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_location_hdfs' function.
 class CreateLocationHdfsResponse(BaseValidatorModel):
     LocationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_location_nfs' function.
 class CreateLocationNfsResponse(BaseValidatorModel):
     LocationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_location_object_storage' function.
 class CreateLocationObjectStorageResponse(BaseValidatorModel):
     LocationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_location_s3' function.
 class CreateLocationS3Response(BaseValidatorModel):
     LocationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_location_smb' function.
 class CreateLocationSmbResponse(BaseValidatorModel):
     LocationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_task' function.
 class CreateTaskResponse(BaseValidatorModel):
     TaskArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_discovery_job' function.
 class DescribeDiscoveryJobResponse(BaseValidatorModel):
     StorageSystemArn: str
     DiscoveryJobArn: str
@@ -569,6 +611,7 @@ class DescribeDiscoveryJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_location_azure_blob' function.
 class DescribeLocationAzureBlobResponse(BaseValidatorModel):
     LocationArn: str
     LocationUri: str
@@ -580,6 +623,7 @@ class DescribeLocationAzureBlobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_location_fsx_lustre' function.
 class DescribeLocationFsxLustreResponse(BaseValidatorModel):
     LocationArn: str
     LocationUri: str
@@ -588,6 +632,7 @@ class DescribeLocationFsxLustreResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_location_fsx_windows' function.
 class DescribeLocationFsxWindowsResponse(BaseValidatorModel):
     LocationArn: str
     LocationUri: str
@@ -598,6 +643,7 @@ class DescribeLocationFsxWindowsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_location_object_storage' function.
 class DescribeLocationObjectStorageResponse(BaseValidatorModel):
     LocationArn: str
     LocationUri: str
@@ -610,6 +656,7 @@ class DescribeLocationObjectStorageResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_storage_system' function.
 class DescribeStorageSystemResponse(BaseValidatorModel):
     StorageSystemArn: str
     ServerConfiguration: DiscoveryServerConfiguration
@@ -624,17 +671,20 @@ class DescribeStorageSystemResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[TagListEntry]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_discovery_job' function.
 class StartDiscoveryJobResponse(BaseValidatorModel):
     DiscoveryJobArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_task_execution' function.
 class StartTaskExecutionResponse(BaseValidatorModel):
     TaskExecutionArn: str
     ResponseMetadata: ResponseMetadata
@@ -647,6 +697,7 @@ class AgentListEntry(BaseValidatorModel):
     Platform: Optional[Platform] = None
 
 
+# This class is the input for the 'create_location_azure_blob' function.
 class CreateLocationAzureBlobRequest(BaseValidatorModel):
     ContainerUrl: str
     AuthenticationType: Literal['SAS']
@@ -668,6 +719,7 @@ class UpdateLocationAzureBlobRequest(BaseValidatorModel):
     AgentArns: Optional[List[str]] = None
 
 
+# This class is the input for the 'create_location_object_storage' function.
 class CreateLocationObjectStorageRequest(BaseValidatorModel):
     ServerHostname: str
     BucketName: str
@@ -693,6 +745,7 @@ class UpdateLocationObjectStorageRequest(BaseValidatorModel):
     ServerCertificate: Optional[Blob] = None
 
 
+# This class is the input for the 'create_location_hdfs' function.
 class CreateLocationHdfsRequest(BaseValidatorModel):
     NameNodes: List[HdfsNameNode]
     AuthenticationType: HdfsAuthenticationTypeType
@@ -709,6 +762,7 @@ class CreateLocationHdfsRequest(BaseValidatorModel):
     Tags: Optional[List[TagListEntry]] = None
 
 
+# This class is the output for the 'describe_location_hdfs' function.
 class DescribeLocationHdfsResponse(BaseValidatorModel):
     LocationArn: str
     LocationUri: str
@@ -745,6 +799,7 @@ class FsxProtocolNfs(BaseValidatorModel):
     MountOptions: Optional[NfsMountOptions] = None
 
 
+# This class is the input for the 'create_location_s3' function.
 class CreateLocationS3Request(BaseValidatorModel):
     S3BucketArn: str
     S3Config: S3Config
@@ -754,6 +809,7 @@ class CreateLocationS3Request(BaseValidatorModel):
     Tags: Optional[List[TagListEntry]] = None
 
 
+# This class is the output for the 'describe_location_s3' function.
 class DescribeLocationS3Response(BaseValidatorModel):
     LocationArn: str
     LocationUri: str
@@ -771,6 +827,7 @@ class UpdateLocationS3Request(BaseValidatorModel):
     S3Config: Optional[S3Config] = None
 
 
+# This class is the input for the 'create_location_smb' function.
 class CreateLocationSmbRequest(BaseValidatorModel):
     Subdirectory: str
     ServerHostname: str
@@ -787,6 +844,7 @@ class CreateLocationSmbRequest(BaseValidatorModel):
     KerberosKrb5Conf: Optional[Blob] = None
 
 
+# This class is the output for the 'describe_location_smb' function.
 class DescribeLocationSmbResponse(BaseValidatorModel):
     LocationArn: str
     LocationUri: str
@@ -836,6 +894,7 @@ class UpdateTaskExecutionRequest(BaseValidatorModel):
     Options: Options
 
 
+# This class is the output for the 'describe_agent' function.
 class DescribeAgentResponse(BaseValidatorModel):
     AgentArn: str
     Name: str
@@ -848,6 +907,7 @@ class DescribeAgentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_location_efs' function.
 class DescribeLocationEfsResponse(BaseValidatorModel):
     LocationArn: str
     LocationUri: str
@@ -859,6 +919,7 @@ class DescribeLocationEfsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_location_nfs' function.
 class DescribeLocationNfsResponse(BaseValidatorModel):
     LocationArn: str
     LocationUri: str
@@ -900,6 +961,7 @@ class DescribeStorageSystemResourceMetricsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_storage_system_resource_metrics' function.
 class DescribeStorageSystemResourceMetricsRequest(BaseValidatorModel):
     DiscoveryJobArn: str
     ResourceType: DiscoveryResourceTypeType
@@ -910,6 +972,7 @@ class DescribeStorageSystemResourceMetricsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_discovery_jobs' function.
 class ListDiscoveryJobsResponse(BaseValidatorModel):
     DiscoveryJobs: List[DiscoveryJobListEntry]
     ResponseMetadata: ResponseMetadata
@@ -923,24 +986,28 @@ class ListLocationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_locations' function.
 class ListLocationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[List[LocationFilter]] = None
 
 
+# This class is the output for the 'list_locations' function.
 class ListLocationsResponse(BaseValidatorModel):
     Locations: List[LocationListEntry]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_storage_systems' function.
 class ListStorageSystemsResponse(BaseValidatorModel):
     StorageSystems: List[StorageSystemListEntry]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_task_executions' function.
 class ListTaskExecutionsResponse(BaseValidatorModel):
     TaskExecutions: List[TaskExecutionListEntry]
     ResponseMetadata: ResponseMetadata
@@ -952,12 +1019,14 @@ class ListTasksRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_tasks' function.
 class ListTasksRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[List[TaskFilter]] = None
 
 
+# This class is the output for the 'list_tasks' function.
 class ListTasksResponse(BaseValidatorModel):
     Tasks: List[TaskListEntry]
     ResponseMetadata: ResponseMetadata
@@ -1037,6 +1106,7 @@ class SourceManifestConfig(BaseValidatorModel):
     S3: S3ManifestConfig
 
 
+# This class is the output for the 'list_agents' function.
 class ListAgentsResponse(BaseValidatorModel):
     Agents: List[AgentListEntry]
     ResponseMetadata: ResponseMetadata
@@ -1053,6 +1123,7 @@ class FsxUpdateProtocol(BaseValidatorModel):
     SMB: Optional[FsxUpdateProtocolSmb] = None
 
 
+# This class is the input for the 'create_location_efs' function.
 class CreateLocationEfsRequest(BaseValidatorModel):
     EfsFilesystemArn: str
     Ec2Config: Ec2ConfigUnion
@@ -1069,6 +1140,7 @@ class ResourceDetails(BaseValidatorModel):
     NetAppONTAPClusters: Optional[List[NetAppONTAPCluster]] = None
 
 
+# This class is the input for the 'create_location_nfs' function.
 class CreateLocationNfsRequest(BaseValidatorModel):
     Subdirectory: str
     ServerHostname: str
@@ -1107,6 +1179,7 @@ class ManifestConfig(BaseValidatorModel):
     Source: Optional[SourceManifestConfig] = None
 
 
+# This class is the input for the 'create_location_fsx_ontap' function.
 class CreateLocationFsxOntapRequest(BaseValidatorModel):
     Protocol: FsxProtocol
     SecurityGroupArns: List[str]
@@ -1115,6 +1188,7 @@ class CreateLocationFsxOntapRequest(BaseValidatorModel):
     Tags: Optional[List[TagListEntry]] = None
 
 
+# This class is the input for the 'create_location_fsx_open_zfs' function.
 class CreateLocationFsxOpenZfsRequest(BaseValidatorModel):
     FsxFilesystemArn: str
     Protocol: FsxProtocol
@@ -1123,6 +1197,7 @@ class CreateLocationFsxOpenZfsRequest(BaseValidatorModel):
     Tags: Optional[List[TagListEntry]] = None
 
 
+# This class is the output for the 'describe_location_fsx_ontap' function.
 class DescribeLocationFsxOntapResponse(BaseValidatorModel):
     CreationTime: datetime
     LocationArn: str
@@ -1134,6 +1209,7 @@ class DescribeLocationFsxOntapResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_location_fsx_open_zfs' function.
 class DescribeLocationFsxOpenZfsResponse(BaseValidatorModel):
     LocationArn: str
     LocationUri: str
@@ -1155,18 +1231,21 @@ class UpdateLocationFsxOntapRequest(BaseValidatorModel):
     Subdirectory: Optional[str] = None
 
 
+# This class is the output for the 'describe_storage_system_resources' function.
 class DescribeStorageSystemResourcesResponse(BaseValidatorModel):
     ResourceDetails: ResourceDetails
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_storage_system_resource_metrics' function.
 class DescribeStorageSystemResourceMetricsResponse(BaseValidatorModel):
     Metrics: List[ResourceMetrics]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_task' function.
 class CreateTaskRequest(BaseValidatorModel):
     SourceLocationArn: str
     DestinationLocationArn: str
@@ -1182,6 +1261,7 @@ class CreateTaskRequest(BaseValidatorModel):
     TaskMode: Optional[TaskModeType] = None
 
 
+# This class is the output for the 'describe_task_execution' function.
 class DescribeTaskExecutionResponse(BaseValidatorModel):
     TaskExecutionArn: str
     Status: TaskExecutionStatusType
@@ -1210,6 +1290,7 @@ class DescribeTaskExecutionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_task' function.
 class DescribeTaskResponse(BaseValidatorModel):
     TaskArn: str
     Status: TaskStatusType
@@ -1234,6 +1315,7 @@ class DescribeTaskResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_task_execution' function.
 class StartTaskExecutionRequest(BaseValidatorModel):
     TaskArn: str
     OverrideOptions: Optional[Options] = None

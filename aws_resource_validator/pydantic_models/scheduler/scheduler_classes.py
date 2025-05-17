@@ -76,10 +76,12 @@ class EventBridgeParameters(BaseValidatorModel):
     Source: str
 
 
+# This class is the input for the 'get_schedule_group' function.
 class GetScheduleGroupInput(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'get_schedule' function.
 class GetScheduleInput(BaseValidatorModel):
     Name: str
     GroupName: Optional[str] = None
@@ -95,6 +97,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_schedule_groups' function.
 class ListScheduleGroupsInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NamePrefix: Optional[str] = None
@@ -109,6 +112,7 @@ class ScheduleGroupSummary(BaseValidatorModel):
     State: Optional[ScheduleGroupStateType] = None
 
 
+# This class is the input for the 'list_schedules' function.
 class ListSchedulesInput(BaseValidatorModel):
     GroupName: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -117,6 +121,7 @@ class ListSchedulesInput(BaseValidatorModel):
     State: Optional[ScheduleStateType] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInput(BaseValidatorModel):
     ResourceArn: str
 
@@ -152,6 +157,7 @@ class NetworkConfiguration(BaseValidatorModel):
     awsvpcConfiguration: Optional[AwsVpcConfiguration] = None
 
 
+# This class is the input for the 'create_schedule_group' function.
 class CreateScheduleGroupInput(BaseValidatorModel):
     Name: str
     ClientToken: Optional[str] = None
@@ -163,16 +169,19 @@ class TagResourceInput(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the output for the 'create_schedule_group' function.
 class CreateScheduleGroupOutput(BaseValidatorModel):
     ScheduleGroupArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_schedule' function.
 class CreateScheduleOutput(BaseValidatorModel):
     ScheduleArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_schedule_group' function.
 class GetScheduleGroupOutput(BaseValidatorModel):
     Arn: str
     CreationDate: datetime
@@ -182,11 +191,13 @@ class GetScheduleGroupOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceOutput(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_schedule' function.
 class UpdateScheduleOutput(BaseValidatorModel):
     ScheduleArn: str
     ResponseMetadata: ResponseMetadata
@@ -204,6 +215,7 @@ class ListSchedulesInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_schedule_groups' function.
 class ListScheduleGroupsOutput(BaseValidatorModel):
     ScheduleGroups: List[ScheduleGroupSummary]
     ResponseMetadata: ResponseMetadata
@@ -262,6 +274,7 @@ class EcsParameters(BaseValidatorModel):
     TaskCount: Optional[int] = None
 
 
+# This class is the output for the 'list_schedules' function.
 class ListSchedulesOutput(BaseValidatorModel):
     Schedules: List[ScheduleSummary]
     ResponseMetadata: ResponseMetadata
@@ -294,6 +307,7 @@ class Target(BaseValidatorModel):
     SqsParameters: Optional[SqsParameters] = None
 
 
+# This class is the output for the 'get_schedule' function.
 class GetScheduleOutput(BaseValidatorModel):
     ActionAfterCompletion: ActionAfterCompletionType
     Arn: str
@@ -315,6 +329,7 @@ class GetScheduleOutput(BaseValidatorModel):
 TargetUnion = Union[Target, TargetOutput]
 
 
+# This class is the input for the 'create_schedule' function.
 class CreateScheduleInput(BaseValidatorModel):
     FlexibleTimeWindow: FlexibleTimeWindow
     Name: str
@@ -331,6 +346,7 @@ class CreateScheduleInput(BaseValidatorModel):
     State: Optional[ScheduleStateType] = None
 
 
+# This class is the input for the 'update_schedule' function.
 class UpdateScheduleInput(BaseValidatorModel):
     FlexibleTimeWindow: FlexibleTimeWindow
     Name: str

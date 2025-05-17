@@ -35,6 +35,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'delete_gateway_route' function.
 class DeleteGatewayRouteInput(BaseValidatorModel):
     gatewayRouteName: str
     meshName: str
@@ -42,10 +43,12 @@ class DeleteGatewayRouteInput(BaseValidatorModel):
     meshOwner: Optional[str] = None
 
 
+# This class is the input for the 'delete_mesh' function.
 class DeleteMeshInput(BaseValidatorModel):
     meshName: str
 
 
+# This class is the input for the 'delete_route' function.
 class DeleteRouteInput(BaseValidatorModel):
     meshName: str
     routeName: str
@@ -53,30 +56,35 @@ class DeleteRouteInput(BaseValidatorModel):
     meshOwner: Optional[str] = None
 
 
+# This class is the input for the 'delete_virtual_gateway' function.
 class DeleteVirtualGatewayInput(BaseValidatorModel):
     meshName: str
     virtualGatewayName: str
     meshOwner: Optional[str] = None
 
 
+# This class is the input for the 'delete_virtual_node' function.
 class DeleteVirtualNodeInput(BaseValidatorModel):
     meshName: str
     virtualNodeName: str
     meshOwner: Optional[str] = None
 
 
+# This class is the input for the 'delete_virtual_router' function.
 class DeleteVirtualRouterInput(BaseValidatorModel):
     meshName: str
     virtualRouterName: str
     meshOwner: Optional[str] = None
 
 
+# This class is the input for the 'delete_virtual_service' function.
 class DeleteVirtualServiceInput(BaseValidatorModel):
     meshName: str
     virtualServiceName: str
     meshOwner: Optional[str] = None
 
 
+# This class is the input for the 'describe_gateway_route' function.
 class DescribeGatewayRouteInput(BaseValidatorModel):
     gatewayRouteName: str
     meshName: str
@@ -84,11 +92,13 @@ class DescribeGatewayRouteInput(BaseValidatorModel):
     meshOwner: Optional[str] = None
 
 
+# This class is the input for the 'describe_mesh' function.
 class DescribeMeshInput(BaseValidatorModel):
     meshName: str
     meshOwner: Optional[str] = None
 
 
+# This class is the input for the 'describe_route' function.
 class DescribeRouteInput(BaseValidatorModel):
     meshName: str
     routeName: str
@@ -96,24 +106,28 @@ class DescribeRouteInput(BaseValidatorModel):
     meshOwner: Optional[str] = None
 
 
+# This class is the input for the 'describe_virtual_gateway' function.
 class DescribeVirtualGatewayInput(BaseValidatorModel):
     meshName: str
     virtualGatewayName: str
     meshOwner: Optional[str] = None
 
 
+# This class is the input for the 'describe_virtual_node' function.
 class DescribeVirtualNodeInput(BaseValidatorModel):
     meshName: str
     virtualNodeName: str
     meshOwner: Optional[str] = None
 
 
+# This class is the input for the 'describe_virtual_router' function.
 class DescribeVirtualRouterInput(BaseValidatorModel):
     meshName: str
     virtualRouterName: str
     meshOwner: Optional[str] = None
 
 
+# This class is the input for the 'describe_virtual_service' function.
 class DescribeVirtualServiceInput(BaseValidatorModel):
     meshName: str
     virtualServiceName: str
@@ -224,6 +238,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_gateway_routes' function.
 class ListGatewayRoutesInput(BaseValidatorModel):
     meshName: str
     virtualGatewayName: str
@@ -232,6 +247,7 @@ class ListGatewayRoutesInput(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_meshes' function.
 class ListMeshesInput(BaseValidatorModel):
     limit: Optional[int] = None
     nextToken: Optional[str] = None
@@ -247,6 +263,7 @@ class MeshRef(BaseValidatorModel):
     version: int
 
 
+# This class is the input for the 'list_routes' function.
 class ListRoutesInput(BaseValidatorModel):
     meshName: str
     virtualRouterName: str
@@ -267,12 +284,14 @@ class RouteRef(BaseValidatorModel):
     virtualRouterName: str
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInput(BaseValidatorModel):
     resourceArn: str
     limit: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_virtual_gateways' function.
 class ListVirtualGatewaysInput(BaseValidatorModel):
     meshName: str
     limit: Optional[int] = None
@@ -291,6 +310,7 @@ class VirtualGatewayRef(BaseValidatorModel):
     virtualGatewayName: str
 
 
+# This class is the input for the 'list_virtual_nodes' function.
 class ListVirtualNodesInput(BaseValidatorModel):
     meshName: str
     limit: Optional[int] = None
@@ -309,6 +329,7 @@ class VirtualNodeRef(BaseValidatorModel):
     virtualNodeName: str
 
 
+# This class is the input for the 'list_virtual_routers' function.
 class ListVirtualRoutersInput(BaseValidatorModel):
     meshName: str
     limit: Optional[int] = None
@@ -327,6 +348,7 @@ class VirtualRouterRef(BaseValidatorModel):
     virtualRouterName: str
 
 
+# This class is the input for the 'list_virtual_services' function.
 class ListVirtualServicesInput(BaseValidatorModel):
     meshName: str
     limit: Optional[int] = None
@@ -521,6 +543,7 @@ class TagResourceInput(BaseValidatorModel):
     tags: List[TagRef]
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceOutput(BaseValidatorModel):
     tags: List[TagRef]
     ResponseMetadata: ResponseMetadata
@@ -582,6 +605,7 @@ class GrpcGatewayRouteRewrite(BaseValidatorModel):
     hostname: Optional[GatewayRouteHostnameRewrite] = None
 
 
+# This class is the output for the 'list_gateway_routes' function.
 class ListGatewayRoutesOutput(BaseValidatorModel):
     gatewayRoutes: List[GatewayRouteRef]
     ResponseMetadata: ResponseMetadata
@@ -709,36 +733,42 @@ class ListVirtualServicesInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_meshes' function.
 class ListMeshesOutput(BaseValidatorModel):
     meshes: List[MeshRef]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_routes' function.
 class ListRoutesOutput(BaseValidatorModel):
     routes: List[RouteRef]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_virtual_gateways' function.
 class ListVirtualGatewaysOutput(BaseValidatorModel):
     virtualGateways: List[VirtualGatewayRef]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_virtual_nodes' function.
 class ListVirtualNodesOutput(BaseValidatorModel):
     virtualNodes: List[VirtualNodeRef]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_virtual_routers' function.
 class ListVirtualRoutersOutput(BaseValidatorModel):
     virtualRouters: List[VirtualRouterRef]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_virtual_services' function.
 class ListVirtualServicesOutput(BaseValidatorModel):
     virtualServices: List[VirtualServiceRef]
     ResponseMetadata: ResponseMetadata
@@ -922,6 +952,7 @@ class VirtualRouterSpec(BaseValidatorModel):
     listeners: Optional[List[VirtualRouterListener]] = None
 
 
+# This class is the input for the 'create_mesh' function.
 class CreateMeshInput(BaseValidatorModel):
     meshName: str
     clientToken: Optional[str] = None
@@ -936,6 +967,7 @@ class MeshData(BaseValidatorModel):
     status: MeshStatus
 
 
+# This class is the input for the 'update_mesh' function.
 class UpdateMeshInput(BaseValidatorModel):
     meshName: str
     clientToken: Optional[str] = None
@@ -1080,21 +1112,25 @@ class VirtualRouterData(BaseValidatorModel):
 VirtualRouterSpecUnion = Union[VirtualRouterSpec, VirtualRouterSpecOutput]
 
 
+# This class is the output for the 'create_mesh' function.
 class CreateMeshOutput(BaseValidatorModel):
     mesh: MeshData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_mesh' function.
 class DeleteMeshOutput(BaseValidatorModel):
     mesh: MeshData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_mesh' function.
 class DescribeMeshOutput(BaseValidatorModel):
     mesh: MeshData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_mesh' function.
 class UpdateMeshOutput(BaseValidatorModel):
     mesh: MeshData
     ResponseMetadata: ResponseMetadata
@@ -1152,6 +1188,7 @@ class VirtualGatewayClientPolicyTls(BaseValidatorModel):
     ports: Optional[List[int]] = None
 
 
+# This class is the input for the 'create_virtual_service' function.
 class CreateVirtualServiceInput(BaseValidatorModel):
     meshName: str
     spec: VirtualServiceSpec
@@ -1161,6 +1198,7 @@ class CreateVirtualServiceInput(BaseValidatorModel):
     tags: Optional[List[TagRef]] = None
 
 
+# This class is the input for the 'update_virtual_service' function.
 class UpdateVirtualServiceInput(BaseValidatorModel):
     meshName: str
     spec: VirtualServiceSpec
@@ -1241,26 +1279,31 @@ class VirtualGatewayLogging(BaseValidatorModel):
     accessLog: Optional[VirtualGatewayAccessLog] = None
 
 
+# This class is the output for the 'create_virtual_router' function.
 class CreateVirtualRouterOutput(BaseValidatorModel):
     virtualRouter: VirtualRouterData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_virtual_router' function.
 class DeleteVirtualRouterOutput(BaseValidatorModel):
     virtualRouter: VirtualRouterData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_virtual_router' function.
 class DescribeVirtualRouterOutput(BaseValidatorModel):
     virtualRouter: VirtualRouterData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_virtual_router' function.
 class UpdateVirtualRouterOutput(BaseValidatorModel):
     virtualRouter: VirtualRouterData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_virtual_router' function.
 class CreateVirtualRouterInput(BaseValidatorModel):
     meshName: str
     spec: VirtualRouterSpecUnion
@@ -1270,6 +1313,7 @@ class CreateVirtualRouterInput(BaseValidatorModel):
     tags: Optional[List[TagRef]] = None
 
 
+# This class is the input for the 'update_virtual_router' function.
 class UpdateVirtualRouterInput(BaseValidatorModel):
     meshName: str
     spec: VirtualRouterSpecUnion
@@ -1326,21 +1370,25 @@ class VirtualGatewayClientPolicy(BaseValidatorModel):
     tls: Optional[VirtualGatewayClientPolicyTls] = None
 
 
+# This class is the output for the 'create_virtual_service' function.
 class CreateVirtualServiceOutput(BaseValidatorModel):
     virtualService: VirtualServiceData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_virtual_service' function.
 class DeleteVirtualServiceOutput(BaseValidatorModel):
     virtualService: VirtualServiceData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_virtual_service' function.
 class DescribeVirtualServiceOutput(BaseValidatorModel):
     virtualService: VirtualServiceData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_virtual_service' function.
 class UpdateVirtualServiceOutput(BaseValidatorModel):
     virtualService: VirtualServiceData
     ResponseMetadata: ResponseMetadata
@@ -1444,26 +1492,31 @@ class VirtualGatewaySpec(BaseValidatorModel):
     logging: Optional[VirtualGatewayLogging] = None
 
 
+# This class is the output for the 'create_gateway_route' function.
 class CreateGatewayRouteOutput(BaseValidatorModel):
     gatewayRoute: GatewayRouteData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_gateway_route' function.
 class DeleteGatewayRouteOutput(BaseValidatorModel):
     gatewayRoute: GatewayRouteData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_gateway_route' function.
 class DescribeGatewayRouteOutput(BaseValidatorModel):
     gatewayRoute: GatewayRouteData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_gateway_route' function.
 class UpdateGatewayRouteOutput(BaseValidatorModel):
     gatewayRoute: GatewayRouteData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_gateway_route' function.
 class CreateGatewayRouteInput(BaseValidatorModel):
     gatewayRouteName: str
     meshName: str
@@ -1474,6 +1527,7 @@ class CreateGatewayRouteInput(BaseValidatorModel):
     tags: Optional[List[TagRef]] = None
 
 
+# This class is the input for the 'update_gateway_route' function.
 class UpdateGatewayRouteInput(BaseValidatorModel):
     gatewayRouteName: str
     meshName: str
@@ -1483,26 +1537,31 @@ class UpdateGatewayRouteInput(BaseValidatorModel):
     meshOwner: Optional[str] = None
 
 
+# This class is the output for the 'create_route' function.
 class CreateRouteOutput(BaseValidatorModel):
     route: RouteData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_route' function.
 class DeleteRouteOutput(BaseValidatorModel):
     route: RouteData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_route' function.
 class DescribeRouteOutput(BaseValidatorModel):
     route: RouteData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_route' function.
 class UpdateRouteOutput(BaseValidatorModel):
     route: RouteData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_route' function.
 class CreateRouteInput(BaseValidatorModel):
     meshName: str
     routeName: str
@@ -1513,6 +1572,7 @@ class CreateRouteInput(BaseValidatorModel):
     tags: Optional[List[TagRef]] = None
 
 
+# This class is the input for the 'update_route' function.
 class UpdateRouteInput(BaseValidatorModel):
     meshName: str
     routeName: str
@@ -1558,26 +1618,31 @@ class VirtualNodeData(BaseValidatorModel):
 VirtualNodeSpecUnion = Union[VirtualNodeSpec, VirtualNodeSpecOutput]
 
 
+# This class is the output for the 'create_virtual_gateway' function.
 class CreateVirtualGatewayOutput(BaseValidatorModel):
     virtualGateway: VirtualGatewayData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_virtual_gateway' function.
 class DeleteVirtualGatewayOutput(BaseValidatorModel):
     virtualGateway: VirtualGatewayData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_virtual_gateway' function.
 class DescribeVirtualGatewayOutput(BaseValidatorModel):
     virtualGateway: VirtualGatewayData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_virtual_gateway' function.
 class UpdateVirtualGatewayOutput(BaseValidatorModel):
     virtualGateway: VirtualGatewayData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_virtual_gateway' function.
 class CreateVirtualGatewayInput(BaseValidatorModel):
     meshName: str
     spec: VirtualGatewaySpecUnion
@@ -1587,6 +1652,7 @@ class CreateVirtualGatewayInput(BaseValidatorModel):
     tags: Optional[List[TagRef]] = None
 
 
+# This class is the input for the 'update_virtual_gateway' function.
 class UpdateVirtualGatewayInput(BaseValidatorModel):
     meshName: str
     spec: VirtualGatewaySpecUnion
@@ -1595,26 +1661,31 @@ class UpdateVirtualGatewayInput(BaseValidatorModel):
     meshOwner: Optional[str] = None
 
 
+# This class is the output for the 'create_virtual_node' function.
 class CreateVirtualNodeOutput(BaseValidatorModel):
     virtualNode: VirtualNodeData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_virtual_node' function.
 class DeleteVirtualNodeOutput(BaseValidatorModel):
     virtualNode: VirtualNodeData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_virtual_node' function.
 class DescribeVirtualNodeOutput(BaseValidatorModel):
     virtualNode: VirtualNodeData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_virtual_node' function.
 class UpdateVirtualNodeOutput(BaseValidatorModel):
     virtualNode: VirtualNodeData
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_virtual_node' function.
 class CreateVirtualNodeInput(BaseValidatorModel):
     meshName: str
     spec: VirtualNodeSpecUnion
@@ -1624,6 +1695,7 @@ class CreateVirtualNodeInput(BaseValidatorModel):
     tags: Optional[List[TagRef]] = None
 
 
+# This class is the input for the 'update_virtual_node' function.
 class UpdateVirtualNodeInput(BaseValidatorModel):
     meshName: str
     spec: VirtualNodeSpecUnion

@@ -46,6 +46,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'batch_get_traces' function.
 class BatchGetTracesRequest(BaseValidatorModel):
     TraceIds: List[str]
     NextToken: Optional[str] = None
@@ -83,6 +84,7 @@ class DeleteResourcePolicyRequest(BaseValidatorModel):
     PolicyRevisionId: Optional[str] = None
 
 
+# This class is the input for the 'delete_sampling_rule' function.
 class DeleteSamplingRuleRequest(BaseValidatorModel):
     RuleName: Optional[str] = None
     RuleARN: Optional[str] = None
@@ -120,19 +122,23 @@ class ForecastStatistics(BaseValidatorModel):
     FaultCountLow: Optional[int] = None
 
 
+# This class is the input for the 'get_group' function.
 class GetGroupRequest(BaseValidatorModel):
     GroupName: Optional[str] = None
     GroupARN: Optional[str] = None
 
 
+# This class is the input for the 'get_groups' function.
 class GetGroupsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_indexing_rules' function.
 class GetIndexingRulesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_insight_events' function.
 class GetInsightEventsRequest(BaseValidatorModel):
     InsightId: str
     MaxResults: Optional[int] = None
@@ -141,19 +147,23 @@ class GetInsightEventsRequest(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'get_insight' function.
 class GetInsightRequest(BaseValidatorModel):
     InsightId: str
 
 
+# This class is the input for the 'get_retrieved_traces_graph' function.
 class GetRetrievedTracesGraphRequest(BaseValidatorModel):
     RetrievalToken: str
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_sampling_rules' function.
 class GetSamplingRulesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_sampling_statistic_summaries' function.
 class GetSamplingStatisticSummariesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
@@ -180,6 +190,7 @@ class UnprocessedStatistics(BaseValidatorModel):
     Message: Optional[str] = None
 
 
+# This class is the input for the 'get_trace_graph' function.
 class GetTraceGraphRequest(BaseValidatorModel):
     TraceIds: List[str]
     NextToken: Optional[str] = None
@@ -227,6 +238,7 @@ class InstanceIdDetail(BaseValidatorModel):
     Id: Optional[str] = None
 
 
+# This class is the input for the 'list_resource_policies' function.
 class ListResourcePoliciesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
@@ -238,22 +250,26 @@ class ResourcePolicy(BaseValidatorModel):
     LastUpdatedTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_retrieved_traces' function.
 class ListRetrievedTracesRequest(BaseValidatorModel):
     RetrievalToken: str
     TraceFormat: Optional[TraceFormatTypeType] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'put_encryption_config' function.
 class PutEncryptionConfigRequest(BaseValidatorModel):
     Type: EncryptionTypeType
     KeyId: Optional[str] = None
 
 
+# This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyRequest(BaseValidatorModel):
     PolicyName: str
     PolicyDocument: str
@@ -261,6 +277,7 @@ class PutResourcePolicyRequest(BaseValidatorModel):
     BypassPolicyLockoutCheck: Optional[bool] = None
 
 
+# This class is the input for the 'put_trace_segments' function.
 class PutTraceSegmentsRequest(BaseValidatorModel):
     TraceSegmentDocuments: List[str]
 
@@ -343,6 +360,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_trace_segment_destination' function.
 class UpdateTraceSegmentDestinationRequest(BaseValidatorModel):
     Destination: Optional[TraceSegmentDestinationType] = None
 
@@ -398,11 +416,13 @@ class GetTraceSegmentDestinationResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_trace_retrieval' function.
 class StartTraceRetrievalResult(BaseValidatorModel):
     RetrievalToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_trace_segment_destination' function.
 class UpdateTraceSegmentDestinationResult(BaseValidatorModel):
     Destination: TraceSegmentDestinationType
     Status: TraceSegmentDestinationStatusType
@@ -423,6 +443,7 @@ class Group(BaseValidatorModel):
     InsightsConfiguration: Optional[InsightsConfiguration] = None
 
 
+# This class is the input for the 'update_group' function.
 class UpdateGroupRequest(BaseValidatorModel):
     GroupName: Optional[str] = None
     GroupARN: Optional[str] = None
@@ -430,6 +451,7 @@ class UpdateGroupRequest(BaseValidatorModel):
     InsightsConfiguration: Optional[InsightsConfiguration] = None
 
 
+# This class is the input for the 'create_group' function.
 class CreateGroupRequest(BaseValidatorModel):
     GroupName: str
     FilterExpression: Optional[str] = None
@@ -437,6 +459,7 @@ class CreateGroupRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -469,6 +492,7 @@ class GetEncryptionConfigResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_encryption_config' function.
 class PutEncryptionConfigResult(BaseValidatorModel):
     EncryptionConfig: EncryptionConfig
     ResponseMetadata: ResponseMetadata
@@ -486,6 +510,7 @@ class FaultRootCauseEntity(BaseValidatorModel):
     Remote: Optional[bool] = None
 
 
+# This class is the input for the 'get_insight_impact_graph' function.
 class GetInsightImpactGraphRequest(BaseValidatorModel):
     InsightId: str
     StartTime: Timestamp
@@ -493,6 +518,7 @@ class GetInsightImpactGraphRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_insight_summaries' function.
 class GetInsightSummariesRequest(BaseValidatorModel):
     StartTime: Timestamp
     EndTime: Timestamp
@@ -511,6 +537,7 @@ class GetServiceGraphRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_service_graph' function.
 class GetServiceGraphRequest(BaseValidatorModel):
     StartTime: Timestamp
     EndTime: Timestamp
@@ -530,6 +557,7 @@ class GetTimeSeriesServiceStatisticsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_time_series_service_statistics' function.
 class GetTimeSeriesServiceStatisticsRequest(BaseValidatorModel):
     StartTime: Timestamp
     EndTime: Timestamp
@@ -550,6 +578,7 @@ class SamplingStatisticsDocument(BaseValidatorModel):
     BorrowCount: Optional[int] = None
 
 
+# This class is the input for the 'start_trace_retrieval' function.
 class StartTraceRetrievalRequest(BaseValidatorModel):
     TraceIds: List[str]
     StartTime: Timestamp
@@ -565,12 +594,14 @@ class TelemetryRecord(BaseValidatorModel):
     BackendConnectionErrors: Optional[BackendConnectionErrors] = None
 
 
+# This class is the output for the 'get_sampling_statistic_summaries' function.
 class GetSamplingStatisticSummariesResult(BaseValidatorModel):
     SamplingStatisticSummaries: List[SamplingStatisticSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_sampling_targets' function.
 class GetSamplingTargetsResult(BaseValidatorModel):
     SamplingTargetDocuments: List[SamplingTargetDocument]
     LastRuleModification: datetime
@@ -588,6 +619,7 @@ class GetTraceSummariesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_trace_summaries' function.
 class GetTraceSummariesRequest(BaseValidatorModel):
     StartTime: Timestamp
     EndTime: Timestamp
@@ -615,17 +647,20 @@ class InsightImpactGraphService(BaseValidatorModel):
     Edges: Optional[List[InsightImpactGraphEdge]] = None
 
 
+# This class is the output for the 'list_resource_policies' function.
 class ListResourcePoliciesResult(BaseValidatorModel):
     ResourcePolicies: List[ResourcePolicy]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'put_resource_policy' function.
 class PutResourcePolicyResult(BaseValidatorModel):
     ResourcePolicy: ResourcePolicy
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_trace_segments' function.
 class PutTraceSegmentsResult(BaseValidatorModel):
     UnprocessedTraceSegments: List[UnprocessedTraceSegment]
     ResponseMetadata: ResponseMetadata
@@ -654,6 +689,7 @@ class SamplingRuleRecord(BaseValidatorModel):
 SamplingRuleUnion = Union[SamplingRule, SamplingRuleOutput]
 
 
+# This class is the input for the 'update_sampling_rule' function.
 class UpdateSamplingRuleRequest(BaseValidatorModel):
     SamplingRuleUpdate: SamplingRuleUpdate
 
@@ -704,22 +740,26 @@ class Insight(BaseValidatorModel):
     TopAnomalousServices: Optional[List[AnomalousService]] = None
 
 
+# This class is the output for the 'get_groups' function.
 class GetGroupsResult(BaseValidatorModel):
     Groups: List[GroupSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_group' function.
 class CreateGroupResult(BaseValidatorModel):
     Group: Group
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_group' function.
 class GetGroupResult(BaseValidatorModel):
     Group: Group
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_group' function.
 class UpdateGroupResult(BaseValidatorModel):
     Group: Group
     ResponseMetadata: ResponseMetadata
@@ -762,6 +802,7 @@ class FaultRootCauseService(BaseValidatorModel):
     Inferred: Optional[bool] = None
 
 
+# This class is the input for the 'get_sampling_targets' function.
 class GetSamplingTargetsRequest(BaseValidatorModel):
     SamplingStatisticsDocuments: List[SamplingStatisticsDocument]
 
@@ -779,11 +820,13 @@ class IndexingRule(BaseValidatorModel):
     Rule: Optional[IndexingRuleValue] = None
 
 
+# This class is the input for the 'update_indexing_rule' function.
 class UpdateIndexingRuleRequest(BaseValidatorModel):
     Name: str
     Rule: IndexingRuleValueUpdate
 
 
+# This class is the output for the 'get_insight_impact_graph' function.
 class GetInsightImpactGraphResult(BaseValidatorModel):
     InsightId: str
     StartTime: datetime
@@ -800,6 +843,7 @@ class ResponseTimeRootCause(BaseValidatorModel):
     ClientImpacting: Optional[bool] = None
 
 
+# This class is the output for the 'list_retrieved_traces' function.
 class ListRetrievedTracesResult(BaseValidatorModel):
     RetrievalStatus: RetrievalStatusType
     TraceFormat: TraceFormatTypeType
@@ -808,32 +852,38 @@ class ListRetrievedTracesResult(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_sampling_rule' function.
 class CreateSamplingRuleResult(BaseValidatorModel):
     SamplingRuleRecord: SamplingRuleRecord
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_sampling_rule' function.
 class DeleteSamplingRuleResult(BaseValidatorModel):
     SamplingRuleRecord: SamplingRuleRecord
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_sampling_rules' function.
 class GetSamplingRulesResult(BaseValidatorModel):
     SamplingRuleRecords: List[SamplingRuleRecord]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_sampling_rule' function.
 class UpdateSamplingRuleResult(BaseValidatorModel):
     SamplingRuleRecord: SamplingRuleRecord
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_sampling_rule' function.
 class CreateSamplingRuleRequest(BaseValidatorModel):
     SamplingRule: SamplingRuleUnion
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'batch_get_traces' function.
 class BatchGetTracesResult(BaseValidatorModel):
     Traces: List[Trace]
     UnprocessedTraceIds: List[str]
@@ -841,18 +891,21 @@ class BatchGetTracesResult(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_insight_events' function.
 class GetInsightEventsResult(BaseValidatorModel):
     InsightEvents: List[InsightEvent]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_insight_summaries' function.
 class GetInsightSummariesResult(BaseValidatorModel):
     InsightSummaries: List[InsightSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_insight' function.
 class GetInsightResult(BaseValidatorModel):
     Insight: Insight
     ResponseMetadata: ResponseMetadata
@@ -874,6 +927,7 @@ class Service(BaseValidatorModel):
     ResponseTimeHistogram: Optional[List[HistogramEntry]] = None
 
 
+# This class is the output for the 'get_time_series_service_statistics' function.
 class GetTimeSeriesServiceStatisticsResult(BaseValidatorModel):
     TimeSeriesServiceStatistics: List[TimeSeriesServiceStatistics]
     ContainsOldGroupVersions: bool
@@ -891,17 +945,20 @@ class FaultRootCause(BaseValidatorModel):
     ClientImpacting: Optional[bool] = None
 
 
+# This class is the output for the 'get_indexing_rules' function.
 class GetIndexingRulesResult(BaseValidatorModel):
     IndexingRules: List[IndexingRule]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_indexing_rule' function.
 class UpdateIndexingRuleResult(BaseValidatorModel):
     IndexingRule: IndexingRule
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_service_graph' function.
 class GetServiceGraphResult(BaseValidatorModel):
     StartTime: datetime
     EndTime: datetime
@@ -911,6 +968,7 @@ class GetServiceGraphResult(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_trace_graph' function.
 class GetTraceGraphResult(BaseValidatorModel):
     Services: List[Service]
     ResponseMetadata: ResponseMetadata
@@ -946,6 +1004,7 @@ class TraceSummary(BaseValidatorModel):
     MatchedEventTime: Optional[datetime] = None
 
 
+# This class is the output for the 'get_retrieved_traces_graph' function.
 class GetRetrievedTracesGraphResult(BaseValidatorModel):
     RetrievalStatus: RetrievalStatusType
     Services: List[RetrievedService]
@@ -953,6 +1012,7 @@ class GetRetrievedTracesGraphResult(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_trace_summaries' function.
 class GetTraceSummariesResult(BaseValidatorModel):
     TraceSummaries: List[TraceSummary]
     ApproximateTime: datetime

@@ -95,6 +95,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_backend_environment' function.
 class CreateBackendEnvironmentRequest(BaseValidatorModel):
     appId: str
     environmentName: str
@@ -102,6 +103,7 @@ class CreateBackendEnvironmentRequest(BaseValidatorModel):
     deploymentArtifacts: Optional[str] = None
 
 
+# This class is the input for the 'create_deployment' function.
 class CreateDeploymentRequest(BaseValidatorModel):
     appId: str
     branchName: str
@@ -113,6 +115,7 @@ class SubDomainSetting(BaseValidatorModel):
     branchName: str
 
 
+# This class is the input for the 'create_webhook' function.
 class CreateWebhookRequest(BaseValidatorModel):
     appId: str
     branchName: str
@@ -129,25 +132,30 @@ class Webhook(BaseValidatorModel):
     updateTime: datetime
 
 
+# This class is the input for the 'delete_app' function.
 class DeleteAppRequest(BaseValidatorModel):
     appId: str
 
 
+# This class is the input for the 'delete_backend_environment' function.
 class DeleteBackendEnvironmentRequest(BaseValidatorModel):
     appId: str
     environmentName: str
 
 
+# This class is the input for the 'delete_branch' function.
 class DeleteBranchRequest(BaseValidatorModel):
     appId: str
     branchName: str
 
 
+# This class is the input for the 'delete_domain_association' function.
 class DeleteDomainAssociationRequest(BaseValidatorModel):
     appId: str
     domainName: str
 
 
+# This class is the input for the 'delete_job' function.
 class DeleteJobRequest(BaseValidatorModel):
     appId: str
     branchName: str
@@ -168,41 +176,49 @@ class JobSummary(BaseValidatorModel):
     sourceUrlType: Optional[SourceUrlTypeType] = None
 
 
+# This class is the input for the 'delete_webhook' function.
 class DeleteWebhookRequest(BaseValidatorModel):
     webhookId: str
 
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'get_app' function.
 class GetAppRequest(BaseValidatorModel):
     appId: str
 
 
+# This class is the input for the 'get_artifact_url' function.
 class GetArtifactUrlRequest(BaseValidatorModel):
     artifactId: str
 
 
+# This class is the input for the 'get_backend_environment' function.
 class GetBackendEnvironmentRequest(BaseValidatorModel):
     appId: str
     environmentName: str
 
 
+# This class is the input for the 'get_branch' function.
 class GetBranchRequest(BaseValidatorModel):
     appId: str
     branchName: str
 
 
+# This class is the input for the 'get_domain_association' function.
 class GetDomainAssociationRequest(BaseValidatorModel):
     appId: str
     domainName: str
 
 
+# This class is the input for the 'get_job' function.
 class GetJobRequest(BaseValidatorModel):
     appId: str
     branchName: str
     jobId: str
 
 
+# This class is the input for the 'get_webhook' function.
 class GetWebhookRequest(BaseValidatorModel):
     webhookId: str
 
@@ -227,11 +243,13 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_apps' function.
 class ListAppsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_artifacts' function.
 class ListArtifactsRequest(BaseValidatorModel):
     appId: str
     branchName: str
@@ -240,6 +258,7 @@ class ListArtifactsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_backend_environments' function.
 class ListBackendEnvironmentsRequest(BaseValidatorModel):
     appId: str
     environmentName: Optional[str] = None
@@ -247,18 +266,21 @@ class ListBackendEnvironmentsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_branches' function.
 class ListBranchesRequest(BaseValidatorModel):
     appId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_domain_associations' function.
 class ListDomainAssociationsRequest(BaseValidatorModel):
     appId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_jobs' function.
 class ListJobsRequest(BaseValidatorModel):
     appId: str
     branchName: str
@@ -266,16 +288,19 @@ class ListJobsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'list_webhooks' function.
 class ListWebhooksRequest(BaseValidatorModel):
     appId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'start_deployment' function.
 class StartDeploymentRequest(BaseValidatorModel):
     appId: str
     branchName: str
@@ -284,6 +309,7 @@ class StartDeploymentRequest(BaseValidatorModel):
     sourceUrlType: Optional[SourceUrlTypeType] = None
 
 
+# This class is the input for the 'stop_job' function.
 class StopJobRequest(BaseValidatorModel):
     appId: str
     branchName: str
@@ -300,6 +326,7 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_webhook' function.
 class UpdateWebhookRequest(BaseValidatorModel):
     webhookId: str
     branchName: Optional[str] = None
@@ -371,6 +398,7 @@ class Branch(BaseValidatorModel):
     computeRoleArn: Optional[str] = None
 
 
+# This class is the input for the 'create_branch' function.
 class CreateBranchRequest(BaseValidatorModel):
     appId: str
     branchName: str
@@ -394,6 +422,7 @@ class CreateBranchRequest(BaseValidatorModel):
     computeRoleArn: Optional[str] = None
 
 
+# This class is the input for the 'update_branch' function.
 class UpdateBranchRequest(BaseValidatorModel):
     appId: str
     branchName: str
@@ -416,11 +445,13 @@ class UpdateBranchRequest(BaseValidatorModel):
     computeRoleArn: Optional[str] = None
 
 
+# This class is the output for the 'create_backend_environment' function.
 class CreateBackendEnvironmentResult(BaseValidatorModel):
     backendEnvironment: BackendEnvironment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_deployment' function.
 class CreateDeploymentResult(BaseValidatorModel):
     jobId: str
     fileUploadUrls: Dict[str, str]
@@ -428,44 +459,52 @@ class CreateDeploymentResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_backend_environment' function.
 class DeleteBackendEnvironmentResult(BaseValidatorModel):
     backendEnvironment: BackendEnvironment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'generate_access_logs' function.
 class GenerateAccessLogsResult(BaseValidatorModel):
     logUrl: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_artifact_url' function.
 class GetArtifactUrlResult(BaseValidatorModel):
     artifactId: str
     artifactUrl: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_backend_environment' function.
 class GetBackendEnvironmentResult(BaseValidatorModel):
     backendEnvironment: BackendEnvironment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_artifacts' function.
 class ListArtifactsResult(BaseValidatorModel):
     artifacts: List[Artifact]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_backend_environments' function.
 class ListBackendEnvironmentsResult(BaseValidatorModel):
     backendEnvironments: List[BackendEnvironment]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_domain_association' function.
 class CreateDomainAssociationRequest(BaseValidatorModel):
     appId: str
     domainName: str
@@ -482,6 +521,7 @@ class SubDomain(BaseValidatorModel):
     dnsRecord: str
 
 
+# This class is the input for the 'update_domain_association' function.
 class UpdateDomainAssociationRequest(BaseValidatorModel):
     appId: str
     domainName: str
@@ -492,58 +532,69 @@ class UpdateDomainAssociationRequest(BaseValidatorModel):
     certificateSettings: Optional[CertificateSettings] = None
 
 
+# This class is the output for the 'create_webhook' function.
 class CreateWebhookResult(BaseValidatorModel):
     webhook: Webhook
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_webhook' function.
 class DeleteWebhookResult(BaseValidatorModel):
     webhook: Webhook
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_webhook' function.
 class GetWebhookResult(BaseValidatorModel):
     webhook: Webhook
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_webhooks' function.
 class ListWebhooksResult(BaseValidatorModel):
     webhooks: List[Webhook]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_webhook' function.
 class UpdateWebhookResult(BaseValidatorModel):
     webhook: Webhook
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_job' function.
 class DeleteJobResult(BaseValidatorModel):
     jobSummary: JobSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_jobs' function.
 class ListJobsResult(BaseValidatorModel):
     jobSummaries: List[JobSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_deployment' function.
 class StartDeploymentResult(BaseValidatorModel):
     jobSummary: JobSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_job' function.
 class StartJobResult(BaseValidatorModel):
     jobSummary: JobSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_job' function.
 class StopJobResult(BaseValidatorModel):
     jobSummary: JobSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'generate_access_logs' function.
 class GenerateAccessLogsRequest(BaseValidatorModel):
     domainName: str
     appId: str
@@ -551,6 +602,7 @@ class GenerateAccessLogsRequest(BaseValidatorModel):
     endTime: Optional[Timestamp] = None
 
 
+# This class is the input for the 'start_job' function.
 class StartJobRequest(BaseValidatorModel):
     appId: str
     branchName: str
@@ -587,32 +639,38 @@ class ListJobsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'create_app' function.
 class CreateAppResult(BaseValidatorModel):
     app: App
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_app' function.
 class DeleteAppResult(BaseValidatorModel):
     app: App
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_app' function.
 class GetAppResult(BaseValidatorModel):
     app: App
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_apps' function.
 class ListAppsResult(BaseValidatorModel):
     apps: List[App]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_app' function.
 class UpdateAppResult(BaseValidatorModel):
     app: App
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_app' function.
 class CreateAppRequest(BaseValidatorModel):
     name: str
     description: Optional[str] = None
@@ -637,6 +695,7 @@ class CreateAppRequest(BaseValidatorModel):
     cacheConfig: Optional[CacheConfig] = None
 
 
+# This class is the input for the 'update_app' function.
 class UpdateAppRequest(BaseValidatorModel):
     appId: str
     name: Optional[str] = None
@@ -661,27 +720,32 @@ class UpdateAppRequest(BaseValidatorModel):
     cacheConfig: Optional[CacheConfig] = None
 
 
+# This class is the output for the 'create_branch' function.
 class CreateBranchResult(BaseValidatorModel):
     branch: Branch
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_branch' function.
 class DeleteBranchResult(BaseValidatorModel):
     branch: Branch
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_branch' function.
 class GetBranchResult(BaseValidatorModel):
     branch: Branch
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_branches' function.
 class ListBranchesResult(BaseValidatorModel):
     branches: List[Branch]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_branch' function.
 class UpdateBranchResult(BaseValidatorModel):
     branch: Branch
     ResponseMetadata: ResponseMetadata
@@ -701,32 +765,38 @@ class DomainAssociation(BaseValidatorModel):
     certificate: Optional[Certificate] = None
 
 
+# This class is the output for the 'get_job' function.
 class GetJobResult(BaseValidatorModel):
     job: Job
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_domain_association' function.
 class CreateDomainAssociationResult(BaseValidatorModel):
     domainAssociation: DomainAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_domain_association' function.
 class DeleteDomainAssociationResult(BaseValidatorModel):
     domainAssociation: DomainAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_domain_association' function.
 class GetDomainAssociationResult(BaseValidatorModel):
     domainAssociation: DomainAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_domain_associations' function.
 class ListDomainAssociationsResult(BaseValidatorModel):
     domainAssociations: List[DomainAssociation]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_domain_association' function.
 class UpdateDomainAssociationResult(BaseValidatorModel):
     domainAssociation: DomainAssociation
     ResponseMetadata: ResponseMetadata

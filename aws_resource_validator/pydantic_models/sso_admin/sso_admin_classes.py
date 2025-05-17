@@ -108,6 +108,7 @@ class AuthorizedTokenIssuer(BaseValidatorModel):
     TrustedTokenIssuerArn: Optional[str] = None
 
 
+# This class is the input for the 'create_account_assignment' function.
 class CreateAccountAssignmentRequest(BaseValidatorModel):
     InstanceArn: str
     PermissionSetArn: str
@@ -145,6 +146,7 @@ class PermissionSet(BaseValidatorModel):
     SessionDuration: Optional[str] = None
 
 
+# This class is the input for the 'delete_account_assignment' function.
 class DeleteAccountAssignmentRequest(BaseValidatorModel):
     InstanceArn: str
     PermissionSetArn: str
@@ -154,6 +156,7 @@ class DeleteAccountAssignmentRequest(BaseValidatorModel):
     TargetType: Literal['AWS_ACCOUNT']
 
 
+# This class is the input for the 'delete_application_access_scope' function.
 class DeleteApplicationAccessScopeRequest(BaseValidatorModel):
     ApplicationArn: str
     Scope: str
@@ -165,11 +168,13 @@ class DeleteApplicationAssignmentRequest(BaseValidatorModel):
     PrincipalType: PrincipalTypeType
 
 
+# This class is the input for the 'delete_application_authentication_method' function.
 class DeleteApplicationAuthenticationMethodRequest(BaseValidatorModel):
     ApplicationArn: str
     AuthenticationMethodType: Literal['IAM']
 
 
+# This class is the input for the 'delete_application_grant' function.
 class DeleteApplicationGrantRequest(BaseValidatorModel):
     ApplicationArn: str
     GrantType: GrantTypeType
@@ -206,38 +211,46 @@ class DeleteTrustedTokenIssuerRequest(BaseValidatorModel):
     TrustedTokenIssuerArn: str
 
 
+# This class is the input for the 'describe_account_assignment_creation_status' function.
 class DescribeAccountAssignmentCreationStatusRequest(BaseValidatorModel):
     AccountAssignmentCreationRequestId: str
     InstanceArn: str
 
 
+# This class is the input for the 'describe_account_assignment_deletion_status' function.
 class DescribeAccountAssignmentDeletionStatusRequest(BaseValidatorModel):
     AccountAssignmentDeletionRequestId: str
     InstanceArn: str
 
 
+# This class is the input for the 'describe_application_assignment' function.
 class DescribeApplicationAssignmentRequest(BaseValidatorModel):
     ApplicationArn: str
     PrincipalId: str
     PrincipalType: PrincipalTypeType
 
 
+# This class is the input for the 'describe_application_provider' function.
 class DescribeApplicationProviderRequest(BaseValidatorModel):
     ApplicationProviderArn: str
 
 
+# This class is the input for the 'describe_application' function.
 class DescribeApplicationRequest(BaseValidatorModel):
     ApplicationArn: str
 
 
+# This class is the input for the 'describe_instance_access_control_attribute_configuration' function.
 class DescribeInstanceAccessControlAttributeConfigurationRequest(BaseValidatorModel):
     InstanceArn: str
 
 
+# This class is the input for the 'describe_instance' function.
 class DescribeInstanceRequest(BaseValidatorModel):
     InstanceArn: str
 
 
+# This class is the input for the 'describe_permission_set_provisioning_status' function.
 class DescribePermissionSetProvisioningStatusRequest(BaseValidatorModel):
     InstanceArn: str
     ProvisionPermissionSetRequestId: str
@@ -252,11 +265,13 @@ class PermissionSetProvisioningStatus(BaseValidatorModel):
     Status: Optional[StatusValuesType] = None
 
 
+# This class is the input for the 'describe_permission_set' function.
 class DescribePermissionSetRequest(BaseValidatorModel):
     InstanceArn: str
     PermissionSetArn: str
 
 
+# This class is the input for the 'describe_trusted_token_issuer' function.
 class DescribeTrustedTokenIssuerRequest(BaseValidatorModel):
     TrustedTokenIssuerArn: str
 
@@ -267,30 +282,36 @@ class DetachManagedPolicyFromPermissionSetRequest(BaseValidatorModel):
     PermissionSetArn: str
 
 
+# This class is the input for the 'get_application_access_scope' function.
 class GetApplicationAccessScopeRequest(BaseValidatorModel):
     ApplicationArn: str
     Scope: str
 
 
+# This class is the input for the 'get_application_assignment_configuration' function.
 class GetApplicationAssignmentConfigurationRequest(BaseValidatorModel):
     ApplicationArn: str
 
 
+# This class is the input for the 'get_application_authentication_method' function.
 class GetApplicationAuthenticationMethodRequest(BaseValidatorModel):
     ApplicationArn: str
     AuthenticationMethodType: Literal['IAM']
 
 
+# This class is the input for the 'get_application_grant' function.
 class GetApplicationGrantRequest(BaseValidatorModel):
     ApplicationArn: str
     GrantType: GrantTypeType
 
 
+# This class is the input for the 'get_inline_policy_for_permission_set' function.
 class GetInlinePolicyForPermissionSetRequest(BaseValidatorModel):
     InstanceArn: str
     PermissionSetArn: str
 
 
+# This class is the input for the 'get_permissions_boundary_for_permission_set' function.
 class GetPermissionsBoundaryForPermissionSetRequest(BaseValidatorModel):
     InstanceArn: str
     PermissionSetArn: str
@@ -319,6 +340,7 @@ class ListAccountAssignmentsFilter(BaseValidatorModel):
     AccountId: Optional[str] = None
 
 
+# This class is the input for the 'list_account_assignments' function.
 class ListAccountAssignmentsRequest(BaseValidatorModel):
     AccountId: str
     InstanceArn: str
@@ -327,6 +349,7 @@ class ListAccountAssignmentsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_accounts_for_provisioned_permission_set' function.
 class ListAccountsForProvisionedPermissionSetRequest(BaseValidatorModel):
     InstanceArn: str
     PermissionSetArn: str
@@ -335,6 +358,7 @@ class ListAccountsForProvisionedPermissionSetRequest(BaseValidatorModel):
     ProvisioningStatus: Optional[ProvisioningStatusType] = None
 
 
+# This class is the input for the 'list_application_access_scopes' function.
 class ListApplicationAccessScopesRequest(BaseValidatorModel):
     ApplicationArn: str
     MaxResults: Optional[int] = None
@@ -350,22 +374,26 @@ class ListApplicationAssignmentsFilter(BaseValidatorModel):
     ApplicationArn: Optional[str] = None
 
 
+# This class is the input for the 'list_application_assignments' function.
 class ListApplicationAssignmentsRequest(BaseValidatorModel):
     ApplicationArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_application_authentication_methods' function.
 class ListApplicationAuthenticationMethodsRequest(BaseValidatorModel):
     ApplicationArn: str
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_application_grants' function.
 class ListApplicationGrantsRequest(BaseValidatorModel):
     ApplicationArn: str
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_application_providers' function.
 class ListApplicationProvidersRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -376,6 +404,7 @@ class ListApplicationsFilter(BaseValidatorModel):
     ApplicationProvider: Optional[str] = None
 
 
+# This class is the input for the 'list_customer_managed_policy_references_in_permission_set' function.
 class ListCustomerManagedPolicyReferencesInPermissionSetRequest(BaseValidatorModel):
     InstanceArn: str
     PermissionSetArn: str
@@ -383,11 +412,13 @@ class ListCustomerManagedPolicyReferencesInPermissionSetRequest(BaseValidatorMod
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_instances' function.
 class ListInstancesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_managed_policies_in_permission_set' function.
 class ListManagedPoliciesInPermissionSetRequest(BaseValidatorModel):
     InstanceArn: str
     PermissionSetArn: str
@@ -401,6 +432,7 @@ class PermissionSetProvisioningStatusMetadata(BaseValidatorModel):
     Status: Optional[StatusValuesType] = None
 
 
+# This class is the input for the 'list_permission_sets_provisioned_to_account' function.
 class ListPermissionSetsProvisionedToAccountRequest(BaseValidatorModel):
     AccountId: str
     InstanceArn: str
@@ -409,18 +441,21 @@ class ListPermissionSetsProvisionedToAccountRequest(BaseValidatorModel):
     ProvisioningStatus: Optional[ProvisioningStatusType] = None
 
 
+# This class is the input for the 'list_permission_sets' function.
 class ListPermissionSetsRequest(BaseValidatorModel):
     InstanceArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
     InstanceArn: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_trusted_token_issuers' function.
 class ListTrustedTokenIssuersRequest(BaseValidatorModel):
     InstanceArn: str
     MaxResults: Optional[int] = None
@@ -451,6 +486,7 @@ class SignInOptions(BaseValidatorModel):
     ApplicationUrl: Optional[str] = None
 
 
+# This class is the input for the 'provision_permission_set' function.
 class ProvisionPermissionSetRequest(BaseValidatorModel):
     InstanceArn: str
     PermissionSetArn: str
@@ -458,6 +494,7 @@ class ProvisionPermissionSetRequest(BaseValidatorModel):
     TargetId: Optional[str] = None
 
 
+# This class is the input for the 'put_application_access_scope' function.
 class PutApplicationAccessScopeRequest(BaseValidatorModel):
     ApplicationArn: str
     Scope: str
@@ -542,41 +579,49 @@ class JwtBearerGrant(BaseValidatorModel):
     AuthorizedTokenIssuers: Optional[List[AuthorizedTokenIssuer]] = None
 
 
+# This class is the output for the 'create_account_assignment' function.
 class CreateAccountAssignmentResponse(BaseValidatorModel):
     AccountAssignmentCreationStatus: AccountAssignmentOperationStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_application' function.
 class CreateApplicationResponse(BaseValidatorModel):
     ApplicationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_instance' function.
 class CreateInstanceResponse(BaseValidatorModel):
     InstanceArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_trusted_token_issuer' function.
 class CreateTrustedTokenIssuerResponse(BaseValidatorModel):
     TrustedTokenIssuerArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_account_assignment' function.
 class DeleteAccountAssignmentResponse(BaseValidatorModel):
     AccountAssignmentDeletionStatus: AccountAssignmentOperationStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_account_assignment_creation_status' function.
 class DescribeAccountAssignmentCreationStatusResponse(BaseValidatorModel):
     AccountAssignmentCreationStatus: AccountAssignmentOperationStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_account_assignment_deletion_status' function.
 class DescribeAccountAssignmentDeletionStatusResponse(BaseValidatorModel):
     AccountAssignmentDeletionStatus: AccountAssignmentOperationStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_application_assignment' function.
 class DescribeApplicationAssignmentResponse(BaseValidatorModel):
     ApplicationArn: str
     PrincipalId: str
@@ -584,6 +629,7 @@ class DescribeApplicationAssignmentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_instance' function.
 class DescribeInstanceResponse(BaseValidatorModel):
     CreatedDate: datetime
     IdentityStoreId: str
@@ -594,98 +640,115 @@ class DescribeInstanceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_application_grant' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_application_access_scope' function.
 class GetApplicationAccessScopeResponse(BaseValidatorModel):
     AuthorizedTargets: List[str]
     Scope: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_application_assignment_configuration' function.
 class GetApplicationAssignmentConfigurationResponse(BaseValidatorModel):
     AssignmentRequired: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_inline_policy_for_permission_set' function.
 class GetInlinePolicyForPermissionSetResponse(BaseValidatorModel):
     InlinePolicy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_account_assignment_creation_status' function.
 class ListAccountAssignmentCreationStatusResponse(BaseValidatorModel):
     AccountAssignmentsCreationStatus: List[AccountAssignmentOperationStatusMetadata]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_account_assignment_deletion_status' function.
 class ListAccountAssignmentDeletionStatusResponse(BaseValidatorModel):
     AccountAssignmentsDeletionStatus: List[AccountAssignmentOperationStatusMetadata]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_account_assignments_for_principal' function.
 class ListAccountAssignmentsForPrincipalResponse(BaseValidatorModel):
     AccountAssignments: List[AccountAssignmentForPrincipal]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_account_assignments' function.
 class ListAccountAssignmentsResponse(BaseValidatorModel):
     AccountAssignments: List[AccountAssignment]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_accounts_for_provisioned_permission_set' function.
 class ListAccountsForProvisionedPermissionSetResponse(BaseValidatorModel):
     AccountIds: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_application_assignments_for_principal' function.
 class ListApplicationAssignmentsForPrincipalResponse(BaseValidatorModel):
     ApplicationAssignments: List[ApplicationAssignmentForPrincipal]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_application_assignments' function.
 class ListApplicationAssignmentsResponse(BaseValidatorModel):
     ApplicationAssignments: List[ApplicationAssignment]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_customer_managed_policy_references_in_permission_set' function.
 class ListCustomerManagedPolicyReferencesInPermissionSetResponse(BaseValidatorModel):
     CustomerManagedPolicyReferences: List[CustomerManagedPolicyReference]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_managed_policies_in_permission_set' function.
 class ListManagedPoliciesInPermissionSetResponse(BaseValidatorModel):
     AttachedManagedPolicies: List[AttachedManagedPolicy]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_permission_sets_provisioned_to_account' function.
 class ListPermissionSetsProvisionedToAccountResponse(BaseValidatorModel):
     PermissionSets: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_permission_sets' function.
 class ListPermissionSetsResponse(BaseValidatorModel):
     PermissionSets: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_instance' function.
 class CreateInstanceRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
     Name: Optional[str] = None
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_permission_set' function.
 class CreatePermissionSetRequest(BaseValidatorModel):
     InstanceArn: str
     Name: str
@@ -695,6 +758,7 @@ class CreatePermissionSetRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -707,32 +771,38 @@ class TagResourceRequest(BaseValidatorModel):
     InstanceArn: Optional[str] = None
 
 
+# This class is the output for the 'create_permission_set' function.
 class CreatePermissionSetResponse(BaseValidatorModel):
     PermissionSet: PermissionSet
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_permission_set' function.
 class DescribePermissionSetResponse(BaseValidatorModel):
     PermissionSet: PermissionSet
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_permission_set_provisioning_status' function.
 class DescribePermissionSetProvisioningStatusResponse(BaseValidatorModel):
     PermissionSetProvisioningStatus: PermissionSetProvisioningStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'provision_permission_set' function.
 class ProvisionPermissionSetResponse(BaseValidatorModel):
     PermissionSetProvisioningStatus: PermissionSetProvisioningStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_instances' function.
 class ListInstancesResponse(BaseValidatorModel):
     Instances: List[InstanceMetadata]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_account_assignment_creation_status' function.
 class ListAccountAssignmentCreationStatusRequest(BaseValidatorModel):
     InstanceArn: str
     Filter: Optional[OperationStatusFilter] = None
@@ -740,6 +810,7 @@ class ListAccountAssignmentCreationStatusRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_account_assignment_deletion_status' function.
 class ListAccountAssignmentDeletionStatusRequest(BaseValidatorModel):
     InstanceArn: str
     Filter: Optional[OperationStatusFilter] = None
@@ -747,6 +818,7 @@ class ListAccountAssignmentDeletionStatusRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_permission_set_provisioning_status' function.
 class ListPermissionSetProvisioningStatusRequest(BaseValidatorModel):
     InstanceArn: str
     Filter: Optional[OperationStatusFilter] = None
@@ -857,6 +929,7 @@ class ListAccountAssignmentsForPrincipalRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_account_assignments_for_principal' function.
 class ListAccountAssignmentsForPrincipalRequest(BaseValidatorModel):
     InstanceArn: str
     PrincipalId: str
@@ -866,6 +939,7 @@ class ListAccountAssignmentsForPrincipalRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_application_access_scopes' function.
 class ListApplicationAccessScopesResponse(BaseValidatorModel):
     Scopes: List[ScopeDetails]
     ResponseMetadata: ResponseMetadata
@@ -880,6 +954,7 @@ class ListApplicationAssignmentsForPrincipalRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_application_assignments_for_principal' function.
 class ListApplicationAssignmentsForPrincipalRequest(BaseValidatorModel):
     InstanceArn: str
     PrincipalId: str
@@ -895,6 +970,7 @@ class ListApplicationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_applications' function.
 class ListApplicationsRequest(BaseValidatorModel):
     InstanceArn: str
     Filter: Optional[ListApplicationsFilter] = None
@@ -902,12 +978,14 @@ class ListApplicationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_permission_set_provisioning_status' function.
 class ListPermissionSetProvisioningStatusResponse(BaseValidatorModel):
     PermissionSetsProvisioningStatus: List[PermissionSetProvisioningStatusMetadata]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_trusted_token_issuers' function.
 class ListTrustedTokenIssuersResponse(BaseValidatorModel):
     TrustedTokenIssuers: List[TrustedTokenIssuerMetadata]
     ResponseMetadata: ResponseMetadata
@@ -943,6 +1021,7 @@ class InstanceAccessControlAttributeConfiguration(BaseValidatorModel):
     AccessControlAttributes: List[AccessControlAttribute]
 
 
+# This class is the output for the 'get_permissions_boundary_for_permission_set' function.
 class GetPermissionsBoundaryForPermissionSetResponse(BaseValidatorModel):
     PermissionsBoundary: PermissionsBoundary
     ResponseMetadata: ResponseMetadata
@@ -959,6 +1038,7 @@ class AuthenticationMethodItem(BaseValidatorModel):
     AuthenticationMethodType: Optional[Literal['IAM']] = None
 
 
+# This class is the output for the 'get_application_authentication_method' function.
 class GetApplicationAuthenticationMethodResponse(BaseValidatorModel):
     AuthenticationMethod: AuthenticationMethodOutput
     ResponseMetadata: ResponseMetadata
@@ -980,6 +1060,7 @@ class Grant(BaseValidatorModel):
     TokenExchange: Optional[Dict[str, Any]] = None
 
 
+# This class is the input for the 'create_trusted_token_issuer' function.
 class CreateTrustedTokenIssuerRequest(BaseValidatorModel):
     InstanceArn: str
     Name: str
@@ -989,6 +1070,7 @@ class CreateTrustedTokenIssuerRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'describe_trusted_token_issuer' function.
 class DescribeTrustedTokenIssuerResponse(BaseValidatorModel):
     Name: str
     TrustedTokenIssuerArn: str
@@ -1015,6 +1097,7 @@ class Application(BaseValidatorModel):
     Status: Optional[ApplicationStatusType] = None
 
 
+# This class is the input for the 'create_application' function.
 class CreateApplicationRequest(BaseValidatorModel):
     ApplicationProviderArn: str
     InstanceArn: str
@@ -1026,6 +1109,7 @@ class CreateApplicationRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'describe_application' function.
 class DescribeApplicationResponse(BaseValidatorModel):
     ApplicationAccount: str
     ApplicationArn: str
@@ -1054,6 +1138,7 @@ class ApplicationProvider(BaseValidatorModel):
     ResourceServerConfig: Optional[ResourceServerConfig] = None
 
 
+# This class is the output for the 'describe_application_provider' function.
 class DescribeApplicationProviderResponse(BaseValidatorModel):
     ApplicationProviderArn: str
     DisplayData: DisplayData
@@ -1062,6 +1147,7 @@ class DescribeApplicationProviderResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_instance_access_control_attribute_configuration' function.
 class DescribeInstanceAccessControlAttributeConfigurationResponse(BaseValidatorModel):
     InstanceAccessControlAttributeConfiguration: InstanceAccessControlAttributeConfigurationOutput
     Status: InstanceAccessControlAttributeConfigurationStatusType
@@ -1071,18 +1157,21 @@ class DescribeInstanceAccessControlAttributeConfigurationResponse(BaseValidatorM
 InstanceAccessControlAttributeConfigurationUnion = Union[InstanceAccessControlAttributeConfiguration, InstanceAccessControlAttributeConfigurationOutput]
 
 
+# This class is the output for the 'list_application_authentication_methods' function.
 class ListApplicationAuthenticationMethodsResponse(BaseValidatorModel):
     AuthenticationMethods: List[AuthenticationMethodItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'put_application_authentication_method' function.
 class PutApplicationAuthenticationMethodRequest(BaseValidatorModel):
     ApplicationArn: str
     AuthenticationMethod: AuthenticationMethodUnion
     AuthenticationMethodType: Literal['IAM']
 
 
+# This class is the output for the 'get_application_grant' function.
 class GetApplicationGrantResponse(BaseValidatorModel):
     Grant: GrantOutput
     ResponseMetadata: ResponseMetadata
@@ -1095,12 +1184,14 @@ class GrantItem(BaseValidatorModel):
 GrantUnion = Union[Grant, GrantOutput]
 
 
+# This class is the output for the 'list_applications' function.
 class ListApplicationsResponse(BaseValidatorModel):
     Applications: List[Application]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_application_providers' function.
 class ListApplicationProvidersResponse(BaseValidatorModel):
     ApplicationProviders: List[ApplicationProvider]
     ResponseMetadata: ResponseMetadata
@@ -1117,12 +1208,14 @@ class UpdateInstanceAccessControlAttributeConfigurationRequest(BaseValidatorMode
     InstanceArn: str
 
 
+# This class is the output for the 'list_application_grants' function.
 class ListApplicationGrantsResponse(BaseValidatorModel):
     Grants: List[GrantItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'put_application_grant' function.
 class PutApplicationGrantRequest(BaseValidatorModel):
     ApplicationArn: str
     Grant: GrantUnion

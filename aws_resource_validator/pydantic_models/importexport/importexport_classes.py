@@ -13,6 +13,7 @@ class Artifact(BaseValidatorModel):
     URL: Optional[str] = None
 
 
+# This class is the input for the 'cancel_job' function.
 class CancelJobInput(BaseValidatorModel):
     JobId: str
     APIVersion: Optional[str] = None
@@ -26,6 +27,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_job' function.
 class CreateJobInput(BaseValidatorModel):
     JobType: JobTypeType
     Manifest: str
@@ -34,6 +36,7 @@ class CreateJobInput(BaseValidatorModel):
     APIVersion: Optional[str] = None
 
 
+# This class is the input for the 'get_shipping_label' function.
 class GetShippingLabelInput(BaseValidatorModel):
     jobIds: List[str]
     name: Optional[str] = None
@@ -49,6 +52,7 @@ class GetShippingLabelInput(BaseValidatorModel):
     APIVersion: Optional[str] = None
 
 
+# This class is the input for the 'get_status' function.
 class GetStatusInput(BaseValidatorModel):
     JobId: str
     APIVersion: Optional[str] = None
@@ -67,12 +71,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_jobs' function.
 class ListJobsInput(BaseValidatorModel):
     MaxJobs: Optional[int] = None
     Marker: Optional[str] = None
     APIVersion: Optional[str] = None
 
 
+# This class is the input for the 'update_job' function.
 class UpdateJobInput(BaseValidatorModel):
     JobId: str
     Manifest: str
@@ -81,11 +87,13 @@ class UpdateJobInput(BaseValidatorModel):
     APIVersion: Optional[str] = None
 
 
+# This class is the output for the 'cancel_job' function.
 class CancelJobOutput(BaseValidatorModel):
     Success: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_job' function.
 class CreateJobOutput(BaseValidatorModel):
     JobId: str
     JobType: JobTypeType
@@ -96,12 +104,14 @@ class CreateJobOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_shipping_label' function.
 class GetShippingLabelOutput(BaseValidatorModel):
     ShippingLabelURL: str
     Warning: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_status' function.
 class GetStatusOutput(BaseValidatorModel):
     JobId: str
     JobType: JobTypeType
@@ -122,6 +132,7 @@ class GetStatusOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_job' function.
 class UpdateJobOutput(BaseValidatorModel):
     Success: bool
     WarningMessage: str
@@ -129,6 +140,7 @@ class UpdateJobOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_jobs' function.
 class ListJobsOutput(BaseValidatorModel):
     Jobs: List[Job]
     IsTruncated: bool

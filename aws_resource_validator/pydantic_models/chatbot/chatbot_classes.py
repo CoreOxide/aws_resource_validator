@@ -94,18 +94,21 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_chime_webhook_configurations' function.
 class DescribeChimeWebhookConfigurationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     ChatConfigurationArn: Optional[str] = None
 
 
+# This class is the input for the 'describe_slack_channel_configurations' function.
 class DescribeSlackChannelConfigurationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     ChatConfigurationArn: Optional[str] = None
 
 
+# This class is the input for the 'describe_slack_user_identities' function.
 class DescribeSlackUserIdentitiesRequest(BaseValidatorModel):
     ChatConfigurationArn: Optional[str] = None
     NextToken: Optional[str] = None
@@ -120,6 +123,7 @@ class SlackUserIdentity(BaseValidatorModel):
     AwsUserIdentity: Optional[str] = None
 
 
+# This class is the input for the 'describe_slack_workspaces' function.
 class DescribeSlackWorkspacesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -137,30 +141,36 @@ class DisassociateFromConfigurationRequest(BaseValidatorModel):
     ChatConfiguration: str
 
 
+# This class is the input for the 'get_custom_action' function.
 class GetCustomActionRequest(BaseValidatorModel):
     CustomActionArn: str
 
 
+# This class is the input for the 'get_microsoft_teams_channel_configuration' function.
 class GetTeamsChannelConfigurationRequest(BaseValidatorModel):
     ChatConfigurationArn: str
 
 
+# This class is the input for the 'list_associations' function.
 class ListAssociationsRequest(BaseValidatorModel):
     ChatConfiguration: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_custom_actions' function.
 class ListCustomActionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_microsoft_teams_configured_teams' function.
 class ListMicrosoftTeamsConfiguredTeamsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_microsoft_teams_user_identities' function.
 class ListMicrosoftTeamsUserIdentitiesRequest(BaseValidatorModel):
     ChatConfigurationArn: Optional[str] = None
     NextToken: Optional[str] = None
@@ -177,10 +187,12 @@ class TeamsUserIdentity(BaseValidatorModel):
     TeamsTenantId: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
 
+# This class is the input for the 'list_microsoft_teams_channel_configurations' function.
 class ListTeamsChannelConfigurationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -192,11 +204,13 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_account_preferences' function.
 class UpdateAccountPreferencesRequest(BaseValidatorModel):
     UserAuthorizationRequired: Optional[bool] = None
     TrainingDataCollectionEnabled: Optional[bool] = None
 
 
+# This class is the input for the 'update_chime_webhook_configuration' function.
 class UpdateChimeWebhookConfigurationRequest(BaseValidatorModel):
     ChatConfigurationArn: str
     WebhookDescription: Optional[str] = None
@@ -206,6 +220,7 @@ class UpdateChimeWebhookConfigurationRequest(BaseValidatorModel):
     LoggingLevel: Optional[str] = None
 
 
+# This class is the input for the 'update_slack_channel_configuration' function.
 class UpdateSlackChannelConfigurationRequest(BaseValidatorModel):
     ChatConfigurationArn: str
     SlackChannelId: str
@@ -217,6 +232,7 @@ class UpdateSlackChannelConfigurationRequest(BaseValidatorModel):
     UserAuthorizationRequired: Optional[bool] = None
 
 
+# This class is the input for the 'update_microsoft_teams_channel_configuration' function.
 class UpdateTeamsChannelConfigurationRequest(BaseValidatorModel):
     ChatConfigurationArn: str
     ChannelId: str
@@ -240,6 +256,7 @@ class ChimeWebhookConfiguration(BaseValidatorModel):
     StateReason: Optional[str] = None
 
 
+# This class is the input for the 'create_chime_webhook_configuration' function.
 class CreateChimeWebhookConfigurationRequest(BaseValidatorModel):
     WebhookDescription: str
     WebhookUrl: str
@@ -250,6 +267,7 @@ class CreateChimeWebhookConfigurationRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_slack_channel_configuration' function.
 class CreateSlackChannelConfigurationRequest(BaseValidatorModel):
     SlackTeamId: str
     SlackChannelId: str
@@ -263,6 +281,7 @@ class CreateSlackChannelConfigurationRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_microsoft_teams_channel_configuration' function.
 class CreateTeamsChannelConfigurationRequest(BaseValidatorModel):
     ChannelId: str
     TeamId: str
@@ -318,6 +337,7 @@ class TeamsChannelConfiguration(BaseValidatorModel):
     StateReason: Optional[str] = None
 
 
+# This class is the output for the 'create_custom_action' function.
 class CreateCustomActionResult(BaseValidatorModel):
     CustomActionArn: str
     ResponseMetadata: ResponseMetadata
@@ -328,34 +348,40 @@ class GetAccountPreferencesResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_associations' function.
 class ListAssociationsResult(BaseValidatorModel):
     Associations: List[AssociationListing]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_custom_actions' function.
 class ListCustomActionsResult(BaseValidatorModel):
     CustomActions: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_microsoft_teams_configured_teams' function.
 class ListMicrosoftTeamsConfiguredTeamsResult(BaseValidatorModel):
     ConfiguredTeams: List[ConfiguredTeam]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_account_preferences' function.
 class UpdateAccountPreferencesResult(BaseValidatorModel):
     AccountPreferences: AccountPreferences
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_custom_action' function.
 class UpdateCustomActionResult(BaseValidatorModel):
     CustomActionArn: str
     ResponseMetadata: ResponseMetadata
@@ -417,72 +443,85 @@ class ListTeamsChannelConfigurationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'describe_slack_user_identities' function.
 class DescribeSlackUserIdentitiesResult(BaseValidatorModel):
     SlackUserIdentities: List[SlackUserIdentity]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_slack_workspaces' function.
 class DescribeSlackWorkspacesResult(BaseValidatorModel):
     SlackWorkspaces: List[SlackWorkspace]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_microsoft_teams_user_identities' function.
 class ListMicrosoftTeamsUserIdentitiesResult(BaseValidatorModel):
     TeamsUserIdentities: List[TeamsUserIdentity]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_chime_webhook_configuration' function.
 class CreateChimeWebhookConfigurationResult(BaseValidatorModel):
     WebhookConfiguration: ChimeWebhookConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_chime_webhook_configurations' function.
 class DescribeChimeWebhookConfigurationsResult(BaseValidatorModel):
     WebhookConfigurations: List[ChimeWebhookConfiguration]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_chime_webhook_configuration' function.
 class UpdateChimeWebhookConfigurationResult(BaseValidatorModel):
     WebhookConfiguration: ChimeWebhookConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_slack_channel_configuration' function.
 class CreateSlackChannelConfigurationResult(BaseValidatorModel):
     ChannelConfiguration: SlackChannelConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_slack_channel_configurations' function.
 class DescribeSlackChannelConfigurationsResult(BaseValidatorModel):
     SlackChannelConfigurations: List[SlackChannelConfiguration]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_slack_channel_configuration' function.
 class UpdateSlackChannelConfigurationResult(BaseValidatorModel):
     ChannelConfiguration: SlackChannelConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_microsoft_teams_channel_configuration' function.
 class CreateTeamsChannelConfigurationResult(BaseValidatorModel):
     ChannelConfiguration: TeamsChannelConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_microsoft_teams_channel_configuration' function.
 class GetTeamsChannelConfigurationResult(BaseValidatorModel):
     ChannelConfiguration: TeamsChannelConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_microsoft_teams_channel_configurations' function.
 class ListTeamsChannelConfigurationsResult(BaseValidatorModel):
     TeamChannelConfigurations: List[TeamsChannelConfiguration]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_microsoft_teams_channel_configuration' function.
 class UpdateTeamsChannelConfigurationResult(BaseValidatorModel):
     ChannelConfiguration: TeamsChannelConfiguration
     ResponseMetadata: ResponseMetadata
@@ -498,11 +537,13 @@ class CustomAction(BaseValidatorModel):
 CustomActionAttachmentUnion = Union[CustomActionAttachment, CustomActionAttachmentOutput]
 
 
+# This class is the output for the 'get_custom_action' function.
 class GetCustomActionResult(BaseValidatorModel):
     CustomAction: CustomAction
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_custom_action' function.
 class CreateCustomActionRequest(BaseValidatorModel):
     Definition: CustomActionDefinition
     ActionName: str
@@ -512,6 +553,7 @@ class CreateCustomActionRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'update_custom_action' function.
 class UpdateCustomActionRequest(BaseValidatorModel):
     CustomActionArn: str
     Definition: CustomActionDefinition

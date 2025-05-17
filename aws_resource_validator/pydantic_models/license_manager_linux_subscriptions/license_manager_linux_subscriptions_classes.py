@@ -18,6 +18,7 @@ class Filter(BaseValidatorModel):
     Values: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_registered_subscription_provider' function.
 class GetRegisteredSubscriptionProviderRequest(BaseValidatorModel):
     SubscriptionProviderArn: str
 
@@ -70,6 +71,7 @@ class Subscription(BaseValidatorModel):
     Type: Optional[str] = None
 
 
+# This class is the input for the 'list_registered_subscription_providers' function.
 class ListRegisteredSubscriptionProvidersRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -85,10 +87,12 @@ class RegisteredSubscriptionProvider(BaseValidatorModel):
     SubscriptionProviderStatusMessage: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'register_subscription_provider' function.
 class RegisterSubscriptionProviderRequest(BaseValidatorModel):
     SecretArn: str
     SubscriptionProviderSource: Literal['RedHat']
@@ -105,18 +109,21 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'list_linux_subscription_instances' function.
 class ListLinuxSubscriptionInstancesRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_linux_subscriptions' function.
 class ListLinuxSubscriptionsRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_registered_subscription_provider' function.
 class GetRegisteredSubscriptionProviderResponse(BaseValidatorModel):
     LastSuccessfulDataRetrievalTime: str
     SecretArn: str
@@ -127,11 +134,13 @@ class GetRegisteredSubscriptionProviderResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_subscription_provider' function.
 class RegisterSubscriptionProviderResponse(BaseValidatorModel):
     SubscriptionProviderArn: str
     SubscriptionProviderSource: Literal['RedHat']
@@ -148,6 +157,7 @@ class GetServiceSettingsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_service_settings' function.
 class UpdateServiceSettingsResponse(BaseValidatorModel):
     HomeRegions: List[str]
     LinuxSubscriptionsDiscovery: LinuxSubscriptionsDiscoveryType
@@ -157,6 +167,7 @@ class UpdateServiceSettingsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_linux_subscription_instances' function.
 class ListLinuxSubscriptionInstancesResponse(BaseValidatorModel):
     Instances: List[Instance]
     ResponseMetadata: ResponseMetadata
@@ -180,18 +191,21 @@ class ListRegisteredSubscriptionProvidersRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_linux_subscriptions' function.
 class ListLinuxSubscriptionsResponse(BaseValidatorModel):
     Subscriptions: List[Subscription]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_registered_subscription_providers' function.
 class ListRegisteredSubscriptionProvidersResponse(BaseValidatorModel):
     RegisteredSubscriptionProviders: List[RegisteredSubscriptionProvider]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'update_service_settings' function.
 class UpdateServiceSettingsRequest(BaseValidatorModel):
     LinuxSubscriptionsDiscovery: LinuxSubscriptionsDiscoveryType
     LinuxSubscriptionsDiscoverySettings: LinuxSubscriptionsDiscoverySettingsUnion

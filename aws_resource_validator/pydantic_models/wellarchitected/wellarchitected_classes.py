@@ -47,11 +47,13 @@ class ChoiceAnswer(BaseValidatorModel):
     Notes: Optional[str] = None
 
 
+# This class is the input for the 'associate_lenses' function.
 class AssociateLensesInput(BaseValidatorModel):
     WorkloadId: str
     LensAliases: List[str]
 
 
+# This class is the input for the 'associate_profiles' function.
 class AssociateProfilesInput(BaseValidatorModel):
     WorkloadId: str
     ProfileArns: List[str]
@@ -104,6 +106,7 @@ class ChoiceUpdate(BaseValidatorModel):
     Notes: Optional[str] = None
 
 
+# This class is the input for the 'create_lens_share' function.
 class CreateLensShareInput(BaseValidatorModel):
     LensAlias: str
     SharedWith: str
@@ -118,6 +121,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_lens_version' function.
 class CreateLensVersionInput(BaseValidatorModel):
     LensAlias: str
     LensVersion: str
@@ -125,6 +129,7 @@ class CreateLensVersionInput(BaseValidatorModel):
     IsMajorVersion: Optional[bool] = None
 
 
+# This class is the input for the 'create_milestone' function.
 class CreateMilestoneInput(BaseValidatorModel):
     WorkloadId: str
     MilestoneName: str
@@ -136,12 +141,14 @@ class ProfileQuestionUpdate(BaseValidatorModel):
     SelectedChoiceIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'create_profile_share' function.
 class CreateProfileShareInput(BaseValidatorModel):
     ProfileArn: str
     SharedWith: str
     ClientRequestToken: str
 
 
+# This class is the input for the 'create_review_template' function.
 class CreateReviewTemplateInput(BaseValidatorModel):
     TemplateName: str
     Description: str
@@ -151,6 +158,7 @@ class CreateReviewTemplateInput(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_template_share' function.
 class CreateTemplateShareInput(BaseValidatorModel):
     TemplateArn: str
     SharedWith: str
@@ -163,6 +171,7 @@ class WorkloadJiraConfigurationInput(BaseValidatorModel):
     JiraProjectKey: Optional[str] = None
 
 
+# This class is the input for the 'create_workload_share' function.
 class CreateWorkloadShareInput(BaseValidatorModel):
     WorkloadId: str
     SharedWith: str
@@ -170,66 +179,78 @@ class CreateWorkloadShareInput(BaseValidatorModel):
     ClientRequestToken: str
 
 
+# This class is the input for the 'delete_lens' function.
 class DeleteLensInput(BaseValidatorModel):
     LensAlias: str
     ClientRequestToken: str
     LensStatus: LensStatusTypeType
 
 
+# This class is the input for the 'delete_lens_share' function.
 class DeleteLensShareInput(BaseValidatorModel):
     ShareId: str
     LensAlias: str
     ClientRequestToken: str
 
 
+# This class is the input for the 'delete_profile' function.
 class DeleteProfileInput(BaseValidatorModel):
     ProfileArn: str
     ClientRequestToken: str
 
 
+# This class is the input for the 'delete_profile_share' function.
 class DeleteProfileShareInput(BaseValidatorModel):
     ShareId: str
     ProfileArn: str
     ClientRequestToken: str
 
 
+# This class is the input for the 'delete_review_template' function.
 class DeleteReviewTemplateInput(BaseValidatorModel):
     TemplateArn: str
     ClientRequestToken: str
 
 
+# This class is the input for the 'delete_template_share' function.
 class DeleteTemplateShareInput(BaseValidatorModel):
     ShareId: str
     TemplateArn: str
     ClientRequestToken: str
 
 
+# This class is the input for the 'delete_workload' function.
 class DeleteWorkloadInput(BaseValidatorModel):
     WorkloadId: str
     ClientRequestToken: str
 
 
+# This class is the input for the 'delete_workload_share' function.
 class DeleteWorkloadShareInput(BaseValidatorModel):
     ShareId: str
     WorkloadId: str
     ClientRequestToken: str
 
 
+# This class is the input for the 'disassociate_lenses' function.
 class DisassociateLensesInput(BaseValidatorModel):
     WorkloadId: str
     LensAliases: List[str]
 
 
+# This class is the input for the 'disassociate_profiles' function.
 class DisassociateProfilesInput(BaseValidatorModel):
     WorkloadId: str
     ProfileArns: List[str]
 
 
+# This class is the input for the 'export_lens' function.
 class ExportLensInput(BaseValidatorModel):
     LensAlias: str
     LensVersion: Optional[str] = None
 
 
+# This class is the input for the 'get_answer' function.
 class GetAnswerInput(BaseValidatorModel):
     WorkloadId: str
     LensAlias: str
@@ -237,6 +258,7 @@ class GetAnswerInput(BaseValidatorModel):
     MilestoneNumber: Optional[int] = None
 
 
+# This class is the input for the 'get_consolidated_report' function.
 class GetConsolidatedReportInput(BaseValidatorModel):
     Format: ReportFormatType
     IncludeSharedResources: Optional[bool] = None
@@ -244,6 +266,7 @@ class GetConsolidatedReportInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_lens' function.
 class GetLensInput(BaseValidatorModel):
     LensAlias: str
     LensVersion: Optional[str] = None
@@ -259,12 +282,14 @@ class Lens(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'get_lens_review' function.
 class GetLensReviewInput(BaseValidatorModel):
     WorkloadId: str
     LensAlias: str
     MilestoneNumber: Optional[int] = None
 
 
+# This class is the input for the 'get_lens_review_report' function.
 class GetLensReviewReportInput(BaseValidatorModel):
     WorkloadId: str
     LensAlias: str
@@ -277,32 +302,38 @@ class LensReviewReport(BaseValidatorModel):
     Base64String: Optional[str] = None
 
 
+# This class is the input for the 'get_lens_version_difference' function.
 class GetLensVersionDifferenceInput(BaseValidatorModel):
     LensAlias: str
     BaseLensVersion: Optional[str] = None
     TargetLensVersion: Optional[str] = None
 
 
+# This class is the input for the 'get_milestone' function.
 class GetMilestoneInput(BaseValidatorModel):
     WorkloadId: str
     MilestoneNumber: int
 
 
+# This class is the input for the 'get_profile' function.
 class GetProfileInput(BaseValidatorModel):
     ProfileArn: str
     ProfileVersion: Optional[str] = None
 
 
+# This class is the input for the 'get_review_template_answer' function.
 class GetReviewTemplateAnswerInput(BaseValidatorModel):
     TemplateArn: str
     LensAlias: str
     QuestionId: str
 
 
+# This class is the input for the 'get_review_template' function.
 class GetReviewTemplateInput(BaseValidatorModel):
     TemplateArn: str
 
 
+# This class is the input for the 'get_review_template_lens_review' function.
 class GetReviewTemplateLensReviewInput(BaseValidatorModel):
     TemplateArn: str
     LensAlias: str
@@ -322,10 +353,12 @@ class ReviewTemplate(BaseValidatorModel):
     ShareInvitationId: Optional[str] = None
 
 
+# This class is the input for the 'get_workload' function.
 class GetWorkloadInput(BaseValidatorModel):
     WorkloadId: str
 
 
+# This class is the input for the 'import_lens' function.
 class ImportLensInput(BaseValidatorModel):
     JSONString: str
     ClientRequestToken: str
@@ -387,6 +420,7 @@ class LensUpgradeSummary(BaseValidatorModel):
     ResourceName: Optional[str] = None
 
 
+# This class is the input for the 'list_answers' function.
 class ListAnswersInput(BaseValidatorModel):
     WorkloadId: str
     LensAlias: str
@@ -397,6 +431,7 @@ class ListAnswersInput(BaseValidatorModel):
     QuestionPriority: Optional[QuestionPriorityType] = None
 
 
+# This class is the input for the 'list_check_details' function.
 class ListCheckDetailsInput(BaseValidatorModel):
     WorkloadId: str
     LensArn: str
@@ -407,6 +442,7 @@ class ListCheckDetailsInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_check_summaries' function.
 class ListCheckSummariesInput(BaseValidatorModel):
     WorkloadId: str
     LensArn: str
@@ -417,6 +453,7 @@ class ListCheckSummariesInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_lens_review_improvements' function.
 class ListLensReviewImprovementsInput(BaseValidatorModel):
     WorkloadId: str
     LensAlias: str
@@ -427,6 +464,7 @@ class ListLensReviewImprovementsInput(BaseValidatorModel):
     QuestionPriority: Optional[QuestionPriorityType] = None
 
 
+# This class is the input for the 'list_lens_reviews' function.
 class ListLensReviewsInput(BaseValidatorModel):
     WorkloadId: str
     MilestoneNumber: Optional[int] = None
@@ -434,6 +472,7 @@ class ListLensReviewsInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_lens_shares' function.
 class ListLensSharesInput(BaseValidatorModel):
     LensAlias: str
     SharedWithPrefix: Optional[str] = None
@@ -442,6 +481,7 @@ class ListLensSharesInput(BaseValidatorModel):
     Status: Optional[ShareStatusType] = None
 
 
+# This class is the input for the 'list_lenses' function.
 class ListLensesInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -450,12 +490,14 @@ class ListLensesInput(BaseValidatorModel):
     LensName: Optional[str] = None
 
 
+# This class is the input for the 'list_milestones' function.
 class ListMilestonesInput(BaseValidatorModel):
     WorkloadId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_notifications' function.
 class ListNotificationsInput(BaseValidatorModel):
     WorkloadId: Optional[str] = None
     NextToken: Optional[str] = None
@@ -463,6 +505,7 @@ class ListNotificationsInput(BaseValidatorModel):
     ResourceArn: Optional[str] = None
 
 
+# This class is the input for the 'list_profile_notifications' function.
 class ListProfileNotificationsInput(BaseValidatorModel):
     WorkloadId: Optional[str] = None
     NextToken: Optional[str] = None
@@ -479,6 +522,7 @@ class ProfileNotificationSummary(BaseValidatorModel):
     WorkloadName: Optional[str] = None
 
 
+# This class is the input for the 'list_profile_shares' function.
 class ListProfileSharesInput(BaseValidatorModel):
     ProfileArn: str
     SharedWithPrefix: Optional[str] = None
@@ -494,6 +538,7 @@ class ProfileShareSummary(BaseValidatorModel):
     StatusMessage: Optional[str] = None
 
 
+# This class is the input for the 'list_profiles' function.
 class ListProfilesInput(BaseValidatorModel):
     ProfileNamePrefix: Optional[str] = None
     ProfileOwnerType: Optional[ProfileOwnerTypeType] = None
@@ -511,6 +556,7 @@ class ProfileSummary(BaseValidatorModel):
     UpdatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'list_review_template_answers' function.
 class ListReviewTemplateAnswersInput(BaseValidatorModel):
     TemplateArn: str
     LensAlias: str
@@ -519,6 +565,7 @@ class ListReviewTemplateAnswersInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_review_templates' function.
 class ListReviewTemplatesInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -534,6 +581,7 @@ class ReviewTemplateSummary(BaseValidatorModel):
     UpdateStatus: Optional[ReviewTemplateUpdateStatusType] = None
 
 
+# This class is the input for the 'list_share_invitations' function.
 class ListShareInvitationsInput(BaseValidatorModel):
     WorkloadNamePrefix: Optional[str] = None
     LensNamePrefix: Optional[str] = None
@@ -560,10 +608,12 @@ class ShareInvitationSummary(BaseValidatorModel):
     TemplateArn: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInput(BaseValidatorModel):
     WorkloadArn: str
 
 
+# This class is the input for the 'list_template_shares' function.
 class ListTemplateSharesInput(BaseValidatorModel):
     TemplateArn: str
     SharedWithPrefix: Optional[str] = None
@@ -579,6 +629,7 @@ class TemplateShareSummary(BaseValidatorModel):
     StatusMessage: Optional[str] = None
 
 
+# This class is the input for the 'list_workload_shares' function.
 class ListWorkloadSharesInput(BaseValidatorModel):
     WorkloadId: str
     SharedWithPrefix: Optional[str] = None
@@ -595,6 +646,7 @@ class WorkloadShareSummary(BaseValidatorModel):
     StatusMessage: Optional[str] = None
 
 
+# This class is the input for the 'list_workloads' function.
 class ListWorkloadsInput(BaseValidatorModel):
     WorkloadNamePrefix: Optional[str] = None
     NextToken: Optional[str] = None
@@ -646,12 +698,14 @@ class UntagResourceInput(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_integration' function.
 class UpdateIntegrationInput(BaseValidatorModel):
     WorkloadId: str
     ClientRequestToken: str
     IntegratingService: Literal['JIRA']
 
 
+# This class is the input for the 'update_review_template' function.
 class UpdateReviewTemplateInput(BaseValidatorModel):
     TemplateArn: str
     TemplateName: Optional[str] = None
@@ -661,6 +715,7 @@ class UpdateReviewTemplateInput(BaseValidatorModel):
     LensesToDisassociate: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_review_template_lens_review' function.
 class UpdateReviewTemplateLensReviewInput(BaseValidatorModel):
     TemplateArn: str
     LensAlias: str
@@ -668,11 +723,13 @@ class UpdateReviewTemplateLensReviewInput(BaseValidatorModel):
     PillarNotes: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_share_invitation' function.
 class UpdateShareInvitationInput(BaseValidatorModel):
     ShareInvitationId: str
     ShareInvitationAction: ShareInvitationActionType
 
 
+# This class is the input for the 'update_workload_share' function.
 class UpdateWorkloadShareInput(BaseValidatorModel):
     ShareId: str
     WorkloadId: str
@@ -689,6 +746,7 @@ class WorkloadShare(BaseValidatorModel):
     WorkloadId: Optional[str] = None
 
 
+# This class is the input for the 'upgrade_lens_review' function.
 class UpgradeLensReviewInput(BaseValidatorModel):
     WorkloadId: str
     LensAlias: str
@@ -696,6 +754,7 @@ class UpgradeLensReviewInput(BaseValidatorModel):
     ClientRequestToken: Optional[str] = None
 
 
+# This class is the input for the 'upgrade_profile_version' function.
 class UpgradeProfileVersionInput(BaseValidatorModel):
     WorkloadId: str
     ProfileArn: str
@@ -703,6 +762,7 @@ class UpgradeProfileVersionInput(BaseValidatorModel):
     ClientRequestToken: Optional[str] = None
 
 
+# This class is the input for the 'upgrade_review_template_lens_review' function.
 class UpgradeReviewTemplateLensReviewInput(BaseValidatorModel):
     TemplateArn: str
     LensAlias: str
@@ -726,6 +786,7 @@ class WorkloadJiraConfigurationOutput(BaseValidatorModel):
     StatusMessage: Optional[str] = None
 
 
+# This class is the input for the 'update_global_settings' function.
 class UpdateGlobalSettingsInput(BaseValidatorModel):
     OrganizationSharingStatus: Optional[OrganizationSharingStatusType] = None
     DiscoveryIntegrationStatus: Optional[DiscoveryIntegrationStatusType] = None
@@ -753,6 +814,7 @@ class ImprovementSummary(BaseValidatorModel):
     JiraConfiguration: Optional[JiraConfiguration] = None
 
 
+# This class is the input for the 'update_answer' function.
 class UpdateAnswerInput(BaseValidatorModel):
     WorkloadId: str
     LensAlias: str
@@ -764,6 +826,7 @@ class UpdateAnswerInput(BaseValidatorModel):
     Reason: Optional[AnswerReasonType] = None
 
 
+# This class is the input for the 'update_review_template_answer' function.
 class UpdateReviewTemplateAnswerInput(BaseValidatorModel):
     TemplateArn: str
     LensAlias: str
@@ -775,62 +838,73 @@ class UpdateReviewTemplateAnswerInput(BaseValidatorModel):
     Reason: Optional[AnswerReasonType] = None
 
 
+# This class is the output for the 'create_lens_share' function.
 class CreateLensShareOutput(BaseValidatorModel):
     ShareId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_lens_version' function.
 class CreateLensVersionOutput(BaseValidatorModel):
     LensArn: str
     LensVersion: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_milestone' function.
 class CreateMilestoneOutput(BaseValidatorModel):
     WorkloadId: str
     MilestoneNumber: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_profile' function.
 class CreateProfileOutput(BaseValidatorModel):
     ProfileArn: str
     ProfileVersion: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_profile_share' function.
 class CreateProfileShareOutput(BaseValidatorModel):
     ShareId: str
     ProfileArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_review_template' function.
 class CreateReviewTemplateOutput(BaseValidatorModel):
     TemplateArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_template_share' function.
 class CreateTemplateShareOutput(BaseValidatorModel):
     TemplateArn: str
     ShareId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_workload' function.
 class CreateWorkloadOutput(BaseValidatorModel):
     WorkloadId: str
     WorkloadArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_workload_share' function.
 class CreateWorkloadShareOutput(BaseValidatorModel):
     WorkloadId: str
     ShareId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'upgrade_review_template_lens_review' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'export_lens' function.
 class ExportLensOutput(BaseValidatorModel):
     LensJSON: str
     ResponseMetadata: ResponseMetadata
@@ -843,29 +917,34 @@ class GetGlobalSettingsOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_lens' function.
 class ImportLensOutput(BaseValidatorModel):
     LensArn: str
     Status: ImportLensStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_check_details' function.
 class ListCheckDetailsOutput(BaseValidatorModel):
     CheckDetails: List[CheckDetail]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_check_summaries' function.
 class ListCheckSummariesOutput(BaseValidatorModel):
     CheckSummaries: List[CheckSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceOutput(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_profile' function.
 class CreateProfileInput(BaseValidatorModel):
     ProfileName: str
     ProfileDescription: str
@@ -874,17 +953,20 @@ class CreateProfileInput(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_profile' function.
 class UpdateProfileInput(BaseValidatorModel):
     ProfileArn: str
     ProfileDescription: Optional[str] = None
     ProfileQuestions: Optional[List[ProfileQuestionUpdate]] = None
 
 
+# This class is the output for the 'get_lens' function.
 class GetLensOutput(BaseValidatorModel):
     Lens: Lens
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_lens_review_report' function.
 class GetLensReviewReportOutput(BaseValidatorModel):
     WorkloadId: str
     MilestoneNumber: int
@@ -892,11 +974,13 @@ class GetLensReviewReportOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_review_template' function.
 class GetReviewTemplateOutput(BaseValidatorModel):
     ReviewTemplate: ReviewTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_review_template' function.
 class UpdateReviewTemplateOutput(BaseValidatorModel):
     ReviewTemplate: ReviewTemplate
     ResponseMetadata: ResponseMetadata
@@ -935,12 +1019,14 @@ class WorkloadSummary(BaseValidatorModel):
     PrioritizedRiskCounts: Optional[Dict[RiskType, int]] = None
 
 
+# This class is the output for the 'list_lens_shares' function.
 class ListLensSharesOutput(BaseValidatorModel):
     LensShareSummaries: List[LensShareSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_lenses' function.
 class ListLensesOutput(BaseValidatorModel):
     LensSummaries: List[LensSummary]
     ResponseMetadata: ResponseMetadata
@@ -952,36 +1038,42 @@ class NotificationSummary(BaseValidatorModel):
     LensUpgradeSummary: Optional[LensUpgradeSummary] = None
 
 
+# This class is the output for the 'list_profile_notifications' function.
 class ListProfileNotificationsOutput(BaseValidatorModel):
     NotificationSummaries: List[ProfileNotificationSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_profile_shares' function.
 class ListProfileSharesOutput(BaseValidatorModel):
     ProfileShareSummaries: List[ProfileShareSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_profiles' function.
 class ListProfilesOutput(BaseValidatorModel):
     ProfileSummaries: List[ProfileSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_review_templates' function.
 class ListReviewTemplatesOutput(BaseValidatorModel):
     ReviewTemplates: List[ReviewTemplateSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_share_invitations' function.
 class ListShareInvitationsOutput(BaseValidatorModel):
     ShareInvitationSummaries: List[ShareInvitationSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_template_shares' function.
 class ListTemplateSharesOutput(BaseValidatorModel):
     TemplateArn: str
     TemplateShareSummaries: List[TemplateShareSummary]
@@ -989,6 +1081,7 @@ class ListTemplateSharesOutput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_workload_shares' function.
 class ListWorkloadSharesOutput(BaseValidatorModel):
     WorkloadId: str
     WorkloadShareSummaries: List[WorkloadShareSummary]
@@ -1035,11 +1128,13 @@ class ReviewTemplateLensReview(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_share_invitation' function.
 class UpdateShareInvitationOutput(BaseValidatorModel):
     ShareInvitation: ShareInvitation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_workload_share' function.
 class UpdateWorkloadShareOutput(BaseValidatorModel):
     WorkloadId: str
     WorkloadShare: WorkloadShare
@@ -1094,6 +1189,7 @@ class PillarMetric(BaseValidatorModel):
     Questions: Optional[List[QuestionMetric]] = None
 
 
+# This class is the output for the 'list_lens_review_improvements' function.
 class ListLensReviewImprovementsOutput(BaseValidatorModel):
     WorkloadId: str
     MilestoneNumber: int
@@ -1122,6 +1218,7 @@ class LensReview(BaseValidatorModel):
 JiraSelectedQuestionConfigurationUnion = Union[JiraSelectedQuestionConfiguration, JiraSelectedQuestionConfigurationOutput]
 
 
+# This class is the output for the 'list_lens_reviews' function.
 class ListLensReviewsOutput(BaseValidatorModel):
     WorkloadId: str
     MilestoneNumber: int
@@ -1130,6 +1227,7 @@ class ListLensReviewsOutput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_workloads' function.
 class ListWorkloadsOutput(BaseValidatorModel):
     WorkloadSummaries: List[WorkloadSummary]
     ResponseMetadata: ResponseMetadata
@@ -1143,6 +1241,7 @@ class MilestoneSummary(BaseValidatorModel):
     WorkloadSummary: Optional[WorkloadSummary] = None
 
 
+# This class is the output for the 'list_notifications' function.
 class ListNotificationsOutput(BaseValidatorModel):
     NotificationSummaries: List[NotificationSummary]
     ResponseMetadata: ResponseMetadata
@@ -1173,18 +1272,21 @@ class ProfileTemplate(BaseValidatorModel):
     UpdatedAt: Optional[datetime] = None
 
 
+# This class is the output for the 'get_review_template_lens_review' function.
 class GetReviewTemplateLensReviewOutput(BaseValidatorModel):
     TemplateArn: str
     LensReview: ReviewTemplateLensReview
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_review_template_lens_review' function.
 class UpdateReviewTemplateLensReviewOutput(BaseValidatorModel):
     TemplateArn: str
     LensReview: ReviewTemplateLensReview
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_workload' function.
 class CreateWorkloadInput(BaseValidatorModel):
     WorkloadName: str
     Description: str
@@ -1208,6 +1310,7 @@ class CreateWorkloadInput(BaseValidatorModel):
     JiraConfiguration: Optional[WorkloadJiraConfigurationInput] = None
 
 
+# This class is the input for the 'update_workload' function.
 class UpdateWorkloadInput(BaseValidatorModel):
     WorkloadId: str
     WorkloadName: Optional[str] = None
@@ -1229,6 +1332,7 @@ class UpdateWorkloadInput(BaseValidatorModel):
     JiraConfiguration: Optional[WorkloadJiraConfigurationInput] = None
 
 
+# This class is the output for the 'get_workload' function.
 class GetWorkloadOutput(BaseValidatorModel):
     Workload: Workload
     ResponseMetadata: ResponseMetadata
@@ -1241,6 +1345,7 @@ class Milestone(BaseValidatorModel):
     Workload: Optional[Workload] = None
 
 
+# This class is the output for the 'update_workload' function.
 class UpdateWorkloadOutput(BaseValidatorModel):
     Workload: Workload
     ResponseMetadata: ResponseMetadata
@@ -1314,6 +1419,7 @@ class LensMetric(BaseValidatorModel):
     RiskCounts: Optional[Dict[RiskType, int]] = None
 
 
+# This class is the output for the 'get_lens_review' function.
 class GetLensReviewOutput(BaseValidatorModel):
     WorkloadId: str
     MilestoneNumber: int
@@ -1321,12 +1427,14 @@ class GetLensReviewOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_lens_review' function.
 class UpdateLensReviewOutput(BaseValidatorModel):
     WorkloadId: str
     LensReview: LensReview
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_lens_review' function.
 class UpdateLensReviewInput(BaseValidatorModel):
     WorkloadId: str
     LensAlias: str
@@ -1335,6 +1443,7 @@ class UpdateLensReviewInput(BaseValidatorModel):
     JiraConfiguration: Optional[JiraSelectedQuestionConfigurationUnion] = None
 
 
+# This class is the output for the 'list_milestones' function.
 class ListMilestonesOutput(BaseValidatorModel):
     WorkloadId: str
     MilestoneSummaries: List[MilestoneSummary]
@@ -1342,6 +1451,7 @@ class ListMilestonesOutput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_lens_version_difference' function.
 class GetLensVersionDifferenceOutput(BaseValidatorModel):
     LensAlias: str
     LensArn: str
@@ -1352,11 +1462,13 @@ class GetLensVersionDifferenceOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_profile' function.
 class GetProfileOutput(BaseValidatorModel):
     Profile: Profile
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_profile' function.
 class UpdateProfileOutput(BaseValidatorModel):
     Profile: Profile
     ResponseMetadata: ResponseMetadata
@@ -1367,12 +1479,14 @@ class GetProfileTemplateOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_milestone' function.
 class GetMilestoneOutput(BaseValidatorModel):
     WorkloadId: str
     Milestone: Milestone
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_answers' function.
 class ListAnswersOutput(BaseValidatorModel):
     WorkloadId: str
     MilestoneNumber: int
@@ -1383,6 +1497,7 @@ class ListAnswersOutput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_answer' function.
 class GetAnswerOutput(BaseValidatorModel):
     WorkloadId: str
     MilestoneNumber: int
@@ -1392,6 +1507,7 @@ class GetAnswerOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_answer' function.
 class UpdateAnswerOutput(BaseValidatorModel):
     WorkloadId: str
     LensAlias: str
@@ -1400,6 +1516,7 @@ class UpdateAnswerOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_review_template_answers' function.
 class ListReviewTemplateAnswersOutput(BaseValidatorModel):
     TemplateArn: str
     LensAlias: str
@@ -1408,6 +1525,7 @@ class ListReviewTemplateAnswersOutput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_review_template_answer' function.
 class GetReviewTemplateAnswerOutput(BaseValidatorModel):
     TemplateArn: str
     LensAlias: str
@@ -1415,6 +1533,7 @@ class GetReviewTemplateAnswerOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_review_template_answer' function.
 class UpdateReviewTemplateAnswerOutput(BaseValidatorModel):
     TemplateArn: str
     LensAlias: str
@@ -1433,6 +1552,7 @@ class ConsolidatedReportMetric(BaseValidatorModel):
     LensesAppliedCount: Optional[int] = None
 
 
+# This class is the output for the 'get_consolidated_report' function.
 class GetConsolidatedReportOutput(BaseValidatorModel):
     Metrics: List[ConsolidatedReportMetric]
     Base64String: str

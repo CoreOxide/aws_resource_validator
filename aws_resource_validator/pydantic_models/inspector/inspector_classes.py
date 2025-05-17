@@ -84,11 +84,13 @@ class Tag(BaseValidatorModel):
     value: Optional[str] = None
 
 
+# This class is the input for the 'create_assessment_target' function.
 class CreateAssessmentTargetRequest(BaseValidatorModel):
     assessmentTargetName: str
     resourceGroupArn: Optional[str] = None
 
 
+# This class is the input for the 'create_exclusions_preview' function.
 class CreateExclusionsPreviewRequest(BaseValidatorModel):
     assessmentTemplateArn: str
 
@@ -98,44 +100,54 @@ class ResourceGroupTag(BaseValidatorModel):
     value: Optional[str] = None
 
 
+# This class is the input for the 'delete_assessment_run' function.
 class DeleteAssessmentRunRequest(BaseValidatorModel):
     assessmentRunArn: str
 
 
+# This class is the input for the 'delete_assessment_target' function.
 class DeleteAssessmentTargetRequest(BaseValidatorModel):
     assessmentTargetArn: str
 
 
+# This class is the input for the 'delete_assessment_template' function.
 class DeleteAssessmentTemplateRequest(BaseValidatorModel):
     assessmentTemplateArn: str
 
 
+# This class is the input for the 'describe_assessment_runs' function.
 class DescribeAssessmentRunsRequest(BaseValidatorModel):
     assessmentRunArns: List[str]
 
 
+# This class is the input for the 'describe_assessment_targets' function.
 class DescribeAssessmentTargetsRequest(BaseValidatorModel):
     assessmentTargetArns: List[str]
 
 
+# This class is the input for the 'describe_assessment_templates' function.
 class DescribeAssessmentTemplatesRequest(BaseValidatorModel):
     assessmentTemplateArns: List[str]
 
 
+# This class is the input for the 'describe_exclusions' function.
 class DescribeExclusionsRequest(BaseValidatorModel):
     exclusionArns: List[str]
     locale: Optional[Literal['EN_US']] = None
 
 
+# This class is the input for the 'describe_findings' function.
 class DescribeFindingsRequest(BaseValidatorModel):
     findingArns: List[str]
     locale: Optional[Literal['EN_US']] = None
 
 
+# This class is the input for the 'describe_resource_groups' function.
 class DescribeResourceGroupsRequest(BaseValidatorModel):
     resourceGroupArns: List[str]
 
 
+# This class is the input for the 'describe_rules_packages' function.
 class DescribeRulesPackagesRequest(BaseValidatorModel):
     rulesPackageArns: List[str]
     locale: Optional[Literal['EN_US']] = None
@@ -165,12 +177,14 @@ class InspectorServiceAttributes(BaseValidatorModel):
     rulesPackageArn: Optional[str] = None
 
 
+# This class is the input for the 'get_assessment_report' function.
 class GetAssessmentReportRequest(BaseValidatorModel):
     assessmentRunArn: str
     reportFileFormat: ReportFileFormatType
     reportType: ReportTypeType
 
 
+# This class is the input for the 'get_exclusions_preview' function.
 class GetExclusionsPreviewRequest(BaseValidatorModel):
     assessmentTemplateArn: str
     previewToken: str
@@ -179,6 +193,7 @@ class GetExclusionsPreviewRequest(BaseValidatorModel):
     locale: Optional[Literal['EN_US']] = None
 
 
+# This class is the input for the 'get_telemetry_metadata' function.
 class GetTelemetryMetadataRequest(BaseValidatorModel):
     assessmentRunArn: str
 
@@ -189,23 +204,27 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_event_subscriptions' function.
 class ListEventSubscriptionsRequest(BaseValidatorModel):
     resourceArn: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_exclusions' function.
 class ListExclusionsRequest(BaseValidatorModel):
     assessmentRunArn: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_rules_packages' function.
 class ListRulesPackagesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -220,31 +239,37 @@ class SecurityGroup(BaseValidatorModel):
     groupId: Optional[str] = None
 
 
+# This class is the input for the 'preview_agents' function.
 class PreviewAgentsRequest(BaseValidatorModel):
     previewAgentsArn: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'register_cross_account_access_role' function.
 class RegisterCrossAccountAccessRoleRequest(BaseValidatorModel):
     roleArn: str
 
 
+# This class is the input for the 'remove_attributes_from_findings' function.
 class RemoveAttributesFromFindingsRequest(BaseValidatorModel):
     findingArns: List[str]
     attributeKeys: List[str]
 
 
+# This class is the input for the 'start_assessment_run' function.
 class StartAssessmentRunRequest(BaseValidatorModel):
     assessmentTemplateArn: str
     assessmentRunName: Optional[str] = None
 
 
+# This class is the input for the 'stop_assessment_run' function.
 class StopAssessmentRunRequest(BaseValidatorModel):
     assessmentRunArn: str
     stopAction: Optional[StopActionType] = None
 
 
+# This class is the input for the 'subscribe_to_event' function.
 class SubscribeToEventRequest(BaseValidatorModel):
     resourceArn: str
     event: InspectorEventType
@@ -253,18 +278,21 @@ class SubscribeToEventRequest(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'unsubscribe_from_event' function.
 class UnsubscribeFromEventRequest(BaseValidatorModel):
     resourceArn: str
     event: InspectorEventType
     topicArn: str
 
 
+# This class is the input for the 'update_assessment_target' function.
 class UpdateAssessmentTargetRequest(BaseValidatorModel):
     assessmentTargetArn: str
     assessmentTargetName: str
     resourceGroupArn: Optional[str] = None
 
 
+# This class is the input for the 'add_attributes_to_findings' function.
 class AddAttributesToFindingsRequest(BaseValidatorModel):
     findingArns: List[str]
     attributes: List[Attribute]
@@ -282,6 +310,7 @@ class AssessmentTemplate(BaseValidatorModel):
     lastAssessmentRunArn: Optional[str] = None
 
 
+# This class is the input for the 'create_assessment_template' function.
 class CreateAssessmentTemplateRequest(BaseValidatorModel):
     assessmentTargetArn: str
     assessmentTemplateName: str
@@ -290,26 +319,31 @@ class CreateAssessmentTemplateRequest(BaseValidatorModel):
     userAttributesForFindings: Optional[List[Attribute]] = None
 
 
+# This class is the output for the 'add_attributes_to_findings' function.
 class AddAttributesToFindingsResponse(BaseValidatorModel):
     failedItems: Dict[str, FailedItemDetails]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_assessment_target' function.
 class CreateAssessmentTargetResponse(BaseValidatorModel):
     assessmentTargetArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_assessment_template' function.
 class CreateAssessmentTemplateResponse(BaseValidatorModel):
     assessmentTemplateArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_exclusions_preview' function.
 class CreateExclusionsPreviewResponse(BaseValidatorModel):
     previewToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_resource_group' function.
 class CreateResourceGroupResponse(BaseValidatorModel):
     resourceGroupArn: str
     ResponseMetadata: ResponseMetadata
@@ -322,62 +356,73 @@ class DescribeCrossAccountAccessRoleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_assessment_target' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_assessment_report' function.
 class GetAssessmentReportResponse(BaseValidatorModel):
     status: ReportStatusType
     url: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_assessment_runs' function.
 class ListAssessmentRunsResponse(BaseValidatorModel):
     assessmentRunArns: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_assessment_targets' function.
 class ListAssessmentTargetsResponse(BaseValidatorModel):
     assessmentTargetArns: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_assessment_templates' function.
 class ListAssessmentTemplatesResponse(BaseValidatorModel):
     assessmentTemplateArns: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_exclusions' function.
 class ListExclusionsResponse(BaseValidatorModel):
     exclusionArns: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_findings' function.
 class ListFindingsResponse(BaseValidatorModel):
     findingArns: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_rules_packages' function.
 class ListRulesPackagesResponse(BaseValidatorModel):
     rulesPackageArns: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'remove_attributes_from_findings' function.
 class RemoveAttributesFromFindingsResponse(BaseValidatorModel):
     failedItems: Dict[str, FailedItemDetails]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_assessment_run' function.
 class StartAssessmentRunResponse(BaseValidatorModel):
     assessmentRunArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'list_assessment_run_agents' function.
 class ListAssessmentRunAgentsRequest(BaseValidatorModel):
     assessmentRunArn: str
     filter: Optional[AgentFilter] = None
@@ -385,6 +430,7 @@ class ListAssessmentRunAgentsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the output for the 'preview_agents' function.
 class PreviewAgentsResponse(BaseValidatorModel):
     agentPreviews: List[AgentPreview]
     ResponseMetadata: ResponseMetadata
@@ -401,6 +447,7 @@ class AssessmentRunAgent(BaseValidatorModel):
     autoScalingGroup: Optional[str] = None
 
 
+# This class is the output for the 'get_telemetry_metadata' function.
 class GetTelemetryMetadataResponse(BaseValidatorModel):
     telemetryMetadata: List[TelemetryMetadata]
     ResponseMetadata: ResponseMetadata
@@ -430,28 +477,33 @@ class AssessmentRun(BaseValidatorModel):
     completedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'list_assessment_targets' function.
 class ListAssessmentTargetsRequest(BaseValidatorModel):
     filter: Optional[AssessmentTargetFilter] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the output for the 'describe_assessment_targets' function.
 class DescribeAssessmentTargetsResponse(BaseValidatorModel):
     assessmentTargets: List[AssessmentTarget]
     failedItems: Dict[str, FailedItemDetails]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'set_tags_for_resource' function.
 class SetTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_resource_group' function.
 class CreateResourceGroupRequest(BaseValidatorModel):
     resourceGroupTags: List[ResourceGroupTag]
 
@@ -462,6 +514,7 @@ class ResourceGroup(BaseValidatorModel):
     createdAt: datetime
 
 
+# This class is the output for the 'describe_rules_packages' function.
 class DescribeRulesPackagesResponse(BaseValidatorModel):
     rulesPackages: List[RulesPackage]
     failedItems: Dict[str, FailedItemDetails]
@@ -539,12 +592,14 @@ class TimestampRange(BaseValidatorModel):
     endDate: Optional[Timestamp] = None
 
 
+# This class is the output for the 'describe_assessment_templates' function.
 class DescribeAssessmentTemplatesResponse(BaseValidatorModel):
     assessmentTemplates: List[AssessmentTemplate]
     failedItems: Dict[str, FailedItemDetails]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_assessment_run_agents' function.
 class ListAssessmentRunAgentsResponse(BaseValidatorModel):
     assessmentRunAgents: List[AssessmentRunAgent]
     ResponseMetadata: ResponseMetadata
@@ -557,6 +612,7 @@ class ListAssessmentTemplatesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_assessment_templates' function.
 class ListAssessmentTemplatesRequest(BaseValidatorModel):
     assessmentTargetArns: Optional[List[str]] = None
     filter: Optional[AssessmentTemplateFilter] = None
@@ -564,24 +620,28 @@ class ListAssessmentTemplatesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the output for the 'describe_assessment_runs' function.
 class DescribeAssessmentRunsResponse(BaseValidatorModel):
     assessmentRuns: List[AssessmentRun]
     failedItems: Dict[str, FailedItemDetails]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_resource_groups' function.
 class DescribeResourceGroupsResponse(BaseValidatorModel):
     resourceGroups: List[ResourceGroup]
     failedItems: Dict[str, FailedItemDetails]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_event_subscriptions' function.
 class ListEventSubscriptionsResponse(BaseValidatorModel):
     subscriptions: List[Subscription]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_exclusions_preview' function.
 class GetExclusionsPreviewResponse(BaseValidatorModel):
     previewStatus: PreviewStatusType
     exclusionPreviews: List[ExclusionPreview]
@@ -589,6 +649,7 @@ class GetExclusionsPreviewResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_exclusions' function.
 class DescribeExclusionsResponse(BaseValidatorModel):
     exclusions: Dict[str, Exclusion]
     failedItems: Dict[str, FailedItemDetails]
@@ -654,6 +715,7 @@ class ListAssessmentRunsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_assessment_runs' function.
 class ListAssessmentRunsRequest(BaseValidatorModel):
     assessmentTemplateArns: Optional[List[str]] = None
     filter: Optional[AssessmentRunFilter] = None
@@ -667,6 +729,7 @@ class ListFindingsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_findings' function.
 class ListFindingsRequest(BaseValidatorModel):
     assessmentRunArns: Optional[List[str]] = None
     filter: Optional[FindingFilter] = None
@@ -674,6 +737,7 @@ class ListFindingsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the output for the 'describe_findings' function.
 class DescribeFindingsResponse(BaseValidatorModel):
     findings: List[Finding]
     failedItems: Dict[str, FailedItemDetails]

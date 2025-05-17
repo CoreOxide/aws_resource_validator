@@ -114,6 +114,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'get_recommendation' function.
 class GetRecommendationRequest(BaseValidatorModel):
     recommendationId: str
 
@@ -124,6 +125,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_enrollment_statuses' function.
 class ListEnrollmentStatusesRequest(BaseValidatorModel):
     includeOrganizationInfo: Optional[bool] = None
     accountId: Optional[str] = None
@@ -233,11 +235,13 @@ class SavingsPlansPricing(BaseValidatorModel):
     estimatedOnDemandCost: Optional[float] = None
 
 
+# This class is the input for the 'update_enrollment_status' function.
 class UpdateEnrollmentStatusRequest(BaseValidatorModel):
     status: EnrollmentStatusType
     includeMemberAccounts: Optional[bool] = None
 
 
+# This class is the input for the 'update_preferences' function.
 class UpdatePreferencesRequest(BaseValidatorModel):
     savingsEstimationMode: Optional[SavingsEstimationModeType] = None
     memberAccountDiscountVisibility: Optional[MemberAccountDiscountVisibilityType] = None
@@ -323,6 +327,7 @@ class GetPreferencesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_enrollment_statuses' function.
 class ListEnrollmentStatusesResponse(BaseValidatorModel):
     items: List[AccountEnrollmentStatus]
     includeMemberAccounts: bool
@@ -330,11 +335,13 @@ class ListEnrollmentStatusesResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_enrollment_status' function.
 class UpdateEnrollmentStatusResponse(BaseValidatorModel):
     status: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_preferences' function.
 class UpdatePreferencesResponse(BaseValidatorModel):
     savingsEstimationMode: SavingsEstimationModeType
     memberAccountDiscountVisibility: MemberAccountDiscountVisibilityType
@@ -347,6 +354,7 @@ class ListEnrollmentStatusesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_recommendation_summaries' function.
 class ListRecommendationSummariesResponse(BaseValidatorModel):
     estimatedTotalDedupedSavings: float
     items: List[RecommendationSummary]
@@ -377,6 +385,7 @@ class ListRecommendationSummariesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_recommendation_summaries' function.
 class ListRecommendationSummariesRequest(BaseValidatorModel):
     groupBy: str
     filter: Optional[Filter] = None
@@ -392,6 +401,7 @@ class ListRecommendationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_recommendations' function.
 class ListRecommendationsRequest(BaseValidatorModel):
     filter: Optional[Filter] = None
     orderBy: Optional[OrderBy] = None
@@ -400,6 +410,7 @@ class ListRecommendationsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_recommendations' function.
 class ListRecommendationsResponse(BaseValidatorModel):
     items: List[Recommendation]
     ResponseMetadata: ResponseMetadata
@@ -499,6 +510,7 @@ class ResourceDetails(BaseValidatorModel):
     rdsDbInstanceStorage: Optional[RdsDbInstanceStorage] = None
 
 
+# This class is the output for the 'get_recommendation' function.
 class GetRecommendationResponse(BaseValidatorModel):
     recommendationId: str
     resourceId: str

@@ -101,6 +101,7 @@ class TimeInNanos(BaseValidatorModel):
     offsetInNanos: Optional[int] = None
 
 
+# This class is the input for the 'associate_assets' function.
 class AssociateAssetsRequest(BaseValidatorModel):
     assetId: str
     hierarchyId: str
@@ -108,6 +109,7 @@ class AssociateAssetsRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'associate_time_series_to_asset_property' function.
 class AssociateTimeSeriesToAssetPropertyRequest(BaseValidatorModel):
     alias: str
     assetId: str
@@ -119,6 +121,7 @@ class Attribute(BaseValidatorModel):
     defaultValue: Optional[str] = None
 
 
+# This class is the input for the 'batch_associate_project_assets' function.
 class BatchAssociateProjectAssetsRequest(BaseValidatorModel):
     projectId: str
     assetIds: List[str]
@@ -133,6 +136,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'batch_disassociate_project_assets' function.
 class BatchDisassociateProjectAssetsRequest(BaseValidatorModel):
     projectId: str
     assetIds: List[str]
@@ -212,6 +216,7 @@ class ConflictingOperationException(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'create_asset' function.
 class CreateAssetRequest(BaseValidatorModel):
     assetName: str
     assetModelId: str
@@ -233,6 +238,7 @@ class File(BaseValidatorModel):
     versionId: Optional[str] = None
 
 
+# This class is the input for the 'create_dashboard' function.
 class CreateDashboardRequest(BaseValidatorModel):
     projectId: str
     dashboardName: str
@@ -242,6 +248,7 @@ class CreateDashboardRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_project' function.
 class CreateProjectRequest(BaseValidatorModel):
     portalId: str
     projectName: str
@@ -297,6 +304,7 @@ class DeleteAccessPolicyRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_asset_model_composite_model' function.
 class DeleteAssetModelCompositeModelRequest(BaseValidatorModel):
     assetModelId: str
     assetModelCompositeModelId: str
@@ -306,6 +314,7 @@ class DeleteAssetModelCompositeModelRequest(BaseValidatorModel):
     matchForVersionType: Optional[AssetModelVersionTypeType] = None
 
 
+# This class is the input for the 'delete_asset_model' function.
 class DeleteAssetModelRequest(BaseValidatorModel):
     assetModelId: str
     clientToken: Optional[str] = None
@@ -314,6 +323,7 @@ class DeleteAssetModelRequest(BaseValidatorModel):
     matchForVersionType: Optional[AssetModelVersionTypeType] = None
 
 
+# This class is the input for the 'delete_asset' function.
 class DeleteAssetRequest(BaseValidatorModel):
     assetId: str
     clientToken: Optional[str] = None
@@ -324,15 +334,18 @@ class DeleteDashboardRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_dataset' function.
 class DeleteDatasetRequest(BaseValidatorModel):
     datasetId: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_gateway' function.
 class DeleteGatewayRequest(BaseValidatorModel):
     gatewayId: str
 
 
+# This class is the input for the 'delete_portal' function.
 class DeletePortalRequest(BaseValidatorModel):
     portalId: str
     clientToken: Optional[str] = None
@@ -343,6 +356,7 @@ class DeleteProjectRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_time_series' function.
 class DeleteTimeSeriesRequest(BaseValidatorModel):
     alias: Optional[str] = None
     assetId: Optional[str] = None
@@ -350,25 +364,30 @@ class DeleteTimeSeriesRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_access_policy' function.
 class DescribeAccessPolicyRequest(BaseValidatorModel):
     accessPolicyId: str
 
 
+# This class is the input for the 'describe_action' function.
 class DescribeActionRequest(BaseValidatorModel):
     actionId: str
 
 
+# This class is the input for the 'describe_asset_composite_model' function.
 class DescribeAssetCompositeModelRequest(BaseValidatorModel):
     assetId: str
     assetCompositeModelId: str
 
 
+# This class is the input for the 'describe_asset_model_composite_model' function.
 class DescribeAssetModelCompositeModelRequest(BaseValidatorModel):
     assetModelId: str
     assetModelCompositeModelId: str
     assetModelVersion: Optional[str] = None
 
 
+# This class is the input for the 'describe_asset_model' function.
 class DescribeAssetModelRequest(BaseValidatorModel):
     assetModelId: str
     excludeProperties: Optional[bool] = None
@@ -380,33 +399,40 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'describe_asset_property' function.
 class DescribeAssetPropertyRequest(BaseValidatorModel):
     assetId: str
     propertyId: str
 
 
+# This class is the input for the 'describe_asset' function.
 class DescribeAssetRequest(BaseValidatorModel):
     assetId: str
     excludeProperties: Optional[bool] = None
 
 
+# This class is the input for the 'describe_bulk_import_job' function.
 class DescribeBulkImportJobRequest(BaseValidatorModel):
     jobId: str
 
 
+# This class is the input for the 'describe_dashboard' function.
 class DescribeDashboardRequest(BaseValidatorModel):
     dashboardId: str
 
 
+# This class is the input for the 'describe_dataset' function.
 class DescribeDatasetRequest(BaseValidatorModel):
     datasetId: str
 
 
+# This class is the input for the 'describe_gateway_capability_configuration' function.
 class DescribeGatewayCapabilityConfigurationRequest(BaseValidatorModel):
     gatewayId: str
     capabilityNamespace: str
 
 
+# This class is the input for the 'describe_gateway' function.
 class DescribeGatewayRequest(BaseValidatorModel):
     gatewayId: str
 
@@ -420,6 +446,7 @@ class LoggingOptions(BaseValidatorModel):
     level: LoggingLevelType
 
 
+# This class is the input for the 'describe_portal' function.
 class DescribePortalRequest(BaseValidatorModel):
     portalId: str
 
@@ -433,6 +460,7 @@ class PortalTypeEntryOutput(BaseValidatorModel):
     portalTools: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_project' function.
 class DescribeProjectRequest(BaseValidatorModel):
     projectId: str
 
@@ -447,6 +475,7 @@ class WarmTierRetentionPeriod(BaseValidatorModel):
     unlimited: Optional[bool] = None
 
 
+# This class is the input for the 'describe_time_series' function.
 class DescribeTimeSeriesRequest(BaseValidatorModel):
     alias: Optional[str] = None
     assetId: Optional[str] = None
@@ -458,6 +487,7 @@ class DetailedError(BaseValidatorModel):
     message: str
 
 
+# This class is the input for the 'disassociate_assets' function.
 class DisassociateAssetsRequest(BaseValidatorModel):
     assetId: str
     hierarchyId: str
@@ -465,6 +495,7 @@ class DisassociateAssetsRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'disassociate_time_series_from_asset_property' function.
 class DisassociateTimeSeriesFromAssetPropertyRequest(BaseValidatorModel):
     alias: str
     assetId: str
@@ -478,6 +509,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'execute_query' function.
 class ExecuteQueryRequest(BaseValidatorModel):
     queryStatement: str
     nextToken: Optional[str] = None
@@ -502,12 +534,14 @@ class SiemensIE(BaseValidatorModel):
     iotCoreThingName: str
 
 
+# This class is the input for the 'get_asset_property_value' function.
 class GetAssetPropertyValueRequest(BaseValidatorModel):
     assetId: Optional[str] = None
     propertyId: Optional[str] = None
     propertyAlias: Optional[str] = None
 
 
+# This class is the input for the 'get_interpolated_asset_property_values' function.
 class GetInterpolatedAssetPropertyValuesRequest(BaseValidatorModel):
     startTimeInSeconds: int
     endTimeInSeconds: int
@@ -548,6 +582,7 @@ class InvalidRequestException(BaseValidatorModel):
     message: str
 
 
+# This class is the input for the 'invoke_assistant' function.
 class InvokeAssistantRequest(BaseValidatorModel):
     message: str
     conversationId: Optional[str] = None
@@ -569,6 +604,7 @@ class LimitExceededException(BaseValidatorModel):
     message: str
 
 
+# This class is the input for the 'list_access_policies' function.
 class ListAccessPoliciesRequest(BaseValidatorModel):
     identityType: Optional[IdentityTypeType] = None
     identityId: Optional[str] = None
@@ -579,6 +615,7 @@ class ListAccessPoliciesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_actions' function.
 class ListActionsRequest(BaseValidatorModel):
     targetResourceType: Literal['ASSET']
     targetResourceId: str
@@ -586,6 +623,7 @@ class ListActionsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_asset_model_composite_models' function.
 class ListAssetModelCompositeModelsRequest(BaseValidatorModel):
     assetModelId: str
     nextToken: Optional[str] = None
@@ -593,6 +631,7 @@ class ListAssetModelCompositeModelsRequest(BaseValidatorModel):
     assetModelVersion: Optional[str] = None
 
 
+# This class is the input for the 'list_asset_model_properties' function.
 class ListAssetModelPropertiesRequest(BaseValidatorModel):
     assetModelId: str
     nextToken: Optional[str] = None
@@ -601,6 +640,7 @@ class ListAssetModelPropertiesRequest(BaseValidatorModel):
     assetModelVersion: Optional[str] = None
 
 
+# This class is the input for the 'list_asset_models' function.
 class ListAssetModelsRequest(BaseValidatorModel):
     assetModelTypes: Optional[List[AssetModelTypeType]] = None
     nextToken: Optional[str] = None
@@ -608,6 +648,7 @@ class ListAssetModelsRequest(BaseValidatorModel):
     assetModelVersion: Optional[str] = None
 
 
+# This class is the input for the 'list_asset_properties' function.
 class ListAssetPropertiesRequest(BaseValidatorModel):
     assetId: str
     nextToken: Optional[str] = None
@@ -615,6 +656,7 @@ class ListAssetPropertiesRequest(BaseValidatorModel):
     filter: Optional[ListAssetPropertiesFilterType] = None
 
 
+# This class is the input for the 'list_asset_relationships' function.
 class ListAssetRelationshipsRequest(BaseValidatorModel):
     assetId: str
     traversalType: Literal['PATH_TO_ROOT']
@@ -622,6 +664,7 @@ class ListAssetRelationshipsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_assets' function.
 class ListAssetsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -629,6 +672,7 @@ class ListAssetsRequest(BaseValidatorModel):
     filter: Optional[ListAssetsFilterType] = None
 
 
+# This class is the input for the 'list_associated_assets' function.
 class ListAssociatedAssetsRequest(BaseValidatorModel):
     assetId: str
     hierarchyId: Optional[str] = None
@@ -637,46 +681,54 @@ class ListAssociatedAssetsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_bulk_import_jobs' function.
 class ListBulkImportJobsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     filter: Optional[ListBulkImportJobsFilterType] = None
 
 
+# This class is the input for the 'list_composition_relationships' function.
 class ListCompositionRelationshipsRequest(BaseValidatorModel):
     assetModelId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_dashboards' function.
 class ListDashboardsRequest(BaseValidatorModel):
     projectId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_datasets' function.
 class ListDatasetsRequest(BaseValidatorModel):
     sourceType: Literal['KENDRA']
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_gateways' function.
 class ListGatewaysRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_portals' function.
 class ListPortalsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_project_assets' function.
 class ListProjectAssetsRequest(BaseValidatorModel):
     projectId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_projects' function.
 class ListProjectsRequest(BaseValidatorModel):
     portalId: str
     nextToken: Optional[str] = None
@@ -691,10 +743,12 @@ class ProjectSummary(BaseValidatorModel):
     lastUpdateDate: Optional[datetime] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'list_time_series' function.
 class ListTimeSeriesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -749,6 +803,7 @@ class PropertyValueNullValue(BaseValidatorModel):
     valueType: RawValueTypeType
 
 
+# This class is the input for the 'put_default_encryption_configuration' function.
 class PutDefaultEncryptionConfigurationRequest(BaseValidatorModel):
     encryptionType: EncryptionTypeType
     kmsKeyId: Optional[str] = None
@@ -776,6 +831,7 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_asset_property' function.
 class UpdateAssetPropertyRequest(BaseValidatorModel):
     assetId: str
     propertyId: str
@@ -785,6 +841,7 @@ class UpdateAssetPropertyRequest(BaseValidatorModel):
     propertyUnit: Optional[str] = None
 
 
+# This class is the input for the 'update_asset' function.
 class UpdateAssetRequest(BaseValidatorModel):
     assetId: str
     assetName: str
@@ -801,12 +858,14 @@ class UpdateDashboardRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'update_gateway_capability_configuration' function.
 class UpdateGatewayCapabilityConfigurationRequest(BaseValidatorModel):
     gatewayId: str
     capabilityNamespace: str
     capabilityConfiguration: str
 
 
+# This class is the input for the 'update_gateway' function.
 class UpdateGatewayRequest(BaseValidatorModel):
     gatewayId: str
     gatewayName: str
@@ -825,6 +884,7 @@ class ActionSummary(BaseValidatorModel):
     targetResource: Optional[TargetResource] = None
 
 
+# This class is the input for the 'execute_action' function.
 class ExecuteActionRequest(BaseValidatorModel):
     targetResource: TargetResource
     actionDefinitionId: str
@@ -901,22 +961,26 @@ class BatchPutAssetPropertyError(BaseValidatorModel):
     timestamps: List[TimeInNanos]
 
 
+# This class is the output for the 'batch_associate_project_assets' function.
 class BatchAssociateProjectAssetsResponse(BaseValidatorModel):
     errors: List[AssetErrorDetails]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_disassociate_project_assets' function.
 class BatchDisassociateProjectAssetsResponse(BaseValidatorModel):
     errors: List[AssetErrorDetails]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_access_policy' function.
 class CreateAccessPolicyResponse(BaseValidatorModel):
     accessPolicyId: str
     accessPolicyArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_bulk_import_job' function.
 class CreateBulkImportJobResponse(BaseValidatorModel):
     jobId: str
     jobName: str
@@ -924,24 +988,28 @@ class CreateBulkImportJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_dashboard' function.
 class CreateDashboardResponse(BaseValidatorModel):
     dashboardId: str
     dashboardArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_gateway' function.
 class CreateGatewayResponse(BaseValidatorModel):
     gatewayId: str
     gatewayArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_project' function.
 class CreateProjectResponse(BaseValidatorModel):
     projectId: str
     projectArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_action' function.
 class DescribeActionResponse(BaseValidatorModel):
     actionId: str
     targetResource: TargetResource
@@ -951,6 +1019,7 @@ class DescribeActionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_dashboard' function.
 class DescribeDashboardResponse(BaseValidatorModel):
     dashboardId: str
     dashboardArn: str
@@ -963,6 +1032,7 @@ class DescribeDashboardResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_gateway_capability_configuration' function.
 class DescribeGatewayCapabilityConfigurationResponse(BaseValidatorModel):
     gatewayId: str
     capabilityNamespace: str
@@ -971,6 +1041,7 @@ class DescribeGatewayCapabilityConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_project' function.
 class DescribeProjectResponse(BaseValidatorModel):
     projectId: str
     projectArn: str
@@ -982,6 +1053,7 @@ class DescribeProjectResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_time_series' function.
 class DescribeTimeSeriesResponse(BaseValidatorModel):
     assetId: str
     propertyId: str
@@ -995,26 +1067,31 @@ class DescribeTimeSeriesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_gateway' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'execute_action' function.
 class ExecuteActionResponse(BaseValidatorModel):
     actionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_project_assets' function.
 class ListProjectAssetsResponse(BaseValidatorModel):
     assetIds: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_gateway_capability_configuration' function.
 class UpdateGatewayCapabilityConfigurationResponse(BaseValidatorModel):
     capabilityNamespace: str
     capabilitySyncStatus: CapabilitySyncStatusType
@@ -1045,6 +1122,7 @@ class BatchGetAssetPropertyValueHistoryEntry(BaseValidatorModel):
     timeOrdering: Optional[TimeOrderingType] = None
 
 
+# This class is the input for the 'get_asset_property_aggregates' function.
 class GetAssetPropertyAggregatesRequest(BaseValidatorModel):
     aggregateTypes: List[AggregateTypeType]
     resolution: str
@@ -1059,6 +1137,7 @@ class GetAssetPropertyAggregatesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_asset_property_value_history' function.
 class GetAssetPropertyValueHistoryRequest(BaseValidatorModel):
     assetId: Optional[str] = None
     propertyId: Optional[str] = None
@@ -1077,6 +1156,7 @@ class BatchGetAssetPropertyAggregatesSkippedEntry(BaseValidatorModel):
     errorInfo: Optional[BatchGetAssetPropertyAggregatesErrorInfo] = None
 
 
+# This class is the input for the 'batch_get_asset_property_value' function.
 class BatchGetAssetPropertyValueRequest(BaseValidatorModel):
     entries: List[BatchGetAssetPropertyValueEntry]
     nextToken: Optional[str] = None
@@ -1108,6 +1188,7 @@ class CompositionDetails(BaseValidatorModel):
     compositionRelationship: Optional[List[CompositionRelationshipItem]] = None
 
 
+# This class is the output for the 'list_composition_relationships' function.
 class ListCompositionRelationshipsResponse(BaseValidatorModel):
     compositionRelationshipSummaries: List[CompositionRelationshipSummary]
     ResponseMetadata: ResponseMetadata
@@ -1133,6 +1214,7 @@ class MultiLayerStorage(BaseValidatorModel):
     customerManagedS3Storage: CustomerManagedS3Storage
 
 
+# This class is the output for the 'list_dashboards' function.
 class ListDashboardsResponse(BaseValidatorModel):
     dashboardSummaries: List[DashboardSummary]
     ResponseMetadata: ResponseMetadata
@@ -1373,6 +1455,7 @@ class Identity(BaseValidatorModel):
     iamRole: Optional[IAMRoleIdentity] = None
 
 
+# This class is the output for the 'list_bulk_import_jobs' function.
 class ListBulkImportJobsResponse(BaseValidatorModel):
     jobSummaries: List[JobSummary]
     ResponseMetadata: ResponseMetadata
@@ -1383,12 +1466,14 @@ class SourceDetail(BaseValidatorModel):
     kendra: Optional[KendraSourceDetail] = None
 
 
+# This class is the output for the 'list_projects' function.
 class ListProjectsResponse(BaseValidatorModel):
     projectSummaries: List[ProjectSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_time_series' function.
 class ListTimeSeriesResponse(BaseValidatorModel):
     TimeSeriesSummaries: List[TimeSeriesSummary]
     ResponseMetadata: ResponseMetadata
@@ -1424,6 +1509,7 @@ class Variant(BaseValidatorModel):
     nullValue: Optional[PropertyValueNullValue] = None
 
 
+# This class is the output for the 'list_actions' function.
 class ListActionsResponse(BaseValidatorModel):
     actionSummaries: List[ActionSummary]
     nextToken: str
@@ -1435,18 +1521,21 @@ class BatchGetAssetPropertyAggregatesSuccessEntry(BaseValidatorModel):
     aggregatedValues: List[AggregatedValue]
 
 
+# This class is the output for the 'get_asset_property_aggregates' function.
 class GetAssetPropertyAggregatesResponse(BaseValidatorModel):
     aggregatedValues: List[AggregatedValue]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_asset_relationships' function.
 class ListAssetRelationshipsResponse(BaseValidatorModel):
     assetRelationshipSummaries: List[AssetRelationshipSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_asset_model_composite_models' function.
 class ListAssetModelCompositeModelsResponse(BaseValidatorModel):
     assetModelCompositeModelSummaries: List[AssetModelCompositeModelSummary]
     ResponseMetadata: ResponseMetadata
@@ -1460,6 +1549,7 @@ class ExpressionVariableOutput(BaseValidatorModel):
 VariableValueUnion = Union[VariableValue, VariableValueOutput]
 
 
+# This class is the output for the 'list_asset_properties' function.
 class ListAssetPropertiesResponse(BaseValidatorModel):
     assetPropertySummaries: List[AssetPropertySummary]
     ResponseMetadata: ResponseMetadata
@@ -1475,6 +1565,7 @@ class AssetCompositeModel(BaseValidatorModel):
     externalId: Optional[str] = None
 
 
+# This class is the output for the 'describe_asset_composite_model' function.
 class DescribeAssetCompositeModelResponse(BaseValidatorModel):
     assetId: str
     assetCompositeModelId: str
@@ -1494,12 +1585,14 @@ class BatchPutAssetPropertyErrorEntry(BaseValidatorModel):
     errors: List[BatchPutAssetPropertyError]
 
 
+# This class is the input for the 'batch_get_asset_property_aggregates' function.
 class BatchGetAssetPropertyAggregatesRequest(BaseValidatorModel):
     entries: List[BatchGetAssetPropertyAggregatesEntry]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'batch_get_asset_property_value_history' function.
 class BatchGetAssetPropertyValueHistoryRequest(BaseValidatorModel):
     entries: List[BatchGetAssetPropertyValueHistoryEntry]
     nextToken: Optional[str] = None
@@ -1518,6 +1611,7 @@ class DescribeDefaultEncryptionConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_default_encryption_configuration' function.
 class PutDefaultEncryptionConfigurationResponse(BaseValidatorModel):
     encryptionType: EncryptionTypeType
     kmsKeyArn: str
@@ -1546,6 +1640,7 @@ class DescribeStorageConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_storage_configuration' function.
 class PutStorageConfigurationRequest(BaseValidatorModel):
     storageType: StorageTypeType
     multiLayerStorage: Optional[MultiLayerStorage] = None
@@ -1556,6 +1651,7 @@ class PutStorageConfigurationRequest(BaseValidatorModel):
     disallowIngestNullNaN: Optional[bool] = None
 
 
+# This class is the output for the 'put_storage_configuration' function.
 class PutStorageConfigurationResponse(BaseValidatorModel):
     storageType: StorageTypeType
     multiLayerStorage: MultiLayerStorage
@@ -1575,6 +1671,7 @@ class ExecuteQueryResponsePaginator(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'execute_query' function.
 class ExecuteQueryResponse(BaseValidatorModel):
     columns: List[ColumnInfo]
     rows: List[Row]
@@ -1608,6 +1705,7 @@ class Measurement(BaseValidatorModel):
     processingConfig: Optional[MeasurementProcessingConfig] = None
 
 
+# This class is the input for the 'create_gateway' function.
 class CreateGatewayRequest(BaseValidatorModel):
     gatewayName: str
     gatewayPlatform: GatewayPlatform
@@ -1615,6 +1713,7 @@ class CreateGatewayRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'describe_gateway' function.
 class DescribeGatewayResponse(BaseValidatorModel):
     gatewayId: str
     gatewayName: str
@@ -1648,6 +1747,7 @@ class DataSetReference(BaseValidatorModel):
     source: Optional[Source] = None
 
 
+# This class is the output for the 'create_portal' function.
 class CreatePortalResponse(BaseValidatorModel):
     portalId: str
     portalArn: str
@@ -1657,11 +1757,13 @@ class CreatePortalResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_portal' function.
 class DeletePortalResponse(BaseValidatorModel):
     portalStatus: PortalStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_portal' function.
 class DescribePortalResponse(BaseValidatorModel):
     portalId: str
     portalArn: str
@@ -1695,11 +1797,13 @@ class PortalSummary(BaseValidatorModel):
     portalType: Optional[PortalTypeType] = None
 
 
+# This class is the output for the 'update_portal' function.
 class UpdatePortalResponse(BaseValidatorModel):
     portalStatus: PortalStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_portal' function.
 class CreatePortalRequest(BaseValidatorModel):
     portalName: str
     portalContactEmail: str
@@ -1724,6 +1828,7 @@ class AccessPolicySummary(BaseValidatorModel):
     lastUpdateDate: Optional[datetime] = None
 
 
+# This class is the input for the 'create_access_policy' function.
 class CreateAccessPolicyRequest(BaseValidatorModel):
     accessPolicyIdentity: Identity
     accessPolicyResource: Resource
@@ -1732,6 +1837,7 @@ class CreateAccessPolicyRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'describe_access_policy' function.
 class DescribeAccessPolicyResponse(BaseValidatorModel):
     accessPolicyId: str
     accessPolicyArn: str
@@ -1762,6 +1868,7 @@ class InterpolatedAssetPropertyValue(BaseValidatorModel):
     value: Variant
 
 
+# This class is the output for the 'batch_get_asset_property_aggregates' function.
 class BatchGetAssetPropertyAggregatesResponse(BaseValidatorModel):
     errorEntries: List[BatchGetAssetPropertyAggregatesErrorEntry]
     successEntries: List[BatchGetAssetPropertyAggregatesSuccessEntry]
@@ -1788,11 +1895,13 @@ class ExpressionVariable(BaseValidatorModel):
     value: VariableValueUnion
 
 
+# This class is the output for the 'batch_put_asset_property_value' function.
 class BatchPutAssetPropertyValueResponse(BaseValidatorModel):
     errorEntries: List[BatchPutAssetPropertyErrorEntry]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_portal' function.
 class UpdatePortalRequest(BaseValidatorModel):
     portalId: str
     portalName: str
@@ -1807,6 +1916,7 @@ class UpdatePortalRequest(BaseValidatorModel):
     portalTypeConfiguration: Optional[Dict[str, PortalTypeEntryUnion]] = None
 
 
+# This class is the output for the 'describe_bulk_import_job' function.
 class DescribeBulkImportJobResponse(BaseValidatorModel):
     jobId: str
     jobName: str
@@ -1837,6 +1947,7 @@ class AssetModelSummary(BaseValidatorModel):
     version: Optional[str] = None
 
 
+# This class is the output for the 'create_asset_model_composite_model' function.
 class CreateAssetModelCompositeModelResponse(BaseValidatorModel):
     assetModelCompositeModelId: str
     assetModelCompositeModelPath: List[AssetModelCompositeModelPathSegment]
@@ -1844,6 +1955,7 @@ class CreateAssetModelCompositeModelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_asset_model' function.
 class CreateAssetModelResponse(BaseValidatorModel):
     assetModelId: str
     assetModelArn: str
@@ -1851,22 +1963,26 @@ class CreateAssetModelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_asset_model_composite_model' function.
 class DeleteAssetModelCompositeModelResponse(BaseValidatorModel):
     assetModelStatus: AssetModelStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_asset_model' function.
 class DeleteAssetModelResponse(BaseValidatorModel):
     assetModelStatus: AssetModelStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_asset_model_composite_model' function.
 class UpdateAssetModelCompositeModelResponse(BaseValidatorModel):
     assetModelCompositeModelPath: List[AssetModelCompositeModelPathSegment]
     assetModelStatus: AssetModelStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_asset_model' function.
 class UpdateAssetModelResponse(BaseValidatorModel):
     assetModelStatus: AssetModelStatus
     ResponseMetadata: ResponseMetadata
@@ -1898,6 +2014,7 @@ class AssociatedAssetsSummary(BaseValidatorModel):
     externalId: Optional[str] = None
 
 
+# This class is the output for the 'create_asset' function.
 class CreateAssetResponse(BaseValidatorModel):
     assetId: str
     assetArn: str
@@ -1905,11 +2022,13 @@ class CreateAssetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_asset' function.
 class DeleteAssetResponse(BaseValidatorModel):
     assetStatus: AssetStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_asset' function.
 class DescribeAssetResponse(BaseValidatorModel):
     assetId: str
     assetArn: str
@@ -1927,11 +2046,13 @@ class DescribeAssetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_asset' function.
 class UpdateAssetResponse(BaseValidatorModel):
     assetStatus: AssetStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_dataset' function.
 class CreateDatasetResponse(BaseValidatorModel):
     datasetId: str
     datasetArn: str
@@ -1949,11 +2070,13 @@ class DatasetSummary(BaseValidatorModel):
     status: DatasetStatus
 
 
+# This class is the output for the 'delete_dataset' function.
 class DeleteDatasetResponse(BaseValidatorModel):
     datasetStatus: DatasetStatus
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_dataset' function.
 class UpdateDatasetResponse(BaseValidatorModel):
     datasetId: str
     datasetArn: str
@@ -1961,12 +2084,14 @@ class UpdateDatasetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_gateways' function.
 class ListGatewaysResponse(BaseValidatorModel):
     gatewaySummaries: List[GatewaySummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_dataset' function.
 class CreateDatasetRequest(BaseValidatorModel):
     datasetName: str
     datasetSource: DatasetSource
@@ -1976,6 +2101,7 @@ class CreateDatasetRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'describe_dataset' function.
 class DescribeDatasetResponse(BaseValidatorModel):
     datasetId: str
     datasetArn: str
@@ -1989,6 +2115,7 @@ class DescribeDatasetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_dataset' function.
 class UpdateDatasetRequest(BaseValidatorModel):
     datasetId: str
     datasetName: str
@@ -2001,12 +2128,14 @@ class Reference(BaseValidatorModel):
     dataset: Optional[DataSetReference] = None
 
 
+# This class is the output for the 'list_portals' function.
 class ListPortalsResponse(BaseValidatorModel):
     portalSummaries: List[PortalSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_access_policies' function.
 class ListAccessPoliciesResponse(BaseValidatorModel):
     accessPolicySummaries: List[AccessPolicySummary]
     ResponseMetadata: ResponseMetadata
@@ -2023,12 +2152,14 @@ class BatchGetAssetPropertyValueSuccessEntry(BaseValidatorModel):
     assetPropertyValue: Optional[AssetPropertyValue] = None
 
 
+# This class is the output for the 'get_asset_property_value_history' function.
 class GetAssetPropertyValueHistoryResponse(BaseValidatorModel):
     assetPropertyValueHistory: List[AssetPropertyValue]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_asset_property_value' function.
 class GetAssetPropertyValueResponse(BaseValidatorModel):
     propertyValue: AssetPropertyValue
     ResponseMetadata: ResponseMetadata
@@ -2042,6 +2173,7 @@ class PutAssetPropertyValueEntry(BaseValidatorModel):
     propertyAlias: Optional[str] = None
 
 
+# This class is the output for the 'get_interpolated_asset_property_values' function.
 class GetInterpolatedAssetPropertyValuesResponse(BaseValidatorModel):
     interpolatedAssetPropertyValues: List[InterpolatedAssetPropertyValue]
     ResponseMetadata: ResponseMetadata
@@ -2057,6 +2189,7 @@ class PropertyTypeOutput(BaseValidatorModel):
 ExpressionVariableUnion = Union[ExpressionVariable, ExpressionVariableOutput]
 
 
+# This class is the input for the 'create_bulk_import_job' function.
 class CreateBulkImportJobRequest(BaseValidatorModel):
     jobName: str
     jobRoleArn: str
@@ -2067,24 +2200,28 @@ class CreateBulkImportJobRequest(BaseValidatorModel):
     deleteFilesAfterImport: Optional[bool] = None
 
 
+# This class is the output for the 'list_asset_models' function.
 class ListAssetModelsResponse(BaseValidatorModel):
     assetModelSummaries: List[AssetModelSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_assets' function.
 class ListAssetsResponse(BaseValidatorModel):
     assetSummaries: List[AssetSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_associated_assets' function.
 class ListAssociatedAssetsResponse(BaseValidatorModel):
     assetSummaries: List[AssociatedAssetsSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_datasets' function.
 class ListDatasetsResponse(BaseValidatorModel):
     datasetSummaries: List[DatasetSummary]
     ResponseMetadata: ResponseMetadata
@@ -2096,6 +2233,7 @@ class Citation(BaseValidatorModel):
     content: Optional[Content] = None
 
 
+# This class is the output for the 'batch_get_asset_property_value_history' function.
 class BatchGetAssetPropertyValueHistoryResponse(BaseValidatorModel):
     errorEntries: List[BatchGetAssetPropertyValueHistoryErrorEntry]
     successEntries: List[BatchGetAssetPropertyValueHistorySuccessEntry]
@@ -2104,6 +2242,7 @@ class BatchGetAssetPropertyValueHistoryResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'batch_get_asset_property_value' function.
 class BatchGetAssetPropertyValueResponse(BaseValidatorModel):
     errorEntries: List[BatchGetAssetPropertyValueErrorEntry]
     successEntries: List[BatchGetAssetPropertyValueSuccessEntry]
@@ -2112,6 +2251,7 @@ class BatchGetAssetPropertyValueResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'batch_put_asset_property_value' function.
 class BatchPutAssetPropertyValueRequest(BaseValidatorModel):
     entries: List[PutAssetPropertyValueEntry]
     enablePartialEntryProcessing: Optional[bool] = None
@@ -2179,6 +2319,7 @@ class AssetModelCompositeModelOutput(BaseValidatorModel):
     externalId: Optional[str] = None
 
 
+# This class is the output for the 'describe_asset_model_composite_model' function.
 class DescribeAssetModelCompositeModelResponse(BaseValidatorModel):
     assetModelId: str
     assetModelCompositeModelId: str
@@ -2194,6 +2335,7 @@ class DescribeAssetModelCompositeModelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_asset_model_properties' function.
 class ListAssetModelPropertiesResponse(BaseValidatorModel):
     assetModelPropertySummaries: List[AssetModelPropertySummary]
     ResponseMetadata: ResponseMetadata
@@ -2224,6 +2366,7 @@ class ResponseStream(BaseValidatorModel):
     throttlingException: Optional[ThrottlingException] = None
 
 
+# This class is the output for the 'describe_asset_model' function.
 class DescribeAssetModelResponse(BaseValidatorModel):
     assetModelId: str
     assetModelExternalId: str
@@ -2243,6 +2386,7 @@ class DescribeAssetModelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_asset_property' function.
 class DescribeAssetPropertyResponse(BaseValidatorModel):
     assetId: str
     assetName: str
@@ -2260,6 +2404,7 @@ class PropertyType(BaseValidatorModel):
     metric: Optional[MetricUnion] = None
 
 
+# This class is the output for the 'invoke_assistant' function.
 class InvokeAssistantResponse(BaseValidatorModel):
     body: EventStream[ResponseStream]
     conversationId: str
@@ -2298,6 +2443,7 @@ class AssetModelCompositeModelDefinition(BaseValidatorModel):
     properties: Optional[List[AssetModelPropertyDefinition]] = None
 
 
+# This class is the input for the 'create_asset_model_composite_model' function.
 class CreateAssetModelCompositeModelRequest(BaseValidatorModel):
     assetModelId: str
     assetModelCompositeModelName: str
@@ -2316,6 +2462,7 @@ class CreateAssetModelCompositeModelRequest(BaseValidatorModel):
 AssetModelPropertyUnion = Union[AssetModelProperty, AssetModelPropertyOutput]
 
 
+# This class is the input for the 'create_asset_model' function.
 class CreateAssetModelRequest(BaseValidatorModel):
     assetModelName: str
     assetModelType: Optional[AssetModelTypeType] = None
@@ -2338,6 +2485,7 @@ class AssetModelCompositeModel(BaseValidatorModel):
     externalId: Optional[str] = None
 
 
+# This class is the input for the 'update_asset_model_composite_model' function.
 class UpdateAssetModelCompositeModelRequest(BaseValidatorModel):
     assetModelId: str
     assetModelCompositeModelId: str
@@ -2353,6 +2501,7 @@ class UpdateAssetModelCompositeModelRequest(BaseValidatorModel):
 AssetModelCompositeModelUnion = Union[AssetModelCompositeModel, AssetModelCompositeModelOutput]
 
 
+# This class is the input for the 'update_asset_model' function.
 class UpdateAssetModelRequest(BaseValidatorModel):
     assetModelId: str
     assetModelName: str

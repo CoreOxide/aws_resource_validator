@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'accept_resource_share_invitation' function.
 class AcceptResourceShareInvitationRequest(BaseValidatorModel):
     resourceShareInvitationArn: str
     clientToken: Optional[str] = None
@@ -21,6 +22,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'associate_resource_share_permission' function.
 class AssociateResourceSharePermissionRequest(BaseValidatorModel):
     resourceShareArn: str
     permissionArn: str
@@ -29,6 +31,7 @@ class AssociateResourceSharePermissionRequest(BaseValidatorModel):
     permissionVersion: Optional[int] = None
 
 
+# This class is the input for the 'associate_resource_share' function.
 class AssociateResourceShareRequest(BaseValidatorModel):
     resourceShareArn: str
     resourceArns: Optional[List[str]] = None
@@ -65,34 +68,40 @@ class Tag(BaseValidatorModel):
     value: Optional[str] = None
 
 
+# This class is the input for the 'create_permission_version' function.
 class CreatePermissionVersionRequest(BaseValidatorModel):
     permissionArn: str
     policyTemplate: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_permission' function.
 class DeletePermissionRequest(BaseValidatorModel):
     permissionArn: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_permission_version' function.
 class DeletePermissionVersionRequest(BaseValidatorModel):
     permissionArn: str
     permissionVersion: int
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_resource_share' function.
 class DeleteResourceShareRequest(BaseValidatorModel):
     resourceShareArn: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'disassociate_resource_share_permission' function.
 class DisassociateResourceSharePermissionRequest(BaseValidatorModel):
     resourceShareArn: str
     permissionArn: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'disassociate_resource_share' function.
 class DisassociateResourceShareRequest(BaseValidatorModel):
     resourceShareArn: str
     resourceArns: Optional[List[str]] = None
@@ -101,6 +110,7 @@ class DisassociateResourceShareRequest(BaseValidatorModel):
     sources: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_permission' function.
 class GetPermissionRequest(BaseValidatorModel):
     permissionArn: str
     permissionVersion: Optional[int] = None
@@ -112,6 +122,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'get_resource_policies' function.
 class GetResourcePoliciesRequest(BaseValidatorModel):
     resourceArns: List[str]
     principal: Optional[str] = None
@@ -119,6 +130,7 @@ class GetResourcePoliciesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_resource_share_associations' function.
 class GetResourceShareAssociationsRequest(BaseValidatorModel):
     associationType: ResourceShareAssociationTypeType
     resourceShareArns: Optional[List[str]] = None
@@ -129,6 +141,7 @@ class GetResourceShareAssociationsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_resource_share_invitations' function.
 class GetResourceShareInvitationsRequest(BaseValidatorModel):
     resourceShareInvitationArns: Optional[List[str]] = None
     resourceShareArns: Optional[List[str]] = None
@@ -141,6 +154,7 @@ class TagFilter(BaseValidatorModel):
     tagValues: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_pending_invitation_resources' function.
 class ListPendingInvitationResourcesRequest(BaseValidatorModel):
     resourceShareInvitationArn: str
     nextToken: Optional[str] = None
@@ -160,6 +174,7 @@ class Resource(BaseValidatorModel):
     resourceRegionScope: Optional[ResourceRegionScopeType] = None
 
 
+# This class is the input for the 'list_permission_associations' function.
 class ListPermissionAssociationsRequest(BaseValidatorModel):
     permissionArn: Optional[str] = None
     permissionVersion: Optional[int] = None
@@ -171,12 +186,14 @@ class ListPermissionAssociationsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_permission_versions' function.
 class ListPermissionVersionsRequest(BaseValidatorModel):
     permissionArn: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_permissions' function.
 class ListPermissionsRequest(BaseValidatorModel):
     resourceType: Optional[str] = None
     nextToken: Optional[str] = None
@@ -184,6 +201,7 @@ class ListPermissionsRequest(BaseValidatorModel):
     permissionType: Optional[PermissionTypeFilterType] = None
 
 
+# This class is the input for the 'list_principals' function.
 class ListPrincipalsRequest(BaseValidatorModel):
     resourceOwner: ResourceOwnerType
     resourceArn: Optional[str] = None
@@ -202,6 +220,7 @@ class Principal(BaseValidatorModel):
     external: Optional[bool] = None
 
 
+# This class is the input for the 'list_replace_permission_associations_work' function.
 class ListReplacePermissionAssociationsWorkRequest(BaseValidatorModel):
     workIds: Optional[List[str]] = None
     status: Optional[ReplacePermissionAssociationsWorkStatusType] = None
@@ -221,12 +240,14 @@ class ReplacePermissionAssociationsWork(BaseValidatorModel):
     lastUpdatedTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_resource_share_permissions' function.
 class ListResourceSharePermissionsRequest(BaseValidatorModel):
     resourceShareArn: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_resource_types' function.
 class ListResourceTypesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -239,6 +260,7 @@ class ServiceNameAndResourceType(BaseValidatorModel):
     resourceRegionScope: Optional[ResourceRegionScopeType] = None
 
 
+# This class is the input for the 'list_resources' function.
 class ListResourcesRequest(BaseValidatorModel):
     resourceOwner: ResourceOwnerType
     principal: Optional[str] = None
@@ -250,21 +272,25 @@ class ListResourcesRequest(BaseValidatorModel):
     resourceRegionScope: Optional[ResourceRegionScopeFilterType] = None
 
 
+# This class is the input for the 'promote_permission_created_from_policy' function.
 class PromotePermissionCreatedFromPolicyRequest(BaseValidatorModel):
     permissionArn: str
     name: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'promote_resource_share_created_from_policy' function.
 class PromoteResourceShareCreatedFromPolicyRequest(BaseValidatorModel):
     resourceShareArn: str
 
 
+# This class is the input for the 'reject_resource_share_invitation' function.
 class RejectResourceShareInvitationRequest(BaseValidatorModel):
     resourceShareInvitationArn: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'replace_permission_associations' function.
 class ReplacePermissionAssociationsRequest(BaseValidatorModel):
     fromPermissionArn: str
     toPermissionArn: str
@@ -272,6 +298,7 @@ class ReplacePermissionAssociationsRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'set_default_permission_version' function.
 class SetDefaultPermissionVersionRequest(BaseValidatorModel):
     permissionArn: str
     permissionVersion: int
@@ -284,6 +311,7 @@ class UntagResourceRequest(BaseValidatorModel):
     resourceArn: Optional[str] = None
 
 
+# This class is the input for the 'update_resource_share' function.
 class UpdateResourceShareRequest(BaseValidatorModel):
     resourceShareArn: str
     name: Optional[str] = None
@@ -291,12 +319,14 @@ class UpdateResourceShareRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the output for the 'associate_resource_share_permission' function.
 class AssociateResourceSharePermissionResponse(BaseValidatorModel):
     returnValue: bool
     clientToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_permission' function.
 class DeletePermissionResponse(BaseValidatorModel):
     returnValue: bool
     clientToken: str
@@ -304,6 +334,7 @@ class DeletePermissionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_permission_version' function.
 class DeletePermissionVersionResponse(BaseValidatorModel):
     returnValue: bool
     clientToken: str
@@ -311,12 +342,14 @@ class DeletePermissionVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_resource_share' function.
 class DeleteResourceShareResponse(BaseValidatorModel):
     returnValue: bool
     clientToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_resource_share_permission' function.
 class DisassociateResourceSharePermissionResponse(BaseValidatorModel):
     returnValue: bool
     clientToken: str
@@ -328,35 +361,41 @@ class EnableSharingWithAwsOrganizationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_policies' function.
 class GetResourcePoliciesResponse(BaseValidatorModel):
     policies: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'promote_resource_share_created_from_policy' function.
 class PromoteResourceShareCreatedFromPolicyResponse(BaseValidatorModel):
     returnValue: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'set_default_permission_version' function.
 class SetDefaultPermissionVersionResponse(BaseValidatorModel):
     returnValue: bool
     clientToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_resource_share' function.
 class AssociateResourceShareResponse(BaseValidatorModel):
     resourceShareAssociations: List[ResourceShareAssociation]
     clientToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_resource_share' function.
 class DisassociateResourceShareResponse(BaseValidatorModel):
     resourceShareAssociations: List[ResourceShareAssociation]
     clientToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_share_associations' function.
 class GetResourceShareAssociationsResponse(BaseValidatorModel):
     resourceShareAssociations: List[ResourceShareAssociation]
     ResponseMetadata: ResponseMetadata
@@ -375,12 +414,14 @@ class ResourceShareInvitation(BaseValidatorModel):
     receiverArn: Optional[str] = None
 
 
+# This class is the output for the 'list_permission_associations' function.
 class ListPermissionAssociationsResponse(BaseValidatorModel):
     permissions: List[AssociatedPermission]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_permission' function.
 class CreatePermissionRequest(BaseValidatorModel):
     name: str
     resourceType: str
@@ -389,6 +430,7 @@ class CreatePermissionRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_resource_share' function.
 class CreateResourceShareRequest(BaseValidatorModel):
     name: str
     resourceArns: Optional[List[str]] = None
@@ -501,6 +543,7 @@ class GetResourceSharesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_resource_shares' function.
 class GetResourceSharesRequest(BaseValidatorModel):
     resourceOwner: ResourceOwnerType
     resourceShareArns: Optional[List[str]] = None
@@ -513,113 +556,132 @@ class GetResourceSharesRequest(BaseValidatorModel):
     permissionVersion: Optional[int] = None
 
 
+# This class is the output for the 'list_pending_invitation_resources' function.
 class ListPendingInvitationResourcesResponse(BaseValidatorModel):
     resources: List[Resource]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_resources' function.
 class ListResourcesResponse(BaseValidatorModel):
     resources: List[Resource]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_principals' function.
 class ListPrincipalsResponse(BaseValidatorModel):
     principals: List[Principal]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_replace_permission_associations_work' function.
 class ListReplacePermissionAssociationsWorkResponse(BaseValidatorModel):
     replacePermissionAssociationsWorks: List[ReplacePermissionAssociationsWork]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'replace_permission_associations' function.
 class ReplacePermissionAssociationsResponse(BaseValidatorModel):
     replacePermissionAssociationsWork: ReplacePermissionAssociationsWork
     clientToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_resource_types' function.
 class ListResourceTypesResponse(BaseValidatorModel):
     resourceTypes: List[ServiceNameAndResourceType]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'accept_resource_share_invitation' function.
 class AcceptResourceShareInvitationResponse(BaseValidatorModel):
     resourceShareInvitation: ResourceShareInvitation
     clientToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_share_invitations' function.
 class GetResourceShareInvitationsResponse(BaseValidatorModel):
     resourceShareInvitations: List[ResourceShareInvitation]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'reject_resource_share_invitation' function.
 class RejectResourceShareInvitationResponse(BaseValidatorModel):
     resourceShareInvitation: ResourceShareInvitation
     clientToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_permission_version' function.
 class CreatePermissionVersionResponse(BaseValidatorModel):
     permission: ResourceSharePermissionDetail
     clientToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_permission' function.
 class GetPermissionResponse(BaseValidatorModel):
     permission: ResourceSharePermissionDetail
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_permission' function.
 class CreatePermissionResponse(BaseValidatorModel):
     permission: ResourceSharePermissionSummary
     clientToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_permission_versions' function.
 class ListPermissionVersionsResponse(BaseValidatorModel):
     permissions: List[ResourceSharePermissionSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_permissions' function.
 class ListPermissionsResponse(BaseValidatorModel):
     permissions: List[ResourceSharePermissionSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_resource_share_permissions' function.
 class ListResourceSharePermissionsResponse(BaseValidatorModel):
     permissions: List[ResourceSharePermissionSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'promote_permission_created_from_policy' function.
 class PromotePermissionCreatedFromPolicyResponse(BaseValidatorModel):
     permission: ResourceSharePermissionSummary
     clientToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_resource_share' function.
 class CreateResourceShareResponse(BaseValidatorModel):
     resourceShare: ResourceShare
     clientToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_shares' function.
 class GetResourceSharesResponse(BaseValidatorModel):
     resourceShares: List[ResourceShare]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_resource_share' function.
 class UpdateResourceShareResponse(BaseValidatorModel):
     resourceShare: ResourceShare
     clientToken: str

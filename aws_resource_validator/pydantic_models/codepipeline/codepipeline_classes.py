@@ -14,6 +14,7 @@ class AWSSessionCredentials(BaseValidatorModel):
     sessionToken: str
 
 
+# This class is the input for the 'acknowledge_job' function.
 class AcknowledgeJobInput(BaseValidatorModel):
     jobId: str
     nonce: str
@@ -27,6 +28,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'acknowledge_third_party_job' function.
 class AcknowledgeThirdPartyJobInput(BaseValidatorModel):
     jobId: str
     nonce: str
@@ -189,12 +191,14 @@ class Tag(BaseValidatorModel):
     value: str
 
 
+# This class is the input for the 'delete_custom_action_type' function.
 class DeleteCustomActionTypeInput(BaseValidatorModel):
     category: ActionCategoryType
     provider: str
     version: str
 
 
+# This class is the input for the 'delete_pipeline' function.
 class DeletePipelineInput(BaseValidatorModel):
     name: str
 
@@ -207,6 +211,7 @@ class DeregisterWebhookWithThirdPartyInput(BaseValidatorModel):
     webhookName: Optional[str] = None
 
 
+# This class is the input for the 'disable_stage_transition' function.
 class DisableStageTransitionInput(BaseValidatorModel):
     pipelineName: str
     stageName: str
@@ -214,6 +219,7 @@ class DisableStageTransitionInput(BaseValidatorModel):
     reason: str
 
 
+# This class is the input for the 'enable_stage_transition' function.
 class EnableStageTransitionInput(BaseValidatorModel):
     pipelineName: str
     stageName: str
@@ -255,6 +261,7 @@ class FailureDetails(BaseValidatorModel):
     externalExecutionId: Optional[str] = None
 
 
+# This class is the input for the 'get_action_type' function.
 class GetActionTypeInput(BaseValidatorModel):
     category: ActionCategoryType
     owner: str
@@ -262,15 +269,18 @@ class GetActionTypeInput(BaseValidatorModel):
     version: str
 
 
+# This class is the input for the 'get_job_details' function.
 class GetJobDetailsInput(BaseValidatorModel):
     jobId: str
 
 
+# This class is the input for the 'get_pipeline_execution' function.
 class GetPipelineExecutionInput(BaseValidatorModel):
     pipelineName: str
     pipelineExecutionId: str
 
 
+# This class is the input for the 'get_pipeline' function.
 class GetPipelineInput(BaseValidatorModel):
     name: str
     version: Optional[int] = None
@@ -283,10 +293,12 @@ class PipelineMetadata(BaseValidatorModel):
     pollingDisabledAt: Optional[datetime] = None
 
 
+# This class is the input for the 'get_pipeline_state' function.
 class GetPipelineStateInput(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'get_third_party_job_details' function.
 class GetThirdPartyJobDetailsInput(BaseValidatorModel):
     jobId: str
     clientToken: str
@@ -328,12 +340,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_action_types' function.
 class ListActionTypesInput(BaseValidatorModel):
     actionOwnerFilter: Optional[ActionOwnerType] = None
     nextToken: Optional[str] = None
     regionFilter: Optional[str] = None
 
 
+# This class is the input for the 'list_pipelines' function.
 class ListPipelinesInput(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -348,22 +362,26 @@ class PipelineSummary(BaseValidatorModel):
     updated: Optional[datetime] = None
 
 
+# This class is the input for the 'list_rule_types' function.
 class ListRuleTypesInput(BaseValidatorModel):
     ruleOwnerFilter: Optional[Literal['AWS']] = None
     regionFilter: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInput(BaseValidatorModel):
     resourceArn: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_webhooks' function.
 class ListWebhooksInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'override_stage_condition' function.
 class OverrideStageConditionInput(BaseValidatorModel):
     pipelineName: str
     stageName: str
@@ -419,6 +437,7 @@ class RegisterWebhookWithThirdPartyInput(BaseValidatorModel):
     webhookName: Optional[str] = None
 
 
+# This class is the input for the 'retry_stage_execution' function.
 class RetryStageExecutionInput(BaseValidatorModel):
     pipelineName: str
     stageName: str
@@ -432,6 +451,7 @@ class RetryStageMetadata(BaseValidatorModel):
     latestRetryTrigger: Optional[RetryTriggerType] = None
 
 
+# This class is the input for the 'rollback_stage' function.
 class RollbackStageInput(BaseValidatorModel):
     pipelineName: str
     stageName: str
@@ -492,6 +512,7 @@ class TransitionState(BaseValidatorModel):
     disabledReason: Optional[str] = None
 
 
+# This class is the input for the 'stop_pipeline_execution' function.
 class StopPipelineExecutionInput(BaseValidatorModel):
     pipelineName: str
     pipelineExecutionId: str
@@ -514,57 +535,68 @@ class WebhookFilterRule(BaseValidatorModel):
     matchEquals: Optional[str] = None
 
 
+# This class is the output for the 'acknowledge_job' function.
 class AcknowledgeJobOutput(BaseValidatorModel):
     status: JobStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'acknowledge_third_party_job' function.
 class AcknowledgeThirdPartyJobOutput(BaseValidatorModel):
     status: JobStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_action_type' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_action_revision' function.
 class PutActionRevisionOutput(BaseValidatorModel):
     newRevision: bool
     pipelineExecutionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_approval_result' function.
 class PutApprovalResultOutput(BaseValidatorModel):
     approvedAt: datetime
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'retry_stage_execution' function.
 class RetryStageExecutionOutput(BaseValidatorModel):
     pipelineExecutionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'rollback_stage' function.
 class RollbackStageOutput(BaseValidatorModel):
     pipelineExecutionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_pipeline_execution' function.
 class StartPipelineExecutionOutput(BaseValidatorModel):
     pipelineExecutionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_pipeline_execution' function.
 class StopPipelineExecutionOutput(BaseValidatorModel):
     pipelineExecutionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'poll_for_jobs' function.
 class PollForJobsInput(BaseValidatorModel):
     actionTypeId: ActionTypeId
     maxBatchSize: Optional[int] = None
     queryParam: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'poll_for_third_party_jobs' function.
 class PollForThirdPartyJobsInput(BaseValidatorModel):
     actionTypeId: ActionTypeId
     maxBatchSize: Optional[int] = None
@@ -674,6 +706,7 @@ class ActionType(BaseValidatorModel):
     actionConfigurationProperties: Optional[List[ActionConfigurationProperty]] = None
 
 
+# This class is the input for the 'put_approval_result' function.
 class PutApprovalResultInput(BaseValidatorModel):
     pipelineName: str
     stageName: str
@@ -698,6 +731,7 @@ class ArtifactStore(BaseValidatorModel):
     encryptionKey: Optional[EncryptionKey] = None
 
 
+# This class is the input for the 'create_custom_action_type' function.
 class CreateCustomActionTypeInput(BaseValidatorModel):
     category: ActionCategoryType
     provider: str
@@ -709,6 +743,7 @@ class CreateCustomActionTypeInput(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceOutput(BaseValidatorModel):
     tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -730,11 +765,13 @@ class ExecutorConfiguration(BaseValidatorModel):
     jobWorkerExecutorConfiguration: Optional[JobWorkerExecutorConfiguration] = None
 
 
+# This class is the input for the 'put_job_failure_result' function.
 class PutJobFailureResultInput(BaseValidatorModel):
     jobId: str
     failureDetails: FailureDetails
 
 
+# This class is the input for the 'put_third_party_job_failure_result' function.
 class PutThirdPartyJobFailureResultInput(BaseValidatorModel):
     jobId: str
     clientToken: str
@@ -784,6 +821,7 @@ class ListWebhooksInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_pipelines' function.
 class ListPipelinesOutput(BaseValidatorModel):
     pipelines: List[PipelineSummary]
     ResponseMetadata: ResponseMetadata
@@ -830,6 +868,7 @@ class PipelineExecution(BaseValidatorModel):
     rollbackMetadata: Optional[PipelineRollbackMetadata] = None
 
 
+# This class is the output for the 'poll_for_third_party_jobs' function.
 class PollForThirdPartyJobsOutput(BaseValidatorModel):
     jobs: List[ThirdPartyJob]
     ResponseMetadata: ResponseMetadata
@@ -864,6 +903,7 @@ class RuleType(BaseValidatorModel):
     ruleConfigurationProperties: Optional[List[RuleConfigurationProperty]] = None
 
 
+# This class is the input for the 'start_pipeline_execution' function.
 class StartPipelineExecutionInput(BaseValidatorModel):
     name: str
     variables: Optional[List[PipelineVariable]] = None
@@ -895,6 +935,7 @@ class ListActionExecutionsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_action_executions' function.
 class ListActionExecutionsInput(BaseValidatorModel):
     pipelineName: str
     filter: Optional[ActionExecutionFilter] = None
@@ -908,6 +949,7 @@ class ListRuleExecutionsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_rule_executions' function.
 class ListRuleExecutionsInput(BaseValidatorModel):
     pipelineName: str
     filter: Optional[RuleExecutionFilter] = None
@@ -937,6 +979,7 @@ class RuleState(BaseValidatorModel):
 ActionRevisionUnion = Union[ActionRevision, ActionRevisionOutput]
 
 
+# This class is the input for the 'put_job_success_result' function.
 class PutJobSuccessResultInput(BaseValidatorModel):
     jobId: str
     currentRevision: Optional[CurrentRevision] = None
@@ -945,6 +988,7 @@ class PutJobSuccessResultInput(BaseValidatorModel):
     outputVariables: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'put_third_party_job_success_result' function.
 class PutThirdPartyJobSuccessResultInput(BaseValidatorModel):
     jobId: str
     clientToken: str
@@ -953,12 +997,14 @@ class PutThirdPartyJobSuccessResultInput(BaseValidatorModel):
     executionDetails: Optional[ExecutionDetails] = None
 
 
+# This class is the output for the 'create_custom_action_type' function.
 class CreateCustomActionTypeOutput(BaseValidatorModel):
     actionType: ActionType
     tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_action_types' function.
 class ListActionTypesOutput(BaseValidatorModel):
     actionTypes: List[ActionType]
     ResponseMetadata: ResponseMetadata
@@ -1028,6 +1074,7 @@ class ListPipelineExecutionsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_pipeline_executions' function.
 class ListPipelineExecutionsInput(BaseValidatorModel):
     pipelineName: str
     maxResults: Optional[int] = None
@@ -1035,12 +1082,14 @@ class ListPipelineExecutionsInput(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_pipeline_executions' function.
 class ListPipelineExecutionsOutput(BaseValidatorModel):
     pipelineExecutionSummaries: List[PipelineExecutionSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_pipeline_execution' function.
 class GetPipelineExecutionOutput(BaseValidatorModel):
     pipelineExecution: PipelineExecution
     ResponseMetadata: ResponseMetadata
@@ -1056,6 +1105,7 @@ class Condition(BaseValidatorModel):
     rules: Optional[List[RuleDeclaration]] = None
 
 
+# This class is the output for the 'list_rule_types' function.
 class ListRuleTypesOutput(BaseValidatorModel):
     ruleTypes: List[RuleType]
     ResponseMetadata: ResponseMetadata
@@ -1078,6 +1128,7 @@ class ConditionState(BaseValidatorModel):
     ruleStates: Optional[List[RuleState]] = None
 
 
+# This class is the input for the 'put_action_revision' function.
 class PutActionRevisionInput(BaseValidatorModel):
     pipelineName: str
     stageName: str
@@ -1195,17 +1246,20 @@ class SuccessConditions(BaseValidatorModel):
     conditions: List[Condition]
 
 
+# This class is the output for the 'list_webhooks' function.
 class ListWebhooksOutput(BaseValidatorModel):
     webhooks: List[ListWebhookItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'put_webhook' function.
 class PutWebhookOutput(BaseValidatorModel):
     webhook: ListWebhookItem
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_webhook' function.
 class PutWebhookInput(BaseValidatorModel):
     webhook: WebhookDefinitionUnion
     tags: Optional[List[Tag]] = None
@@ -1216,12 +1270,14 @@ class StageConditionState(BaseValidatorModel):
     conditionStates: Optional[List[ConditionState]] = None
 
 
+# This class is the output for the 'list_action_executions' function.
 class ListActionExecutionsOutput(BaseValidatorModel):
     actionExecutionDetails: List[ActionExecutionDetail]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_rule_executions' function.
 class ListRuleExecutionsOutput(BaseValidatorModel):
     ruleExecutionDetails: List[RuleExecutionDetail]
     ResponseMetadata: ResponseMetadata
@@ -1247,6 +1303,7 @@ class ThirdPartyJobDetails(BaseValidatorModel):
     nonce: Optional[str] = None
 
 
+# This class is the output for the 'get_action_type' function.
 class GetActionTypeOutput(BaseValidatorModel):
     actionType: ActionTypeDeclarationOutput
     ResponseMetadata: ResponseMetadata
@@ -1285,21 +1342,25 @@ class StageState(BaseValidatorModel):
     retryStageMetadata: Optional[RetryStageMetadata] = None
 
 
+# This class is the output for the 'get_job_details' function.
 class GetJobDetailsOutput(BaseValidatorModel):
     jobDetails: JobDetails
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'poll_for_jobs' function.
 class PollForJobsOutput(BaseValidatorModel):
     jobs: List[Job]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_third_party_job_details' function.
 class GetThirdPartyJobDetailsOutput(BaseValidatorModel):
     jobDetails: ThirdPartyJobDetails
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_action_type' function.
 class UpdateActionTypeInput(BaseValidatorModel):
     actionType: ActionTypeDeclarationUnion
 
@@ -1330,6 +1391,7 @@ class PipelineDeclaration(BaseValidatorModel):
     triggers: Optional[List[PipelineTriggerDeclaration]] = None
 
 
+# This class is the output for the 'get_pipeline_state' function.
 class GetPipelineStateOutput(BaseValidatorModel):
     pipelineName: str
     pipelineVersion: int
@@ -1339,18 +1401,21 @@ class GetPipelineStateOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_pipeline' function.
 class CreatePipelineOutput(BaseValidatorModel):
     pipeline: PipelineDeclarationOutput
     tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_pipeline' function.
 class GetPipelineOutput(BaseValidatorModel):
     pipeline: PipelineDeclarationOutput
     metadata: PipelineMetadata
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_pipeline' function.
 class UpdatePipelineOutput(BaseValidatorModel):
     pipeline: PipelineDeclarationOutput
     ResponseMetadata: ResponseMetadata
@@ -1358,10 +1423,12 @@ class UpdatePipelineOutput(BaseValidatorModel):
 PipelineDeclarationUnion = Union[PipelineDeclaration, PipelineDeclarationOutput]
 
 
+# This class is the input for the 'create_pipeline' function.
 class CreatePipelineInput(BaseValidatorModel):
     pipeline: PipelineDeclarationUnion
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_pipeline' function.
 class UpdatePipelineInput(BaseValidatorModel):
     pipeline: PipelineDeclarationUnion

@@ -33,6 +33,7 @@ class AdvancedFieldSelector(BaseValidatorModel):
     NotEndsWith: Optional[List[str]] = None
 
 
+# This class is the input for the 'cancel_query' function.
 class CancelQueryRequest(BaseValidatorModel):
     QueryId: str
     EventDataStore: Optional[str] = None
@@ -109,6 +110,7 @@ class DeregisterOrganizationDelegatedAdminRequest(BaseValidatorModel):
     DelegatedAdminAccountId: str
 
 
+# This class is the input for the 'describe_query' function.
 class DescribeQueryRequest(BaseValidatorModel):
     EventDataStore: Optional[str] = None
     QueryId: Optional[str] = None
@@ -125,6 +127,7 @@ class QueryStatisticsForDescribeQuery(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
 
 
+# This class is the input for the 'describe_trails' function.
 class DescribeTrailsRequest(BaseValidatorModel):
     trailNameList: Optional[List[str]] = None
     includeShadowTrails: Optional[bool] = None
@@ -149,10 +152,12 @@ class Trail(BaseValidatorModel):
     IsOrganizationTrail: Optional[bool] = None
 
 
+# This class is the input for the 'disable_federation' function.
 class DisableFederationRequest(BaseValidatorModel):
     EventDataStore: str
 
 
+# This class is the input for the 'enable_federation' function.
 class EnableFederationRequest(BaseValidatorModel):
     EventDataStore: str
     FederationRoleArn: str
@@ -163,11 +168,13 @@ class Resource(BaseValidatorModel):
     ResourceName: Optional[str] = None
 
 
+# This class is the input for the 'generate_query' function.
 class GenerateQueryRequest(BaseValidatorModel):
     EventDataStores: List[str]
     Prompt: str
 
 
+# This class is the input for the 'get_channel' function.
 class GetChannelRequest(BaseValidatorModel):
     Channel: str
 
@@ -180,10 +187,12 @@ class IngestionStatus(BaseValidatorModel):
     LatestIngestionAttemptEventID: Optional[str] = None
 
 
+# This class is the input for the 'get_dashboard' function.
 class GetDashboardRequest(BaseValidatorModel):
     DashboardId: str
 
 
+# This class is the input for the 'get_event_data_store' function.
 class GetEventDataStoreRequest(BaseValidatorModel):
     EventDataStore: str
 
@@ -193,10 +202,12 @@ class PartitionKey(BaseValidatorModel):
     Type: str
 
 
+# This class is the input for the 'get_event_selectors' function.
 class GetEventSelectorsRequest(BaseValidatorModel):
     TrailName: str
 
 
+# This class is the input for the 'get_import' function.
 class GetImportRequest(BaseValidatorModel):
     ImportId: str
 
@@ -209,6 +220,7 @@ class ImportStatistics(BaseValidatorModel):
     FailedEntries: Optional[int] = None
 
 
+# This class is the input for the 'get_insight_selectors' function.
 class GetInsightSelectorsRequest(BaseValidatorModel):
     TrailName: Optional[str] = None
     EventDataStore: Optional[str] = None
@@ -218,6 +230,7 @@ class InsightSelector(BaseValidatorModel):
     InsightType: Optional[InsightTypeType] = None
 
 
+# This class is the input for the 'get_query_results' function.
 class GetQueryResultsRequest(BaseValidatorModel):
     QueryId: str
     EventDataStore: Optional[str] = None
@@ -232,14 +245,17 @@ class QueryStatistics(BaseValidatorModel):
     BytesScanned: Optional[int] = None
 
 
+# This class is the input for the 'get_resource_policy' function.
 class GetResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'get_trail' function.
 class GetTrailRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'get_trail_status' function.
 class GetTrailStatusRequest(BaseValidatorModel):
     Name: str
 
@@ -266,11 +282,13 @@ class ImportsListItem(BaseValidatorModel):
     UpdatedTimestamp: Optional[datetime] = None
 
 
+# This class is the input for the 'list_channels' function.
 class ListChannelsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_dashboards' function.
 class ListDashboardsRequest(BaseValidatorModel):
     NamePrefix: Optional[str] = None
     Type: Optional[DashboardTypeType] = None
@@ -278,6 +296,7 @@ class ListDashboardsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_event_data_stores' function.
 class ListEventDataStoresRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -289,12 +308,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_import_failures' function.
 class ListImportFailuresRequest(BaseValidatorModel):
     ImportId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_imports' function.
 class ListImportsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     Destination: Optional[str] = None
@@ -317,11 +338,13 @@ class Query(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_tags' function.
 class ListTagsRequest(BaseValidatorModel):
     ResourceIdList: List[str]
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_trails' function.
 class ListTrailsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
@@ -337,6 +360,7 @@ class LookupAttribute(BaseValidatorModel):
     AttributeValue: str
 
 
+# This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
     ResourcePolicy: str
@@ -351,10 +375,12 @@ class RegisterOrganizationDelegatedAdminRequest(BaseValidatorModel):
     MemberAccountId: str
 
 
+# This class is the input for the 'restore_event_data_store' function.
 class RestoreEventDataStoreRequest(BaseValidatorModel):
     EventDataStore: str
 
 
+# This class is the input for the 'search_sample_queries' function.
 class SearchSampleQueriesRequest(BaseValidatorModel):
     SearchPhrase: str
     MaxResults: Optional[int] = None
@@ -368,6 +394,7 @@ class SearchSampleQueriesSearchResult(BaseValidatorModel):
     Relevance: Optional[float] = None
 
 
+# This class is the input for the 'start_dashboard_refresh' function.
 class StartDashboardRefreshRequest(BaseValidatorModel):
     DashboardId: str
     QueryParameterValues: Optional[Dict[str, str]] = None
@@ -381,6 +408,7 @@ class StartLoggingRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'start_query' function.
 class StartQueryRequest(BaseValidatorModel):
     QueryStatement: Optional[str] = None
     DeliveryS3Uri: Optional[str] = None
@@ -393,6 +421,7 @@ class StopEventDataStoreIngestionRequest(BaseValidatorModel):
     EventDataStore: str
 
 
+# This class is the input for the 'stop_import' function.
 class StopImportRequest(BaseValidatorModel):
     ImportId: str
 
@@ -401,6 +430,7 @@ class StopLoggingRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'update_trail' function.
 class UpdateTrailRequest(BaseValidatorModel):
     Name: str
     S3BucketName: Optional[str] = None
@@ -420,6 +450,7 @@ class AddTagsRequest(BaseValidatorModel):
     TagsList: List[Tag]
 
 
+# This class is the input for the 'create_trail' function.
 class CreateTrailRequest(BaseValidatorModel):
     Name: str
     S3BucketName: str
@@ -452,6 +483,7 @@ class AdvancedEventSelectorOutput(BaseValidatorModel):
 AdvancedFieldSelectorUnion = Union[AdvancedFieldSelector, AdvancedFieldSelectorOutput]
 
 
+# This class is the output for the 'cancel_query' function.
 class CancelQueryResponse(BaseValidatorModel):
     QueryId: str
     QueryStatus: QueryStatusType
@@ -459,6 +491,7 @@ class CancelQueryResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_trail' function.
 class CreateTrailResponse(BaseValidatorModel):
     Name: str
     S3BucketName: str
@@ -476,12 +509,14 @@ class CreateTrailResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disable_federation' function.
 class DisableFederationResponse(BaseValidatorModel):
     EventDataStoreArn: str
     FederationStatus: FederationStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enable_federation' function.
 class EnableFederationResponse(BaseValidatorModel):
     EventDataStoreArn: str
     FederationStatus: FederationStatusType
@@ -489,6 +524,7 @@ class EnableFederationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'generate_query' function.
 class GenerateQueryResponse(BaseValidatorModel):
     QueryStatement: str
     QueryAlias: str
@@ -496,6 +532,7 @@ class GenerateQueryResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_policy' function.
 class GetResourcePolicyResponse(BaseValidatorModel):
     ResourceArn: str
     ResourcePolicy: str
@@ -503,6 +540,7 @@ class GetResourcePolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_trail_status' function.
 class GetTrailStatusResponse(BaseValidatorModel):
     IsLogging: bool
     LatestDeliveryError: str
@@ -524,6 +562,7 @@ class GetTrailStatusResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_insights_metric_data' function.
 class ListInsightsMetricDataResponse(BaseValidatorModel):
     EventSource: str
     EventName: str
@@ -535,6 +574,7 @@ class ListInsightsMetricDataResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'put_resource_policy' function.
 class PutResourcePolicyResponse(BaseValidatorModel):
     ResourceArn: str
     ResourcePolicy: str
@@ -542,17 +582,20 @@ class PutResourcePolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_dashboard_refresh' function.
 class StartDashboardRefreshResponse(BaseValidatorModel):
     RefreshId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_query' function.
 class StartQueryResponse(BaseValidatorModel):
     QueryId: str
     EventDataStoreOwnerAccountId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_trail' function.
 class UpdateTrailResponse(BaseValidatorModel):
     Name: str
     S3BucketName: str
@@ -570,12 +613,14 @@ class UpdateTrailResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_channels' function.
 class ListChannelsResponse(BaseValidatorModel):
     Channels: List[Channel]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_channel' function.
 class CreateChannelRequest(BaseValidatorModel):
     Name: str
     Source: str
@@ -583,6 +628,7 @@ class CreateChannelRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'create_channel' function.
 class CreateChannelResponse(BaseValidatorModel):
     ChannelArn: str
     Name: str
@@ -592,12 +638,14 @@ class CreateChannelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_channel' function.
 class UpdateChannelRequest(BaseValidatorModel):
     Channel: str
     Destinations: Optional[List[Destination]] = None
     Name: Optional[str] = None
 
 
+# This class is the output for the 'update_channel' function.
 class UpdateChannelResponse(BaseValidatorModel):
     ChannelArn: str
     Name: str
@@ -606,6 +654,7 @@ class UpdateChannelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_dashboards' function.
 class ListDashboardsResponse(BaseValidatorModel):
     Dashboards: List[DashboardDetail]
     ResponseMetadata: ResponseMetadata
@@ -621,6 +670,7 @@ class EventSelectorOutput(BaseValidatorModel):
 DataResourceUnion = Union[DataResource, DataResourceOutput]
 
 
+# This class is the output for the 'describe_query' function.
 class DescribeQueryResponse(BaseValidatorModel):
     QueryId: str
     QueryString: str
@@ -634,11 +684,13 @@ class DescribeQueryResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_trails' function.
 class DescribeTrailsResponse(BaseValidatorModel):
     trailList: List[Trail]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_trail' function.
 class GetTrailResponse(BaseValidatorModel):
     Trail: Trail
     ResponseMetadata: ResponseMetadata
@@ -656,6 +708,7 @@ class Event(BaseValidatorModel):
     CloudTrailEvent: Optional[str] = None
 
 
+# This class is the output for the 'get_insight_selectors' function.
 class GetInsightSelectorsResponse(BaseValidatorModel):
     TrailARN: str
     InsightSelectors: List[InsightSelector]
@@ -664,6 +717,7 @@ class GetInsightSelectorsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_insight_selectors' function.
 class PutInsightSelectorsRequest(BaseValidatorModel):
     InsightSelectors: List[InsightSelector]
     TrailName: Optional[str] = None
@@ -671,6 +725,7 @@ class PutInsightSelectorsRequest(BaseValidatorModel):
     InsightsDestination: Optional[str] = None
 
 
+# This class is the output for the 'put_insight_selectors' function.
 class PutInsightSelectorsResponse(BaseValidatorModel):
     TrailARN: str
     InsightSelectors: List[InsightSelector]
@@ -679,6 +734,7 @@ class PutInsightSelectorsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_query_results' function.
 class GetQueryResultsResponse(BaseValidatorModel):
     QueryStatus: QueryStatusType
     QueryStatistics: QueryStatistics
@@ -688,6 +744,7 @@ class GetQueryResultsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_import_failures' function.
 class ListImportFailuresResponse(BaseValidatorModel):
     Failures: List[ImportFailureListItem]
     ResponseMetadata: ResponseMetadata
@@ -698,6 +755,7 @@ class ImportSource(BaseValidatorModel):
     S3: S3ImportSource
 
 
+# This class is the output for the 'list_imports' function.
 class ListImportsResponse(BaseValidatorModel):
     Imports: List[ImportsListItem]
     ResponseMetadata: ResponseMetadata
@@ -724,6 +782,7 @@ class ListTrailsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_insights_metric_data' function.
 class ListInsightsMetricDataRequest(BaseValidatorModel):
     EventSource: str
     EventName: str
@@ -743,12 +802,14 @@ class ListPublicKeysRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_public_keys' function.
 class ListPublicKeysRequest(BaseValidatorModel):
     StartTime: Optional[Timestamp] = None
     EndTime: Optional[Timestamp] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_queries' function.
 class ListQueriesRequest(BaseValidatorModel):
     EventDataStore: str
     NextToken: Optional[str] = None
@@ -758,18 +819,21 @@ class ListQueriesRequest(BaseValidatorModel):
     QueryStatus: Optional[QueryStatusType] = None
 
 
+# This class is the output for the 'list_public_keys' function.
 class ListPublicKeysResponse(BaseValidatorModel):
     PublicKeyList: List[PublicKey]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_queries' function.
 class ListQueriesResponse(BaseValidatorModel):
     Queries: List[Query]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_trails' function.
 class ListTrailsResponse(BaseValidatorModel):
     Trails: List[TrailInfo]
     ResponseMetadata: ResponseMetadata
@@ -784,6 +848,7 @@ class LookupEventsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'lookup_events' function.
 class LookupEventsRequest(BaseValidatorModel):
     LookupAttributes: Optional[List[LookupAttribute]] = None
     StartTime: Optional[Timestamp] = None
@@ -799,18 +864,21 @@ class RefreshSchedule(BaseValidatorModel):
     TimeOfDay: Optional[str] = None
 
 
+# This class is the output for the 'search_sample_queries' function.
 class SearchSampleQueriesResponse(BaseValidatorModel):
     SearchResults: List[SearchSampleQueriesSearchResult]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags' function.
 class ListTagsResponse(BaseValidatorModel):
     ResourceTagList: List[ResourceTag]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_event_data_store' function.
 class CreateEventDataStoreResponse(BaseValidatorModel):
     EventDataStoreArn: str
     Name: str
@@ -841,6 +909,7 @@ class EventDataStore(BaseValidatorModel):
     UpdatedTimestamp: Optional[datetime] = None
 
 
+# This class is the output for the 'get_event_data_store' function.
 class GetEventDataStoreResponse(BaseValidatorModel):
     EventDataStoreArn: str
     Name: str
@@ -860,6 +929,7 @@ class GetEventDataStoreResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'restore_event_data_store' function.
 class RestoreEventDataStoreResponse(BaseValidatorModel):
     EventDataStoreArn: str
     Name: str
@@ -881,6 +951,7 @@ class SourceConfig(BaseValidatorModel):
     AdvancedEventSelectors: Optional[List[AdvancedEventSelectorOutput]] = None
 
 
+# This class is the output for the 'update_event_data_store' function.
 class UpdateEventDataStoreResponse(BaseValidatorModel):
     EventDataStoreArn: str
     Name: str
@@ -904,6 +975,7 @@ class AdvancedEventSelector(BaseValidatorModel):
     Name: Optional[str] = None
 
 
+# This class is the output for the 'get_event_selectors' function.
 class GetEventSelectorsResponse(BaseValidatorModel):
     TrailARN: str
     EventSelectors: List[EventSelectorOutput]
@@ -911,6 +983,7 @@ class GetEventSelectorsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_event_selectors' function.
 class PutEventSelectorsResponse(BaseValidatorModel):
     TrailARN: str
     EventSelectors: List[EventSelectorOutput]
@@ -925,12 +998,14 @@ class EventSelector(BaseValidatorModel):
     ExcludeManagementEventSources: Optional[List[str]] = None
 
 
+# This class is the output for the 'lookup_events' function.
 class LookupEventsResponse(BaseValidatorModel):
     Events: List[Event]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_import' function.
 class GetImportResponse(BaseValidatorModel):
     ImportId: str
     Destinations: List[str]
@@ -944,6 +1019,7 @@ class GetImportResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_import' function.
 class StartImportRequest(BaseValidatorModel):
     Destinations: Optional[List[str]] = None
     ImportSource: Optional[ImportSource] = None
@@ -952,6 +1028,7 @@ class StartImportRequest(BaseValidatorModel):
     ImportId: Optional[str] = None
 
 
+# This class is the output for the 'start_import' function.
 class StartImportResponse(BaseValidatorModel):
     ImportId: str
     Destinations: List[str]
@@ -964,6 +1041,7 @@ class StartImportResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_import' function.
 class StopImportResponse(BaseValidatorModel):
     ImportId: str
     ImportSource: ImportSource
@@ -977,6 +1055,7 @@ class StopImportResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_dashboard' function.
 class CreateDashboardRequest(BaseValidatorModel):
     Name: str
     RefreshSchedule: Optional[RefreshSchedule] = None
@@ -985,6 +1064,7 @@ class CreateDashboardRequest(BaseValidatorModel):
     Widgets: Optional[List[RequestWidget]] = None
 
 
+# This class is the output for the 'create_dashboard' function.
 class CreateDashboardResponse(BaseValidatorModel):
     DashboardArn: str
     Name: str
@@ -996,6 +1076,7 @@ class CreateDashboardResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_dashboard' function.
 class GetDashboardResponse(BaseValidatorModel):
     DashboardArn: str
     Type: DashboardTypeType
@@ -1010,6 +1091,7 @@ class GetDashboardResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_dashboard' function.
 class UpdateDashboardRequest(BaseValidatorModel):
     DashboardId: str
     Widgets: Optional[List[RequestWidget]] = None
@@ -1017,6 +1099,7 @@ class UpdateDashboardRequest(BaseValidatorModel):
     TerminationProtectionEnabled: Optional[bool] = None
 
 
+# This class is the output for the 'update_dashboard' function.
 class UpdateDashboardResponse(BaseValidatorModel):
     DashboardArn: str
     Name: str
@@ -1029,12 +1112,14 @@ class UpdateDashboardResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_event_data_stores' function.
 class ListEventDataStoresResponse(BaseValidatorModel):
     EventDataStores: List[EventDataStore]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_channel' function.
 class GetChannelResponse(BaseValidatorModel):
     ChannelArn: str
     Name: str
@@ -1049,6 +1134,7 @@ AdvancedEventSelectorUnion = Union[AdvancedEventSelector, AdvancedEventSelectorO
 EventSelectorUnion = Union[EventSelector, EventSelectorOutput]
 
 
+# This class is the input for the 'create_event_data_store' function.
 class CreateEventDataStoreRequest(BaseValidatorModel):
     Name: str
     AdvancedEventSelectors: Optional[List[AdvancedEventSelectorUnion]] = None
@@ -1062,6 +1148,7 @@ class CreateEventDataStoreRequest(BaseValidatorModel):
     BillingMode: Optional[BillingModeType] = None
 
 
+# This class is the input for the 'update_event_data_store' function.
 class UpdateEventDataStoreRequest(BaseValidatorModel):
     EventDataStore: str
     Name: Optional[str] = None
@@ -1074,6 +1161,7 @@ class UpdateEventDataStoreRequest(BaseValidatorModel):
     BillingMode: Optional[BillingModeType] = None
 
 
+# This class is the input for the 'put_event_selectors' function.
 class PutEventSelectorsRequest(BaseValidatorModel):
     TrailName: str
     EventSelectors: Optional[List[EventSelectorUnion]] = None

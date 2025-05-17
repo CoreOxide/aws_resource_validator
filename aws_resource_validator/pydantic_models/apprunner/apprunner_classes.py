@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'associate_custom_domain' function.
 class AssociateCustomDomainRequest(BaseValidatorModel):
     ServiceArn: str
     DomainName: str
@@ -153,57 +154,70 @@ class IngressVpcConfiguration(BaseValidatorModel):
     VpcEndpointId: Optional[str] = None
 
 
+# This class is the input for the 'delete_auto_scaling_configuration' function.
 class DeleteAutoScalingConfigurationRequest(BaseValidatorModel):
     AutoScalingConfigurationArn: str
     DeleteAllRevisions: Optional[bool] = None
 
 
+# This class is the input for the 'delete_connection' function.
 class DeleteConnectionRequest(BaseValidatorModel):
     ConnectionArn: str
 
 
+# This class is the input for the 'delete_observability_configuration' function.
 class DeleteObservabilityConfigurationRequest(BaseValidatorModel):
     ObservabilityConfigurationArn: str
 
 
+# This class is the input for the 'delete_service' function.
 class DeleteServiceRequest(BaseValidatorModel):
     ServiceArn: str
 
 
+# This class is the input for the 'delete_vpc_connector' function.
 class DeleteVpcConnectorRequest(BaseValidatorModel):
     VpcConnectorArn: str
 
 
+# This class is the input for the 'delete_vpc_ingress_connection' function.
 class DeleteVpcIngressConnectionRequest(BaseValidatorModel):
     VpcIngressConnectionArn: str
 
 
+# This class is the input for the 'describe_auto_scaling_configuration' function.
 class DescribeAutoScalingConfigurationRequest(BaseValidatorModel):
     AutoScalingConfigurationArn: str
 
 
+# This class is the input for the 'describe_custom_domains' function.
 class DescribeCustomDomainsRequest(BaseValidatorModel):
     ServiceArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_observability_configuration' function.
 class DescribeObservabilityConfigurationRequest(BaseValidatorModel):
     ObservabilityConfigurationArn: str
 
 
+# This class is the input for the 'describe_service' function.
 class DescribeServiceRequest(BaseValidatorModel):
     ServiceArn: str
 
 
+# This class is the input for the 'describe_vpc_connector' function.
 class DescribeVpcConnectorRequest(BaseValidatorModel):
     VpcConnectorArn: str
 
 
+# This class is the input for the 'describe_vpc_ingress_connection' function.
 class DescribeVpcIngressConnectionRequest(BaseValidatorModel):
     VpcIngressConnectionArn: str
 
 
+# This class is the input for the 'disassociate_custom_domain' function.
 class DisassociateCustomDomainRequest(BaseValidatorModel):
     ServiceArn: str
     DomainName: str
@@ -232,6 +246,7 @@ class IngressConfiguration(BaseValidatorModel):
     IsPubliclyAccessible: Optional[bool] = None
 
 
+# This class is the input for the 'list_auto_scaling_configurations' function.
 class ListAutoScalingConfigurationsRequest(BaseValidatorModel):
     AutoScalingConfigurationName: Optional[str] = None
     LatestOnly: Optional[bool] = None
@@ -239,12 +254,14 @@ class ListAutoScalingConfigurationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_connections' function.
 class ListConnectionsRequest(BaseValidatorModel):
     ConnectionName: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_observability_configurations' function.
 class ListObservabilityConfigurationsRequest(BaseValidatorModel):
     ObservabilityConfigurationName: Optional[str] = None
     LatestOnly: Optional[bool] = None
@@ -258,6 +275,7 @@ class ObservabilityConfigurationSummary(BaseValidatorModel):
     ObservabilityConfigurationRevision: Optional[int] = None
 
 
+# This class is the input for the 'list_operations' function.
 class ListOperationsRequest(BaseValidatorModel):
     ServiceArn: str
     NextToken: Optional[str] = None
@@ -274,12 +292,14 @@ class OperationSummary(BaseValidatorModel):
     UpdatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'list_services_for_auto_scaling_configuration' function.
 class ListServicesForAutoScalingConfigurationRequest(BaseValidatorModel):
     AutoScalingConfigurationArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_services' function.
 class ListServicesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -295,10 +315,12 @@ class ServiceSummary(BaseValidatorModel):
     Status: Optional[ServiceStatusType] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'list_vpc_connectors' function.
 class ListVpcConnectorsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -314,14 +336,17 @@ class VpcIngressConnectionSummary(BaseValidatorModel):
     ServiceArn: Optional[str] = None
 
 
+# This class is the input for the 'pause_service' function.
 class PauseServiceRequest(BaseValidatorModel):
     ServiceArn: str
 
 
+# This class is the input for the 'resume_service' function.
 class ResumeServiceRequest(BaseValidatorModel):
     ServiceArn: str
 
 
+# This class is the input for the 'start_deployment' function.
 class StartDeploymentRequest(BaseValidatorModel):
     ServiceArn: str
 
@@ -331,42 +356,50 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_default_auto_scaling_configuration' function.
 class UpdateDefaultAutoScalingConfigurationRequest(BaseValidatorModel):
     AutoScalingConfigurationArn: str
 
 
+# This class is the output for the 'list_services_for_auto_scaling_configuration' function.
 class ListServicesForAutoScalingConfigurationResponse(BaseValidatorModel):
     ServiceArnList: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_deployment' function.
 class StartDeploymentResponse(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_auto_scaling_configurations' function.
 class ListAutoScalingConfigurationsResponse(BaseValidatorModel):
     AutoScalingConfigurationSummaryList: List[AutoScalingConfigurationSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_auto_scaling_configuration' function.
 class CreateAutoScalingConfigurationResponse(BaseValidatorModel):
     AutoScalingConfiguration: AutoScalingConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_auto_scaling_configuration' function.
 class DeleteAutoScalingConfigurationResponse(BaseValidatorModel):
     AutoScalingConfiguration: AutoScalingConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_auto_scaling_configuration' function.
 class DescribeAutoScalingConfigurationResponse(BaseValidatorModel):
     AutoScalingConfiguration: AutoScalingConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_default_auto_scaling_configuration' function.
 class UpdateDefaultAutoScalingConfigurationResponse(BaseValidatorModel):
     AutoScalingConfiguration: AutoScalingConfiguration
     ResponseMetadata: ResponseMetadata
@@ -389,22 +422,26 @@ class CodeConfiguration(BaseValidatorModel):
     CodeConfigurationValues: Optional[CodeConfigurationValues] = None
 
 
+# This class is the output for the 'list_connections' function.
 class ListConnectionsResponse(BaseValidatorModel):
     ConnectionSummaryList: List[ConnectionSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_connection' function.
 class CreateConnectionResponse(BaseValidatorModel):
     Connection: Connection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_connection' function.
 class DeleteConnectionResponse(BaseValidatorModel):
     Connection: Connection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_auto_scaling_configuration' function.
 class CreateAutoScalingConfigurationRequest(BaseValidatorModel):
     AutoScalingConfigurationName: str
     MaxConcurrency: Optional[int] = None
@@ -413,12 +450,14 @@ class CreateAutoScalingConfigurationRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_connection' function.
 class CreateConnectionRequest(BaseValidatorModel):
     ConnectionName: str
     ProviderType: ProviderTypeType
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_vpc_connector' function.
 class CreateVpcConnectorRequest(BaseValidatorModel):
     VpcConnectorName: str
     Subnets: List[str]
@@ -426,6 +465,7 @@ class CreateVpcConnectorRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -436,6 +476,7 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the input for the 'create_observability_configuration' function.
 class CreateObservabilityConfigurationRequest(BaseValidatorModel):
     ObservabilityConfigurationName: str
     TraceConfiguration: Optional[TraceConfiguration] = None
@@ -453,27 +494,32 @@ class ObservabilityConfiguration(BaseValidatorModel):
     DeletedAt: Optional[datetime] = None
 
 
+# This class is the output for the 'create_vpc_connector' function.
 class CreateVpcConnectorResponse(BaseValidatorModel):
     VpcConnector: VpcConnector
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_vpc_connector' function.
 class DeleteVpcConnectorResponse(BaseValidatorModel):
     VpcConnector: VpcConnector
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_vpc_connector' function.
 class DescribeVpcConnectorResponse(BaseValidatorModel):
     VpcConnector: VpcConnector
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_vpc_connectors' function.
 class ListVpcConnectorsResponse(BaseValidatorModel):
     VpcConnectors: List[VpcConnector]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_vpc_ingress_connection' function.
 class CreateVpcIngressConnectionRequest(BaseValidatorModel):
     ServiceArn: str
     VpcIngressConnectionName: str
@@ -481,6 +527,7 @@ class CreateVpcIngressConnectionRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_vpc_ingress_connection' function.
 class UpdateVpcIngressConnectionRequest(BaseValidatorModel):
     VpcIngressConnectionArn: str
     IngressVpcConfiguration: IngressVpcConfiguration
@@ -516,36 +563,42 @@ class NetworkConfiguration(BaseValidatorModel):
     IpAddressType: Optional[IpAddressTypeType] = None
 
 
+# This class is the output for the 'list_observability_configurations' function.
 class ListObservabilityConfigurationsResponse(BaseValidatorModel):
     ObservabilityConfigurationSummaryList: List[ObservabilityConfigurationSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_operations' function.
 class ListOperationsResponse(BaseValidatorModel):
     OperationSummaryList: List[OperationSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_services' function.
 class ListServicesResponse(BaseValidatorModel):
     ServiceSummaryList: List[ServiceSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_vpc_ingress_connections' function.
 class ListVpcIngressConnectionsRequest(BaseValidatorModel):
     Filter: Optional[ListVpcIngressConnectionsFilter] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_vpc_ingress_connections' function.
 class ListVpcIngressConnectionsResponse(BaseValidatorModel):
     VpcIngressConnectionSummaryList: List[VpcIngressConnectionSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'associate_custom_domain' function.
 class AssociateCustomDomainResponse(BaseValidatorModel):
     DNSTarget: str
     ServiceArn: str
@@ -554,6 +607,7 @@ class AssociateCustomDomainResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_custom_domains' function.
 class DescribeCustomDomainsResponse(BaseValidatorModel):
     DNSTarget: str
     ServiceArn: str
@@ -563,6 +617,7 @@ class DescribeCustomDomainsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'disassociate_custom_domain' function.
 class DisassociateCustomDomainResponse(BaseValidatorModel):
     DNSTarget: str
     ServiceArn: str
@@ -585,36 +640,43 @@ class CodeRepository(BaseValidatorModel):
     SourceDirectory: Optional[str] = None
 
 
+# This class is the output for the 'create_observability_configuration' function.
 class CreateObservabilityConfigurationResponse(BaseValidatorModel):
     ObservabilityConfiguration: ObservabilityConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_observability_configuration' function.
 class DeleteObservabilityConfigurationResponse(BaseValidatorModel):
     ObservabilityConfiguration: ObservabilityConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_observability_configuration' function.
 class DescribeObservabilityConfigurationResponse(BaseValidatorModel):
     ObservabilityConfiguration: ObservabilityConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_vpc_ingress_connection' function.
 class CreateVpcIngressConnectionResponse(BaseValidatorModel):
     VpcIngressConnection: VpcIngressConnection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_vpc_ingress_connection' function.
 class DeleteVpcIngressConnectionResponse(BaseValidatorModel):
     VpcIngressConnection: VpcIngressConnection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_vpc_ingress_connection' function.
 class DescribeVpcIngressConnectionResponse(BaseValidatorModel):
     VpcIngressConnection: VpcIngressConnection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_vpc_ingress_connection' function.
 class UpdateVpcIngressConnectionResponse(BaseValidatorModel):
     VpcIngressConnection: VpcIngressConnection
     ResponseMetadata: ResponseMetadata
@@ -654,41 +716,48 @@ class Service(BaseValidatorModel):
 SourceConfigurationUnion = Union[SourceConfiguration, SourceConfigurationOutput]
 
 
+# This class is the output for the 'create_service' function.
 class CreateServiceResponse(BaseValidatorModel):
     Service: Service
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_service' function.
 class DeleteServiceResponse(BaseValidatorModel):
     Service: Service
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_service' function.
 class DescribeServiceResponse(BaseValidatorModel):
     Service: Service
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'pause_service' function.
 class PauseServiceResponse(BaseValidatorModel):
     Service: Service
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'resume_service' function.
 class ResumeServiceResponse(BaseValidatorModel):
     Service: Service
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_service' function.
 class UpdateServiceResponse(BaseValidatorModel):
     Service: Service
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_service' function.
 class CreateServiceRequest(BaseValidatorModel):
     ServiceName: str
     SourceConfiguration: SourceConfigurationUnion
@@ -701,6 +770,7 @@ class CreateServiceRequest(BaseValidatorModel):
     ObservabilityConfiguration: Optional[ServiceObservabilityConfiguration] = None
 
 
+# This class is the input for the 'update_service' function.
 class UpdateServiceRequest(BaseValidatorModel):
     ServiceArn: str
     SourceConfiguration: Optional[SourceConfigurationUnion] = None

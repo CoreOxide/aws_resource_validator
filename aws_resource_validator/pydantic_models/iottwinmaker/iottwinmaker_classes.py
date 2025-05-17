@@ -21,6 +21,7 @@ class BundleInformation(BaseValidatorModel):
     pricingTier: Optional[PricingTierType] = None
 
 
+# This class is the input for the 'cancel_metadata_transfer_job' function.
 class CancelMetadataTransferJobRequest(BaseValidatorModel):
     metadataTransferJobId: str
 
@@ -63,6 +64,7 @@ class PropertyGroupRequest(BaseValidatorModel):
     propertyNames: Optional[List[str]] = None
 
 
+# This class is the input for the 'create_scene' function.
 class CreateSceneRequest(BaseValidatorModel):
     workspaceId: str
     sceneId: str
@@ -73,6 +75,7 @@ class CreateSceneRequest(BaseValidatorModel):
     sceneMetadata: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_sync_job' function.
 class CreateSyncJobRequest(BaseValidatorModel):
     workspaceId: str
     syncSource: str
@@ -80,6 +83,7 @@ class CreateSyncJobRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_workspace' function.
 class CreateWorkspaceRequest(BaseValidatorModel):
     workspaceId: str
     description: Optional[str] = None
@@ -102,11 +106,13 @@ class RelationshipValue(BaseValidatorModel):
     targetComponentName: Optional[str] = None
 
 
+# This class is the input for the 'delete_component_type' function.
 class DeleteComponentTypeRequest(BaseValidatorModel):
     workspaceId: str
     componentTypeId: str
 
 
+# This class is the input for the 'delete_entity' function.
 class DeleteEntityRequest(BaseValidatorModel):
     workspaceId: str
     entityId: str
@@ -118,11 +124,13 @@ class DeleteSceneRequest(BaseValidatorModel):
     sceneId: str
 
 
+# This class is the input for the 'delete_sync_job' function.
 class DeleteSyncJobRequest(BaseValidatorModel):
     workspaceId: str
     syncSource: str
 
 
+# This class is the input for the 'delete_workspace' function.
 class DeleteWorkspaceRequest(BaseValidatorModel):
     workspaceId: str
 
@@ -156,6 +164,7 @@ class ErrorDetails(BaseValidatorModel):
     message: Optional[str] = None
 
 
+# This class is the input for the 'execute_query' function.
 class ExecuteQueryRequest(BaseValidatorModel):
     workspaceId: str
     queryStatement: str
@@ -189,6 +198,7 @@ class FilterByEntity(BaseValidatorModel):
     entityId: str
 
 
+# This class is the input for the 'get_component_type' function.
 class GetComponentTypeRequest(BaseValidatorModel):
     workspaceId: str
     componentTypeId: str
@@ -200,11 +210,13 @@ class PropertyGroupResponse(BaseValidatorModel):
     isInherited: bool
 
 
+# This class is the input for the 'get_entity' function.
 class GetEntityRequest(BaseValidatorModel):
     workspaceId: str
     entityId: str
 
 
+# This class is the input for the 'get_metadata_transfer_job' function.
 class GetMetadataTransferJobRequest(BaseValidatorModel):
     metadataTransferJobId: str
 
@@ -216,6 +228,7 @@ class InterpolationParameters(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'get_scene' function.
 class GetSceneRequest(BaseValidatorModel):
     workspaceId: str
     sceneId: str
@@ -226,11 +239,13 @@ class SceneError(BaseValidatorModel):
     message: Optional[str] = None
 
 
+# This class is the input for the 'get_sync_job' function.
 class GetSyncJobRequest(BaseValidatorModel):
     syncSource: str
     workspaceId: Optional[str] = None
 
 
+# This class is the input for the 'get_workspace' function.
 class GetWorkspaceRequest(BaseValidatorModel):
     workspaceId: str
 
@@ -241,6 +256,7 @@ class ListComponentTypesFilter(BaseValidatorModel):
     isAbstract: Optional[bool] = None
 
 
+# This class is the input for the 'list_components' function.
 class ListComponentsRequest(BaseValidatorModel):
     workspaceId: str
     entityId: str
@@ -260,6 +276,7 @@ class ListMetadataTransferJobsFilter(BaseValidatorModel):
     state: Optional[MetadataTransferJobStateType] = None
 
 
+# This class is the input for the 'list_properties' function.
 class ListPropertiesRequest(BaseValidatorModel):
     workspaceId: str
     entityId: str
@@ -269,6 +286,7 @@ class ListPropertiesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_scenes' function.
 class ListScenesRequest(BaseValidatorModel):
     workspaceId: str
     maxResults: Optional[int] = None
@@ -284,6 +302,7 @@ class SceneSummary(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'list_sync_jobs' function.
 class ListSyncJobsRequest(BaseValidatorModel):
     workspaceId: str
     maxResults: Optional[int] = None
@@ -297,12 +316,14 @@ class SyncResourceFilter(BaseValidatorModel):
     externalId: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceARN: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_workspaces' function.
 class ListWorkspacesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -341,11 +362,13 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_pricing_plan' function.
 class UpdatePricingPlanRequest(BaseValidatorModel):
     pricingMode: PricingModeType
     bundleNames: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_scene' function.
 class UpdateSceneRequest(BaseValidatorModel):
     workspaceId: str
     sceneId: str
@@ -355,6 +378,7 @@ class UpdateSceneRequest(BaseValidatorModel):
     sceneMetadata: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_workspace' function.
 class UpdateWorkspaceRequest(BaseValidatorModel):
     workspaceId: str
     description: Optional[str] = None
@@ -362,6 +386,7 @@ class UpdateWorkspaceRequest(BaseValidatorModel):
     s3Location: Optional[str] = None
 
 
+# This class is the output for the 'create_component_type' function.
 class CreateComponentTypeResponse(BaseValidatorModel):
     arn: str
     creationDateTime: datetime
@@ -369,6 +394,7 @@ class CreateComponentTypeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_entity' function.
 class CreateEntityResponse(BaseValidatorModel):
     entityId: str
     arn: str
@@ -377,12 +403,14 @@ class CreateEntityResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_scene' function.
 class CreateSceneResponse(BaseValidatorModel):
     arn: str
     creationDateTime: datetime
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_sync_job' function.
 class CreateSyncJobResponse(BaseValidatorModel):
     arn: str
     creationDateTime: datetime
@@ -390,32 +418,38 @@ class CreateSyncJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_workspace' function.
 class CreateWorkspaceResponse(BaseValidatorModel):
     arn: str
     creationDateTime: datetime
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_component_type' function.
 class DeleteComponentTypeResponse(BaseValidatorModel):
     state: StateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_entity' function.
 class DeleteEntityResponse(BaseValidatorModel):
     state: StateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_sync_job' function.
 class DeleteSyncJobResponse(BaseValidatorModel):
     state: SyncJobStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_workspace' function.
 class DeleteWorkspaceResponse(BaseValidatorModel):
     message: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_workspace' function.
 class GetWorkspaceResponse(BaseValidatorModel):
     workspaceId: str
     arn: str
@@ -428,12 +462,14 @@ class GetWorkspaceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_component_type' function.
 class UpdateComponentTypeResponse(BaseValidatorModel):
     workspaceId: str
     arn: str
@@ -442,17 +478,20 @@ class UpdateComponentTypeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_entity' function.
 class UpdateEntityResponse(BaseValidatorModel):
     updateDateTime: datetime
     state: StateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_scene' function.
 class UpdateSceneResponse(BaseValidatorModel):
     updateDateTime: datetime
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_workspace' function.
 class UpdateWorkspaceResponse(BaseValidatorModel):
     updateDateTime: datetime
     ResponseMetadata: ResponseMetadata
@@ -525,6 +564,7 @@ class SyncResourceStatus(BaseValidatorModel):
     error: Optional[ErrorDetails] = None
 
 
+# This class is the output for the 'execute_query' function.
 class ExecuteQueryResponse(BaseValidatorModel):
     columnDescriptions: List[ColumnDescription]
     rows: List[Row]
@@ -542,6 +582,7 @@ class IotTwinMakerSourceConfigurationFilter(BaseValidatorModel):
     filterByEntity: Optional[FilterByEntity] = None
 
 
+# This class is the output for the 'get_scene' function.
 class GetSceneResponse(BaseValidatorModel):
     workspaceId: str
     sceneId: str
@@ -557,6 +598,7 @@ class GetSceneResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'list_component_types' function.
 class ListComponentTypesRequest(BaseValidatorModel):
     workspaceId: str
     filters: Optional[List[ListComponentTypesFilter]] = None
@@ -564,6 +606,7 @@ class ListComponentTypesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_entities' function.
 class ListEntitiesRequest(BaseValidatorModel):
     workspaceId: str
     filters: Optional[List[ListEntitiesFilter]] = None
@@ -571,6 +614,7 @@ class ListEntitiesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_metadata_transfer_jobs' function.
 class ListMetadataTransferJobsRequest(BaseValidatorModel):
     sourceType: SourceTypeType
     destinationType: DestinationTypeType
@@ -579,12 +623,14 @@ class ListMetadataTransferJobsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the output for the 'list_scenes' function.
 class ListScenesResponse(BaseValidatorModel):
     sceneSummaries: List[SceneSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_sync_resources' function.
 class ListSyncResourcesRequest(BaseValidatorModel):
     workspaceId: str
     syncSource: str
@@ -593,6 +639,7 @@ class ListSyncResourcesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_workspaces' function.
 class ListWorkspacesResponse(BaseValidatorModel):
     workspaceSummaries: List[WorkspaceSummary]
     ResponseMetadata: ResponseMetadata
@@ -605,6 +652,7 @@ class GetPricingPlanResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_pricing_plan' function.
 class UpdatePricingPlanResponse(BaseValidatorModel):
     currentPricingPlan: PricingPlan
     pendingPricingPlan: PricingPlan
@@ -645,6 +693,7 @@ class PropertyValueOutput(BaseValidatorModel):
 DataValueUnion = Union[DataValue, DataValueOutput]
 
 
+# This class is the output for the 'cancel_metadata_transfer_job' function.
 class CancelMetadataTransferJobResponse(BaseValidatorModel):
     metadataTransferJobId: str
     arn: str
@@ -654,6 +703,7 @@ class CancelMetadataTransferJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_metadata_transfer_job' function.
 class CreateMetadataTransferJobResponse(BaseValidatorModel):
     metadataTransferJobId: str
     arn: str
@@ -704,6 +754,7 @@ class EntitySummary(BaseValidatorModel):
     hasChildEntities: Optional[bool] = None
 
 
+# This class is the output for the 'get_sync_job' function.
 class GetSyncJobResponse(BaseValidatorModel):
     arn: str
     workspaceId: str
@@ -764,6 +815,7 @@ class PropertyDefinitionResponse(BaseValidatorModel):
     displayName: Optional[str] = None
 
 
+# This class is the output for the 'get_property_value' function.
 class GetPropertyValueResponse(BaseValidatorModel):
     propertyValues: Dict[str, PropertyLatestValue]
     tabularPropertyValues: List[List[Dict[str, DataValueOutput]]]
@@ -801,18 +853,21 @@ class PropertyValue(BaseValidatorModel):
     time: Optional[str] = None
 
 
+# This class is the output for the 'list_metadata_transfer_jobs' function.
 class ListMetadataTransferJobsResponse(BaseValidatorModel):
     metadataTransferJobSummaries: List[MetadataTransferJobSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_components' function.
 class ListComponentsResponse(BaseValidatorModel):
     componentSummaries: List[ComponentSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_component_types' function.
 class ListComponentTypesResponse(BaseValidatorModel):
     workspaceId: str
     componentTypeSummaries: List[ComponentTypeSummary]
@@ -821,18 +876,21 @@ class ListComponentTypesResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_entities' function.
 class ListEntitiesResponse(BaseValidatorModel):
     entitySummaries: List[EntitySummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_sync_jobs' function.
 class ListSyncJobsResponse(BaseValidatorModel):
     syncJobSummaries: List[SyncJobSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_sync_resources' function.
 class ListSyncResourcesResponse(BaseValidatorModel):
     syncResources: List[SyncResourceSummary]
     ResponseMetadata: ResponseMetadata
@@ -850,6 +908,7 @@ class SourceConfigurationOutput(BaseValidatorModel):
 IotTwinMakerSourceConfigurationUnion = Union[IotTwinMakerSourceConfiguration, IotTwinMakerSourceConfigurationOutput]
 
 
+# This class is the output for the 'get_component_type' function.
 class GetComponentTypeResponse(BaseValidatorModel):
     workspaceId: str
     isSingleton: bool
@@ -890,6 +949,7 @@ class BatchPutPropertyError(BaseValidatorModel):
     entry: PropertyValueEntryOutput
 
 
+# This class is the output for the 'get_property_value_history' function.
 class GetPropertyValueHistoryResponse(BaseValidatorModel):
     propertyValues: List[PropertyValueHistory]
     ResponseMetadata: ResponseMetadata
@@ -898,6 +958,7 @@ class GetPropertyValueHistoryResponse(BaseValidatorModel):
 DataTypeUnion = Union[DataType, DataTypeOutput]
 
 
+# This class is the input for the 'get_property_value_history' function.
 class GetPropertyValueHistoryRequest(BaseValidatorModel):
     workspaceId: str
     selectedProperties: List[str]
@@ -923,6 +984,7 @@ class TabularConditions(BaseValidatorModel):
 PropertyValueUnion = Union[PropertyValue, PropertyValueOutput]
 
 
+# This class is the output for the 'get_metadata_transfer_job' function.
 class GetMetadataTransferJobResponse(BaseValidatorModel):
     metadataTransferJobId: str
     arn: str
@@ -959,6 +1021,7 @@ class ComponentResponse(BaseValidatorModel):
     areAllCompositeComponentsReturned: Optional[bool] = None
 
 
+# This class is the output for the 'list_properties' function.
 class ListPropertiesResponse(BaseValidatorModel):
     propertySummaries: List[PropertySummary]
     ResponseMetadata: ResponseMetadata
@@ -980,6 +1043,7 @@ class PropertyDefinitionRequest(BaseValidatorModel):
     displayName: Optional[str] = None
 
 
+# This class is the input for the 'get_property_value' function.
 class GetPropertyValueRequest(BaseValidatorModel):
     selectedProperties: List[str]
     workspaceId: str
@@ -1000,6 +1064,7 @@ class PropertyValueEntry(BaseValidatorModel):
 SourceConfigurationUnion = Union[SourceConfiguration, SourceConfigurationOutput]
 
 
+# This class is the output for the 'get_entity' function.
 class GetEntityResponse(BaseValidatorModel):
     entityId: str
     entityName: str
@@ -1017,11 +1082,13 @@ class GetEntityResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_put_property_values' function.
 class BatchPutPropertyValuesResponse(BaseValidatorModel):
     errorEntries: List[BatchPutPropertyErrorEntry]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_component_type' function.
 class CreateComponentTypeRequest(BaseValidatorModel):
     workspaceId: str
     componentTypeId: str
@@ -1042,6 +1109,7 @@ class PropertyRequest(BaseValidatorModel):
     updateType: Optional[PropertyUpdateTypeType] = None
 
 
+# This class is the input for the 'update_component_type' function.
 class UpdateComponentTypeRequest(BaseValidatorModel):
     workspaceId: str
     componentTypeId: str
@@ -1057,6 +1125,7 @@ class UpdateComponentTypeRequest(BaseValidatorModel):
 PropertyValueEntryUnion = Union[PropertyValueEntry, PropertyValueEntryOutput]
 
 
+# This class is the input for the 'create_metadata_transfer_job' function.
 class CreateMetadataTransferJobRequest(BaseValidatorModel):
     sources: List[SourceConfigurationUnion]
     destination: DestinationConfiguration
@@ -1092,11 +1161,13 @@ class CompositeComponentUpdateRequest(BaseValidatorModel):
     propertyGroupUpdates: Optional[Dict[str, ComponentPropertyGroupRequest]] = None
 
 
+# This class is the input for the 'batch_put_property_values' function.
 class BatchPutPropertyValuesRequest(BaseValidatorModel):
     workspaceId: str
     entries: List[PropertyValueEntryUnion]
 
 
+# This class is the input for the 'create_entity' function.
 class CreateEntityRequest(BaseValidatorModel):
     workspaceId: str
     entityName: str
@@ -1108,6 +1179,7 @@ class CreateEntityRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_entity' function.
 class UpdateEntityRequest(BaseValidatorModel):
     workspaceId: str
     entityId: str

@@ -258,6 +258,7 @@ class Scale(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'delete_account_setting' function.
 class DeleteAccountSettingRequest(BaseValidatorModel):
     name: SettingNameType
     principalArn: Optional[str] = None
@@ -270,20 +271,24 @@ class Setting(BaseValidatorModel):
     type: Optional[SettingTypeType] = None
 
 
+# This class is the input for the 'delete_capacity_provider' function.
 class DeleteCapacityProviderRequest(BaseValidatorModel):
     capacityProvider: str
 
 
+# This class is the input for the 'delete_cluster' function.
 class DeleteClusterRequest(BaseValidatorModel):
     cluster: str
 
 
+# This class is the input for the 'delete_service' function.
 class DeleteServiceRequest(BaseValidatorModel):
     service: str
     cluster: Optional[str] = None
     force: Optional[bool] = None
 
 
+# This class is the input for the 'delete_task_definitions' function.
 class DeleteTaskDefinitionsRequest(BaseValidatorModel):
     taskDefinitions: List[str]
 
@@ -294,6 +299,7 @@ class Failure(BaseValidatorModel):
     detail: Optional[str] = None
 
 
+# This class is the input for the 'delete_task_set' function.
 class DeleteTaskSetRequest(BaseValidatorModel):
     cluster: str
     service: str
@@ -327,16 +333,19 @@ class ServiceConnectServiceResource(BaseValidatorModel):
     discoveryArn: Optional[str] = None
 
 
+# This class is the input for the 'deregister_container_instance' function.
 class DeregisterContainerInstanceRequest(BaseValidatorModel):
     containerInstance: str
     cluster: Optional[str] = None
     force: Optional[bool] = None
 
 
+# This class is the input for the 'deregister_task_definition' function.
 class DeregisterTaskDefinitionRequest(BaseValidatorModel):
     taskDefinition: str
 
 
+# This class is the input for the 'describe_capacity_providers' function.
 class DescribeCapacityProvidersRequest(BaseValidatorModel):
     capacityProviders: Optional[List[str]] = None
     include: Optional[List[Literal['TAGS']]] = None
@@ -344,25 +353,30 @@ class DescribeCapacityProvidersRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_clusters' function.
 class DescribeClustersRequest(BaseValidatorModel):
     clusters: Optional[List[str]] = None
     include: Optional[List[ClusterFieldType]] = None
 
 
+# This class is the input for the 'describe_container_instances' function.
 class DescribeContainerInstancesRequest(BaseValidatorModel):
     containerInstances: List[str]
     cluster: Optional[str] = None
     include: Optional[List[ContainerInstanceFieldType]] = None
 
 
+# This class is the input for the 'describe_service_deployments' function.
 class DescribeServiceDeploymentsRequest(BaseValidatorModel):
     serviceDeploymentArns: List[str]
 
 
+# This class is the input for the 'describe_service_revisions' function.
 class DescribeServiceRevisionsRequest(BaseValidatorModel):
     serviceRevisionArns: List[str]
 
 
+# This class is the input for the 'describe_services' function.
 class DescribeServicesRequest(BaseValidatorModel):
     services: List[str]
     cluster: Optional[str] = None
@@ -374,11 +388,13 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'describe_task_definition' function.
 class DescribeTaskDefinitionRequest(BaseValidatorModel):
     taskDefinition: str
     include: Optional[List[Literal['TAGS']]] = None
 
 
+# This class is the input for the 'describe_task_sets' function.
 class DescribeTaskSetsRequest(BaseValidatorModel):
     cluster: str
     service: str
@@ -386,6 +402,7 @@ class DescribeTaskSetsRequest(BaseValidatorModel):
     include: Optional[List[Literal['TAGS']]] = None
 
 
+# This class is the input for the 'describe_tasks' function.
 class DescribeTasksRequest(BaseValidatorModel):
     tasks: List[str]
     cluster: Optional[str] = None
@@ -404,6 +421,7 @@ class Device(BaseValidatorModel):
     permissions: Optional[List[DeviceCgroupPermissionType]] = None
 
 
+# This class is the input for the 'discover_poll_endpoint' function.
 class DiscoverPollEndpointRequest(BaseValidatorModel):
     containerInstance: Optional[str] = None
     cluster: Optional[str] = None
@@ -442,6 +460,7 @@ class ExecuteCommandLogConfiguration(BaseValidatorModel):
     s3KeyPrefix: Optional[str] = None
 
 
+# This class is the input for the 'execute_command' function.
 class ExecuteCommandRequest(BaseValidatorModel):
     command: str
     interactive: bool
@@ -466,6 +485,7 @@ class FirelensConfiguration(BaseValidatorModel):
     options: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'get_task_protection' function.
 class GetTaskProtectionRequest(BaseValidatorModel):
     cluster: str
     tasks: Optional[List[str]] = None
@@ -521,6 +541,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_account_settings' function.
 class ListAccountSettingsRequest(BaseValidatorModel):
     name: Optional[SettingNameType] = None
     value: Optional[str] = None
@@ -530,6 +551,7 @@ class ListAccountSettingsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_attributes' function.
 class ListAttributesRequest(BaseValidatorModel):
     targetType: Literal['container-instance']
     cluster: Optional[str] = None
@@ -539,11 +561,13 @@ class ListAttributesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_clusters' function.
 class ListClustersRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_container_instances' function.
 class ListContainerInstancesRequest(BaseValidatorModel):
     cluster: Optional[str] = None
     filter: Optional[str] = None
@@ -564,12 +588,14 @@ class ServiceDeploymentBrief(BaseValidatorModel):
     statusReason: Optional[str] = None
 
 
+# This class is the input for the 'list_services_by_namespace' function.
 class ListServicesByNamespaceRequest(BaseValidatorModel):
     namespace: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_services' function.
 class ListServicesRequest(BaseValidatorModel):
     cluster: Optional[str] = None
     nextToken: Optional[str] = None
@@ -578,10 +604,12 @@ class ListServicesRequest(BaseValidatorModel):
     schedulingStrategy: Optional[SchedulingStrategyType] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'list_task_definition_families' function.
 class ListTaskDefinitionFamiliesRequest(BaseValidatorModel):
     familyPrefix: Optional[str] = None
     status: Optional[TaskDefinitionFamilyStatusType] = None
@@ -589,6 +617,7 @@ class ListTaskDefinitionFamiliesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_task_definitions' function.
 class ListTaskDefinitionsRequest(BaseValidatorModel):
     familyPrefix: Optional[str] = None
     status: Optional[TaskDefinitionStatusType] = None
@@ -597,6 +626,7 @@ class ListTaskDefinitionsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tasks' function.
 class ListTasksRequest(BaseValidatorModel):
     cluster: Optional[str] = None
     containerInstance: Optional[str] = None
@@ -621,11 +651,13 @@ class PlatformDevice(BaseValidatorModel):
     type: Literal['GPU']
 
 
+# This class is the input for the 'put_account_setting_default' function.
 class PutAccountSettingDefaultRequest(BaseValidatorModel):
     name: SettingNameType
     value: str
 
 
+# This class is the input for the 'put_account_setting' function.
 class PutAccountSettingRequest(BaseValidatorModel):
     name: SettingNameType
     value: str
@@ -696,6 +728,7 @@ class ServiceEvent(BaseValidatorModel):
     message: Optional[str] = None
 
 
+# This class is the input for the 'stop_task' function.
 class StopTaskRequest(BaseValidatorModel):
     task: str
     cluster: Optional[str] = None
@@ -722,23 +755,27 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_container_agent' function.
 class UpdateContainerAgentRequest(BaseValidatorModel):
     containerInstance: str
     cluster: Optional[str] = None
 
 
+# This class is the input for the 'update_container_instances_state' function.
 class UpdateContainerInstancesStateRequest(BaseValidatorModel):
     containerInstances: List[str]
     status: ContainerInstanceStatusType
     cluster: Optional[str] = None
 
 
+# This class is the input for the 'update_service_primary_task_set' function.
 class UpdateServicePrimaryTaskSetRequest(BaseValidatorModel):
     cluster: str
     service: str
     primaryTaskSet: str
 
 
+# This class is the input for the 'update_task_protection' function.
 class UpdateTaskProtectionRequest(BaseValidatorModel):
     cluster: str
     tasks: List[str]
@@ -746,6 +783,7 @@ class UpdateTaskProtectionRequest(BaseValidatorModel):
     expiresInMinutes: Optional[int] = None
 
 
+# This class is the input for the 'submit_attachment_state_changes' function.
 class SubmitAttachmentStateChangesRequest(BaseValidatorModel):
     attachments: List[AttachmentStateChange]
     cluster: Optional[str] = None
@@ -770,11 +808,13 @@ class ProxyConfiguration(BaseValidatorModel):
     properties: Optional[List[KeyValuePair]] = None
 
 
+# This class is the input for the 'delete_attributes' function.
 class DeleteAttributesRequest(BaseValidatorModel):
     attributes: List[Attribute]
     cluster: Optional[str] = None
 
 
+# This class is the input for the 'put_attributes' function.
 class PutAttributesRequest(BaseValidatorModel):
     attributes: List[Attribute]
     cluster: Optional[str] = None
@@ -801,6 +841,7 @@ class NetworkConfiguration(BaseValidatorModel):
     awsvpcConfiguration: Optional[AwsVpcConfiguration] = None
 
 
+# This class is the input for the 'put_cluster_capacity_providers' function.
 class PutClusterCapacityProvidersRequest(BaseValidatorModel):
     cluster: str
     capacityProviders: List[str]
@@ -824,6 +865,7 @@ class TagResourceRequest(BaseValidatorModel):
     tags: List[Tag]
 
 
+# This class is the input for the 'update_cluster_settings' function.
 class UpdateClusterSettingsRequest(BaseValidatorModel):
     cluster: str
     settings: List[ClusterSetting]
@@ -880,6 +922,7 @@ class ContainerStateChange(BaseValidatorModel):
     status: Optional[str] = None
 
 
+# This class is the input for the 'submit_container_state_change' function.
 class SubmitContainerStateChangeRequest(BaseValidatorModel):
     cluster: Optional[str] = None
     task: Optional[str] = None
@@ -911,11 +954,13 @@ class Container(BaseValidatorModel):
     gpuIds: Optional[List[str]] = None
 
 
+# This class is the output for the 'delete_attributes' function.
 class DeleteAttributesResponse(BaseValidatorModel):
     attributes: List[Attribute]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'discover_poll_endpoint' function.
 class DiscoverPollEndpointResponse(BaseValidatorModel):
     endpoint: str
     telemetryEndpoint: str
@@ -923,79 +968,93 @@ class DiscoverPollEndpointResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_attributes' function.
 class ListAttributesResponse(BaseValidatorModel):
     attributes: List[Attribute]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_clusters' function.
 class ListClustersResponse(BaseValidatorModel):
     clusterArns: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_container_instances' function.
 class ListContainerInstancesResponse(BaseValidatorModel):
     containerInstanceArns: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_services_by_namespace' function.
 class ListServicesByNamespaceResponse(BaseValidatorModel):
     serviceArns: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_services' function.
 class ListServicesResponse(BaseValidatorModel):
     serviceArns: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_task_definition_families' function.
 class ListTaskDefinitionFamiliesResponse(BaseValidatorModel):
     families: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_task_definitions' function.
 class ListTaskDefinitionsResponse(BaseValidatorModel):
     taskDefinitionArns: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tasks' function.
 class ListTasksResponse(BaseValidatorModel):
     taskArns: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'put_attributes' function.
 class PutAttributesResponse(BaseValidatorModel):
     attributes: List[Attribute]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'submit_attachment_state_changes' function.
 class SubmitAttachmentStateChangesResponse(BaseValidatorModel):
     acknowledgment: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'submit_container_state_change' function.
 class SubmitContainerStateChangeResponse(BaseValidatorModel):
     acknowledgment: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'submit_task_state_change' function.
 class SubmitTaskStateChangeResponse(BaseValidatorModel):
     acknowledgment: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_task_set' function.
 class UpdateTaskSetRequest(BaseValidatorModel):
     cluster: str
     service: str
@@ -1008,22 +1067,26 @@ class CreatedAt(BaseValidatorModel):
     after: Optional[Timestamp] = None
 
 
+# This class is the output for the 'delete_account_setting' function.
 class DeleteAccountSettingResponse(BaseValidatorModel):
     setting: Setting
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_account_settings' function.
 class ListAccountSettingsResponse(BaseValidatorModel):
     settings: List[Setting]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'put_account_setting_default' function.
 class PutAccountSettingDefaultResponse(BaseValidatorModel):
     setting: Setting
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_account_setting' function.
 class PutAccountSettingResponse(BaseValidatorModel):
     setting: Setting
     ResponseMetadata: ResponseMetadata
@@ -1089,6 +1152,7 @@ class ExecuteCommandConfiguration(BaseValidatorModel):
     logConfiguration: Optional[ExecuteCommandLogConfiguration] = None
 
 
+# This class is the output for the 'execute_command' function.
 class ExecuteCommandResponse(BaseValidatorModel):
     clusterArn: str
     containerArn: str
@@ -1107,12 +1171,14 @@ class FSxWindowsFileServerVolumeConfiguration(BaseValidatorModel):
 FirelensConfigurationUnion = Union[FirelensConfiguration, FirelensConfigurationOutput]
 
 
+# This class is the output for the 'get_task_protection' function.
 class GetTaskProtectionResponse(BaseValidatorModel):
     protectedTasks: List[ProtectedTask]
     failures: List[Failure]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_task_protection' function.
 class UpdateTaskProtectionResponse(BaseValidatorModel):
     protectedTasks: List[ProtectedTask]
     failures: List[Failure]
@@ -1196,6 +1262,7 @@ class ListTasksRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_service_deployments' function.
 class ListServiceDeploymentsResponse(BaseValidatorModel):
     serviceDeployments: List[ServiceDeploymentBrief]
     ResponseMetadata: ResponseMetadata
@@ -1224,12 +1291,14 @@ class CapacityProvider(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_capacity_provider' function.
 class CreateCapacityProviderRequest(BaseValidatorModel):
     name: str
     autoScalingGroupProvider: AutoScalingGroupProvider
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_capacity_provider' function.
 class UpdateCapacityProviderRequest(BaseValidatorModel):
     name: str
     autoScalingGroupProvider: AutoScalingGroupProviderUpdate
@@ -1323,6 +1392,7 @@ class ContainerInstance(BaseValidatorModel):
     healthStatus: Optional[ContainerInstanceHealthStatus] = None
 
 
+# This class is the input for the 'submit_task_state_change' function.
 class SubmitTaskStateChangeRequest(BaseValidatorModel):
     cluster: Optional[str] = None
     task: Optional[str] = None
@@ -1336,6 +1406,7 @@ class SubmitTaskStateChangeRequest(BaseValidatorModel):
     executionStoppedAt: Optional[Timestamp] = None
 
 
+# This class is the input for the 'list_service_deployments' function.
 class ListServiceDeploymentsRequest(BaseValidatorModel):
     service: str
     cluster: Optional[str] = None
@@ -1434,6 +1505,7 @@ class ContainerDefinitionOutput(BaseValidatorModel):
     credentialSpecs: Optional[List[str]] = None
 
 
+# This class is the input for the 'register_container_instance' function.
 class RegisterContainerInstanceRequest(BaseValidatorModel):
     cluster: Optional[str] = None
     instanceIdentityDocument: Optional[str] = None
@@ -1474,16 +1546,19 @@ class LinuxParameters(BaseValidatorModel):
     swappiness: Optional[int] = None
 
 
+# This class is the output for the 'create_capacity_provider' function.
 class CreateCapacityProviderResponse(BaseValidatorModel):
     capacityProvider: CapacityProvider
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_capacity_provider' function.
 class DeleteCapacityProviderResponse(BaseValidatorModel):
     capacityProvider: CapacityProvider
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_capacity_providers' function.
 class DescribeCapacityProvidersResponse(BaseValidatorModel):
     capacityProviders: List[CapacityProvider]
     failures: List[Failure]
@@ -1491,37 +1566,44 @@ class DescribeCapacityProvidersResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_capacity_provider' function.
 class UpdateCapacityProviderResponse(BaseValidatorModel):
     capacityProvider: CapacityProvider
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_task_set' function.
 class CreateTaskSetResponse(BaseValidatorModel):
     taskSet: TaskSet
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_task_set' function.
 class DeleteTaskSetResponse(BaseValidatorModel):
     taskSet: TaskSet
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_task_sets' function.
 class DescribeTaskSetsResponse(BaseValidatorModel):
     taskSets: List[TaskSet]
     failures: List[Failure]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_service_primary_task_set' function.
 class UpdateServicePrimaryTaskSetResponse(BaseValidatorModel):
     taskSet: TaskSet
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_task_set' function.
 class UpdateTaskSetResponse(BaseValidatorModel):
     taskSet: TaskSet
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_task_set' function.
 class CreateTaskSetRequest(BaseValidatorModel):
     service: str
     cluster: str
@@ -1612,33 +1694,39 @@ class Task(BaseValidatorModel):
 TaskOverrideUnion = Union[TaskOverride, TaskOverrideOutput]
 
 
+# This class is the output for the 'deregister_container_instance' function.
 class DeregisterContainerInstanceResponse(BaseValidatorModel):
     containerInstance: ContainerInstance
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_container_instances' function.
 class DescribeContainerInstancesResponse(BaseValidatorModel):
     containerInstances: List[ContainerInstance]
     failures: List[Failure]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_container_instance' function.
 class RegisterContainerInstanceResponse(BaseValidatorModel):
     containerInstance: ContainerInstance
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_container_agent' function.
 class UpdateContainerAgentResponse(BaseValidatorModel):
     containerInstance: ContainerInstance
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_container_instances_state' function.
 class UpdateContainerInstancesStateResponse(BaseValidatorModel):
     containerInstances: List[ContainerInstance]
     failures: List[Failure]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_service_deployments' function.
 class DescribeServiceDeploymentsResponse(BaseValidatorModel):
     serviceDeployments: List[ServiceDeployment]
     failures: List[Failure]
@@ -1664,6 +1752,7 @@ class Cluster(BaseValidatorModel):
     serviceConnectDefaults: Optional[ClusterServiceConnectDefaults] = None
 
 
+# This class is the input for the 'create_cluster' function.
 class CreateClusterRequest(BaseValidatorModel):
     clusterName: Optional[str] = None
     tags: Optional[List[Tag]] = None
@@ -1674,6 +1763,7 @@ class CreateClusterRequest(BaseValidatorModel):
     serviceConnectDefaults: Optional[ClusterServiceConnectDefaultsRequest] = None
 
 
+# This class is the input for the 'update_cluster' function.
 class UpdateClusterRequest(BaseValidatorModel):
     cluster: str
     settings: Optional[List[ClusterSetting]] = None
@@ -1734,77 +1824,91 @@ class TaskVolumeConfiguration(BaseValidatorModel):
     managedEBSVolume: Optional[TaskManagedEBSVolumeConfiguration] = None
 
 
+# This class is the output for the 'describe_tasks' function.
 class DescribeTasksResponse(BaseValidatorModel):
     tasks: List[Task]
     failures: List[Failure]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'run_task' function.
 class RunTaskResponse(BaseValidatorModel):
     tasks: List[Task]
     failures: List[Failure]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_task' function.
 class StartTaskResponse(BaseValidatorModel):
     tasks: List[Task]
     failures: List[Failure]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_task' function.
 class StopTaskResponse(BaseValidatorModel):
     task: Task
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_cluster' function.
 class CreateClusterResponse(BaseValidatorModel):
     cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_cluster' function.
 class DeleteClusterResponse(BaseValidatorModel):
     cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_clusters' function.
 class DescribeClustersResponse(BaseValidatorModel):
     clusters: List[Cluster]
     failures: List[Failure]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_cluster_capacity_providers' function.
 class PutClusterCapacityProvidersResponse(BaseValidatorModel):
     cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_cluster' function.
 class UpdateClusterResponse(BaseValidatorModel):
     cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_cluster_settings' function.
 class UpdateClusterSettingsResponse(BaseValidatorModel):
     cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_task_definitions' function.
 class DeleteTaskDefinitionsResponse(BaseValidatorModel):
     taskDefinitions: List[TaskDefinition]
     failures: List[Failure]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'deregister_task_definition' function.
 class DeregisterTaskDefinitionResponse(BaseValidatorModel):
     taskDefinition: TaskDefinition
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_task_definition' function.
 class DescribeTaskDefinitionResponse(BaseValidatorModel):
     taskDefinition: TaskDefinition
     tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_task_definition' function.
 class RegisterTaskDefinitionResponse(BaseValidatorModel):
     taskDefinition: TaskDefinition
     tags: List[Tag]
@@ -1908,6 +2012,7 @@ class ServiceVolumeConfiguration(BaseValidatorModel):
     managedEBSVolume: Optional[ServiceManagedEBSVolumeConfigurationUnion] = None
 
 
+# This class is the input for the 'run_task' function.
 class RunTaskRequest(BaseValidatorModel):
     taskDefinition: str
     capacityProviderStrategy: Optional[List[CapacityProviderStrategyItem]] = None
@@ -1930,6 +2035,7 @@ class RunTaskRequest(BaseValidatorModel):
     volumeConfigurations: Optional[List[TaskVolumeConfiguration]] = None
 
 
+# This class is the input for the 'start_task' function.
 class StartTaskRequest(BaseValidatorModel):
     containerInstances: List[str]
     taskDefinition: str
@@ -1981,6 +2087,7 @@ class Service(BaseValidatorModel):
     availabilityZoneRebalancing: Optional[AvailabilityZoneRebalancingType] = None
 
 
+# This class is the output for the 'describe_service_revisions' function.
 class DescribeServiceRevisionsResponse(BaseValidatorModel):
     serviceRevisions: List[ServiceRevision]
     failures: List[Failure]
@@ -1991,27 +2098,32 @@ ContainerDefinitionUnion = Union[ContainerDefinition, ContainerDefinitionOutput]
 ServiceVolumeConfigurationUnion = Union[ServiceVolumeConfiguration, ServiceVolumeConfigurationOutput]
 
 
+# This class is the output for the 'create_service' function.
 class CreateServiceResponse(BaseValidatorModel):
     service: Service
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_service' function.
 class DeleteServiceResponse(BaseValidatorModel):
     service: Service
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_services' function.
 class DescribeServicesResponse(BaseValidatorModel):
     services: List[Service]
     failures: List[Failure]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_service' function.
 class UpdateServiceResponse(BaseValidatorModel):
     service: Service
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'register_task_definition' function.
 class RegisterTaskDefinitionRequest(BaseValidatorModel):
     family: str
     containerDefinitions: List[ContainerDefinitionUnion]
@@ -2033,6 +2145,7 @@ class RegisterTaskDefinitionRequest(BaseValidatorModel):
     enableFaultInjection: Optional[bool] = None
 
 
+# This class is the input for the 'create_service' function.
 class CreateServiceRequest(BaseValidatorModel):
     serviceName: str
     cluster: Optional[str] = None
@@ -2062,6 +2175,7 @@ class CreateServiceRequest(BaseValidatorModel):
     vpcLatticeConfigurations: Optional[List[VpcLatticeConfiguration]] = None
 
 
+# This class is the input for the 'update_service' function.
 class UpdateServiceRequest(BaseValidatorModel):
     service: str
     cluster: Optional[str] = None

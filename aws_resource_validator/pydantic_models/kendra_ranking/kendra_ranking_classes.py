@@ -25,10 +25,12 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'delete_rescore_execution_plan' function.
 class DeleteRescoreExecutionPlanRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'describe_rescore_execution_plan' function.
 class DescribeRescoreExecutionPlanRequest(BaseValidatorModel):
     Id: str
 
@@ -43,6 +45,7 @@ class Document(BaseValidatorModel):
     TokenizedBody: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_rescore_execution_plans' function.
 class ListRescoreExecutionPlansRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -56,6 +59,7 @@ class RescoreExecutionPlanSummary(BaseValidatorModel):
     Status: Optional[RescoreExecutionPlanStatusType] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
@@ -70,6 +74,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_rescore_execution_plan' function.
 class UpdateRescoreExecutionPlanRequest(BaseValidatorModel):
     Id: str
     Name: Optional[str] = None
@@ -77,6 +82,7 @@ class UpdateRescoreExecutionPlanRequest(BaseValidatorModel):
     CapacityUnits: Optional[CapacityUnitsConfiguration] = None
 
 
+# This class is the input for the 'create_rescore_execution_plan' function.
 class CreateRescoreExecutionPlanRequest(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
@@ -90,12 +96,14 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the output for the 'create_rescore_execution_plan' function.
 class CreateRescoreExecutionPlanResponse(BaseValidatorModel):
     Id: str
     Arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_rescore_execution_plan' function.
 class DescribeRescoreExecutionPlanResponse(BaseValidatorModel):
     Id: str
     Arn: str
@@ -109,27 +117,32 @@ class DescribeRescoreExecutionPlanResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_rescore_execution_plan' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'rescore' function.
 class RescoreRequest(BaseValidatorModel):
     RescoreExecutionPlanId: str
     SearchQuery: str
     Documents: List[Document]
 
 
+# This class is the output for the 'list_rescore_execution_plans' function.
 class ListRescoreExecutionPlansResponse(BaseValidatorModel):
     SummaryItems: List[RescoreExecutionPlanSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'rescore' function.
 class RescoreResult(BaseValidatorModel):
     RescoreId: str
     ResultItems: List[RescoreResultItem]

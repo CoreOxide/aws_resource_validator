@@ -10,10 +10,12 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 Blob = Union[str, bytes, IO[Any], StreamingBody]
 
 
+# This class is the input for the 'cancel_sol_network_operation' function.
 class CancelSolNetworkOperationInput(BaseValidatorModel):
     nsLcmOpOccId: str
 
 
+# This class is the input for the 'create_sol_function_package' function.
 class CreateSolFunctionPackageInput(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
@@ -26,6 +28,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_sol_network_instance' function.
 class CreateSolNetworkInstanceInput(BaseValidatorModel):
     nsName: str
     nsdInfoId: str
@@ -33,18 +36,22 @@ class CreateSolNetworkInstanceInput(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_sol_network_package' function.
 class CreateSolNetworkPackageInput(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'delete_sol_function_package' function.
 class DeleteSolFunctionPackageInput(BaseValidatorModel):
     vnfPkgId: str
 
 
+# This class is the input for the 'delete_sol_network_instance' function.
 class DeleteSolNetworkInstanceInput(BaseValidatorModel):
     nsInstanceId: str
 
 
+# This class is the input for the 'delete_sol_network_package' function.
 class DeleteSolNetworkPackageInput(BaseValidatorModel):
     nsdInfoId: str
 
@@ -59,6 +66,7 @@ class ToscaOverride(BaseValidatorModel):
     name: Optional[str] = None
 
 
+# This class is the input for the 'get_sol_function_instance' function.
 class GetSolFunctionInstanceInput(BaseValidatorModel):
     vnfInstanceId: str
 
@@ -68,16 +76,19 @@ class GetSolFunctionInstanceMetadata(BaseValidatorModel):
     lastModified: datetime
 
 
+# This class is the input for the 'get_sol_function_package_content' function.
 class GetSolFunctionPackageContentInput(BaseValidatorModel):
     accept: Literal['application/zip']
     vnfPkgId: str
 
 
+# This class is the input for the 'get_sol_function_package_descriptor' function.
 class GetSolFunctionPackageDescriptorInput(BaseValidatorModel):
     accept: Literal['text/plain']
     vnfPkgId: str
 
 
+# This class is the input for the 'get_sol_function_package' function.
 class GetSolFunctionPackageInput(BaseValidatorModel):
     vnfPkgId: str
 
@@ -86,6 +97,7 @@ class GetSolInstantiatedVnfInfo(BaseValidatorModel):
     vnfState: Optional[VnfOperationalStateType] = None
 
 
+# This class is the input for the 'get_sol_network_instance' function.
 class GetSolNetworkInstanceInput(BaseValidatorModel):
     nsInstanceId: str
 
@@ -99,6 +111,7 @@ class LcmOperationInfo(BaseValidatorModel):
     nsLcmOpOccId: str
 
 
+# This class is the input for the 'get_sol_network_operation' function.
 class GetSolNetworkOperationInput(BaseValidatorModel):
     nsLcmOpOccId: str
 
@@ -123,15 +136,18 @@ class ProblemDetails(BaseValidatorModel):
     title: Optional[str] = None
 
 
+# This class is the input for the 'get_sol_network_package_content' function.
 class GetSolNetworkPackageContentInput(BaseValidatorModel):
     accept: Literal['application/zip']
     nsdInfoId: str
 
 
+# This class is the input for the 'get_sol_network_package_descriptor' function.
 class GetSolNetworkPackageDescriptorInput(BaseValidatorModel):
     nsdInfoId: str
 
 
+# This class is the input for the 'get_sol_network_package' function.
 class GetSolNetworkPackageInput(BaseValidatorModel):
     nsdInfoId: str
 
@@ -142,6 +158,7 @@ class GetSolVnfcResourceInfoMetadata(BaseValidatorModel):
     nodeGroup: Optional[str] = None
 
 
+# This class is the input for the 'instantiate_sol_network_instance' function.
 class InstantiateSolNetworkInstanceInput(BaseValidatorModel):
     nsInstanceId: str
     additionalParamsForNs: Optional[Dict[str, Any]] = None
@@ -160,6 +177,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_sol_function_instances' function.
 class ListSolFunctionInstancesInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -170,6 +188,7 @@ class ListSolFunctionPackageMetadata(BaseValidatorModel):
     lastModified: datetime
 
 
+# This class is the input for the 'list_sol_function_packages' function.
 class ListSolFunctionPackagesInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -180,6 +199,7 @@ class ListSolNetworkInstanceMetadata(BaseValidatorModel):
     lastModified: datetime
 
 
+# This class is the input for the 'list_sol_network_instances' function.
 class ListSolNetworkInstancesInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -192,6 +212,7 @@ class ListSolNetworkOperationsMetadata(BaseValidatorModel):
     vnfInstanceId: Optional[str] = None
 
 
+# This class is the input for the 'list_sol_network_operations' function.
 class ListSolNetworkOperationsInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -203,11 +224,13 @@ class ListSolNetworkPackageMetadata(BaseValidatorModel):
     lastModified: datetime
 
 
+# This class is the input for the 'list_sol_network_packages' function.
 class ListSolNetworkPackagesInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInput(BaseValidatorModel):
     resourceArn: str
 
@@ -217,6 +240,7 @@ class TagResourceInput(BaseValidatorModel):
     tags: Dict[str, str]
 
 
+# This class is the input for the 'terminate_sol_network_instance' function.
 class TerminateSolNetworkInstanceInput(BaseValidatorModel):
     nsInstanceId: str
     tags: Optional[Dict[str, str]] = None
@@ -227,6 +251,7 @@ class UntagResourceInput(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_sol_function_package' function.
 class UpdateSolFunctionPackageInput(BaseValidatorModel):
     operationalState: OperationalStateType
     vnfPkgId: str
@@ -242,35 +267,41 @@ class UpdateSolNetworkServiceData(BaseValidatorModel):
     additionalParamsForNs: Optional[Dict[str, Any]] = None
 
 
+# This class is the input for the 'update_sol_network_package' function.
 class UpdateSolNetworkPackageInput(BaseValidatorModel):
     nsdInfoId: str
     nsdOperationalState: NsdOperationalStateType
 
 
+# This class is the input for the 'put_sol_function_package_content' function.
 class PutSolFunctionPackageContentInput(BaseValidatorModel):
     file: Blob
     vnfPkgId: str
     contentType: Optional[Literal['application/zip']] = None
 
 
+# This class is the input for the 'put_sol_network_package_content' function.
 class PutSolNetworkPackageContentInput(BaseValidatorModel):
     file: Blob
     nsdInfoId: str
     contentType: Optional[Literal['application/zip']] = None
 
 
+# This class is the input for the 'validate_sol_function_package_content' function.
 class ValidateSolFunctionPackageContentInput(BaseValidatorModel):
     file: Blob
     vnfPkgId: str
     contentType: Optional[Literal['application/zip']] = None
 
 
+# This class is the input for the 'validate_sol_network_package_content' function.
 class ValidateSolNetworkPackageContentInput(BaseValidatorModel):
     file: Blob
     nsdInfoId: str
     contentType: Optional[Literal['application/zip']] = None
 
 
+# This class is the output for the 'create_sol_function_package' function.
 class CreateSolFunctionPackageOutput(BaseValidatorModel):
     arn: str
     id: str
@@ -281,6 +312,7 @@ class CreateSolFunctionPackageOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_sol_network_instance' function.
 class CreateSolNetworkInstanceOutput(BaseValidatorModel):
     arn: str
     id: str
@@ -290,6 +322,7 @@ class CreateSolNetworkInstanceOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_sol_network_package' function.
 class CreateSolNetworkPackageOutput(BaseValidatorModel):
     arn: str
     id: str
@@ -300,62 +333,73 @@ class CreateSolNetworkPackageOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_sol_network_package' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_sol_function_package_content' function.
 class GetSolFunctionPackageContentOutput(BaseValidatorModel):
     contentType: Literal['application/zip']
     packageContent: StreamingBody
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_sol_function_package_descriptor' function.
 class GetSolFunctionPackageDescriptorOutput(BaseValidatorModel):
     contentType: Literal['text/plain']
     vnfd: StreamingBody
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_sol_network_package_content' function.
 class GetSolNetworkPackageContentOutput(BaseValidatorModel):
     contentType: Literal['application/zip']
     nsdContent: StreamingBody
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_sol_network_package_descriptor' function.
 class GetSolNetworkPackageDescriptorOutput(BaseValidatorModel):
     contentType: Literal['text/plain']
     nsd: StreamingBody
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'instantiate_sol_network_instance' function.
 class InstantiateSolNetworkInstanceOutput(BaseValidatorModel):
     nsLcmOpOccId: str
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceOutput(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'terminate_sol_network_instance' function.
 class TerminateSolNetworkInstanceOutput(BaseValidatorModel):
     nsLcmOpOccId: str
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_sol_function_package' function.
 class UpdateSolFunctionPackageOutput(BaseValidatorModel):
     operationalState: OperationalStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_sol_network_instance' function.
 class UpdateSolNetworkInstanceOutput(BaseValidatorModel):
     nsLcmOpOccId: str
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_sol_network_package' function.
 class UpdateSolNetworkPackageOutput(BaseValidatorModel):
     nsdOperationalState: NsdOperationalStateType
     ResponseMetadata: ResponseMetadata
@@ -378,6 +422,7 @@ class NetworkArtifactMeta(BaseValidatorModel):
     overrides: Optional[List[ToscaOverride]] = None
 
 
+# This class is the output for the 'get_sol_network_instance' function.
 class GetSolNetworkInstanceOutput(BaseValidatorModel):
     arn: str
     id: str
@@ -486,6 +531,7 @@ class ListSolNetworkPackageInfo(BaseValidatorModel):
     vnfPkgIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_sol_network_instance' function.
 class UpdateSolNetworkInstanceInput(BaseValidatorModel):
     nsInstanceId: str
     updateType: UpdateSolNetworkTypeType
@@ -522,6 +568,7 @@ class ValidateSolNetworkPackageContentMetadata(BaseValidatorModel):
     nsd: Optional[NetworkArtifactMeta] = None
 
 
+# This class is the output for the 'get_sol_network_operation' function.
 class GetSolNetworkOperationOutput(BaseValidatorModel):
     arn: str
     error: ProblemDetails
@@ -541,36 +588,42 @@ class GetSolVnfInfo(BaseValidatorModel):
     vnfcResourceInfo: Optional[List[GetSolVnfcResourceInfo]] = None
 
 
+# This class is the output for the 'list_sol_function_instances' function.
 class ListSolFunctionInstancesOutput(BaseValidatorModel):
     functionInstances: List[ListSolFunctionInstanceInfo]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_sol_function_packages' function.
 class ListSolFunctionPackagesOutput(BaseValidatorModel):
     functionPackages: List[ListSolFunctionPackageInfo]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_sol_network_instances' function.
 class ListSolNetworkInstancesOutput(BaseValidatorModel):
     networkInstances: List[ListSolNetworkInstanceInfo]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_sol_network_operations' function.
 class ListSolNetworkOperationsOutput(BaseValidatorModel):
     networkOperations: List[ListSolNetworkOperationsInfo]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_sol_network_packages' function.
 class ListSolNetworkPackagesOutput(BaseValidatorModel):
     networkPackages: List[ListSolNetworkPackageInfo]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_sol_function_package' function.
 class GetSolFunctionPackageOutput(BaseValidatorModel):
     arn: str
     id: str
@@ -586,6 +639,7 @@ class GetSolFunctionPackageOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_sol_function_package_content' function.
 class PutSolFunctionPackageContentOutput(BaseValidatorModel):
     id: str
     metadata: PutSolFunctionPackageContentMetadata
@@ -596,6 +650,7 @@ class PutSolFunctionPackageContentOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'validate_sol_function_package_content' function.
 class ValidateSolFunctionPackageContentOutput(BaseValidatorModel):
     id: str
     metadata: ValidateSolFunctionPackageContentMetadata
@@ -606,6 +661,7 @@ class ValidateSolFunctionPackageContentOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_sol_network_package' function.
 class GetSolNetworkPackageOutput(BaseValidatorModel):
     arn: str
     id: str
@@ -621,6 +677,7 @@ class GetSolNetworkPackageOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_sol_network_package_content' function.
 class PutSolNetworkPackageContentOutput(BaseValidatorModel):
     arn: str
     id: str
@@ -632,6 +689,7 @@ class PutSolNetworkPackageContentOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'validate_sol_network_package_content' function.
 class ValidateSolNetworkPackageContentOutput(BaseValidatorModel):
     arn: str
     id: str
@@ -643,6 +701,7 @@ class ValidateSolNetworkPackageContentOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_sol_function_instance' function.
 class GetSolFunctionInstanceOutput(BaseValidatorModel):
     arn: str
     id: str

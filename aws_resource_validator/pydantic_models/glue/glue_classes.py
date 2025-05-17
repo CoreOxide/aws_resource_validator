@@ -106,6 +106,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'batch_delete_connection' function.
 class BatchDeleteConnectionRequest(BaseValidatorModel):
     ConnectionNameList: List[str]
     CatalogId: Optional[str] = None
@@ -116,6 +117,7 @@ class ErrorDetail(BaseValidatorModel):
     ErrorMessage: Optional[str] = None
 
 
+# This class is the input for the 'batch_delete_table' function.
 class BatchDeleteTableRequest(BaseValidatorModel):
     DatabaseName: str
     TablesToDelete: List[str]
@@ -123,6 +125,7 @@ class BatchDeleteTableRequest(BaseValidatorModel):
     TransactionId: Optional[str] = None
 
 
+# This class is the input for the 'batch_delete_table_version' function.
 class BatchDeleteTableVersionRequest(BaseValidatorModel):
     DatabaseName: str
     TableName: str
@@ -130,16 +133,19 @@ class BatchDeleteTableVersionRequest(BaseValidatorModel):
     CatalogId: Optional[str] = None
 
 
+# This class is the input for the 'batch_get_blueprints' function.
 class BatchGetBlueprintsRequest(BaseValidatorModel):
     Names: List[str]
     IncludeBlueprint: Optional[bool] = None
     IncludeParameterSpec: Optional[bool] = None
 
 
+# This class is the input for the 'batch_get_crawlers' function.
 class BatchGetCrawlersRequest(BaseValidatorModel):
     CrawlerNames: List[str]
 
 
+# This class is the input for the 'batch_get_custom_entity_types' function.
 class BatchGetCustomEntityTypesRequest(BaseValidatorModel):
     Names: List[str]
 
@@ -150,10 +156,12 @@ class CustomEntityType(BaseValidatorModel):
     ContextWords: Optional[List[str]] = None
 
 
+# This class is the input for the 'batch_get_data_quality_result' function.
 class BatchGetDataQualityResultRequest(BaseValidatorModel):
     ResultIds: List[str]
 
 
+# This class is the input for the 'batch_get_dev_endpoints' function.
 class BatchGetDevEndpointsRequest(BaseValidatorModel):
     DevEndpointNames: List[str]
 
@@ -186,6 +194,7 @@ class DevEndpoint(BaseValidatorModel):
     Arguments: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'batch_get_jobs' function.
 class BatchGetJobsRequest(BaseValidatorModel):
     JobNames: List[str]
 
@@ -197,10 +206,12 @@ class BatchGetTableOptimizerEntry(BaseValidatorModel):
     type: Optional[TableOptimizerTypeType] = None
 
 
+# This class is the input for the 'batch_get_triggers' function.
 class BatchGetTriggersRequest(BaseValidatorModel):
     TriggerNames: List[str]
 
 
+# This class is the input for the 'batch_get_workflows' function.
 class BatchGetWorkflowsRequest(BaseValidatorModel):
     Names: List[str]
     IncludeGraph: Optional[bool] = None
@@ -212,6 +223,7 @@ class DatapointInclusionAnnotation(BaseValidatorModel):
     InclusionAnnotation: Optional[InclusionAnnotationValueType] = None
 
 
+# This class is the input for the 'batch_stop_job_run' function.
 class BatchStopJobRunRequest(BaseValidatorModel):
     JobName: str
     JobRunIds: List[str]
@@ -270,6 +282,7 @@ class CancelDataQualityRulesetEvaluationRunRequest(BaseValidatorModel):
     RunId: str
 
 
+# This class is the input for the 'cancel_ml_task_run' function.
 class CancelMLTaskRunRequest(BaseValidatorModel):
     TransformId: str
     TaskRunId: str
@@ -403,6 +416,7 @@ class CatalogTarget(BaseValidatorModel):
     DlqEventQueueArn: Optional[str] = None
 
 
+# This class is the input for the 'check_schema_version_validity' function.
 class CheckSchemaVersionValidityInput(BaseValidatorModel):
     DataFormat: DataFormatType
     SchemaDefinition: str
@@ -940,6 +954,7 @@ class CrawlsFilter(BaseValidatorModel):
     FieldValue: Optional[str] = None
 
 
+# This class is the input for the 'create_blueprint' function.
 class CreateBlueprintRequest(BaseValidatorModel):
     Name: str
     BlueprintLocation: str
@@ -990,6 +1005,7 @@ class CreateColumnStatisticsTaskSettingsRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_custom_entity_type' function.
 class CreateCustomEntityTypeRequest(BaseValidatorModel):
     Name: str
     RegexString: str
@@ -1003,6 +1019,7 @@ class DataQualityTargetTable(BaseValidatorModel):
     CatalogId: Optional[str] = None
 
 
+# This class is the input for the 'create_dev_endpoint' function.
 class CreateDevEndpointRequest(BaseValidatorModel):
     EndpointName: str
     RoleArn: str
@@ -1069,6 +1086,7 @@ class PartitionIndex(BaseValidatorModel):
     IndexName: str
 
 
+# This class is the input for the 'create_registry' function.
 class CreateRegistryInput(BaseValidatorModel):
     RegistryName: str
     Description: Optional[str] = None
@@ -1090,6 +1108,7 @@ class EventBatchingCondition(BaseValidatorModel):
     BatchWindow: Optional[int] = None
 
 
+# This class is the input for the 'create_workflow' function.
 class CreateWorkflowRequest(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
@@ -1182,6 +1201,7 @@ class DecimalNumberOutput(BaseValidatorModel):
     Scale: int
 
 
+# This class is the input for the 'delete_blueprint' function.
 class DeleteBlueprintRequest(BaseValidatorModel):
     Name: str
 
@@ -1223,6 +1243,7 @@ class DeleteCrawlerRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'delete_custom_entity_type' function.
 class DeleteCustomEntityTypeRequest(BaseValidatorModel):
     Name: str
 
@@ -1240,6 +1261,7 @@ class DeleteDevEndpointRequest(BaseValidatorModel):
     EndpointName: str
 
 
+# This class is the input for the 'delete_integration' function.
 class DeleteIntegrationRequest(BaseValidatorModel):
     IntegrationIdentifier: str
 
@@ -1249,10 +1271,12 @@ class DeleteIntegrationTablePropertiesRequest(BaseValidatorModel):
     TableName: str
 
 
+# This class is the input for the 'delete_job' function.
 class DeleteJobRequest(BaseValidatorModel):
     JobName: str
 
 
+# This class is the input for the 'delete_ml_transform' function.
 class DeleteMLTransformRequest(BaseValidatorModel):
     TransformId: str
 
@@ -1286,6 +1310,7 @@ class DeleteSecurityConfigurationRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'delete_session' function.
 class DeleteSessionRequest(BaseValidatorModel):
     Id: str
     RequestOrigin: Optional[str] = None
@@ -1312,6 +1337,7 @@ class DeleteTableVersionRequest(BaseValidatorModel):
     CatalogId: Optional[str] = None
 
 
+# This class is the input for the 'delete_trigger' function.
 class DeleteTriggerRequest(BaseValidatorModel):
     Name: str
 
@@ -1326,10 +1352,12 @@ class DeleteUserDefinedFunctionRequest(BaseValidatorModel):
     CatalogId: Optional[str] = None
 
 
+# This class is the input for the 'delete_workflow' function.
 class DeleteWorkflowRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'describe_connection_type' function.
 class DescribeConnectionTypeRequest(BaseValidatorModel):
     ConnectionType: str
 
@@ -1340,6 +1368,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_entity' function.
 class DescribeEntityRequest(BaseValidatorModel):
     ConnectionName: str
     EntityName: str
@@ -1369,6 +1398,7 @@ class Field(BaseValidatorModel):
     CustomProperties: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'describe_inbound_integrations' function.
 class DescribeInboundIntegrationsRequest(BaseValidatorModel):
     IntegrationArn: Optional[str] = None
     Marker: Optional[str] = None
@@ -1490,31 +1520,37 @@ class FindMatchesTaskRunProperties(BaseValidatorModel):
     JobRunId: Optional[str] = None
 
 
+# This class is the input for the 'get_blueprint' function.
 class GetBlueprintRequest(BaseValidatorModel):
     Name: str
     IncludeBlueprint: Optional[bool] = None
     IncludeParameterSpec: Optional[bool] = None
 
 
+# This class is the input for the 'get_blueprint_run' function.
 class GetBlueprintRunRequest(BaseValidatorModel):
     BlueprintName: str
     RunId: str
 
 
+# This class is the input for the 'get_blueprint_runs' function.
 class GetBlueprintRunsRequest(BaseValidatorModel):
     BlueprintName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_catalog_import_status' function.
 class GetCatalogImportStatusRequest(BaseValidatorModel):
     CatalogId: Optional[str] = None
 
 
+# This class is the input for the 'get_catalog' function.
 class GetCatalogRequest(BaseValidatorModel):
     CatalogId: str
 
 
+# This class is the input for the 'get_catalogs' function.
 class GetCatalogsRequest(BaseValidatorModel):
     ParentCatalogId: Optional[str] = None
     NextToken: Optional[str] = None
@@ -1523,15 +1559,18 @@ class GetCatalogsRequest(BaseValidatorModel):
     IncludeRoot: Optional[bool] = None
 
 
+# This class is the input for the 'get_classifier' function.
 class GetClassifierRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'get_classifiers' function.
 class GetClassifiersRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_column_statistics_for_partition' function.
 class GetColumnStatisticsForPartitionRequest(BaseValidatorModel):
     DatabaseName: str
     TableName: str
@@ -1540,6 +1579,7 @@ class GetColumnStatisticsForPartitionRequest(BaseValidatorModel):
     CatalogId: Optional[str] = None
 
 
+# This class is the input for the 'get_column_statistics_for_table' function.
 class GetColumnStatisticsForTableRequest(BaseValidatorModel):
     DatabaseName: str
     TableName: str
@@ -1547,10 +1587,12 @@ class GetColumnStatisticsForTableRequest(BaseValidatorModel):
     CatalogId: Optional[str] = None
 
 
+# This class is the input for the 'get_column_statistics_task_run' function.
 class GetColumnStatisticsTaskRunRequest(BaseValidatorModel):
     ColumnStatisticsTaskRunId: str
 
 
+# This class is the input for the 'get_column_statistics_task_runs' function.
 class GetColumnStatisticsTaskRunsRequest(BaseValidatorModel):
     DatabaseName: str
     TableName: str
@@ -1558,11 +1600,13 @@ class GetColumnStatisticsTaskRunsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_column_statistics_task_settings' function.
 class GetColumnStatisticsTaskSettingsRequest(BaseValidatorModel):
     DatabaseName: str
     TableName: str
 
 
+# This class is the input for the 'get_connection' function.
 class GetConnectionRequest(BaseValidatorModel):
     Name: str
     CatalogId: Optional[str] = None
@@ -1576,34 +1620,41 @@ class GetConnectionsFilter(BaseValidatorModel):
     ConnectionSchemaVersion: Optional[int] = None
 
 
+# This class is the input for the 'get_crawler_metrics' function.
 class GetCrawlerMetricsRequest(BaseValidatorModel):
     CrawlerNameList: Optional[List[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_crawler' function.
 class GetCrawlerRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'get_crawlers' function.
 class GetCrawlersRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_custom_entity_type' function.
 class GetCustomEntityTypeRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'get_data_catalog_encryption_settings' function.
 class GetDataCatalogEncryptionSettingsRequest(BaseValidatorModel):
     CatalogId: Optional[str] = None
 
 
+# This class is the input for the 'get_data_quality_model' function.
 class GetDataQualityModelRequest(BaseValidatorModel):
     ProfileId: str
     StatisticId: Optional[str] = None
 
 
+# This class is the input for the 'get_data_quality_model_result' function.
 class GetDataQualityModelResultRequest(BaseValidatorModel):
     StatisticId: str
     ProfileId: str
@@ -1618,27 +1669,33 @@ class StatisticModelResult(BaseValidatorModel):
     InclusionAnnotation: Optional[InclusionAnnotationValueType] = None
 
 
+# This class is the input for the 'get_data_quality_result' function.
 class GetDataQualityResultRequest(BaseValidatorModel):
     ResultId: str
 
 
+# This class is the input for the 'get_data_quality_rule_recommendation_run' function.
 class GetDataQualityRuleRecommendationRunRequest(BaseValidatorModel):
     RunId: str
 
 
+# This class is the input for the 'get_data_quality_ruleset_evaluation_run' function.
 class GetDataQualityRulesetEvaluationRunRequest(BaseValidatorModel):
     RunId: str
 
 
+# This class is the input for the 'get_data_quality_ruleset' function.
 class GetDataQualityRulesetRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'get_database' function.
 class GetDatabaseRequest(BaseValidatorModel):
     Name: str
     CatalogId: Optional[str] = None
 
 
+# This class is the input for the 'get_databases' function.
 class GetDatabasesRequest(BaseValidatorModel):
     CatalogId: Optional[str] = None
     NextToken: Optional[str] = None
@@ -1647,19 +1704,23 @@ class GetDatabasesRequest(BaseValidatorModel):
     AttributesToGet: Optional[List[Literal['NAME']]] = None
 
 
+# This class is the input for the 'get_dataflow_graph' function.
 class GetDataflowGraphRequest(BaseValidatorModel):
     PythonScript: Optional[str] = None
 
 
+# This class is the input for the 'get_dev_endpoint' function.
 class GetDevEndpointRequest(BaseValidatorModel):
     EndpointName: str
 
 
+# This class is the input for the 'get_dev_endpoints' function.
 class GetDevEndpointsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_entity_records' function.
 class GetEntityRecordsRequest(BaseValidatorModel):
     EntityName: str
     Limit: int
@@ -1673,10 +1734,12 @@ class GetEntityRecordsRequest(BaseValidatorModel):
     SelectedFields: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_integration_resource_property' function.
 class GetIntegrationResourcePropertyRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'get_integration_table_properties' function.
 class GetIntegrationTablePropertiesRequest(BaseValidatorModel):
     ResourceArn: str
     TableName: str
@@ -1689,6 +1752,7 @@ class SourceTableConfigOutput(BaseValidatorModel):
     RecordUpdateField: Optional[str] = None
 
 
+# This class is the input for the 'get_job_bookmark' function.
 class GetJobBookmarkRequest(BaseValidatorModel):
     JobName: str
     RunId: Optional[str] = None
@@ -1704,27 +1768,32 @@ class JobBookmarkEntry(BaseValidatorModel):
     JobBookmark: Optional[str] = None
 
 
+# This class is the input for the 'get_job' function.
 class GetJobRequest(BaseValidatorModel):
     JobName: str
 
 
+# This class is the input for the 'get_job_run' function.
 class GetJobRunRequest(BaseValidatorModel):
     JobName: str
     RunId: str
     PredecessorsIncluded: Optional[bool] = None
 
 
+# This class is the input for the 'get_job_runs' function.
 class GetJobRunsRequest(BaseValidatorModel):
     JobName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_jobs' function.
 class GetJobsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_ml_task_run' function.
 class GetMLTaskRunRequest(BaseValidatorModel):
     TransformId: str
     TaskRunId: str
@@ -1735,6 +1804,7 @@ class TaskRunSortCriteria(BaseValidatorModel):
     SortDirection: SortDirectionTypeType
 
 
+# This class is the input for the 'get_ml_transform' function.
 class GetMLTransformRequest(BaseValidatorModel):
     TransformId: str
 
@@ -1758,6 +1828,7 @@ class MappingEntry(BaseValidatorModel):
     TargetType: Optional[str] = None
 
 
+# This class is the input for the 'get_partition_indexes' function.
 class GetPartitionIndexesRequest(BaseValidatorModel):
     DatabaseName: str
     TableName: str
@@ -1765,6 +1836,7 @@ class GetPartitionIndexesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_partition' function.
 class GetPartitionRequest(BaseValidatorModel):
     DatabaseName: str
     TableName: str
@@ -1777,6 +1849,7 @@ class Segment(BaseValidatorModel):
     TotalSegments: int
 
 
+# This class is the input for the 'get_resource_policies' function.
 class GetResourcePoliciesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -1789,6 +1862,7 @@ class GluePolicy(BaseValidatorModel):
     UpdateTime: Optional[datetime] = None
 
 
+# This class is the input for the 'get_resource_policy' function.
 class GetResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: Optional[str] = None
 
@@ -1798,26 +1872,31 @@ class SchemaVersionNumber(BaseValidatorModel):
     VersionNumber: Optional[int] = None
 
 
+# This class is the input for the 'get_security_configuration' function.
 class GetSecurityConfigurationRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'get_security_configurations' function.
 class GetSecurityConfigurationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_session' function.
 class GetSessionRequest(BaseValidatorModel):
     Id: str
     RequestOrigin: Optional[str] = None
 
 
+# This class is the input for the 'get_statement' function.
 class GetStatementRequest(BaseValidatorModel):
     SessionId: str
     Id: int
     RequestOrigin: Optional[str] = None
 
 
+# This class is the input for the 'get_table_optimizer' function.
 class GetTableOptimizerRequest(BaseValidatorModel):
     CatalogId: str
     DatabaseName: str
@@ -1825,6 +1904,7 @@ class GetTableOptimizerRequest(BaseValidatorModel):
     Type: TableOptimizerTypeType
 
 
+# This class is the input for the 'get_table_version' function.
 class GetTableVersionRequest(BaseValidatorModel):
     DatabaseName: str
     TableName: str
@@ -1832,6 +1912,7 @@ class GetTableVersionRequest(BaseValidatorModel):
     VersionId: Optional[str] = None
 
 
+# This class is the input for the 'get_table_versions' function.
 class GetTableVersionsRequest(BaseValidatorModel):
     DatabaseName: str
     TableName: str
@@ -1840,14 +1921,17 @@ class GetTableVersionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_tags' function.
 class GetTagsRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'get_trigger' function.
 class GetTriggerRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'get_triggers' function.
 class GetTriggersRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     DependentJobName: Optional[str] = None
@@ -1859,16 +1943,19 @@ class SupportedDialect(BaseValidatorModel):
     DialectVersion: Optional[str] = None
 
 
+# This class is the input for the 'get_usage_profile' function.
 class GetUsageProfileRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'get_user_defined_function' function.
 class GetUserDefinedFunctionRequest(BaseValidatorModel):
     DatabaseName: str
     FunctionName: str
     CatalogId: Optional[str] = None
 
 
+# This class is the input for the 'get_user_defined_functions' function.
 class GetUserDefinedFunctionsRequest(BaseValidatorModel):
     Pattern: str
     CatalogId: Optional[str] = None
@@ -1877,22 +1964,26 @@ class GetUserDefinedFunctionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_workflow' function.
 class GetWorkflowRequest(BaseValidatorModel):
     Name: str
     IncludeGraph: Optional[bool] = None
 
 
+# This class is the input for the 'get_workflow_run_properties' function.
 class GetWorkflowRunPropertiesRequest(BaseValidatorModel):
     Name: str
     RunId: str
 
 
+# This class is the input for the 'get_workflow_run' function.
 class GetWorkflowRunRequest(BaseValidatorModel):
     Name: str
     RunId: str
     IncludeGraph: Optional[bool] = None
 
 
+# This class is the input for the 'get_workflow_runs' function.
 class GetWorkflowRunsRequest(BaseValidatorModel):
     Name: str
     IncludeGraph: Optional[bool] = None
@@ -2008,40 +2099,47 @@ class LabelingSetGenerationTaskRunProperties(BaseValidatorModel):
     OutputS3Path: Optional[str] = None
 
 
+# This class is the input for the 'list_blueprints' function.
 class ListBlueprintsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_column_statistics_task_runs' function.
 class ListColumnStatisticsTaskRunsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_connection_types' function.
 class ListConnectionTypesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_crawlers' function.
 class ListCrawlersRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_custom_entity_types' function.
 class ListCustomEntityTypesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_dev_endpoints' function.
 class ListDevEndpointsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_entities' function.
 class ListEntitiesRequest(BaseValidatorModel):
     ConnectionName: Optional[str] = None
     CatalogId: Optional[str] = None
@@ -2050,12 +2148,14 @@ class ListEntitiesRequest(BaseValidatorModel):
     DataStoreApiVersion: Optional[str] = None
 
 
+# This class is the input for the 'list_jobs' function.
 class ListJobsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_registries' function.
 class ListRegistriesInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -2088,6 +2188,7 @@ class SchemaListItem(BaseValidatorModel):
     UpdatedTime: Optional[str] = None
 
 
+# This class is the input for the 'list_sessions' function.
 class ListSessionsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -2095,12 +2196,14 @@ class ListSessionsRequest(BaseValidatorModel):
     RequestOrigin: Optional[str] = None
 
 
+# This class is the input for the 'list_statements' function.
 class ListStatementsRequest(BaseValidatorModel):
     SessionId: str
     RequestOrigin: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_table_optimizer_runs' function.
 class ListTableOptimizerRunsRequest(BaseValidatorModel):
     CatalogId: str
     DatabaseName: str
@@ -2110,6 +2213,7 @@ class ListTableOptimizerRunsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_triggers' function.
 class ListTriggersRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     DependentJobName: Optional[str] = None
@@ -2117,6 +2221,7 @@ class ListTriggersRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_usage_profiles' function.
 class ListUsageProfilesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -2129,6 +2234,7 @@ class UsageProfileDefinition(BaseValidatorModel):
     LastModifiedOn: Optional[datetime] = None
 
 
+# This class is the input for the 'list_workflows' function.
 class ListWorkflowsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -2172,6 +2278,7 @@ class MicrosoftSQLServerCatalogTarget(BaseValidatorModel):
     Table: str
 
 
+# This class is the input for the 'modify_integration' function.
 class ModifyIntegrationRequest(BaseValidatorModel):
     IntegrationIdentifier: str
     Description: Optional[str] = None
@@ -2249,6 +2356,7 @@ class PutDataQualityProfileAnnotationRequest(BaseValidatorModel):
     InclusionAnnotation: InclusionAnnotationValueType
 
 
+# This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyRequest(BaseValidatorModel):
     PolicyInJson: str
     ResourceArn: Optional[str] = None
@@ -2291,6 +2399,7 @@ class RenameField(BaseValidatorModel):
     TargetPath: List[str]
 
 
+# This class is the input for the 'reset_job_bookmark' function.
 class ResetJobBookmarkRequest(BaseValidatorModel):
     JobName: str
     RunId: Optional[str] = None
@@ -2301,6 +2410,7 @@ class ResourceUri(BaseValidatorModel):
     Uri: Optional[str] = None
 
 
+# This class is the input for the 'resume_workflow_run' function.
 class ResumeWorkflowRunRequest(BaseValidatorModel):
     Name: str
     RunId: str
@@ -2319,6 +2429,7 @@ class RunMetrics(BaseValidatorModel):
     JobDurationInHour: Optional[str] = None
 
 
+# This class is the input for the 'run_statement' function.
 class RunStatementRequest(BaseValidatorModel):
     SessionId: str
     Code: str
@@ -2399,12 +2510,14 @@ class SplitFields(BaseValidatorModel):
     Paths: List[List[str]]
 
 
+# This class is the input for the 'start_blueprint_run' function.
 class StartBlueprintRunRequest(BaseValidatorModel):
     BlueprintName: str
     RoleArn: str
     Parameters: Optional[str] = None
 
 
+# This class is the input for the 'start_column_statistics_task_run' function.
 class StartColumnStatisticsTaskRunRequest(BaseValidatorModel):
     DatabaseName: str
     TableName: str
@@ -2428,30 +2541,36 @@ class StartCrawlerScheduleRequest(BaseValidatorModel):
     CrawlerName: str
 
 
+# This class is the input for the 'start_export_labels_task_run' function.
 class StartExportLabelsTaskRunRequest(BaseValidatorModel):
     TransformId: str
     OutputS3Path: str
 
 
+# This class is the input for the 'start_import_labels_task_run' function.
 class StartImportLabelsTaskRunRequest(BaseValidatorModel):
     TransformId: str
     InputS3Path: str
     ReplaceAllLabels: Optional[bool] = None
 
 
+# This class is the input for the 'start_ml_evaluation_task_run' function.
 class StartMLEvaluationTaskRunRequest(BaseValidatorModel):
     TransformId: str
 
 
+# This class is the input for the 'start_ml_labeling_set_generation_task_run' function.
 class StartMLLabelingSetGenerationTaskRunRequest(BaseValidatorModel):
     TransformId: str
     OutputS3Path: str
 
 
+# This class is the input for the 'start_trigger' function.
 class StartTriggerRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'start_workflow_run' function.
 class StartWorkflowRunRequest(BaseValidatorModel):
     Name: str
     RunProperties: Optional[Dict[str, str]] = None
@@ -2489,11 +2608,13 @@ class StopCrawlerScheduleRequest(BaseValidatorModel):
     CrawlerName: str
 
 
+# This class is the input for the 'stop_session' function.
 class StopSessionRequest(BaseValidatorModel):
     Id: str
     RequestOrigin: Optional[str] = None
 
 
+# This class is the input for the 'stop_trigger' function.
 class StopTriggerRequest(BaseValidatorModel):
     Name: str
 
@@ -2540,6 +2661,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagsToRemove: List[str]
 
 
+# This class is the input for the 'update_blueprint' function.
 class UpdateBlueprintRequest(BaseValidatorModel):
     Name: str
     BlueprintLocation: str
@@ -2593,12 +2715,14 @@ class UpdateCrawlerScheduleRequest(BaseValidatorModel):
     Schedule: Optional[str] = None
 
 
+# This class is the input for the 'update_data_quality_ruleset' function.
 class UpdateDataQualityRulesetRequest(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
     Ruleset: Optional[str] = None
 
 
+# This class is the input for the 'update_job_from_source_control' function.
 class UpdateJobFromSourceControlRequest(BaseValidatorModel):
     JobName: Optional[str] = None
     Provider: Optional[SourceControlProviderType] = None
@@ -2611,6 +2735,7 @@ class UpdateJobFromSourceControlRequest(BaseValidatorModel):
     AuthToken: Optional[str] = None
 
 
+# This class is the input for the 'update_source_control_from_job' function.
 class UpdateSourceControlFromJobRequest(BaseValidatorModel):
     JobName: Optional[str] = None
     Provider: Optional[SourceControlProviderType] = None
@@ -2623,6 +2748,7 @@ class UpdateSourceControlFromJobRequest(BaseValidatorModel):
     AuthToken: Optional[str] = None
 
 
+# This class is the input for the 'update_workflow' function.
 class UpdateWorkflowRequest(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
@@ -2682,6 +2808,7 @@ class Action(BaseValidatorModel):
     CrawlerName: Optional[str] = None
 
 
+# This class is the input for the 'start_job_run' function.
 class StartJobRunRequest(BaseValidatorModel):
     JobName: str
     JobRunQueuingEnabled: Optional[bool] = None
@@ -2841,11 +2968,13 @@ class BackfillError(BaseValidatorModel):
 BasicCatalogTargetUnion = Union[BasicCatalogTarget, BasicCatalogTargetOutput]
 
 
+# This class is the output for the 'batch_put_data_quality_statistic_annotation' function.
 class BatchPutDataQualityStatisticAnnotationResponse(BaseValidatorModel):
     FailedInclusionAnnotations: List[AnnotationError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_ml_task_run' function.
 class CancelMLTaskRunResponse(BaseValidatorModel):
     TransformId: str
     TaskRunId: str
@@ -2853,32 +2982,38 @@ class CancelMLTaskRunResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'check_schema_version_validity' function.
 class CheckSchemaVersionValidityResponse(BaseValidatorModel):
     Valid: bool
     Error: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_blueprint' function.
 class CreateBlueprintResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_connection' function.
 class CreateConnectionResponse(BaseValidatorModel):
     CreateConnectionStatus: ConnectionStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_custom_entity_type' function.
 class CreateCustomEntityTypeResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_data_quality_ruleset' function.
 class CreateDataQualityRulesetResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_dev_endpoint' function.
 class CreateDevEndpointResponse(BaseValidatorModel):
     EndpointName: str
     Status: str
@@ -2902,16 +3037,19 @@ class CreateDevEndpointResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_job' function.
 class CreateJobResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_ml_transform' function.
 class CreateMLTransformResponse(BaseValidatorModel):
     TransformId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_registry' function.
 class CreateRegistryResponse(BaseValidatorModel):
     RegistryArn: str
     RegistryName: str
@@ -2920,6 +3058,7 @@ class CreateRegistryResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_schema' function.
 class CreateSchemaResponse(BaseValidatorModel):
     RegistryName: str
     RegistryArn: str
@@ -2938,53 +3077,63 @@ class CreateSchemaResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_script' function.
 class CreateScriptResponse(BaseValidatorModel):
     PythonScript: str
     ScalaCode: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_security_configuration' function.
 class CreateSecurityConfigurationResponse(BaseValidatorModel):
     Name: str
     CreatedTimestamp: datetime
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_trigger' function.
 class CreateTriggerResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_usage_profile' function.
 class CreateUsageProfileResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_workflow' function.
 class CreateWorkflowResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_blueprint' function.
 class DeleteBlueprintResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_custom_entity_type' function.
 class DeleteCustomEntityTypeResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_job' function.
 class DeleteJobResponse(BaseValidatorModel):
     JobName: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_ml_transform' function.
 class DeleteMLTransformResponse(BaseValidatorModel):
     TransformId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_registry' function.
 class DeleteRegistryResponse(BaseValidatorModel):
     RegistryName: str
     RegistryArn: str
@@ -2992,6 +3141,7 @@ class DeleteRegistryResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_schema' function.
 class DeleteSchemaResponse(BaseValidatorModel):
     SchemaArn: str
     SchemaName: str
@@ -2999,21 +3149,25 @@ class DeleteSchemaResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_session' function.
 class DeleteSessionResponse(BaseValidatorModel):
     Id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_trigger' function.
 class DeleteTriggerResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_workflow' function.
 class DeleteWorkflowResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_custom_entity_type' function.
 class GetCustomEntityTypeResponse(BaseValidatorModel):
     Name: str
     RegexString: str
@@ -3021,6 +3175,7 @@ class GetCustomEntityTypeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_data_quality_model' function.
 class GetDataQualityModelResponse(BaseValidatorModel):
     Status: DataQualityModelStatusType
     StartedOn: datetime
@@ -3029,18 +3184,21 @@ class GetDataQualityModelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_entity_records' function.
 class GetEntityRecordsResponse(BaseValidatorModel):
     Records: List[Dict[str, Any]]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_plan' function.
 class GetPlanResponse(BaseValidatorModel):
     PythonScript: str
     ScalaCode: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_registry' function.
 class GetRegistryResponse(BaseValidatorModel):
     RegistryName: str
     RegistryArn: str
@@ -3051,6 +3209,7 @@ class GetRegistryResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_policy' function.
 class GetResourcePolicyResponse(BaseValidatorModel):
     PolicyInJson: str
     PolicyHash: str
@@ -3059,6 +3218,7 @@ class GetResourcePolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_schema_by_definition' function.
 class GetSchemaByDefinitionResponse(BaseValidatorModel):
     SchemaVersionId: str
     SchemaArn: str
@@ -3068,6 +3228,7 @@ class GetSchemaByDefinitionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_schema' function.
 class GetSchemaResponse(BaseValidatorModel):
     RegistryName: str
     RegistryArn: str
@@ -3085,6 +3246,7 @@ class GetSchemaResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_schema_version' function.
 class GetSchemaVersionResponse(BaseValidatorModel):
     SchemaVersionId: str
     SchemaDefinition: str
@@ -3096,74 +3258,87 @@ class GetSchemaVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_schema_versions_diff' function.
 class GetSchemaVersionsDiffResponse(BaseValidatorModel):
     Diff: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_tags' function.
 class GetTagsResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_workflow_run_properties' function.
 class GetWorkflowRunPropertiesResponse(BaseValidatorModel):
     RunProperties: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_blueprints' function.
 class ListBlueprintsResponse(BaseValidatorModel):
     Blueprints: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_column_statistics_task_runs' function.
 class ListColumnStatisticsTaskRunsResponse(BaseValidatorModel):
     ColumnStatisticsTaskRunIds: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_crawlers' function.
 class ListCrawlersResponse(BaseValidatorModel):
     CrawlerNames: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_dev_endpoints' function.
 class ListDevEndpointsResponse(BaseValidatorModel):
     DevEndpointNames: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_jobs' function.
 class ListJobsResponse(BaseValidatorModel):
     JobNames: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_ml_transforms' function.
 class ListMLTransformsResponse(BaseValidatorModel):
     TransformIds: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_triggers' function.
 class ListTriggersResponse(BaseValidatorModel):
     TriggerNames: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_workflows' function.
 class ListWorkflowsResponse(BaseValidatorModel):
     Workflows: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'put_resource_policy' function.
 class PutResourcePolicyResponse(BaseValidatorModel):
     PolicyHash: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_schema_version_metadata' function.
 class PutSchemaVersionMetadataResponse(BaseValidatorModel):
     SchemaArn: str
     SchemaName: str
@@ -3176,6 +3351,7 @@ class PutSchemaVersionMetadataResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_schema_version' function.
 class RegisterSchemaVersionResponse(BaseValidatorModel):
     SchemaVersionId: str
     VersionNumber: int
@@ -3183,6 +3359,7 @@ class RegisterSchemaVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'remove_schema_version_metadata' function.
 class RemoveSchemaVersionMetadataResponse(BaseValidatorModel):
     SchemaArn: str
     SchemaName: str
@@ -3195,87 +3372,104 @@ class RemoveSchemaVersionMetadataResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'resume_workflow_run' function.
 class ResumeWorkflowRunResponse(BaseValidatorModel):
     RunId: str
     NodeIds: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'run_statement' function.
 class RunStatementResponse(BaseValidatorModel):
     Id: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_blueprint_run' function.
 class StartBlueprintRunResponse(BaseValidatorModel):
     RunId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_column_statistics_task_run' function.
 class StartColumnStatisticsTaskRunResponse(BaseValidatorModel):
     ColumnStatisticsTaskRunId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_data_quality_rule_recommendation_run' function.
 class StartDataQualityRuleRecommendationRunResponse(BaseValidatorModel):
     RunId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_data_quality_ruleset_evaluation_run' function.
 class StartDataQualityRulesetEvaluationRunResponse(BaseValidatorModel):
     RunId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_export_labels_task_run' function.
 class StartExportLabelsTaskRunResponse(BaseValidatorModel):
     TaskRunId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_import_labels_task_run' function.
 class StartImportLabelsTaskRunResponse(BaseValidatorModel):
     TaskRunId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_job_run' function.
 class StartJobRunResponse(BaseValidatorModel):
     JobRunId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_ml_evaluation_task_run' function.
 class StartMLEvaluationTaskRunResponse(BaseValidatorModel):
     TaskRunId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_ml_labeling_set_generation_task_run' function.
 class StartMLLabelingSetGenerationTaskRunResponse(BaseValidatorModel):
     TaskRunId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_trigger' function.
 class StartTriggerResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_workflow_run' function.
 class StartWorkflowRunResponse(BaseValidatorModel):
     RunId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_session' function.
 class StopSessionResponse(BaseValidatorModel):
     Id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_trigger' function.
 class StopTriggerResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_blueprint' function.
 class UpdateBlueprintResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_data_quality_ruleset' function.
 class UpdateDataQualityRulesetResponse(BaseValidatorModel):
     Name: str
     Description: str
@@ -3283,27 +3477,32 @@ class UpdateDataQualityRulesetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_job_from_source_control' function.
 class UpdateJobFromSourceControlResponse(BaseValidatorModel):
     JobName: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_job' function.
 class UpdateJobResponse(BaseValidatorModel):
     JobName: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_ml_transform' function.
 class UpdateMLTransformResponse(BaseValidatorModel):
     TransformId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_registry' function.
 class UpdateRegistryResponse(BaseValidatorModel):
     RegistryName: str
     RegistryArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_schema' function.
 class UpdateSchemaResponse(BaseValidatorModel):
     SchemaArn: str
     SchemaName: str
@@ -3311,21 +3510,25 @@ class UpdateSchemaResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_source_control_from_job' function.
 class UpdateSourceControlFromJobResponse(BaseValidatorModel):
     JobName: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_usage_profile' function.
 class UpdateUsageProfileResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_workflow' function.
 class UpdateWorkflowResponse(BaseValidatorModel):
     Name: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_delete_connection' function.
 class BatchDeleteConnectionResponse(BaseValidatorModel):
     Succeeded: List[str]
     Errors: Dict[str, ErrorDetail]
@@ -3381,39 +3584,46 @@ class ViewValidation(BaseValidatorModel):
     Error: Optional[ErrorDetail] = None
 
 
+# This class is the output for the 'batch_get_custom_entity_types' function.
 class BatchGetCustomEntityTypesResponse(BaseValidatorModel):
     CustomEntityTypes: List[CustomEntityType]
     CustomEntityTypesNotFound: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_custom_entity_types' function.
 class ListCustomEntityTypesResponse(BaseValidatorModel):
     CustomEntityTypes: List[CustomEntityType]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'batch_get_dev_endpoints' function.
 class BatchGetDevEndpointsResponse(BaseValidatorModel):
     DevEndpoints: List[DevEndpoint]
     DevEndpointsNotFound: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_dev_endpoint' function.
 class GetDevEndpointResponse(BaseValidatorModel):
     DevEndpoint: DevEndpoint
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_dev_endpoints' function.
 class GetDevEndpointsResponse(BaseValidatorModel):
     DevEndpoints: List[DevEndpoint]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'batch_get_table_optimizer' function.
 class BatchGetTableOptimizerRequest(BaseValidatorModel):
     Entries: List[BatchGetTableOptimizerEntry]
 
 
+# This class is the input for the 'batch_put_data_quality_statistic_annotation' function.
 class BatchPutDataQualityStatisticAnnotationRequest(BaseValidatorModel):
     InclusionAnnotations: List[DatapointInclusionAnnotation]
     ClientToken: Optional[str] = None
@@ -3424,11 +3634,13 @@ class DecimalNumber(BaseValidatorModel):
     Scale: int
 
 
+# This class is the output for the 'get_blueprint_run' function.
 class GetBlueprintRunResponse(BaseValidatorModel):
     BlueprintRun: BlueprintRun
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_blueprint_runs' function.
 class GetBlueprintRunsResponse(BaseValidatorModel):
     BlueprintRuns: List[BlueprintRun]
     ResponseMetadata: ResponseMetadata
@@ -3454,6 +3666,7 @@ class ConnectionTypeBrief(BaseValidatorModel):
     Capabilities: Optional[Capabilities] = None
 
 
+# This class is the output for the 'get_catalog_import_status' function.
 class GetCatalogImportStatusResponse(BaseValidatorModel):
     ImportStatus: CatalogImportStatus
     ResponseMetadata: ResponseMetadata
@@ -3608,11 +3821,13 @@ class Location(BaseValidatorModel):
     DynamoDB: Optional[List[CodeGenNodeArg]] = None
 
 
+# This class is the output for the 'get_column_statistics_task_run' function.
 class GetColumnStatisticsTaskRunResponse(BaseValidatorModel):
     ColumnStatisticsTaskRun: ColumnStatisticsTaskRun
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_column_statistics_task_runs' function.
 class GetColumnStatisticsTaskRunsResponse(BaseValidatorModel):
     ColumnStatisticsTaskRuns: List[ColumnStatisticsTaskRun]
     ResponseMetadata: ResponseMetadata
@@ -3640,6 +3855,7 @@ class DateColumnStatisticsData(BaseValidatorModel):
     MaximumValue: Optional[Timestamp] = None
 
 
+# This class is the input for the 'get_table' function.
 class GetTableRequest(BaseValidatorModel):
     DatabaseName: str
     Name: str
@@ -3649,6 +3865,7 @@ class GetTableRequest(BaseValidatorModel):
     IncludeStatusDetails: Optional[bool] = None
 
 
+# This class is the input for the 'get_tables' function.
 class GetTablesRequest(BaseValidatorModel):
     DatabaseName: str
     CatalogId: Optional[str] = None
@@ -3770,12 +3987,14 @@ class CrawlerNodeDetails(BaseValidatorModel):
     Crawls: Optional[List[Crawl]] = None
 
 
+# This class is the output for the 'list_crawls' function.
 class ListCrawlsResponse(BaseValidatorModel):
     Crawls: List[CrawlerHistory]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_crawler_metrics' function.
 class GetCrawlerMetricsResponse(BaseValidatorModel):
     CrawlerMetricsList: List[CrawlerMetrics]
     ResponseMetadata: ResponseMetadata
@@ -3804,6 +4023,7 @@ class CrawlerTargets(BaseValidatorModel):
     HudiTargets: Optional[List[HudiTarget]] = None
 
 
+# This class is the input for the 'list_crawls' function.
 class ListCrawlsRequest(BaseValidatorModel):
     CrawlerName: str
     MaxResults: Optional[int] = None
@@ -3818,6 +4038,7 @@ class CreateClassifierRequest(BaseValidatorModel):
     CsvClassifier: Optional[CreateCsvClassifierRequest] = None
 
 
+# This class is the input for the 'create_data_quality_ruleset' function.
 class CreateDataQualityRulesetRequest(BaseValidatorModel):
     Name: str
     Ruleset: str
@@ -3848,6 +4069,7 @@ class DataQualityRulesetListDetails(BaseValidatorModel):
     RuleCount: Optional[int] = None
 
 
+# This class is the output for the 'get_data_quality_ruleset' function.
 class GetDataQualityRulesetResponse(BaseValidatorModel):
     Name: str
     Description: str
@@ -3860,6 +4082,7 @@ class GetDataQualityRulesetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_integration' function.
 class CreateIntegrationRequest(BaseValidatorModel):
     IntegrationName: str
     SourceArn: str
@@ -3871,12 +4094,14 @@ class CreateIntegrationRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_integration_resource_property' function.
 class CreateIntegrationResourcePropertyRequest(BaseValidatorModel):
     ResourceArn: str
     SourceProcessingProperties: Optional[SourceProcessingProperties] = None
     TargetProcessingProperties: Optional[TargetProcessingProperties] = None
 
 
+# This class is the output for the 'create_integration_resource_property' function.
 class CreateIntegrationResourcePropertyResponse(BaseValidatorModel):
     ResourceArn: str
     SourceProcessingProperties: SourceProcessingProperties
@@ -3884,6 +4109,7 @@ class CreateIntegrationResourcePropertyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_integration_resource_property' function.
 class GetIntegrationResourcePropertyResponse(BaseValidatorModel):
     ResourceArn: str
     SourceProcessingProperties: SourceProcessingProperties
@@ -3891,12 +4117,14 @@ class GetIntegrationResourcePropertyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_integration_resource_property' function.
 class UpdateIntegrationResourcePropertyRequest(BaseValidatorModel):
     ResourceArn: str
     SourceProcessingProperties: Optional[SourceProcessingProperties] = None
     TargetProcessingProperties: Optional[TargetProcessingProperties] = None
 
 
+# This class is the output for the 'update_integration_resource_property' function.
 class UpdateIntegrationResourcePropertyResponse(BaseValidatorModel):
     ResourceArn: str
     SourceProcessingProperties: SourceProcessingProperties
@@ -3904,6 +4132,7 @@ class UpdateIntegrationResourcePropertyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_integration' function.
 class CreateIntegrationResponse(BaseValidatorModel):
     SourceArn: str
     TargetArn: str
@@ -3920,6 +4149,7 @@ class CreateIntegrationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_integration' function.
 class DeleteIntegrationResponse(BaseValidatorModel):
     SourceArn: str
     TargetArn: str
@@ -3960,6 +4190,7 @@ class Integration(BaseValidatorModel):
     DataFilter: Optional[str] = None
 
 
+# This class is the output for the 'modify_integration' function.
 class ModifyIntegrationResponse(BaseValidatorModel):
     SourceArn: str
     TargetArn: str
@@ -3983,6 +4214,7 @@ class CreatePartitionIndexRequest(BaseValidatorModel):
     CatalogId: Optional[str] = None
 
 
+# This class is the input for the 'create_schema' function.
 class CreateSchemaInput(BaseValidatorModel):
     SchemaName: str
     DataFormat: DataFormatType
@@ -3993,20 +4225,24 @@ class CreateSchemaInput(BaseValidatorModel):
     SchemaDefinition: Optional[str] = None
 
 
+# This class is the input for the 'delete_registry' function.
 class DeleteRegistryInput(BaseValidatorModel):
     RegistryId: RegistryId
 
 
+# This class is the input for the 'get_registry' function.
 class GetRegistryInput(BaseValidatorModel):
     RegistryId: RegistryId
 
 
+# This class is the input for the 'list_schemas' function.
 class ListSchemasInput(BaseValidatorModel):
     RegistryId: Optional[RegistryId] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'update_registry' function.
 class UpdateRegistryInput(BaseValidatorModel):
     RegistryId: RegistryId
     Description: str
@@ -4111,30 +4347,36 @@ class DecimalColumnStatisticsDataOutput(BaseValidatorModel):
     MaximumValue: Optional[DecimalNumberOutput] = None
 
 
+# This class is the input for the 'delete_schema' function.
 class DeleteSchemaInput(BaseValidatorModel):
     SchemaId: SchemaId
 
 
+# This class is the input for the 'delete_schema_versions' function.
 class DeleteSchemaVersionsInput(BaseValidatorModel):
     SchemaId: SchemaId
     Versions: str
 
 
+# This class is the input for the 'get_schema_by_definition' function.
 class GetSchemaByDefinitionInput(BaseValidatorModel):
     SchemaId: SchemaId
     SchemaDefinition: str
 
 
+# This class is the input for the 'get_schema' function.
 class GetSchemaInput(BaseValidatorModel):
     SchemaId: SchemaId
 
 
+# This class is the input for the 'list_schema_versions' function.
 class ListSchemaVersionsInput(BaseValidatorModel):
     SchemaId: SchemaId
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'register_schema_version' function.
 class RegisterSchemaVersionInput(BaseValidatorModel):
     SchemaId: SchemaId
     SchemaDefinition: str
@@ -4296,12 +4538,14 @@ class ListWorkflowsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'describe_entity' function.
 class DescribeEntityResponse(BaseValidatorModel):
     Fields: List[Field]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_integrations' function.
 class DescribeIntegrationsRequest(BaseValidatorModel):
     IntegrationIdentifier: Optional[str] = None
     Marker: Optional[str] = None
@@ -4420,6 +4664,7 @@ class EncryptionConfiguration(BaseValidatorModel):
     DataQualityEncryption: Optional[DataQualityEncryption] = None
 
 
+# This class is the output for the 'list_entities' function.
 class ListEntitiesResponse(BaseValidatorModel):
     Entities: List[Entity]
     ResponseMetadata: ResponseMetadata
@@ -4453,6 +4698,7 @@ class GetConnectionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_connections' function.
 class GetConnectionsRequest(BaseValidatorModel):
     CatalogId: Optional[str] = None
     Filter: Optional[GetConnectionsFilter] = None
@@ -4461,17 +4707,20 @@ class GetConnectionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the output for the 'get_data_quality_model_result' function.
 class GetDataQualityModelResultResponse(BaseValidatorModel):
     CompletedOn: datetime
     Model: List[StatisticModelResult]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_job_bookmark' function.
 class GetJobBookmarkResponse(BaseValidatorModel):
     JobBookmarkEntry: JobBookmarkEntry
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reset_job_bookmark' function.
 class ResetJobBookmarkResponse(BaseValidatorModel):
     JobBookmarkEntry: JobBookmarkEntry
     ResponseMetadata: ResponseMetadata
@@ -4489,6 +4738,7 @@ class TransformFilterCriteria(BaseValidatorModel):
     Schema: Optional[List[SchemaColumn]] = None
 
 
+# This class is the output for the 'get_mapping' function.
 class GetMappingResponse(BaseValidatorModel):
     Mapping: List[MappingEntry]
     ResponseMetadata: ResponseMetadata
@@ -4506,6 +4756,7 @@ class GetPartitionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_partitions' function.
 class GetPartitionsRequest(BaseValidatorModel):
     DatabaseName: str
     TableName: str
@@ -4519,18 +4770,21 @@ class GetPartitionsRequest(BaseValidatorModel):
     QueryAsOfTime: Optional[Timestamp] = None
 
 
+# This class is the output for the 'get_resource_policies' function.
 class GetResourcePoliciesResponse(BaseValidatorModel):
     GetResourcePoliciesResponseList: List[GluePolicy]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_schema_version' function.
 class GetSchemaVersionInput(BaseValidatorModel):
     SchemaId: Optional[SchemaId] = None
     SchemaVersionId: Optional[str] = None
     SchemaVersionNumber: Optional[SchemaVersionNumber] = None
 
 
+# This class is the input for the 'get_schema_versions_diff' function.
 class GetSchemaVersionsDiffInput(BaseValidatorModel):
     SchemaId: SchemaId
     FirstSchemaVersionNumber: SchemaVersionNumber
@@ -4538,6 +4792,7 @@ class GetSchemaVersionsDiffInput(BaseValidatorModel):
     SchemaDiffType: Literal['SYNTAX_DIFF']
 
 
+# This class is the input for the 'update_schema' function.
 class UpdateSchemaInput(BaseValidatorModel):
     SchemaId: SchemaId
     SchemaVersionNumber: Optional[SchemaVersionNumber] = None
@@ -4654,24 +4909,28 @@ class TaskRunProperties(BaseValidatorModel):
     FindMatchesTaskRunProperties: Optional[FindMatchesTaskRunProperties] = None
 
 
+# This class is the output for the 'list_registries' function.
 class ListRegistriesResponse(BaseValidatorModel):
     Registries: List[RegistryListItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_schema_versions' function.
 class ListSchemaVersionsResponse(BaseValidatorModel):
     Schemas: List[SchemaVersionListItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_schemas' function.
 class ListSchemasResponse(BaseValidatorModel):
     Schemas: List[SchemaListItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_usage_profiles' function.
 class ListUsageProfilesResponse(BaseValidatorModel):
     Profiles: List[UsageProfileDefinition]
     ResponseMetadata: ResponseMetadata
@@ -4693,6 +4952,7 @@ class MetadataInfo(BaseValidatorModel):
     OtherMetadataValueList: Optional[List[OtherMetadataValueListItem]] = None
 
 
+# This class is the input for the 'put_schema_version_metadata' function.
 class PutSchemaVersionMetadataInput(BaseValidatorModel):
     MetadataKeyValue: MetadataKeyValuePair
     SchemaId: Optional[SchemaId] = None
@@ -4700,6 +4960,7 @@ class PutSchemaVersionMetadataInput(BaseValidatorModel):
     SchemaVersionId: Optional[str] = None
 
 
+# This class is the input for the 'query_schema_version_metadata' function.
 class QuerySchemaVersionMetadataInput(BaseValidatorModel):
     SchemaId: Optional[SchemaId] = None
     SchemaVersionNumber: Optional[SchemaVersionNumber] = None
@@ -4709,6 +4970,7 @@ class QuerySchemaVersionMetadataInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'remove_schema_version_metadata' function.
 class RemoveSchemaVersionMetadataInput(BaseValidatorModel):
     MetadataKeyValue: MetadataKeyValuePair
     SchemaId: Optional[SchemaId] = None
@@ -4784,6 +5046,7 @@ class UserDefinedFunction(BaseValidatorModel):
     CatalogId: Optional[str] = None
 
 
+# This class is the input for the 'search_tables' function.
 class SearchTablesRequest(BaseValidatorModel):
     CatalogId: Optional[str] = None
     NextToken: Optional[str] = None
@@ -4923,32 +5186,38 @@ class PartitionIndexDescriptor(BaseValidatorModel):
     BackfillErrors: Optional[List[BackfillError]] = None
 
 
+# This class is the output for the 'batch_stop_job_run' function.
 class BatchStopJobRunResponse(BaseValidatorModel):
     SuccessfulSubmissions: List[BatchStopJobRunSuccessfulSubmission]
     Errors: List[BatchStopJobRunError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_update_partition' function.
 class BatchUpdatePartitionResponse(BaseValidatorModel):
     Errors: List[BatchUpdatePartitionFailureEntry]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_create_partition' function.
 class BatchCreatePartitionResponse(BaseValidatorModel):
     Errors: List[PartitionError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_delete_partition' function.
 class BatchDeletePartitionResponse(BaseValidatorModel):
     Errors: List[PartitionError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_delete_table' function.
 class BatchDeleteTableResponse(BaseValidatorModel):
     Errors: List[TableError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_delete_table_version' function.
 class BatchDeleteTableVersionResponse(BaseValidatorModel):
     Errors: List[TableVersionError]
     ResponseMetadata: ResponseMetadata
@@ -4966,17 +5235,20 @@ class StatusDetails(BaseValidatorModel):
 DecimalNumberUnion = Union[DecimalNumber, DecimalNumberOutput]
 
 
+# This class is the output for the 'batch_get_blueprints' function.
 class BatchGetBlueprintsResponse(BaseValidatorModel):
     Blueprints: List[Blueprint]
     MissingBlueprints: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_blueprint' function.
 class GetBlueprintResponse(BaseValidatorModel):
     Blueprint: Blueprint
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_connection_types' function.
 class ListConnectionTypesResponse(BaseValidatorModel):
     ConnectionTypes: List[ConnectionTypeBrief]
     ResponseMetadata: ResponseMetadata
@@ -4991,17 +5263,20 @@ S3DeltaCatalogTargetUnion = Union[S3DeltaCatalogTarget, S3DeltaCatalogTargetOutp
 S3HudiCatalogTargetUnion = Union[S3HudiCatalogTarget, S3HudiCatalogTargetOutput]
 
 
+# This class is the output for the 'get_classifier' function.
 class GetClassifierResponse(BaseValidatorModel):
     Classifier: Classifier
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_classifiers' function.
 class GetClassifiersResponse(BaseValidatorModel):
     Classifiers: List[Classifier]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_dataflow_graph' function.
 class GetDataflowGraphResponse(BaseValidatorModel):
     DagNodes: List[CodeGenNodeOutput]
     DagEdges: List[CodeGenEdge]
@@ -5010,12 +5285,14 @@ class GetDataflowGraphResponse(BaseValidatorModel):
 CodeGenNodeUnion = Union[CodeGenNode, CodeGenNodeOutput]
 
 
+# This class is the input for the 'get_mapping' function.
 class GetMappingRequest(BaseValidatorModel):
     Source: CatalogEntry
     Sinks: Optional[List[CatalogEntry]] = None
     Location: Optional[Location] = None
 
 
+# This class is the input for the 'get_plan' function.
 class GetPlanRequest(BaseValidatorModel):
     Mapping: List[MappingEntry]
     Source: CatalogEntry
@@ -5025,6 +5302,7 @@ class GetPlanRequest(BaseValidatorModel):
     AdditionalPlanOptionsMap: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'get_column_statistics_task_settings' function.
 class GetColumnStatisticsTaskSettingsResponse(BaseValidatorModel):
     ColumnStatisticsTaskSettings: ColumnStatisticsTaskSettings
     ResponseMetadata: ResponseMetadata
@@ -5036,6 +5314,7 @@ KafkaStreamingSourceOptionsUnion = Union[KafkaStreamingSourceOptions, KafkaStrea
 KinesisStreamingSourceOptionsUnion = Union[KinesisStreamingSourceOptions, KinesisStreamingSourceOptionsOutput]
 
 
+# This class is the input for the 'get_unfiltered_partition_metadata' function.
 class GetUnfilteredPartitionMetadataRequest(BaseValidatorModel):
     CatalogId: str
     DatabaseName: str
@@ -5047,6 +5326,7 @@ class GetUnfilteredPartitionMetadataRequest(BaseValidatorModel):
     QuerySessionContext: Optional[QuerySessionContext] = None
 
 
+# This class is the input for the 'get_unfiltered_partitions_metadata' function.
 class GetUnfilteredPartitionsMetadataRequest(BaseValidatorModel):
     CatalogId: str
     DatabaseName: str
@@ -5061,6 +5341,7 @@ class GetUnfilteredPartitionsMetadataRequest(BaseValidatorModel):
     QuerySessionContext: Optional[QuerySessionContext] = None
 
 
+# This class is the input for the 'get_unfiltered_table_metadata' function.
 class GetUnfilteredTableMetadataRequest(BaseValidatorModel):
     CatalogId: str
     DatabaseName: str
@@ -5075,6 +5356,7 @@ class GetUnfilteredTableMetadataRequest(BaseValidatorModel):
     QuerySessionContext: Optional[QuerySessionContext] = None
 
 
+# This class is the input for the 'get_ml_task_runs' function.
 class GetMLTaskRunsRequest(BaseValidatorModel):
     TransformId: str
     NextToken: Optional[str] = None
@@ -5083,6 +5365,7 @@ class GetMLTaskRunsRequest(BaseValidatorModel):
     Sort: Optional[TaskRunSortCriteria] = None
 
 
+# This class is the input for the 'list_data_quality_statistic_annotations' function.
 class ListDataQualityStatisticAnnotationsRequest(BaseValidatorModel):
     StatisticId: Optional[str] = None
     ProfileId: Optional[str] = None
@@ -5091,6 +5374,7 @@ class ListDataQualityStatisticAnnotationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_data_quality_statistics' function.
 class ListDataQualityStatisticsRequest(BaseValidatorModel):
     StatisticId: Optional[str] = None
     ProfileId: Optional[str] = None
@@ -5114,6 +5398,7 @@ class Trigger(BaseValidatorModel):
 PredicateUnion = Union[Predicate, PredicateOutput]
 
 
+# This class is the output for the 'get_usage_profile' function.
 class GetUsageProfileResponse(BaseValidatorModel):
     Name: str
     Description: str
@@ -5130,6 +5415,7 @@ class EvaluationMetrics(BaseValidatorModel):
     FindMatchesMetrics: Optional[FindMatchesMetrics] = None
 
 
+# This class is the input for the 'create_session' function.
 class CreateSessionRequest(BaseValidatorModel):
     Id: str
     Role: str
@@ -5173,6 +5459,7 @@ class Crawler(BaseValidatorModel):
 CrawlerTargetsUnion = Union[CrawlerTargets, CrawlerTargetsOutput]
 
 
+# This class is the input for the 'list_data_quality_rulesets' function.
 class ListDataQualityRulesetsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -5180,34 +5467,40 @@ class ListDataQualityRulesetsRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'list_data_quality_rulesets' function.
 class ListDataQualityRulesetsResponse(BaseValidatorModel):
     Rulesets: List[DataQualityRulesetListDetails]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_inbound_integrations' function.
 class DescribeInboundIntegrationsResponse(BaseValidatorModel):
     InboundIntegrations: List[InboundIntegration]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_integrations' function.
 class DescribeIntegrationsResponse(BaseValidatorModel):
     Integrations: List[Integration]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_session' function.
 class CreateSessionResponse(BaseValidatorModel):
     Session: Session
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_session' function.
 class GetSessionResponse(BaseValidatorModel):
     Session: Session
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_sessions' function.
 class ListSessionsResponse(BaseValidatorModel):
     Ids: List[str]
     Sessions: List[Session]
@@ -5219,6 +5512,7 @@ EvaluateDataQualityMultiFrameUnion = Union[EvaluateDataQualityMultiFrame, Evalua
 EvaluateDataQualityUnion = Union[EvaluateDataQuality, EvaluateDataQualityOutput]
 
 
+# This class is the output for the 'get_data_catalog_encryption_settings' function.
 class GetDataCatalogEncryptionSettingsResponse(BaseValidatorModel):
     DataCatalogEncryptionSettings: DataCatalogEncryptionSettings
     ResponseMetadata: ResponseMetadata
@@ -5285,6 +5579,7 @@ class DataQualityRulesetEvaluationRunDescription(BaseValidatorModel):
     DataSource: Optional[DataSourceOutput] = None
 
 
+# This class is the output for the 'get_data_quality_rule_recommendation_run' function.
 class GetDataQualityRuleRecommendationRunResponse(BaseValidatorModel):
     RunId: str
     DataSource: DataSourceOutput
@@ -5303,6 +5598,7 @@ class GetDataQualityRuleRecommendationRunResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_data_quality_ruleset_evaluation_run' function.
 class GetDataQualityRulesetEvaluationRunResponse(BaseValidatorModel):
     RunId: str
     DataSource: DataSourceOutput
@@ -5380,6 +5676,7 @@ class SecurityConfiguration(BaseValidatorModel):
 EncryptionConfigurationUnion = Union[EncryptionConfiguration, EncryptionConfigurationOutput]
 
 
+# This class is the output for the 'delete_schema_versions' function.
 class DeleteSchemaVersionsResponse(BaseValidatorModel):
     SchemaVersionErrors: List[SchemaVersionErrorItem]
     ResponseMetadata: ResponseMetadata
@@ -5398,6 +5695,7 @@ class FilterExpression(BaseValidatorModel):
     Negated: Optional[bool] = None
 
 
+# This class is the input for the 'update_ml_transform' function.
 class UpdateMLTransformRequest(BaseValidatorModel):
     TransformId: str
     Name: Optional[str] = None
@@ -5412,6 +5710,7 @@ class UpdateMLTransformRequest(BaseValidatorModel):
     MaxRetries: Optional[int] = None
 
 
+# This class is the input for the 'get_ml_transforms' function.
 class GetMLTransformsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -5419,6 +5718,7 @@ class GetMLTransformsRequest(BaseValidatorModel):
     Sort: Optional[TransformSortCriteria] = None
 
 
+# This class is the input for the 'list_ml_transforms' function.
 class ListMLTransformsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -5799,6 +6099,7 @@ class TableOptimizerRun(BaseValidatorModel):
     orphanFileDeletionMetrics: Optional[OrphanFileDeletionMetrics] = None
 
 
+# This class is the output for the 'get_integration_table_properties' function.
 class GetIntegrationTablePropertiesResponse(BaseValidatorModel):
     ResourceArn: str
     TableName: str
@@ -5820,11 +6121,13 @@ class JDBCConnectorSource(BaseValidatorModel):
     OutputSchemas: Optional[List[GlueSchema]] = None
 
 
+# This class is the output for the 'get_job_run' function.
 class GetJobRunResponse(BaseValidatorModel):
     JobRun: JobRun
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_job_runs' function.
 class GetJobRunsResponse(BaseValidatorModel):
     JobRuns: List[JobRun]
     ResponseMetadata: ResponseMetadata
@@ -5842,6 +6145,7 @@ class Join(BaseValidatorModel):
     Columns: List[JoinColumnUnion]
 
 
+# This class is the output for the 'get_ml_task_run' function.
 class GetMLTaskRunResponse(BaseValidatorModel):
     TransformId: str
     TaskRunId: str
@@ -5869,6 +6173,7 @@ class TaskRun(BaseValidatorModel):
     ExecutionTime: Optional[int] = None
 
 
+# This class is the input for the 'create_ml_transform' function.
 class CreateMLTransformRequest(BaseValidatorModel):
     Name: str
     InputRecordTables: List[GlueTableUnion]
@@ -5891,6 +6196,7 @@ class ApplyMapping(BaseValidatorModel):
     Mapping: List[MappingUnion]
 
 
+# This class is the output for the 'query_schema_version_metadata' function.
 class QuerySchemaVersionMetadataResponse(BaseValidatorModel):
     MetadataInfoMap: Dict[str, MetadataInfo]
     SchemaVersionId: str
@@ -5913,6 +6219,7 @@ class AuthenticationConfigurationInput(BaseValidatorModel):
     CustomAuthenticationCredentials: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'batch_delete_partition' function.
 class BatchDeletePartitionRequest(BaseValidatorModel):
     DatabaseName: str
     TableName: str
@@ -5920,6 +6227,7 @@ class BatchDeletePartitionRequest(BaseValidatorModel):
     CatalogId: Optional[str] = None
 
 
+# This class is the input for the 'batch_get_partition' function.
 class BatchGetPartitionRequest(BaseValidatorModel):
     DatabaseName: str
     TableName: str
@@ -5952,11 +6260,13 @@ class UpdateUserDefinedFunctionRequest(BaseValidatorModel):
     CatalogId: Optional[str] = None
 
 
+# This class is the output for the 'get_user_defined_function' function.
 class GetUserDefinedFunctionResponse(BaseValidatorModel):
     UserDefinedFunction: UserDefinedFunction
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_user_defined_functions' function.
 class GetUserDefinedFunctionsResponse(BaseValidatorModel):
     UserDefinedFunctions: List[UserDefinedFunction]
     ResponseMetadata: ResponseMetadata
@@ -5990,12 +6300,14 @@ class Statement(BaseValidatorModel):
     CompletedOn: Optional[int] = None
 
 
+# This class is the output for the 'list_data_quality_statistic_annotations' function.
 class ListDataQualityStatisticAnnotationsResponse(BaseValidatorModel):
     Annotations: List[StatisticAnnotation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_data_quality_statistics' function.
 class ListDataQualityStatisticsResponse(BaseValidatorModel):
     Statistics: List[StatisticSummary]
     ResponseMetadata: ResponseMetadata
@@ -6025,6 +6337,7 @@ class RedshiftTarget(BaseValidatorModel):
 AggregateUnion = Union[Aggregate, AggregateOutput]
 
 
+# This class is the output for the 'describe_connection_type' function.
 class DescribeConnectionTypeResponse(BaseValidatorModel):
     ConnectionType: str
     Description: str
@@ -6057,6 +6370,7 @@ class SnowflakeTarget(BaseValidatorModel):
     Inputs: Optional[List[str]] = None
 
 
+# This class is the output for the 'get_partition_indexes' function.
 class GetPartitionIndexesResponse(BaseValidatorModel):
     PartitionIndexDescriptorList: List[PartitionIndexDescriptor]
     ResponseMetadata: ResponseMetadata
@@ -6092,6 +6406,7 @@ class DecimalColumnStatisticsData(BaseValidatorModel):
     MaximumValue: Optional[DecimalNumberUnion] = None
 
 
+# This class is the input for the 'create_script' function.
 class CreateScriptRequest(BaseValidatorModel):
     DagNodes: Optional[List[CodeGenNodeUnion]] = None
     DagEdges: Optional[List[CodeGenEdge]] = None
@@ -6134,17 +6449,20 @@ class DirectKinesisSource(BaseValidatorModel):
     DataPreviewOptions: Optional[StreamingDataPreviewOptions] = None
 
 
+# This class is the output for the 'batch_get_triggers' function.
 class BatchGetTriggersResponse(BaseValidatorModel):
     Triggers: List[Trigger]
     TriggersNotFound: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_trigger' function.
 class GetTriggerResponse(BaseValidatorModel):
     Trigger: Trigger
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_triggers' function.
 class GetTriggersResponse(BaseValidatorModel):
     Triggers: List[Trigger]
     ResponseMetadata: ResponseMetadata
@@ -6155,11 +6473,13 @@ class TriggerNodeDetails(BaseValidatorModel):
     Trigger: Optional[Trigger] = None
 
 
+# This class is the output for the 'update_trigger' function.
 class UpdateTriggerResponse(BaseValidatorModel):
     Trigger: Trigger
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_trigger' function.
 class CreateTriggerRequest(BaseValidatorModel):
     Name: str
     Type: TriggerTypeType
@@ -6182,6 +6502,7 @@ class TriggerUpdate(BaseValidatorModel):
     EventBatchingCondition: Optional[EventBatchingCondition] = None
 
 
+# This class is the input for the 'create_usage_profile' function.
 class CreateUsageProfileRequest(BaseValidatorModel):
     Name: str
     Configuration: ProfileConfigurationUnion
@@ -6189,12 +6510,14 @@ class CreateUsageProfileRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_usage_profile' function.
 class UpdateUsageProfileRequest(BaseValidatorModel):
     Name: str
     Configuration: ProfileConfigurationUnion
     Description: Optional[str] = None
 
 
+# This class is the output for the 'get_ml_transform' function.
 class GetMLTransformResponse(BaseValidatorModel):
     TransformId: str
     Name: str
@@ -6240,17 +6563,20 @@ class MLTransform(BaseValidatorModel):
     TransformEncryption: Optional[TransformEncryption] = None
 
 
+# This class is the output for the 'batch_get_crawlers' function.
 class BatchGetCrawlersResponse(BaseValidatorModel):
     Crawlers: List[Crawler]
     CrawlersNotFound: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_crawler' function.
 class GetCrawlerResponse(BaseValidatorModel):
     Crawler: Crawler
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_crawlers' function.
 class GetCrawlersResponse(BaseValidatorModel):
     Crawlers: List[Crawler]
     ResponseMetadata: ResponseMetadata
@@ -6292,22 +6618,26 @@ class UpdateCrawlerRequest(BaseValidatorModel):
     CrawlerSecurityConfiguration: Optional[str] = None
 
 
+# This class is the output for the 'get_catalog' function.
 class GetCatalogResponse(BaseValidatorModel):
     Catalog: Catalog
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_catalogs' function.
 class GetCatalogsResponse(BaseValidatorModel):
     CatalogList: List[Catalog]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_database' function.
 class GetDatabaseResponse(BaseValidatorModel):
     Database: Database
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_databases' function.
 class GetDatabasesResponse(BaseValidatorModel):
     DatabaseList: List[Database]
     ResponseMetadata: ResponseMetadata
@@ -6351,6 +6681,7 @@ class DataQualityResult(BaseValidatorModel):
     Observations: Optional[List[DataQualityObservation]] = None
 
 
+# This class is the output for the 'get_data_quality_result' function.
 class GetDataQualityResultResponse(BaseValidatorModel):
     ResultId: str
     ProfileId: str
@@ -6369,18 +6700,21 @@ class GetDataQualityResultResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_data_quality_results' function.
 class ListDataQualityResultsResponse(BaseValidatorModel):
     Results: List[DataQualityResultDescription]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_data_quality_rule_recommendation_runs' function.
 class ListDataQualityRuleRecommendationRunsResponse(BaseValidatorModel):
     Runs: List[DataQualityRuleRecommendationRunDescription]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_data_quality_ruleset_evaluation_runs' function.
 class ListDataQualityRulesetEvaluationRunsResponse(BaseValidatorModel):
     Runs: List[DataQualityRulesetEvaluationRunDescription]
     ResponseMetadata: ResponseMetadata
@@ -6408,17 +6742,20 @@ class Partition(BaseValidatorModel):
     CatalogId: Optional[str] = None
 
 
+# This class is the output for the 'get_security_configuration' function.
 class GetSecurityConfigurationResponse(BaseValidatorModel):
     SecurityConfiguration: SecurityConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_security_configurations' function.
 class GetSecurityConfigurationsResponse(BaseValidatorModel):
     SecurityConfigurations: List[SecurityConfiguration]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_security_configuration' function.
 class CreateSecurityConfigurationRequest(BaseValidatorModel):
     Name: str
     EncryptionConfiguration: EncryptionConfigurationUnion
@@ -6487,6 +6824,7 @@ class UpdateTableOptimizerRequest(BaseValidatorModel):
     TableOptimizerConfiguration: TableOptimizerConfiguration
 
 
+# This class is the output for the 'list_table_optimizer_runs' function.
 class ListTableOptimizerRunsResponse(BaseValidatorModel):
     CatalogId: str
     DatabaseName: str
@@ -6520,6 +6858,7 @@ JDBCConnectorSourceUnion = Union[JDBCConnectorSource, JDBCConnectorSourceOutput]
 JoinUnion = Union[Join, JoinOutput]
 
 
+# This class is the output for the 'get_ml_task_runs' function.
 class GetMLTaskRunsResponse(BaseValidatorModel):
     TaskRuns: List[TaskRun]
     ResponseMetadata: ResponseMetadata
@@ -6722,11 +7061,13 @@ RecipeStepUnion = Union[RecipeStep, RecipeStepOutput]
 StorageDescriptorUnion = Union[StorageDescriptor, StorageDescriptorOutput]
 
 
+# This class is the output for the 'get_statement' function.
 class GetStatementResponse(BaseValidatorModel):
     Statement: Statement
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_statements' function.
 class ListStatementsResponse(BaseValidatorModel):
     Statements: List[Statement]
     ResponseMetadata: ResponseMetadata
@@ -6816,11 +7157,13 @@ class Node(BaseValidatorModel):
     CrawlerDetails: Optional[CrawlerNodeDetails] = None
 
 
+# This class is the input for the 'update_trigger' function.
 class UpdateTriggerRequest(BaseValidatorModel):
     Name: str
     TriggerUpdate: TriggerUpdate
 
 
+# This class is the output for the 'get_ml_transforms' function.
 class GetMLTransformsResponse(BaseValidatorModel):
     Transforms: List[MLTransform]
     ResponseMetadata: ResponseMetadata
@@ -6850,6 +7193,7 @@ class UpdateDatabaseRequest(BaseValidatorModel):
     CatalogId: Optional[str] = None
 
 
+# This class is the output for the 'batch_get_data_quality_result' function.
 class BatchGetDataQualityResultResponse(BaseValidatorModel):
     Results: List[DataQualityResult]
     ResultsNotFound: List[str]
@@ -6861,35 +7205,41 @@ class ColumnStatisticsError(BaseValidatorModel):
     Error: Optional[ErrorDetail] = None
 
 
+# This class is the output for the 'get_column_statistics_for_partition' function.
 class GetColumnStatisticsForPartitionResponse(BaseValidatorModel):
     ColumnStatisticsList: List[ColumnStatisticsOutput]
     Errors: List[ColumnError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_column_statistics_for_table' function.
 class GetColumnStatisticsForTableResponse(BaseValidatorModel):
     ColumnStatisticsList: List[ColumnStatisticsOutput]
     Errors: List[ColumnError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_get_partition' function.
 class BatchGetPartitionResponse(BaseValidatorModel):
     Partitions: List[Partition]
     UnprocessedKeys: List[PartitionValueListOutput]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_partition' function.
 class GetPartitionResponse(BaseValidatorModel):
     Partition: Partition
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_partitions' function.
 class GetPartitionsResponse(BaseValidatorModel):
     Partitions: List[Partition]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_unfiltered_partition_metadata' function.
 class GetUnfilteredPartitionMetadataResponse(BaseValidatorModel):
     Partition: Partition
     AuthorizedColumns: List[str]
@@ -6934,6 +7284,7 @@ class DataQualityRulesetEvaluationRunFilter(BaseValidatorModel):
     StartedAfter: Optional[Timestamp] = None
 
 
+# This class is the input for the 'start_data_quality_rule_recommendation_run' function.
 class StartDataQualityRuleRecommendationRunRequest(BaseValidatorModel):
     DataSource: DataSourceUnion
     Role: str
@@ -6944,6 +7295,7 @@ class StartDataQualityRuleRecommendationRunRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'start_data_quality_ruleset_evaluation_run' function.
 class StartDataQualityRulesetEvaluationRunRequest(BaseValidatorModel):
     DataSource: DataSourceUnion
     Role: str
@@ -6962,6 +7314,7 @@ class BatchTableOptimizer(BaseValidatorModel):
     tableOptimizer: Optional[TableOptimizer] = None
 
 
+# This class is the output for the 'get_table_optimizer' function.
 class GetTableOptimizerResponse(BaseValidatorModel):
     CatalogId: str
     DatabaseName: str
@@ -6970,17 +7323,20 @@ class GetTableOptimizerResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_connection' function.
 class GetConnectionResponse(BaseValidatorModel):
     Connection: Connection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_connections' function.
 class GetConnectionsResponse(BaseValidatorModel):
     ConnectionList: List[Connection]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_connection' function.
 class CreateConnectionRequest(BaseValidatorModel):
     ConnectionInput: ConnectionInput
     CatalogId: Optional[str] = None
@@ -7102,17 +7458,20 @@ class TableVersionPaginator(BaseValidatorModel):
     VersionId: Optional[str] = None
 
 
+# This class is the output for the 'get_table' function.
 class GetTableResponse(BaseValidatorModel):
     Table: Table
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_tables' function.
 class GetTablesResponse(BaseValidatorModel):
     TableList: List[Table]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_unfiltered_table_metadata' function.
 class GetUnfilteredTableMetadataResponse(BaseValidatorModel):
     Table: Table
     AuthorizedColumns: List[str]
@@ -7127,6 +7486,7 @@ class GetUnfilteredTableMetadataResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_tables' function.
 class SearchTablesResponse(BaseValidatorModel):
     TableList: List[Table]
     ResponseMetadata: ResponseMetadata
@@ -7154,16 +7514,19 @@ class WorkflowGraph(BaseValidatorModel):
     Edges: Optional[List[Edge]] = None
 
 
+# This class is the output for the 'update_column_statistics_for_partition' function.
 class UpdateColumnStatisticsForPartitionResponse(BaseValidatorModel):
     Errors: List[ColumnStatisticsError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_column_statistics_for_table' function.
 class UpdateColumnStatisticsForTableResponse(BaseValidatorModel):
     Errors: List[ColumnStatisticsError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_unfiltered_partitions_metadata' function.
 class GetUnfilteredPartitionsMetadataResponse(BaseValidatorModel):
     UnfilteredPartitions: List[UnfilteredPartition]
     ResponseMetadata: ResponseMetadata
@@ -7172,41 +7535,48 @@ class GetUnfilteredPartitionsMetadataResponse(BaseValidatorModel):
 FilterUnion = Union[Filter, FilterOutput]
 
 
+# This class is the input for the 'list_data_quality_results' function.
 class ListDataQualityResultsRequest(BaseValidatorModel):
     Filter: Optional[DataQualityResultFilterCriteria] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_data_quality_rule_recommendation_runs' function.
 class ListDataQualityRuleRecommendationRunsRequest(BaseValidatorModel):
     Filter: Optional[DataQualityRuleRecommendationRunFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_data_quality_ruleset_evaluation_runs' function.
 class ListDataQualityRulesetEvaluationRunsRequest(BaseValidatorModel):
     Filter: Optional[DataQualityRulesetEvaluationRunFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the output for the 'batch_get_table_optimizer' function.
 class BatchGetTableOptimizerResponse(BaseValidatorModel):
     TableOptimizers: List[BatchTableOptimizer]
     Failures: List[BatchGetTableOptimizerError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_get_jobs' function.
 class BatchGetJobsResponse(BaseValidatorModel):
     Jobs: List[Job]
     JobsNotFound: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_job' function.
 class GetJobResponse(BaseValidatorModel):
     Job: Job
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_jobs' function.
 class GetJobsResponse(BaseValidatorModel):
     Jobs: List[Job]
     ResponseMetadata: ResponseMetadata
@@ -7221,6 +7591,7 @@ class GetJobsResponsePaginator(BaseValidatorModel):
 RecipeUnion = Union[Recipe, RecipeOutput]
 
 
+# This class is the input for the 'batch_create_partition' function.
 class BatchCreatePartitionRequest(BaseValidatorModel):
     DatabaseName: str
     TableName: str
@@ -7274,11 +7645,13 @@ class GetTableVersionsResponsePaginator(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_table_version' function.
 class GetTableVersionResponse(BaseValidatorModel):
     TableVersion: TableVersion
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_table_versions' function.
 class GetTableVersionsResponse(BaseValidatorModel):
     TableVersions: List[TableVersion]
     ResponseMetadata: ResponseMetadata
@@ -7375,6 +7748,7 @@ class CodeGenConfigurationNode(BaseValidatorModel):
     ConnectorDataTarget: Optional[ConnectorDataTargetUnion] = None
 
 
+# This class is the input for the 'batch_update_partition' function.
 class BatchUpdatePartitionRequest(BaseValidatorModel):
     DatabaseName: str
     TableName: str
@@ -7389,11 +7763,13 @@ class ColumnStatistics(BaseValidatorModel):
     StatisticsData: ColumnStatisticsDataUnion
 
 
+# This class is the output for the 'get_workflow_run' function.
 class GetWorkflowRunResponse(BaseValidatorModel):
     Run: WorkflowRun
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_workflow_runs' function.
 class GetWorkflowRunsResponse(BaseValidatorModel):
     Runs: List[WorkflowRun]
     ResponseMetadata: ResponseMetadata
@@ -7416,17 +7792,20 @@ CodeGenConfigurationNodeUnion = Union[CodeGenConfigurationNode, CodeGenConfigura
 ColumnStatisticsUnion = Union[ColumnStatistics, ColumnStatisticsOutput]
 
 
+# This class is the output for the 'batch_get_workflows' function.
 class BatchGetWorkflowsResponse(BaseValidatorModel):
     Workflows: List[Workflow]
     MissingWorkflows: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_workflow' function.
 class GetWorkflowResponse(BaseValidatorModel):
     Workflow: Workflow
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_job' function.
 class CreateJobRequest(BaseValidatorModel):
     Name: str
     Role: str
@@ -7481,6 +7860,7 @@ class JobUpdate(BaseValidatorModel):
     MaintenanceWindow: Optional[str] = None
 
 
+# This class is the input for the 'update_column_statistics_for_partition' function.
 class UpdateColumnStatisticsForPartitionRequest(BaseValidatorModel):
     DatabaseName: str
     TableName: str
@@ -7489,6 +7869,7 @@ class UpdateColumnStatisticsForPartitionRequest(BaseValidatorModel):
     CatalogId: Optional[str] = None
 
 
+# This class is the input for the 'update_column_statistics_for_table' function.
 class UpdateColumnStatisticsForTableRequest(BaseValidatorModel):
     DatabaseName: str
     TableName: str
@@ -7496,6 +7877,7 @@ class UpdateColumnStatisticsForTableRequest(BaseValidatorModel):
     CatalogId: Optional[str] = None
 
 
+# This class is the input for the 'update_job' function.
 class UpdateJobRequest(BaseValidatorModel):
     JobName: str
     JobUpdate: JobUpdate

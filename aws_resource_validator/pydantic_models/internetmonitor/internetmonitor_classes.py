@@ -43,21 +43,25 @@ class FilterParameter(BaseValidatorModel):
     Values: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_health_event' function.
 class GetHealthEventInput(BaseValidatorModel):
     MonitorName: str
     EventId: str
     LinkedAccountId: Optional[str] = None
 
 
+# This class is the input for the 'get_internet_event' function.
 class GetInternetEventInput(BaseValidatorModel):
     EventId: str
 
 
+# This class is the input for the 'get_monitor' function.
 class GetMonitorInput(BaseValidatorModel):
     MonitorName: str
     LinkedAccountId: Optional[str] = None
 
 
+# This class is the input for the 'get_query_results' function.
 class GetQueryResultsInput(BaseValidatorModel):
     MonitorName: str
     QueryId: str
@@ -70,6 +74,7 @@ class QueryField(BaseValidatorModel):
     Type: Optional[str] = None
 
 
+# This class is the input for the 'get_query_status' function.
 class GetQueryStatusInput(BaseValidatorModel):
     MonitorName: str
     QueryId: str
@@ -95,6 +100,7 @@ class PaginatorConfig(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'list_monitors' function.
 class ListMonitorsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -109,6 +115,7 @@ class Monitor(BaseValidatorModel):
     ProcessingStatus: Optional[MonitorProcessingStatusCodeType] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInput(BaseValidatorModel):
     ResourceArn: str
 
@@ -149,12 +156,14 @@ class InternetEventSummary(BaseValidatorModel):
     EndedAt: Optional[datetime] = None
 
 
+# This class is the output for the 'create_monitor' function.
 class CreateMonitorOutput(BaseValidatorModel):
     Arn: str
     Status: MonitorConfigStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_internet_event' function.
 class GetInternetEventOutput(BaseValidatorModel):
     EventId: str
     EventArn: str
@@ -166,27 +175,32 @@ class GetInternetEventOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_query_status' function.
 class GetQueryStatusOutput(BaseValidatorModel):
     Status: QueryStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceOutput(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_query' function.
 class StartQueryOutput(BaseValidatorModel):
     QueryId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_monitor' function.
 class UpdateMonitorOutput(BaseValidatorModel):
     MonitorArn: str
     Status: MonitorConfigStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_query_results' function.
 class GetQueryResultsOutput(BaseValidatorModel):
     Fields: List[QueryField]
     Data: List[List[str]]
@@ -220,6 +234,7 @@ class ListHealthEventsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_health_events' function.
 class ListHealthEventsInput(BaseValidatorModel):
     MonitorName: str
     StartTime: Optional[Timestamp] = None
@@ -238,6 +253,7 @@ class ListInternetEventsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_internet_events' function.
 class ListInternetEventsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -247,6 +263,7 @@ class ListInternetEventsInput(BaseValidatorModel):
     EventType: Optional[str] = None
 
 
+# This class is the input for the 'start_query' function.
 class StartQueryInput(BaseValidatorModel):
     MonitorName: str
     StartTime: Timestamp
@@ -256,6 +273,7 @@ class StartQueryInput(BaseValidatorModel):
     LinkedAccountId: Optional[str] = None
 
 
+# This class is the output for the 'list_monitors' function.
 class ListMonitorsOutput(BaseValidatorModel):
     Monitors: List[Monitor]
     ResponseMetadata: ResponseMetadata
@@ -275,12 +293,14 @@ class PerformanceMeasurement(BaseValidatorModel):
     RoundTripTime: Optional[RoundTripTime] = None
 
 
+# This class is the output for the 'list_internet_events' function.
 class ListInternetEventsOutput(BaseValidatorModel):
     InternetEvents: List[InternetEventSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_monitor' function.
 class CreateMonitorInput(BaseValidatorModel):
     MonitorName: str
     Resources: Optional[List[str]] = None
@@ -292,6 +312,7 @@ class CreateMonitorInput(BaseValidatorModel):
     HealthEventsConfig: Optional[HealthEventsConfig] = None
 
 
+# This class is the output for the 'get_monitor' function.
 class GetMonitorOutput(BaseValidatorModel):
     MonitorName: str
     MonitorArn: str
@@ -309,6 +330,7 @@ class GetMonitorOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_monitor' function.
 class UpdateMonitorInput(BaseValidatorModel):
     MonitorName: str
     ResourcesToAdd: Optional[List[str]] = None
@@ -344,6 +366,7 @@ class ImpactedLocation(BaseValidatorModel):
     Ipv4Prefixes: Optional[List[str]] = None
 
 
+# This class is the output for the 'get_health_event' function.
 class GetHealthEventOutput(BaseValidatorModel):
     EventArn: str
     EventId: str
@@ -373,6 +396,7 @@ class HealthEvent(BaseValidatorModel):
     HealthScoreThreshold: Optional[float] = None
 
 
+# This class is the output for the 'list_health_events' function.
 class ListHealthEventsOutput(BaseValidatorModel):
     HealthEvents: List[HealthEvent]
     ResponseMetadata: ResponseMetadata

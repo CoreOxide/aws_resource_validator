@@ -62,6 +62,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'cancel_change_set' function.
 class CancelChangeSetRequest(BaseValidatorModel):
     Catalog: str
     ChangeSetId: str
@@ -153,11 +154,13 @@ class DeleteResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'describe_change_set' function.
 class DescribeChangeSetRequest(BaseValidatorModel):
     Catalog: str
     ChangeSetId: str
 
 
+# This class is the input for the 'describe_entity' function.
 class DescribeEntityRequest(BaseValidatorModel):
     Catalog: str
     EntityId: str
@@ -213,6 +216,7 @@ class Filter(BaseValidatorModel):
     ValueList: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_resource_policy' function.
 class GetResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -228,6 +232,7 @@ class Sort(BaseValidatorModel):
     SortOrder: Optional[SortOrderType] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -370,22 +375,26 @@ class AmiProductLastModifiedDateFilter(BaseValidatorModel):
     DateRange: Optional[AmiProductLastModifiedDateFilterDateRange] = None
 
 
+# This class is the input for the 'batch_describe_entities' function.
 class BatchDescribeEntitiesRequest(BaseValidatorModel):
     EntityRequestList: List[EntityRequest]
 
 
+# This class is the output for the 'batch_describe_entities' function.
 class BatchDescribeEntitiesResponse(BaseValidatorModel):
     EntityDetails: Dict[str, EntityDetail]
     Errors: Dict[str, BatchDescribeErrorDetail]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_change_set' function.
 class CancelChangeSetResponse(BaseValidatorModel):
     ChangeSetId: str
     ChangeSetArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_entity' function.
 class DescribeEntityResponse(BaseValidatorModel):
     EntityType: str
     EntityIdentifier: str
@@ -396,17 +405,20 @@ class DescribeEntityResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_policy' function.
 class GetResourcePolicyResponse(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_change_set' function.
 class StartChangeSetResponse(BaseValidatorModel):
     ChangeSetId: str
     ChangeSetArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_change_sets' function.
 class ListChangeSetsResponse(BaseValidatorModel):
     ChangeSetSummaryList: List[ChangeSetSummaryListItem]
     ResponseMetadata: ResponseMetadata
@@ -431,6 +443,7 @@ class Change(BaseValidatorModel):
     ChangeName: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     ResourceArn: str
     Tags: List[Tag]
@@ -481,6 +494,7 @@ class ListChangeSetsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_change_sets' function.
 class ListChangeSetsRequest(BaseValidatorModel):
     Catalog: str
     FilterList: Optional[List[Filter]] = None
@@ -526,6 +540,7 @@ class AmiProductFilters(BaseValidatorModel):
     Visibility: Optional[AmiProductVisibilityFilter] = None
 
 
+# This class is the output for the 'describe_change_set' function.
 class DescribeChangeSetResponse(BaseValidatorModel):
     ChangeSetId: str
     ChangeSetArn: str
@@ -540,6 +555,7 @@ class DescribeChangeSetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_change_set' function.
 class StartChangeSetRequest(BaseValidatorModel):
     Catalog: str
     ChangeSet: List[Change]
@@ -563,6 +579,7 @@ class DataProductFilters(BaseValidatorModel):
     LastModifiedDate: Optional[DataProductLastModifiedDateFilter] = None
 
 
+# This class is the output for the 'list_entities' function.
 class ListEntitiesResponse(BaseValidatorModel):
     EntitySummaryList: List[EntitySummary]
     ResponseMetadata: ResponseMetadata
@@ -625,6 +642,7 @@ class ListEntitiesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_entities' function.
 class ListEntitiesRequest(BaseValidatorModel):
     Catalog: str
     EntityType: str

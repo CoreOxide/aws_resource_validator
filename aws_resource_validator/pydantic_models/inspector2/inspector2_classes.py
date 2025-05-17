@@ -47,6 +47,7 @@ class StringFilter(BaseValidatorModel):
     value: str
 
 
+# This class is the input for the 'associate_member' function.
 class AssociateMemberRequest(BaseValidatorModel):
     accountId: str
 
@@ -103,10 +104,12 @@ class LambdaVpcConfig(BaseValidatorModel):
     vpcId: Optional[str] = None
 
 
+# This class is the input for the 'batch_get_account_status' function.
 class BatchGetAccountStatusRequest(BaseValidatorModel):
     accountIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'batch_get_code_snippet' function.
 class BatchGetCodeSnippetRequest(BaseValidatorModel):
     findingArns: List[str]
 
@@ -117,6 +120,7 @@ class CodeSnippetError(BaseValidatorModel):
     findingArn: str
 
 
+# This class is the input for the 'batch_get_finding_details' function.
 class BatchGetFindingDetailsRequest(BaseValidatorModel):
     findingArns: List[str]
 
@@ -127,6 +131,7 @@ class FindingDetailsError(BaseValidatorModel):
     findingArn: str
 
 
+# This class is the input for the 'batch_get_free_trial_info' function.
 class BatchGetFreeTrialInfoRequest(BaseValidatorModel):
     accountIds: List[str]
 
@@ -137,6 +142,7 @@ class FreeTrialInfoError(BaseValidatorModel):
     message: str
 
 
+# This class is the input for the 'batch_get_member_ec2_deep_inspection_status' function.
 class BatchGetMemberEc2DeepInspectionStatusRequest(BaseValidatorModel):
     accountIds: Optional[List[str]] = None
 
@@ -160,10 +166,12 @@ class MemberAccountEc2DeepInspectionStatus(BaseValidatorModel):
 Blob = Union[str, bytes, IO[Any], StreamingBody]
 
 
+# This class is the input for the 'cancel_findings_report' function.
 class CancelFindingsReportRequest(BaseValidatorModel):
     reportId: str
 
 
+# This class is the input for the 'cancel_sbom_export' function.
 class CancelSbomExportRequest(BaseValidatorModel):
     reportId: str
 
@@ -345,23 +353,28 @@ class DelegatedAdmin(BaseValidatorModel):
     relationshipStatus: Optional[RelationshipStatusType] = None
 
 
+# This class is the input for the 'delete_cis_scan_configuration' function.
 class DeleteCisScanConfigurationRequest(BaseValidatorModel):
     scanConfigurationArn: str
 
 
+# This class is the input for the 'delete_filter' function.
 class DeleteFilterRequest(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'disable_delegated_admin_account' function.
 class DisableDelegatedAdminAccountRequest(BaseValidatorModel):
     delegatedAdminAccountId: str
 
 
+# This class is the input for the 'disable' function.
 class DisableRequest(BaseValidatorModel):
     accountIds: Optional[List[str]] = None
     resourceTypes: Optional[List[ResourceScanTypeType]] = None
 
 
+# This class is the input for the 'disassociate_member' function.
 class DisassociateMemberRequest(BaseValidatorModel):
     accountId: str
 
@@ -409,11 +422,13 @@ class EcrRepositoryMetadata(BaseValidatorModel):
     scanFrequency: Optional[EcrScanFrequencyType] = None
 
 
+# This class is the input for the 'enable_delegated_admin_account' function.
 class EnableDelegatedAdminAccountRequest(BaseValidatorModel):
     delegatedAdminAccountId: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'enable' function.
 class EnableRequest(BaseValidatorModel):
     resourceTypes: List[ResourceScanTypeType]
     accountIds: Optional[List[str]] = None
@@ -460,6 +475,7 @@ class FreeTrialInfo(BaseValidatorModel):
     type: FreeTrialTypeType
 
 
+# This class is the input for the 'get_cis_scan_report' function.
 class GetCisScanReportRequest(BaseValidatorModel):
     scanArn: str
     reportFormat: Optional[CisReportFormatType] = None
@@ -472,15 +488,18 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'get_encryption_key' function.
 class GetEncryptionKeyRequest(BaseValidatorModel):
     resourceType: ResourceTypeType
     scanType: ScanTypeType
 
 
+# This class is the input for the 'get_findings_report_status' function.
 class GetFindingsReportStatusRequest(BaseValidatorModel):
     reportId: Optional[str] = None
 
 
+# This class is the input for the 'get_member' function.
 class GetMemberRequest(BaseValidatorModel):
     accountId: str
 
@@ -492,6 +511,7 @@ class Member(BaseValidatorModel):
     updatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'get_sbom_export' function.
 class GetSbomExportRequest(BaseValidatorModel):
     reportId: str
 
@@ -503,6 +523,7 @@ class LambdaFunctionMetadata(BaseValidatorModel):
     runtime: Optional[RuntimeType] = None
 
 
+# This class is the input for the 'list_account_permissions' function.
 class ListAccountPermissionsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -514,11 +535,13 @@ class Permission(BaseValidatorModel):
     service: ServiceType
 
 
+# This class is the input for the 'list_delegated_admin_accounts' function.
 class ListDelegatedAdminAccountsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_filters' function.
 class ListFiltersRequest(BaseValidatorModel):
     action: Optional[FilterActionType] = None
     arns: Optional[List[str]] = None
@@ -531,16 +554,19 @@ class SortCriteria(BaseValidatorModel):
     sortOrder: SortOrderType
 
 
+# This class is the input for the 'list_members' function.
 class ListMembersRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     onlyAssociated: Optional[bool] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'list_usage_totals' function.
 class ListUsageTotalsRequest(BaseValidatorModel):
     accountIds: Optional[List[str]] = None
     maxResults: Optional[int] = None
@@ -631,6 +657,7 @@ class UpdateCisTargets(BaseValidatorModel):
     targetResourceTags: Optional[Dict[str, List[str]]] = None
 
 
+# This class is the input for the 'update_ec2_deep_inspection_configuration' function.
 class UpdateEc2DeepInspectionConfigurationRequest(BaseValidatorModel):
     activateDeepInspection: Optional[bool] = None
     packagePaths: Optional[List[str]] = None
@@ -814,66 +841,79 @@ class TitleAggregation(BaseValidatorModel):
     vulnerabilityIds: Optional[List[StringFilter]] = None
 
 
+# This class is the output for the 'associate_member' function.
 class AssociateMemberResponse(BaseValidatorModel):
     accountId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_findings_report' function.
 class CancelFindingsReportResponse(BaseValidatorModel):
     reportId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_sbom_export' function.
 class CancelSbomExportResponse(BaseValidatorModel):
     reportId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_cis_scan_configuration' function.
 class CreateCisScanConfigurationResponse(BaseValidatorModel):
     scanConfigurationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_filter' function.
 class CreateFilterResponse(BaseValidatorModel):
     arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_findings_report' function.
 class CreateFindingsReportResponse(BaseValidatorModel):
     reportId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_sbom_export' function.
 class CreateSbomExportResponse(BaseValidatorModel):
     reportId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_cis_scan_configuration' function.
 class DeleteCisScanConfigurationResponse(BaseValidatorModel):
     scanConfigurationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_filter' function.
 class DeleteFilterResponse(BaseValidatorModel):
     arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disable_delegated_admin_account' function.
 class DisableDelegatedAdminAccountResponse(BaseValidatorModel):
     delegatedAdminAccountId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_member' function.
 class DisassociateMemberResponse(BaseValidatorModel):
     accountId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enable_delegated_admin_account' function.
 class EnableDelegatedAdminAccountResponse(BaseValidatorModel):
     delegatedAdminAccountId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_cis_scan_report' function.
 class GetCisScanReportResponse(BaseValidatorModel):
     status: CisReportStatusType
     url: str
@@ -888,21 +928,25 @@ class GetEc2DeepInspectionConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_encryption_key' function.
 class GetEncryptionKeyResponse(BaseValidatorModel):
     kmsKeyId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_cis_scan_configuration' function.
 class UpdateCisScanConfigurationResponse(BaseValidatorModel):
     scanConfigurationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_ec2_deep_inspection_configuration' function.
 class UpdateEc2DeepInspectionConfigurationResponse(BaseValidatorModel):
     errorMessage: str
     orgPackagePaths: List[str]
@@ -911,6 +955,7 @@ class UpdateEc2DeepInspectionConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_filter' function.
 class UpdateFilterResponse(BaseValidatorModel):
     arn: str
     ResponseMetadata: ResponseMetadata
@@ -922,10 +967,12 @@ class DescribeOrganizationConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_organization_configuration' function.
 class UpdateOrganizationConfigurationRequest(BaseValidatorModel):
     autoEnable: AutoEnable
 
 
+# This class is the output for the 'update_organization_configuration' function.
 class UpdateOrganizationConfigurationResponse(BaseValidatorModel):
     autoEnable: AutoEnable
     ResponseMetadata: ResponseMetadata
@@ -944,18 +991,21 @@ class AwsLambdaFunctionDetails(BaseValidatorModel):
     vpcConfig: Optional[LambdaVpcConfig] = None
 
 
+# This class is the output for the 'batch_get_member_ec2_deep_inspection_status' function.
 class BatchGetMemberEc2DeepInspectionStatusResponse(BaseValidatorModel):
     accountIds: List[MemberAccountEc2DeepInspectionStatusState]
     failedAccountIds: List[FailedMemberAccountEc2DeepInspectionStatusState]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_update_member_ec2_deep_inspection_status' function.
 class BatchUpdateMemberEc2DeepInspectionStatusResponse(BaseValidatorModel):
     accountIds: List[MemberAccountEc2DeepInspectionStatusState]
     failedAccountIds: List[FailedMemberAccountEc2DeepInspectionStatusState]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'batch_update_member_ec2_deep_inspection_status' function.
 class BatchUpdateMemberEc2DeepInspectionStatusRequest(BaseValidatorModel):
     accountIds: List[MemberAccountEc2DeepInspectionStatus]
 
@@ -1033,6 +1083,7 @@ class CisScanResultsAggregatedByChecksFilterCriteria(BaseValidatorModel):
     titleFilters: Optional[List[CisStringFilter]] = None
 
 
+# This class is the output for the 'get_cis_scan_result_details' function.
 class GetCisScanResultDetailsResponse(BaseValidatorModel):
     scanResultDetails: List[CisScanResultDetails]
     ResponseMetadata: ResponseMetadata
@@ -1076,6 +1127,7 @@ class CodeSnippetResult(BaseValidatorModel):
     suggestedFixes: Optional[List[SuggestedFix]] = None
 
 
+# This class is the output for the 'list_coverage_statistics' function.
 class ListCoverageStatisticsResponse(BaseValidatorModel):
     countsByGroup: List[Counts]
     totalCounts: int
@@ -1111,6 +1163,7 @@ class WeeklySchedule(BaseValidatorModel):
     startTime: Time
 
 
+# This class is the output for the 'list_delegated_admin_accounts' function.
 class ListDelegatedAdminAccountsResponse(BaseValidatorModel):
     delegatedAdminAccounts: List[DelegatedAdminAccount]
     ResponseMetadata: ResponseMetadata
@@ -1227,11 +1280,13 @@ class ListUsageTotalsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'get_member' function.
 class GetMemberResponse(BaseValidatorModel):
     member: Member
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_members' function.
 class ListMembersResponse(BaseValidatorModel):
     members: List[Member]
     ResponseMetadata: ResponseMetadata
@@ -1245,6 +1300,7 @@ class ResourceScanMetadata(BaseValidatorModel):
     lambdaFunction: Optional[LambdaFunctionMetadata] = None
 
 
+# This class is the output for the 'list_account_permissions' function.
 class ListAccountPermissionsResponse(BaseValidatorModel):
     permissions: List[Permission]
     ResponseMetadata: ResponseMetadata
@@ -1299,6 +1355,7 @@ class SearchVulnerabilitiesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_vulnerabilities' function.
 class SearchVulnerabilitiesRequest(BaseValidatorModel):
     filterCriteria: SearchVulnerabilitiesFilterCriteria
     nextToken: Optional[str] = None
@@ -1343,12 +1400,14 @@ class AccountState(BaseValidatorModel):
     state: State
 
 
+# This class is the output for the 'disable' function.
 class DisableResponse(BaseValidatorModel):
     accounts: List[Account]
     failedAccounts: List[FailedAccount]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enable' function.
 class EnableResponse(BaseValidatorModel):
     accounts: List[Account]
     failedAccounts: List[FailedAccount]
@@ -1367,12 +1426,14 @@ class SendCisSessionTelemetryRequest(BaseValidatorModel):
     sessionToken: str
 
 
+# This class is the output for the 'list_cis_scan_results_aggregated_by_checks' function.
 class ListCisScanResultsAggregatedByChecksResponse(BaseValidatorModel):
     checkAggregations: List[CisCheckAggregation]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_cis_scan_results_aggregated_by_target_resource' function.
 class ListCisScanResultsAggregatedByTargetResourceResponse(BaseValidatorModel):
     targetResourceAggregations: List[CisTargetResourceAggregation]
     ResponseMetadata: ResponseMetadata
@@ -1410,6 +1471,7 @@ class CoverageFilterCriteria(BaseValidatorModel):
     scanType: Optional[List[CoverageStringFilter]] = None
 
 
+# This class is the output for the 'list_cis_scans' function.
 class ListCisScansResponse(BaseValidatorModel):
     scans: List[CisScan]
     ResponseMetadata: ResponseMetadata
@@ -1426,6 +1488,7 @@ class GetCisScanResultDetailsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_cis_scan_result_details' function.
 class GetCisScanResultDetailsRequest(BaseValidatorModel):
     accountId: str
     scanArn: str
@@ -1445,6 +1508,7 @@ class ListCisScanResultsAggregatedByChecksRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_cis_scan_results_aggregated_by_checks' function.
 class ListCisScanResultsAggregatedByChecksRequest(BaseValidatorModel):
     scanArn: str
     filterCriteria: Optional[CisScanResultsAggregatedByChecksFilterCriteria] = None
@@ -1462,6 +1526,7 @@ class ListCisScanResultsAggregatedByTargetResourceRequestPaginate(BaseValidatorM
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_cis_scan_results_aggregated_by_target_resource' function.
 class ListCisScanResultsAggregatedByTargetResourceRequest(BaseValidatorModel):
     scanArn: str
     filterCriteria: Optional[CisScanResultsAggregatedByTargetResourceFilterCriteria] = None
@@ -1478,6 +1543,7 @@ class ListCisScanConfigurationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_cis_scan_configurations' function.
 class ListCisScanConfigurationsRequest(BaseValidatorModel):
     filterCriteria: Optional[ListCisScanConfigurationsFilterCriteria] = None
     maxResults: Optional[int] = None
@@ -1486,6 +1552,7 @@ class ListCisScanConfigurationsRequest(BaseValidatorModel):
     sortOrder: Optional[CisSortOrderType] = None
 
 
+# This class is the output for the 'batch_get_code_snippet' function.
 class BatchGetCodeSnippetResponse(BaseValidatorModel):
     codeSnippetResults: List[CodeSnippetResult]
     errors: List[CodeSnippetError]
@@ -1530,12 +1597,14 @@ class GetConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_get_finding_details' function.
 class BatchGetFindingDetailsResponse(BaseValidatorModel):
     errors: List[FindingDetailsError]
     findingDetails: List[FindingDetail]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_vulnerabilities' function.
 class SearchVulnerabilitiesResponse(BaseValidatorModel):
     vulnerabilities: List[Vulnerability]
     ResponseMetadata: ResponseMetadata
@@ -1632,6 +1701,7 @@ class FilterCriteria(BaseValidatorModel):
     vulnerablePackages: Optional[List[PackageFilter]] = None
 
 
+# This class is the output for the 'batch_get_free_trial_info' function.
 class BatchGetFreeTrialInfoResponse(BaseValidatorModel):
     accounts: List[FreeTrialAccountInfo]
     failedAccounts: List[FreeTrialInfoError]
@@ -1655,6 +1725,7 @@ class NetworkReachabilityDetails(BaseValidatorModel):
     protocol: NetworkProtocolType
 
 
+# This class is the output for the 'get_sbom_export' function.
 class GetSbomExportResponse(BaseValidatorModel):
     errorCode: ReportingErrorCodeType
     errorMessage: str
@@ -1674,12 +1745,14 @@ class StopCisSessionRequest(BaseValidatorModel):
     sessionToken: str
 
 
+# This class is the output for the 'list_usage_totals' function.
 class ListUsageTotalsResponse(BaseValidatorModel):
     totals: List[UsageTotal]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_finding_aggregations' function.
 class ListFindingAggregationsResponse(BaseValidatorModel):
     aggregationType: AggregationTypeType
     responses: List[AggregationResponse]
@@ -1687,6 +1760,7 @@ class ListFindingAggregationsResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'batch_get_account_status' function.
 class BatchGetAccountStatusResponse(BaseValidatorModel):
     accounts: List[AccountState]
     failedAccounts: List[FailedAccount]
@@ -1710,6 +1784,7 @@ class ListCisScansRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_cis_scans' function.
 class ListCisScansRequest(BaseValidatorModel):
     detailLevel: Optional[ListCisScansDetailLevelType] = None
     filterCriteria: Optional[ListCisScansFilterCriteria] = None
@@ -1724,6 +1799,7 @@ class ListCoverageRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_coverage' function.
 class ListCoverageRequest(BaseValidatorModel):
     filterCriteria: Optional[CoverageFilterCriteria] = None
     maxResults: Optional[int] = None
@@ -1736,6 +1812,7 @@ class ListCoverageStatisticsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_coverage_statistics' function.
 class ListCoverageStatisticsRequest(BaseValidatorModel):
     filterCriteria: Optional[CoverageFilterCriteria] = None
     groupBy: Optional[GroupKeyType] = None
@@ -1761,6 +1838,7 @@ class ListFindingAggregationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_finding_aggregations' function.
 class ListFindingAggregationsRequest(BaseValidatorModel):
     aggregationType: AggregationTypeType
     accountIds: Optional[List[StringFilter]] = None
@@ -1782,6 +1860,7 @@ class Filter(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'get_findings_report_status' function.
 class GetFindingsReportStatusResponse(BaseValidatorModel):
     destination: Destination
     errorCode: ReportingErrorCodeType
@@ -1794,12 +1873,14 @@ class GetFindingsReportStatusResponse(BaseValidatorModel):
 FilterCriteriaUnion = Union[FilterCriteria, FilterCriteriaOutput]
 
 
+# This class is the output for the 'list_coverage' function.
 class ListCoverageResponse(BaseValidatorModel):
     coveredResources: List[CoveredResource]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_sbom_export' function.
 class CreateSbomExportRequest(BaseValidatorModel):
     reportFormat: SbomReportFormatType
     s3Destination: Destination
@@ -1830,12 +1911,14 @@ class Finding(BaseValidatorModel):
     updatedAt: Optional[datetime] = None
 
 
+# This class is the output for the 'list_cis_scan_configurations' function.
 class ListCisScanConfigurationsResponse(BaseValidatorModel):
     scanConfigurations: List[CisScanConfiguration]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_cis_scan_configuration' function.
 class CreateCisScanConfigurationRequest(BaseValidatorModel):
     scanName: str
     schedule: ScheduleUnion
@@ -1844,6 +1927,7 @@ class CreateCisScanConfigurationRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_cis_scan_configuration' function.
 class UpdateCisScanConfigurationRequest(BaseValidatorModel):
     scanConfigurationArn: str
     scanName: Optional[str] = None
@@ -1852,12 +1936,14 @@ class UpdateCisScanConfigurationRequest(BaseValidatorModel):
     targets: Optional[UpdateCisTargets] = None
 
 
+# This class is the output for the 'list_filters' function.
 class ListFiltersResponse(BaseValidatorModel):
     filters: List[Filter]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_filter' function.
 class CreateFilterRequest(BaseValidatorModel):
     action: FilterActionType
     filterCriteria: FilterCriteriaUnion
@@ -1867,6 +1953,7 @@ class CreateFilterRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_findings_report' function.
 class CreateFindingsReportRequest(BaseValidatorModel):
     reportFormat: ReportFormatType
     s3Destination: Destination
@@ -1879,6 +1966,7 @@ class ListFindingsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_findings' function.
 class ListFindingsRequest(BaseValidatorModel):
     filterCriteria: Optional[FilterCriteriaUnion] = None
     maxResults: Optional[int] = None
@@ -1886,6 +1974,7 @@ class ListFindingsRequest(BaseValidatorModel):
     sortCriteria: Optional[SortCriteria] = None
 
 
+# This class is the input for the 'update_filter' function.
 class UpdateFilterRequest(BaseValidatorModel):
     filterArn: str
     action: Optional[FilterActionType] = None
@@ -1895,6 +1984,7 @@ class UpdateFilterRequest(BaseValidatorModel):
     reason: Optional[str] = None
 
 
+# This class is the output for the 'list_findings' function.
 class ListFindingsResponse(BaseValidatorModel):
     findings: List[Finding]
     ResponseMetadata: ResponseMetadata

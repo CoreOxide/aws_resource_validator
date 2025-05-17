@@ -34,6 +34,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_affected_accounts_for_organization' function.
 class DescribeAffectedAccountsForOrganizationRequest(BaseValidatorModel):
     eventArn: str
     nextToken: Optional[str] = None
@@ -66,11 +67,13 @@ class OrganizationAffectedEntitiesErrorItem(BaseValidatorModel):
     errorMessage: Optional[str] = None
 
 
+# This class is the input for the 'describe_entity_aggregates_for_organization' function.
 class DescribeEntityAggregatesForOrganizationRequest(BaseValidatorModel):
     eventArns: List[str]
     awsAccountIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_entity_aggregates' function.
 class DescribeEntityAggregatesRequest(BaseValidatorModel):
     eventArns: Optional[List[str]] = None
 
@@ -93,6 +96,7 @@ class OrganizationEventDetailsErrorItem(BaseValidatorModel):
     errorMessage: Optional[str] = None
 
 
+# This class is the input for the 'describe_event_details' function.
 class DescribeEventDetailsRequest(BaseValidatorModel):
     eventArns: List[str]
     locale: Optional[str] = None
@@ -164,6 +168,7 @@ class DescribeAffectedAccountsForOrganizationRequestPaginate(BaseValidatorModel)
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'describe_affected_accounts_for_organization' function.
 class DescribeAffectedAccountsForOrganizationResponse(BaseValidatorModel):
     affectedAccounts: List[str]
     eventScopeCode: EventScopeCodeType
@@ -171,6 +176,7 @@ class DescribeAffectedAccountsForOrganizationResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_affected_entities' function.
 class DescribeAffectedEntitiesResponse(BaseValidatorModel):
     entities: List[AffectedEntity]
     ResponseMetadata: ResponseMetadata
@@ -193,6 +199,7 @@ class DescribeAffectedEntitiesForOrganizationRequestPaginate(BaseValidatorModel)
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_affected_entities_for_organization' function.
 class DescribeAffectedEntitiesForOrganizationRequest(BaseValidatorModel):
     organizationEntityFilters: Optional[List[EventAccountFilter]] = None
     locale: Optional[str] = None
@@ -201,11 +208,13 @@ class DescribeAffectedEntitiesForOrganizationRequest(BaseValidatorModel):
     organizationEntityAccountFilters: Optional[List[EntityAccountFilter]] = None
 
 
+# This class is the input for the 'describe_event_details_for_organization' function.
 class DescribeEventDetailsForOrganizationRequest(BaseValidatorModel):
     organizationEventDetailFilters: List[EventAccountFilter]
     locale: Optional[str] = None
 
 
+# This class is the output for the 'describe_affected_entities_for_organization' function.
 class DescribeAffectedEntitiesForOrganizationResponse(BaseValidatorModel):
     entities: List[AffectedEntity]
     failedSet: List[OrganizationAffectedEntitiesErrorItem]
@@ -213,11 +222,13 @@ class DescribeAffectedEntitiesForOrganizationResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_entity_aggregates' function.
 class DescribeEntityAggregatesResponse(BaseValidatorModel):
     entityAggregates: List[EntityAggregate]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_event_aggregates' function.
 class DescribeEventAggregatesResponse(BaseValidatorModel):
     eventAggregates: List[EventAggregate]
     ResponseMetadata: ResponseMetadata
@@ -230,6 +241,7 @@ class DescribeEventTypesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_event_types' function.
 class DescribeEventTypesRequest(BaseValidatorModel):
     filter: Optional[EventTypeFilter] = None
     locale: Optional[str] = None
@@ -237,18 +249,21 @@ class DescribeEventTypesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the output for the 'describe_event_types' function.
 class DescribeEventTypesResponse(BaseValidatorModel):
     eventTypes: List[EventType]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_events_for_organization' function.
 class DescribeEventsForOrganizationResponse(BaseValidatorModel):
     events: List[OrganizationEvent]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_events' function.
 class DescribeEventsResponse(BaseValidatorModel):
     events: List[Event]
     ResponseMetadata: ResponseMetadata
@@ -268,6 +283,7 @@ class OrganizationEventDetails(BaseValidatorModel):
     eventMetadata: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'describe_entity_aggregates_for_organization' function.
 class DescribeEntityAggregatesForOrganizationResponse(BaseValidatorModel):
     organizationEntityAggregates: List[OrganizationEntityAggregate]
     ResponseMetadata: ResponseMetadata
@@ -312,12 +328,14 @@ class OrganizationEventFilter(BaseValidatorModel):
     eventStatusCodes: Optional[List[EventStatusCodeType]] = None
 
 
+# This class is the output for the 'describe_event_details' function.
 class DescribeEventDetailsResponse(BaseValidatorModel):
     successfulSet: List[EventDetails]
     failedSet: List[EventDetailsErrorItem]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_event_details_for_organization' function.
 class DescribeEventDetailsForOrganizationResponse(BaseValidatorModel):
     successfulSet: List[OrganizationEventDetails]
     failedSet: List[OrganizationEventDetailsErrorItem]
@@ -330,6 +348,7 @@ class DescribeAffectedEntitiesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_affected_entities' function.
 class DescribeAffectedEntitiesRequest(BaseValidatorModel):
     filter: EntityFilter
     locale: Optional[str] = None
@@ -343,6 +362,7 @@ class DescribeEventAggregatesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_event_aggregates' function.
 class DescribeEventAggregatesRequest(BaseValidatorModel):
     aggregateField: Literal['eventTypeCategory']
     filter: Optional[EventFilter] = None
@@ -356,6 +376,7 @@ class DescribeEventsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_events' function.
 class DescribeEventsRequest(BaseValidatorModel):
     filter: Optional[EventFilter] = None
     nextToken: Optional[str] = None
@@ -369,6 +390,7 @@ class DescribeEventsForOrganizationRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_events_for_organization' function.
 class DescribeEventsForOrganizationRequest(BaseValidatorModel):
     filter: Optional[OrganizationEventFilter] = None
     nextToken: Optional[str] = None

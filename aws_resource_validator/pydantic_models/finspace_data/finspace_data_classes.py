@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'associate_user_to_permission_group' function.
 class AssociateUserToPermissionGroupRequest(BaseValidatorModel):
     permissionGroupId: str
     userId: str
@@ -40,6 +41,7 @@ class ColumnDefinition(BaseValidatorModel):
     columnDescription: Optional[str] = None
 
 
+# This class is the input for the 'create_changeset' function.
 class CreateChangesetRequest(BaseValidatorModel):
     datasetId: str
     changeType: ChangeTypeType
@@ -54,6 +56,7 @@ class DatasetOwnerInfo(BaseValidatorModel):
     email: Optional[str] = None
 
 
+# This class is the input for the 'create_permission_group' function.
 class CreatePermissionGroupRequest(BaseValidatorModel):
     name: str
     applicationPermissions: List[ApplicationPermissionType]
@@ -61,6 +64,7 @@ class CreatePermissionGroupRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'create_user' function.
 class CreateUserRequest(BaseValidatorModel):
     emailAddress: str
     type: UserTypeType
@@ -94,46 +98,55 @@ class DataViewErrorInfo(BaseValidatorModel):
     errorCategory: Optional[ErrorCategoryType] = None
 
 
+# This class is the input for the 'delete_dataset' function.
 class DeleteDatasetRequest(BaseValidatorModel):
     datasetId: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_permission_group' function.
 class DeletePermissionGroupRequest(BaseValidatorModel):
     permissionGroupId: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'disable_user' function.
 class DisableUserRequest(BaseValidatorModel):
     userId: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'disassociate_user_from_permission_group' function.
 class DisassociateUserFromPermissionGroupRequest(BaseValidatorModel):
     permissionGroupId: str
     userId: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'enable_user' function.
 class EnableUserRequest(BaseValidatorModel):
     userId: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'get_changeset' function.
 class GetChangesetRequest(BaseValidatorModel):
     datasetId: str
     changesetId: str
 
 
+# This class is the input for the 'get_data_view' function.
 class GetDataViewRequest(BaseValidatorModel):
     dataViewId: str
     datasetId: str
 
 
+# This class is the input for the 'get_dataset' function.
 class GetDatasetRequest(BaseValidatorModel):
     datasetId: str
 
 
+# This class is the input for the 'get_external_data_view_access_details' function.
 class GetExternalDataViewAccessDetailsRequest(BaseValidatorModel):
     dataViewId: str
     datasetId: str
@@ -144,6 +157,7 @@ class S3Location(BaseValidatorModel):
     key: str
 
 
+# This class is the input for the 'get_permission_group' function.
 class GetPermissionGroupRequest(BaseValidatorModel):
     permissionGroupId: str
 
@@ -158,15 +172,18 @@ class PermissionGroup(BaseValidatorModel):
     membershipStatus: Optional[PermissionGroupMembershipStatusType] = None
 
 
+# This class is the input for the 'get_programmatic_access_credentials' function.
 class GetProgrammaticAccessCredentialsRequest(BaseValidatorModel):
     environmentId: str
     durationInMinutes: Optional[int] = None
 
 
+# This class is the input for the 'get_user' function.
 class GetUserRequest(BaseValidatorModel):
     userId: str
 
 
+# This class is the input for the 'get_working_location' function.
 class GetWorkingLocationRequest(BaseValidatorModel):
     locationType: Optional[LocationTypeType] = None
 
@@ -177,23 +194,27 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_changesets' function.
 class ListChangesetsRequest(BaseValidatorModel):
     datasetId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_data_views' function.
 class ListDataViewsRequest(BaseValidatorModel):
     datasetId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_datasets' function.
 class ListDatasetsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_permission_groups_by_user' function.
 class ListPermissionGroupsByUserRequest(BaseValidatorModel):
     userId: str
     maxResults: int
@@ -206,11 +227,13 @@ class PermissionGroupByUser(BaseValidatorModel):
     membershipStatus: Optional[PermissionGroupMembershipStatusType] = None
 
 
+# This class is the input for the 'list_permission_groups' function.
 class ListPermissionGroupsRequest(BaseValidatorModel):
     maxResults: int
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_users_by_permission_group' function.
 class ListUsersByPermissionGroupRequest(BaseValidatorModel):
     permissionGroupId: str
     maxResults: int
@@ -229,6 +252,7 @@ class UserByPermissionGroup(BaseValidatorModel):
     membershipStatus: Optional[PermissionGroupMembershipStatusType] = None
 
 
+# This class is the input for the 'list_users' function.
 class ListUsersRequest(BaseValidatorModel):
     maxResults: int
     nextToken: Optional[str] = None
@@ -254,11 +278,13 @@ class ResourcePermission(BaseValidatorModel):
     permission: Optional[str] = None
 
 
+# This class is the input for the 'reset_user_password' function.
 class ResetUserPasswordRequest(BaseValidatorModel):
     userId: str
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'update_changeset' function.
 class UpdateChangesetRequest(BaseValidatorModel):
     datasetId: str
     changesetId: str
@@ -267,6 +293,7 @@ class UpdateChangesetRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'update_permission_group' function.
 class UpdatePermissionGroupRequest(BaseValidatorModel):
     permissionGroupId: str
     name: Optional[str] = None
@@ -275,6 +302,7 @@ class UpdatePermissionGroupRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'update_user' function.
 class UpdateUserRequest(BaseValidatorModel):
     userId: str
     type: Optional[UserTypeType] = None
@@ -285,63 +313,75 @@ class UpdateUserRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the output for the 'associate_user_to_permission_group' function.
 class AssociateUserToPermissionGroupResponse(BaseValidatorModel):
     statusCode: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_changeset' function.
 class CreateChangesetResponse(BaseValidatorModel):
     datasetId: str
     changesetId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_data_view' function.
 class CreateDataViewResponse(BaseValidatorModel):
     datasetId: str
     dataViewId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_dataset' function.
 class CreateDatasetResponse(BaseValidatorModel):
     datasetId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_permission_group' function.
 class CreatePermissionGroupResponse(BaseValidatorModel):
     permissionGroupId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_user' function.
 class CreateUserResponse(BaseValidatorModel):
     userId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_dataset' function.
 class DeleteDatasetResponse(BaseValidatorModel):
     datasetId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_permission_group' function.
 class DeletePermissionGroupResponse(BaseValidatorModel):
     permissionGroupId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disable_user' function.
 class DisableUserResponse(BaseValidatorModel):
     userId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_user_from_permission_group' function.
 class DisassociateUserFromPermissionGroupResponse(BaseValidatorModel):
     statusCode: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enable_user' function.
 class EnableUserResponse(BaseValidatorModel):
     userId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_user' function.
 class GetUserResponse(BaseValidatorModel):
     userId: str
     status: UserStatusType
@@ -359,6 +399,7 @@ class GetUserResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_working_location' function.
 class GetWorkingLocationResponse(BaseValidatorModel):
     s3Uri: str
     s3Path: str
@@ -366,28 +407,33 @@ class GetWorkingLocationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reset_user_password' function.
 class ResetUserPasswordResponse(BaseValidatorModel):
     userId: str
     temporaryPassword: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_changeset' function.
 class UpdateChangesetResponse(BaseValidatorModel):
     changesetId: str
     datasetId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_dataset' function.
 class UpdateDatasetResponse(BaseValidatorModel):
     datasetId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_permission_group' function.
 class UpdatePermissionGroupResponse(BaseValidatorModel):
     permissionGroupId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_user' function.
 class UpdateUserResponse(BaseValidatorModel):
     userId: str
     ResponseMetadata: ResponseMetadata
@@ -409,6 +455,7 @@ class ChangesetSummary(BaseValidatorModel):
     updatedByChangesetId: Optional[str] = None
 
 
+# This class is the output for the 'get_changeset' function.
 class GetChangesetResponse(BaseValidatorModel):
     changesetId: str
     changesetArn: str
@@ -436,6 +483,7 @@ class SchemaDefinition(BaseValidatorModel):
     primaryKeyColumns: Optional[List[str]] = None
 
 
+# This class is the output for the 'get_programmatic_access_credentials' function.
 class GetProgrammaticAccessCredentialsResponse(BaseValidatorModel):
     credentials: Credentials
     durationInMinutes: int
@@ -459,6 +507,7 @@ class DataViewSummary(BaseValidatorModel):
     lastModifiedTime: Optional[int] = None
 
 
+# This class is the output for the 'get_data_view' function.
 class GetDataViewResponse(BaseValidatorModel):
     autoUpdate: bool
     partitionColumns: List[str]
@@ -475,17 +524,20 @@ class GetDataViewResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_external_data_view_access_details' function.
 class GetExternalDataViewAccessDetailsResponse(BaseValidatorModel):
     credentials: AwsCredentials
     s3Location: S3Location
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_permission_group' function.
 class GetPermissionGroupResponse(BaseValidatorModel):
     permissionGroup: PermissionGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_permission_groups' function.
 class ListPermissionGroupsResponse(BaseValidatorModel):
     permissionGroups: List[PermissionGroup]
     ResponseMetadata: ResponseMetadata
@@ -514,18 +566,21 @@ class ListUsersRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_permission_groups_by_user' function.
 class ListPermissionGroupsByUserResponse(BaseValidatorModel):
     permissionGroups: List[PermissionGroupByUser]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_users_by_permission_group' function.
 class ListUsersByPermissionGroupResponse(BaseValidatorModel):
     users: List[UserByPermissionGroup]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_users' function.
 class ListUsersResponse(BaseValidatorModel):
     users: List[User]
     ResponseMetadata: ResponseMetadata
@@ -537,6 +592,7 @@ class PermissionGroupParams(BaseValidatorModel):
     datasetPermissions: Optional[List[ResourcePermission]] = None
 
 
+# This class is the output for the 'list_changesets' function.
 class ListChangesetsResponse(BaseValidatorModel):
     changesets: List[ChangesetSummary]
     ResponseMetadata: ResponseMetadata
@@ -551,6 +607,7 @@ class SchemaUnion(BaseValidatorModel):
     tabularSchemaConfig: Optional[SchemaDefinition] = None
 
 
+# This class is the input for the 'create_data_view' function.
 class CreateDataViewRequest(BaseValidatorModel):
     datasetId: str
     destinationTypeParams: DataViewDestinationTypeParamsUnion
@@ -561,6 +618,7 @@ class CreateDataViewRequest(BaseValidatorModel):
     asOfTimestamp: Optional[int] = None
 
 
+# This class is the output for the 'list_data_views' function.
 class ListDataViewsResponse(BaseValidatorModel):
     dataViews: List[DataViewSummary]
     ResponseMetadata: ResponseMetadata
@@ -580,6 +638,7 @@ class Dataset(BaseValidatorModel):
     alias: Optional[str] = None
 
 
+# This class is the output for the 'get_dataset' function.
 class GetDatasetResponse(BaseValidatorModel):
     datasetId: str
     datasetArn: str
@@ -596,12 +655,14 @@ class GetDatasetResponse(BaseValidatorModel):
 SchemaUnionUnion = Union[SchemaUnion, SchemaUnionOutput]
 
 
+# This class is the output for the 'list_datasets' function.
 class ListDatasetsResponse(BaseValidatorModel):
     datasets: List[Dataset]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_dataset' function.
 class CreateDatasetRequest(BaseValidatorModel):
     datasetTitle: str
     kind: DatasetKindType
@@ -613,6 +674,7 @@ class CreateDatasetRequest(BaseValidatorModel):
     schemaDefinition: Optional[SchemaUnionUnion] = None
 
 
+# This class is the input for the 'update_dataset' function.
 class UpdateDatasetRequest(BaseValidatorModel):
     datasetId: str
     datasetTitle: str

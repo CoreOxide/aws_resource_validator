@@ -8,11 +8,13 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'associate_library_item_review' function.
 class AssociateLibraryItemReviewInput(BaseValidatorModel):
     instanceId: str
     libraryItemId: str
 
 
+# This class is the input for the 'associate_q_app_with_user' function.
 class AssociateQAppWithUserInput(BaseValidatorModel):
     instanceId: str
     appId: str
@@ -24,6 +26,7 @@ class BatchCreateCategoryInputCategory(BaseValidatorModel):
     color: Optional[str] = None
 
 
+# This class is the input for the 'batch_delete_category' function.
 class BatchDeleteCategoryInput(BaseValidatorModel):
     instanceId: str
     categories: List[str]
@@ -114,6 +117,7 @@ class ConversationMessage(BaseValidatorModel):
     type: SenderType
 
 
+# This class is the input for the 'create_library_item' function.
 class CreateLibraryItemInput(BaseValidatorModel):
     instanceId: str
     appId: str
@@ -129,6 +133,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_presigned_url' function.
 class CreatePresignedUrlInput(BaseValidatorModel):
     instanceId: str
     cardId: str
@@ -139,26 +144,31 @@ class CreatePresignedUrlInput(BaseValidatorModel):
     sessionId: Optional[str] = None
 
 
+# This class is the input for the 'delete_library_item' function.
 class DeleteLibraryItemInput(BaseValidatorModel):
     instanceId: str
     libraryItemId: str
 
 
+# This class is the input for the 'delete_q_app' function.
 class DeleteQAppInput(BaseValidatorModel):
     instanceId: str
     appId: str
 
 
+# This class is the input for the 'describe_q_app_permissions' function.
 class DescribeQAppPermissionsInput(BaseValidatorModel):
     instanceId: str
     appId: str
 
 
+# This class is the input for the 'disassociate_library_item_review' function.
 class DisassociateLibraryItemReviewInput(BaseValidatorModel):
     instanceId: str
     libraryItemId: str
 
 
+# This class is the input for the 'disassociate_q_app_from_user' function.
 class DisassociateQAppFromUserInput(BaseValidatorModel):
     instanceId: str
     appId: str
@@ -173,6 +183,7 @@ class DocumentAttributeValueOutput(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'export_q_app_session_data' function.
 class ExportQAppSessionDataInput(BaseValidatorModel):
     instanceId: str
     sessionId: str
@@ -186,23 +197,27 @@ class FormInputCardMetadata(BaseValidatorModel):
     schema: Dict[str, Any]
 
 
+# This class is the input for the 'get_library_item' function.
 class GetLibraryItemInput(BaseValidatorModel):
     instanceId: str
     libraryItemId: str
     appId: Optional[str] = None
 
 
+# This class is the input for the 'get_q_app' function.
 class GetQAppInput(BaseValidatorModel):
     instanceId: str
     appId: str
     appVersion: Optional[int] = None
 
 
+# This class is the input for the 'get_q_app_session' function.
 class GetQAppSessionInput(BaseValidatorModel):
     instanceId: str
     sessionId: str
 
 
+# This class is the input for the 'get_q_app_session_metadata' function.
 class GetQAppSessionMetadataInput(BaseValidatorModel):
     instanceId: str
     sessionId: str
@@ -214,6 +229,7 @@ class SessionSharingConfiguration(BaseValidatorModel):
     revealCards: Optional[bool] = None
 
 
+# This class is the input for the 'import_document' function.
 class ImportDocumentInput(BaseValidatorModel):
     instanceId: str
     cardId: str
@@ -224,6 +240,7 @@ class ImportDocumentInput(BaseValidatorModel):
     sessionId: Optional[str] = None
 
 
+# This class is the input for the 'list_categories' function.
 class ListCategoriesInput(BaseValidatorModel):
     instanceId: str
 
@@ -234,6 +251,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_library_items' function.
 class ListLibraryItemsInput(BaseValidatorModel):
     instanceId: str
     limit: Optional[int] = None
@@ -241,11 +259,13 @@ class ListLibraryItemsInput(BaseValidatorModel):
     categoryId: Optional[str] = None
 
 
+# This class is the input for the 'list_q_app_session_data' function.
 class ListQAppSessionDataInput(BaseValidatorModel):
     instanceId: str
     sessionId: str
 
 
+# This class is the input for the 'list_q_apps' function.
 class ListQAppsInput(BaseValidatorModel):
     instanceId: str
     limit: Optional[int] = None
@@ -263,6 +283,7 @@ class UserAppItem(BaseValidatorModel):
     isVerified: Optional[bool] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceARN: str
 
@@ -282,6 +303,7 @@ class User(BaseValidatorModel):
     userId: Optional[str] = None
 
 
+# This class is the input for the 'stop_q_app_session' function.
 class StopQAppSessionInput(BaseValidatorModel):
     instanceId: str
     sessionId: str
@@ -297,6 +319,7 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_library_item' function.
 class UpdateLibraryItemInput(BaseValidatorModel):
     instanceId: str
     libraryItemId: str
@@ -304,17 +327,20 @@ class UpdateLibraryItemInput(BaseValidatorModel):
     categories: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_library_item_metadata' function.
 class UpdateLibraryItemMetadataInput(BaseValidatorModel):
     instanceId: str
     libraryItemId: str
     isVerified: Optional[bool] = None
 
 
+# This class is the input for the 'batch_create_category' function.
 class BatchCreateCategoryInput(BaseValidatorModel):
     instanceId: str
     categories: List[BatchCreateCategoryInputCategory]
 
 
+# This class is the input for the 'batch_update_category' function.
 class BatchUpdateCategoryInput(BaseValidatorModel):
     instanceId: str
     categories: List[CategoryInput]
@@ -353,6 +379,7 @@ class PredictQAppInputOptions(BaseValidatorModel):
     problemStatement: Optional[str] = None
 
 
+# This class is the output for the 'create_library_item' function.
 class CreateLibraryItemOutput(BaseValidatorModel):
     libraryItemId: str
     status: str
@@ -365,6 +392,7 @@ class CreateLibraryItemOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_presigned_url' function.
 class CreatePresignedUrlOutput(BaseValidatorModel):
     fileId: str
     presignedUrl: str
@@ -373,6 +401,7 @@ class CreatePresignedUrlOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_q_app' function.
 class CreateQAppOutput(BaseValidatorModel):
     appId: str
     appArn: str
@@ -389,10 +418,12 @@ class CreateQAppOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_library_item_metadata' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'export_q_app_session_data' function.
 class ExportQAppSessionDataOutput(BaseValidatorModel):
     csvFileLink: str
     expiresAt: datetime
@@ -400,6 +431,7 @@ class ExportQAppSessionDataOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_library_item' function.
 class GetLibraryItemOutput(BaseValidatorModel):
     libraryItemId: str
     appId: str
@@ -417,27 +449,32 @@ class GetLibraryItemOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_document' function.
 class ImportDocumentOutput(BaseValidatorModel):
     fileId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_categories' function.
 class ListCategoriesOutput(BaseValidatorModel):
     categories: List[Category]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_q_app_session' function.
 class StartQAppSessionOutput(BaseValidatorModel):
     sessionId: str
     sessionArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_library_item' function.
 class UpdateLibraryItemOutput(BaseValidatorModel):
     libraryItemId: str
     appId: str
@@ -455,6 +492,7 @@ class UpdateLibraryItemOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_q_app' function.
 class UpdateQAppOutput(BaseValidatorModel):
     appId: str
     appArn: str
@@ -471,6 +509,7 @@ class UpdateQAppOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_q_app_session' function.
 class UpdateQAppSessionOutput(BaseValidatorModel):
     sessionId: str
     sessionArn: str
@@ -514,6 +553,7 @@ class FormInputCardInput(BaseValidatorModel):
     computeMode: Optional[InputCardComputeModeType] = None
 
 
+# This class is the output for the 'get_q_app_session_metadata' function.
 class GetQAppSessionMetadataOutput(BaseValidatorModel):
     sessionId: str
     sessionArn: str
@@ -523,6 +563,7 @@ class GetQAppSessionMetadataOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_q_app_session_metadata' function.
 class UpdateQAppSessionMetadataInput(BaseValidatorModel):
     instanceId: str
     sessionId: str
@@ -530,6 +571,7 @@ class UpdateQAppSessionMetadataInput(BaseValidatorModel):
     sessionName: Optional[str] = None
 
 
+# This class is the output for the 'update_q_app_session_metadata' function.
 class UpdateQAppSessionMetadataOutput(BaseValidatorModel):
     sessionId: str
     sessionArn: str
@@ -549,12 +591,14 @@ class ListQAppsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_q_apps' function.
 class ListQAppsOutput(BaseValidatorModel):
     apps: List[UserAppItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'update_q_app_permissions' function.
 class UpdateQAppPermissionsInput(BaseValidatorModel):
     instanceId: str
     appId: str
@@ -575,6 +619,7 @@ class QAppSessionData(BaseValidatorModel):
     timestamp: Optional[datetime] = None
 
 
+# This class is the output for the 'get_q_app_session' function.
 class GetQAppSessionOutput(BaseValidatorModel):
     sessionId: str
     sessionArn: str
@@ -587,6 +632,7 @@ class GetQAppSessionOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_q_app_session' function.
 class StartQAppSessionInput(BaseValidatorModel):
     instanceId: str
     appId: str
@@ -596,18 +642,21 @@ class StartQAppSessionInput(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_q_app_session' function.
 class UpdateQAppSessionInput(BaseValidatorModel):
     instanceId: str
     sessionId: str
     values: Optional[List[CardValue]] = None
 
 
+# This class is the output for the 'list_library_items' function.
 class ListLibraryItemsOutput(BaseValidatorModel):
     libraryItems: List[LibraryItemMember]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'predict_q_app' function.
 class PredictQAppInput(BaseValidatorModel):
     instanceId: str
     options: Optional[PredictQAppInputOptions] = None
@@ -631,6 +680,7 @@ class DocumentAttribute(BaseValidatorModel):
     value: DocumentAttributeValue
 
 
+# This class is the output for the 'describe_q_app_permissions' function.
 class DescribeQAppPermissionsOutput(BaseValidatorModel):
     resourceArn: str
     appId: str
@@ -638,6 +688,7 @@ class DescribeQAppPermissionsOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_q_app_permissions' function.
 class UpdateQAppPermissionsOutput(BaseValidatorModel):
     resourceArn: str
     appId: str
@@ -645,6 +696,7 @@ class UpdateQAppPermissionsOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_q_app_session_data' function.
 class ListQAppSessionDataOutput(BaseValidatorModel):
     sessionId: str
     sessionArn: str
@@ -736,6 +788,7 @@ class PredictAppDefinition(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the output for the 'get_q_app' function.
 class GetQAppOutput(BaseValidatorModel):
     appId: str
     appArn: str
@@ -758,6 +811,7 @@ class AppDefinitionInput(BaseValidatorModel):
     initialPrompt: Optional[str] = None
 
 
+# This class is the output for the 'predict_q_app' function.
 class PredictQAppOutput(BaseValidatorModel):
     app: PredictAppDefinition
     problemStatement: str
@@ -766,6 +820,7 @@ class PredictQAppOutput(BaseValidatorModel):
 AppDefinitionInputUnion = Union[AppDefinitionInput, AppDefinitionInputOutput]
 
 
+# This class is the input for the 'create_q_app' function.
 class CreateQAppInput(BaseValidatorModel):
     instanceId: str
     title: str
@@ -774,6 +829,7 @@ class CreateQAppInput(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_q_app' function.
 class UpdateQAppInput(BaseValidatorModel):
     instanceId: str
     appId: str

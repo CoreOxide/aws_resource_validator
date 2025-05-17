@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'batch_delete_worlds' function.
 class BatchDeleteWorldsRequest(BaseValidatorModel):
     worlds: List[str]
 
@@ -20,6 +21,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'batch_describe_simulation_job' function.
 class BatchDescribeSimulationJobRequest(BaseValidatorModel):
     jobs: List[str]
 
@@ -61,6 +63,7 @@ class Compute(BaseValidatorModel):
     gpuUnitLimit: Optional[int] = None
 
 
+# This class is the input for the 'create_fleet' function.
 class CreateFleetRequest(BaseValidatorModel):
     name: str
     tags: Optional[Dict[str, str]] = None
@@ -88,6 +91,7 @@ class Source(BaseValidatorModel):
     architecture: Optional[ArchitectureType] = None
 
 
+# This class is the input for the 'create_robot_application_version' function.
 class CreateRobotApplicationVersionRequest(BaseValidatorModel):
     application: str
     currentRevisionId: Optional[str] = None
@@ -95,6 +99,7 @@ class CreateRobotApplicationVersionRequest(BaseValidatorModel):
     imageDigest: Optional[str] = None
 
 
+# This class is the input for the 'create_robot' function.
 class CreateRobotRequest(BaseValidatorModel):
     name: str
     architecture: ArchitectureType
@@ -112,6 +117,7 @@ class SimulationSoftwareSuite(BaseValidatorModel):
     version: Optional[str] = None
 
 
+# This class is the input for the 'create_simulation_application_version' function.
 class CreateSimulationApplicationVersionRequest(BaseValidatorModel):
     application: str
     currentRevisionId: Optional[str] = None
@@ -210,15 +216,18 @@ class DeploymentLaunchConfig(BaseValidatorModel):
     environmentVariables: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'deregister_robot' function.
 class DeregisterRobotRequest(BaseValidatorModel):
     fleet: str
     robot: str
 
 
+# This class is the input for the 'describe_deployment_job' function.
 class DescribeDeploymentJobRequest(BaseValidatorModel):
     job: str
 
 
+# This class is the input for the 'describe_fleet' function.
 class DescribeFleetRequest(BaseValidatorModel):
     fleet: str
 
@@ -235,20 +244,24 @@ class Robot(BaseValidatorModel):
     lastDeploymentTime: Optional[datetime] = None
 
 
+# This class is the input for the 'describe_robot_application' function.
 class DescribeRobotApplicationRequest(BaseValidatorModel):
     application: str
     applicationVersion: Optional[str] = None
 
 
+# This class is the input for the 'describe_robot' function.
 class DescribeRobotRequest(BaseValidatorModel):
     robot: str
 
 
+# This class is the input for the 'describe_simulation_application' function.
 class DescribeSimulationApplicationRequest(BaseValidatorModel):
     application: str
     applicationVersion: Optional[str] = None
 
 
+# This class is the input for the 'describe_simulation_job_batch' function.
 class DescribeSimulationJobBatchRequest(BaseValidatorModel):
     batch: str
 
@@ -264,6 +277,7 @@ class SimulationJobSummary(BaseValidatorModel):
     computeType: Optional[ComputeTypeType] = None
 
 
+# This class is the input for the 'describe_simulation_job' function.
 class DescribeSimulationJobRequest(BaseValidatorModel):
     job: str
 
@@ -274,18 +288,22 @@ class NetworkInterface(BaseValidatorModel):
     publicIpAddress: Optional[str] = None
 
 
+# This class is the input for the 'describe_world_export_job' function.
 class DescribeWorldExportJobRequest(BaseValidatorModel):
     job: str
 
 
+# This class is the input for the 'describe_world_generation_job' function.
 class DescribeWorldGenerationJobRequest(BaseValidatorModel):
     job: str
 
 
+# This class is the input for the 'describe_world' function.
 class DescribeWorldRequest(BaseValidatorModel):
     world: str
 
 
+# This class is the input for the 'describe_world_template' function.
 class DescribeWorldTemplateRequest(BaseValidatorModel):
     template: str
 
@@ -310,6 +328,7 @@ class Fleet(BaseValidatorModel):
     lastDeploymentTime: Optional[datetime] = None
 
 
+# This class is the input for the 'get_world_template_body' function.
 class GetWorldTemplateBodyRequest(BaseValidatorModel):
     template: Optional[str] = None
     generationJob: Optional[str] = None
@@ -331,10 +350,12 @@ class SimulationJobBatchSummary(BaseValidatorModel):
     createdRequestCount: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'list_world_templates' function.
 class ListWorldTemplatesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -368,6 +389,7 @@ class ProgressDetail(BaseValidatorModel):
     targetResource: Optional[str] = None
 
 
+# This class is the input for the 'register_robot' function.
 class RegisterRobotRequest(BaseValidatorModel):
     fleet: str
     robot: str
@@ -401,6 +423,7 @@ class VPCConfigOutput(BaseValidatorModel):
     assignPublicIp: Optional[bool] = None
 
 
+# This class is the input for the 'sync_deployment_job' function.
 class SyncDeploymentJobRequest(BaseValidatorModel):
     clientRequestToken: str
     fleet: str
@@ -422,11 +445,13 @@ class VPCConfig(BaseValidatorModel):
     assignPublicIp: Optional[bool] = None
 
 
+# This class is the output for the 'batch_delete_worlds' function.
 class BatchDeleteWorldsResponse(BaseValidatorModel):
     unprocessedWorlds: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_fleet' function.
 class CreateFleetResponse(BaseValidatorModel):
     arn: str
     name: str
@@ -435,6 +460,7 @@ class CreateFleetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_robot' function.
 class CreateRobotResponse(BaseValidatorModel):
     arn: str
     name: str
@@ -445,6 +471,7 @@ class CreateRobotResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_world_template' function.
 class CreateWorldTemplateResponse(BaseValidatorModel):
     arn: str
     clientRequestToken: str
@@ -454,12 +481,14 @@ class CreateWorldTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'deregister_robot' function.
 class DeregisterRobotResponse(BaseValidatorModel):
     fleet: str
     robot: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_robot' function.
 class DescribeRobotResponse(BaseValidatorModel):
     arn: str
     name: str
@@ -474,6 +503,7 @@ class DescribeRobotResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_world' function.
 class DescribeWorldResponse(BaseValidatorModel):
     arn: str
     generationJob: str
@@ -484,6 +514,7 @@ class DescribeWorldResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_world_template' function.
 class DescribeWorldTemplateResponse(BaseValidatorModel):
     arn: str
     clientRequestToken: str
@@ -495,22 +526,26 @@ class DescribeWorldTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_world_template_body' function.
 class GetWorldTemplateBodyResponse(BaseValidatorModel):
     templateBody: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_robot' function.
 class RegisterRobotResponse(BaseValidatorModel):
     fleet: str
     robot: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_world_template' function.
 class UpdateWorldTemplateResponse(BaseValidatorModel):
     arn: str
     name: str
@@ -527,6 +562,7 @@ class RobotApplicationSummary(BaseValidatorModel):
     robotSoftwareSuite: Optional[RobotSoftwareSuite] = None
 
 
+# This class is the input for the 'create_robot_application' function.
 class CreateRobotApplicationRequest(BaseValidatorModel):
     name: str
     robotSoftwareSuite: RobotSoftwareSuite
@@ -535,6 +571,7 @@ class CreateRobotApplicationRequest(BaseValidatorModel):
     environment: Optional[Environment] = None
 
 
+# This class is the input for the 'update_robot_application' function.
 class UpdateRobotApplicationRequest(BaseValidatorModel):
     application: str
     robotSoftwareSuite: RobotSoftwareSuite
@@ -543,6 +580,7 @@ class UpdateRobotApplicationRequest(BaseValidatorModel):
     environment: Optional[Environment] = None
 
 
+# This class is the output for the 'create_robot_application' function.
 class CreateRobotApplicationResponse(BaseValidatorModel):
     arn: str
     name: str
@@ -556,6 +594,7 @@ class CreateRobotApplicationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_robot_application_version' function.
 class CreateRobotApplicationVersionResponse(BaseValidatorModel):
     arn: str
     name: str
@@ -568,6 +607,7 @@ class CreateRobotApplicationVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_robot_application' function.
 class DescribeRobotApplicationResponse(BaseValidatorModel):
     arn: str
     name: str
@@ -582,6 +622,7 @@ class DescribeRobotApplicationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_robot_application' function.
 class UpdateRobotApplicationResponse(BaseValidatorModel):
     arn: str
     name: str
@@ -594,6 +635,7 @@ class UpdateRobotApplicationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_simulation_application' function.
 class CreateSimulationApplicationRequest(BaseValidatorModel):
     name: str
     simulationSoftwareSuite: SimulationSoftwareSuite
@@ -604,6 +646,7 @@ class CreateSimulationApplicationRequest(BaseValidatorModel):
     environment: Optional[Environment] = None
 
 
+# This class is the output for the 'create_simulation_application' function.
 class CreateSimulationApplicationResponse(BaseValidatorModel):
     arn: str
     name: str
@@ -619,6 +662,7 @@ class CreateSimulationApplicationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_simulation_application_version' function.
 class CreateSimulationApplicationVersionResponse(BaseValidatorModel):
     arn: str
     name: str
@@ -633,6 +677,7 @@ class CreateSimulationApplicationVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_simulation_application' function.
 class DescribeSimulationApplicationResponse(BaseValidatorModel):
     arn: str
     name: str
@@ -658,6 +703,7 @@ class SimulationApplicationSummary(BaseValidatorModel):
     simulationSoftwareSuite: Optional[SimulationSoftwareSuite] = None
 
 
+# This class is the input for the 'update_simulation_application' function.
 class UpdateSimulationApplicationRequest(BaseValidatorModel):
     application: str
     simulationSoftwareSuite: SimulationSoftwareSuite
@@ -668,6 +714,7 @@ class UpdateSimulationApplicationRequest(BaseValidatorModel):
     environment: Optional[Environment] = None
 
 
+# This class is the output for the 'update_simulation_application' function.
 class UpdateSimulationApplicationResponse(BaseValidatorModel):
     arn: str
     name: str
@@ -682,6 +729,7 @@ class UpdateSimulationApplicationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_world_export_job' function.
 class CreateWorldExportJobRequest(BaseValidatorModel):
     worlds: List[str]
     outputLocation: OutputLocation
@@ -690,6 +738,7 @@ class CreateWorldExportJobRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_world_export_job' function.
 class CreateWorldExportJobResponse(BaseValidatorModel):
     arn: str
     status: WorldExportJobStatusType
@@ -702,6 +751,7 @@ class CreateWorldExportJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_world_export_job' function.
 class DescribeWorldExportJobResponse(BaseValidatorModel):
     arn: str
     status: WorldExportJobStatusType
@@ -724,6 +774,7 @@ class WorldExportJobSummary(BaseValidatorModel):
     outputLocation: Optional[OutputLocation] = None
 
 
+# This class is the input for the 'create_world_generation_job' function.
 class CreateWorldGenerationJobRequest(BaseValidatorModel):
     template: str
     worldCount: WorldCount
@@ -732,6 +783,7 @@ class CreateWorldGenerationJobRequest(BaseValidatorModel):
     worldTags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_world_generation_job' function.
 class CreateWorldGenerationJobResponse(BaseValidatorModel):
     arn: str
     status: WorldGenerationJobStatusType
@@ -755,6 +807,7 @@ class WorldGenerationJobSummary(BaseValidatorModel):
     failedWorldCount: Optional[int] = None
 
 
+# This class is the input for the 'create_world_template' function.
 class CreateWorldTemplateRequest(BaseValidatorModel):
     clientRequestToken: Optional[str] = None
     name: Optional[str] = None
@@ -763,6 +816,7 @@ class CreateWorldTemplateRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_world_template' function.
 class UpdateWorldTemplateRequest(BaseValidatorModel):
     template: str
     name: Optional[str] = None
@@ -795,6 +849,7 @@ class DeploymentConfig(BaseValidatorModel):
 DeploymentLaunchConfigUnion = Union[DeploymentLaunchConfig, DeploymentLaunchConfigOutput]
 
 
+# This class is the output for the 'describe_fleet' function.
 class DescribeFleetResponse(BaseValidatorModel):
     name: str
     arn: str
@@ -807,12 +862,14 @@ class DescribeFleetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_robots' function.
 class ListRobotsResponse(BaseValidatorModel):
     robots: List[Robot]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_simulation_jobs' function.
 class ListSimulationJobsResponse(BaseValidatorModel):
     simulationJobSummaries: List[SimulationJobSummary]
     ResponseMetadata: ResponseMetadata
@@ -824,18 +881,21 @@ class FailureSummary(BaseValidatorModel):
     failures: Optional[List[WorldFailure]] = None
 
 
+# This class is the input for the 'list_deployment_jobs' function.
 class ListDeploymentJobsRequest(BaseValidatorModel):
     filters: Optional[List[Filter]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_fleets' function.
 class ListFleetsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     filters: Optional[List[Filter]] = None
 
 
+# This class is the input for the 'list_robot_applications' function.
 class ListRobotApplicationsRequest(BaseValidatorModel):
     versionQualifier: Optional[str] = None
     nextToken: Optional[str] = None
@@ -843,12 +903,14 @@ class ListRobotApplicationsRequest(BaseValidatorModel):
     filters: Optional[List[Filter]] = None
 
 
+# This class is the input for the 'list_robots' function.
 class ListRobotsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     filters: Optional[List[Filter]] = None
 
 
+# This class is the input for the 'list_simulation_applications' function.
 class ListSimulationApplicationsRequest(BaseValidatorModel):
     versionQualifier: Optional[str] = None
     nextToken: Optional[str] = None
@@ -856,36 +918,42 @@ class ListSimulationApplicationsRequest(BaseValidatorModel):
     filters: Optional[List[Filter]] = None
 
 
+# This class is the input for the 'list_simulation_job_batches' function.
 class ListSimulationJobBatchesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     filters: Optional[List[Filter]] = None
 
 
+# This class is the input for the 'list_simulation_jobs' function.
 class ListSimulationJobsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     filters: Optional[List[Filter]] = None
 
 
+# This class is the input for the 'list_world_export_jobs' function.
 class ListWorldExportJobsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     filters: Optional[List[Filter]] = None
 
 
+# This class is the input for the 'list_world_generation_jobs' function.
 class ListWorldGenerationJobsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     filters: Optional[List[Filter]] = None
 
 
+# This class is the input for the 'list_worlds' function.
 class ListWorldsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     filters: Optional[List[Filter]] = None
 
 
+# This class is the output for the 'list_fleets' function.
 class ListFleetsResponse(BaseValidatorModel):
     fleetDetails: List[Fleet]
     ResponseMetadata: ResponseMetadata
@@ -948,18 +1016,21 @@ class ListWorldsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_simulation_job_batches' function.
 class ListSimulationJobBatchesResponse(BaseValidatorModel):
     simulationJobBatchSummaries: List[SimulationJobBatchSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_world_templates' function.
 class ListWorldTemplatesResponse(BaseValidatorModel):
     templateSummaries: List[TemplateSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_worlds' function.
 class ListWorldsResponse(BaseValidatorModel):
     worldSummaries: List[WorldSummary]
     ResponseMetadata: ResponseMetadata
@@ -986,30 +1057,35 @@ class RobotDeployment(BaseValidatorModel):
 VPCConfigUnion = Union[VPCConfig, VPCConfigOutput]
 
 
+# This class is the output for the 'list_robot_applications' function.
 class ListRobotApplicationsResponse(BaseValidatorModel):
     robotApplicationSummaries: List[RobotApplicationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_simulation_applications' function.
 class ListSimulationApplicationsResponse(BaseValidatorModel):
     simulationApplicationSummaries: List[SimulationApplicationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_world_export_jobs' function.
 class ListWorldExportJobsResponse(BaseValidatorModel):
     worldExportJobSummaries: List[WorldExportJobSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_world_generation_jobs' function.
 class ListWorldGenerationJobsResponse(BaseValidatorModel):
     worldGenerationJobSummaries: List[WorldGenerationJobSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_deployment_job' function.
 class CreateDeploymentJobResponse(BaseValidatorModel):
     arn: str
     fleet: str
@@ -1034,6 +1110,7 @@ class DeploymentJob(BaseValidatorModel):
     createdAt: Optional[datetime] = None
 
 
+# This class is the output for the 'sync_deployment_job' function.
 class SyncDeploymentJobResponse(BaseValidatorModel):
     arn: str
     fleet: str
@@ -1069,6 +1146,7 @@ class LaunchConfigOutput(BaseValidatorModel):
 PortForwardingConfigUnion = Union[PortForwardingConfig, PortForwardingConfigOutput]
 
 
+# This class is the output for the 'describe_deployment_job' function.
 class DescribeDeploymentJobResponse(BaseValidatorModel):
     arn: str
     fleet: str
@@ -1083,6 +1161,7 @@ class DescribeDeploymentJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_deployment_jobs' function.
 class ListDeploymentJobsResponse(BaseValidatorModel):
     deploymentJobs: List[DeploymentJob]
     ResponseMetadata: ResponseMetadata
@@ -1091,6 +1170,7 @@ class ListDeploymentJobsResponse(BaseValidatorModel):
 DeploymentApplicationConfigUnion = Union[DeploymentApplicationConfig, DeploymentApplicationConfigOutput]
 
 
+# This class is the output for the 'describe_world_generation_job' function.
 class DescribeWorldGenerationJobResponse(BaseValidatorModel):
     arn: str
     status: WorldGenerationJobStatusType
@@ -1136,6 +1216,7 @@ class LaunchConfig(BaseValidatorModel):
     command: Optional[List[str]] = None
 
 
+# This class is the input for the 'create_deployment_job' function.
 class CreateDeploymentJobRequest(BaseValidatorModel):
     clientRequestToken: str
     fleet: str
@@ -1144,6 +1225,7 @@ class CreateDeploymentJobRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_simulation_job' function.
 class CreateSimulationJobResponse(BaseValidatorModel):
     arn: str
     status: SimulationJobStatusType
@@ -1166,6 +1248,7 @@ class CreateSimulationJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_simulation_job' function.
 class DescribeSimulationJobResponse(BaseValidatorModel):
     arn: str
     name: str
@@ -1239,6 +1322,7 @@ class FailedCreateSimulationJobRequest(BaseValidatorModel):
     failedAt: Optional[datetime] = None
 
 
+# This class is the output for the 'batch_describe_simulation_job' function.
 class BatchDescribeSimulationJobResponse(BaseValidatorModel):
     jobs: List[SimulationJob]
     unprocessedJobs: List[str]
@@ -1266,6 +1350,7 @@ class SimulationApplicationConfig(BaseValidatorModel):
     useDefaultTools: Optional[bool] = None
 
 
+# This class is the output for the 'describe_simulation_job_batch' function.
 class DescribeSimulationJobBatchResponse(BaseValidatorModel):
     arn: str
     status: SimulationJobBatchStatusType
@@ -1282,6 +1367,7 @@ class DescribeSimulationJobBatchResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_simulation_job_batch' function.
 class StartSimulationJobBatchResponse(BaseValidatorModel):
     arn: str
     status: SimulationJobBatchStatusType
@@ -1301,6 +1387,7 @@ RobotApplicationConfigUnion = Union[RobotApplicationConfig, RobotApplicationConf
 SimulationApplicationConfigUnion = Union[SimulationApplicationConfig, SimulationApplicationConfigOutput]
 
 
+# This class is the input for the 'create_simulation_job' function.
 class CreateSimulationJobRequest(BaseValidatorModel):
     maxJobDurationInSeconds: int
     iamRole: str
@@ -1333,6 +1420,7 @@ class SimulationJobRequest(BaseValidatorModel):
 SimulationJobRequestUnion = Union[SimulationJobRequest, SimulationJobRequestOutput]
 
 
+# This class is the input for the 'start_simulation_job_batch' function.
 class StartSimulationJobBatchRequest(BaseValidatorModel):
     createSimulationJobRequests: List[SimulationJobRequestUnion]
     clientRequestToken: Optional[str] = None

@@ -47,6 +47,7 @@ class AnycastIpList(BaseValidatorModel):
     LastModifiedTime: datetime
 
 
+# This class is the input for the 'associate_alias' function.
 class AssociateAliasRequest(BaseValidatorModel):
     TargetDistributionId: str
     Alias: str
@@ -148,6 +149,7 @@ class SessionStickinessConfig(BaseValidatorModel):
     MaximumTTL: int
 
 
+# This class is the input for the 'copy_distribution' function.
 class CopyDistributionRequest(BaseValidatorModel):
     PrimaryDistributionId: str
     CallerReference: str
@@ -210,51 +212,61 @@ class OriginSslProtocolsOutput(BaseValidatorModel):
     Items: List[SslProtocolType]
 
 
+# This class is the input for the 'delete_anycast_ip_list' function.
 class DeleteAnycastIpListRequest(BaseValidatorModel):
     Id: str
     IfMatch: str
 
 
+# This class is the input for the 'delete_cache_policy' function.
 class DeleteCachePolicyRequest(BaseValidatorModel):
     Id: str
     IfMatch: Optional[str] = None
 
 
+# This class is the input for the 'delete_cloud_front_origin_access_identity' function.
 class DeleteCloudFrontOriginAccessIdentityRequest(BaseValidatorModel):
     Id: str
     IfMatch: Optional[str] = None
 
 
+# This class is the input for the 'delete_continuous_deployment_policy' function.
 class DeleteContinuousDeploymentPolicyRequest(BaseValidatorModel):
     Id: str
     IfMatch: Optional[str] = None
 
 
+# This class is the input for the 'delete_distribution' function.
 class DeleteDistributionRequest(BaseValidatorModel):
     Id: str
     IfMatch: Optional[str] = None
 
 
+# This class is the input for the 'delete_field_level_encryption_config' function.
 class DeleteFieldLevelEncryptionConfigRequest(BaseValidatorModel):
     Id: str
     IfMatch: Optional[str] = None
 
 
+# This class is the input for the 'delete_field_level_encryption_profile' function.
 class DeleteFieldLevelEncryptionProfileRequest(BaseValidatorModel):
     Id: str
     IfMatch: Optional[str] = None
 
 
+# This class is the input for the 'delete_function' function.
 class DeleteFunctionRequest(BaseValidatorModel):
     Name: str
     IfMatch: str
 
 
+# This class is the input for the 'delete_key_group' function.
 class DeleteKeyGroupRequest(BaseValidatorModel):
     Id: str
     IfMatch: Optional[str] = None
 
 
+# This class is the input for the 'delete_key_value_store' function.
 class DeleteKeyValueStoreRequest(BaseValidatorModel):
     Name: str
     IfMatch: str
@@ -264,46 +276,55 @@ class DeleteMonitoringSubscriptionRequest(BaseValidatorModel):
     DistributionId: str
 
 
+# This class is the input for the 'delete_origin_access_control' function.
 class DeleteOriginAccessControlRequest(BaseValidatorModel):
     Id: str
     IfMatch: Optional[str] = None
 
 
+# This class is the input for the 'delete_origin_request_policy' function.
 class DeleteOriginRequestPolicyRequest(BaseValidatorModel):
     Id: str
     IfMatch: Optional[str] = None
 
 
+# This class is the input for the 'delete_public_key' function.
 class DeletePublicKeyRequest(BaseValidatorModel):
     Id: str
     IfMatch: Optional[str] = None
 
 
+# This class is the input for the 'delete_realtime_log_config' function.
 class DeleteRealtimeLogConfigRequest(BaseValidatorModel):
     Name: Optional[str] = None
     ARN: Optional[str] = None
 
 
+# This class is the input for the 'delete_response_headers_policy' function.
 class DeleteResponseHeadersPolicyRequest(BaseValidatorModel):
     Id: str
     IfMatch: Optional[str] = None
 
 
+# This class is the input for the 'delete_streaming_distribution' function.
 class DeleteStreamingDistributionRequest(BaseValidatorModel):
     Id: str
     IfMatch: Optional[str] = None
 
 
+# This class is the input for the 'delete_vpc_origin' function.
 class DeleteVpcOriginRequest(BaseValidatorModel):
     Id: str
     IfMatch: str
 
 
+# This class is the input for the 'describe_function' function.
 class DescribeFunctionRequest(BaseValidatorModel):
     Name: str
     Stage: Optional[FunctionStageType] = None
 
 
+# This class is the input for the 'describe_key_value_store' function.
 class DescribeKeyValueStoreRequest(BaseValidatorModel):
     Name: str
 
@@ -378,38 +399,47 @@ class GeoRestriction(BaseValidatorModel):
     Items: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_anycast_ip_list' function.
 class GetAnycastIpListRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_cache_policy_config' function.
 class GetCachePolicyConfigRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_cache_policy' function.
 class GetCachePolicyRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_cloud_front_origin_access_identity_config' function.
 class GetCloudFrontOriginAccessIdentityConfigRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_cloud_front_origin_access_identity' function.
 class GetCloudFrontOriginAccessIdentityRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_continuous_deployment_policy_config' function.
 class GetContinuousDeploymentPolicyConfigRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_continuous_deployment_policy' function.
 class GetContinuousDeploymentPolicyRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_distribution_config' function.
 class GetDistributionConfigRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_distribution' function.
 class GetDistributionRequest(BaseValidatorModel):
     Id: str
 
@@ -419,32 +449,39 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'get_field_level_encryption_config' function.
 class GetFieldLevelEncryptionConfigRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_field_level_encryption_profile_config' function.
 class GetFieldLevelEncryptionProfileConfigRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_field_level_encryption_profile' function.
 class GetFieldLevelEncryptionProfileRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_field_level_encryption' function.
 class GetFieldLevelEncryptionRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_function' function.
 class GetFunctionRequest(BaseValidatorModel):
     Name: str
     Stage: Optional[FunctionStageType] = None
 
 
+# This class is the input for the 'get_invalidation' function.
 class GetInvalidationRequest(BaseValidatorModel):
     DistributionId: str
     Id: str
 
 
+# This class is the input for the 'get_key_group_config' function.
 class GetKeyGroupConfigRequest(BaseValidatorModel):
     Id: str
 
@@ -455,59 +492,73 @@ class KeyGroupConfigOutput(BaseValidatorModel):
     Comment: Optional[str] = None
 
 
+# This class is the input for the 'get_key_group' function.
 class GetKeyGroupRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_monitoring_subscription' function.
 class GetMonitoringSubscriptionRequest(BaseValidatorModel):
     DistributionId: str
 
 
+# This class is the input for the 'get_origin_access_control_config' function.
 class GetOriginAccessControlConfigRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_origin_access_control' function.
 class GetOriginAccessControlRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_origin_request_policy_config' function.
 class GetOriginRequestPolicyConfigRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_origin_request_policy' function.
 class GetOriginRequestPolicyRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_public_key_config' function.
 class GetPublicKeyConfigRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_public_key' function.
 class GetPublicKeyRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_realtime_log_config' function.
 class GetRealtimeLogConfigRequest(BaseValidatorModel):
     Name: Optional[str] = None
     ARN: Optional[str] = None
 
 
+# This class is the input for the 'get_response_headers_policy_config' function.
 class GetResponseHeadersPolicyConfigRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_response_headers_policy' function.
 class GetResponseHeadersPolicyRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_streaming_distribution_config' function.
 class GetStreamingDistributionConfigRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_streaming_distribution' function.
 class GetStreamingDistributionRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'get_vpc_origin' function.
 class GetVpcOriginRequest(BaseValidatorModel):
     Id: str
 
@@ -549,11 +600,13 @@ class LambdaFunctionAssociation(BaseValidatorModel):
     IncludeBody: Optional[bool] = None
 
 
+# This class is the input for the 'list_anycast_ip_lists' function.
 class ListAnycastIpListsRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[int] = None
 
 
+# This class is the input for the 'list_cache_policies' function.
 class ListCachePoliciesRequest(BaseValidatorModel):
     Type: Optional[CachePolicyTypeType] = None
     Marker: Optional[str] = None
@@ -566,11 +619,13 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_cloud_front_origin_access_identities' function.
 class ListCloudFrontOriginAccessIdentitiesRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
+# This class is the input for the 'list_conflicting_aliases' function.
 class ListConflictingAliasesRequest(BaseValidatorModel):
     DistributionId: str
     Alias: str
@@ -578,35 +633,41 @@ class ListConflictingAliasesRequest(BaseValidatorModel):
     MaxItems: Optional[int] = None
 
 
+# This class is the input for the 'list_continuous_deployment_policies' function.
 class ListContinuousDeploymentPoliciesRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
+# This class is the input for the 'list_distributions_by_anycast_ip_list_id' function.
 class ListDistributionsByAnycastIpListIdRequest(BaseValidatorModel):
     AnycastIpListId: str
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
+# This class is the input for the 'list_distributions_by_cache_policy_id' function.
 class ListDistributionsByCachePolicyIdRequest(BaseValidatorModel):
     CachePolicyId: str
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
+# This class is the input for the 'list_distributions_by_key_group' function.
 class ListDistributionsByKeyGroupRequest(BaseValidatorModel):
     KeyGroupId: str
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
+# This class is the input for the 'list_distributions_by_origin_request_policy_id' function.
 class ListDistributionsByOriginRequestPolicyIdRequest(BaseValidatorModel):
     OriginRequestPolicyId: str
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
+# This class is the input for the 'list_distributions_by_realtime_log_config' function.
 class ListDistributionsByRealtimeLogConfigRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
@@ -614,98 +675,116 @@ class ListDistributionsByRealtimeLogConfigRequest(BaseValidatorModel):
     RealtimeLogConfigArn: Optional[str] = None
 
 
+# This class is the input for the 'list_distributions_by_response_headers_policy_id' function.
 class ListDistributionsByResponseHeadersPolicyIdRequest(BaseValidatorModel):
     ResponseHeadersPolicyId: str
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
+# This class is the input for the 'list_distributions_by_vpc_origin_id' function.
 class ListDistributionsByVpcOriginIdRequest(BaseValidatorModel):
     VpcOriginId: str
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
+# This class is the input for the 'list_distributions_by_web_acl_id' function.
 class ListDistributionsByWebACLIdRequest(BaseValidatorModel):
     WebACLId: str
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
+# This class is the input for the 'list_distributions' function.
 class ListDistributionsRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
+# This class is the input for the 'list_field_level_encryption_configs' function.
 class ListFieldLevelEncryptionConfigsRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
+# This class is the input for the 'list_field_level_encryption_profiles' function.
 class ListFieldLevelEncryptionProfilesRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
+# This class is the input for the 'list_functions' function.
 class ListFunctionsRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
     Stage: Optional[FunctionStageType] = None
 
 
+# This class is the input for the 'list_invalidations' function.
 class ListInvalidationsRequest(BaseValidatorModel):
     DistributionId: str
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
+# This class is the input for the 'list_key_groups' function.
 class ListKeyGroupsRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
+# This class is the input for the 'list_key_value_stores' function.
 class ListKeyValueStoresRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
     Status: Optional[str] = None
 
 
+# This class is the input for the 'list_origin_access_controls' function.
 class ListOriginAccessControlsRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
+# This class is the input for the 'list_origin_request_policies' function.
 class ListOriginRequestPoliciesRequest(BaseValidatorModel):
     Type: Optional[OriginRequestPolicyTypeType] = None
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
+# This class is the input for the 'list_public_keys' function.
 class ListPublicKeysRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
+# This class is the input for the 'list_realtime_log_configs' function.
 class ListRealtimeLogConfigsRequest(BaseValidatorModel):
     MaxItems: Optional[str] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'list_response_headers_policies' function.
 class ListResponseHeadersPoliciesRequest(BaseValidatorModel):
     Type: Optional[ResponseHeadersPolicyTypeType] = None
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
+# This class is the input for the 'list_streaming_distributions' function.
 class ListStreamingDistributionsRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     Resource: str
 
 
+# This class is the input for the 'list_vpc_origins' function.
 class ListVpcOriginsRequest(BaseValidatorModel):
     Marker: Optional[str] = None
     MaxItems: Optional[str] = None
@@ -761,6 +840,7 @@ class PublicKeySummary(BaseValidatorModel):
     Comment: Optional[str] = None
 
 
+# This class is the input for the 'publish_function' function.
 class PublishFunctionRequest(BaseValidatorModel):
     Name: str
     IfMatch: str
@@ -901,12 +981,14 @@ class TrustedSigners(BaseValidatorModel):
     Items: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_distribution_with_staging_config' function.
 class UpdateDistributionWithStagingConfigRequest(BaseValidatorModel):
     Id: str
     StagingDistributionId: Optional[str] = None
     IfMatch: Optional[str] = None
 
 
+# This class is the input for the 'update_key_value_store' function.
 class UpdateKeyValueStoreRequest(BaseValidatorModel):
     Name: str
     Comment: str
@@ -940,6 +1022,7 @@ class AnycastIpListCollection(BaseValidatorModel):
     NextMarker: Optional[str] = None
 
 
+# This class is the input for the 'test_function' function.
 class TestFunctionRequest(BaseValidatorModel):
     Name: str
     IfMatch: str
@@ -1024,10 +1107,12 @@ class CloudFrontOriginAccessIdentity(BaseValidatorModel):
     CloudFrontOriginAccessIdentityConfig: Optional[CloudFrontOriginAccessIdentityConfig] = None
 
 
+# This class is the input for the 'create_cloud_front_origin_access_identity' function.
 class CreateCloudFrontOriginAccessIdentityRequest(BaseValidatorModel):
     CloudFrontOriginAccessIdentityConfig: CloudFrontOriginAccessIdentityConfig
 
 
+# This class is the input for the 'update_cloud_front_origin_access_identity' function.
 class UpdateCloudFrontOriginAccessIdentityRequest(BaseValidatorModel):
     CloudFrontOriginAccessIdentityConfig: CloudFrontOriginAccessIdentityConfig
     Id: str
@@ -1065,28 +1150,33 @@ class ContinuousDeploymentSingleWeightConfig(BaseValidatorModel):
     SessionStickinessConfig: Optional[SessionStickinessConfig] = None
 
 
+# This class is the output for the 'create_anycast_ip_list' function.
 class CreateAnycastIpListResult(BaseValidatorModel):
     AnycastIpList: AnycastIpList
     ETag: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'untag_resource' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_anycast_ip_list' function.
 class GetAnycastIpListResult(BaseValidatorModel):
     AnycastIpList: AnycastIpList
     ETag: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_cloud_front_origin_access_identity_config' function.
 class GetCloudFrontOriginAccessIdentityConfigResult(BaseValidatorModel):
     CloudFrontOriginAccessIdentityConfig: CloudFrontOriginAccessIdentityConfig
     ETag: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_function' function.
 class GetFunctionResult(BaseValidatorModel):
     FunctionCode: StreamingBody
     ETag: str
@@ -1094,12 +1184,14 @@ class GetFunctionResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_key_value_store' function.
 class CreateKeyValueStoreRequest(BaseValidatorModel):
     Name: str
     Comment: Optional[str] = None
     ImportSource: Optional[ImportSource] = None
 
 
+# This class is the output for the 'create_key_value_store' function.
 class CreateKeyValueStoreResult(BaseValidatorModel):
     KeyValueStore: KeyValueStore
     ETag: str
@@ -1107,6 +1199,7 @@ class CreateKeyValueStoreResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_key_value_store' function.
 class DescribeKeyValueStoreResult(BaseValidatorModel):
     KeyValueStore: KeyValueStore
     ETag: str
@@ -1120,16 +1213,19 @@ class KeyValueStoreList(BaseValidatorModel):
     Items: Optional[List[KeyValueStore]] = None
 
 
+# This class is the output for the 'update_key_value_store' function.
 class UpdateKeyValueStoreResult(BaseValidatorModel):
     KeyValueStore: KeyValueStore
     ETag: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_origin_access_control' function.
 class CreateOriginAccessControlRequest(BaseValidatorModel):
     OriginAccessControlConfig: OriginAccessControlConfig
 
 
+# This class is the output for the 'get_origin_access_control_config' function.
 class GetOriginAccessControlConfigResult(BaseValidatorModel):
     OriginAccessControlConfig: OriginAccessControlConfig
     ETag: str
@@ -1141,16 +1237,19 @@ class OriginAccessControl(BaseValidatorModel):
     OriginAccessControlConfig: Optional[OriginAccessControlConfig] = None
 
 
+# This class is the input for the 'update_origin_access_control' function.
 class UpdateOriginAccessControlRequest(BaseValidatorModel):
     OriginAccessControlConfig: OriginAccessControlConfig
     Id: str
     IfMatch: Optional[str] = None
 
 
+# This class is the input for the 'create_public_key' function.
 class CreatePublicKeyRequest(BaseValidatorModel):
     PublicKeyConfig: PublicKeyConfig
 
 
+# This class is the output for the 'get_public_key_config' function.
 class GetPublicKeyConfigResult(BaseValidatorModel):
     PublicKeyConfig: PublicKeyConfig
     ETag: str
@@ -1163,6 +1262,7 @@ class PublicKey(BaseValidatorModel):
     PublicKeyConfig: PublicKeyConfig
 
 
+# This class is the input for the 'update_public_key' function.
 class UpdatePublicKeyRequest(BaseValidatorModel):
     PublicKeyConfig: PublicKeyConfig
     Id: str
@@ -1207,26 +1307,31 @@ class VpcOriginEndpointConfigOutput(BaseValidatorModel):
     OriginSslProtocols: Optional[OriginSslProtocolsOutput] = None
 
 
+# This class is the output for the 'list_distributions_by_cache_policy_id' function.
 class ListDistributionsByCachePolicyIdResult(BaseValidatorModel):
     DistributionIdList: DistributionIdList
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_distributions_by_key_group' function.
 class ListDistributionsByKeyGroupResult(BaseValidatorModel):
     DistributionIdList: DistributionIdList
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_distributions_by_origin_request_policy_id' function.
 class ListDistributionsByOriginRequestPolicyIdResult(BaseValidatorModel):
     DistributionIdList: DistributionIdList
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_distributions_by_response_headers_policy_id' function.
 class ListDistributionsByResponseHeadersPolicyIdResult(BaseValidatorModel):
     DistributionIdList: DistributionIdList
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_distributions_by_vpc_origin_id' function.
 class ListDistributionsByVpcOriginIdResult(BaseValidatorModel):
     DistributionIdList: DistributionIdList
     ResponseMetadata: ResponseMetadata
@@ -1281,6 +1386,7 @@ class GetStreamingDistributionRequestWait(BaseValidatorModel):
     WaiterConfig: Optional[WaiterConfig] = None
 
 
+# This class is the output for the 'get_key_group_config' function.
 class GetKeyGroupConfigResult(BaseValidatorModel):
     KeyGroupConfig: KeyGroupConfigOutput
     ETag: str
@@ -1503,6 +1609,7 @@ class StreamingDistributionConfigOutput(BaseValidatorModel):
     PriceClass: Optional[PriceClassType] = None
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     Resource: str
     TagKeys: TagKeys
@@ -1529,6 +1636,7 @@ class VpcOriginList(BaseValidatorModel):
     Items: Optional[List[VpcOriginSummary]] = None
 
 
+# This class is the output for the 'list_anycast_ip_lists' function.
 class ListAnycastIpListsResult(BaseValidatorModel):
     AnycastIpLists: AnycastIpListCollection
     ResponseMetadata: ResponseMetadata
@@ -1584,6 +1692,7 @@ class AllowedMethods(BaseValidatorModel):
     CachedMethods: Optional[CachedMethodsUnion] = None
 
 
+# This class is the output for the 'create_cloud_front_origin_access_identity' function.
 class CreateCloudFrontOriginAccessIdentityResult(BaseValidatorModel):
     CloudFrontOriginAccessIdentity: CloudFrontOriginAccessIdentity
     Location: str
@@ -1591,23 +1700,27 @@ class CreateCloudFrontOriginAccessIdentityResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_cloud_front_origin_access_identity' function.
 class GetCloudFrontOriginAccessIdentityResult(BaseValidatorModel):
     CloudFrontOriginAccessIdentity: CloudFrontOriginAccessIdentity
     ETag: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_cloud_front_origin_access_identity' function.
 class UpdateCloudFrontOriginAccessIdentityResult(BaseValidatorModel):
     CloudFrontOriginAccessIdentity: CloudFrontOriginAccessIdentity
     ETag: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_cloud_front_origin_access_identities' function.
 class ListCloudFrontOriginAccessIdentitiesResult(BaseValidatorModel):
     CloudFrontOriginAccessIdentityList: CloudFrontOriginAccessIdentityList
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_conflicting_aliases' function.
 class ListConflictingAliasesResult(BaseValidatorModel):
     ConflictingAliasesList: ConflictingAliasesList
     ResponseMetadata: ResponseMetadata
@@ -1629,11 +1742,13 @@ class TrafficConfig(BaseValidatorModel):
     SingleHeaderConfig: Optional[ContinuousDeploymentSingleHeaderConfig] = None
 
 
+# This class is the output for the 'list_key_value_stores' function.
 class ListKeyValueStoresResult(BaseValidatorModel):
     KeyValueStoreList: KeyValueStoreList
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_origin_access_control' function.
 class CreateOriginAccessControlResult(BaseValidatorModel):
     OriginAccessControl: OriginAccessControl
     Location: str
@@ -1641,18 +1756,21 @@ class CreateOriginAccessControlResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_origin_access_control' function.
 class GetOriginAccessControlResult(BaseValidatorModel):
     OriginAccessControl: OriginAccessControl
     ETag: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_origin_access_control' function.
 class UpdateOriginAccessControlResult(BaseValidatorModel):
     OriginAccessControl: OriginAccessControl
     ETag: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_public_key' function.
 class CreatePublicKeyResult(BaseValidatorModel):
     PublicKey: PublicKey
     Location: str
@@ -1660,12 +1778,14 @@ class CreatePublicKeyResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_public_key' function.
 class GetPublicKeyResult(BaseValidatorModel):
     PublicKey: PublicKey
     ETag: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_public_key' function.
 class UpdatePublicKeyResult(BaseValidatorModel):
     PublicKey: PublicKey
     ETag: str
@@ -1709,6 +1829,7 @@ class EncryptionEntities(BaseValidatorModel):
     Items: Optional[List[EncryptionEntity]] = None
 
 
+# This class is the input for the 'create_realtime_log_config' function.
 class CreateRealtimeLogConfigRequest(BaseValidatorModel):
     EndPoints: List[EndPoint]
     Fields: List[str]
@@ -1724,6 +1845,7 @@ class RealtimeLogConfig(BaseValidatorModel):
     Fields: List[str]
 
 
+# This class is the input for the 'update_realtime_log_config' function.
 class UpdateRealtimeLogConfigRequest(BaseValidatorModel):
     EndPoints: Optional[List[EndPoint]] = None
     Fields: Optional[List[str]] = None
@@ -1738,6 +1860,7 @@ class Restrictions(BaseValidatorModel):
     GeoRestriction: GeoRestrictionUnion
 
 
+# This class is the output for the 'create_key_group' function.
 class CreateKeyGroupResult(BaseValidatorModel):
     KeyGroup: KeyGroup
     Location: str
@@ -1745,6 +1868,7 @@ class CreateKeyGroupResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_key_group' function.
 class GetKeyGroupResult(BaseValidatorModel):
     KeyGroup: KeyGroup
     ETag: str
@@ -1755,6 +1879,7 @@ class KeyGroupSummary(BaseValidatorModel):
     KeyGroup: KeyGroup
 
 
+# This class is the output for the 'update_key_group' function.
 class UpdateKeyGroupResult(BaseValidatorModel):
     KeyGroup: KeyGroup
     ETag: str
@@ -1770,6 +1895,7 @@ class Invalidation(BaseValidatorModel):
 InvalidationBatchUnion = Union[InvalidationBatch, InvalidationBatchOutput]
 
 
+# This class is the output for the 'list_invalidations' function.
 class ListInvalidationsResult(BaseValidatorModel):
     InvalidationList: InvalidationList
     ResponseMetadata: ResponseMetadata
@@ -1787,10 +1913,12 @@ class ActiveTrustedSigners(BaseValidatorModel):
     Items: Optional[List[Signer]] = None
 
 
+# This class is the input for the 'create_key_group' function.
 class CreateKeyGroupRequest(BaseValidatorModel):
     KeyGroupConfig: KeyGroupConfigUnion
 
 
+# This class is the input for the 'update_key_group' function.
 class UpdateKeyGroupRequest(BaseValidatorModel):
     KeyGroupConfig: KeyGroupConfigUnion
     Id: str
@@ -1811,21 +1939,25 @@ class FunctionConfig(BaseValidatorModel):
 LambdaFunctionAssociationsUnion = Union[LambdaFunctionAssociations, LambdaFunctionAssociationsOutput]
 
 
+# This class is the input for the 'create_monitoring_subscription' function.
 class CreateMonitoringSubscriptionRequest(BaseValidatorModel):
     DistributionId: str
     MonitoringSubscription: MonitoringSubscription
 
 
+# This class is the output for the 'create_monitoring_subscription' function.
 class CreateMonitoringSubscriptionResult(BaseValidatorModel):
     MonitoringSubscription: MonitoringSubscription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_monitoring_subscription' function.
 class GetMonitoringSubscriptionResult(BaseValidatorModel):
     MonitoringSubscription: MonitoringSubscription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_origin_access_controls' function.
 class ListOriginAccessControlsResult(BaseValidatorModel):
     OriginAccessControlList: OriginAccessControlList
     ResponseMetadata: ResponseMetadata
@@ -1851,6 +1983,7 @@ class CustomOriginConfig(BaseValidatorModel):
 VpcOriginEndpointConfigUnion = Union[VpcOriginEndpointConfig, VpcOriginEndpointConfigOutput]
 
 
+# This class is the output for the 'list_public_keys' function.
 class ListPublicKeysResult(BaseValidatorModel):
     PublicKeyList: PublicKeyList
     ResponseMetadata: ResponseMetadata
@@ -1899,12 +2032,14 @@ class OriginGroupFailoverCriteria(BaseValidatorModel):
     StatusCodes: StatusCodesUnion
 
 
+# This class is the output for the 'get_streaming_distribution_config' function.
 class GetStreamingDistributionConfigResult(BaseValidatorModel):
     StreamingDistributionConfig: StreamingDistributionConfigOutput
     ETag: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResult(BaseValidatorModel):
     Tags: TagsOutput
     ResponseMetadata: ResponseMetadata
@@ -1923,6 +2058,7 @@ class StreamingDistributionConfig(BaseValidatorModel):
     PriceClass: Optional[PriceClassType] = None
 
 
+# This class is the output for the 'list_vpc_origins' function.
 class ListVpcOriginsResult(BaseValidatorModel):
     VpcOriginList: VpcOriginList
     ResponseMetadata: ResponseMetadata
@@ -1984,6 +2120,7 @@ class CachePolicyConfigOutput(BaseValidatorModel):
     ParametersInCacheKeyAndForwardedToOrigin: Optional[ParametersInCacheKeyAndForwardedToOriginOutput] = None
 
 
+# This class is the output for the 'get_origin_request_policy_config' function.
 class GetOriginRequestPolicyConfigResult(BaseValidatorModel):
     OriginRequestPolicyConfig: OriginRequestPolicyConfigOutput
     ETag: str
@@ -2026,6 +2163,7 @@ class OriginsOutput(BaseValidatorModel):
     Items: List[OriginOutput]
 
 
+# This class is the output for the 'create_vpc_origin' function.
 class CreateVpcOriginResult(BaseValidatorModel):
     VpcOrigin: VpcOrigin
     Location: str
@@ -2033,18 +2171,21 @@ class CreateVpcOriginResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_vpc_origin' function.
 class DeleteVpcOriginResult(BaseValidatorModel):
     VpcOrigin: VpcOrigin
     ETag: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_vpc_origin' function.
 class GetVpcOriginResult(BaseValidatorModel):
     VpcOrigin: VpcOrigin
     ETag: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_vpc_origin' function.
 class UpdateVpcOriginResult(BaseValidatorModel):
     VpcOrigin: VpcOrigin
     ETag: str
@@ -2073,11 +2214,13 @@ class FieldLevelEncryptionProfileConfig(BaseValidatorModel):
     Comment: Optional[str] = None
 
 
+# This class is the output for the 'create_realtime_log_config' function.
 class CreateRealtimeLogConfigResult(BaseValidatorModel):
     RealtimeLogConfig: RealtimeLogConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_realtime_log_config' function.
 class GetRealtimeLogConfigResult(BaseValidatorModel):
     RealtimeLogConfig: RealtimeLogConfig
     ResponseMetadata: ResponseMetadata
@@ -2091,6 +2234,7 @@ class RealtimeLogConfigs(BaseValidatorModel):
     NextMarker: Optional[str] = None
 
 
+# This class is the output for the 'update_realtime_log_config' function.
 class UpdateRealtimeLogConfigResult(BaseValidatorModel):
     RealtimeLogConfig: RealtimeLogConfig
     ResponseMetadata: ResponseMetadata
@@ -2105,17 +2249,20 @@ class KeyGroupList(BaseValidatorModel):
     Items: Optional[List[KeyGroupSummary]] = None
 
 
+# This class is the output for the 'create_invalidation' function.
 class CreateInvalidationResult(BaseValidatorModel):
     Location: str
     Invalidation: Invalidation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_invalidation' function.
 class GetInvalidationResult(BaseValidatorModel):
     Invalidation: Invalidation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_invalidation' function.
 class CreateInvalidationRequest(BaseValidatorModel):
     DistributionId: str
     InvalidationBatch: InvalidationBatchUnion
@@ -2147,6 +2294,7 @@ class OriginGroupsOutput(BaseValidatorModel):
 CustomOriginConfigUnion = Union[CustomOriginConfig, CustomOriginConfigOutput]
 
 
+# This class is the input for the 'update_vpc_origin' function.
 class UpdateVpcOriginRequest(BaseValidatorModel):
     VpcOriginEndpointConfig: VpcOriginEndpointConfigUnion
     Id: str
@@ -2175,6 +2323,7 @@ class FieldLevelEncryptionConfig(BaseValidatorModel):
     ContentTypeProfileConfig: Optional[ContentTypeProfileConfig] = None
 
 
+# This class is the output for the 'get_response_headers_policy_config' function.
 class GetResponseHeadersPolicyConfigResult(BaseValidatorModel):
     ResponseHeadersPolicyConfig: ResponseHeadersPolicyConfigOutput
     ETag: str
@@ -2189,6 +2338,7 @@ class ResponseHeadersPolicy(BaseValidatorModel):
 ResponseHeadersPolicyConfigUnion = Union[ResponseHeadersPolicyConfig, ResponseHeadersPolicyConfigOutput]
 
 
+# This class is the output for the 'list_streaming_distributions' function.
 class ListStreamingDistributionsResult(BaseValidatorModel):
     StreamingDistributionList: StreamingDistributionList
     ResponseMetadata: ResponseMetadata
@@ -2196,17 +2346,20 @@ class ListStreamingDistributionsResult(BaseValidatorModel):
 OriginGroupFailoverCriteriaUnion = Union[OriginGroupFailoverCriteria, OriginGroupFailoverCriteriaOutput]
 
 
+# This class is the input for the 'create_anycast_ip_list' function.
 class CreateAnycastIpListRequest(BaseValidatorModel):
     Name: str
     IpCount: int
     Tags: Optional[TagsUnion] = None
 
 
+# This class is the input for the 'create_vpc_origin' function.
 class CreateVpcOriginRequest(BaseValidatorModel):
     VpcOriginEndpointConfig: VpcOriginEndpointConfigUnion
     Tags: Optional[TagsUnion] = None
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     Resource: str
     Tags: TagsUnion
@@ -2232,12 +2385,14 @@ class CachePolicy(BaseValidatorModel):
     CachePolicyConfig: CachePolicyConfigOutput
 
 
+# This class is the output for the 'get_cache_policy_config' function.
 class GetCachePolicyConfigResult(BaseValidatorModel):
     CachePolicyConfig: CachePolicyConfigOutput
     ETag: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_origin_request_policy' function.
 class CreateOriginRequestPolicyResult(BaseValidatorModel):
     OriginRequestPolicy: OriginRequestPolicy
     Location: str
@@ -2245,6 +2400,7 @@ class CreateOriginRequestPolicyResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_origin_request_policy' function.
 class GetOriginRequestPolicyResult(BaseValidatorModel):
     OriginRequestPolicy: OriginRequestPolicy
     ETag: str
@@ -2256,6 +2412,7 @@ class OriginRequestPolicySummary(BaseValidatorModel):
     OriginRequestPolicy: OriginRequestPolicy
 
 
+# This class is the output for the 'update_origin_request_policy' function.
 class UpdateOriginRequestPolicyResult(BaseValidatorModel):
     OriginRequestPolicy: OriginRequestPolicy
     ETag: str
@@ -2264,10 +2421,12 @@ class UpdateOriginRequestPolicyResult(BaseValidatorModel):
 CachePolicyConfigUnion = Union[CachePolicyConfig, CachePolicyConfigOutput]
 
 
+# This class is the input for the 'create_origin_request_policy' function.
 class CreateOriginRequestPolicyRequest(BaseValidatorModel):
     OriginRequestPolicyConfig: OriginRequestPolicyConfigUnion
 
 
+# This class is the input for the 'update_origin_request_policy' function.
 class UpdateOriginRequestPolicyRequest(BaseValidatorModel):
     OriginRequestPolicyConfig: OriginRequestPolicyConfigUnion
     Id: str
@@ -2280,6 +2439,7 @@ class ContinuousDeploymentPolicy(BaseValidatorModel):
     ContinuousDeploymentPolicyConfig: ContinuousDeploymentPolicyConfigOutput
 
 
+# This class is the output for the 'get_continuous_deployment_policy_config' function.
 class GetContinuousDeploymentPolicyConfigResult(BaseValidatorModel):
     ContinuousDeploymentPolicyConfig: ContinuousDeploymentPolicyConfigOutput
     ETag: str
@@ -2294,6 +2454,7 @@ class FieldLevelEncryptionProfile(BaseValidatorModel):
     FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfigOutput
 
 
+# This class is the output for the 'get_field_level_encryption_profile_config' function.
 class GetFieldLevelEncryptionProfileConfigResult(BaseValidatorModel):
     FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfigOutput
     ETag: str
@@ -2309,16 +2470,19 @@ class FieldLevelEncryptionProfileList(BaseValidatorModel):
 FieldLevelEncryptionProfileConfigUnion = Union[FieldLevelEncryptionProfileConfig, FieldLevelEncryptionProfileConfigOutput]
 
 
+# This class is the output for the 'list_realtime_log_configs' function.
 class ListRealtimeLogConfigsResult(BaseValidatorModel):
     RealtimeLogConfigs: RealtimeLogConfigs
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_key_groups' function.
 class ListKeyGroupsResult(BaseValidatorModel):
     KeyGroupList: KeyGroupList
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_streaming_distribution' function.
 class CreateStreamingDistributionResult(BaseValidatorModel):
     StreamingDistribution: StreamingDistribution
     Location: str
@@ -2326,6 +2490,7 @@ class CreateStreamingDistributionResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_streaming_distribution_with_tags' function.
 class CreateStreamingDistributionWithTagsResult(BaseValidatorModel):
     StreamingDistribution: StreamingDistribution
     Location: str
@@ -2333,18 +2498,21 @@ class CreateStreamingDistributionWithTagsResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_streaming_distribution' function.
 class GetStreamingDistributionResult(BaseValidatorModel):
     StreamingDistribution: StreamingDistribution
     ETag: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_streaming_distribution' function.
 class UpdateStreamingDistributionResult(BaseValidatorModel):
     StreamingDistribution: StreamingDistribution
     ETag: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_function' function.
 class CreateFunctionResult(BaseValidatorModel):
     FunctionSummary: FunctionSummary
     Location: str
@@ -2352,6 +2520,7 @@ class CreateFunctionResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_function' function.
 class DescribeFunctionResult(BaseValidatorModel):
     FunctionSummary: FunctionSummary
     ETag: str
@@ -2365,6 +2534,7 @@ class FunctionList(BaseValidatorModel):
     Items: Optional[List[FunctionSummary]] = None
 
 
+# This class is the output for the 'publish_function' function.
 class PublishFunctionResult(BaseValidatorModel):
     FunctionSummary: FunctionSummary
     ResponseMetadata: ResponseMetadata
@@ -2378,18 +2548,21 @@ class TestResult(BaseValidatorModel):
     FunctionOutput: Optional[str] = None
 
 
+# This class is the output for the 'update_function' function.
 class UpdateFunctionResult(BaseValidatorModel):
     FunctionSummary: FunctionSummary
     ETag: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_function' function.
 class CreateFunctionRequest(BaseValidatorModel):
     Name: str
     FunctionConfig: FunctionConfigUnion
     FunctionCode: Blob
 
 
+# This class is the input for the 'update_function' function.
 class UpdateFunctionRequest(BaseValidatorModel):
     Name: str
     IfMatch: str
@@ -2417,6 +2590,7 @@ class FieldLevelEncryption(BaseValidatorModel):
     FieldLevelEncryptionConfig: FieldLevelEncryptionConfigOutput
 
 
+# This class is the output for the 'get_field_level_encryption_config' function.
 class GetFieldLevelEncryptionConfigResult(BaseValidatorModel):
     FieldLevelEncryptionConfig: FieldLevelEncryptionConfigOutput
     ETag: str
@@ -2432,6 +2606,7 @@ class FieldLevelEncryptionList(BaseValidatorModel):
 FieldLevelEncryptionConfigUnion = Union[FieldLevelEncryptionConfig, FieldLevelEncryptionConfigOutput]
 
 
+# This class is the output for the 'create_response_headers_policy' function.
 class CreateResponseHeadersPolicyResult(BaseValidatorModel):
     ResponseHeadersPolicy: ResponseHeadersPolicy
     Location: str
@@ -2439,6 +2614,7 @@ class CreateResponseHeadersPolicyResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_response_headers_policy' function.
 class GetResponseHeadersPolicyResult(BaseValidatorModel):
     ResponseHeadersPolicy: ResponseHeadersPolicy
     ETag: str
@@ -2450,16 +2626,19 @@ class ResponseHeadersPolicySummary(BaseValidatorModel):
     ResponseHeadersPolicy: ResponseHeadersPolicy
 
 
+# This class is the output for the 'update_response_headers_policy' function.
 class UpdateResponseHeadersPolicyResult(BaseValidatorModel):
     ResponseHeadersPolicy: ResponseHeadersPolicy
     ETag: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_response_headers_policy' function.
 class CreateResponseHeadersPolicyRequest(BaseValidatorModel):
     ResponseHeadersPolicyConfig: ResponseHeadersPolicyConfigUnion
 
 
+# This class is the input for the 'update_response_headers_policy' function.
 class UpdateResponseHeadersPolicyRequest(BaseValidatorModel):
     ResponseHeadersPolicyConfig: ResponseHeadersPolicyConfigUnion
     Id: str
@@ -2473,6 +2652,7 @@ class OriginGroup(BaseValidatorModel):
     SelectionCriteria: Optional[OriginGroupSelectionCriteriaType] = None
 
 
+# This class is the input for the 'create_streaming_distribution' function.
 class CreateStreamingDistributionRequest(BaseValidatorModel):
     StreamingDistributionConfig: StreamingDistributionConfigUnion
 
@@ -2482,6 +2662,7 @@ class StreamingDistributionConfigWithTags(BaseValidatorModel):
     Tags: TagsUnion
 
 
+# This class is the input for the 'update_streaming_distribution' function.
 class UpdateStreamingDistributionRequest(BaseValidatorModel):
     StreamingDistributionConfig: StreamingDistributionConfigUnion
     Id: str
@@ -2543,6 +2724,7 @@ class CachePolicySummary(BaseValidatorModel):
     CachePolicy: CachePolicy
 
 
+# This class is the output for the 'create_cache_policy' function.
 class CreateCachePolicyResult(BaseValidatorModel):
     CachePolicy: CachePolicy
     Location: str
@@ -2550,12 +2732,14 @@ class CreateCachePolicyResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_cache_policy' function.
 class GetCachePolicyResult(BaseValidatorModel):
     CachePolicy: CachePolicy
     ETag: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_cache_policy' function.
 class UpdateCachePolicyResult(BaseValidatorModel):
     CachePolicy: CachePolicy
     ETag: str
@@ -2569,10 +2753,12 @@ class OriginRequestPolicyList(BaseValidatorModel):
     Items: Optional[List[OriginRequestPolicySummary]] = None
 
 
+# This class is the input for the 'create_cache_policy' function.
 class CreateCachePolicyRequest(BaseValidatorModel):
     CachePolicyConfig: CachePolicyConfigUnion
 
 
+# This class is the input for the 'update_cache_policy' function.
 class UpdateCachePolicyRequest(BaseValidatorModel):
     CachePolicyConfig: CachePolicyConfigUnion
     Id: str
@@ -2583,6 +2769,7 @@ class ContinuousDeploymentPolicySummary(BaseValidatorModel):
     ContinuousDeploymentPolicy: ContinuousDeploymentPolicy
 
 
+# This class is the output for the 'create_continuous_deployment_policy' function.
 class CreateContinuousDeploymentPolicyResult(BaseValidatorModel):
     ContinuousDeploymentPolicy: ContinuousDeploymentPolicy
     Location: str
@@ -2590,28 +2777,33 @@ class CreateContinuousDeploymentPolicyResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_continuous_deployment_policy' function.
 class GetContinuousDeploymentPolicyResult(BaseValidatorModel):
     ContinuousDeploymentPolicy: ContinuousDeploymentPolicy
     ETag: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_continuous_deployment_policy' function.
 class UpdateContinuousDeploymentPolicyResult(BaseValidatorModel):
     ContinuousDeploymentPolicy: ContinuousDeploymentPolicy
     ETag: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_continuous_deployment_policy' function.
 class CreateContinuousDeploymentPolicyRequest(BaseValidatorModel):
     ContinuousDeploymentPolicyConfig: ContinuousDeploymentPolicyConfigUnion
 
 
+# This class is the input for the 'update_continuous_deployment_policy' function.
 class UpdateContinuousDeploymentPolicyRequest(BaseValidatorModel):
     ContinuousDeploymentPolicyConfig: ContinuousDeploymentPolicyConfigUnion
     Id: str
     IfMatch: Optional[str] = None
 
 
+# This class is the output for the 'create_field_level_encryption_profile' function.
 class CreateFieldLevelEncryptionProfileResult(BaseValidatorModel):
     FieldLevelEncryptionProfile: FieldLevelEncryptionProfile
     Location: str
@@ -2619,38 +2811,45 @@ class CreateFieldLevelEncryptionProfileResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_field_level_encryption_profile' function.
 class GetFieldLevelEncryptionProfileResult(BaseValidatorModel):
     FieldLevelEncryptionProfile: FieldLevelEncryptionProfile
     ETag: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_field_level_encryption_profile' function.
 class UpdateFieldLevelEncryptionProfileResult(BaseValidatorModel):
     FieldLevelEncryptionProfile: FieldLevelEncryptionProfile
     ETag: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_field_level_encryption_profiles' function.
 class ListFieldLevelEncryptionProfilesResult(BaseValidatorModel):
     FieldLevelEncryptionProfileList: FieldLevelEncryptionProfileList
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_field_level_encryption_profile' function.
 class CreateFieldLevelEncryptionProfileRequest(BaseValidatorModel):
     FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfigUnion
 
 
+# This class is the input for the 'update_field_level_encryption_profile' function.
 class UpdateFieldLevelEncryptionProfileRequest(BaseValidatorModel):
     FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfigUnion
     Id: str
     IfMatch: Optional[str] = None
 
 
+# This class is the output for the 'list_functions' function.
 class ListFunctionsResult(BaseValidatorModel):
     FunctionList: FunctionList
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'test_function' function.
 class TestFunctionResult(BaseValidatorModel):
     TestResult: TestResult
     ResponseMetadata: ResponseMetadata
@@ -2658,6 +2857,7 @@ class TestFunctionResult(BaseValidatorModel):
 OriginUnion = Union[Origin, OriginOutput]
 
 
+# This class is the output for the 'create_field_level_encryption_config' function.
 class CreateFieldLevelEncryptionConfigResult(BaseValidatorModel):
     FieldLevelEncryption: FieldLevelEncryption
     Location: str
@@ -2665,27 +2865,32 @@ class CreateFieldLevelEncryptionConfigResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_field_level_encryption' function.
 class GetFieldLevelEncryptionResult(BaseValidatorModel):
     FieldLevelEncryption: FieldLevelEncryption
     ETag: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_field_level_encryption_config' function.
 class UpdateFieldLevelEncryptionConfigResult(BaseValidatorModel):
     FieldLevelEncryption: FieldLevelEncryption
     ETag: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_field_level_encryption_configs' function.
 class ListFieldLevelEncryptionConfigsResult(BaseValidatorModel):
     FieldLevelEncryptionList: FieldLevelEncryptionList
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_field_level_encryption_config' function.
 class CreateFieldLevelEncryptionConfigRequest(BaseValidatorModel):
     FieldLevelEncryptionConfig: FieldLevelEncryptionConfigUnion
 
 
+# This class is the input for the 'update_field_level_encryption_config' function.
 class UpdateFieldLevelEncryptionConfigRequest(BaseValidatorModel):
     FieldLevelEncryptionConfig: FieldLevelEncryptionConfigUnion
     Id: str
@@ -2701,6 +2906,7 @@ class ResponseHeadersPolicyList(BaseValidatorModel):
 OriginGroupUnion = Union[OriginGroup, OriginGroupOutput]
 
 
+# This class is the input for the 'create_streaming_distribution_with_tags' function.
 class CreateStreamingDistributionWithTagsRequest(BaseValidatorModel):
     StreamingDistributionConfigWithTags: StreamingDistributionConfigWithTags
 
@@ -2718,6 +2924,7 @@ class Distribution(BaseValidatorModel):
     AliasICPRecordals: Optional[List[AliasICPRecordal]] = None
 
 
+# This class is the output for the 'get_distribution_config' function.
 class GetDistributionConfigResult(BaseValidatorModel):
     DistributionConfig: DistributionConfigOutput
     ETag: str
@@ -2785,6 +2992,7 @@ class CachePolicyList(BaseValidatorModel):
     Items: Optional[List[CachePolicySummary]] = None
 
 
+# This class is the output for the 'list_origin_request_policies' function.
 class ListOriginRequestPoliciesResult(BaseValidatorModel):
     OriginRequestPolicyList: OriginRequestPolicyList
     ResponseMetadata: ResponseMetadata
@@ -2802,6 +3010,7 @@ class Origins(BaseValidatorModel):
     Items: List[OriginUnion]
 
 
+# This class is the output for the 'list_response_headers_policies' function.
 class ListResponseHeadersPoliciesResult(BaseValidatorModel):
     ResponseHeadersPolicyList: ResponseHeadersPolicyList
     ResponseMetadata: ResponseMetadata
@@ -2812,6 +3021,7 @@ class OriginGroups(BaseValidatorModel):
     Items: Optional[List[OriginGroupUnion]] = None
 
 
+# This class is the output for the 'copy_distribution' function.
 class CopyDistributionResult(BaseValidatorModel):
     Distribution: Distribution
     Location: str
@@ -2819,6 +3029,7 @@ class CopyDistributionResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_distribution' function.
 class CreateDistributionResult(BaseValidatorModel):
     Distribution: Distribution
     Location: str
@@ -2826,6 +3037,7 @@ class CreateDistributionResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_distribution_with_tags' function.
 class CreateDistributionWithTagsResult(BaseValidatorModel):
     Distribution: Distribution
     Location: str
@@ -2833,39 +3045,46 @@ class CreateDistributionWithTagsResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_distribution' function.
 class GetDistributionResult(BaseValidatorModel):
     Distribution: Distribution
     ETag: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_distribution' function.
 class UpdateDistributionResult(BaseValidatorModel):
     Distribution: Distribution
     ETag: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_distribution_with_staging_config' function.
 class UpdateDistributionWithStagingConfigResult(BaseValidatorModel):
     Distribution: Distribution
     ETag: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_distributions_by_anycast_ip_list_id' function.
 class ListDistributionsByAnycastIpListIdResult(BaseValidatorModel):
     DistributionList: DistributionList
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_distributions_by_realtime_log_config' function.
 class ListDistributionsByRealtimeLogConfigResult(BaseValidatorModel):
     DistributionList: DistributionList
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_distributions_by_web_acl_id' function.
 class ListDistributionsByWebACLIdResult(BaseValidatorModel):
     DistributionList: DistributionList
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_distributions' function.
 class ListDistributionsResult(BaseValidatorModel):
     DistributionList: DistributionList
     ResponseMetadata: ResponseMetadata
@@ -2875,11 +3094,13 @@ CacheBehaviorUnion = Union[CacheBehavior, CacheBehaviorOutput]
 DefaultCacheBehaviorUnion = Union[DefaultCacheBehavior, DefaultCacheBehaviorOutput]
 
 
+# This class is the output for the 'list_cache_policies' function.
 class ListCachePoliciesResult(BaseValidatorModel):
     CachePolicyList: CachePolicyList
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_continuous_deployment_policies' function.
 class ListContinuousDeploymentPoliciesResult(BaseValidatorModel):
     ContinuousDeploymentPolicyList: ContinuousDeploymentPolicyList
     ResponseMetadata: ResponseMetadata
@@ -2921,6 +3142,7 @@ class DistributionConfig(BaseValidatorModel):
 DistributionConfigUnion = Union[DistributionConfig, DistributionConfigOutput]
 
 
+# This class is the input for the 'create_distribution' function.
 class CreateDistributionRequest(BaseValidatorModel):
     DistributionConfig: DistributionConfigUnion
 
@@ -2930,11 +3152,13 @@ class DistributionConfigWithTags(BaseValidatorModel):
     Tags: TagsUnion
 
 
+# This class is the input for the 'update_distribution' function.
 class UpdateDistributionRequest(BaseValidatorModel):
     DistributionConfig: DistributionConfigUnion
     Id: str
     IfMatch: Optional[str] = None
 
 
+# This class is the input for the 'create_distribution_with_tags' function.
 class CreateDistributionWithTagsRequest(BaseValidatorModel):
     DistributionConfigWithTags: DistributionConfigWithTags

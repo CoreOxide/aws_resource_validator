@@ -14,6 +14,7 @@ class DeleteObjectRequest(BaseValidatorModel):
     Path: str
 
 
+# This class is the input for the 'describe_object' function.
 class DescribeObjectRequest(BaseValidatorModel):
     Path: str
 
@@ -26,6 +27,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'get_object' function.
 class GetObjectRequest(BaseValidatorModel):
     Path: str
     Range: Optional[str] = None
@@ -46,12 +48,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_items' function.
 class ListItemsRequest(BaseValidatorModel):
     Path: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'put_object' function.
 class PutObjectRequest(BaseValidatorModel):
     Body: Blob
     Path: str
@@ -61,6 +65,7 @@ class PutObjectRequest(BaseValidatorModel):
     UploadAvailability: Optional[UploadAvailabilityType] = None
 
 
+# This class is the output for the 'describe_object' function.
 class DescribeObjectResponse(BaseValidatorModel):
     ETag: str
     ContentType: str
@@ -70,6 +75,7 @@ class DescribeObjectResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_object' function.
 class GetObjectResponse(BaseValidatorModel):
     Body: StreamingBody
     CacheControl: str
@@ -82,6 +88,7 @@ class GetObjectResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_object' function.
 class PutObjectResponse(BaseValidatorModel):
     ContentSHA256: str
     ETag: str
@@ -89,6 +96,7 @@ class PutObjectResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_items' function.
 class ListItemsResponse(BaseValidatorModel):
     Items: List[Item]
     ResponseMetadata: ResponseMetadata

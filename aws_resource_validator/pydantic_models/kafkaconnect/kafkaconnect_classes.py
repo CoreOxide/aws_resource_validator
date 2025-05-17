@@ -114,6 +114,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_worker_configuration' function.
 class CreateWorkerConfigurationRequest(BaseValidatorModel):
     name: str
     propertiesFileContent: str
@@ -154,19 +155,23 @@ class CustomPlugin(BaseValidatorModel):
     revision: int
 
 
+# This class is the input for the 'delete_connector' function.
 class DeleteConnectorRequest(BaseValidatorModel):
     connectorArn: str
     currentVersion: Optional[str] = None
 
 
+# This class is the input for the 'delete_custom_plugin' function.
 class DeleteCustomPluginRequest(BaseValidatorModel):
     customPluginArn: str
 
 
+# This class is the input for the 'delete_worker_configuration' function.
 class DeleteWorkerConfigurationRequest(BaseValidatorModel):
     workerConfigurationArn: str
 
 
+# This class is the input for the 'describe_connector_operation' function.
 class DescribeConnectorOperationRequest(BaseValidatorModel):
     connectorOperationArn: str
 
@@ -176,14 +181,17 @@ class StateDescription(BaseValidatorModel):
     message: Optional[str] = None
 
 
+# This class is the input for the 'describe_connector' function.
 class DescribeConnectorRequest(BaseValidatorModel):
     connectorArn: str
 
 
+# This class is the input for the 'describe_custom_plugin' function.
 class DescribeCustomPluginRequest(BaseValidatorModel):
     customPluginArn: str
 
 
+# This class is the input for the 'describe_worker_configuration' function.
 class DescribeWorkerConfigurationRequest(BaseValidatorModel):
     workerConfigurationArn: str
 
@@ -211,28 +219,33 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_connector_operations' function.
 class ListConnectorOperationsRequest(BaseValidatorModel):
     connectorArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_connectors' function.
 class ListConnectorsRequest(BaseValidatorModel):
     connectorNamePrefix: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_custom_plugins' function.
 class ListCustomPluginsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     namePrefix: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'list_worker_configurations' function.
 class ListWorkerConfigurationsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -295,6 +308,7 @@ class AutoScalingUpdate(BaseValidatorModel):
     scaleOutPolicy: ScaleOutPolicyUpdate
 
 
+# This class is the output for the 'create_connector' function.
 class CreateConnectorResponse(BaseValidatorModel):
     connectorArn: str
     connectorName: str
@@ -302,6 +316,7 @@ class CreateConnectorResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_custom_plugin' function.
 class CreateCustomPluginResponse(BaseValidatorModel):
     customPluginArn: str
     customPluginState: CustomPluginStateType
@@ -310,35 +325,41 @@ class CreateCustomPluginResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_connector' function.
 class DeleteConnectorResponse(BaseValidatorModel):
     connectorArn: str
     connectorState: ConnectorStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_custom_plugin' function.
 class DeleteCustomPluginResponse(BaseValidatorModel):
     customPluginArn: str
     customPluginState: CustomPluginStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_worker_configuration' function.
 class DeleteWorkerConfigurationResponse(BaseValidatorModel):
     workerConfigurationArn: str
     workerConfigurationState: WorkerConfigurationStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_connector_operations' function.
 class ListConnectorOperationsResponse(BaseValidatorModel):
     connectorOperations: List[ConnectorOperationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_connector' function.
 class UpdateConnectorResponse(BaseValidatorModel):
     connectorArn: str
     connectorState: ConnectorStateType
@@ -346,6 +367,7 @@ class UpdateConnectorResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_worker_configuration' function.
 class CreateWorkerConfigurationResponse(BaseValidatorModel):
     creationTime: datetime
     latestRevision: WorkerConfigurationRevisionSummary
@@ -380,6 +402,7 @@ class Plugin(BaseValidatorModel):
     customPlugin: CustomPlugin
 
 
+# This class is the output for the 'describe_worker_configuration' function.
 class DescribeWorkerConfigurationResponse(BaseValidatorModel):
     creationTime: datetime
     description: str
@@ -445,6 +468,7 @@ class CapacityUpdate(BaseValidatorModel):
     provisionedCapacity: Optional[ProvisionedCapacityUpdate] = None
 
 
+# This class is the output for the 'list_worker_configurations' function.
 class ListWorkerConfigurationsResponse(BaseValidatorModel):
     workerConfigurations: List[WorkerConfigurationSummary]
     ResponseMetadata: ResponseMetadata
@@ -460,6 +484,7 @@ class CustomPluginRevisionSummary(BaseValidatorModel):
     revision: Optional[int] = None
 
 
+# This class is the input for the 'create_custom_plugin' function.
 class CreateCustomPluginRequest(BaseValidatorModel):
     contentType: CustomPluginContentTypeType
     location: CustomPluginLocation
@@ -480,6 +505,7 @@ class WorkerSetting(BaseValidatorModel):
     capacity: Optional[CapacityDescription] = None
 
 
+# This class is the input for the 'update_connector' function.
 class UpdateConnectorRequest(BaseValidatorModel):
     connectorArn: str
     currentVersion: str
@@ -496,6 +522,7 @@ class CustomPluginSummary(BaseValidatorModel):
     name: Optional[str] = None
 
 
+# This class is the output for the 'describe_custom_plugin' function.
 class DescribeCustomPluginResponse(BaseValidatorModel):
     creationTime: datetime
     customPluginArn: str
@@ -525,6 +552,7 @@ class ConnectorSummary(BaseValidatorModel):
     workerConfiguration: Optional[WorkerConfigurationDescription] = None
 
 
+# This class is the output for the 'describe_connector' function.
 class DescribeConnectorResponse(BaseValidatorModel):
     capacity: CapacityDescription
     connectorArn: str
@@ -546,6 +574,7 @@ class DescribeConnectorResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_connector' function.
 class CreateConnectorRequest(BaseValidatorModel):
     capacity: Capacity
     connectorConfiguration: Dict[str, str]
@@ -562,6 +591,7 @@ class CreateConnectorRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'describe_connector_operation' function.
 class DescribeConnectorOperationResponse(BaseValidatorModel):
     connectorArn: str
     connectorOperationArn: str
@@ -578,12 +608,14 @@ class DescribeConnectorOperationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_custom_plugins' function.
 class ListCustomPluginsResponse(BaseValidatorModel):
     customPlugins: List[CustomPluginSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_connectors' function.
 class ListConnectorsResponse(BaseValidatorModel):
     connectors: List[ConnectorSummary]
     ResponseMetadata: ResponseMetadata

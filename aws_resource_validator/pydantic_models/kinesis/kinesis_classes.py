@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'add_tags_to_stream' function.
 class AddTagsToStreamInput(BaseValidatorModel):
     Tags: Dict[str, str]
     StreamName: Optional[str] = None
@@ -40,22 +41,26 @@ class StreamModeDetails(BaseValidatorModel):
     StreamMode: StreamModeType
 
 
+# This class is the input for the 'decrease_stream_retention_period' function.
 class DecreaseStreamRetentionPeriodInput(BaseValidatorModel):
     RetentionPeriodHours: int
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
 
 
+# This class is the input for the 'delete_resource_policy' function.
 class DeleteResourcePolicyInput(BaseValidatorModel):
     ResourceARN: str
 
 
+# This class is the input for the 'delete_stream' function.
 class DeleteStreamInput(BaseValidatorModel):
     StreamName: Optional[str] = None
     EnforceConsumerDeletion: Optional[bool] = None
     StreamARN: Optional[str] = None
 
 
+# This class is the input for the 'deregister_stream_consumer' function.
 class DeregisterStreamConsumerInput(BaseValidatorModel):
     StreamARN: Optional[str] = None
     ConsumerName: Optional[str] = None
@@ -70,6 +75,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'describe_stream_consumer' function.
 class DescribeStreamConsumerInput(BaseValidatorModel):
     StreamARN: Optional[str] = None
     ConsumerName: Optional[str] = None
@@ -82,6 +88,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_stream' function.
 class DescribeStreamInput(BaseValidatorModel):
     StreamName: Optional[str] = None
     Limit: Optional[int] = None
@@ -94,17 +101,20 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'describe_stream_summary' function.
 class DescribeStreamSummaryInput(BaseValidatorModel):
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
 
 
+# This class is the input for the 'disable_enhanced_monitoring' function.
 class DisableEnhancedMonitoringInput(BaseValidatorModel):
     ShardLevelMetrics: List[MetricsNameType]
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
 
 
+# This class is the input for the 'enable_enhanced_monitoring' function.
 class EnableEnhancedMonitoringInput(BaseValidatorModel):
     ShardLevelMetrics: List[MetricsNameType]
     StreamName: Optional[str] = None
@@ -115,6 +125,7 @@ class EnhancedMetrics(BaseValidatorModel):
     ShardLevelMetrics: Optional[List[MetricsNameType]] = None
 
 
+# This class is the input for the 'get_records' function.
 class GetRecordsInput(BaseValidatorModel):
     ShardIterator: str
     Limit: Optional[int] = None
@@ -129,12 +140,14 @@ class Record(BaseValidatorModel):
     EncryptionType: Optional[EncryptionTypeType] = None
 
 
+# This class is the input for the 'get_resource_policy' function.
 class GetResourcePolicyInput(BaseValidatorModel):
     ResourceARN: str
 
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'increase_stream_retention_period' function.
 class IncreaseStreamRetentionPeriodInput(BaseValidatorModel):
     RetentionPeriodHours: int
     StreamName: Optional[str] = None
@@ -169,12 +182,14 @@ class KMSThrottlingException(BaseValidatorModel):
     message: Optional[str] = None
 
 
+# This class is the input for the 'list_streams' function.
 class ListStreamsInput(BaseValidatorModel):
     Limit: Optional[int] = None
     ExclusiveStartStreamName: Optional[str] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_stream' function.
 class ListTagsForStreamInput(BaseValidatorModel):
     StreamName: Optional[str] = None
     ExclusiveStartTagKey: Optional[str] = None
@@ -187,6 +202,7 @@ class Tag(BaseValidatorModel):
     Value: Optional[str] = None
 
 
+# This class is the input for the 'merge_shards' function.
 class MergeShardsInput(BaseValidatorModel):
     ShardToMerge: str
     AdjacentShardToMerge: str
@@ -201,16 +217,19 @@ class PutRecordsResultEntry(BaseValidatorModel):
     ErrorMessage: Optional[str] = None
 
 
+# This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyInput(BaseValidatorModel):
     ResourceARN: str
     Policy: str
 
 
+# This class is the input for the 'register_stream_consumer' function.
 class RegisterStreamConsumerInput(BaseValidatorModel):
     StreamARN: str
     ConsumerName: str
 
 
+# This class is the input for the 'remove_tags_from_stream' function.
 class RemoveTagsFromStreamInput(BaseValidatorModel):
     TagKeys: List[str]
     StreamName: Optional[str] = None
@@ -230,6 +249,7 @@ class SequenceNumberRange(BaseValidatorModel):
     EndingSequenceNumber: Optional[str] = None
 
 
+# This class is the input for the 'split_shard' function.
 class SplitShardInput(BaseValidatorModel):
     ShardToSplit: str
     NewStartingHashKey: str
@@ -237,6 +257,7 @@ class SplitShardInput(BaseValidatorModel):
     StreamARN: Optional[str] = None
 
 
+# This class is the input for the 'start_stream_encryption' function.
 class StartStreamEncryptionInput(BaseValidatorModel):
     EncryptionType: EncryptionTypeType
     KeyId: str
@@ -244,6 +265,7 @@ class StartStreamEncryptionInput(BaseValidatorModel):
     StreamARN: Optional[str] = None
 
 
+# This class is the input for the 'stop_stream_encryption' function.
 class StopStreamEncryptionInput(BaseValidatorModel):
     EncryptionType: EncryptionTypeType
     KeyId: str
@@ -251,6 +273,7 @@ class StopStreamEncryptionInput(BaseValidatorModel):
     StreamARN: Optional[str] = None
 
 
+# This class is the input for the 'update_shard_count' function.
 class UpdateShardCountInput(BaseValidatorModel):
     TargetShardCount: int
     ScalingType: Literal['UNIFORM_SCALING']
@@ -258,6 +281,7 @@ class UpdateShardCountInput(BaseValidatorModel):
     StreamARN: Optional[str] = None
 
 
+# This class is the input for the 'put_record' function.
 class PutRecordInput(BaseValidatorModel):
     Data: Blob
     PartitionKey: str
@@ -279,6 +303,7 @@ class ChildShard(BaseValidatorModel):
     HashKeyRange: HashKeyRange
 
 
+# This class is the input for the 'create_stream' function.
 class CreateStreamInput(BaseValidatorModel):
     StreamName: str
     ShardCount: Optional[int] = None
@@ -294,6 +319,7 @@ class StreamSummary(BaseValidatorModel):
     StreamCreationTimestamp: Optional[datetime] = None
 
 
+# This class is the input for the 'update_stream_mode' function.
 class UpdateStreamModeInput(BaseValidatorModel):
     StreamARN: str
     StreamModeDetails: StreamModeDetails
@@ -307,15 +333,18 @@ class DescribeLimitsOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_stream_consumer' function.
 class DescribeStreamConsumerOutput(BaseValidatorModel):
     ConsumerDescription: ConsumerDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_stream_mode' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'enable_enhanced_monitoring' function.
 class EnhancedMonitoringOutput(BaseValidatorModel):
     StreamName: str
     CurrentShardLevelMetrics: List[MetricsNameType]
@@ -324,22 +353,26 @@ class EnhancedMonitoringOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_policy' function.
 class GetResourcePolicyOutput(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_shard_iterator' function.
 class GetShardIteratorOutput(BaseValidatorModel):
     ShardIterator: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_stream_consumers' function.
 class ListStreamConsumersOutput(BaseValidatorModel):
     Consumers: List[Consumer]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'put_record' function.
 class PutRecordOutput(BaseValidatorModel):
     ShardId: str
     SequenceNumber: str
@@ -347,11 +380,13 @@ class PutRecordOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_stream_consumer' function.
 class RegisterStreamConsumerOutput(BaseValidatorModel):
     Consumer: Consumer
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_shard_count' function.
 class UpdateShardCountOutput(BaseValidatorModel):
     StreamName: str
     CurrentShardCount: int
@@ -401,6 +436,7 @@ class StreamDescriptionSummary(BaseValidatorModel):
     ConsumerCount: Optional[int] = None
 
 
+# This class is the input for the 'get_shard_iterator' function.
 class GetShardIteratorInput(BaseValidatorModel):
     ShardId: str
     ShardIteratorType: ShardIteratorTypeType
@@ -416,6 +452,7 @@ class ListStreamConsumersInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_stream_consumers' function.
 class ListStreamConsumersInput(BaseValidatorModel):
     StreamARN: str
     NextToken: Optional[str] = None
@@ -435,12 +472,14 @@ class StartingPosition(BaseValidatorModel):
     Timestamp: Optional[Timestamp] = None
 
 
+# This class is the output for the 'list_tags_for_stream' function.
 class ListTagsForStreamOutput(BaseValidatorModel):
     Tags: List[Tag]
     HasMoreTags: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_records' function.
 class PutRecordsOutput(BaseValidatorModel):
     FailedRecordCount: int
     Records: List[PutRecordsResultEntry]
@@ -456,12 +495,14 @@ class Shard(BaseValidatorModel):
     AdjacentParentShardId: Optional[str] = None
 
 
+# This class is the input for the 'put_records' function.
 class PutRecordsInput(BaseValidatorModel):
     Records: List[PutRecordsRequestEntry]
     StreamName: Optional[str] = None
     StreamARN: Optional[str] = None
 
 
+# This class is the output for the 'get_records' function.
 class GetRecordsOutput(BaseValidatorModel):
     Records: List[Record]
     NextShardIterator: str
@@ -477,6 +518,7 @@ class SubscribeToShardEvent(BaseValidatorModel):
     ChildShards: Optional[List[ChildShard]] = None
 
 
+# This class is the output for the 'list_streams' function.
 class ListStreamsOutput(BaseValidatorModel):
     StreamNames: List[str]
     HasMoreStreams: bool
@@ -485,6 +527,7 @@ class ListStreamsOutput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_stream_summary' function.
 class DescribeStreamSummaryOutput(BaseValidatorModel):
     StreamDescriptionSummary: StreamDescriptionSummary
     ResponseMetadata: ResponseMetadata
@@ -499,6 +542,7 @@ class ListShardsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_shards' function.
 class ListShardsInput(BaseValidatorModel):
     StreamName: Optional[str] = None
     NextToken: Optional[str] = None
@@ -509,12 +553,14 @@ class ListShardsInput(BaseValidatorModel):
     StreamARN: Optional[str] = None
 
 
+# This class is the input for the 'subscribe_to_shard' function.
 class SubscribeToShardInput(BaseValidatorModel):
     ConsumerARN: str
     ShardId: str
     StartingPosition: StartingPosition
 
 
+# This class is the output for the 'list_shards' function.
 class ListShardsOutput(BaseValidatorModel):
     Shards: List[Shard]
     ResponseMetadata: ResponseMetadata
@@ -548,10 +594,12 @@ class SubscribeToShardEventStream(BaseValidatorModel):
     InternalFailureException: Optional[InternalFailureException] = None
 
 
+# This class is the output for the 'describe_stream' function.
 class DescribeStreamOutput(BaseValidatorModel):
     StreamDescription: StreamDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'subscribe_to_shard' function.
 class SubscribeToShardOutput(BaseValidatorModel):
     EventStream: EventStream[SubscribeToShardEventStream]

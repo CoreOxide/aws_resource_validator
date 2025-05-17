@@ -44,6 +44,7 @@ class DeletePipelineRequest(BaseValidatorModel):
     PipelineName: str
 
 
+# This class is the input for the 'get_pipeline_blueprint' function.
 class GetPipelineBlueprintRequest(BaseValidatorModel):
     BlueprintName: str
     Format: Optional[str] = None
@@ -58,10 +59,12 @@ class PipelineBlueprint(BaseValidatorModel):
     UseCase: Optional[str] = None
 
 
+# This class is the input for the 'get_pipeline_change_progress' function.
 class GetPipelineChangeProgressRequest(BaseValidatorModel):
     PipelineName: str
 
 
+# This class is the input for the 'get_pipeline' function.
 class GetPipelineRequest(BaseValidatorModel):
     PipelineName: str
 
@@ -74,11 +77,13 @@ class PipelineBlueprintSummary(BaseValidatorModel):
     UseCase: Optional[str] = None
 
 
+# This class is the input for the 'list_pipelines' function.
 class ListPipelinesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     Arn: str
 
@@ -97,10 +102,12 @@ class ServiceVpcEndpoint(BaseValidatorModel):
     VpcEndpointId: Optional[str] = None
 
 
+# This class is the input for the 'start_pipeline' function.
 class StartPipelineRequest(BaseValidatorModel):
     PipelineName: str
 
 
+# This class is the input for the 'stop_pipeline' function.
 class StopPipelineRequest(BaseValidatorModel):
     PipelineName: str
 
@@ -110,6 +117,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'validate_pipeline' function.
 class ValidatePipelineRequest(BaseValidatorModel):
     PipelineConfigurationBody: str
 
@@ -140,11 +148,13 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_pipeline_blueprint' function.
 class GetPipelineBlueprintResponse(BaseValidatorModel):
     Blueprint: PipelineBlueprint
     Format: str
@@ -169,6 +179,7 @@ class PipelineSummary(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'validate_pipeline' function.
 class ValidatePipelineResponse(BaseValidatorModel):
     isValid: bool
     Errors: List[ValidationMessage]
@@ -189,11 +200,13 @@ class VpcOptions(BaseValidatorModel):
     VpcEndpointManagement: Optional[VpcEndpointManagementType] = None
 
 
+# This class is the output for the 'get_pipeline_change_progress' function.
 class GetPipelineChangeProgressResponse(BaseValidatorModel):
     ChangeProgressStatuses: List[ChangeProgressStatus]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_pipeline' function.
 class UpdatePipelineRequest(BaseValidatorModel):
     PipelineName: str
     MinUnits: Optional[int] = None
@@ -204,6 +217,7 @@ class UpdatePipelineRequest(BaseValidatorModel):
     EncryptionAtRestOptions: Optional[EncryptionAtRestOptions] = None
 
 
+# This class is the output for the 'list_pipelines' function.
 class ListPipelinesResponse(BaseValidatorModel):
     Pipelines: List[PipelineSummary]
     ResponseMetadata: ResponseMetadata
@@ -239,6 +253,7 @@ class Pipeline(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_pipeline' function.
 class CreatePipelineRequest(BaseValidatorModel):
     PipelineName: str
     MinUnits: int
@@ -251,26 +266,31 @@ class CreatePipelineRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'create_pipeline' function.
 class CreatePipelineResponse(BaseValidatorModel):
     Pipeline: Pipeline
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_pipeline' function.
 class GetPipelineResponse(BaseValidatorModel):
     Pipeline: Pipeline
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_pipeline' function.
 class StartPipelineResponse(BaseValidatorModel):
     Pipeline: Pipeline
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_pipeline' function.
 class StopPipelineResponse(BaseValidatorModel):
     Pipeline: Pipeline
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_pipeline' function.
 class UpdatePipelineResponse(BaseValidatorModel):
     Pipeline: Pipeline
     ResponseMetadata: ResponseMetadata

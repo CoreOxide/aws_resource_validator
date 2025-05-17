@@ -37,6 +37,7 @@ class RuleUpdateFailure(BaseValidatorModel):
     ruleIdentifier: Optional[str] = None
 
 
+# This class is the input for the 'create_access_log_subscription' function.
 class CreateAccessLogSubscriptionRequest(BaseValidatorModel):
     destinationArn: str
     resourceIdentifier: str
@@ -45,6 +46,7 @@ class CreateAccessLogSubscriptionRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_resource_gateway' function.
 class CreateResourceGatewayRequest(BaseValidatorModel):
     name: str
     subnetIds: List[str]
@@ -59,6 +61,7 @@ class SharingConfig(BaseValidatorModel):
     enabled: Optional[bool] = None
 
 
+# This class is the input for the 'create_service_network_resource_association' function.
 class CreateServiceNetworkResourceAssociationRequest(BaseValidatorModel):
     resourceConfigurationIdentifier: str
     serviceNetworkIdentifier: str
@@ -66,6 +69,7 @@ class CreateServiceNetworkResourceAssociationRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_service_network_service_association' function.
 class CreateServiceNetworkServiceAssociationRequest(BaseValidatorModel):
     serviceIdentifier: str
     serviceNetworkIdentifier: str
@@ -78,6 +82,7 @@ class DnsEntry(BaseValidatorModel):
     hostedZoneId: Optional[str] = None
 
 
+# This class is the input for the 'create_service_network_vpc_association' function.
 class CreateServiceNetworkVpcAssociationRequest(BaseValidatorModel):
     serviceNetworkIdentifier: str
     vpcIdentifier: str
@@ -86,6 +91,7 @@ class CreateServiceNetworkVpcAssociationRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_service' function.
 class CreateServiceRequest(BaseValidatorModel):
     name: str
     authType: Optional[AuthTypeType] = None
@@ -112,10 +118,12 @@ class DeleteResourceConfigurationRequest(BaseValidatorModel):
     resourceConfigurationIdentifier: str
 
 
+# This class is the input for the 'delete_resource_endpoint_association' function.
 class DeleteResourceEndpointAssociationRequest(BaseValidatorModel):
     resourceEndpointAssociationIdentifier: str
 
 
+# This class is the input for the 'delete_resource_gateway' function.
 class DeleteResourceGatewayRequest(BaseValidatorModel):
     resourceGatewayIdentifier: str
 
@@ -134,22 +142,27 @@ class DeleteServiceNetworkRequest(BaseValidatorModel):
     serviceNetworkIdentifier: str
 
 
+# This class is the input for the 'delete_service_network_resource_association' function.
 class DeleteServiceNetworkResourceAssociationRequest(BaseValidatorModel):
     serviceNetworkResourceAssociationIdentifier: str
 
 
+# This class is the input for the 'delete_service_network_service_association' function.
 class DeleteServiceNetworkServiceAssociationRequest(BaseValidatorModel):
     serviceNetworkServiceAssociationIdentifier: str
 
 
+# This class is the input for the 'delete_service_network_vpc_association' function.
 class DeleteServiceNetworkVpcAssociationRequest(BaseValidatorModel):
     serviceNetworkVpcAssociationIdentifier: str
 
 
+# This class is the input for the 'delete_service' function.
 class DeleteServiceRequest(BaseValidatorModel):
     serviceIdentifier: str
 
 
+# This class is the input for the 'delete_target_group' function.
 class DeleteTargetGroupRequest(BaseValidatorModel):
     targetGroupIdentifier: str
 
@@ -180,57 +193,70 @@ class WeightedTargetGroup(BaseValidatorModel):
     weight: Optional[int] = None
 
 
+# This class is the input for the 'get_access_log_subscription' function.
 class GetAccessLogSubscriptionRequest(BaseValidatorModel):
     accessLogSubscriptionIdentifier: str
 
 
+# This class is the input for the 'get_auth_policy' function.
 class GetAuthPolicyRequest(BaseValidatorModel):
     resourceIdentifier: str
 
 
+# This class is the input for the 'get_listener' function.
 class GetListenerRequest(BaseValidatorModel):
     listenerIdentifier: str
     serviceIdentifier: str
 
 
+# This class is the input for the 'get_resource_configuration' function.
 class GetResourceConfigurationRequest(BaseValidatorModel):
     resourceConfigurationIdentifier: str
 
 
+# This class is the input for the 'get_resource_gateway' function.
 class GetResourceGatewayRequest(BaseValidatorModel):
     resourceGatewayIdentifier: str
 
 
+# This class is the input for the 'get_resource_policy' function.
 class GetResourcePolicyRequest(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'get_rule' function.
 class GetRuleRequest(BaseValidatorModel):
     listenerIdentifier: str
     ruleIdentifier: str
     serviceIdentifier: str
 
 
+# This class is the input for the 'get_service_network' function.
 class GetServiceNetworkRequest(BaseValidatorModel):
     serviceNetworkIdentifier: str
 
 
+# This class is the input for the 'get_service_network_resource_association' function.
 class GetServiceNetworkResourceAssociationRequest(BaseValidatorModel):
     serviceNetworkResourceAssociationIdentifier: str
 
 
+# This class is the input for the 'get_service_network_service_association' function.
 class GetServiceNetworkServiceAssociationRequest(BaseValidatorModel):
     serviceNetworkServiceAssociationIdentifier: str
 
 
+# This class is the input for the 'get_service_network_vpc_association' function.
 class GetServiceNetworkVpcAssociationRequest(BaseValidatorModel):
     serviceNetworkVpcAssociationIdentifier: str
 
 
+# This class is the input for the 'get_service' function.
 class GetServiceRequest(BaseValidatorModel):
     serviceIdentifier: str
 
 
+# This class is the input for the 'get_target_group' function.
 class GetTargetGroupRequest(BaseValidatorModel):
     targetGroupIdentifier: str
 
@@ -255,12 +281,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_access_log_subscriptions' function.
 class ListAccessLogSubscriptionsRequest(BaseValidatorModel):
     resourceIdentifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_listeners' function.
 class ListListenersRequest(BaseValidatorModel):
     serviceIdentifier: str
     maxResults: Optional[int] = None
@@ -277,6 +305,7 @@ class ListenerSummary(BaseValidatorModel):
     protocol: Optional[ListenerProtocolType] = None
 
 
+# This class is the input for the 'list_resource_configurations' function.
 class ListResourceConfigurationsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -297,6 +326,7 @@ class ResourceConfigurationSummary(BaseValidatorModel):
     type: Optional[ResourceConfigurationTypeType] = None
 
 
+# This class is the input for the 'list_resource_endpoint_associations' function.
 class ListResourceEndpointAssociationsRequest(BaseValidatorModel):
     resourceConfigurationIdentifier: str
     maxResults: Optional[int] = None
@@ -318,6 +348,7 @@ class ResourceEndpointAssociationSummary(BaseValidatorModel):
     vpcEndpointOwner: Optional[str] = None
 
 
+# This class is the input for the 'list_resource_gateways' function.
 class ListResourceGatewaysRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -336,6 +367,7 @@ class ResourceGatewaySummary(BaseValidatorModel):
     vpcIdentifier: Optional[str] = None
 
 
+# This class is the input for the 'list_rules' function.
 class ListRulesRequest(BaseValidatorModel):
     listenerIdentifier: str
     serviceIdentifier: str
@@ -353,6 +385,7 @@ class RuleSummary(BaseValidatorModel):
     priority: Optional[int] = None
 
 
+# This class is the input for the 'list_service_network_resource_associations' function.
 class ListServiceNetworkResourceAssociationsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -360,6 +393,7 @@ class ListServiceNetworkResourceAssociationsRequest(BaseValidatorModel):
     serviceNetworkIdentifier: Optional[str] = None
 
 
+# This class is the input for the 'list_service_network_service_associations' function.
 class ListServiceNetworkServiceAssociationsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -367,6 +401,7 @@ class ListServiceNetworkServiceAssociationsRequest(BaseValidatorModel):
     serviceNetworkIdentifier: Optional[str] = None
 
 
+# This class is the input for the 'list_service_network_vpc_associations' function.
 class ListServiceNetworkVpcAssociationsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -387,6 +422,7 @@ class ServiceNetworkVpcAssociationSummary(BaseValidatorModel):
     vpcId: Optional[str] = None
 
 
+# This class is the input for the 'list_service_network_vpc_endpoint_associations' function.
 class ListServiceNetworkVpcEndpointAssociationsRequest(BaseValidatorModel):
     serviceNetworkIdentifier: str
     maxResults: Optional[int] = None
@@ -403,6 +439,7 @@ class ServiceNetworkEndpointAssociation(BaseValidatorModel):
     vpcId: Optional[str] = None
 
 
+# This class is the input for the 'list_service_networks' function.
 class ListServiceNetworksRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -419,15 +456,18 @@ class ServiceNetworkSummary(BaseValidatorModel):
     numberOfAssociatedVPCs: Optional[int] = None
 
 
+# This class is the input for the 'list_services' function.
 class ListServicesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'list_target_groups' function.
 class ListTargetGroupsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -463,6 +503,7 @@ class PathMatchType(BaseValidatorModel):
     prefix: Optional[str] = None
 
 
+# This class is the input for the 'put_auth_policy' function.
 class PutAuthPolicyRequest(BaseValidatorModel):
     policy: str
     resourceIdentifier: str
@@ -483,32 +524,38 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_access_log_subscription' function.
 class UpdateAccessLogSubscriptionRequest(BaseValidatorModel):
     accessLogSubscriptionIdentifier: str
     destinationArn: str
 
 
+# This class is the input for the 'update_resource_gateway' function.
 class UpdateResourceGatewayRequest(BaseValidatorModel):
     resourceGatewayIdentifier: str
     securityGroupIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_service_network' function.
 class UpdateServiceNetworkRequest(BaseValidatorModel):
     authType: AuthTypeType
     serviceNetworkIdentifier: str
 
 
+# This class is the input for the 'update_service_network_vpc_association' function.
 class UpdateServiceNetworkVpcAssociationRequest(BaseValidatorModel):
     securityGroupIds: List[str]
     serviceNetworkVpcAssociationIdentifier: str
 
 
+# This class is the input for the 'update_service' function.
 class UpdateServiceRequest(BaseValidatorModel):
     serviceIdentifier: str
     authType: Optional[AuthTypeType] = None
     certificateArn: Optional[str] = None
 
 
+# This class is the output for the 'create_access_log_subscription' function.
 class CreateAccessLogSubscriptionResponse(BaseValidatorModel):
     arn: str
     destinationArn: str
@@ -519,6 +566,7 @@ class CreateAccessLogSubscriptionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_resource_gateway' function.
 class CreateResourceGatewayResponse(BaseValidatorModel):
     arn: str
     id: str
@@ -531,6 +579,7 @@ class CreateResourceGatewayResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_service_network_resource_association' function.
 class CreateServiceNetworkResourceAssociationResponse(BaseValidatorModel):
     arn: str
     createdBy: str
@@ -539,6 +588,7 @@ class CreateServiceNetworkResourceAssociationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_service_network_vpc_association' function.
 class CreateServiceNetworkVpcAssociationResponse(BaseValidatorModel):
     arn: str
     createdBy: str
@@ -548,6 +598,7 @@ class CreateServiceNetworkVpcAssociationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_resource_endpoint_association' function.
 class DeleteResourceEndpointAssociationResponse(BaseValidatorModel):
     arn: str
     id: str
@@ -557,6 +608,7 @@ class DeleteResourceEndpointAssociationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_resource_gateway' function.
 class DeleteResourceGatewayResponse(BaseValidatorModel):
     arn: str
     id: str
@@ -565,6 +617,7 @@ class DeleteResourceGatewayResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_service_network_resource_association' function.
 class DeleteServiceNetworkResourceAssociationResponse(BaseValidatorModel):
     arn: str
     id: str
@@ -572,6 +625,7 @@ class DeleteServiceNetworkResourceAssociationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_service_network_service_association' function.
 class DeleteServiceNetworkServiceAssociationResponse(BaseValidatorModel):
     arn: str
     id: str
@@ -579,6 +633,7 @@ class DeleteServiceNetworkServiceAssociationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_service_network_vpc_association' function.
 class DeleteServiceNetworkVpcAssociationResponse(BaseValidatorModel):
     arn: str
     id: str
@@ -586,6 +641,7 @@ class DeleteServiceNetworkVpcAssociationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_service' function.
 class DeleteServiceResponse(BaseValidatorModel):
     arn: str
     id: str
@@ -594,6 +650,7 @@ class DeleteServiceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_target_group' function.
 class DeleteTargetGroupResponse(BaseValidatorModel):
     arn: str
     id: str
@@ -601,6 +658,7 @@ class DeleteTargetGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_access_log_subscription' function.
 class GetAccessLogSubscriptionResponse(BaseValidatorModel):
     arn: str
     createdAt: datetime
@@ -613,6 +671,7 @@ class GetAccessLogSubscriptionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_auth_policy' function.
 class GetAuthPolicyResponse(BaseValidatorModel):
     createdAt: datetime
     lastUpdatedAt: datetime
@@ -621,6 +680,7 @@ class GetAuthPolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_gateway' function.
 class GetResourceGatewayResponse(BaseValidatorModel):
     arn: str
     createdAt: datetime
@@ -635,11 +695,13 @@ class GetResourceGatewayResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_policy' function.
 class GetResourcePolicyResponse(BaseValidatorModel):
     policy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_service_network_vpc_association' function.
 class GetServiceNetworkVpcAssociationResponse(BaseValidatorModel):
     arn: str
     createdAt: datetime
@@ -657,23 +719,27 @@ class GetServiceNetworkVpcAssociationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_access_log_subscriptions' function.
 class ListAccessLogSubscriptionsResponse(BaseValidatorModel):
     items: List[AccessLogSubscriptionSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_auth_policy' function.
 class PutAuthPolicyResponse(BaseValidatorModel):
     policy: str
     state: AuthPolicyStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_access_log_subscription' function.
 class UpdateAccessLogSubscriptionResponse(BaseValidatorModel):
     arn: str
     destinationArn: str
@@ -683,6 +749,7 @@ class UpdateAccessLogSubscriptionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_resource_gateway' function.
 class UpdateResourceGatewayResponse(BaseValidatorModel):
     arn: str
     id: str
@@ -695,6 +762,7 @@ class UpdateResourceGatewayResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_service_network' function.
 class UpdateServiceNetworkResponse(BaseValidatorModel):
     arn: str
     authType: AuthTypeType
@@ -703,6 +771,7 @@ class UpdateServiceNetworkResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_service_network_vpc_association' function.
 class UpdateServiceNetworkVpcAssociationResponse(BaseValidatorModel):
     arn: str
     createdBy: str
@@ -712,6 +781,7 @@ class UpdateServiceNetworkVpcAssociationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_service' function.
 class UpdateServiceResponse(BaseValidatorModel):
     arn: str
     authType: AuthTypeType
@@ -722,6 +792,7 @@ class UpdateServiceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_service_network' function.
 class CreateServiceNetworkRequest(BaseValidatorModel):
     name: str
     authType: Optional[AuthTypeType] = None
@@ -730,6 +801,7 @@ class CreateServiceNetworkRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_service_network' function.
 class CreateServiceNetworkResponse(BaseValidatorModel):
     arn: str
     authType: AuthTypeType
@@ -739,6 +811,7 @@ class CreateServiceNetworkResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_service_network' function.
 class GetServiceNetworkResponse(BaseValidatorModel):
     arn: str
     authType: AuthTypeType
@@ -752,6 +825,7 @@ class GetServiceNetworkResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_service_network_service_association' function.
 class CreateServiceNetworkServiceAssociationResponse(BaseValidatorModel):
     arn: str
     createdBy: str
@@ -762,6 +836,7 @@ class CreateServiceNetworkServiceAssociationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_service' function.
 class CreateServiceResponse(BaseValidatorModel):
     arn: str
     authType: AuthTypeType
@@ -774,6 +849,7 @@ class CreateServiceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_service_network_resource_association' function.
 class GetServiceNetworkResourceAssociationResponse(BaseValidatorModel):
     arn: str
     createdAt: datetime
@@ -795,6 +871,7 @@ class GetServiceNetworkResourceAssociationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_service_network_service_association' function.
 class GetServiceNetworkServiceAssociationResponse(BaseValidatorModel):
     arn: str
     createdAt: datetime
@@ -814,6 +891,7 @@ class GetServiceNetworkServiceAssociationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_service' function.
 class GetServiceResponse(BaseValidatorModel):
     arn: str
     authType: AuthTypeType
@@ -875,11 +953,13 @@ class ServiceSummary(BaseValidatorModel):
     status: Optional[ServiceStatusType] = None
 
 
+# This class is the input for the 'deregister_targets' function.
 class DeregisterTargetsRequest(BaseValidatorModel):
     targetGroupIdentifier: str
     targets: List[Target]
 
 
+# This class is the input for the 'list_targets' function.
 class ListTargetsRequest(BaseValidatorModel):
     targetGroupIdentifier: str
     maxResults: Optional[int] = None
@@ -887,17 +967,20 @@ class ListTargetsRequest(BaseValidatorModel):
     targets: Optional[List[Target]] = None
 
 
+# This class is the input for the 'register_targets' function.
 class RegisterTargetsRequest(BaseValidatorModel):
     targetGroupIdentifier: str
     targets: List[Target]
 
 
+# This class is the output for the 'deregister_targets' function.
 class DeregisterTargetsResponse(BaseValidatorModel):
     successful: List[Target]
     unsuccessful: List[TargetFailure]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_targets' function.
 class RegisterTargetsResponse(BaseValidatorModel):
     successful: List[Target]
     unsuccessful: List[TargetFailure]
@@ -1014,60 +1097,70 @@ class ListTargetsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_listeners' function.
 class ListListenersResponse(BaseValidatorModel):
     items: List[ListenerSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_resource_configurations' function.
 class ListResourceConfigurationsResponse(BaseValidatorModel):
     items: List[ResourceConfigurationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_resource_endpoint_associations' function.
 class ListResourceEndpointAssociationsResponse(BaseValidatorModel):
     items: List[ResourceEndpointAssociationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_resource_gateways' function.
 class ListResourceGatewaysResponse(BaseValidatorModel):
     items: List[ResourceGatewaySummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_rules' function.
 class ListRulesResponse(BaseValidatorModel):
     items: List[RuleSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_service_network_vpc_associations' function.
 class ListServiceNetworkVpcAssociationsResponse(BaseValidatorModel):
     items: List[ServiceNetworkVpcAssociationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_service_network_vpc_endpoint_associations' function.
 class ListServiceNetworkVpcEndpointAssociationsResponse(BaseValidatorModel):
     items: List[ServiceNetworkEndpointAssociation]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_service_networks' function.
 class ListServiceNetworksResponse(BaseValidatorModel):
     items: List[ServiceNetworkSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_target_groups' function.
 class ListTargetGroupsResponse(BaseValidatorModel):
     items: List[TargetGroupSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_targets' function.
 class ListTargetsResponse(BaseValidatorModel):
     items: List[TargetSummary]
     ResponseMetadata: ResponseMetadata
@@ -1079,18 +1172,21 @@ class PathMatch(BaseValidatorModel):
     caseSensitive: Optional[bool] = None
 
 
+# This class is the output for the 'list_service_network_resource_associations' function.
 class ListServiceNetworkResourceAssociationsResponse(BaseValidatorModel):
     items: List[ServiceNetworkResourceAssociationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_service_network_service_associations' function.
 class ListServiceNetworkServiceAssociationsResponse(BaseValidatorModel):
     items: List[ServiceNetworkServiceAssociationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_services' function.
 class ListServicesResponse(BaseValidatorModel):
     items: List[ServiceSummary]
     ResponseMetadata: ResponseMetadata
@@ -1114,11 +1210,13 @@ class TargetGroupConfig(BaseValidatorModel):
     vpcIdentifier: Optional[str] = None
 
 
+# This class is the input for the 'update_target_group' function.
 class UpdateTargetGroupRequest(BaseValidatorModel):
     healthCheck: HealthCheckConfig
     targetGroupIdentifier: str
 
 
+# This class is the input for the 'create_resource_configuration' function.
 class CreateResourceConfigurationRequest(BaseValidatorModel):
     name: str
     type: ResourceConfigurationTypeType
@@ -1132,6 +1230,7 @@ class CreateResourceConfigurationRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_resource_configuration' function.
 class CreateResourceConfigurationResponse(BaseValidatorModel):
     allowAssociationToShareableServiceNetwork: bool
     arn: str
@@ -1149,6 +1248,7 @@ class CreateResourceConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_resource_configuration' function.
 class GetResourceConfigurationResponse(BaseValidatorModel):
     allowAssociationToShareableServiceNetwork: bool
     amazonManaged: bool
@@ -1169,6 +1269,7 @@ class GetResourceConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_resource_configuration' function.
 class UpdateResourceConfigurationRequest(BaseValidatorModel):
     resourceConfigurationIdentifier: str
     allowAssociationToShareableServiceNetwork: Optional[bool] = None
@@ -1176,6 +1277,7 @@ class UpdateResourceConfigurationRequest(BaseValidatorModel):
     resourceConfigurationDefinition: Optional[ResourceConfigurationDefinition] = None
 
 
+# This class is the output for the 'update_resource_configuration' function.
 class UpdateResourceConfigurationResponse(BaseValidatorModel):
     allowAssociationToShareableServiceNetwork: bool
     arn: str
@@ -1203,6 +1305,7 @@ class HttpMatch(BaseValidatorModel):
     pathMatch: Optional[PathMatch] = None
 
 
+# This class is the output for the 'create_listener' function.
 class CreateListenerResponse(BaseValidatorModel):
     arn: str
     defaultAction: RuleActionOutput
@@ -1215,6 +1318,7 @@ class CreateListenerResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_listener' function.
 class GetListenerResponse(BaseValidatorModel):
     arn: str
     createdAt: datetime
@@ -1229,6 +1333,7 @@ class GetListenerResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_listener' function.
 class UpdateListenerResponse(BaseValidatorModel):
     arn: str
     defaultAction: RuleActionOutput
@@ -1246,6 +1351,7 @@ class RuleAction(BaseValidatorModel):
     forward: Optional[ForwardActionUnion] = None
 
 
+# This class is the input for the 'create_target_group' function.
 class CreateTargetGroupRequest(BaseValidatorModel):
     name: str
     type: TargetGroupTypeType
@@ -1254,6 +1360,7 @@ class CreateTargetGroupRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_target_group' function.
 class CreateTargetGroupResponse(BaseValidatorModel):
     arn: str
     config: TargetGroupConfig
@@ -1264,6 +1371,7 @@ class CreateTargetGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_target_group' function.
 class GetTargetGroupResponse(BaseValidatorModel):
     arn: str
     config: TargetGroupConfig
@@ -1279,6 +1387,7 @@ class GetTargetGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_target_group' function.
 class UpdateTargetGroupResponse(BaseValidatorModel):
     arn: str
     config: TargetGroupConfig
@@ -1297,6 +1406,7 @@ HttpMatchUnion = Union[HttpMatch, HttpMatchOutput]
 RuleActionUnion = Union[RuleAction, RuleActionOutput]
 
 
+# This class is the output for the 'create_rule' function.
 class CreateRuleResponse(BaseValidatorModel):
     action: RuleActionOutput
     arn: str
@@ -1307,6 +1417,7 @@ class CreateRuleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_rule' function.
 class GetRuleResponse(BaseValidatorModel):
     action: RuleActionOutput
     arn: str
@@ -1330,6 +1441,7 @@ class RuleUpdateSuccess(BaseValidatorModel):
     priority: Optional[int] = None
 
 
+# This class is the output for the 'update_rule' function.
 class UpdateRuleResponse(BaseValidatorModel):
     action: RuleActionOutput
     arn: str
@@ -1345,6 +1457,7 @@ class RuleMatch(BaseValidatorModel):
     httpMatch: Optional[HttpMatchUnion] = None
 
 
+# This class is the input for the 'create_listener' function.
 class CreateListenerRequest(BaseValidatorModel):
     defaultAction: RuleActionUnion
     name: str
@@ -1355,12 +1468,14 @@ class CreateListenerRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_listener' function.
 class UpdateListenerRequest(BaseValidatorModel):
     defaultAction: RuleActionUnion
     listenerIdentifier: str
     serviceIdentifier: str
 
 
+# This class is the output for the 'batch_update_rule' function.
 class BatchUpdateRuleResponse(BaseValidatorModel):
     successful: List[RuleUpdateSuccess]
     unsuccessful: List[RuleUpdateFailure]
@@ -1369,6 +1484,7 @@ class BatchUpdateRuleResponse(BaseValidatorModel):
 RuleMatchUnion = Union[RuleMatch, RuleMatchOutput]
 
 
+# This class is the input for the 'create_rule' function.
 class CreateRuleRequest(BaseValidatorModel):
     action: RuleActionUnion
     listenerIdentifier: str
@@ -1387,6 +1503,7 @@ class RuleUpdate(BaseValidatorModel):
     priority: Optional[int] = None
 
 
+# This class is the input for the 'update_rule' function.
 class UpdateRuleRequest(BaseValidatorModel):
     listenerIdentifier: str
     ruleIdentifier: str
@@ -1396,6 +1513,7 @@ class UpdateRuleRequest(BaseValidatorModel):
     priority: Optional[int] = None
 
 
+# This class is the input for the 'batch_update_rule' function.
 class BatchUpdateRuleRequest(BaseValidatorModel):
     listenerIdentifier: str
     rules: List[RuleUpdate]

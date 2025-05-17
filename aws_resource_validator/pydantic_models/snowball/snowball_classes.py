@@ -71,12 +71,14 @@ class JobListEntry(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'create_long_term_pricing' function.
 class CreateLongTermPricingRequest(BaseValidatorModel):
     LongTermPricingType: LongTermPricingTypeType
     SnowballType: SnowballTypeType
     IsLongTermPricingAutoRenew: Optional[bool] = None
 
 
+# This class is the input for the 'create_return_shipping_label' function.
 class CreateReturnShippingLabelRequest(BaseValidatorModel):
     JobId: str
     ShippingOption: Optional[ShippingOptionType] = None
@@ -93,6 +95,7 @@ class ServiceVersion(BaseValidatorModel):
     Version: Optional[str] = None
 
 
+# This class is the input for the 'describe_address' function.
 class DescribeAddressRequest(BaseValidatorModel):
     AddressId: str
 
@@ -103,19 +106,23 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_addresses' function.
 class DescribeAddressesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_cluster' function.
 class DescribeClusterRequest(BaseValidatorModel):
     ClusterId: str
 
 
+# This class is the input for the 'describe_job' function.
 class DescribeJobRequest(BaseValidatorModel):
     JobId: str
 
 
+# This class is the input for the 'describe_return_shipping_label' function.
 class DescribeReturnShippingLabelRequest(BaseValidatorModel):
     JobId: str
 
@@ -134,14 +141,17 @@ class EventTriggerDefinition(BaseValidatorModel):
     EventResourceARN: Optional[str] = None
 
 
+# This class is the input for the 'get_job_manifest' function.
 class GetJobManifestRequest(BaseValidatorModel):
     JobId: str
 
 
+# This class is the input for the 'get_job_unlock_code' function.
 class GetJobUnlockCodeRequest(BaseValidatorModel):
     JobId: str
 
 
+# This class is the input for the 'get_software_updates' function.
 class GetSoftwareUpdatesRequest(BaseValidatorModel):
     JobId: str
 
@@ -171,27 +181,32 @@ class KeyRange(BaseValidatorModel):
     EndMarker: Optional[str] = None
 
 
+# This class is the input for the 'list_cluster_jobs' function.
 class ListClusterJobsRequest(BaseValidatorModel):
     ClusterId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_clusters' function.
 class ListClustersRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_compatible_images' function.
 class ListCompatibleImagesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_jobs' function.
 class ListJobsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_long_term_pricing' function.
 class ListLongTermPricingRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -210,6 +225,7 @@ class LongTermPricingListEntry(BaseValidatorModel):
     JobIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_pickup_locations' function.
 class ListPickupLocationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -266,41 +282,49 @@ class UpdateLongTermPricingRequest(BaseValidatorModel):
     IsLongTermPricingAutoRenew: Optional[bool] = None
 
 
+# This class is the input for the 'create_address' function.
 class CreateAddressRequest(BaseValidatorModel):
     Address: Address
 
 
+# This class is the output for the 'create_address' function.
 class CreateAddressResult(BaseValidatorModel):
     AddressId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_job' function.
 class CreateJobResult(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_long_term_pricing' function.
 class CreateLongTermPricingResult(BaseValidatorModel):
     LongTermPricingId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_return_shipping_label' function.
 class CreateReturnShippingLabelResult(BaseValidatorModel):
     Status: ShippingLabelStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_address' function.
 class DescribeAddressResult(BaseValidatorModel):
     Address: Address
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_addresses' function.
 class DescribeAddressesResult(BaseValidatorModel):
     Addresses: List[Address]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_return_shipping_label' function.
 class DescribeReturnShippingLabelResult(BaseValidatorModel):
     Status: ShippingLabelStatusType
     ExpirationDate: datetime
@@ -308,11 +332,13 @@ class DescribeReturnShippingLabelResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_job_manifest' function.
 class GetJobManifestResult(BaseValidatorModel):
     ManifestURI: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_job_unlock_code' function.
 class GetJobUnlockCodeResult(BaseValidatorModel):
     UnlockCode: str
     ResponseMetadata: ResponseMetadata
@@ -324,41 +350,48 @@ class GetSnowballUsageResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_software_updates' function.
 class GetSoftwareUpdatesResult(BaseValidatorModel):
     UpdatesURI: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_clusters' function.
 class ListClustersResult(BaseValidatorModel):
     ClusterListEntries: List[ClusterListEntry]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_compatible_images' function.
 class ListCompatibleImagesResult(BaseValidatorModel):
     CompatibleImages: List[CompatibleImage]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_pickup_locations' function.
 class ListPickupLocationsResult(BaseValidatorModel):
     Addresses: List[Address]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_cluster' function.
 class CreateClusterResult(BaseValidatorModel):
     ClusterId: str
     JobListEntries: List[JobListEntry]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_cluster_jobs' function.
 class ListClusterJobsResult(BaseValidatorModel):
     JobListEntries: List[JobListEntry]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_jobs' function.
 class ListJobsResult(BaseValidatorModel):
     JobListEntries: List[JobListEntry]
     ResponseMetadata: ResponseMetadata
@@ -409,6 +442,7 @@ class TaxDocuments(BaseValidatorModel):
     IND: Optional[INDTaxDocuments] = None
 
 
+# This class is the output for the 'list_long_term_pricing' function.
 class ListLongTermPricingResult(BaseValidatorModel):
     LongTermPricingEntries: List[LongTermPricingListEntry]
     ResponseMetadata: ResponseMetadata
@@ -456,6 +490,7 @@ class SnowconeDeviceConfiguration(BaseValidatorModel):
     WirelessConnection: Optional[WirelessConnection] = None
 
 
+# This class is the input for the 'list_service_versions' function.
 class ListServiceVersionsRequest(BaseValidatorModel):
     ServiceName: ServiceNameType
     DependentServices: Optional[List[DependentService]] = None
@@ -463,6 +498,7 @@ class ListServiceVersionsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_service_versions' function.
 class ListServiceVersionsResult(BaseValidatorModel):
     ServiceVersions: List[ServiceVersion]
     ServiceName: ServiceNameType
@@ -537,11 +573,13 @@ class JobMetadata(BaseValidatorModel):
     SnowballId: Optional[str] = None
 
 
+# This class is the output for the 'describe_cluster' function.
 class DescribeClusterResult(BaseValidatorModel):
     ClusterMetadata: ClusterMetadata
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_cluster' function.
 class CreateClusterRequest(BaseValidatorModel):
     JobType: JobTypeType
     AddressId: str
@@ -562,6 +600,7 @@ class CreateClusterRequest(BaseValidatorModel):
     SnowballCapacityPreference: Optional[SnowballCapacityType] = None
 
 
+# This class is the input for the 'create_job' function.
 class CreateJobRequest(BaseValidatorModel):
     JobType: Optional[JobTypeType] = None
     Resources: Optional[JobResourceUnion] = None
@@ -610,6 +649,7 @@ class UpdateJobRequest(BaseValidatorModel):
     PickupDetails: Optional[PickupDetailsUnion] = None
 
 
+# This class is the output for the 'describe_job' function.
 class DescribeJobResult(BaseValidatorModel):
     JobMetadata: JobMetadata
     SubJobMetadata: List[JobMetadata]

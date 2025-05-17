@@ -21,6 +21,7 @@ class AttributeValue(BaseValidatorModel):
     BOOL: Optional[bool] = None
 
 
+# This class is the input for the 'describe_stream' function.
 class DescribeStreamInput(BaseValidatorModel):
     StreamArn: str
     Limit: Optional[int] = None
@@ -35,11 +36,13 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'get_records' function.
 class GetRecordsInput(BaseValidatorModel):
     ShardIterator: str
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'get_shard_iterator' function.
 class GetShardIteratorInput(BaseValidatorModel):
     StreamArn: str
     ShardId: str
@@ -57,6 +60,7 @@ class KeySchemaElement(BaseValidatorModel):
     KeyType: KeyTypeType
 
 
+# This class is the input for the 'list_streams' function.
 class ListStreamsInput(BaseValidatorModel):
     TableName: Optional[str] = None
     Limit: Optional[int] = None
@@ -84,11 +88,13 @@ class StreamRecord(BaseValidatorModel):
     StreamViewType: Optional[StreamViewTypeType] = None
 
 
+# This class is the output for the 'get_shard_iterator' function.
 class GetShardIteratorOutput(BaseValidatorModel):
     ShardIterator: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_streams' function.
 class ListStreamsOutput(BaseValidatorModel):
     Streams: List[Stream]
     LastEvaluatedStreamArn: str
@@ -123,12 +129,14 @@ class StreamDescription(BaseValidatorModel):
     LastEvaluatedShardId: Optional[str] = None
 
 
+# This class is the output for the 'get_records' function.
 class GetRecordsOutput(BaseValidatorModel):
     Records: List[Record]
     NextShardIterator: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_stream' function.
 class DescribeStreamOutput(BaseValidatorModel):
     StreamDescription: StreamDescription
     ResponseMetadata: ResponseMetadata

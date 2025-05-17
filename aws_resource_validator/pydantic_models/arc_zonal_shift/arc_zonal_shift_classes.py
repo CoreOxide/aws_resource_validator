@@ -21,6 +21,7 @@ class AutoshiftSummary(BaseValidatorModel):
     status: AutoshiftExecutionStatusType
 
 
+# This class is the input for the 'cancel_zonal_shift' function.
 class CancelZonalShiftRequest(BaseValidatorModel):
     zonalShiftId: str
 
@@ -38,10 +39,12 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'delete_practice_run_configuration' function.
 class DeletePracticeRunConfigurationRequest(BaseValidatorModel):
     resourceIdentifier: str
 
 
+# This class is the input for the 'get_managed_resource' function.
 class GetManagedResourceRequest(BaseValidatorModel):
     resourceIdentifier: str
 
@@ -63,17 +66,20 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_autoshifts' function.
 class ListAutoshiftsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     status: Optional[AutoshiftExecutionStatusType] = None
 
 
+# This class is the input for the 'list_managed_resources' function.
 class ListManagedResourcesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_zonal_shifts' function.
 class ListZonalShiftsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -92,6 +98,7 @@ class ZonalShiftSummary(BaseValidatorModel):
     practiceRunOutcome: Optional[PracticeRunOutcomeType] = None
 
 
+# This class is the input for the 'start_zonal_shift' function.
 class StartZonalShiftRequest(BaseValidatorModel):
     awayFrom: str
     comment: str
@@ -99,21 +106,25 @@ class StartZonalShiftRequest(BaseValidatorModel):
     resourceIdentifier: str
 
 
+# This class is the input for the 'update_autoshift_observer_notification_status' function.
 class UpdateAutoshiftObserverNotificationStatusRequest(BaseValidatorModel):
     status: AutoshiftObserverNotificationStatusType
 
 
+# This class is the input for the 'update_zonal_autoshift_configuration' function.
 class UpdateZonalAutoshiftConfigurationRequest(BaseValidatorModel):
     resourceIdentifier: str
     zonalAutoshiftStatus: ZonalAutoshiftStatusType
 
 
+# This class is the input for the 'update_zonal_shift' function.
 class UpdateZonalShiftRequest(BaseValidatorModel):
     zonalShiftId: str
     comment: Optional[str] = None
     expiresIn: Optional[str] = None
 
 
+# This class is the input for the 'create_practice_run_configuration' function.
 class CreatePracticeRunConfigurationRequest(BaseValidatorModel):
     outcomeAlarms: List[ControlCondition]
     resourceIdentifier: str
@@ -129,6 +140,7 @@ class PracticeRunConfiguration(BaseValidatorModel):
     blockingAlarms: Optional[List[ControlCondition]] = None
 
 
+# This class is the input for the 'update_practice_run_configuration' function.
 class UpdatePracticeRunConfigurationRequest(BaseValidatorModel):
     resourceIdentifier: str
     blockedDates: Optional[List[str]] = None
@@ -137,6 +149,7 @@ class UpdatePracticeRunConfigurationRequest(BaseValidatorModel):
     outcomeAlarms: Optional[List[ControlCondition]] = None
 
 
+# This class is the output for the 'delete_practice_run_configuration' function.
 class DeletePracticeRunConfigurationResponse(BaseValidatorModel):
     arn: str
     name: str
@@ -149,23 +162,27 @@ class GetAutoshiftObserverNotificationStatusResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_autoshifts' function.
 class ListAutoshiftsResponse(BaseValidatorModel):
     items: List[AutoshiftSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_autoshift_observer_notification_status' function.
 class UpdateAutoshiftObserverNotificationStatusResponse(BaseValidatorModel):
     status: AutoshiftObserverNotificationStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_zonal_autoshift_configuration' function.
 class UpdateZonalAutoshiftConfigurationResponse(BaseValidatorModel):
     resourceIdentifier: str
     zonalAutoshiftStatus: ZonalAutoshiftStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_zonal_shift' function.
 class ZonalShift(BaseValidatorModel):
     awayFrom: str
     comment: str
@@ -203,12 +220,14 @@ class ListZonalShiftsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_zonal_shifts' function.
 class ListZonalShiftsResponse(BaseValidatorModel):
     items: List[ZonalShiftSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_practice_run_configuration' function.
 class CreatePracticeRunConfigurationResponse(BaseValidatorModel):
     arn: str
     name: str
@@ -217,6 +236,7 @@ class CreatePracticeRunConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_managed_resource' function.
 class GetManagedResourceResponse(BaseValidatorModel):
     appliedWeights: Dict[str, float]
     arn: str
@@ -228,6 +248,7 @@ class GetManagedResourceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_practice_run_configuration' function.
 class UpdatePracticeRunConfigurationResponse(BaseValidatorModel):
     arn: str
     name: str
@@ -236,6 +257,7 @@ class UpdatePracticeRunConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_managed_resources' function.
 class ListManagedResourcesResponse(BaseValidatorModel):
     items: List[ManagedResourceSummary]
     ResponseMetadata: ResponseMetadata

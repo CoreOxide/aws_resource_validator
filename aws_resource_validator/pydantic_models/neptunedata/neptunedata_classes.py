@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'cancel_gremlin_query' function.
 class CancelGremlinQueryInput(BaseValidatorModel):
     queryId: str
 
@@ -20,33 +21,39 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'cancel_loader_job' function.
 class CancelLoaderJobInput(BaseValidatorModel):
     loadId: str
 
 
+# This class is the input for the 'cancel_ml_data_processing_job' function.
 class CancelMLDataProcessingJobInput(BaseValidatorModel):
     id: str
     neptuneIamRoleArn: Optional[str] = None
     clean: Optional[bool] = None
 
 
+# This class is the input for the 'cancel_ml_model_training_job' function.
 class CancelMLModelTrainingJobInput(BaseValidatorModel):
     id: str
     neptuneIamRoleArn: Optional[str] = None
     clean: Optional[bool] = None
 
 
+# This class is the input for the 'cancel_ml_model_transform_job' function.
 class CancelMLModelTransformJobInput(BaseValidatorModel):
     id: str
     neptuneIamRoleArn: Optional[str] = None
     clean: Optional[bool] = None
 
 
+# This class is the input for the 'cancel_open_cypher_query' function.
 class CancelOpenCypherQueryInput(BaseValidatorModel):
     queryId: str
     silent: Optional[bool] = None
 
 
+# This class is the input for the 'create_ml_endpoint' function.
 class CreateMLEndpointInput(BaseValidatorModel):
     id: Optional[str] = None
     mlModelTrainingJobId: Optional[str] = None
@@ -70,6 +77,7 @@ class CustomModelTransformParameters(BaseValidatorModel):
     transformEntryPointScript: Optional[str] = None
 
 
+# This class is the input for the 'delete_ml_endpoint' function.
 class DeleteMLEndpointInput(BaseValidatorModel):
     id: str
     neptuneIamRoleArn: Optional[str] = None
@@ -86,6 +94,7 @@ class EdgeStructure(BaseValidatorModel):
     edgeProperties: Optional[List[str]] = None
 
 
+# This class is the input for the 'execute_fast_reset' function.
 class ExecuteFastResetInput(BaseValidatorModel):
     action: ActionType
     token: Optional[str] = None
@@ -95,10 +104,12 @@ class FastResetToken(BaseValidatorModel):
     token: Optional[str] = None
 
 
+# This class is the input for the 'execute_gremlin_explain_query' function.
 class ExecuteGremlinExplainQueryInput(BaseValidatorModel):
     gremlinQuery: str
 
 
+# This class is the input for the 'execute_gremlin_profile_query' function.
 class ExecuteGremlinProfileQueryInput(BaseValidatorModel):
     gremlinQuery: str
     results: Optional[bool] = None
@@ -107,6 +118,7 @@ class ExecuteGremlinProfileQueryInput(BaseValidatorModel):
     indexOps: Optional[bool] = None
 
 
+# This class is the input for the 'execute_gremlin_query' function.
 class ExecuteGremlinQueryInput(BaseValidatorModel):
     gremlinQuery: str
     serializer: Optional[str] = None
@@ -118,12 +130,14 @@ class GremlinQueryStatusAttributes(BaseValidatorModel):
     attributes: Optional[Dict[str, Any]] = None
 
 
+# This class is the input for the 'execute_open_cypher_explain_query' function.
 class ExecuteOpenCypherExplainQueryInput(BaseValidatorModel):
     openCypherQuery: str
     explainMode: OpenCypherExplainModeType
     parameters: Optional[str] = None
 
 
+# This class is the input for the 'execute_open_cypher_query' function.
 class ExecuteOpenCypherQueryInput(BaseValidatorModel):
     openCypherQuery: str
     parameters: Optional[str] = None
@@ -133,6 +147,7 @@ class QueryLanguageVersion(BaseValidatorModel):
     version: str
 
 
+# This class is the input for the 'get_gremlin_query_status' function.
 class GetGremlinQueryStatusInput(BaseValidatorModel):
     queryId: str
 
@@ -144,6 +159,7 @@ class QueryEvalStats(BaseValidatorModel):
     subqueries: Optional[Dict[str, Any]] = None
 
 
+# This class is the input for the 'get_loader_job_status' function.
 class GetLoaderJobStatusInput(BaseValidatorModel):
     loadId: str
     details: Optional[bool] = None
@@ -152,6 +168,7 @@ class GetLoaderJobStatusInput(BaseValidatorModel):
     errorsPerPage: Optional[int] = None
 
 
+# This class is the input for the 'get_ml_data_processing_job' function.
 class GetMLDataProcessingJobInput(BaseValidatorModel):
     id: str
     neptuneIamRoleArn: Optional[str] = None
@@ -166,6 +183,7 @@ class MlResourceDefinition(BaseValidatorModel):
     cloudwatchLogUrl: Optional[str] = None
 
 
+# This class is the input for the 'get_ml_endpoint' function.
 class GetMLEndpointInput(BaseValidatorModel):
     id: str
     neptuneIamRoleArn: Optional[str] = None
@@ -176,20 +194,24 @@ class MlConfigDefinition(BaseValidatorModel):
     arn: Optional[str] = None
 
 
+# This class is the input for the 'get_ml_model_training_job' function.
 class GetMLModelTrainingJobInput(BaseValidatorModel):
     id: str
     neptuneIamRoleArn: Optional[str] = None
 
 
+# This class is the input for the 'get_ml_model_transform_job' function.
 class GetMLModelTransformJobInput(BaseValidatorModel):
     id: str
     neptuneIamRoleArn: Optional[str] = None
 
 
+# This class is the input for the 'get_open_cypher_query_status' function.
 class GetOpenCypherQueryStatusInput(BaseValidatorModel):
     queryId: str
 
 
+# This class is the input for the 'get_propertygraph_stream' function.
 class GetPropertygraphStreamInput(BaseValidatorModel):
     limit: Optional[int] = None
     iteratorType: Optional[IteratorTypeType] = None
@@ -198,14 +220,17 @@ class GetPropertygraphStreamInput(BaseValidatorModel):
     encoding: Optional[Literal['gzip']] = None
 
 
+# This class is the input for the 'get_propertygraph_summary' function.
 class GetPropertygraphSummaryInput(BaseValidatorModel):
     mode: Optional[GraphSummaryTypeType] = None
 
 
+# This class is the input for the 'get_rdf_graph_summary' function.
 class GetRDFGraphSummaryInput(BaseValidatorModel):
     mode: Optional[GraphSummaryTypeType] = None
 
 
+# This class is the input for the 'get_sparql_stream' function.
 class GetSparqlStreamInput(BaseValidatorModel):
     limit: Optional[int] = None
     iteratorType: Optional[IteratorTypeType] = None
@@ -214,10 +239,12 @@ class GetSparqlStreamInput(BaseValidatorModel):
     encoding: Optional[Literal['gzip']] = None
 
 
+# This class is the input for the 'list_gremlin_queries' function.
 class ListGremlinQueriesInput(BaseValidatorModel):
     includeWaiting: Optional[bool] = None
 
 
+# This class is the input for the 'list_loader_jobs' function.
 class ListLoaderJobsInput(BaseValidatorModel):
     limit: Optional[int] = None
     includeQueuedLoads: Optional[bool] = None
@@ -227,30 +254,36 @@ class LoaderIdResult(BaseValidatorModel):
     loadIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_ml_data_processing_jobs' function.
 class ListMLDataProcessingJobsInput(BaseValidatorModel):
     maxItems: Optional[int] = None
     neptuneIamRoleArn: Optional[str] = None
 
 
+# This class is the input for the 'list_ml_endpoints' function.
 class ListMLEndpointsInput(BaseValidatorModel):
     maxItems: Optional[int] = None
     neptuneIamRoleArn: Optional[str] = None
 
 
+# This class is the input for the 'list_ml_model_training_jobs' function.
 class ListMLModelTrainingJobsInput(BaseValidatorModel):
     maxItems: Optional[int] = None
     neptuneIamRoleArn: Optional[str] = None
 
 
+# This class is the input for the 'list_ml_model_transform_jobs' function.
 class ListMLModelTransformJobsInput(BaseValidatorModel):
     maxItems: Optional[int] = None
     neptuneIamRoleArn: Optional[str] = None
 
 
+# This class is the input for the 'list_open_cypher_queries' function.
 class ListOpenCypherQueriesInput(BaseValidatorModel):
     includeWaiting: Optional[bool] = None
 
 
+# This class is the input for the 'manage_propertygraph_statistics' function.
 class ManagePropertygraphStatisticsInput(BaseValidatorModel):
     mode: Optional[StatisticsAutoGenerationModeType] = None
 
@@ -259,6 +292,7 @@ class RefreshStatisticsIdMap(BaseValidatorModel):
     statisticsId: Optional[str] = None
 
 
+# This class is the input for the 'manage_sparql_statistics' function.
 class ManageSparqlStatisticsInput(BaseValidatorModel):
     mode: Optional[StatisticsAutoGenerationModeType] = None
 
@@ -287,6 +321,7 @@ class SparqlData(BaseValidatorModel):
     stmt: str
 
 
+# This class is the input for the 'start_loader_job' function.
 class StartLoaderJobInput(BaseValidatorModel):
     source: str
     format: FormatType
@@ -302,6 +337,7 @@ class StartLoaderJobInput(BaseValidatorModel):
     userProvidedEdgeIds: Optional[bool] = None
 
 
+# This class is the input for the 'start_ml_data_processing_job' function.
 class StartMLDataProcessingJobInput(BaseValidatorModel):
     inputDataS3Location: str
     processedDataS3Location: str
@@ -326,37 +362,44 @@ class StatisticsSummary(BaseValidatorModel):
     predicateCount: Optional[int] = None
 
 
+# This class is the output for the 'cancel_gremlin_query' function.
 class CancelGremlinQueryOutput(BaseValidatorModel):
     status: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_loader_job' function.
 class CancelLoaderJobOutput(BaseValidatorModel):
     status: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_ml_data_processing_job' function.
 class CancelMLDataProcessingJobOutput(BaseValidatorModel):
     status: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_ml_model_training_job' function.
 class CancelMLModelTrainingJobOutput(BaseValidatorModel):
     status: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_ml_model_transform_job' function.
 class CancelMLModelTransformJobOutput(BaseValidatorModel):
     status: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_open_cypher_query' function.
 class CancelOpenCypherQueryOutput(BaseValidatorModel):
     status: str
     payload: bool
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_ml_endpoint' function.
 class CreateMLEndpointOutput(BaseValidatorModel):
     id: str
     arn: str
@@ -364,63 +407,75 @@ class CreateMLEndpointOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_ml_endpoint' function.
 class DeleteMLEndpointOutput(BaseValidatorModel):
     status: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'execute_gremlin_explain_query' function.
 class ExecuteGremlinExplainQueryOutput(BaseValidatorModel):
     output: StreamingBody
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'execute_gremlin_profile_query' function.
 class ExecuteGremlinProfileQueryOutput(BaseValidatorModel):
     output: StreamingBody
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'execute_open_cypher_explain_query' function.
 class ExecuteOpenCypherExplainQueryOutput(BaseValidatorModel):
     results: StreamingBody
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'execute_open_cypher_query' function.
 class ExecuteOpenCypherQueryOutput(BaseValidatorModel):
     results: Dict[str, Any]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_loader_job_status' function.
 class GetLoaderJobStatusOutput(BaseValidatorModel):
     status: str
     payload: Dict[str, Any]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_ml_data_processing_jobs' function.
 class ListMLDataProcessingJobsOutput(BaseValidatorModel):
     ids: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_ml_endpoints' function.
 class ListMLEndpointsOutput(BaseValidatorModel):
     ids: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_ml_model_training_jobs' function.
 class ListMLModelTrainingJobsOutput(BaseValidatorModel):
     ids: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_ml_model_transform_jobs' function.
 class ListMLModelTransformJobsOutput(BaseValidatorModel):
     ids: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_loader_job' function.
 class StartLoaderJobOutput(BaseValidatorModel):
     status: str
     payload: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_ml_data_processing_job' function.
 class StartMLDataProcessingJobOutput(BaseValidatorModel):
     id: str
     arn: str
@@ -428,6 +483,7 @@ class StartMLDataProcessingJobOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_ml_model_training_job' function.
 class StartMLModelTrainingJobOutput(BaseValidatorModel):
     id: str
     arn: str
@@ -435,6 +491,7 @@ class StartMLModelTrainingJobOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_ml_model_transform_job' function.
 class StartMLModelTransformJobOutput(BaseValidatorModel):
     id: str
     arn: str
@@ -442,6 +499,7 @@ class StartMLModelTransformJobOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_ml_model_training_job' function.
 class StartMLModelTrainingJobInput(BaseValidatorModel):
     dataProcessingJobId: str
     trainModelS3Location: str
@@ -463,6 +521,7 @@ class StartMLModelTrainingJobInput(BaseValidatorModel):
     customModelTrainingParameters: Optional[CustomModelTrainingParameters] = None
 
 
+# This class is the input for the 'start_ml_model_transform_job' function.
 class StartMLModelTransformJobInput(BaseValidatorModel):
     modelTransformOutputS3Location: str
     id: Optional[str] = None
@@ -494,12 +553,14 @@ class DeleteSparqlStatisticsOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'execute_fast_reset' function.
 class ExecuteFastResetOutput(BaseValidatorModel):
     status: str
     payload: FastResetToken
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'execute_gremlin_query' function.
 class ExecuteGremlinQueryOutput(BaseValidatorModel):
     requestId: str
     status: GremlinQueryStatusAttributes
@@ -525,6 +586,7 @@ class GetEngineStatusOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_gremlin_query_status' function.
 class GetGremlinQueryStatusOutput(BaseValidatorModel):
     queryId: str
     queryString: str
@@ -532,6 +594,7 @@ class GetGremlinQueryStatusOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_open_cypher_query_status' function.
 class GetOpenCypherQueryStatusOutput(BaseValidatorModel):
     queryId: str
     queryString: str
@@ -545,6 +608,7 @@ class GremlinQueryStatus(BaseValidatorModel):
     queryEvalStats: Optional[QueryEvalStats] = None
 
 
+# This class is the output for the 'get_ml_data_processing_job' function.
 class GetMLDataProcessingJobOutput(BaseValidatorModel):
     status: str
     id: str
@@ -552,6 +616,7 @@ class GetMLDataProcessingJobOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_ml_endpoint' function.
 class GetMLEndpointOutput(BaseValidatorModel):
     status: str
     id: str
@@ -560,6 +625,7 @@ class GetMLEndpointOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_ml_model_training_job' function.
 class GetMLModelTrainingJobOutput(BaseValidatorModel):
     status: str
     id: str
@@ -570,6 +636,7 @@ class GetMLModelTrainingJobOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_ml_model_transform_job' function.
 class GetMLModelTransformJobOutput(BaseValidatorModel):
     status: str
     id: str
@@ -579,18 +646,21 @@ class GetMLModelTransformJobOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_loader_jobs' function.
 class ListLoaderJobsOutput(BaseValidatorModel):
     status: str
     payload: LoaderIdResult
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'manage_propertygraph_statistics' function.
 class ManagePropertygraphStatisticsOutput(BaseValidatorModel):
     status: str
     payload: RefreshStatisticsIdMap
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'manage_sparql_statistics' function.
 class ManageSparqlStatisticsOutput(BaseValidatorModel):
     status: str
     payload: RefreshStatisticsIdMap
@@ -649,6 +719,7 @@ class Statistics(BaseValidatorModel):
     signatureInfo: Optional[StatisticsSummary] = None
 
 
+# This class is the output for the 'list_gremlin_queries' function.
 class ListGremlinQueriesOutput(BaseValidatorModel):
     acceptedQueryCount: int
     runningQueryCount: int
@@ -656,6 +727,7 @@ class ListGremlinQueriesOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_open_cypher_queries' function.
 class ListOpenCypherQueriesOutput(BaseValidatorModel):
     acceptedQueryCount: int
     runningQueryCount: int
@@ -669,6 +741,7 @@ class PropertygraphSummaryValueMap(BaseValidatorModel):
     graphSummary: Optional[PropertygraphSummary] = None
 
 
+# This class is the output for the 'get_propertygraph_stream' function.
 class GetPropertygraphStreamOutput(BaseValidatorModel):
     lastEventId: Dict[str, str]
     lastTrxTimestampInMillis: int
@@ -684,6 +757,7 @@ class RDFGraphSummaryValueMap(BaseValidatorModel):
     graphSummary: Optional[RDFGraphSummary] = None
 
 
+# This class is the output for the 'get_sparql_stream' function.
 class GetSparqlStreamOutput(BaseValidatorModel):
     lastEventId: Dict[str, str]
     lastTrxTimestampInMillis: int
@@ -705,12 +779,14 @@ class GetSparqlStatisticsOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_propertygraph_summary' function.
 class GetPropertygraphSummaryOutput(BaseValidatorModel):
     statusCode: int
     payload: PropertygraphSummaryValueMap
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_rdf_graph_summary' function.
 class GetRDFGraphSummaryOutput(BaseValidatorModel):
     statusCode: int
     payload: RDFGraphSummaryValueMap

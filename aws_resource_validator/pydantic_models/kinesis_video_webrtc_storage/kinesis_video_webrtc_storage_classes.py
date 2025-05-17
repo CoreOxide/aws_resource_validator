@@ -16,14 +16,17 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'join_storage_session_as_viewer' function.
 class JoinStorageSessionAsViewerInput(BaseValidatorModel):
     channelArn: str
     clientId: str
 
 
+# This class is the input for the 'join_storage_session' function.
 class JoinStorageSessionInput(BaseValidatorModel):
     channelArn: str
 
 
+# This class is the output for the 'join_storage_session_as_viewer' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata

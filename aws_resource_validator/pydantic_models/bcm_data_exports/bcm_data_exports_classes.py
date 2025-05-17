@@ -37,6 +37,7 @@ class DataQuery(BaseValidatorModel):
     TableConfigurations: Optional[Dict[str, Dict[str, str]]] = None
 
 
+# This class is the input for the 'delete_export' function.
 class DeleteExportRequest(BaseValidatorModel):
     ExportArn: str
 
@@ -61,15 +62,18 @@ class ExportStatus(BaseValidatorModel):
     StatusReason: Optional[ExecutionStatusReasonType] = None
 
 
+# This class is the input for the 'get_execution' function.
 class GetExecutionRequest(BaseValidatorModel):
     ExecutionId: str
     ExportArn: str
 
 
+# This class is the input for the 'get_export' function.
 class GetExportRequest(BaseValidatorModel):
     ExportArn: str
 
 
+# This class is the input for the 'get_table' function.
 class GetTableRequest(BaseValidatorModel):
     TableName: str
     TableProperties: Optional[Dict[str, str]] = None
@@ -81,22 +85,26 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_executions' function.
 class ListExecutionsRequest(BaseValidatorModel):
     ExportArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_exports' function.
 class ListExportsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tables' function.
 class ListTablesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
     MaxResults: Optional[int] = None
@@ -127,16 +135,19 @@ class TagResourceRequest(BaseValidatorModel):
     ResourceTags: List[ResourceTag]
 
 
+# This class is the output for the 'create_export' function.
 class CreateExportResponse(BaseValidatorModel):
     ExportArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_export' function.
 class DeleteExportResponse(BaseValidatorModel):
     ExportArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_table' function.
 class GetTableResponse(BaseValidatorModel):
     Description: str
     Schema: List[Column]
@@ -145,12 +156,14 @@ class GetTableResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     ResourceTags: List[ResourceTag]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_export' function.
 class UpdateExportResponse(BaseValidatorModel):
     ExportArn: str
     ResponseMetadata: ResponseMetadata
@@ -193,12 +206,14 @@ class Table(BaseValidatorModel):
     TableProperties: Optional[List[TablePropertyDescription]] = None
 
 
+# This class is the output for the 'list_executions' function.
 class ListExecutionsResponse(BaseValidatorModel):
     Executions: List[ExecutionReference]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_exports' function.
 class ListExportsResponse(BaseValidatorModel):
     Exports: List[ExportReference]
     ResponseMetadata: ResponseMetadata
@@ -209,6 +224,7 @@ class DestinationConfigurations(BaseValidatorModel):
     S3Destination: S3Destination
 
 
+# This class is the output for the 'list_tables' function.
 class ListTablesResponse(BaseValidatorModel):
     Tables: List[Table]
     ResponseMetadata: ResponseMetadata
@@ -233,6 +249,7 @@ class Export(BaseValidatorModel):
     ExportArn: Optional[str] = None
 
 
+# This class is the output for the 'get_execution' function.
 class GetExecutionResponse(BaseValidatorModel):
     ExecutionId: str
     ExecutionStatus: ExecutionStatus
@@ -240,6 +257,7 @@ class GetExecutionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_export' function.
 class GetExportResponse(BaseValidatorModel):
     Export: ExportOutput
     ExportStatus: ExportStatus
@@ -248,11 +266,13 @@ class GetExportResponse(BaseValidatorModel):
 ExportUnion = Union[Export, ExportOutput]
 
 
+# This class is the input for the 'create_export' function.
 class CreateExportRequest(BaseValidatorModel):
     Export: ExportUnion
     ResourceTags: Optional[List[ResourceTag]] = None
 
 
+# This class is the input for the 'update_export' function.
 class UpdateExportRequest(BaseValidatorModel):
     Export: ExportUnion
     ExportArn: str

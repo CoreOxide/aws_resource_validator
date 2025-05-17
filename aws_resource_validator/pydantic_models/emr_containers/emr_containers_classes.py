@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'cancel_job_run' function.
 class CancelJobRunRequest(BaseValidatorModel):
     id: str
     virtualClusterId: str
@@ -62,41 +63,50 @@ class Credentials(BaseValidatorModel):
     token: Optional[str] = None
 
 
+# This class is the input for the 'delete_job_template' function.
 class DeleteJobTemplateRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'delete_managed_endpoint' function.
 class DeleteManagedEndpointRequest(BaseValidatorModel):
     id: str
     virtualClusterId: str
 
 
+# This class is the input for the 'delete_virtual_cluster' function.
 class DeleteVirtualClusterRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'describe_job_run' function.
 class DescribeJobRunRequest(BaseValidatorModel):
     id: str
     virtualClusterId: str
 
 
+# This class is the input for the 'describe_job_template' function.
 class DescribeJobTemplateRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'describe_managed_endpoint' function.
 class DescribeManagedEndpointRequest(BaseValidatorModel):
     id: str
     virtualClusterId: str
 
 
+# This class is the input for the 'describe_security_configuration' function.
 class DescribeSecurityConfigurationRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'describe_virtual_cluster' function.
 class DescribeVirtualClusterRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'get_managed_endpoint_session_credentials' function.
 class GetManagedEndpointSessionCredentialsRequest(BaseValidatorModel):
     endpointIdentifier: str
     virtualClusterIdentifier: str
@@ -156,6 +166,7 @@ class PaginatorConfig(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -188,12 +199,14 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the output for the 'cancel_job_run' function.
 class CancelJobRunResponse(BaseValidatorModel):
     id: str
     virtualClusterId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_job_template' function.
 class CreateJobTemplateResponse(BaseValidatorModel):
     id: str
     name: str
@@ -202,6 +215,7 @@ class CreateJobTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_managed_endpoint' function.
 class CreateManagedEndpointResponse(BaseValidatorModel):
     id: str
     name: str
@@ -210,6 +224,7 @@ class CreateManagedEndpointResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_security_configuration' function.
 class CreateSecurityConfigurationResponse(BaseValidatorModel):
     id: str
     name: str
@@ -217,6 +232,7 @@ class CreateSecurityConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_virtual_cluster' function.
 class CreateVirtualClusterResponse(BaseValidatorModel):
     id: str
     name: str
@@ -224,27 +240,32 @@ class CreateVirtualClusterResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_job_template' function.
 class DeleteJobTemplateResponse(BaseValidatorModel):
     id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_managed_endpoint' function.
 class DeleteManagedEndpointResponse(BaseValidatorModel):
     id: str
     virtualClusterId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_virtual_cluster' function.
 class DeleteVirtualClusterResponse(BaseValidatorModel):
     id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_job_run' function.
 class StartJobRunResponse(BaseValidatorModel):
     id: str
     name: str
@@ -257,6 +278,7 @@ class ContainerInfo(BaseValidatorModel):
     eksInfo: Optional[EksInfo] = None
 
 
+# This class is the output for the 'get_managed_endpoint_session_credentials' function.
 class GetManagedEndpointSessionCredentialsResponse(BaseValidatorModel):
     id: str
     credentials: Credentials
@@ -293,6 +315,7 @@ class ListJobRunsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_job_runs' function.
 class ListJobRunsRequest(BaseValidatorModel):
     virtualClusterId: str
     createdBefore: Optional[Timestamp] = None
@@ -309,6 +332,7 @@ class ListJobTemplatesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_job_templates' function.
 class ListJobTemplatesRequest(BaseValidatorModel):
     createdAfter: Optional[Timestamp] = None
     createdBefore: Optional[Timestamp] = None
@@ -325,6 +349,7 @@ class ListManagedEndpointsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_managed_endpoints' function.
 class ListManagedEndpointsRequest(BaseValidatorModel):
     virtualClusterId: str
     createdBefore: Optional[Timestamp] = None
@@ -341,6 +366,7 @@ class ListSecurityConfigurationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_security_configurations' function.
 class ListSecurityConfigurationsRequest(BaseValidatorModel):
     createdAfter: Optional[Timestamp] = None
     createdBefore: Optional[Timestamp] = None
@@ -358,6 +384,7 @@ class ListVirtualClustersRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_virtual_clusters' function.
 class ListVirtualClustersRequest(BaseValidatorModel):
     containerProviderId: Optional[str] = None
     containerProviderType: Optional[Literal['EKS']] = None
@@ -425,6 +452,7 @@ class ParametricConfigurationOverrides(BaseValidatorModel):
     monitoringConfiguration: Optional[ParametricMonitoringConfiguration] = None
 
 
+# This class is the input for the 'create_virtual_cluster' function.
 class CreateVirtualClusterRequest(BaseValidatorModel):
     name: str
     containerProvider: ContainerProvider
@@ -562,11 +590,13 @@ class JobTemplateData(BaseValidatorModel):
     jobTags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'describe_virtual_cluster' function.
 class DescribeVirtualClusterResponse(BaseValidatorModel):
     virtualCluster: VirtualCluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_virtual_clusters' function.
 class ListVirtualClustersResponse(BaseValidatorModel):
     virtualClusters: List[VirtualCluster]
     ResponseMetadata: ResponseMetadata
@@ -577,22 +607,26 @@ class SecurityConfigurationData(BaseValidatorModel):
     authorizationConfiguration: Optional[AuthorizationConfiguration] = None
 
 
+# This class is the output for the 'describe_managed_endpoint' function.
 class DescribeManagedEndpointResponse(BaseValidatorModel):
     endpoint: Endpoint
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_managed_endpoints' function.
 class ListManagedEndpointsResponse(BaseValidatorModel):
     endpoints: List[Endpoint]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_job_run' function.
 class DescribeJobRunResponse(BaseValidatorModel):
     jobRun: JobRun
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_job_runs' function.
 class ListJobRunsResponse(BaseValidatorModel):
     jobRuns: List[JobRun]
     ResponseMetadata: ResponseMetadata
@@ -611,6 +645,7 @@ class ListJobRunsResponsePaginator(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_managed_endpoint' function.
 class CreateManagedEndpointRequest(BaseValidatorModel):
     name: str
     virtualClusterId: str
@@ -623,6 +658,7 @@ class CreateManagedEndpointRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'start_job_run' function.
 class StartJobRunRequest(BaseValidatorModel):
     virtualClusterId: str
     clientToken: str
@@ -663,6 +699,7 @@ class JobTemplatePaginator(BaseValidatorModel):
 JobTemplateDataUnion = Union[JobTemplateData, JobTemplateDataOutput]
 
 
+# This class is the input for the 'create_security_configuration' function.
 class CreateSecurityConfigurationRequest(BaseValidatorModel):
     clientToken: str
     name: str
@@ -680,11 +717,13 @@ class SecurityConfiguration(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'describe_job_template' function.
 class DescribeJobTemplateResponse(BaseValidatorModel):
     jobTemplate: JobTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_job_templates' function.
 class ListJobTemplatesResponse(BaseValidatorModel):
     templates: List[JobTemplate]
     ResponseMetadata: ResponseMetadata
@@ -697,6 +736,7 @@ class ListJobTemplatesResponsePaginator(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_job_template' function.
 class CreateJobTemplateRequest(BaseValidatorModel):
     name: str
     clientToken: str
@@ -705,11 +745,13 @@ class CreateJobTemplateRequest(BaseValidatorModel):
     kmsKeyArn: Optional[str] = None
 
 
+# This class is the output for the 'describe_security_configuration' function.
 class DescribeSecurityConfigurationResponse(BaseValidatorModel):
     securityConfiguration: SecurityConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_security_configurations' function.
 class ListSecurityConfigurationsResponse(BaseValidatorModel):
     securityConfigurations: List[SecurityConfiguration]
     ResponseMetadata: ResponseMetadata

@@ -76,32 +76,39 @@ class ParameterGroup(BaseValidatorModel):
     ARN: Optional[str] = None
 
 
+# This class is the input for the 'delete_acl' function.
 class DeleteACLRequest(BaseValidatorModel):
     ACLName: str
 
 
+# This class is the input for the 'delete_cluster' function.
 class DeleteClusterRequest(BaseValidatorModel):
     ClusterName: str
     MultiRegionClusterName: Optional[str] = None
     FinalSnapshotName: Optional[str] = None
 
 
+# This class is the input for the 'delete_multi_region_cluster' function.
 class DeleteMultiRegionClusterRequest(BaseValidatorModel):
     MultiRegionClusterName: str
 
 
+# This class is the input for the 'delete_parameter_group' function.
 class DeleteParameterGroupRequest(BaseValidatorModel):
     ParameterGroupName: str
 
 
+# This class is the input for the 'delete_snapshot' function.
 class DeleteSnapshotRequest(BaseValidatorModel):
     SnapshotName: str
 
 
+# This class is the input for the 'delete_subnet_group' function.
 class DeleteSubnetGroupRequest(BaseValidatorModel):
     SubnetGroupName: str
 
 
+# This class is the input for the 'delete_user' function.
 class DeleteUserRequest(BaseValidatorModel):
     UserName: str
 
@@ -112,12 +119,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_acls' function.
 class DescribeACLsRequest(BaseValidatorModel):
     ACLName: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_clusters' function.
 class DescribeClustersRequest(BaseValidatorModel):
     ClusterName: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -125,6 +134,7 @@ class DescribeClustersRequest(BaseValidatorModel):
     ShowShardDetails: Optional[bool] = None
 
 
+# This class is the input for the 'describe_engine_versions' function.
 class DescribeEngineVersionsRequest(BaseValidatorModel):
     Engine: Optional[str] = None
     EngineVersion: Optional[str] = None
@@ -150,6 +160,7 @@ class Event(BaseValidatorModel):
     Date: Optional[datetime] = None
 
 
+# This class is the input for the 'describe_multi_region_clusters' function.
 class DescribeMultiRegionClustersRequest(BaseValidatorModel):
     MultiRegionClusterName: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -157,12 +168,14 @@ class DescribeMultiRegionClustersRequest(BaseValidatorModel):
     ShowClusterDetails: Optional[bool] = None
 
 
+# This class is the input for the 'describe_parameter_groups' function.
 class DescribeParameterGroupsRequest(BaseValidatorModel):
     ParameterGroupName: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_parameters' function.
 class DescribeParametersRequest(BaseValidatorModel):
     ParameterGroupName: str
     MaxResults: Optional[int] = None
@@ -178,6 +191,7 @@ class Parameter(BaseValidatorModel):
     MinimumEngineVersion: Optional[str] = None
 
 
+# This class is the input for the 'describe_reserved_nodes_offerings' function.
 class DescribeReservedNodesOfferingsRequest(BaseValidatorModel):
     ReservedNodesOfferingId: Optional[str] = None
     NodeType: Optional[str] = None
@@ -187,6 +201,7 @@ class DescribeReservedNodesOfferingsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_reserved_nodes' function.
 class DescribeReservedNodesRequest(BaseValidatorModel):
     ReservationId: Optional[str] = None
     ReservedNodesOfferingId: Optional[str] = None
@@ -197,6 +212,7 @@ class DescribeReservedNodesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_service_updates' function.
 class DescribeServiceUpdatesRequest(BaseValidatorModel):
     ServiceUpdateName: Optional[str] = None
     ClusterNames: Optional[List[str]] = None
@@ -217,6 +233,7 @@ class ServiceUpdate(BaseValidatorModel):
     AutoUpdateStartDate: Optional[datetime] = None
 
 
+# This class is the input for the 'describe_snapshots' function.
 class DescribeSnapshotsRequest(BaseValidatorModel):
     ClusterName: Optional[str] = None
     SnapshotName: Optional[str] = None
@@ -226,6 +243,7 @@ class DescribeSnapshotsRequest(BaseValidatorModel):
     ShowDetail: Optional[bool] = None
 
 
+# This class is the input for the 'describe_subnet_groups' function.
 class DescribeSubnetGroupsRequest(BaseValidatorModel):
     SubnetGroupName: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -237,19 +255,23 @@ class Filter(BaseValidatorModel):
     Values: List[str]
 
 
+# This class is the input for the 'failover_shard' function.
 class FailoverShardRequest(BaseValidatorModel):
     ClusterName: str
     ShardName: str
 
 
+# This class is the input for the 'list_allowed_multi_region_cluster_updates' function.
 class ListAllowedMultiRegionClusterUpdatesRequest(BaseValidatorModel):
     MultiRegionClusterName: str
 
 
+# This class is the input for the 'list_allowed_node_type_updates' function.
 class ListAllowedNodeTypeUpdatesRequest(BaseValidatorModel):
     ClusterName: str
 
 
+# This class is the input for the 'list_tags' function.
 class ListTagsRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -275,6 +297,7 @@ class ReplicaConfigurationRequest(BaseValidatorModel):
     ReplicaCount: Optional[int] = None
 
 
+# This class is the input for the 'reset_parameter_group' function.
 class ResetParameterGroupRequest(BaseValidatorModel):
     ParameterGroupName: str
     AllParameters: Optional[bool] = None
@@ -294,17 +317,20 @@ class ShardConfiguration(BaseValidatorModel):
     ReplicaCount: Optional[int] = None
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_acl' function.
 class UpdateACLRequest(BaseValidatorModel):
     ACLName: str
     UserNamesToAdd: Optional[List[str]] = None
     UserNamesToRemove: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_subnet_group' function.
 class UpdateSubnetGroupRequest(BaseValidatorModel):
     SubnetGroupName: str
     Description: Optional[str] = None
@@ -321,6 +347,7 @@ class ACL(BaseValidatorModel):
     ARN: Optional[str] = None
 
 
+# This class is the input for the 'update_user' function.
 class UpdateUserRequest(BaseValidatorModel):
     UserName: str
     AuthenticationMode: Optional[AuthenticationMode] = None
@@ -342,17 +369,20 @@ class Subnet(BaseValidatorModel):
     AvailabilityZone: Optional[AvailabilityZone] = None
 
 
+# This class is the input for the 'batch_update_cluster' function.
 class BatchUpdateClusterRequest(BaseValidatorModel):
     ClusterNames: List[str]
     ServiceUpdate: Optional[ServiceUpdateRequest] = None
 
 
+# This class is the output for the 'list_allowed_multi_region_cluster_updates' function.
 class ListAllowedMultiRegionClusterUpdatesResponse(BaseValidatorModel):
     ScaleUpNodeTypes: List[str]
     ScaleDownNodeTypes: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_allowed_node_type_updates' function.
 class ListAllowedNodeTypeUpdatesResponse(BaseValidatorModel):
     ScaleUpNodeTypes: List[str]
     ScaleDownNodeTypes: List[str]
@@ -367,6 +397,7 @@ class Node(BaseValidatorModel):
     Endpoint: Optional[Endpoint] = None
 
 
+# This class is the input for the 'copy_snapshot' function.
 class CopySnapshotRequest(BaseValidatorModel):
     SourceSnapshotName: str
     TargetSnapshotName: str
@@ -375,12 +406,14 @@ class CopySnapshotRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_acl' function.
 class CreateACLRequest(BaseValidatorModel):
     ACLName: str
     UserNames: Optional[List[str]] = None
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_cluster' function.
 class CreateClusterRequest(BaseValidatorModel):
     ClusterName: str
     NodeType: str
@@ -408,6 +441,7 @@ class CreateClusterRequest(BaseValidatorModel):
     DataTiering: Optional[bool] = None
 
 
+# This class is the input for the 'create_multi_region_cluster' function.
 class CreateMultiRegionClusterRequest(BaseValidatorModel):
     MultiRegionClusterNameSuffix: str
     NodeType: str
@@ -420,6 +454,7 @@ class CreateMultiRegionClusterRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_parameter_group' function.
 class CreateParameterGroupRequest(BaseValidatorModel):
     ParameterGroupName: str
     Family: str
@@ -427,6 +462,7 @@ class CreateParameterGroupRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_snapshot' function.
 class CreateSnapshotRequest(BaseValidatorModel):
     ClusterName: str
     SnapshotName: str
@@ -434,6 +470,7 @@ class CreateSnapshotRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_subnet_group' function.
 class CreateSubnetGroupRequest(BaseValidatorModel):
     SubnetGroupName: str
     SubnetIds: List[str]
@@ -441,6 +478,7 @@ class CreateSubnetGroupRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_user' function.
 class CreateUserRequest(BaseValidatorModel):
     UserName: str
     AuthenticationMode: AuthenticationMode
@@ -448,11 +486,13 @@ class CreateUserRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'list_tags' function.
 class ListTagsResponse(BaseValidatorModel):
     TagList: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'purchase_reserved_nodes_offering' function.
 class PurchaseReservedNodesOfferingRequest(BaseValidatorModel):
     ReservedNodesOfferingId: str
     ReservationId: Optional[str] = None
@@ -460,42 +500,50 @@ class PurchaseReservedNodesOfferingRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: List[Tag]
 
 
+# This class is the output for the 'tag_resource' function.
 class TagResourceResponse(BaseValidatorModel):
     TagList: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'untag_resource' function.
 class UntagResourceResponse(BaseValidatorModel):
     TagList: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_parameter_group' function.
 class CreateParameterGroupResponse(BaseValidatorModel):
     ParameterGroup: ParameterGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_parameter_group' function.
 class DeleteParameterGroupResponse(BaseValidatorModel):
     ParameterGroup: ParameterGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_parameter_groups' function.
 class DescribeParameterGroupsResponse(BaseValidatorModel):
     ParameterGroups: List[ParameterGroup]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'reset_parameter_group' function.
 class ResetParameterGroupResponse(BaseValidatorModel):
     ParameterGroup: ParameterGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_parameter_group' function.
 class UpdateParameterGroupResponse(BaseValidatorModel):
     ParameterGroup: ParameterGroup
     ResponseMetadata: ResponseMetadata
@@ -573,6 +621,7 @@ class DescribeSubnetGroupsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'describe_engine_versions' function.
 class DescribeEngineVersionsResponse(BaseValidatorModel):
     EngineVersions: List[EngineVersionInfo]
     ResponseMetadata: ResponseMetadata
@@ -588,6 +637,7 @@ class DescribeEventsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_events' function.
 class DescribeEventsRequest(BaseValidatorModel):
     SourceName: Optional[str] = None
     SourceType: Optional[SourceTypeType] = None
@@ -598,18 +648,21 @@ class DescribeEventsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_events' function.
 class DescribeEventsResponse(BaseValidatorModel):
     Events: List[Event]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_parameters' function.
 class DescribeParametersResponse(BaseValidatorModel):
     Parameters: List[Parameter]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_service_updates' function.
 class DescribeServiceUpdatesResponse(BaseValidatorModel):
     ServiceUpdates: List[ServiceUpdate]
     ResponseMetadata: ResponseMetadata
@@ -622,6 +675,7 @@ class DescribeUsersRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_users' function.
 class DescribeUsersRequest(BaseValidatorModel):
     UserName: Optional[str] = None
     Filters: Optional[List[Filter]] = None
@@ -643,6 +697,7 @@ class MultiRegionCluster(BaseValidatorModel):
     ARN: Optional[str] = None
 
 
+# This class is the input for the 'update_parameter_group' function.
 class UpdateParameterGroupRequest(BaseValidatorModel):
     ParameterGroupName: str
     ParameterNameValues: List[ParameterNameValue]
@@ -675,6 +730,7 @@ class ReshardingStatus(BaseValidatorModel):
     SlotMigration: Optional[SlotMigration] = None
 
 
+# This class is the input for the 'update_cluster' function.
 class UpdateClusterRequest(BaseValidatorModel):
     ClusterName: str
     Description: Optional[str] = None
@@ -693,6 +749,7 @@ class UpdateClusterRequest(BaseValidatorModel):
     ACLName: Optional[str] = None
 
 
+# This class is the input for the 'update_multi_region_cluster' function.
 class UpdateMultiRegionClusterRequest(BaseValidatorModel):
     MultiRegionClusterName: str
     NodeType: Optional[str] = None
@@ -710,43 +767,51 @@ class ShardDetail(BaseValidatorModel):
     SnapshotCreationTime: Optional[datetime] = None
 
 
+# This class is the output for the 'create_acl' function.
 class CreateACLResponse(BaseValidatorModel):
     ACL: ACL
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_acl' function.
 class DeleteACLResponse(BaseValidatorModel):
     ACL: ACL
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_acls' function.
 class DescribeACLsResponse(BaseValidatorModel):
     ACLs: List[ACL]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_acl' function.
 class UpdateACLResponse(BaseValidatorModel):
     ACL: ACL
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_user' function.
 class CreateUserResponse(BaseValidatorModel):
     User: User
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_user' function.
 class DeleteUserResponse(BaseValidatorModel):
     User: User
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_users' function.
 class DescribeUsersResponse(BaseValidatorModel):
     Users: List[User]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_user' function.
 class UpdateUserResponse(BaseValidatorModel):
     User: User
     ResponseMetadata: ResponseMetadata
@@ -768,38 +833,45 @@ class Shard(BaseValidatorModel):
     NumberOfNodes: Optional[int] = None
 
 
+# This class is the output for the 'create_multi_region_cluster' function.
 class CreateMultiRegionClusterResponse(BaseValidatorModel):
     MultiRegionCluster: MultiRegionCluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_multi_region_cluster' function.
 class DeleteMultiRegionClusterResponse(BaseValidatorModel):
     MultiRegionCluster: MultiRegionCluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_multi_region_clusters' function.
 class DescribeMultiRegionClustersResponse(BaseValidatorModel):
     MultiRegionClusters: List[MultiRegionCluster]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_multi_region_cluster' function.
 class UpdateMultiRegionClusterResponse(BaseValidatorModel):
     MultiRegionCluster: MultiRegionCluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_reserved_nodes' function.
 class DescribeReservedNodesResponse(BaseValidatorModel):
     ReservedNodes: List[ReservedNode]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'purchase_reserved_nodes_offering' function.
 class PurchaseReservedNodesOfferingResponse(BaseValidatorModel):
     ReservedNode: ReservedNode
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_reserved_nodes_offerings' function.
 class DescribeReservedNodesOfferingsResponse(BaseValidatorModel):
     ReservedNodesOfferings: List[ReservedNodesOffering]
     ResponseMetadata: ResponseMetadata
@@ -832,22 +904,26 @@ class ClusterConfiguration(BaseValidatorModel):
     MultiRegionClusterName: Optional[str] = None
 
 
+# This class is the output for the 'create_subnet_group' function.
 class CreateSubnetGroupResponse(BaseValidatorModel):
     SubnetGroup: SubnetGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_subnet_group' function.
 class DeleteSubnetGroupResponse(BaseValidatorModel):
     SubnetGroup: SubnetGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_subnet_groups' function.
 class DescribeSubnetGroupsResponse(BaseValidatorModel):
     SubnetGroups: List[SubnetGroup]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_subnet_group' function.
 class UpdateSubnetGroupResponse(BaseValidatorModel):
     SubnetGroup: SubnetGroup
     ResponseMetadata: ResponseMetadata
@@ -894,53 +970,63 @@ class Snapshot(BaseValidatorModel):
     DataTiering: Optional[DataTieringStatusType] = None
 
 
+# This class is the output for the 'batch_update_cluster' function.
 class BatchUpdateClusterResponse(BaseValidatorModel):
     ProcessedClusters: List[Cluster]
     UnprocessedClusters: List[UnprocessedCluster]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_cluster' function.
 class CreateClusterResponse(BaseValidatorModel):
     Cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_cluster' function.
 class DeleteClusterResponse(BaseValidatorModel):
     Cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_clusters' function.
 class DescribeClustersResponse(BaseValidatorModel):
     Clusters: List[Cluster]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'failover_shard' function.
 class FailoverShardResponse(BaseValidatorModel):
     Cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_cluster' function.
 class UpdateClusterResponse(BaseValidatorModel):
     Cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'copy_snapshot' function.
 class CopySnapshotResponse(BaseValidatorModel):
     Snapshot: Snapshot
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_snapshot' function.
 class CreateSnapshotResponse(BaseValidatorModel):
     Snapshot: Snapshot
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_snapshot' function.
 class DeleteSnapshotResponse(BaseValidatorModel):
     Snapshot: Snapshot
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_snapshots' function.
 class DescribeSnapshotsResponse(BaseValidatorModel):
     Snapshots: List[Snapshot]
     ResponseMetadata: ResponseMetadata

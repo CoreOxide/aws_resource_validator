@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'cancel_task' function.
 class CancelTaskInput(BaseValidatorModel):
     taskId: str
 
@@ -38,11 +39,13 @@ class CpuOptions(BaseValidatorModel):
     threadsPerCore: Optional[int] = None
 
 
+# This class is the input for the 'describe_device_ec2_instances' function.
 class DescribeDeviceEc2Input(BaseValidatorModel):
     instanceIds: List[str]
     managedDeviceId: str
 
 
+# This class is the input for the 'describe_device' function.
 class DescribeDeviceInput(BaseValidatorModel):
     managedDeviceId: str
 
@@ -63,11 +66,13 @@ class SoftwareInformation(BaseValidatorModel):
     installingVersion: Optional[str] = None
 
 
+# This class is the input for the 'describe_execution' function.
 class DescribeExecutionInput(BaseValidatorModel):
     managedDeviceId: str
     taskId: str
 
 
+# This class is the input for the 'describe_task' function.
 class DescribeTaskInput(BaseValidatorModel):
     taskId: str
 
@@ -109,6 +114,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_device_resources' function.
 class ListDeviceResourcesInput(BaseValidatorModel):
     managedDeviceId: str
     maxResults: Optional[int] = None
@@ -122,12 +128,14 @@ class ResourceSummary(BaseValidatorModel):
     id: Optional[str] = None
 
 
+# This class is the input for the 'list_devices' function.
 class ListDevicesInput(BaseValidatorModel):
     jobId: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_executions' function.
 class ListExecutionsInput(BaseValidatorModel):
     taskId: str
     maxResults: Optional[int] = None
@@ -135,10 +143,12 @@ class ListExecutionsInput(BaseValidatorModel):
     state: Optional[ExecutionStateType] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInput(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'list_tasks' function.
 class ListTasksInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -152,27 +162,32 @@ class TaskSummary(BaseValidatorModel):
     taskArn: Optional[str] = None
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceInput(BaseValidatorModel):
     resourceArn: str
     tags: Dict[str, str]
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceInput(BaseValidatorModel):
     resourceArn: str
     tagKeys: List[str]
 
 
+# This class is the output for the 'cancel_task' function.
 class CancelTaskOutput(BaseValidatorModel):
     taskId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_task' function.
 class CreateTaskOutput(BaseValidatorModel):
     taskArn: str
     taskId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_execution' function.
 class DescribeExecutionOutput(BaseValidatorModel):
     executionId: str
     lastUpdatedAt: datetime
@@ -183,6 +198,7 @@ class DescribeExecutionOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_task' function.
 class DescribeTaskOutput(BaseValidatorModel):
     completedAt: datetime
     createdAt: datetime
@@ -196,15 +212,18 @@ class DescribeTaskOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'untag_resource' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceOutput(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_task' function.
 class CreateTaskInput(BaseValidatorModel):
     command: Command
     targets: List[str]
@@ -213,6 +232,7 @@ class CreateTaskInput(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'describe_device' function.
 class DescribeDeviceOutput(BaseValidatorModel):
     associatedWithJob: str
     deviceCapacities: List[Capacity]
@@ -228,6 +248,7 @@ class DescribeDeviceOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_devices' function.
 class ListDevicesOutput(BaseValidatorModel):
     devices: List[DeviceSummary]
     ResponseMetadata: ResponseMetadata
@@ -239,6 +260,7 @@ class InstanceBlockDeviceMapping(BaseValidatorModel):
     ebs: Optional[EbsInstanceBlockDevice] = None
 
 
+# This class is the output for the 'list_executions' function.
 class ListExecutionsOutput(BaseValidatorModel):
     executions: List[ExecutionSummary]
     ResponseMetadata: ResponseMetadata
@@ -267,12 +289,14 @@ class ListTasksInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_device_resources' function.
 class ListDeviceResourcesOutput(BaseValidatorModel):
     resources: List[ResourceSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tasks' function.
 class ListTasksOutput(BaseValidatorModel):
     tasks: List[TaskSummary]
     ResponseMetadata: ResponseMetadata
@@ -300,6 +324,7 @@ class InstanceSummary(BaseValidatorModel):
     lastUpdatedAt: Optional[datetime] = None
 
 
+# This class is the output for the 'describe_device_ec2_instances' function.
 class DescribeDeviceEc2Output(BaseValidatorModel):
     instances: List[InstanceSummary]
     ResponseMetadata: ResponseMetadata

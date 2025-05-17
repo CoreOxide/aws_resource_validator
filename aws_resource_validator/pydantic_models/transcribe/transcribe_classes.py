@@ -89,66 +89,82 @@ class DeleteCallAnalyticsJobRequest(BaseValidatorModel):
     CallAnalyticsJobName: str
 
 
+# This class is the input for the 'delete_language_model' function.
 class DeleteLanguageModelRequest(BaseValidatorModel):
     ModelName: str
 
 
+# This class is the input for the 'delete_medical_scribe_job' function.
 class DeleteMedicalScribeJobRequest(BaseValidatorModel):
     MedicalScribeJobName: str
 
 
+# This class is the input for the 'delete_medical_transcription_job' function.
 class DeleteMedicalTranscriptionJobRequest(BaseValidatorModel):
     MedicalTranscriptionJobName: str
 
 
+# This class is the input for the 'delete_medical_vocabulary' function.
 class DeleteMedicalVocabularyRequest(BaseValidatorModel):
     VocabularyName: str
 
 
+# This class is the input for the 'delete_transcription_job' function.
 class DeleteTranscriptionJobRequest(BaseValidatorModel):
     TranscriptionJobName: str
 
 
+# This class is the input for the 'delete_vocabulary_filter' function.
 class DeleteVocabularyFilterRequest(BaseValidatorModel):
     VocabularyFilterName: str
 
 
+# This class is the input for the 'delete_vocabulary' function.
 class DeleteVocabularyRequest(BaseValidatorModel):
     VocabularyName: str
 
 
+# This class is the input for the 'describe_language_model' function.
 class DescribeLanguageModelRequest(BaseValidatorModel):
     ModelName: str
 
 
+# This class is the input for the 'get_call_analytics_category' function.
 class GetCallAnalyticsCategoryRequest(BaseValidatorModel):
     CategoryName: str
 
 
+# This class is the input for the 'get_call_analytics_job' function.
 class GetCallAnalyticsJobRequest(BaseValidatorModel):
     CallAnalyticsJobName: str
 
 
+# This class is the input for the 'get_medical_scribe_job' function.
 class GetMedicalScribeJobRequest(BaseValidatorModel):
     MedicalScribeJobName: str
 
 
+# This class is the input for the 'get_medical_transcription_job' function.
 class GetMedicalTranscriptionJobRequest(BaseValidatorModel):
     MedicalTranscriptionJobName: str
 
 
+# This class is the input for the 'get_medical_vocabulary' function.
 class GetMedicalVocabularyRequest(BaseValidatorModel):
     VocabularyName: str
 
 
+# This class is the input for the 'get_transcription_job' function.
 class GetTranscriptionJobRequest(BaseValidatorModel):
     TranscriptionJobName: str
 
 
+# This class is the input for the 'get_vocabulary_filter' function.
 class GetVocabularyFilterRequest(BaseValidatorModel):
     VocabularyFilterName: str
 
 
+# This class is the input for the 'get_vocabulary' function.
 class GetVocabularyRequest(BaseValidatorModel):
     VocabularyName: str
 
@@ -170,11 +186,13 @@ class LanguageCodeItem(BaseValidatorModel):
     DurationInSeconds: Optional[float] = None
 
 
+# This class is the input for the 'list_call_analytics_categories' function.
 class ListCallAnalyticsCategoriesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_call_analytics_jobs' function.
 class ListCallAnalyticsJobsRequest(BaseValidatorModel):
     Status: Optional[CallAnalyticsJobStatusType] = None
     JobNameContains: Optional[str] = None
@@ -182,6 +200,7 @@ class ListCallAnalyticsJobsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_language_models' function.
 class ListLanguageModelsRequest(BaseValidatorModel):
     StatusEquals: Optional[ModelStatusType] = None
     NameContains: Optional[str] = None
@@ -189,6 +208,7 @@ class ListLanguageModelsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_medical_scribe_jobs' function.
 class ListMedicalScribeJobsRequest(BaseValidatorModel):
     Status: Optional[MedicalScribeJobStatusType] = None
     JobNameContains: Optional[str] = None
@@ -206,6 +226,7 @@ class MedicalScribeJobSummary(BaseValidatorModel):
     FailureReason: Optional[str] = None
 
 
+# This class is the input for the 'list_medical_transcription_jobs' function.
 class ListMedicalTranscriptionJobsRequest(BaseValidatorModel):
     Status: Optional[TranscriptionJobStatusType] = None
     JobNameContains: Optional[str] = None
@@ -227,6 +248,7 @@ class MedicalTranscriptionJobSummary(BaseValidatorModel):
     Type: Optional[TypeType] = None
 
 
+# This class is the input for the 'list_medical_vocabularies' function.
 class ListMedicalVocabulariesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -241,10 +263,12 @@ class VocabularyInfo(BaseValidatorModel):
     VocabularyState: Optional[VocabularyStateType] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'list_transcription_jobs' function.
 class ListTranscriptionJobsRequest(BaseValidatorModel):
     Status: Optional[TranscriptionJobStatusType] = None
     JobNameContains: Optional[str] = None
@@ -252,6 +276,7 @@ class ListTranscriptionJobsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_vocabularies' function.
 class ListVocabulariesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -259,6 +284,7 @@ class ListVocabulariesRequest(BaseValidatorModel):
     NameContains: Optional[str] = None
 
 
+# This class is the input for the 'list_vocabulary_filters' function.
 class ListVocabularyFiltersRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -333,12 +359,14 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_medical_vocabulary' function.
 class UpdateMedicalVocabularyRequest(BaseValidatorModel):
     VocabularyName: str
     LanguageCode: LanguageCodeType
     VocabularyFileUri: str
 
 
+# This class is the input for the 'update_vocabulary_filter' function.
 class UpdateVocabularyFilterRequest(BaseValidatorModel):
     VocabularyFilterName: str
     Words: Optional[List[str]] = None
@@ -346,6 +374,7 @@ class UpdateVocabularyFilterRequest(BaseValidatorModel):
     DataAccessRoleArn: Optional[str] = None
 
 
+# This class is the input for the 'update_vocabulary' function.
 class UpdateVocabularyRequest(BaseValidatorModel):
     VocabularyName: str
     LanguageCode: LanguageCodeType
@@ -382,6 +411,7 @@ class CallAnalyticsJobSettings(BaseValidatorModel):
 ContentRedactionUnion = Union[ContentRedaction, ContentRedactionOutput]
 
 
+# This class is the input for the 'create_medical_vocabulary' function.
 class CreateMedicalVocabularyRequest(BaseValidatorModel):
     VocabularyName: str
     LanguageCode: LanguageCodeType
@@ -389,6 +419,7 @@ class CreateMedicalVocabularyRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_vocabulary_filter' function.
 class CreateVocabularyFilterRequest(BaseValidatorModel):
     VocabularyFilterName: str
     LanguageCode: LanguageCodeType
@@ -398,6 +429,7 @@ class CreateVocabularyFilterRequest(BaseValidatorModel):
     DataAccessRoleArn: Optional[str] = None
 
 
+# This class is the input for the 'create_vocabulary' function.
 class CreateVocabularyRequest(BaseValidatorModel):
     VocabularyName: str
     LanguageCode: LanguageCodeType
@@ -422,6 +454,7 @@ class MedicalScribeSettings(BaseValidatorModel):
     ClinicalNoteGenerationSettings: Optional[ClinicalNoteGenerationSettings] = None
 
 
+# This class is the output for the 'create_medical_vocabulary' function.
 class CreateMedicalVocabularyResponse(BaseValidatorModel):
     VocabularyName: str
     LanguageCode: LanguageCodeType
@@ -431,6 +464,7 @@ class CreateMedicalVocabularyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_vocabulary_filter' function.
 class CreateVocabularyFilterResponse(BaseValidatorModel):
     VocabularyFilterName: str
     LanguageCode: LanguageCodeType
@@ -438,6 +472,7 @@ class CreateVocabularyFilterResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_vocabulary' function.
 class CreateVocabularyResponse(BaseValidatorModel):
     VocabularyName: str
     LanguageCode: LanguageCodeType
@@ -447,10 +482,12 @@ class CreateVocabularyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_vocabulary_filter' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_medical_vocabulary' function.
 class GetMedicalVocabularyResponse(BaseValidatorModel):
     VocabularyName: str
     LanguageCode: LanguageCodeType
@@ -461,6 +498,7 @@ class GetMedicalVocabularyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_vocabulary_filter' function.
 class GetVocabularyFilterResponse(BaseValidatorModel):
     VocabularyFilterName: str
     LanguageCode: LanguageCodeType
@@ -469,6 +507,7 @@ class GetVocabularyFilterResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_vocabulary' function.
 class GetVocabularyResponse(BaseValidatorModel):
     VocabularyName: str
     LanguageCode: LanguageCodeType
@@ -479,12 +518,14 @@ class GetVocabularyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     ResourceArn: str
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_medical_vocabulary' function.
 class UpdateMedicalVocabularyResponse(BaseValidatorModel):
     VocabularyName: str
     LanguageCode: LanguageCodeType
@@ -493,6 +534,7 @@ class UpdateMedicalVocabularyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_vocabulary_filter' function.
 class UpdateVocabularyFilterResponse(BaseValidatorModel):
     VocabularyFilterName: str
     LanguageCode: LanguageCodeType
@@ -500,6 +542,7 @@ class UpdateVocabularyFilterResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_vocabulary' function.
 class UpdateVocabularyResponse(BaseValidatorModel):
     VocabularyName: str
     LanguageCode: LanguageCodeType
@@ -508,6 +551,7 @@ class UpdateVocabularyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_language_model' function.
 class CreateLanguageModelRequest(BaseValidatorModel):
     LanguageCode: CLMLanguageCodeType
     BaseModelName: BaseModelNameType
@@ -516,6 +560,7 @@ class CreateLanguageModelRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'create_language_model' function.
 class CreateLanguageModelResponse(BaseValidatorModel):
     LanguageCode: CLMLanguageCodeType
     BaseModelName: BaseModelNameType
@@ -586,6 +631,7 @@ class TranscriptFilter(BaseValidatorModel):
     Negate: Optional[bool] = None
 
 
+# This class is the output for the 'list_medical_scribe_jobs' function.
 class ListMedicalScribeJobsResponse(BaseValidatorModel):
     Status: MedicalScribeJobStatusType
     MedicalScribeJobSummaries: List[MedicalScribeJobSummary]
@@ -593,6 +639,7 @@ class ListMedicalScribeJobsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_medical_transcription_jobs' function.
 class ListMedicalTranscriptionJobsResponse(BaseValidatorModel):
     Status: TranscriptionJobStatusType
     MedicalTranscriptionJobSummaries: List[MedicalTranscriptionJobSummary]
@@ -600,6 +647,7 @@ class ListMedicalTranscriptionJobsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_medical_vocabularies' function.
 class ListMedicalVocabulariesResponse(BaseValidatorModel):
     Status: VocabularyStateType
     Vocabularies: List[VocabularyInfo]
@@ -607,6 +655,7 @@ class ListMedicalVocabulariesResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_vocabularies' function.
 class ListVocabulariesResponse(BaseValidatorModel):
     Status: VocabularyStateType
     Vocabularies: List[VocabularyInfo]
@@ -614,6 +663,7 @@ class ListVocabulariesResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_vocabulary_filters' function.
 class ListVocabularyFiltersResponse(BaseValidatorModel):
     VocabularyFilters: List[VocabularyFilterInfo]
     ResponseMetadata: ResponseMetadata
@@ -639,6 +689,7 @@ class MedicalTranscriptionJob(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'start_medical_transcription_job' function.
 class StartMedicalTranscriptionJobRequest(BaseValidatorModel):
     MedicalTranscriptionJobName: str
     LanguageCode: LanguageCodeType
@@ -752,6 +803,7 @@ class MedicalScribeJob(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'start_medical_scribe_job' function.
 class StartMedicalScribeJobRequest(BaseValidatorModel):
     MedicalScribeJobName: str
     Media: Media
@@ -764,11 +816,13 @@ class StartMedicalScribeJobRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'describe_language_model' function.
 class DescribeLanguageModelResponse(BaseValidatorModel):
     LanguageModel: LanguageModel
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_language_models' function.
 class ListLanguageModelsResponse(BaseValidatorModel):
     Models: List[LanguageModel]
     ResponseMetadata: ResponseMetadata
@@ -786,16 +840,19 @@ class RuleOutput(BaseValidatorModel):
 TranscriptFilterUnion = Union[TranscriptFilter, TranscriptFilterOutput]
 
 
+# This class is the output for the 'get_medical_transcription_job' function.
 class GetMedicalTranscriptionJobResponse(BaseValidatorModel):
     MedicalTranscriptionJob: MedicalTranscriptionJob
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_medical_transcription_job' function.
 class StartMedicalTranscriptionJobResponse(BaseValidatorModel):
     MedicalTranscriptionJob: MedicalTranscriptionJob
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_transcription_jobs' function.
 class ListTranscriptionJobsResponse(BaseValidatorModel):
     Status: TranscriptionJobStatusType
     TranscriptionJobSummaries: List[TranscriptionJobSummary]
@@ -803,16 +860,19 @@ class ListTranscriptionJobsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_transcription_job' function.
 class GetTranscriptionJobResponse(BaseValidatorModel):
     TranscriptionJob: TranscriptionJob
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_transcription_job' function.
 class StartTranscriptionJobResponse(BaseValidatorModel):
     TranscriptionJob: TranscriptionJob
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_transcription_job' function.
 class StartTranscriptionJobRequest(BaseValidatorModel):
     TranscriptionJobName: str
     Media: Media
@@ -836,6 +896,7 @@ class StartTranscriptionJobRequest(BaseValidatorModel):
     ToxicityDetection: Optional[List[ToxicityDetectionSettingsUnion]] = None
 
 
+# This class is the output for the 'list_call_analytics_jobs' function.
 class ListCallAnalyticsJobsResponse(BaseValidatorModel):
     Status: CallAnalyticsJobStatusType
     CallAnalyticsJobSummaries: List[CallAnalyticsJobSummary]
@@ -843,16 +904,19 @@ class ListCallAnalyticsJobsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_call_analytics_job' function.
 class GetCallAnalyticsJobResponse(BaseValidatorModel):
     CallAnalyticsJob: CallAnalyticsJob
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_call_analytics_job' function.
 class StartCallAnalyticsJobResponse(BaseValidatorModel):
     CallAnalyticsJob: CallAnalyticsJob
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_call_analytics_job' function.
 class StartCallAnalyticsJobRequest(BaseValidatorModel):
     CallAnalyticsJobName: str
     Media: Media
@@ -864,11 +928,13 @@ class StartCallAnalyticsJobRequest(BaseValidatorModel):
     ChannelDefinitions: Optional[List[ChannelDefinition]] = None
 
 
+# This class is the output for the 'get_medical_scribe_job' function.
 class GetMedicalScribeJobResponse(BaseValidatorModel):
     MedicalScribeJob: MedicalScribeJob
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_medical_scribe_job' function.
 class StartMedicalScribeJobResponse(BaseValidatorModel):
     MedicalScribeJob: MedicalScribeJob
     ResponseMetadata: ResponseMetadata
@@ -890,22 +956,26 @@ class Rule(BaseValidatorModel):
     SentimentFilter: Optional[SentimentFilterUnion] = None
 
 
+# This class is the output for the 'create_call_analytics_category' function.
 class CreateCallAnalyticsCategoryResponse(BaseValidatorModel):
     CategoryProperties: CategoryProperties
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_call_analytics_category' function.
 class GetCallAnalyticsCategoryResponse(BaseValidatorModel):
     CategoryProperties: CategoryProperties
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_call_analytics_categories' function.
 class ListCallAnalyticsCategoriesResponse(BaseValidatorModel):
     Categories: List[CategoryProperties]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_call_analytics_category' function.
 class UpdateCallAnalyticsCategoryResponse(BaseValidatorModel):
     CategoryProperties: CategoryProperties
     ResponseMetadata: ResponseMetadata
@@ -913,6 +983,7 @@ class UpdateCallAnalyticsCategoryResponse(BaseValidatorModel):
 RuleUnion = Union[Rule, RuleOutput]
 
 
+# This class is the input for the 'create_call_analytics_category' function.
 class CreateCallAnalyticsCategoryRequest(BaseValidatorModel):
     CategoryName: str
     Rules: List[RuleUnion]
@@ -920,6 +991,7 @@ class CreateCallAnalyticsCategoryRequest(BaseValidatorModel):
     InputType: Optional[InputTypeType] = None
 
 
+# This class is the input for the 'update_call_analytics_category' function.
 class UpdateCallAnalyticsCategoryRequest(BaseValidatorModel):
     CategoryName: str
     Rules: List[RuleUnion]

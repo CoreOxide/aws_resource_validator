@@ -84,14 +84,17 @@ class MaintenanceWindowOutput(BaseValidatorModel):
     applyTimeOf: Optional[ApplyTimeOfType] = None
 
 
+# This class is the input for the 'get_device' function.
 class GetDeviceRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'get_environment' function.
 class GetEnvironmentRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'get_software_set' function.
 class GetSoftwareSetRequest(BaseValidatorModel):
     id: str
 
@@ -102,16 +105,19 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_devices' function.
 class ListDevicesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_environments' function.
 class ListEnvironmentsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_software_sets' function.
 class ListSoftwareSetsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -126,6 +132,7 @@ class SoftwareSetSummary(BaseValidatorModel):
     arn: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -155,6 +162,7 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_device' function.
 class UpdateDeviceRequest(BaseValidatorModel):
     id: str
     name: Optional[str] = None
@@ -167,22 +175,26 @@ class UpdateSoftwareSetRequest(BaseValidatorModel):
     validationStatus: SoftwareSetValidationStatusType
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_devices' function.
 class ListDevicesResponse(BaseValidatorModel):
     devices: List[DeviceSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_device' function.
 class UpdateDeviceResponse(BaseValidatorModel):
     device: DeviceSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_device' function.
 class GetDeviceResponse(BaseValidatorModel):
     device: Device
     ResponseMetadata: ResponseMetadata
@@ -240,6 +252,7 @@ class ListSoftwareSetsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_software_sets' function.
 class ListSoftwareSetsResponse(BaseValidatorModel):
     softwareSets: List[SoftwareSetSummary]
     ResponseMetadata: ResponseMetadata
@@ -259,27 +272,32 @@ class SoftwareSet(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_environment' function.
 class CreateEnvironmentResponse(BaseValidatorModel):
     environment: EnvironmentSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_environments' function.
 class ListEnvironmentsResponse(BaseValidatorModel):
     environments: List[EnvironmentSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_environment' function.
 class UpdateEnvironmentResponse(BaseValidatorModel):
     environment: EnvironmentSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_environment' function.
 class GetEnvironmentResponse(BaseValidatorModel):
     environment: Environment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_environment' function.
 class CreateEnvironmentRequest(BaseValidatorModel):
     desktopArn: str
     name: Optional[str] = None
@@ -294,6 +312,7 @@ class CreateEnvironmentRequest(BaseValidatorModel):
     deviceCreationTags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_environment' function.
 class UpdateEnvironmentRequest(BaseValidatorModel):
     id: str
     name: Optional[str] = None
@@ -306,6 +325,7 @@ class UpdateEnvironmentRequest(BaseValidatorModel):
     deviceCreationTags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'get_software_set' function.
 class GetSoftwareSetResponse(BaseValidatorModel):
     softwareSet: SoftwareSet
     ResponseMetadata: ResponseMetadata

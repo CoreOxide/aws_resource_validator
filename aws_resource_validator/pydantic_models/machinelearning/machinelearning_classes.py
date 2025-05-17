@@ -40,6 +40,7 @@ class BatchPrediction(BaseValidatorModel):
     InvalidRecordCount: Optional[int] = None
 
 
+# This class is the input for the 'create_batch_prediction' function.
 class CreateBatchPredictionInput(BaseValidatorModel):
     BatchPredictionId: str
     MLModelId: str
@@ -55,6 +56,7 @@ class S3DataSpec(BaseValidatorModel):
     DataSchemaLocationS3: Optional[str] = None
 
 
+# This class is the input for the 'create_evaluation' function.
 class CreateEvaluationInput(BaseValidatorModel):
     EvaluationId: str
     MLModelId: str
@@ -62,6 +64,7 @@ class CreateEvaluationInput(BaseValidatorModel):
     EvaluationName: Optional[str] = None
 
 
+# This class is the input for the 'create_ml_model' function.
 class CreateMLModelInput(BaseValidatorModel):
     MLModelId: str
     MLModelType: MLModelTypeType
@@ -72,6 +75,7 @@ class CreateMLModelInput(BaseValidatorModel):
     RecipeUri: Optional[str] = None
 
 
+# This class is the input for the 'create_realtime_endpoint' function.
 class CreateRealtimeEndpointInput(BaseValidatorModel):
     MLModelId: str
 
@@ -83,26 +87,32 @@ class RealtimeEndpointInfo(BaseValidatorModel):
     EndpointStatus: Optional[RealtimeEndpointStatusType] = None
 
 
+# This class is the input for the 'delete_batch_prediction' function.
 class DeleteBatchPredictionInput(BaseValidatorModel):
     BatchPredictionId: str
 
 
+# This class is the input for the 'delete_data_source' function.
 class DeleteDataSourceInput(BaseValidatorModel):
     DataSourceId: str
 
 
+# This class is the input for the 'delete_evaluation' function.
 class DeleteEvaluationInput(BaseValidatorModel):
     EvaluationId: str
 
 
+# This class is the input for the 'delete_ml_model' function.
 class DeleteMLModelInput(BaseValidatorModel):
     MLModelId: str
 
 
+# This class is the input for the 'delete_realtime_endpoint' function.
 class DeleteRealtimeEndpointInput(BaseValidatorModel):
     MLModelId: str
 
 
+# This class is the input for the 'delete_tags' function.
 class DeleteTagsInput(BaseValidatorModel):
     TagKeys: List[str]
     ResourceId: str
@@ -115,6 +125,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_batch_predictions' function.
 class DescribeBatchPredictionsInput(BaseValidatorModel):
     FilterVariable: Optional[BatchPredictionFilterVariableType] = None
     EQ: Optional[str] = None
@@ -134,6 +145,7 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'describe_data_sources' function.
 class DescribeDataSourcesInput(BaseValidatorModel):
     FilterVariable: Optional[DataSourceFilterVariableType] = None
     EQ: Optional[str] = None
@@ -148,6 +160,7 @@ class DescribeDataSourcesInput(BaseValidatorModel):
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'describe_evaluations' function.
 class DescribeEvaluationsInput(BaseValidatorModel):
     FilterVariable: Optional[EvaluationFilterVariableType] = None
     EQ: Optional[str] = None
@@ -162,6 +175,7 @@ class DescribeEvaluationsInput(BaseValidatorModel):
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'describe_ml_models' function.
 class DescribeMLModelsInput(BaseValidatorModel):
     FilterVariable: Optional[MLModelFilterVariableType] = None
     EQ: Optional[str] = None
@@ -176,6 +190,7 @@ class DescribeMLModelsInput(BaseValidatorModel):
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'describe_tags' function.
 class DescribeTagsInput(BaseValidatorModel):
     ResourceId: str
     ResourceType: TaggableResourceTypeType
@@ -185,24 +200,29 @@ class PerformanceMetrics(BaseValidatorModel):
     Properties: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'get_batch_prediction' function.
 class GetBatchPredictionInput(BaseValidatorModel):
     BatchPredictionId: str
 
 
+# This class is the input for the 'get_data_source' function.
 class GetDataSourceInput(BaseValidatorModel):
     DataSourceId: str
     Verbose: Optional[bool] = None
 
 
+# This class is the input for the 'get_evaluation' function.
 class GetEvaluationInput(BaseValidatorModel):
     EvaluationId: str
 
 
+# This class is the input for the 'get_ml_model' function.
 class GetMLModelInput(BaseValidatorModel):
     MLModelId: str
     Verbose: Optional[bool] = None
 
 
+# This class is the input for the 'predict' function.
 class PredictInput(BaseValidatorModel):
     MLModelId: str
     Record: Dict[str, str]
@@ -236,95 +256,113 @@ class RedshiftDatabase(BaseValidatorModel):
     ClusterIdentifier: str
 
 
+# This class is the input for the 'update_batch_prediction' function.
 class UpdateBatchPredictionInput(BaseValidatorModel):
     BatchPredictionId: str
     BatchPredictionName: str
 
 
+# This class is the input for the 'update_data_source' function.
 class UpdateDataSourceInput(BaseValidatorModel):
     DataSourceId: str
     DataSourceName: str
 
 
+# This class is the input for the 'update_evaluation' function.
 class UpdateEvaluationInput(BaseValidatorModel):
     EvaluationId: str
     EvaluationName: str
 
 
+# This class is the input for the 'update_ml_model' function.
 class UpdateMLModelInput(BaseValidatorModel):
     MLModelId: str
     MLModelName: Optional[str] = None
     ScoreThreshold: Optional[float] = None
 
 
+# This class is the input for the 'add_tags' function.
 class AddTagsInput(BaseValidatorModel):
     Tags: List[Tag]
     ResourceId: str
     ResourceType: TaggableResourceTypeType
 
 
+# This class is the output for the 'add_tags' function.
 class AddTagsOutput(BaseValidatorModel):
     ResourceId: str
     ResourceType: TaggableResourceTypeType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_batch_prediction' function.
 class CreateBatchPredictionOutput(BaseValidatorModel):
     BatchPredictionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_data_source_from_rds' function.
 class CreateDataSourceFromRDSOutput(BaseValidatorModel):
     DataSourceId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_data_source_from_redshift' function.
 class CreateDataSourceFromRedshiftOutput(BaseValidatorModel):
     DataSourceId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_data_source_from_s3' function.
 class CreateDataSourceFromS3Output(BaseValidatorModel):
     DataSourceId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_evaluation' function.
 class CreateEvaluationOutput(BaseValidatorModel):
     EvaluationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_ml_model' function.
 class CreateMLModelOutput(BaseValidatorModel):
     MLModelId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_batch_prediction' function.
 class DeleteBatchPredictionOutput(BaseValidatorModel):
     BatchPredictionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_data_source' function.
 class DeleteDataSourceOutput(BaseValidatorModel):
     DataSourceId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_evaluation' function.
 class DeleteEvaluationOutput(BaseValidatorModel):
     EvaluationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_ml_model' function.
 class DeleteMLModelOutput(BaseValidatorModel):
     MLModelId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_tags' function.
 class DeleteTagsOutput(BaseValidatorModel):
     ResourceId: str
     ResourceType: TaggableResourceTypeType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_tags' function.
 class DescribeTagsOutput(BaseValidatorModel):
     ResourceId: str
     ResourceType: TaggableResourceTypeType
@@ -332,6 +370,7 @@ class DescribeTagsOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_batch_prediction' function.
 class GetBatchPredictionOutput(BaseValidatorModel):
     BatchPredictionId: str
     MLModelId: str
@@ -353,32 +392,38 @@ class GetBatchPredictionOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_batch_prediction' function.
 class UpdateBatchPredictionOutput(BaseValidatorModel):
     BatchPredictionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_data_source' function.
 class UpdateDataSourceOutput(BaseValidatorModel):
     DataSourceId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_evaluation' function.
 class UpdateEvaluationOutput(BaseValidatorModel):
     EvaluationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_ml_model' function.
 class UpdateMLModelOutput(BaseValidatorModel):
     MLModelId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_batch_predictions' function.
 class DescribeBatchPredictionsOutput(BaseValidatorModel):
     Results: List[BatchPrediction]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_data_source_from_s3' function.
 class CreateDataSourceFromS3Input(BaseValidatorModel):
     DataSourceId: str
     DataSpec: S3DataSpec
@@ -386,18 +431,21 @@ class CreateDataSourceFromS3Input(BaseValidatorModel):
     ComputeStatistics: Optional[bool] = None
 
 
+# This class is the output for the 'create_realtime_endpoint' function.
 class CreateRealtimeEndpointOutput(BaseValidatorModel):
     MLModelId: str
     RealtimeEndpointInfo: RealtimeEndpointInfo
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_realtime_endpoint' function.
 class DeleteRealtimeEndpointOutput(BaseValidatorModel):
     MLModelId: str
     RealtimeEndpointInfo: RealtimeEndpointInfo
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_ml_model' function.
 class GetMLModelOutput(BaseValidatorModel):
     MLModelId: str
     TrainingDataSourceId: str
@@ -574,6 +622,7 @@ class Evaluation(BaseValidatorModel):
     StartedAt: Optional[datetime] = None
 
 
+# This class is the output for the 'get_evaluation' function.
 class GetEvaluationOutput(BaseValidatorModel):
     EvaluationId: str
     MLModelId: str
@@ -593,6 +642,7 @@ class GetEvaluationOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'predict' function.
 class PredictOutput(BaseValidatorModel):
     Prediction: Prediction
     ResponseMetadata: ResponseMetadata
@@ -637,18 +687,21 @@ class RedshiftMetadata(BaseValidatorModel):
     SelectSqlQuery: Optional[str] = None
 
 
+# This class is the output for the 'describe_ml_models' function.
 class DescribeMLModelsOutput(BaseValidatorModel):
     Results: List[MLModel]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_evaluations' function.
 class DescribeEvaluationsOutput(BaseValidatorModel):
     Results: List[Evaluation]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_data_source_from_rds' function.
 class CreateDataSourceFromRDSInput(BaseValidatorModel):
     DataSourceId: str
     RDSData: RDSDataSpec
@@ -657,6 +710,7 @@ class CreateDataSourceFromRDSInput(BaseValidatorModel):
     ComputeStatistics: Optional[bool] = None
 
 
+# This class is the input for the 'create_data_source_from_redshift' function.
 class CreateDataSourceFromRedshiftInput(BaseValidatorModel):
     DataSourceId: str
     DataSpec: RedshiftDataSpec
@@ -686,6 +740,7 @@ class DataSource(BaseValidatorModel):
     StartedAt: Optional[datetime] = None
 
 
+# This class is the output for the 'get_data_source' function.
 class GetDataSourceOutput(BaseValidatorModel):
     DataSourceId: str
     DataLocationS3: str
@@ -710,6 +765,7 @@ class GetDataSourceOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_data_sources' function.
 class DescribeDataSourcesOutput(BaseValidatorModel):
     Results: List[DataSource]
     ResponseMetadata: ResponseMetadata

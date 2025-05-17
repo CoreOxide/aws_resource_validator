@@ -23,6 +23,7 @@ class Association(BaseValidatorModel):
     type: Literal['RESERVATION_TIME_WINDOW_ARN']
 
 
+# This class is the input for the 'cancel_job' function.
 class CancelJobRequest(BaseValidatorModel):
     jobArn: str
 
@@ -35,6 +36,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'cancel_quantum_task' function.
 class CancelQuantumTaskRequest(BaseValidatorModel):
     clientToken: str
     quantumTaskArn: str
@@ -82,10 +84,12 @@ class DeviceSummary(BaseValidatorModel):
     providerName: str
 
 
+# This class is the input for the 'get_device' function.
 class GetDeviceRequest(BaseValidatorModel):
     deviceArn: str
 
 
+# This class is the input for the 'get_job' function.
 class GetJobRequest(BaseValidatorModel):
     jobArn: str
     additionalAttributeNames: Optional[List[Literal['QueueInfo']]] = None
@@ -103,6 +107,7 @@ class JobEventDetails(BaseValidatorModel):
     timeOfEvent: Optional[datetime] = None
 
 
+# This class is the input for the 'get_quantum_task' function.
 class GetQuantumTaskRequest(BaseValidatorModel):
     quantumTaskArn: str
     additionalAttributeNames: Optional[List[Literal['QueueInfo']]] = None
@@ -126,6 +131,7 @@ class JobSummary(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -180,6 +186,7 @@ class AlgorithmSpecification(BaseValidatorModel):
     scriptModeConfig: Optional[ScriptModeConfig] = None
 
 
+# This class is the input for the 'create_quantum_task' function.
 class CreateQuantumTaskRequest(BaseValidatorModel):
     action: str
     clientToken: str
@@ -193,28 +200,33 @@ class CreateQuantumTaskRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'cancel_job' function.
 class CancelJobResponse(BaseValidatorModel):
     cancellationStatus: CancellationStatusType
     jobArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_quantum_task' function.
 class CancelQuantumTaskResponse(BaseValidatorModel):
     cancellationStatus: CancellationStatusType
     quantumTaskArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_job' function.
 class CreateJobResponse(BaseValidatorModel):
     jobArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_quantum_task' function.
 class CreateQuantumTaskResponse(BaseValidatorModel):
     quantumTaskArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
@@ -224,6 +236,7 @@ class DataSource(BaseValidatorModel):
     s3DataSource: S3DataSource
 
 
+# This class is the output for the 'get_device' function.
 class GetDeviceResponse(BaseValidatorModel):
     deviceArn: str
     deviceCapabilities: str
@@ -235,12 +248,14 @@ class GetDeviceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_devices' function.
 class SearchDevicesResponse(BaseValidatorModel):
     devices: List[DeviceSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_quantum_task' function.
 class GetQuantumTaskResponse(BaseValidatorModel):
     associations: List[Association]
     createdAt: datetime
@@ -259,12 +274,14 @@ class GetQuantumTaskResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'search_jobs' function.
 class SearchJobsResponse(BaseValidatorModel):
     jobs: List[JobSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'search_quantum_tasks' function.
 class SearchQuantumTasksResponse(BaseValidatorModel):
     quantumTasks: List[QuantumTaskSummary]
     ResponseMetadata: ResponseMetadata
@@ -276,6 +293,7 @@ class SearchDevicesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_devices' function.
 class SearchDevicesRequest(BaseValidatorModel):
     filters: List[SearchDevicesFilter]
     maxResults: Optional[int] = None
@@ -287,6 +305,7 @@ class SearchJobsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_jobs' function.
 class SearchJobsRequest(BaseValidatorModel):
     filters: List[SearchJobsFilter]
     maxResults: Optional[int] = None
@@ -298,6 +317,7 @@ class SearchQuantumTasksRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_quantum_tasks' function.
 class SearchQuantumTasksRequest(BaseValidatorModel):
     filters: List[SearchQuantumTasksFilter]
     maxResults: Optional[int] = None
@@ -310,6 +330,7 @@ class InputFileConfig(BaseValidatorModel):
     contentType: Optional[str] = None
 
 
+# This class is the input for the 'create_job' function.
 class CreateJobRequest(BaseValidatorModel):
     algorithmSpecification: AlgorithmSpecification
     clientToken: str
@@ -326,6 +347,7 @@ class CreateJobRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'get_job' function.
 class GetJobResponse(BaseValidatorModel):
     algorithmSpecification: AlgorithmSpecification
     associations: List[Association]

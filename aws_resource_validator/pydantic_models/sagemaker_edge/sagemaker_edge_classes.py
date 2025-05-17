@@ -34,11 +34,13 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'get_deployments' function.
 class GetDeploymentsRequest(BaseValidatorModel):
     DeviceName: str
     DeviceFleetName: str
 
 
+# This class is the input for the 'get_device_registration' function.
 class GetDeviceRegistrationRequest(BaseValidatorModel):
     DeviceName: str
     DeviceFleetName: str
@@ -67,10 +69,12 @@ class EdgeMetric(BaseValidatorModel):
     Timestamp: Optional[Timestamp] = None
 
 
+# This class is the output for the 'send_heartbeat' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_device_registration' function.
 class GetDeviceRegistrationResult(BaseValidatorModel):
     DeviceRegistration: str
     CacheTTL: str
@@ -92,11 +96,13 @@ class Model(BaseValidatorModel):
     ModelMetrics: Optional[List[EdgeMetric]] = None
 
 
+# This class is the output for the 'get_deployments' function.
 class GetDeploymentsResult(BaseValidatorModel):
     Deployments: List[EdgeDeployment]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'send_heartbeat' function.
 class SendHeartbeatRequest(BaseValidatorModel):
     AgentVersion: str
     DeviceName: str

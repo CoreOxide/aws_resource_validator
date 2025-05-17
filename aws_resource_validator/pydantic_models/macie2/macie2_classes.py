@@ -95,6 +95,7 @@ class BatchGetCustomDataIdentifierSummary(BaseValidatorModel):
     name: Optional[str] = None
 
 
+# This class is the input for the 'batch_get_custom_data_identifiers' function.
 class BatchGetCustomDataIdentifiersRequest(BaseValidatorModel):
     ids: Optional[List[str]] = None
 
@@ -226,6 +227,7 @@ class SeverityLevel(BaseValidatorModel):
     severity: DataIdentifierSeverityType
 
 
+# This class is the input for the 'create_invitations' function.
 class CreateInvitationsRequest(BaseValidatorModel):
     accountIds: List[str]
     disableEmailNotification: Optional[bool] = None
@@ -282,6 +284,7 @@ class CustomDataIdentifierSummary(BaseValidatorModel):
     name: Optional[str] = None
 
 
+# This class is the input for the 'decline_invitations' function.
 class DeclineInvitationsRequest(BaseValidatorModel):
     accountIds: List[str]
 
@@ -299,6 +302,7 @@ class DeleteFindingsFilterRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'delete_invitations' function.
 class DeleteInvitationsRequest(BaseValidatorModel):
     accountIds: List[str]
 
@@ -313,6 +317,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_classification_job' function.
 class DescribeClassificationJobRequest(BaseValidatorModel):
     jobId: str
 
@@ -393,18 +398,22 @@ class Invitation(BaseValidatorModel):
     relationshipStatus: Optional[RelationshipStatusType] = None
 
 
+# This class is the input for the 'get_allow_list' function.
 class GetAllowListRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'get_bucket_statistics' function.
 class GetBucketStatisticsRequest(BaseValidatorModel):
     accountId: Optional[str] = None
 
 
+# This class is the input for the 'get_classification_scope' function.
 class GetClassificationScopeRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'get_custom_data_identifier' function.
 class GetCustomDataIdentifierRequest(BaseValidatorModel):
     id: str
 
@@ -414,6 +423,7 @@ class GroupCount(BaseValidatorModel):
     groupKey: Optional[str] = None
 
 
+# This class is the input for the 'get_findings_filter' function.
 class GetFindingsFilterRequest(BaseValidatorModel):
     id: str
 
@@ -428,10 +438,12 @@ class SortCriteria(BaseValidatorModel):
     orderBy: Optional[OrderByType] = None
 
 
+# This class is the input for the 'get_member' function.
 class GetMemberRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'get_resource_profile' function.
 class GetResourceProfileRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -459,10 +471,12 @@ class RevealConfiguration(BaseValidatorModel):
     kmsKeyId: Optional[str] = None
 
 
+# This class is the input for the 'get_sensitive_data_occurrences_availability' function.
 class GetSensitiveDataOccurrencesAvailabilityRequest(BaseValidatorModel):
     findingId: str
 
 
+# This class is the input for the 'get_sensitive_data_occurrences' function.
 class GetSensitiveDataOccurrencesRequest(BaseValidatorModel):
     findingId: str
 
@@ -472,6 +486,7 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'get_sensitivity_inspection_template' function.
 class GetSensitivityInspectionTemplateRequest(BaseValidatorModel):
     id: str
 
@@ -497,6 +512,7 @@ class UsageStatisticsSortBy(BaseValidatorModel):
     orderBy: Optional[OrderByType] = None
 
 
+# This class is the input for the 'get_usage_totals' function.
 class GetUsageTotalsRequest(BaseValidatorModel):
     timeRange: Optional[str] = None
 
@@ -560,11 +576,13 @@ class S3BucketDefinitionForJobOutput(BaseValidatorModel):
     buckets: List[str]
 
 
+# This class is the input for the 'list_allow_lists' function.
 class ListAllowListsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_automated_discovery_accounts' function.
 class ListAutomatedDiscoveryAccountsRequest(BaseValidatorModel):
     accountIds: Optional[List[str]] = None
     maxResults: Optional[int] = None
@@ -576,21 +594,25 @@ class ListJobsSortCriteria(BaseValidatorModel):
     orderBy: Optional[OrderByType] = None
 
 
+# This class is the input for the 'list_classification_scopes' function.
 class ListClassificationScopesRequest(BaseValidatorModel):
     name: Optional[str] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_custom_data_identifiers' function.
 class ListCustomDataIdentifiersRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_findings_filters' function.
 class ListFindingsFiltersRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_invitations' function.
 class ListInvitationsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -602,6 +624,7 @@ class ListJobsFilterTerm(BaseValidatorModel):
     values: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_managed_data_identifiers' function.
 class ListManagedDataIdentifiersRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
@@ -611,6 +634,7 @@ class ManagedDataIdentifierSummary(BaseValidatorModel):
     id: Optional[str] = None
 
 
+# This class is the input for the 'list_members' function.
 class ListMembersRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -629,11 +653,13 @@ class Member(BaseValidatorModel):
     updatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'list_organization_admin_accounts' function.
 class ListOrganizationAdminAccountsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_resource_profile_artifacts' function.
 class ListResourceProfileArtifactsRequest(BaseValidatorModel):
     resourceArn: str
     nextToken: Optional[str] = None
@@ -645,12 +671,14 @@ class ResourceProfileArtifact(BaseValidatorModel):
     sensitive: Optional[bool] = None
 
 
+# This class is the input for the 'list_resource_profile_detections' function.
 class ListResourceProfileDetectionsRequest(BaseValidatorModel):
     resourceArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_sensitivity_inspection_templates' function.
 class ListSensitivityInspectionTemplatesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -661,6 +689,7 @@ class SensitivityInspectionTemplatesEntry(BaseValidatorModel):
     name: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -765,6 +794,7 @@ class TagValuePair(BaseValidatorModel):
     value: Optional[str] = None
 
 
+# This class is the input for the 'test_custom_data_identifier' function.
 class TestCustomDataIdentifierRequest(BaseValidatorModel):
     regex: str
     sampleText: str
@@ -818,6 +848,7 @@ class UserIdentityRoot(BaseValidatorModel):
     principalId: Optional[str] = None
 
 
+# This class is the input for the 'create_member' function.
 class CreateMemberRequest(BaseValidatorModel):
     account: AccountDetail
     tags: Optional[Dict[str, str]] = None
@@ -837,44 +868,52 @@ class FindingAction(BaseValidatorModel):
     apiCallDetails: Optional[ApiCallDetails] = None
 
 
+# This class is the input for the 'batch_update_automated_discovery_accounts' function.
 class BatchUpdateAutomatedDiscoveryAccountsRequest(BaseValidatorModel):
     accounts: Optional[List[AutomatedDiscoveryAccountUpdate]] = None
 
 
+# This class is the output for the 'batch_get_custom_data_identifiers' function.
 class BatchGetCustomDataIdentifiersResponse(BaseValidatorModel):
     customDataIdentifiers: List[BatchGetCustomDataIdentifierSummary]
     notFoundIdentifierIds: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_update_automated_discovery_accounts' function.
 class BatchUpdateAutomatedDiscoveryAccountsResponse(BaseValidatorModel):
     errors: List[AutomatedDiscoveryAccountUpdateError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_allow_list' function.
 class CreateAllowListResponse(BaseValidatorModel):
     arn: str
     id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_classification_job' function.
 class CreateClassificationJobResponse(BaseValidatorModel):
     jobArn: str
     jobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_custom_data_identifier' function.
 class CreateCustomDataIdentifierResponse(BaseValidatorModel):
     customDataIdentifierId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_findings_filter' function.
 class CreateFindingsFilterResponse(BaseValidatorModel):
     arn: str
     id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_member' function.
 class CreateMemberResponse(BaseValidatorModel):
     arn: str
     ResponseMetadata: ResponseMetadata
@@ -911,6 +950,7 @@ class GetMacieSessionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_member' function.
 class GetMemberResponse(BaseValidatorModel):
     accountId: str
     administratorAccountId: str
@@ -924,52 +964,61 @@ class GetMemberResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_sensitive_data_occurrences_availability' function.
 class GetSensitiveDataOccurrencesAvailabilityResponse(BaseValidatorModel):
     code: AvailabilityCodeType
     reasons: List[UnavailabilityReasonCodeType]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_allow_lists' function.
 class ListAllowListsResponse(BaseValidatorModel):
     allowLists: List[AllowListSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_automated_discovery_accounts' function.
 class ListAutomatedDiscoveryAccountsResponse(BaseValidatorModel):
     items: List[AutomatedDiscoveryAccount]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_findings' function.
 class ListFindingsResponse(BaseValidatorModel):
     findingIds: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_organization_admin_accounts' function.
 class ListOrganizationAdminAccountsResponse(BaseValidatorModel):
     adminAccounts: List[AdminAccount]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'test_custom_data_identifier' function.
 class TestCustomDataIdentifierResponse(BaseValidatorModel):
     matchCount: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_allow_list' function.
 class UpdateAllowListResponse(BaseValidatorModel):
     arn: str
     id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_findings_filter' function.
 class UpdateFindingsFilterResponse(BaseValidatorModel):
     arn: str
     id: str
@@ -1001,6 +1050,7 @@ class MatchingBucket(BaseValidatorModel):
     unclassifiableObjectSizeInBytes: Optional[ObjectLevelStatistics] = None
 
 
+# This class is the input for the 'describe_buckets' function.
 class DescribeBucketsRequest(BaseValidatorModel):
     criteria: Optional[Dict[str, BucketCriteriaAdditionalProperties]] = None
     maxResults: Optional[int] = None
@@ -1019,12 +1069,14 @@ class ClassificationExportConfiguration(BaseValidatorModel):
     s3Destination: Optional[S3Destination] = None
 
 
+# This class is the output for the 'list_classification_scopes' function.
 class ListClassificationScopesResponse(BaseValidatorModel):
     classificationScopes: List[ClassificationScopeSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_custom_data_identifier' function.
 class CreateCustomDataIdentifierRequest(BaseValidatorModel):
     name: str
     regex: str
@@ -1037,6 +1089,7 @@ class CreateCustomDataIdentifierRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'get_custom_data_identifier' function.
 class GetCustomDataIdentifierResponse(BaseValidatorModel):
     arn: str
     createdAt: datetime
@@ -1053,16 +1106,19 @@ class GetCustomDataIdentifierResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_invitations' function.
 class CreateInvitationsResponse(BaseValidatorModel):
     unprocessedAccounts: List[UnprocessedAccount]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'decline_invitations' function.
 class DeclineInvitationsResponse(BaseValidatorModel):
     unprocessedAccounts: List[UnprocessedAccount]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_invitations' function.
 class DeleteInvitationsResponse(BaseValidatorModel):
     unprocessedAccounts: List[UnprocessedAccount]
     ResponseMetadata: ResponseMetadata
@@ -1076,6 +1132,7 @@ class FindingCriteria(BaseValidatorModel):
     criterion: Optional[Dict[str, CriterionAdditionalProperties]] = None
 
 
+# This class is the output for the 'list_custom_data_identifiers' function.
 class ListCustomDataIdentifiersResponse(BaseValidatorModel):
     items: List[CustomDataIdentifierSummary]
     ResponseMetadata: ResponseMetadata
@@ -1141,6 +1198,7 @@ class ListSensitivityInspectionTemplatesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'get_sensitive_data_occurrences' function.
 class GetSensitiveDataOccurrencesResponse(BaseValidatorModel):
     error: str
     sensitiveDataOccurrences: Dict[str, List[DetectedDataDetails]]
@@ -1148,12 +1206,14 @@ class GetSensitiveDataOccurrencesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_resource_profile_detections' function.
 class ListResourceProfileDetectionsResponse(BaseValidatorModel):
     detections: List[Detection]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_findings_filters' function.
 class ListFindingsFiltersResponse(BaseValidatorModel):
     findingsFilterListItems: List[FindingsFilterListItem]
     ResponseMetadata: ResponseMetadata
@@ -1170,12 +1230,14 @@ class GetMasterAccountResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_invitations' function.
 class ListInvitationsResponse(BaseValidatorModel):
     invitations: List[Invitation]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_finding_statistics' function.
 class GetFindingStatisticsResponse(BaseValidatorModel):
     countsByGroup: List[GroupCount]
     ResponseMetadata: ResponseMetadata
@@ -1191,11 +1253,13 @@ class PutFindingsPublicationConfigurationRequest(BaseValidatorModel):
     securityHubConfiguration: Optional[SecurityHubConfiguration] = None
 
 
+# This class is the input for the 'get_findings' function.
 class GetFindingsRequest(BaseValidatorModel):
     findingIds: List[str]
     sortCriteria: Optional[SortCriteria] = None
 
 
+# This class is the output for the 'get_resource_profile' function.
 class GetResourceProfileResponse(BaseValidatorModel):
     profileUpdatedAt: datetime
     sensitivityScore: int
@@ -1210,6 +1274,7 @@ class GetRevealConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_reveal_configuration' function.
 class UpdateRevealConfigurationResponse(BaseValidatorModel):
     configuration: RevealConfiguration
     retrievalConfiguration: RetrievalConfiguration
@@ -1221,6 +1286,7 @@ class GetSensitiveDataOccurrencesRequestWait(BaseValidatorModel):
     WaiterConfig: Optional[WaiterConfig] = None
 
 
+# This class is the output for the 'get_sensitivity_inspection_template' function.
 class GetSensitivityInspectionTemplateResponse(BaseValidatorModel):
     description: str
     excludes: SensitivityInspectionTemplateExcludesOutput
@@ -1237,6 +1303,7 @@ class GetUsageStatisticsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_usage_statistics' function.
 class GetUsageStatisticsRequest(BaseValidatorModel):
     filterBy: Optional[List[UsageStatisticsFilter]] = None
     maxResults: Optional[int] = None
@@ -1245,6 +1312,7 @@ class GetUsageStatisticsRequest(BaseValidatorModel):
     timeRange: Optional[TimeRangeType] = None
 
 
+# This class is the output for the 'get_usage_totals' function.
 class GetUsageTotalsResponse(BaseValidatorModel):
     timeRange: TimeRangeType
     usageTotals: List[UsageTotal]
@@ -1276,24 +1344,28 @@ class ListJobsFilterCriteria(BaseValidatorModel):
     includes: Optional[List[ListJobsFilterTerm]] = None
 
 
+# This class is the output for the 'list_managed_data_identifiers' function.
 class ListManagedDataIdentifiersResponse(BaseValidatorModel):
     items: List[ManagedDataIdentifierSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_members' function.
 class ListMembersResponse(BaseValidatorModel):
     members: List[Member]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_resource_profile_artifacts' function.
 class ListResourceProfileArtifactsResponse(BaseValidatorModel):
     artifacts: List[ResourceProfileArtifact]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_sensitivity_inspection_templates' function.
 class ListSensitivityInspectionTemplatesResponse(BaseValidatorModel):
     sensitivityInspectionTemplates: List[SensitivityInspectionTemplatesEntry]
     ResponseMetadata: ResponseMetadata
@@ -1379,11 +1451,13 @@ class TagScopeTerm(BaseValidatorModel):
     target: Optional[Literal['S3_OBJECT']] = None
 
 
+# This class is the input for the 'update_reveal_configuration' function.
 class UpdateRevealConfigurationRequest(BaseValidatorModel):
     configuration: RevealConfiguration
     retrievalConfiguration: Optional[UpdateRetrievalConfiguration] = None
 
 
+# This class is the input for the 'create_allow_list' function.
 class CreateAllowListRequest(BaseValidatorModel):
     clientToken: str
     criteria: AllowListCriteria
@@ -1392,6 +1466,7 @@ class CreateAllowListRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'get_allow_list' function.
 class GetAllowListResponse(BaseValidatorModel):
     arn: str
     createdAt: datetime
@@ -1405,6 +1480,7 @@ class GetAllowListResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_allow_list' function.
 class UpdateAllowListRequest(BaseValidatorModel):
     criteria: AllowListCriteria
     id: str
@@ -1421,6 +1497,7 @@ class MatchingResource(BaseValidatorModel):
     matchingBucket: Optional[MatchingBucket] = None
 
 
+# This class is the output for the 'get_bucket_statistics' function.
 class GetBucketStatisticsResponse(BaseValidatorModel):
     bucketCount: int
     bucketCountByEffectivePermission: BucketCountByEffectivePermission
@@ -1444,15 +1521,18 @@ class GetClassificationExportConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_classification_export_configuration' function.
 class PutClassificationExportConfigurationRequest(BaseValidatorModel):
     configuration: ClassificationExportConfiguration
 
 
+# This class is the output for the 'put_classification_export_configuration' function.
 class PutClassificationExportConfigurationResponse(BaseValidatorModel):
     configuration: ClassificationExportConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_findings_filter' function.
 class GetFindingsFilterResponse(BaseValidatorModel):
     action: FindingsFilterActionType
     arn: str
@@ -1475,6 +1555,7 @@ class ListClassificationJobsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_classification_jobs' function.
 class ListClassificationJobsRequest(BaseValidatorModel):
     filterCriteria: Optional[ListJobsFilterCriteria] = None
     maxResults: Optional[int] = None
@@ -1490,6 +1571,7 @@ class Occurrences(BaseValidatorModel):
     records: Optional[List[Record]] = None
 
 
+# This class is the output for the 'get_classification_scope' function.
 class GetClassificationScopeResponse(BaseValidatorModel):
     id: str
     name: str
@@ -1562,12 +1644,14 @@ class BucketPublicAccess(BaseValidatorModel):
     permissionConfiguration: Optional[BucketPermissionConfiguration] = None
 
 
+# This class is the output for the 'search_resources' function.
 class SearchResourcesResponse(BaseValidatorModel):
     matchingResources: List[MatchingResource]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_findings_filter' function.
 class CreateFindingsFilterRequest(BaseValidatorModel):
     action: FindingsFilterActionType
     findingCriteria: FindingCriteriaUnion
@@ -1578,6 +1662,7 @@ class CreateFindingsFilterRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'get_finding_statistics' function.
 class GetFindingStatisticsRequest(BaseValidatorModel):
     groupBy: GroupByType
     findingCriteria: Optional[FindingCriteriaUnion] = None
@@ -1591,6 +1676,7 @@ class ListFindingsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_findings' function.
 class ListFindingsRequest(BaseValidatorModel):
     findingCriteria: Optional[FindingCriteriaUnion] = None
     maxResults: Optional[int] = None
@@ -1598,6 +1684,7 @@ class ListFindingsRequest(BaseValidatorModel):
     sortCriteria: Optional[SortCriteria] = None
 
 
+# This class is the input for the 'update_findings_filter' function.
 class UpdateFindingsFilterRequest(BaseValidatorModel):
     id: str
     action: Optional[FindingsFilterActionType] = None
@@ -1625,6 +1712,7 @@ class SearchResourcesCriteriaBlock(BaseValidatorModel):
     and_: Optional[List[SearchResourcesCriteria]] = None
 
 
+# This class is the output for the 'get_usage_statistics' function.
 class GetUsageStatisticsResponse(BaseValidatorModel):
     records: List[UsageRecord]
     timeRange: TimeRangeType
@@ -1741,6 +1829,7 @@ class Scoping(BaseValidatorModel):
     includes: Optional[JobScopingBlock] = None
 
 
+# This class is the output for the 'describe_buckets' function.
 class DescribeBucketsResponse(BaseValidatorModel):
     buckets: List[BucketMetadata]
     ResponseMetadata: ResponseMetadata
@@ -1767,6 +1856,7 @@ class SearchResourcesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_resources' function.
 class SearchResourcesRequest(BaseValidatorModel):
     bucketCriteria: Optional[SearchResourcesBucketCriteria] = None
     maxResults: Optional[int] = None
@@ -1811,12 +1901,14 @@ class ClassificationDetails(BaseValidatorModel):
     result: Optional[ClassificationResult] = None
 
 
+# This class is the output for the 'list_classification_jobs' function.
 class ListClassificationJobsResponse(BaseValidatorModel):
     items: List[JobSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_classification_job' function.
 class DescribeClassificationJobResponse(BaseValidatorModel):
     allowListIds: List[str]
     clientToken: str
@@ -1865,6 +1957,7 @@ class Finding(BaseValidatorModel):
     updatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'create_classification_job' function.
 class CreateClassificationJobRequest(BaseValidatorModel):
     clientToken: str
     jobType: JobTypeType
@@ -1881,6 +1974,7 @@ class CreateClassificationJobRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'get_findings' function.
 class GetFindingsResponse(BaseValidatorModel):
     findings: List[Finding]
     ResponseMetadata: ResponseMetadata

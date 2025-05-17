@@ -241,30 +241,37 @@ class DecoderManifestSummary(BaseValidatorModel):
     message: Optional[str] = None
 
 
+# This class is the input for the 'delete_campaign' function.
 class DeleteCampaignRequest(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'delete_decoder_manifest' function.
 class DeleteDecoderManifestRequest(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'delete_fleet' function.
 class DeleteFleetRequest(BaseValidatorModel):
     fleetId: str
 
 
+# This class is the input for the 'delete_model_manifest' function.
 class DeleteModelManifestRequest(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'delete_signal_catalog' function.
 class DeleteSignalCatalogRequest(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'delete_state_template' function.
 class DeleteStateTemplateRequest(BaseValidatorModel):
     identifier: str
 
 
+# This class is the input for the 'delete_vehicle' function.
 class DeleteVehicleRequest(BaseValidatorModel):
     vehicleName: str
 
@@ -287,18 +294,22 @@ class FormattedVss(BaseValidatorModel):
     vssJson: Optional[str] = None
 
 
+# This class is the input for the 'get_campaign' function.
 class GetCampaignRequest(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'get_decoder_manifest' function.
 class GetDecoderManifestRequest(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'get_fleet' function.
 class GetFleetRequest(BaseValidatorModel):
     fleetId: str
 
 
+# This class is the input for the 'get_model_manifest' function.
 class GetModelManifestRequest(BaseValidatorModel):
     name: str
 
@@ -318,6 +329,7 @@ class TimestreamRegistrationResponse(BaseValidatorModel):
     errorMessage: Optional[str] = None
 
 
+# This class is the input for the 'get_signal_catalog' function.
 class GetSignalCatalogRequest(BaseValidatorModel):
     name: str
 
@@ -332,10 +344,12 @@ class NodeCounts(BaseValidatorModel):
     totalProperties: Optional[int] = None
 
 
+# This class is the input for the 'get_state_template' function.
 class GetStateTemplateRequest(BaseValidatorModel):
     identifier: str
 
 
+# This class is the input for the 'get_vehicle' function.
 class GetVehicleRequest(BaseValidatorModel):
     vehicleName: str
 
@@ -346,6 +360,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'get_vehicle_status' function.
 class GetVehicleStatusRequest(BaseValidatorModel):
     vehicleName: str
     nextToken: Optional[str] = None
@@ -362,6 +377,7 @@ class IamResources(BaseValidatorModel):
     roleArn: str
 
 
+# This class is the input for the 'list_campaigns' function.
 class ListCampaignsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -369,18 +385,21 @@ class ListCampaignsRequest(BaseValidatorModel):
     listResponseScope: Optional[Literal['METADATA_ONLY']] = None
 
 
+# This class is the input for the 'list_decoder_manifest_network_interfaces' function.
 class ListDecoderManifestNetworkInterfacesRequest(BaseValidatorModel):
     name: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_decoder_manifest_signals' function.
 class ListDecoderManifestSignalsRequest(BaseValidatorModel):
     name: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_decoder_manifests' function.
 class ListDecoderManifestsRequest(BaseValidatorModel):
     modelManifestArn: Optional[str] = None
     nextToken: Optional[str] = None
@@ -388,24 +407,28 @@ class ListDecoderManifestsRequest(BaseValidatorModel):
     listResponseScope: Optional[Literal['METADATA_ONLY']] = None
 
 
+# This class is the input for the 'list_fleets_for_vehicle' function.
 class ListFleetsForVehicleRequest(BaseValidatorModel):
     vehicleName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_fleets' function.
 class ListFleetsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     listResponseScope: Optional[Literal['METADATA_ONLY']] = None
 
 
+# This class is the input for the 'list_model_manifest_nodes' function.
 class ListModelManifestNodesRequest(BaseValidatorModel):
     name: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_model_manifests' function.
 class ListModelManifestsRequest(BaseValidatorModel):
     signalCatalogArn: Optional[str] = None
     nextToken: Optional[str] = None
@@ -423,6 +446,7 @@ class ModelManifestSummary(BaseValidatorModel):
     status: Optional[ManifestStatusType] = None
 
 
+# This class is the input for the 'list_signal_catalog_nodes' function.
 class ListSignalCatalogNodesRequest(BaseValidatorModel):
     name: str
     nextToken: Optional[str] = None
@@ -430,6 +454,7 @@ class ListSignalCatalogNodesRequest(BaseValidatorModel):
     signalNodeType: Optional[SignalNodeTypeType] = None
 
 
+# This class is the input for the 'list_signal_catalogs' function.
 class ListSignalCatalogsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -442,6 +467,7 @@ class SignalCatalogSummary(BaseValidatorModel):
     lastModificationTime: Optional[datetime] = None
 
 
+# This class is the input for the 'list_state_templates' function.
 class ListStateTemplatesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -458,16 +484,19 @@ class StateTemplateSummary(BaseValidatorModel):
     id: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
 
+# This class is the input for the 'list_vehicles_in_fleet' function.
 class ListVehiclesInFleetRequest(BaseValidatorModel):
     fleetId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_vehicles' function.
 class ListVehiclesRequest(BaseValidatorModel):
     modelManifestArn: Optional[str] = None
     attributeNames: Optional[List[str]] = None
@@ -541,6 +570,7 @@ class ROS2PrimitiveMessageDefinition(BaseValidatorModel):
     upperBound: Optional[int] = None
 
 
+# This class is the input for the 'put_encryption_configuration' function.
 class PutEncryptionConfigurationRequest(BaseValidatorModel):
     encryptionType: EncryptionTypeType
     kmsKeyId: Optional[str] = None
@@ -609,6 +639,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_campaign' function.
 class UpdateCampaignRequest(BaseValidatorModel):
     name: str
     action: UpdateCampaignActionType
@@ -616,11 +647,13 @@ class UpdateCampaignRequest(BaseValidatorModel):
     dataExtraDimensions: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_fleet' function.
 class UpdateFleetRequest(BaseValidatorModel):
     fleetId: str
     description: Optional[str] = None
 
 
+# This class is the input for the 'update_model_manifest' function.
 class UpdateModelManifestRequest(BaseValidatorModel):
     name: str
     description: Optional[str] = None
@@ -629,6 +662,7 @@ class UpdateModelManifestRequest(BaseValidatorModel):
     status: Optional[ManifestStatusType] = None
 
 
+# This class is the input for the 'update_state_template' function.
 class UpdateStateTemplateRequest(BaseValidatorModel):
     identifier: str
     description: Optional[str] = None
@@ -642,42 +676,49 @@ ActuatorUnion = Union[Actuator, ActuatorOutput]
 AttributeUnion = Union[Attribute, AttributeOutput]
 
 
+# This class is the output for the 'batch_create_vehicle' function.
 class BatchCreateVehicleResponse(BaseValidatorModel):
     vehicles: List[CreateVehicleResponseItem]
     errors: List[CreateVehicleError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_campaign' function.
 class CreateCampaignResponse(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_decoder_manifest' function.
 class CreateDecoderManifestResponse(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_fleet' function.
 class CreateFleetResponse(BaseValidatorModel):
     id: str
     arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_model_manifest' function.
 class CreateModelManifestResponse(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_signal_catalog' function.
 class CreateSignalCatalogResponse(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_state_template' function.
 class CreateStateTemplateResponse(BaseValidatorModel):
     name: str
     arn: str
@@ -685,6 +726,7 @@ class CreateStateTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_vehicle' function.
 class CreateVehicleResponse(BaseValidatorModel):
     vehicleName: str
     arn: str
@@ -692,36 +734,42 @@ class CreateVehicleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_campaign' function.
 class DeleteCampaignResponse(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_decoder_manifest' function.
 class DeleteDecoderManifestResponse(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_fleet' function.
 class DeleteFleetResponse(BaseValidatorModel):
     id: str
     arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_model_manifest' function.
 class DeleteModelManifestResponse(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_signal_catalog' function.
 class DeleteSignalCatalogResponse(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_state_template' function.
 class DeleteStateTemplateResponse(BaseValidatorModel):
     name: str
     arn: str
@@ -729,12 +777,14 @@ class DeleteStateTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_vehicle' function.
 class DeleteVehicleResponse(BaseValidatorModel):
     vehicleName: str
     arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_decoder_manifest' function.
 class GetDecoderManifestResponse(BaseValidatorModel):
     name: str
     arn: str
@@ -757,6 +807,7 @@ class GetEncryptionConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_fleet' function.
 class GetFleetResponse(BaseValidatorModel):
     id: str
     arn: str
@@ -767,6 +818,7 @@ class GetFleetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_model_manifest' function.
 class GetModelManifestResponse(BaseValidatorModel):
     name: str
     arn: str
@@ -778,6 +830,7 @@ class GetModelManifestResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_state_template' function.
 class GetStateTemplateResponse(BaseValidatorModel):
     name: str
     arn: str
@@ -792,30 +845,35 @@ class GetStateTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_decoder_manifest' function.
 class ImportDecoderManifestResponse(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_signal_catalog' function.
 class ImportSignalCatalogResponse(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_fleets_for_vehicle' function.
 class ListFleetsForVehicleResponse(BaseValidatorModel):
     fleets: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_vehicles_in_fleet' function.
 class ListVehiclesInFleetResponse(BaseValidatorModel):
     vehicles: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'put_encryption_configuration' function.
 class PutEncryptionConfigurationResponse(BaseValidatorModel):
     kmsKeyId: str
     encryptionStatus: EncryptionStatusType
@@ -823,6 +881,7 @@ class PutEncryptionConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_campaign' function.
 class UpdateCampaignResponse(BaseValidatorModel):
     arn: str
     name: str
@@ -830,30 +889,35 @@ class UpdateCampaignResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_decoder_manifest' function.
 class UpdateDecoderManifestResponse(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_fleet' function.
 class UpdateFleetResponse(BaseValidatorModel):
     id: str
     arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_model_manifest' function.
 class UpdateModelManifestResponse(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_signal_catalog' function.
 class UpdateSignalCatalogResponse(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_state_template' function.
 class UpdateStateTemplateResponse(BaseValidatorModel):
     name: str
     arn: str
@@ -861,12 +925,14 @@ class UpdateStateTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_vehicle' function.
 class UpdateVehicleResponse(BaseValidatorModel):
     vehicleName: str
     arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_update_vehicle' function.
 class BatchUpdateVehicleResponse(BaseValidatorModel):
     vehicles: List[UpdateVehicleResponseItem]
     errors: List[UpdateVehicleError]
@@ -879,6 +945,7 @@ class CanDbcDefinition(BaseValidatorModel):
     signalsMap: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'list_campaigns' function.
 class ListCampaignsResponse(BaseValidatorModel):
     campaignSummaries: List[CampaignSummary]
     ResponseMetadata: ResponseMetadata
@@ -899,6 +966,7 @@ class CollectionScheme(BaseValidatorModel):
     conditionBasedCollectionScheme: Optional[ConditionBasedCollectionScheme] = None
 
 
+# This class is the input for the 'create_fleet' function.
 class CreateFleetRequest(BaseValidatorModel):
     fleetId: str
     signalCatalogArn: str
@@ -906,6 +974,7 @@ class CreateFleetRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_model_manifest' function.
 class CreateModelManifestRequest(BaseValidatorModel):
     name: str
     nodes: List[str]
@@ -914,6 +983,7 @@ class CreateModelManifestRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_state_template' function.
 class CreateStateTemplateRequest(BaseValidatorModel):
     name: str
     signalCatalogArn: str
@@ -924,6 +994,7 @@ class CreateStateTemplateRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -946,18 +1017,21 @@ class DataPartitionStorageOptions(BaseValidatorModel):
     minimumTimeToLive: StorageMinimumTimeToLive
 
 
+# This class is the output for the 'list_decoder_manifests' function.
 class ListDecoderManifestsResponse(BaseValidatorModel):
     summaries: List[DecoderManifestSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_fleets' function.
 class ListFleetsResponse(BaseValidatorModel):
     fleetSummaries: List[FleetSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'import_signal_catalog' function.
 class ImportSignalCatalogRequest(BaseValidatorModel):
     name: str
     description: Optional[str] = None
@@ -975,6 +1049,7 @@ class GetRegisterAccountStatusResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_signal_catalog' function.
 class GetSignalCatalogResponse(BaseValidatorModel):
     name: str
     arn: str
@@ -1061,30 +1136,35 @@ class ListVehiclesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'get_vehicle_status' function.
 class GetVehicleStatusResponse(BaseValidatorModel):
     campaigns: List[VehicleStatus]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_model_manifests' function.
 class ListModelManifestsResponse(BaseValidatorModel):
     summaries: List[ModelManifestSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_signal_catalogs' function.
 class ListSignalCatalogsResponse(BaseValidatorModel):
     summaries: List[SignalCatalogSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_state_templates' function.
 class ListStateTemplatesResponse(BaseValidatorModel):
     summaries: List[StateTemplateSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_vehicles' function.
 class ListVehiclesResponse(BaseValidatorModel):
     vehicleSummaries: List[VehicleSummary]
     ResponseMetadata: ResponseMetadata
@@ -1117,11 +1197,13 @@ class PrimitiveMessageDefinition(BaseValidatorModel):
     ros2PrimitiveMessageDefinition: Optional[ROS2PrimitiveMessageDefinition] = None
 
 
+# This class is the input for the 'register_account' function.
 class RegisterAccountRequest(BaseValidatorModel):
     timestreamResources: Optional[TimestreamResources] = None
     iamResources: Optional[IamResources] = None
 
 
+# This class is the output for the 'register_account' function.
 class RegisterAccountResponse(BaseValidatorModel):
     registerAccountStatus: RegistrationStatusType
     timestreamResources: TimestreamResources
@@ -1152,18 +1234,21 @@ class DataPartition(BaseValidatorModel):
     uploadOptions: Optional[DataPartitionUploadOptions] = None
 
 
+# This class is the output for the 'list_decoder_manifest_network_interfaces' function.
 class ListDecoderManifestNetworkInterfacesResponse(BaseValidatorModel):
     networkInterfaces: List[NetworkInterface]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_model_manifest_nodes' function.
 class ListModelManifestNodesResponse(BaseValidatorModel):
     nodes: List[NodeOutput]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_signal_catalog_nodes' function.
 class ListSignalCatalogNodesResponse(BaseValidatorModel):
     nodes: List[NodeOutput]
     ResponseMetadata: ResponseMetadata
@@ -1221,6 +1306,7 @@ class StructuredMessage(BaseValidatorModel):
     structuredMessageDefinition: Optional[List[StructuredMessageFieldNameAndDataTypePairUnion]] = None
 
 
+# This class is the input for the 'import_decoder_manifest' function.
 class ImportDecoderManifestRequest(BaseValidatorModel):
     name: str
     networkFileDefinitions: List[NetworkFileDefinition]
@@ -1245,6 +1331,7 @@ class MessageSignalPaginator(BaseValidatorModel):
 NodeUnion = Union[Node, NodeOutput]
 
 
+# This class is the output for the 'get_campaign' function.
 class GetCampaignResponse(BaseValidatorModel):
     name: str
     arn: str
@@ -1274,6 +1361,7 @@ SignalFetchInformationUnion = Union[SignalFetchInformation, SignalFetchInformati
 StructuredMessageUnion = Union[StructuredMessage, StructuredMessageOutput]
 
 
+# This class is the output for the 'get_vehicle' function.
 class GetVehicleResponse(BaseValidatorModel):
     vehicleName: str
     arn: str
@@ -1311,6 +1399,7 @@ class SignalDecoderPaginator(BaseValidatorModel):
     customDecodingSignal: Optional[CustomDecodingSignal] = None
 
 
+# This class is the input for the 'create_signal_catalog' function.
 class CreateSignalCatalogRequest(BaseValidatorModel):
     name: str
     description: Optional[str] = None
@@ -1318,6 +1407,7 @@ class CreateSignalCatalogRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_signal_catalog' function.
 class UpdateSignalCatalogRequest(BaseValidatorModel):
     name: str
     description: Optional[str] = None
@@ -1326,6 +1416,7 @@ class UpdateSignalCatalogRequest(BaseValidatorModel):
     nodesToRemove: Optional[List[str]] = None
 
 
+# This class is the input for the 'create_campaign' function.
 class CreateCampaignRequest(BaseValidatorModel):
     name: str
     signalCatalogArn: str
@@ -1354,6 +1445,7 @@ class MessageSignal(BaseValidatorModel):
 StateTemplateAssociationUnion = Union[StateTemplateAssociation, StateTemplateAssociationOutput]
 
 
+# This class is the output for the 'list_decoder_manifest_signals' function.
 class ListDecoderManifestSignalsResponse(BaseValidatorModel):
     signalDecoders: List[SignalDecoderOutput]
     ResponseMetadata: ResponseMetadata
@@ -1378,6 +1470,7 @@ class CreateVehicleRequestItem(BaseValidatorModel):
     stateTemplates: Optional[List[StateTemplateAssociationUnion]] = None
 
 
+# This class is the input for the 'create_vehicle' function.
 class CreateVehicleRequest(BaseValidatorModel):
     vehicleName: str
     modelManifestArn: str
@@ -1398,6 +1491,7 @@ class UpdateVehicleRequestItem(BaseValidatorModel):
     stateTemplatesToRemove: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_vehicle' function.
 class UpdateVehicleRequest(BaseValidatorModel):
     vehicleName: str
     modelManifestArn: Optional[str] = None
@@ -1418,16 +1512,19 @@ class SignalDecoder(BaseValidatorModel):
     customDecodingSignal: Optional[CustomDecodingSignal] = None
 
 
+# This class is the input for the 'batch_create_vehicle' function.
 class BatchCreateVehicleRequest(BaseValidatorModel):
     vehicles: List[CreateVehicleRequestItem]
 
 
+# This class is the input for the 'batch_update_vehicle' function.
 class BatchUpdateVehicleRequest(BaseValidatorModel):
     vehicles: List[UpdateVehicleRequestItem]
 
 SignalDecoderUnion = Union[SignalDecoder, SignalDecoderOutput]
 
 
+# This class is the input for the 'create_decoder_manifest' function.
 class CreateDecoderManifestRequest(BaseValidatorModel):
     name: str
     modelManifestArn: str
@@ -1438,6 +1535,7 @@ class CreateDecoderManifestRequest(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'update_decoder_manifest' function.
 class UpdateDecoderManifestRequest(BaseValidatorModel):
     name: str
     description: Optional[str] = None

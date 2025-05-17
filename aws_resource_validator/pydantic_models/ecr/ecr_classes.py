@@ -30,6 +30,7 @@ class AwsEcrContainerImageDetails(BaseValidatorModel):
     repositoryName: Optional[str] = None
 
 
+# This class is the input for the 'batch_check_layer_availability' function.
 class BatchCheckLayerAvailabilityRequest(BaseValidatorModel):
     repositoryName: str
     layerDigests: List[str]
@@ -62,6 +63,7 @@ class ImageIdentifier(BaseValidatorModel):
     imageTag: Optional[str] = None
 
 
+# This class is the input for the 'batch_get_repository_scanning_configuration' function.
 class BatchGetRepositoryScanningConfigurationRequest(BaseValidatorModel):
     repositoryNames: List[str]
 
@@ -74,6 +76,7 @@ class RepositoryScanningConfigurationFailure(BaseValidatorModel):
 Blob = Union[str, bytes, IO[Any], StreamingBody]
 
 
+# This class is the input for the 'complete_layer_upload' function.
 class CompleteLayerUploadRequest(BaseValidatorModel):
     repositoryName: str
     uploadId: str
@@ -81,6 +84,7 @@ class CompleteLayerUploadRequest(BaseValidatorModel):
     registryId: Optional[str] = None
 
 
+# This class is the input for the 'create_pull_through_cache_rule' function.
 class CreatePullThroughCacheRuleRequest(BaseValidatorModel):
     ecrRepositoryPrefix: str
     upstreamRegistryUrl: str
@@ -120,25 +124,30 @@ class CvssScore(BaseValidatorModel):
     version: Optional[str] = None
 
 
+# This class is the input for the 'delete_lifecycle_policy' function.
 class DeleteLifecyclePolicyRequest(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
 
 
+# This class is the input for the 'delete_pull_through_cache_rule' function.
 class DeletePullThroughCacheRuleRequest(BaseValidatorModel):
     ecrRepositoryPrefix: str
     registryId: Optional[str] = None
 
 
+# This class is the input for the 'delete_repository_creation_template' function.
 class DeleteRepositoryCreationTemplateRequest(BaseValidatorModel):
     prefix: str
 
 
+# This class is the input for the 'delete_repository_policy' function.
 class DeleteRepositoryPolicyRequest(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
 
 
+# This class is the input for the 'delete_repository' function.
 class DeleteRepositoryRequest(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
@@ -172,6 +181,7 @@ class DescribeImagesFilter(BaseValidatorModel):
     tagStatus: Optional[TagStatusType] = None
 
 
+# This class is the input for the 'describe_pull_through_cache_rules' function.
 class DescribePullThroughCacheRulesRequest(BaseValidatorModel):
     registryId: Optional[str] = None
     ecrRepositoryPrefixes: Optional[List[str]] = None
@@ -189,6 +199,7 @@ class PullThroughCacheRule(BaseValidatorModel):
     updatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'describe_repositories' function.
 class DescribeRepositoriesRequest(BaseValidatorModel):
     registryId: Optional[str] = None
     repositoryNames: Optional[List[str]] = None
@@ -196,20 +207,24 @@ class DescribeRepositoriesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_repository_creation_templates' function.
 class DescribeRepositoryCreationTemplatesRequest(BaseValidatorModel):
     prefixes: Optional[List[str]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_account_setting' function.
 class GetAccountSettingRequest(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'get_authorization_token' function.
 class GetAuthorizationTokenRequest(BaseValidatorModel):
     registryIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_download_url_for_layer' function.
 class GetDownloadUrlForLayerRequest(BaseValidatorModel):
     repositoryName: str
     layerDigest: str
@@ -224,11 +239,13 @@ class LifecyclePolicyPreviewSummary(BaseValidatorModel):
     expiringImageTotalCount: Optional[int] = None
 
 
+# This class is the input for the 'get_lifecycle_policy' function.
 class GetLifecyclePolicyRequest(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
 
 
+# This class is the input for the 'get_repository_policy' function.
 class GetRepositoryPolicyRequest(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
@@ -240,6 +257,7 @@ class ImageScanFindingsSummary(BaseValidatorModel):
     findingSeverityCounts: Optional[Dict[FindingSeverityType, int]] = None
 
 
+# This class is the input for the 'initiate_layer_upload' function.
 class InitiateLayerUploadRequest(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
@@ -253,6 +271,7 @@ class ListImagesFilter(BaseValidatorModel):
     tagStatus: Optional[TagStatusType] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -269,11 +288,13 @@ class VulnerablePackage(BaseValidatorModel):
     fixedInVersion: Optional[str] = None
 
 
+# This class is the input for the 'put_account_setting' function.
 class PutAccountSettingRequest(BaseValidatorModel):
     name: str
     value: str
 
 
+# This class is the input for the 'put_image' function.
 class PutImageRequest(BaseValidatorModel):
     repositoryName: str
     imageManifest: str
@@ -283,18 +304,21 @@ class PutImageRequest(BaseValidatorModel):
     imageDigest: Optional[str] = None
 
 
+# This class is the input for the 'put_image_tag_mutability' function.
 class PutImageTagMutabilityRequest(BaseValidatorModel):
     repositoryName: str
     imageTagMutability: ImageTagMutabilityType
     registryId: Optional[str] = None
 
 
+# This class is the input for the 'put_lifecycle_policy' function.
 class PutLifecyclePolicyRequest(BaseValidatorModel):
     repositoryName: str
     lifecyclePolicyText: str
     registryId: Optional[str] = None
 
 
+# This class is the input for the 'put_registry_policy' function.
 class PutRegistryPolicyRequest(BaseValidatorModel):
     policyText: str
 
@@ -319,6 +343,7 @@ class RepositoryFilter(BaseValidatorModel):
     filterType: Literal['PREFIX_MATCH']
 
 
+# This class is the input for the 'set_repository_policy' function.
 class SetRepositoryPolicyRequest(BaseValidatorModel):
     repositoryName: str
     policyText: str
@@ -326,6 +351,7 @@ class SetRepositoryPolicyRequest(BaseValidatorModel):
     force: Optional[bool] = None
 
 
+# This class is the input for the 'start_lifecycle_policy_preview' function.
 class StartLifecyclePolicyPreviewRequest(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
@@ -337,12 +363,14 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_pull_through_cache_rule' function.
 class UpdatePullThroughCacheRuleRequest(BaseValidatorModel):
     ecrRepositoryPrefix: str
     credentialArn: str
     registryId: Optional[str] = None
 
 
+# This class is the input for the 'validate_pull_through_cache_rule' function.
 class ValidatePullThroughCacheRuleRequest(BaseValidatorModel):
     ecrRepositoryPrefix: str
     registryId: Optional[str] = None
@@ -360,12 +388,14 @@ class ResourceDetails(BaseValidatorModel):
     awsEcrContainerImage: Optional[AwsEcrContainerImageDetails] = None
 
 
+# This class is the output for the 'batch_check_layer_availability' function.
 class BatchCheckLayerAvailabilityResponse(BaseValidatorModel):
     layers: List[Layer]
     failures: List[LayerFailure]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'complete_layer_upload' function.
 class CompleteLayerUploadResponse(BaseValidatorModel):
     registryId: str
     repositoryName: str
@@ -374,6 +404,7 @@ class CompleteLayerUploadResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_pull_through_cache_rule' function.
 class CreatePullThroughCacheRuleResponse(BaseValidatorModel):
     ecrRepositoryPrefix: str
     upstreamRegistryUrl: str
@@ -384,6 +415,7 @@ class CreatePullThroughCacheRuleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_lifecycle_policy' function.
 class DeleteLifecyclePolicyResponse(BaseValidatorModel):
     registryId: str
     repositoryName: str
@@ -392,6 +424,7 @@ class DeleteLifecyclePolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_pull_through_cache_rule' function.
 class DeletePullThroughCacheRuleResponse(BaseValidatorModel):
     ecrRepositoryPrefix: str
     upstreamRegistryUrl: str
@@ -407,6 +440,7 @@ class DeleteRegistryPolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_repository_policy' function.
 class DeleteRepositoryPolicyResponse(BaseValidatorModel):
     registryId: str
     repositoryName: str
@@ -414,23 +448,27 @@ class DeleteRepositoryPolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_account_setting' function.
 class GetAccountSettingResponse(BaseValidatorModel):
     name: str
     value: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_authorization_token' function.
 class GetAuthorizationTokenResponse(BaseValidatorModel):
     authorizationData: List[AuthorizationData]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_download_url_for_layer' function.
 class GetDownloadUrlForLayerResponse(BaseValidatorModel):
     downloadUrl: str
     layerDigest: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_lifecycle_policy' function.
 class GetLifecyclePolicyResponse(BaseValidatorModel):
     registryId: str
     repositoryName: str
@@ -445,6 +483,7 @@ class GetRegistryPolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_repository_policy' function.
 class GetRepositoryPolicyResponse(BaseValidatorModel):
     registryId: str
     repositoryName: str
@@ -452,18 +491,21 @@ class GetRepositoryPolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'initiate_layer_upload' function.
 class InitiateLayerUploadResponse(BaseValidatorModel):
     uploadId: str
     partSize: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_account_setting' function.
 class PutAccountSettingResponse(BaseValidatorModel):
     name: str
     value: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_image_tag_mutability' function.
 class PutImageTagMutabilityResponse(BaseValidatorModel):
     registryId: str
     repositoryName: str
@@ -471,6 +513,7 @@ class PutImageTagMutabilityResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_lifecycle_policy' function.
 class PutLifecyclePolicyResponse(BaseValidatorModel):
     registryId: str
     repositoryName: str
@@ -478,12 +521,14 @@ class PutLifecyclePolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_registry_policy' function.
 class PutRegistryPolicyResponse(BaseValidatorModel):
     registryId: str
     policyText: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'set_repository_policy' function.
 class SetRepositoryPolicyResponse(BaseValidatorModel):
     registryId: str
     repositoryName: str
@@ -491,6 +536,7 @@ class SetRepositoryPolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_lifecycle_policy_preview' function.
 class StartLifecyclePolicyPreviewResponse(BaseValidatorModel):
     registryId: str
     repositoryName: str
@@ -499,6 +545,7 @@ class StartLifecyclePolicyPreviewResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_pull_through_cache_rule' function.
 class UpdatePullThroughCacheRuleResponse(BaseValidatorModel):
     ecrRepositoryPrefix: str
     registryId: str
@@ -507,6 +554,7 @@ class UpdatePullThroughCacheRuleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'upload_layer_part' function.
 class UploadLayerPartResponse(BaseValidatorModel):
     registryId: str
     repositoryName: str
@@ -515,6 +563,7 @@ class UploadLayerPartResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'validate_pull_through_cache_rule' function.
 class ValidatePullThroughCacheRuleResponse(BaseValidatorModel):
     ecrRepositoryPrefix: str
     registryId: str
@@ -525,12 +574,14 @@ class ValidatePullThroughCacheRuleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'batch_delete_image' function.
 class BatchDeleteImageRequest(BaseValidatorModel):
     repositoryName: str
     imageIds: List[ImageIdentifier]
     registryId: Optional[str] = None
 
 
+# This class is the input for the 'batch_get_image' function.
 class BatchGetImageRequest(BaseValidatorModel):
     repositoryName: str
     imageIds: List[ImageIdentifier]
@@ -538,12 +589,14 @@ class BatchGetImageRequest(BaseValidatorModel):
     acceptedMediaTypes: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_image_replication_status' function.
 class DescribeImageReplicationStatusRequest(BaseValidatorModel):
     repositoryName: str
     imageId: ImageIdentifier
     registryId: Optional[str] = None
 
 
+# This class is the input for the 'describe_image_scan_findings' function.
 class DescribeImageScanFindingsRequest(BaseValidatorModel):
     repositoryName: str
     imageId: ImageIdentifier
@@ -566,18 +619,21 @@ class Image(BaseValidatorModel):
     imageManifestMediaType: Optional[str] = None
 
 
+# This class is the output for the 'list_images' function.
 class ListImagesResponse(BaseValidatorModel):
     imageIds: List[ImageIdentifier]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'start_image_scan' function.
 class StartImageScanRequest(BaseValidatorModel):
     repositoryName: str
     imageId: ImageIdentifier
     registryId: Optional[str] = None
 
 
+# This class is the input for the 'upload_layer_part' function.
 class UploadLayerPartRequest(BaseValidatorModel):
     repositoryName: str
     uploadId: str
@@ -587,6 +643,7 @@ class UploadLayerPartRequest(BaseValidatorModel):
     registryId: Optional[str] = None
 
 
+# This class is the input for the 'create_repository_creation_template' function.
 class CreateRepositoryCreationTemplateRequest(BaseValidatorModel):
     prefix: str
     appliedFor: List[RCTAppliedForType]
@@ -599,6 +656,7 @@ class CreateRepositoryCreationTemplateRequest(BaseValidatorModel):
     customRoleArn: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -623,6 +681,7 @@ class TagResourceRequest(BaseValidatorModel):
     tags: List[Tag]
 
 
+# This class is the input for the 'update_repository_creation_template' function.
 class UpdateRepositoryCreationTemplateRequest(BaseValidatorModel):
     prefix: str
     description: Optional[str] = None
@@ -635,6 +694,7 @@ class UpdateRepositoryCreationTemplateRequest(BaseValidatorModel):
     customRoleArn: Optional[str] = None
 
 
+# This class is the input for the 'create_repository' function.
 class CreateRepositoryRequest(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
@@ -644,12 +704,14 @@ class CreateRepositoryRequest(BaseValidatorModel):
     encryptionConfiguration: Optional[EncryptionConfiguration] = None
 
 
+# This class is the input for the 'put_image_scanning_configuration' function.
 class PutImageScanningConfigurationRequest(BaseValidatorModel):
     repositoryName: str
     imageScanningConfiguration: ImageScanningConfiguration
     registryId: Optional[str] = None
 
 
+# This class is the output for the 'put_image_scanning_configuration' function.
 class PutImageScanningConfigurationResponse(BaseValidatorModel):
     registryId: str
     repositoryName: str
@@ -676,6 +738,7 @@ class CvssScoreDetails(BaseValidatorModel):
     version: Optional[str] = None
 
 
+# This class is the output for the 'describe_image_replication_status' function.
 class DescribeImageReplicationStatusResponse(BaseValidatorModel):
     repositoryName: str
     imageId: ImageIdentifier
@@ -716,6 +779,7 @@ class DescribeImageScanFindingsRequestWait(BaseValidatorModel):
     WaiterConfig: Optional[WaiterConfig] = None
 
 
+# This class is the output for the 'start_image_scan' function.
 class StartImageScanResponse(BaseValidatorModel):
     registryId: str
     repositoryName: str
@@ -732,6 +796,7 @@ class DescribeImagesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_images' function.
 class DescribeImagesRequest(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
@@ -741,6 +806,7 @@ class DescribeImagesRequest(BaseValidatorModel):
     filter: Optional[DescribeImagesFilter] = None
 
 
+# This class is the output for the 'describe_pull_through_cache_rules' function.
 class DescribePullThroughCacheRulesResponse(BaseValidatorModel):
     pullThroughCacheRules: List[PullThroughCacheRule]
     ResponseMetadata: ResponseMetadata
@@ -755,6 +821,7 @@ class GetLifecyclePolicyPreviewRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_lifecycle_policy_preview' function.
 class GetLifecyclePolicyPreviewRequest(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
@@ -803,6 +870,7 @@ class ListImagesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_images' function.
 class ListImagesRequest(BaseValidatorModel):
     repositoryName: str
     registryId: Optional[str] = None
@@ -863,35 +931,41 @@ class Resource(BaseValidatorModel):
     type: Optional[str] = None
 
 
+# This class is the output for the 'batch_delete_image' function.
 class BatchDeleteImageResponse(BaseValidatorModel):
     imageIds: List[ImageIdentifier]
     failures: List[ImageFailure]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_get_image' function.
 class BatchGetImageResponse(BaseValidatorModel):
     images: List[Image]
     failures: List[ImageFailure]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_image' function.
 class PutImageResponse(BaseValidatorModel):
     image: Image
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_repository_creation_template' function.
 class CreateRepositoryCreationTemplateResponse(BaseValidatorModel):
     registryId: str
     repositoryCreationTemplate: RepositoryCreationTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_repository_creation_template' function.
 class DeleteRepositoryCreationTemplateResponse(BaseValidatorModel):
     registryId: str
     repositoryCreationTemplate: RepositoryCreationTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_repository_creation_templates' function.
 class DescribeRepositoryCreationTemplatesResponse(BaseValidatorModel):
     registryId: str
     repositoryCreationTemplates: List[RepositoryCreationTemplate]
@@ -899,22 +973,26 @@ class DescribeRepositoryCreationTemplatesResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_repository_creation_template' function.
 class UpdateRepositoryCreationTemplateResponse(BaseValidatorModel):
     registryId: str
     repositoryCreationTemplate: RepositoryCreationTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_repository' function.
 class CreateRepositoryResponse(BaseValidatorModel):
     repository: Repository
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_repository' function.
 class DeleteRepositoryResponse(BaseValidatorModel):
     repository: Repository
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_repositories' function.
 class DescribeRepositoriesResponse(BaseValidatorModel):
     repositories: List[Repository]
     ResponseMetadata: ResponseMetadata
@@ -925,12 +1003,14 @@ class ScoreDetails(BaseValidatorModel):
     cvss: Optional[CvssScoreDetails] = None
 
 
+# This class is the output for the 'describe_images' function.
 class DescribeImagesResponse(BaseValidatorModel):
     imageDetails: List[ImageDetail]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_lifecycle_policy_preview' function.
 class GetLifecyclePolicyPreviewResponse(BaseValidatorModel):
     registryId: str
     repositoryName: str
@@ -949,6 +1029,7 @@ class RegistryScanningConfiguration(BaseValidatorModel):
 RegistryScanningRuleUnion = Union[RegistryScanningRule, RegistryScanningRuleOutput]
 
 
+# This class is the output for the 'batch_get_repository_scanning_configuration' function.
 class BatchGetRepositoryScanningConfigurationResponse(BaseValidatorModel):
     scanningConfigurations: List[RepositoryScanningConfiguration]
     failures: List[RepositoryScanningConfigurationFailure]
@@ -989,11 +1070,13 @@ class GetRegistryScanningConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_registry_scanning_configuration' function.
 class PutRegistryScanningConfigurationResponse(BaseValidatorModel):
     registryScanningConfiguration: RegistryScanningConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_registry_scanning_configuration' function.
 class PutRegistryScanningConfigurationRequest(BaseValidatorModel):
     scanType: Optional[ScanTypeType] = None
     rules: Optional[List[RegistryScanningRuleUnion]] = None
@@ -1005,6 +1088,7 @@ class DescribeRegistryResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_replication_configuration' function.
 class PutReplicationConfigurationResponse(BaseValidatorModel):
     replicationConfiguration: ReplicationConfigurationOutput
     ResponseMetadata: ResponseMetadata
@@ -1020,10 +1104,12 @@ class ImageScanFindings(BaseValidatorModel):
     enhancedFindings: Optional[List[EnhancedImageScanFinding]] = None
 
 
+# This class is the input for the 'put_replication_configuration' function.
 class PutReplicationConfigurationRequest(BaseValidatorModel):
     replicationConfiguration: ReplicationConfigurationUnion
 
 
+# This class is the output for the 'describe_image_scan_findings' function.
 class DescribeImageScanFindingsResponse(BaseValidatorModel):
     registryId: str
     repositoryName: str

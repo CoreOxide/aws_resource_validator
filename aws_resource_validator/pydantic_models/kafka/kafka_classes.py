@@ -12,6 +12,7 @@ class AmazonMskCluster(BaseValidatorModel):
     MskClusterArn: str
 
 
+# This class is the input for the 'batch_associate_scram_secret' function.
 class BatchAssociateScramSecretRequest(BaseValidatorModel):
     ClusterArn: str
     SecretArnList: List[str]
@@ -31,6 +32,7 @@ class UnprocessedScramSecret(BaseValidatorModel):
     SecretArn: Optional[str] = None
 
 
+# This class is the input for the 'batch_disassociate_scram_secret' function.
 class BatchDisassociateScramSecretRequest(BaseValidatorModel):
     ClusterArn: str
     SecretArnList: List[str]
@@ -156,6 +158,7 @@ class ControllerNodeInfo(BaseValidatorModel):
     Endpoints: Optional[List[str]] = None
 
 
+# This class is the input for the 'create_vpc_connection' function.
 class CreateVpcConnectionRequest(BaseValidatorModel):
     TargetClusterArn: str
     Authentication: str
@@ -169,49 +172,60 @@ class DeleteClusterPolicyRequest(BaseValidatorModel):
     ClusterArn: str
 
 
+# This class is the input for the 'delete_cluster' function.
 class DeleteClusterRequest(BaseValidatorModel):
     ClusterArn: str
     CurrentVersion: Optional[str] = None
 
 
+# This class is the input for the 'delete_configuration' function.
 class DeleteConfigurationRequest(BaseValidatorModel):
     Arn: str
 
 
+# This class is the input for the 'delete_replicator' function.
 class DeleteReplicatorRequest(BaseValidatorModel):
     ReplicatorArn: str
     CurrentVersion: Optional[str] = None
 
 
+# This class is the input for the 'delete_vpc_connection' function.
 class DeleteVpcConnectionRequest(BaseValidatorModel):
     Arn: str
 
 
+# This class is the input for the 'describe_cluster_operation' function.
 class DescribeClusterOperationRequest(BaseValidatorModel):
     ClusterOperationArn: str
 
 
+# This class is the input for the 'describe_cluster_operation_v2' function.
 class DescribeClusterOperationV2Request(BaseValidatorModel):
     ClusterOperationArn: str
 
 
+# This class is the input for the 'describe_cluster' function.
 class DescribeClusterRequest(BaseValidatorModel):
     ClusterArn: str
 
 
+# This class is the input for the 'describe_cluster_v2' function.
 class DescribeClusterV2Request(BaseValidatorModel):
     ClusterArn: str
 
 
+# This class is the input for the 'describe_configuration' function.
 class DescribeConfigurationRequest(BaseValidatorModel):
     Arn: str
 
 
+# This class is the input for the 'describe_configuration_revision' function.
 class DescribeConfigurationRevisionRequest(BaseValidatorModel):
     Arn: str
     Revision: int
 
 
+# This class is the input for the 'describe_replicator' function.
 class DescribeReplicatorRequest(BaseValidatorModel):
     ReplicatorArn: str
 
@@ -221,6 +235,7 @@ class ReplicationStateInfo(BaseValidatorModel):
     Message: Optional[str] = None
 
 
+# This class is the input for the 'describe_vpc_connection' function.
 class DescribeVpcConnectionRequest(BaseValidatorModel):
     Arn: str
 
@@ -234,14 +249,17 @@ class EncryptionInTransit(BaseValidatorModel):
     InCluster: Optional[bool] = None
 
 
+# This class is the input for the 'get_bootstrap_brokers' function.
 class GetBootstrapBrokersRequest(BaseValidatorModel):
     ClusterArn: str
 
 
+# This class is the input for the 'get_cluster_policy' function.
 class GetClusterPolicyRequest(BaseValidatorModel):
     ClusterArn: str
 
 
+# This class is the input for the 'get_compatible_kafka_versions' function.
 class GetCompatibleKafkaVersionsRequest(BaseValidatorModel):
     ClusterArn: Optional[str] = None
 
@@ -279,30 +297,35 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_client_vpc_connections' function.
 class ListClientVpcConnectionsRequest(BaseValidatorModel):
     ClusterArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_cluster_operations' function.
 class ListClusterOperationsRequest(BaseValidatorModel):
     ClusterArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_cluster_operations_v2' function.
 class ListClusterOperationsV2Request(BaseValidatorModel):
     ClusterArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_clusters' function.
 class ListClustersRequest(BaseValidatorModel):
     ClusterNameFilter: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_clusters_v2' function.
 class ListClustersV2Request(BaseValidatorModel):
     ClusterNameFilter: Optional[str] = None
     ClusterTypeFilter: Optional[str] = None
@@ -310,44 +333,52 @@ class ListClustersV2Request(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_configuration_revisions' function.
 class ListConfigurationRevisionsRequest(BaseValidatorModel):
     Arn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_configurations' function.
 class ListConfigurationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_kafka_versions' function.
 class ListKafkaVersionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_nodes' function.
 class ListNodesRequest(BaseValidatorModel):
     ClusterArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_replicators' function.
 class ListReplicatorsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     ReplicatorNameFilter: Optional[str] = None
 
 
+# This class is the input for the 'list_scram_secrets' function.
 class ListScramSecretsRequest(BaseValidatorModel):
     ClusterArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'list_vpc_connections' function.
 class ListVpcConnectionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -378,12 +409,14 @@ class ZookeeperNodeInfo(BaseValidatorModel):
     ZookeeperVersion: Optional[str] = None
 
 
+# This class is the input for the 'put_cluster_policy' function.
 class PutClusterPolicyRequest(BaseValidatorModel):
     ClusterArn: str
     Policy: str
     CurrentVersion: Optional[str] = None
 
 
+# This class is the input for the 'reboot_broker' function.
 class RebootBrokerRequest(BaseValidatorModel):
     BrokerIds: List[str]
     ClusterArn: str
@@ -416,6 +449,7 @@ class VpcConfigOutput(BaseValidatorModel):
     SecurityGroupIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Dict[str, str]
@@ -434,17 +468,20 @@ class TopicReplicationUpdate(BaseValidatorModel):
     TopicsToReplicate: List[str]
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_broker_count' function.
 class UpdateBrokerCountRequest(BaseValidatorModel):
     ClusterArn: str
     CurrentVersion: str
     TargetNumberOfBrokerNodes: int
 
 
+# This class is the input for the 'update_broker_type' function.
 class UpdateBrokerTypeRequest(BaseValidatorModel):
     ClusterArn: str
     CurrentVersion: str
@@ -478,6 +515,7 @@ class KafkaClusterSummary(BaseValidatorModel):
     KafkaClusterAlias: Optional[str] = None
 
 
+# This class is the output for the 'create_cluster' function.
 class CreateClusterResponse(BaseValidatorModel):
     ClusterArn: str
     ClusterName: str
@@ -485,6 +523,7 @@ class CreateClusterResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_cluster_v2' function.
 class CreateClusterV2Response(BaseValidatorModel):
     ClusterArn: str
     ClusterName: str
@@ -493,6 +532,7 @@ class CreateClusterV2Response(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_replicator' function.
 class CreateReplicatorResponse(BaseValidatorModel):
     ReplicatorArn: str
     ReplicatorName: str
@@ -500,6 +540,7 @@ class CreateReplicatorResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_vpc_connection' function.
 class CreateVpcConnectionResponse(BaseValidatorModel):
     VpcConnectionArn: str
     State: VpcConnectionStateType
@@ -512,30 +553,35 @@ class CreateVpcConnectionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_cluster' function.
 class DeleteClusterResponse(BaseValidatorModel):
     ClusterArn: str
     State: ClusterStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_configuration' function.
 class DeleteConfigurationResponse(BaseValidatorModel):
     Arn: str
     State: ConfigurationStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_replicator' function.
 class DeleteReplicatorResponse(BaseValidatorModel):
     ReplicatorArn: str
     ReplicatorState: ReplicatorStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_vpc_connection' function.
 class DeleteVpcConnectionResponse(BaseValidatorModel):
     VpcConnectionArn: str
     State: VpcConnectionStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_configuration_revision' function.
 class DescribeConfigurationRevisionResponse(BaseValidatorModel):
     Arn: str
     CreationTime: datetime
@@ -545,6 +591,7 @@ class DescribeConfigurationRevisionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_vpc_connection' function.
 class DescribeVpcConnectionResponse(BaseValidatorModel):
     VpcConnectionArn: str
     TargetClusterArn: str
@@ -558,10 +605,12 @@ class DescribeVpcConnectionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'untag_resource' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_bootstrap_brokers' function.
 class GetBootstrapBrokersResponse(BaseValidatorModel):
     BootstrapBrokerString: str
     BootstrapBrokerStringTls: str
@@ -576,106 +625,124 @@ class GetBootstrapBrokersResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_cluster_policy' function.
 class GetClusterPolicyResponse(BaseValidatorModel):
     CurrentVersion: str
     Policy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_scram_secrets' function.
 class ListScramSecretsResponse(BaseValidatorModel):
     SecretArnList: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_cluster_policy' function.
 class PutClusterPolicyResponse(BaseValidatorModel):
     CurrentVersion: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reboot_broker' function.
 class RebootBrokerResponse(BaseValidatorModel):
     ClusterArn: str
     ClusterOperationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_broker_count' function.
 class UpdateBrokerCountResponse(BaseValidatorModel):
     ClusterArn: str
     ClusterOperationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_broker_storage' function.
 class UpdateBrokerStorageResponse(BaseValidatorModel):
     ClusterArn: str
     ClusterOperationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_broker_type' function.
 class UpdateBrokerTypeResponse(BaseValidatorModel):
     ClusterArn: str
     ClusterOperationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_cluster_configuration' function.
 class UpdateClusterConfigurationResponse(BaseValidatorModel):
     ClusterArn: str
     ClusterOperationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_cluster_kafka_version' function.
 class UpdateClusterKafkaVersionResponse(BaseValidatorModel):
     ClusterArn: str
     ClusterOperationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_connectivity' function.
 class UpdateConnectivityResponse(BaseValidatorModel):
     ClusterArn: str
     ClusterOperationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_monitoring' function.
 class UpdateMonitoringResponse(BaseValidatorModel):
     ClusterArn: str
     ClusterOperationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_replication_info' function.
 class UpdateReplicationInfoResponse(BaseValidatorModel):
     ReplicatorArn: str
     ReplicatorState: ReplicatorStateType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_security' function.
 class UpdateSecurityResponse(BaseValidatorModel):
     ClusterArn: str
     ClusterOperationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_storage' function.
 class UpdateStorageResponse(BaseValidatorModel):
     ClusterArn: str
     ClusterOperationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_associate_scram_secret' function.
 class BatchAssociateScramSecretResponse(BaseValidatorModel):
     ClusterArn: str
     UnprocessedScramSecrets: List[UnprocessedScramSecret]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_disassociate_scram_secret' function.
 class BatchDisassociateScramSecretResponse(BaseValidatorModel):
     ClusterArn: str
     UnprocessedScramSecrets: List[UnprocessedScramSecret]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_configuration' function.
 class CreateConfigurationRequest(BaseValidatorModel):
     Name: str
     ServerProperties: Blob
@@ -683,6 +750,7 @@ class CreateConfigurationRequest(BaseValidatorModel):
     KafkaVersions: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_configuration' function.
 class UpdateConfigurationRequest(BaseValidatorModel):
     Arn: str
     ServerProperties: Blob
@@ -700,6 +768,7 @@ class EBSStorageInfo(BaseValidatorModel):
     VolumeSize: Optional[int] = None
 
 
+# This class is the input for the 'update_storage' function.
 class UpdateStorageRequest(BaseValidatorModel):
     ClusterArn: str
     CurrentVersion: str
@@ -723,6 +792,7 @@ class BrokerNodeInfo(BaseValidatorModel):
     Endpoints: Optional[List[str]] = None
 
 
+# This class is the output for the 'list_client_vpc_connections' function.
 class ListClientVpcConnectionsResponse(BaseValidatorModel):
     ClientVpcConnections: List[ClientVpcConnection]
     ResponseMetadata: ResponseMetadata
@@ -734,23 +804,27 @@ class ClusterOperationStep(BaseValidatorModel):
     StepName: Optional[str] = None
 
 
+# This class is the output for the 'list_cluster_operations_v2' function.
 class ListClusterOperationsV2Response(BaseValidatorModel):
     ClusterOperationInfoList: List[ClusterOperationV2Summary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_compatible_kafka_versions' function.
 class GetCompatibleKafkaVersionsResponse(BaseValidatorModel):
     CompatibleKafkaVersions: List[CompatibleKafkaVersion]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_cluster_configuration' function.
 class UpdateClusterConfigurationRequest(BaseValidatorModel):
     ClusterArn: str
     ConfigurationInfo: ConfigurationInfo
     CurrentVersion: str
 
 
+# This class is the input for the 'update_cluster_kafka_version' function.
 class UpdateClusterKafkaVersionRequest(BaseValidatorModel):
     ClusterArn: str
     CurrentVersion: str
@@ -768,6 +842,7 @@ class Configuration(BaseValidatorModel):
     State: ConfigurationStateType
 
 
+# This class is the output for the 'create_configuration' function.
 class CreateConfigurationResponse(BaseValidatorModel):
     Arn: str
     CreationTime: datetime
@@ -777,6 +852,7 @@ class CreateConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_configuration' function.
 class DescribeConfigurationResponse(BaseValidatorModel):
     Arn: str
     CreationTime: datetime
@@ -788,12 +864,14 @@ class DescribeConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_configuration_revisions' function.
 class ListConfigurationRevisionsResponse(BaseValidatorModel):
     Revisions: List[ConfigurationRevision]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_configuration' function.
 class UpdateConfigurationResponse(BaseValidatorModel):
     Arn: str
     LatestRevision: ConfigurationRevision
@@ -819,6 +897,7 @@ class KafkaClusterDescription(BaseValidatorModel):
 KafkaClusterClientVpcConfigUnion = Union[KafkaClusterClientVpcConfig, KafkaClusterClientVpcConfigOutput]
 
 
+# This class is the output for the 'list_kafka_versions' function.
 class ListKafkaVersionsResponse(BaseValidatorModel):
     KafkaVersions: List[KafkaVersion]
     ResponseMetadata: ResponseMetadata
@@ -883,6 +962,7 @@ class ListVpcConnectionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_vpc_connections' function.
 class ListVpcConnectionsResponse(BaseValidatorModel):
     VpcConnections: List[VpcConnection]
     ResponseMetadata: ResponseMetadata
@@ -926,6 +1006,7 @@ class Sasl(BaseValidatorModel):
 TlsUnion = Union[Tls, TlsOutput]
 
 
+# This class is the input for the 'update_replication_info' function.
 class UpdateReplicationInfoRequest(BaseValidatorModel):
     CurrentVersion: str
     ReplicatorArn: str
@@ -968,6 +1049,7 @@ class ReplicatorSummary(BaseValidatorModel):
     ReplicatorState: Optional[ReplicatorStateType] = None
 
 
+# This class is the input for the 'update_broker_storage' function.
 class UpdateBrokerStorageRequest(BaseValidatorModel):
     ClusterArn: str
     CurrentVersion: str
@@ -992,6 +1074,7 @@ class NodeInfo(BaseValidatorModel):
     ZookeeperNodeInfo: Optional[ZookeeperNodeInfo] = None
 
 
+# This class is the output for the 'list_configurations' function.
 class ListConfigurationsResponse(BaseValidatorModel):
     Configurations: List[Configuration]
     ResponseMetadata: ResponseMetadata
@@ -1046,12 +1129,14 @@ class VpcConnectivityClientAuthentication(BaseValidatorModel):
     Tls: Optional[VpcConnectivityTls] = None
 
 
+# This class is the output for the 'list_replicators' function.
 class ListReplicatorsResponse(BaseValidatorModel):
     Replicators: List[ReplicatorSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_nodes' function.
 class ListNodesResponse(BaseValidatorModel):
     NodeInfoList: List[NodeInfo]
     ResponseMetadata: ResponseMetadata
@@ -1068,6 +1153,7 @@ class Serverless(BaseValidatorModel):
     ClientAuthentication: Optional[ServerlessClientAuthentication] = None
 
 
+# This class is the input for the 'update_monitoring' function.
 class UpdateMonitoringRequest(BaseValidatorModel):
     ClusterArn: str
     CurrentVersion: str
@@ -1076,6 +1162,7 @@ class UpdateMonitoringRequest(BaseValidatorModel):
     LoggingInfo: Optional[LoggingInfo] = None
 
 
+# This class is the output for the 'describe_replicator' function.
 class DescribeReplicatorResponse(BaseValidatorModel):
     CreationTime: datetime
     CurrentVersion: str
@@ -1107,6 +1194,7 @@ class VpcConnectivity(BaseValidatorModel):
     ClientAuthentication: Optional[VpcConnectivityClientAuthentication] = None
 
 
+# This class is the input for the 'create_replicator' function.
 class CreateReplicatorRequest(BaseValidatorModel):
     KafkaClusters: List[KafkaCluster]
     ReplicationInfoList: List[ReplicationInfo]
@@ -1116,6 +1204,7 @@ class CreateReplicatorRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_security' function.
 class UpdateSecurityRequest(BaseValidatorModel):
     ClusterArn: str
     CurrentVersion: str
@@ -1164,6 +1253,7 @@ class MutableClusterInfo(BaseValidatorModel):
     BrokerCountUpdateInfo: Optional[BrokerCountUpdateInfo] = None
 
 
+# This class is the input for the 'update_connectivity' function.
 class UpdateConnectivityRequest(BaseValidatorModel):
     ClusterArn: str
     ConnectivityInfo: ConnectivityInfo
@@ -1232,11 +1322,13 @@ class ClusterOperationV2Provisioned(BaseValidatorModel):
     VpcConnectionInfo: Optional[VpcConnectionInfo] = None
 
 
+# This class is the output for the 'describe_cluster' function.
 class DescribeClusterResponse(BaseValidatorModel):
     ClusterInfo: ClusterInfo
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_clusters' function.
 class ListClustersResponse(BaseValidatorModel):
     ClusterInfoList: List[ClusterInfo]
     ResponseMetadata: ResponseMetadata
@@ -1257,6 +1349,7 @@ class Cluster(BaseValidatorModel):
     Serverless: Optional[Serverless] = None
 
 
+# This class is the input for the 'create_cluster' function.
 class CreateClusterRequest(BaseValidatorModel):
     BrokerNodeGroupInfo: BrokerNodeGroupInfoUnion
     ClusterName: str
@@ -1285,11 +1378,13 @@ class ProvisionedRequest(BaseValidatorModel):
     StorageMode: Optional[StorageModeType] = None
 
 
+# This class is the output for the 'describe_cluster_operation' function.
 class DescribeClusterOperationResponse(BaseValidatorModel):
     ClusterOperationInfo: ClusterOperationInfo
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_cluster_operations' function.
 class ListClusterOperationsResponse(BaseValidatorModel):
     ClusterOperationInfoList: List[ClusterOperationInfo]
     ResponseMetadata: ResponseMetadata
@@ -1309,17 +1404,20 @@ class ClusterOperationV2(BaseValidatorModel):
     Serverless: Optional[ClusterOperationV2Serverless] = None
 
 
+# This class is the output for the 'describe_cluster_v2' function.
 class DescribeClusterV2Response(BaseValidatorModel):
     ClusterInfo: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_clusters_v2' function.
 class ListClustersV2Response(BaseValidatorModel):
     ClusterInfoList: List[Cluster]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_cluster_v2' function.
 class CreateClusterV2Request(BaseValidatorModel):
     ClusterName: str
     Tags: Optional[Dict[str, str]] = None
@@ -1327,6 +1425,7 @@ class CreateClusterV2Request(BaseValidatorModel):
     Serverless: Optional[ServerlessRequest] = None
 
 
+# This class is the output for the 'describe_cluster_operation_v2' function.
 class DescribeClusterOperationV2Response(BaseValidatorModel):
     ClusterOperationInfo: ClusterOperationV2
     ResponseMetadata: ResponseMetadata

@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'create_token' function.
 class CreateTokenRequest(BaseValidatorModel):
     clientId: str
     clientSecret: str
@@ -28,6 +29,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_token_with_iam' function.
 class CreateTokenWithIAMRequest(BaseValidatorModel):
     clientId: str
     grantType: str
@@ -42,6 +44,7 @@ class CreateTokenWithIAMRequest(BaseValidatorModel):
     codeVerifier: Optional[str] = None
 
 
+# This class is the input for the 'register_client' function.
 class RegisterClientRequest(BaseValidatorModel):
     clientName: str
     clientType: str
@@ -52,12 +55,14 @@ class RegisterClientRequest(BaseValidatorModel):
     entitledApplicationArn: Optional[str] = None
 
 
+# This class is the input for the 'start_device_authorization' function.
 class StartDeviceAuthorizationRequest(BaseValidatorModel):
     clientId: str
     clientSecret: str
     startUrl: str
 
 
+# This class is the output for the 'create_token' function.
 class CreateTokenResponse(BaseValidatorModel):
     accessToken: str
     tokenType: str
@@ -67,6 +72,7 @@ class CreateTokenResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_token_with_iam' function.
 class CreateTokenWithIAMResponse(BaseValidatorModel):
     accessToken: str
     tokenType: str
@@ -78,6 +84,7 @@ class CreateTokenWithIAMResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_client' function.
 class RegisterClientResponse(BaseValidatorModel):
     clientId: str
     clientSecret: str
@@ -88,6 +95,7 @@ class RegisterClientResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_device_authorization' function.
 class StartDeviceAuthorizationResponse(BaseValidatorModel):
     deviceCode: str
     userCode: str

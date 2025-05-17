@@ -61,6 +61,7 @@ class BatchDeleteBillScenarioCommitmentModificationError(BaseValidatorModel):
     errorMessage: Optional[str] = None
 
 
+# This class is the input for the 'batch_delete_bill_scenario_commitment_modification' function.
 class BatchDeleteBillScenarioCommitmentModificationRequest(BaseValidatorModel):
     billScenarioId: str
     ids: List[str]
@@ -72,6 +73,7 @@ class BatchDeleteBillScenarioUsageModificationError(BaseValidatorModel):
     errorCode: Optional[BatchDeleteBillScenarioUsageModificationErrorCodeType] = None
 
 
+# This class is the input for the 'batch_delete_bill_scenario_usage_modification' function.
 class BatchDeleteBillScenarioUsageModificationRequest(BaseValidatorModel):
     billScenarioId: str
     ids: List[str]
@@ -83,6 +85,7 @@ class BatchDeleteWorkloadEstimateUsageError(BaseValidatorModel):
     errorCode: Optional[WorkloadEstimateUpdateUsageErrorCodeType] = None
 
 
+# This class is the input for the 'batch_delete_workload_estimate_usage' function.
 class BatchDeleteWorkloadEstimateUsageRequest(BaseValidatorModel):
     workloadEstimateId: str
     ids: List[str]
@@ -142,6 +145,7 @@ class NegateSavingsPlanAction(BaseValidatorModel):
     savingsPlanId: Optional[str] = None
 
 
+# This class is the input for the 'create_bill_estimate' function.
 class CreateBillEstimateRequest(BaseValidatorModel):
     billScenarioId: str
     name: str
@@ -149,12 +153,14 @@ class CreateBillEstimateRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_bill_scenario' function.
 class CreateBillScenarioRequest(BaseValidatorModel):
     name: str
     clientToken: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_workload_estimate' function.
 class CreateWorkloadEstimateRequest(BaseValidatorModel):
     name: str
     clientToken: Optional[str] = None
@@ -186,14 +192,17 @@ class ExpressionFilter(BaseValidatorModel):
     values: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_bill_estimate' function.
 class GetBillEstimateRequest(BaseValidatorModel):
     identifier: str
 
 
+# This class is the input for the 'get_bill_scenario' function.
 class GetBillScenarioRequest(BaseValidatorModel):
     identifier: str
 
 
+# This class is the input for the 'get_workload_estimate' function.
 class GetWorkloadEstimateRequest(BaseValidatorModel):
     identifier: str
 
@@ -204,12 +213,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_bill_estimate_commitments' function.
 class ListBillEstimateCommitmentsRequest(BaseValidatorModel):
     billEstimateId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_bill_estimate_input_commitment_modifications' function.
 class ListBillEstimateInputCommitmentModificationsRequest(BaseValidatorModel):
     billEstimateId: str
     nextToken: Optional[str] = None
@@ -234,6 +245,7 @@ class ListBillEstimatesFilter(BaseValidatorModel):
     matchOption: Optional[MatchOptionType] = None
 
 
+# This class is the input for the 'list_bill_scenario_commitment_modifications' function.
 class ListBillScenarioCommitmentModificationsRequest(BaseValidatorModel):
     billScenarioId: str
     nextToken: Optional[str] = None
@@ -246,6 +258,7 @@ class ListBillScenariosFilter(BaseValidatorModel):
     matchOption: Optional[MatchOptionType] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     arn: str
 
@@ -279,11 +292,13 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_preferences' function.
 class UpdatePreferencesRequest(BaseValidatorModel):
     managementAccountRateTypeSelections: Optional[List[RateTypeType]] = None
     memberAccountRateTypeSelections: Optional[List[RateTypeType]] = None
 
 
+# This class is the output for the 'create_workload_estimate' function.
 class CreateWorkloadEstimateResponse(BaseValidatorModel):
     id: str
     name: str
@@ -304,6 +319,7 @@ class GetPreferencesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_workload_estimate' function.
 class GetWorkloadEstimateResponse(BaseValidatorModel):
     id: str
     name: str
@@ -318,17 +334,20 @@ class GetWorkloadEstimateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_preferences' function.
 class UpdatePreferencesResponse(BaseValidatorModel):
     managementAccountRateTypeSelections: List[RateTypeType]
     memberAccountRateTypeSelections: List[RateTypeType]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_workload_estimate' function.
 class UpdateWorkloadEstimateResponse(BaseValidatorModel):
     id: str
     name: str
@@ -343,26 +362,31 @@ class UpdateWorkloadEstimateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_delete_bill_scenario_commitment_modification' function.
 class BatchDeleteBillScenarioCommitmentModificationResponse(BaseValidatorModel):
     errors: List[BatchDeleteBillScenarioCommitmentModificationError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_delete_bill_scenario_usage_modification' function.
 class BatchDeleteBillScenarioUsageModificationResponse(BaseValidatorModel):
     errors: List[BatchDeleteBillScenarioUsageModificationError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_delete_workload_estimate_usage' function.
 class BatchDeleteWorkloadEstimateUsageResponse(BaseValidatorModel):
     errors: List[BatchDeleteWorkloadEstimateUsageError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'batch_update_bill_scenario_commitment_modification' function.
 class BatchUpdateBillScenarioCommitmentModificationRequest(BaseValidatorModel):
     billScenarioId: str
     commitmentModifications: List[BatchUpdateBillScenarioCommitmentModificationEntry]
 
 
+# This class is the input for the 'batch_update_workload_estimate_usage' function.
 class BatchUpdateWorkloadEstimateUsageRequest(BaseValidatorModel):
     workloadEstimateId: str
     usage: List[BatchUpdateWorkloadEstimateUsageEntry]
@@ -422,6 +446,7 @@ class BillScenarioSummary(BaseValidatorModel):
     failureMessage: Optional[str] = None
 
 
+# This class is the output for the 'create_bill_scenario' function.
 class CreateBillScenarioResponse(BaseValidatorModel):
     id: str
     name: str
@@ -433,6 +458,7 @@ class CreateBillScenarioResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_bill_scenario' function.
 class GetBillScenarioResponse(BaseValidatorModel):
     id: str
     name: str
@@ -444,6 +470,7 @@ class GetBillScenarioResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_bill_scenario' function.
 class UpdateBillScenarioResponse(BaseValidatorModel):
     id: str
     name: str
@@ -465,18 +492,21 @@ class FilterTimestamp(BaseValidatorModel):
     beforeTimestamp: Optional[Timestamp] = None
 
 
+# This class is the input for the 'update_bill_estimate' function.
 class UpdateBillEstimateRequest(BaseValidatorModel):
     identifier: str
     name: Optional[str] = None
     expiresAt: Optional[Timestamp] = None
 
 
+# This class is the input for the 'update_bill_scenario' function.
 class UpdateBillScenarioRequest(BaseValidatorModel):
     identifier: str
     name: Optional[str] = None
     expiresAt: Optional[Timestamp] = None
 
 
+# This class is the input for the 'update_workload_estimate' function.
 class UpdateWorkloadEstimateRequest(BaseValidatorModel):
     identifier: str
     name: Optional[str] = None
@@ -536,6 +566,7 @@ class ListBillEstimateInputUsageModificationsRequestPaginate(BaseValidatorModel)
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_bill_estimate_input_usage_modifications' function.
 class ListBillEstimateInputUsageModificationsRequest(BaseValidatorModel):
     billEstimateId: str
     filters: Optional[List[ListUsageFilter]] = None
@@ -549,6 +580,7 @@ class ListBillScenarioUsageModificationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_bill_scenario_usage_modifications' function.
 class ListBillScenarioUsageModificationsRequest(BaseValidatorModel):
     billScenarioId: str
     filters: Optional[List[ListUsageFilter]] = None
@@ -562,6 +594,7 @@ class ListWorkloadEstimateUsageRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_workload_estimate_usage' function.
 class ListWorkloadEstimateUsageRequest(BaseValidatorModel):
     workloadEstimateId: str
     filters: Optional[List[ListUsageFilter]] = None
@@ -575,6 +608,7 @@ class ListBillEstimateLineItemsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_bill_estimate_line_items' function.
 class ListBillEstimateLineItemsRequest(BaseValidatorModel):
     billEstimateId: str
     filters: Optional[List[ListBillEstimateLineItemsFilter]] = None
@@ -582,12 +616,14 @@ class ListBillEstimateLineItemsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the output for the 'list_workload_estimates' function.
 class ListWorkloadEstimatesResponse(BaseValidatorModel):
     items: List[WorkloadEstimateSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_bill_estimate_commitments' function.
 class ListBillEstimateCommitmentsResponse(BaseValidatorModel):
     items: List[BillEstimateCommitmentSummary]
     ResponseMetadata: ResponseMetadata
@@ -599,18 +635,21 @@ class BillEstimateCostSummary(BaseValidatorModel):
     serviceCostDifferences: Optional[Dict[str, CostDifference]] = None
 
 
+# This class is the output for the 'list_bill_estimate_line_items' function.
 class ListBillEstimateLineItemsResponse(BaseValidatorModel):
     items: List[BillEstimateLineItemSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_bill_estimates' function.
 class ListBillEstimatesResponse(BaseValidatorModel):
     items: List[BillEstimateSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_bill_scenarios' function.
 class ListBillScenariosResponse(BaseValidatorModel):
     items: List[BillScenarioSummary]
     ResponseMetadata: ResponseMetadata
@@ -626,6 +665,7 @@ class ListBillEstimatesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_bill_estimates' function.
 class ListBillEstimatesRequest(BaseValidatorModel):
     filters: Optional[List[ListBillEstimatesFilter]] = None
     createdAtFilter: Optional[FilterTimestamp] = None
@@ -641,6 +681,7 @@ class ListBillScenariosRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_bill_scenarios' function.
 class ListBillScenariosRequest(BaseValidatorModel):
     filters: Optional[List[ListBillScenariosFilter]] = None
     createdAtFilter: Optional[FilterTimestamp] = None
@@ -656,6 +697,7 @@ class ListWorkloadEstimatesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_workload_estimates' function.
 class ListWorkloadEstimatesRequest(BaseValidatorModel):
     createdAtFilter: Optional[FilterTimestamp] = None
     expiresAtFilter: Optional[FilterTimestamp] = None
@@ -728,6 +770,7 @@ class Expression(BaseValidatorModel):
     tags: Optional[ExpressionFilterUnion] = None
 
 
+# This class is the output for the 'create_bill_estimate' function.
 class CreateBillEstimateResponse(BaseValidatorModel):
     id: str
     name: str
@@ -740,6 +783,7 @@ class CreateBillEstimateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_bill_estimate' function.
 class GetBillEstimateResponse(BaseValidatorModel):
     id: str
     name: str
@@ -752,6 +796,7 @@ class GetBillEstimateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_bill_estimate' function.
 class UpdateBillEstimateResponse(BaseValidatorModel):
     id: str
     name: str
@@ -764,35 +809,41 @@ class UpdateBillEstimateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'batch_update_bill_scenario_usage_modification' function.
 class BatchUpdateBillScenarioUsageModificationRequest(BaseValidatorModel):
     billScenarioId: str
     usageModifications: List[BatchUpdateBillScenarioUsageModificationEntry]
 
 
+# This class is the input for the 'batch_create_bill_scenario_commitment_modification' function.
 class BatchCreateBillScenarioCommitmentModificationRequest(BaseValidatorModel):
     billScenarioId: str
     commitmentModifications: List[BatchCreateBillScenarioCommitmentModificationEntry]
     clientToken: Optional[str] = None
 
 
+# This class is the output for the 'batch_create_bill_scenario_commitment_modification' function.
 class BatchCreateBillScenarioCommitmentModificationResponse(BaseValidatorModel):
     items: List[BatchCreateBillScenarioCommitmentModificationItem]
     errors: List[BatchCreateBillScenarioCommitmentModificationError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_bill_estimate_input_commitment_modifications' function.
 class ListBillEstimateInputCommitmentModificationsResponse(BaseValidatorModel):
     items: List[BillEstimateInputCommitmentModificationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'batch_update_bill_scenario_commitment_modification' function.
 class BatchUpdateBillScenarioCommitmentModificationResponse(BaseValidatorModel):
     items: List[BillScenarioCommitmentModificationItem]
     errors: List[BatchUpdateBillScenarioCommitmentModificationError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_bill_scenario_commitment_modifications' function.
 class ListBillScenarioCommitmentModificationsResponse(BaseValidatorModel):
     items: List[BillScenarioCommitmentModificationItem]
     ResponseMetadata: ResponseMetadata
@@ -913,42 +964,49 @@ class WorkloadEstimateUsageItemPaginator(BaseValidatorModel):
 ExpressionUnion = Union[Expression, ExpressionOutput]
 
 
+# This class is the output for the 'batch_create_bill_scenario_usage_modification' function.
 class BatchCreateBillScenarioUsageModificationResponse(BaseValidatorModel):
     items: List[BatchCreateBillScenarioUsageModificationItem]
     errors: List[BatchCreateBillScenarioUsageModificationError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_create_workload_estimate_usage' function.
 class BatchCreateWorkloadEstimateUsageResponse(BaseValidatorModel):
     items: List[BatchCreateWorkloadEstimateUsageItem]
     errors: List[BatchCreateWorkloadEstimateUsageError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_bill_estimate_input_usage_modifications' function.
 class ListBillEstimateInputUsageModificationsResponse(BaseValidatorModel):
     items: List[BillEstimateInputUsageModificationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'batch_update_bill_scenario_usage_modification' function.
 class BatchUpdateBillScenarioUsageModificationResponse(BaseValidatorModel):
     items: List[BillScenarioUsageModificationItem]
     errors: List[BatchUpdateBillScenarioUsageModificationError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_bill_scenario_usage_modifications' function.
 class ListBillScenarioUsageModificationsResponse(BaseValidatorModel):
     items: List[BillScenarioUsageModificationItem]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'batch_update_workload_estimate_usage' function.
 class BatchUpdateWorkloadEstimateUsageResponse(BaseValidatorModel):
     items: List[WorkloadEstimateUsageItem]
     errors: List[BatchUpdateWorkloadEstimateUsageError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_workload_estimate_usage' function.
 class ListWorkloadEstimateUsageResponse(BaseValidatorModel):
     items: List[WorkloadEstimateUsageItem]
     ResponseMetadata: ResponseMetadata
@@ -1008,12 +1066,14 @@ class BatchCreateWorkloadEstimateUsageEntry(BaseValidatorModel):
     historicalUsage: Optional[HistoricalUsageEntityUnion] = None
 
 
+# This class is the input for the 'batch_create_bill_scenario_usage_modification' function.
 class BatchCreateBillScenarioUsageModificationRequest(BaseValidatorModel):
     billScenarioId: str
     usageModifications: List[BatchCreateBillScenarioUsageModificationEntry]
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'batch_create_workload_estimate_usage' function.
 class BatchCreateWorkloadEstimateUsageRequest(BaseValidatorModel):
     workloadEstimateId: str
     usage: List[BatchCreateWorkloadEstimateUsageEntry]

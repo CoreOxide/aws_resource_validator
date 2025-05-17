@@ -85,6 +85,7 @@ class BoundingBox(BaseValidatorModel):
     Top: Optional[float] = None
 
 
+# This class is the input for the 'create_adapter' function.
 class CreateAdapterRequest(BaseValidatorModel):
     AdapterName: str
     FeatureTypes: List[FeatureTypeType]
@@ -141,15 +142,18 @@ class Point(BaseValidatorModel):
     Y: Optional[float] = None
 
 
+# This class is the input for the 'get_adapter' function.
 class GetAdapterRequest(BaseValidatorModel):
     AdapterId: str
 
 
+# This class is the input for the 'get_adapter_version' function.
 class GetAdapterVersionRequest(BaseValidatorModel):
     AdapterId: str
     AdapterVersion: str
 
 
+# This class is the input for the 'get_document_analysis' function.
 class GetDocumentAnalysisRequest(BaseValidatorModel):
     JobId: str
     MaxResults: Optional[int] = None
@@ -161,24 +165,28 @@ class Warning(BaseValidatorModel):
     Pages: Optional[List[int]] = None
 
 
+# This class is the input for the 'get_document_text_detection' function.
 class GetDocumentTextDetectionRequest(BaseValidatorModel):
     JobId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_expense_analysis' function.
 class GetExpenseAnalysisRequest(BaseValidatorModel):
     JobId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_lending_analysis' function.
 class GetLendingAnalysisRequest(BaseValidatorModel):
     JobId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_lending_analysis_summary' function.
 class GetLendingAnalysisSummaryRequest(BaseValidatorModel):
     JobId: str
 
@@ -195,6 +203,7 @@ class PaginatorConfig(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
@@ -225,6 +234,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_adapter' function.
 class UpdateAdapterRequest(BaseValidatorModel):
     AdapterId: str
     Description: Optional[str] = None
@@ -250,17 +260,20 @@ class AdapterVersionEvaluationMetric(BaseValidatorModel):
     FeatureType: Optional[FeatureTypeType] = None
 
 
+# This class is the output for the 'create_adapter' function.
 class CreateAdapterResponse(BaseValidatorModel):
     AdapterId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_adapter_version' function.
 class CreateAdapterVersionResponse(BaseValidatorModel):
     AdapterId: str
     AdapterVersion: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_adapter' function.
 class GetAdapterResponse(BaseValidatorModel):
     AdapterId: str
     AdapterName: str
@@ -272,43 +285,51 @@ class GetAdapterResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_adapter_versions' function.
 class ListAdapterVersionsResponse(BaseValidatorModel):
     AdapterVersions: List[AdapterVersionOverview]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_adapters' function.
 class ListAdaptersResponse(BaseValidatorModel):
     Adapters: List[AdapterOverview]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_document_analysis' function.
 class StartDocumentAnalysisResponse(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_document_text_detection' function.
 class StartDocumentTextDetectionResponse(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_expense_analysis' function.
 class StartExpenseAnalysisResponse(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_lending_analysis' function.
 class StartLendingAnalysisResponse(BaseValidatorModel):
     JobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_adapter' function.
 class UpdateAdapterResponse(BaseValidatorModel):
     AdapterId: str
     AdapterName: str
@@ -355,6 +376,7 @@ class ListAdapterVersionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_adapter_versions' function.
 class ListAdapterVersionsRequest(BaseValidatorModel):
     AdapterId: Optional[str] = None
     AfterCreationTime: Optional[Timestamp] = None
@@ -369,6 +391,7 @@ class ListAdaptersRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_adapters' function.
 class ListAdaptersRequest(BaseValidatorModel):
     AfterCreationTime: Optional[Timestamp] = None
     BeforeCreationTime: Optional[Timestamp] = None
@@ -383,6 +406,7 @@ class PageClassification(BaseValidatorModel):
 QueryUnion = Union[Query, QueryOutput]
 
 
+# This class is the input for the 'create_adapter_version' function.
 class CreateAdapterVersionRequest(BaseValidatorModel):
     AdapterId: str
     DatasetConfig: AdapterVersionDatasetConfig
@@ -392,6 +416,7 @@ class CreateAdapterVersionRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'start_document_text_detection' function.
 class StartDocumentTextDetectionRequest(BaseValidatorModel):
     DocumentLocation: DocumentLocation
     ClientRequestToken: Optional[str] = None
@@ -401,6 +426,7 @@ class StartDocumentTextDetectionRequest(BaseValidatorModel):
     KMSKeyId: Optional[str] = None
 
 
+# This class is the input for the 'start_expense_analysis' function.
 class StartExpenseAnalysisRequest(BaseValidatorModel):
     DocumentLocation: DocumentLocation
     ClientRequestToken: Optional[str] = None
@@ -410,6 +436,7 @@ class StartExpenseAnalysisRequest(BaseValidatorModel):
     KMSKeyId: Optional[str] = None
 
 
+# This class is the input for the 'start_lending_analysis' function.
 class StartLendingAnalysisRequest(BaseValidatorModel):
     DocumentLocation: DocumentLocation
     ClientRequestToken: Optional[str] = None
@@ -419,6 +446,7 @@ class StartLendingAnalysisRequest(BaseValidatorModel):
     KMSKeyId: Optional[str] = None
 
 
+# This class is the output for the 'get_adapter_version' function.
 class GetAdapterVersionResponse(BaseValidatorModel):
     AdapterId: str
     AdapterVersion: str
@@ -439,14 +467,17 @@ class IdentityDocumentField(BaseValidatorModel):
     ValueDetection: Optional[AnalyzeIDDetections] = None
 
 
+# This class is the input for the 'analyze_expense' function.
 class AnalyzeExpenseRequest(BaseValidatorModel):
     Document: Document
 
 
+# This class is the input for the 'analyze_id' function.
 class AnalyzeIDRequest(BaseValidatorModel):
     DocumentPages: List[Document]
 
 
+# This class is the input for the 'detect_document_text' function.
 class DetectDocumentTextRequest(BaseValidatorModel):
     Document: Document
 
@@ -496,6 +527,7 @@ class QueriesConfig(BaseValidatorModel):
     Queries: List[QueryUnion]
 
 
+# This class is the output for the 'get_lending_analysis_summary' function.
 class GetLendingAnalysisSummaryResponse(BaseValidatorModel):
     DocumentMetadata: DocumentMetadata
     JobStatus: JobStatusType
@@ -506,6 +538,7 @@ class GetLendingAnalysisSummaryResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'analyze_document' function.
 class AnalyzeDocumentResponse(BaseValidatorModel):
     DocumentMetadata: DocumentMetadata
     Blocks: List[Block]
@@ -514,6 +547,7 @@ class AnalyzeDocumentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'detect_document_text' function.
 class DetectDocumentTextResponse(BaseValidatorModel):
     DocumentMetadata: DocumentMetadata
     Blocks: List[Block]
@@ -521,6 +555,7 @@ class DetectDocumentTextResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_document_analysis' function.
 class GetDocumentAnalysisResponse(BaseValidatorModel):
     DocumentMetadata: DocumentMetadata
     JobStatus: JobStatusType
@@ -532,6 +567,7 @@ class GetDocumentAnalysisResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_document_text_detection' function.
 class GetDocumentTextDetectionResponse(BaseValidatorModel):
     DocumentMetadata: DocumentMetadata
     JobStatus: JobStatusType
@@ -564,6 +600,7 @@ class LendingField(BaseValidatorModel):
     ValueDetections: Optional[List[LendingDetection]] = None
 
 
+# This class is the input for the 'analyze_document' function.
 class AnalyzeDocumentRequest(BaseValidatorModel):
     Document: Document
     FeatureTypes: List[FeatureTypeType]
@@ -572,6 +609,7 @@ class AnalyzeDocumentRequest(BaseValidatorModel):
     AdaptersConfig: Optional[AdaptersConfig] = None
 
 
+# This class is the input for the 'start_document_analysis' function.
 class StartDocumentAnalysisRequest(BaseValidatorModel):
     DocumentLocation: DocumentLocation
     FeatureTypes: List[FeatureTypeType]
@@ -584,6 +622,7 @@ class StartDocumentAnalysisRequest(BaseValidatorModel):
     AdaptersConfig: Optional[AdaptersConfig] = None
 
 
+# This class is the output for the 'analyze_id' function.
 class AnalyzeIDResponse(BaseValidatorModel):
     IdentityDocuments: List[IdentityDocument]
     DocumentMetadata: DocumentMetadata
@@ -612,6 +651,7 @@ class ExpenseDocument(BaseValidatorModel):
     Blocks: Optional[List[Block]] = None
 
 
+# This class is the output for the 'analyze_expense' function.
 class AnalyzeExpenseResponse(BaseValidatorModel):
     DocumentMetadata: DocumentMetadata
     ExpenseDocuments: List[ExpenseDocument]
@@ -624,6 +664,7 @@ class Extraction(BaseValidatorModel):
     IdentityDocument: Optional[IdentityDocument] = None
 
 
+# This class is the output for the 'get_expense_analysis' function.
 class GetExpenseAnalysisResponse(BaseValidatorModel):
     DocumentMetadata: DocumentMetadata
     JobStatus: JobStatusType
@@ -641,6 +682,7 @@ class LendingResult(BaseValidatorModel):
     Extractions: Optional[List[Extraction]] = None
 
 
+# This class is the output for the 'get_lending_analysis' function.
 class GetLendingAnalysisResponse(BaseValidatorModel):
     DocumentMetadata: DocumentMetadata
     JobStatus: JobStatusType

@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'get_glyphs' function.
 class GetGlyphsRequest(BaseValidatorModel):
     FontStack: str
     FontUnicodeRange: str
@@ -21,6 +22,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'get_sprites' function.
 class GetSpritesRequest(BaseValidatorModel):
     FileName: str
     Style: MapStyleType
@@ -28,6 +30,7 @@ class GetSpritesRequest(BaseValidatorModel):
     Variant: Literal['Default']
 
 
+# This class is the input for the 'get_static_map' function.
 class GetStaticMapRequest(BaseValidatorModel):
     Height: int
     FileName: str
@@ -45,6 +48,7 @@ class GetStaticMapRequest(BaseValidatorModel):
     Zoom: Optional[float] = None
 
 
+# This class is the input for the 'get_style_descriptor' function.
 class GetStyleDescriptorRequest(BaseValidatorModel):
     Style: MapStyleType
     ColorScheme: Optional[ColorSchemeType] = None
@@ -52,6 +56,7 @@ class GetStyleDescriptorRequest(BaseValidatorModel):
     Key: Optional[str] = None
 
 
+# This class is the input for the 'get_tile' function.
 class GetTileRequest(BaseValidatorModel):
     Tileset: str
     Z: str
@@ -60,6 +65,7 @@ class GetTileRequest(BaseValidatorModel):
     Key: Optional[str] = None
 
 
+# This class is the output for the 'get_glyphs' function.
 class GetGlyphsResponse(BaseValidatorModel):
     Blob: StreamingBody
     ContentType: str
@@ -68,6 +74,7 @@ class GetGlyphsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_sprites' function.
 class GetSpritesResponse(BaseValidatorModel):
     Blob: StreamingBody
     ContentType: str
@@ -76,6 +83,7 @@ class GetSpritesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_static_map' function.
 class GetStaticMapResponse(BaseValidatorModel):
     Blob: StreamingBody
     ContentType: str
@@ -85,6 +93,7 @@ class GetStaticMapResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_style_descriptor' function.
 class GetStyleDescriptorResponse(BaseValidatorModel):
     Blob: StreamingBody
     ContentType: str
@@ -93,6 +102,7 @@ class GetStyleDescriptorResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_tile' function.
 class GetTileResponse(BaseValidatorModel):
     Blob: StreamingBody
     ContentType: str

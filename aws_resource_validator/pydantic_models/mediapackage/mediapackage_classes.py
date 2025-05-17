@@ -60,6 +60,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_channel' function.
 class CreateChannelRequest(BaseValidatorModel):
     Id: str
     Description: Optional[str] = None
@@ -80,14 +81,17 @@ class DeleteOriginEndpointRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'describe_channel' function.
 class DescribeChannelRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'describe_harvest_job' function.
 class DescribeHarvestJobRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'describe_origin_endpoint' function.
 class DescribeOriginEndpointRequest(BaseValidatorModel):
     Id: str
 
@@ -110,11 +114,13 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_channels' function.
 class ListChannelsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_harvest_jobs' function.
 class ListHarvestJobsRequest(BaseValidatorModel):
     IncludeChannelId: Optional[str] = None
     IncludeStatus: Optional[str] = None
@@ -122,55 +128,66 @@ class ListHarvestJobsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_origin_endpoints' function.
 class ListOriginEndpointsRequest(BaseValidatorModel):
     ChannelId: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'rotate_channel_credentials' function.
 class RotateChannelCredentialsRequest(BaseValidatorModel):
     Id: str
 
 
+# This class is the input for the 'rotate_ingest_endpoint_credentials' function.
 class RotateIngestEndpointCredentialsRequest(BaseValidatorModel):
     Id: str
     IngestEndpointId: str
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Dict[str, str]
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_channel' function.
 class UpdateChannelRequest(BaseValidatorModel):
     Id: str
     Description: Optional[str] = None
 
 
+# This class is the input for the 'configure_logs' function.
 class ConfigureLogsRequest(BaseValidatorModel):
     Id: str
     EgressAccessLogs: Optional[EgressAccessLogs] = None
     IngressAccessLogs: Optional[IngressAccessLogs] = None
 
 
+# This class is the output for the 'untag_resource' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_harvest_job' function.
 class CreateHarvestJobRequest(BaseValidatorModel):
     EndTime: str
     Id: str
@@ -179,6 +196,7 @@ class CreateHarvestJobRequest(BaseValidatorModel):
     StartTime: str
 
 
+# This class is the output for the 'create_harvest_job' function.
 class CreateHarvestJobResponse(BaseValidatorModel):
     Arn: str
     ChannelId: str
@@ -192,6 +210,7 @@ class CreateHarvestJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_harvest_job' function.
 class DescribeHarvestJobResponse(BaseValidatorModel):
     Arn: str
     ChannelId: str
@@ -254,6 +273,7 @@ class ListOriginEndpointsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_harvest_jobs' function.
 class ListHarvestJobsResponse(BaseValidatorModel):
     HarvestJobs: List[HarvestJob]
     ResponseMetadata: ResponseMetadata
@@ -314,6 +334,7 @@ class Channel(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'configure_logs' function.
 class ConfigureLogsResponse(BaseValidatorModel):
     Arn: str
     CreatedAt: str
@@ -326,6 +347,7 @@ class ConfigureLogsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_channel' function.
 class CreateChannelResponse(BaseValidatorModel):
     Arn: str
     CreatedAt: str
@@ -338,6 +360,7 @@ class CreateChannelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_channel' function.
 class DescribeChannelResponse(BaseValidatorModel):
     Arn: str
     CreatedAt: str
@@ -350,6 +373,7 @@ class DescribeChannelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'rotate_channel_credentials' function.
 class RotateChannelCredentialsResponse(BaseValidatorModel):
     Arn: str
     CreatedAt: str
@@ -362,6 +386,7 @@ class RotateChannelCredentialsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'rotate_ingest_endpoint_credentials' function.
 class RotateIngestEndpointCredentialsResponse(BaseValidatorModel):
     Arn: str
     CreatedAt: str
@@ -374,6 +399,7 @@ class RotateIngestEndpointCredentialsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_channel' function.
 class UpdateChannelResponse(BaseValidatorModel):
     Arn: str
     CreatedAt: str
@@ -483,12 +509,14 @@ class CmafEncryption(BaseValidatorModel):
     KeyRotationIntervalSeconds: Optional[int] = None
 
 
+# This class is the output for the 'list_channels' function.
 class ListChannelsResponse(BaseValidatorModel):
     Channels: List[Channel]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_origin_endpoint' function.
 class CreateOriginEndpointResponse(BaseValidatorModel):
     Arn: str
     Authorization: Authorization
@@ -510,6 +538,7 @@ class CreateOriginEndpointResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_origin_endpoint' function.
 class DescribeOriginEndpointResponse(BaseValidatorModel):
     Arn: str
     Authorization: Authorization
@@ -551,6 +580,7 @@ class OriginEndpoint(BaseValidatorModel):
     Whitelist: Optional[List[str]] = None
 
 
+# This class is the output for the 'update_origin_endpoint' function.
 class UpdateOriginEndpointResponse(BaseValidatorModel):
     Arn: str
     Authorization: Authorization
@@ -580,6 +610,7 @@ MssPackageUnion = Union[MssPackage, MssPackageOutput]
 CmafEncryptionUnion = Union[CmafEncryption, CmafEncryptionOutput]
 
 
+# This class is the output for the 'list_origin_endpoints' function.
 class ListOriginEndpointsResponse(BaseValidatorModel):
     OriginEndpoints: List[OriginEndpoint]
     ResponseMetadata: ResponseMetadata
@@ -594,6 +625,7 @@ class CmafPackageCreateOrUpdateParameters(BaseValidatorModel):
     StreamSelection: Optional[StreamSelection] = None
 
 
+# This class is the input for the 'create_origin_endpoint' function.
 class CreateOriginEndpointRequest(BaseValidatorModel):
     ChannelId: str
     Id: str
@@ -611,6 +643,7 @@ class CreateOriginEndpointRequest(BaseValidatorModel):
     Whitelist: Optional[List[str]] = None
 
 
+# This class is the input for the 'update_origin_endpoint' function.
 class UpdateOriginEndpointRequest(BaseValidatorModel):
     Id: str
     Authorization: Optional[Authorization] = None

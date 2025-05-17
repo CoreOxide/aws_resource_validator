@@ -109,14 +109,17 @@ class FileConfiguration(BaseValidatorModel):
     Filters: Optional[Dict[str, List[str]]] = None
 
 
+# This class is the input for the 'get_application' function.
 class GetApplicationRequest(BaseValidatorModel):
     Arn: str
 
 
+# This class is the input for the 'get_data_integration' function.
 class GetDataIntegrationRequest(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'get_event_integration' function.
 class GetEventIntegrationRequest(BaseValidatorModel):
     Name: str
 
@@ -127,39 +130,46 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_application_associations' function.
 class ListApplicationAssociationsRequest(BaseValidatorModel):
     ApplicationId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_applications' function.
 class ListApplicationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_data_integration_associations' function.
 class ListDataIntegrationAssociationsRequest(BaseValidatorModel):
     DataIntegrationIdentifier: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_data_integrations' function.
 class ListDataIntegrationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_event_integration_associations' function.
 class ListEventIntegrationAssociationsRequest(BaseValidatorModel):
     EventIntegrationName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_event_integrations' function.
 class ListEventIntegrationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -193,40 +203,47 @@ class ApplicationSourceConfig(BaseValidatorModel):
     ExternalUrlConfig: Optional[ExternalUrlConfig] = None
 
 
+# This class is the output for the 'create_application' function.
 class CreateApplicationResponse(BaseValidatorModel):
     Arn: str
     Id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_data_integration_association' function.
 class CreateDataIntegrationAssociationResponse(BaseValidatorModel):
     DataIntegrationAssociationId: str
     DataIntegrationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_event_integration' function.
 class CreateEventIntegrationResponse(BaseValidatorModel):
     EventIntegrationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_application_associations' function.
 class ListApplicationAssociationsResponse(BaseValidatorModel):
     ApplicationAssociations: List[ApplicationAssociationSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_applications' function.
 class ListApplicationsResponse(BaseValidatorModel):
     Applications: List[ApplicationSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_data_integration' function.
 class CreateDataIntegrationResponse(BaseValidatorModel):
     Arn: str
     Id: str
@@ -242,6 +259,7 @@ class CreateDataIntegrationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_data_integration' function.
 class GetDataIntegrationResponse(BaseValidatorModel):
     Arn: str
     Id: str
@@ -256,6 +274,7 @@ class GetDataIntegrationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_event_integration' function.
 class CreateEventIntegrationRequest(BaseValidatorModel):
     Name: str
     EventFilter: EventFilter
@@ -274,6 +293,7 @@ class EventIntegration(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'get_event_integration' function.
 class GetEventIntegrationResponse(BaseValidatorModel):
     Name: str
     Description: str
@@ -284,12 +304,14 @@ class GetEventIntegrationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_data_integrations' function.
 class ListDataIntegrationsResponse(BaseValidatorModel):
     DataIntegrations: List[DataIntegrationSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_event_integration_associations' function.
 class ListEventIntegrationAssociationsResponse(BaseValidatorModel):
     EventIntegrationAssociations: List[EventIntegrationAssociation]
     ResponseMetadata: ResponseMetadata
@@ -331,6 +353,7 @@ class ListEventIntegrationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'get_application' function.
 class GetApplicationResponse(BaseValidatorModel):
     Arn: str
     Id: str
@@ -349,12 +372,14 @@ class GetApplicationResponse(BaseValidatorModel):
 ApplicationSourceConfigUnion = Union[ApplicationSourceConfig, ApplicationSourceConfigOutput]
 
 
+# This class is the output for the 'list_event_integrations' function.
 class ListEventIntegrationsResponse(BaseValidatorModel):
     EventIntegrations: List[EventIntegration]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_data_integration_association' function.
 class CreateDataIntegrationAssociationRequest(BaseValidatorModel):
     DataIntegrationIdentifier: str
     ClientId: Optional[str] = None
@@ -380,6 +405,7 @@ class UpdateDataIntegrationAssociationRequest(BaseValidatorModel):
     ExecutionConfiguration: ExecutionConfiguration
 
 
+# This class is the input for the 'create_data_integration' function.
 class CreateDataIntegrationRequest(BaseValidatorModel):
     Name: str
     KmsKey: str
@@ -392,6 +418,7 @@ class CreateDataIntegrationRequest(BaseValidatorModel):
     ObjectConfiguration: Optional[Dict[str, Dict[str, List[str]]]] = None
 
 
+# This class is the input for the 'create_application' function.
 class CreateApplicationRequest(BaseValidatorModel):
     Name: str
     Namespace: str
@@ -414,6 +441,7 @@ class UpdateApplicationRequest(BaseValidatorModel):
     Permissions: Optional[List[str]] = None
 
 
+# This class is the output for the 'list_data_integration_associations' function.
 class ListDataIntegrationAssociationsResponse(BaseValidatorModel):
     DataIntegrationAssociations: List[DataIntegrationAssociationSummary]
     ResponseMetadata: ResponseMetadata

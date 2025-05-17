@@ -95,6 +95,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_configuration' function.
 class CreateConfigurationRequest(BaseValidatorModel):
     EngineType: EngineTypeType
     Name: str
@@ -103,6 +104,7 @@ class CreateConfigurationRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_tags' function.
 class CreateTagsRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Optional[Dict[str, str]] = None
@@ -122,10 +124,12 @@ class DataReplicationCounterpart(BaseValidatorModel):
     Region: str
 
 
+# This class is the input for the 'delete_broker' function.
 class DeleteBrokerRequest(BaseValidatorModel):
     BrokerId: str
 
 
+# This class is the input for the 'delete_tags' function.
 class DeleteTagsRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: List[str]
@@ -136,12 +140,14 @@ class DeleteUserRequest(BaseValidatorModel):
     Username: str
 
 
+# This class is the input for the 'describe_broker_engine_types' function.
 class DescribeBrokerEngineTypesRequest(BaseValidatorModel):
     EngineType: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_broker_instance_options' function.
 class DescribeBrokerInstanceOptionsRequest(BaseValidatorModel):
     EngineType: Optional[str] = None
     HostInstanceType: Optional[str] = None
@@ -150,6 +156,7 @@ class DescribeBrokerInstanceOptionsRequest(BaseValidatorModel):
     StorageType: Optional[str] = None
 
 
+# This class is the input for the 'describe_broker' function.
 class DescribeBrokerRequest(BaseValidatorModel):
     BrokerId: str
 
@@ -172,15 +179,18 @@ class UserSummary(BaseValidatorModel):
     PendingChange: Optional[ChangeTypeType] = None
 
 
+# This class is the input for the 'describe_configuration' function.
 class DescribeConfigurationRequest(BaseValidatorModel):
     ConfigurationId: str
 
 
+# This class is the input for the 'describe_configuration_revision' function.
 class DescribeConfigurationRevisionRequest(BaseValidatorModel):
     ConfigurationId: str
     ConfigurationRevision: str
 
 
+# This class is the input for the 'describe_user' function.
 class DescribeUserRequest(BaseValidatorModel):
     BrokerId: str
     Username: str
@@ -198,26 +208,31 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_brokers' function.
 class ListBrokersRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_configuration_revisions' function.
 class ListConfigurationRevisionsRequest(BaseValidatorModel):
     ConfigurationId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_configurations' function.
 class ListConfigurationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags' function.
 class ListTagsRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'list_users' function.
 class ListUsersRequest(BaseValidatorModel):
     BrokerId: str
     MaxResults: Optional[int] = None
@@ -229,6 +244,7 @@ class PendingLogs(BaseValidatorModel):
     General: Optional[bool] = None
 
 
+# This class is the input for the 'promote' function.
 class PromoteRequest(BaseValidatorModel):
     BrokerId: str
     Mode: PromoteModeType
@@ -244,6 +260,7 @@ class SanitizationWarning(BaseValidatorModel):
     ElementName: Optional[str] = None
 
 
+# This class is the input for the 'update_configuration' function.
 class UpdateConfigurationRequest(BaseValidatorModel):
     ConfigurationId: str
     Data: str
@@ -292,6 +309,7 @@ class Configuration(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_broker' function.
 class CreateBrokerRequest(BaseValidatorModel):
     BrokerName: str
     DeploymentMode: DeploymentModeType
@@ -316,6 +334,7 @@ class CreateBrokerRequest(BaseValidatorModel):
     DataReplicationPrimaryBrokerArn: Optional[str] = None
 
 
+# This class is the input for the 'update_broker' function.
 class UpdateBrokerRequest(BaseValidatorModel):
     BrokerId: str
     AuthenticationStrategy: Optional[AuthenticationStrategyType] = None
@@ -330,12 +349,14 @@ class UpdateBrokerRequest(BaseValidatorModel):
     DataReplicationMode: Optional[DataReplicationModeType] = None
 
 
+# This class is the output for the 'create_broker' function.
 class CreateBrokerResponse(BaseValidatorModel):
     BrokerArn: str
     BrokerId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_configuration' function.
 class CreateConfigurationResponse(BaseValidatorModel):
     Arn: str
     AuthenticationStrategy: AuthenticationStrategyType
@@ -346,11 +367,13 @@ class CreateConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_broker' function.
 class DeleteBrokerResponse(BaseValidatorModel):
     BrokerId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_configuration' function.
 class DescribeConfigurationResponse(BaseValidatorModel):
     Arn: str
     AuthenticationStrategy: AuthenticationStrategyType
@@ -365,6 +388,7 @@ class DescribeConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_configuration_revision' function.
 class DescribeConfigurationRevisionResponse(BaseValidatorModel):
     ConfigurationId: str
     Created: datetime
@@ -373,16 +397,19 @@ class DescribeConfigurationRevisionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_tags' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_brokers' function.
 class ListBrokersResponse(BaseValidatorModel):
     BrokerSummaries: List[BrokerSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_configuration_revisions' function.
 class ListConfigurationRevisionsResponse(BaseValidatorModel):
     ConfigurationId: str
     MaxResults: int
@@ -391,11 +418,13 @@ class ListConfigurationRevisionsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags' function.
 class ListTagsResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'promote' function.
 class PromoteResponse(BaseValidatorModel):
     BrokerId: str
     ResponseMetadata: ResponseMetadata
@@ -406,6 +435,7 @@ class DataReplicationMetadataOutput(BaseValidatorModel):
     DataReplicationCounterpart: Optional[DataReplicationCounterpart] = None
 
 
+# This class is the output for the 'list_users' function.
 class ListUsersResponse(BaseValidatorModel):
     BrokerId: str
     MaxResults: int
@@ -414,6 +444,7 @@ class ListUsersResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_user' function.
 class DescribeUserResponse(BaseValidatorModel):
     BrokerId: str
     ConsoleAccess: bool
@@ -436,6 +467,7 @@ class LogsSummary(BaseValidatorModel):
     Pending: Optional[PendingLogs] = None
 
 
+# This class is the output for the 'update_configuration' function.
 class UpdateConfigurationResponse(BaseValidatorModel):
     Arn: str
     Created: datetime
@@ -446,6 +478,7 @@ class UpdateConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_broker_instance_options' function.
 class DescribeBrokerInstanceOptionsResponse(BaseValidatorModel):
     BrokerInstanceOptions: List[BrokerInstanceOption]
     MaxResults: int
@@ -453,6 +486,7 @@ class DescribeBrokerInstanceOptionsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_broker_engine_types' function.
 class DescribeBrokerEngineTypesResponse(BaseValidatorModel):
     BrokerEngineTypes: List[BrokerEngineType]
     MaxResults: int
@@ -460,6 +494,7 @@ class DescribeBrokerEngineTypesResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_configurations' function.
 class ListConfigurationsResponse(BaseValidatorModel):
     Configurations: List[Configuration]
     MaxResults: int
@@ -467,6 +502,7 @@ class ListConfigurationsResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_broker' function.
 class UpdateBrokerResponse(BaseValidatorModel):
     AuthenticationStrategy: AuthenticationStrategyType
     AutoMinorVersionUpgrade: bool
@@ -485,6 +521,7 @@ class UpdateBrokerResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_broker' function.
 class DescribeBrokerResponse(BaseValidatorModel):
     ActionsRequired: List[ActionRequired]
     AuthenticationStrategy: AuthenticationStrategyType

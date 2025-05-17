@@ -42,6 +42,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_scaling_plan_resources' function.
 class DescribeScalingPlanResourcesRequest(BaseValidatorModel):
     ScalingPlanName: str
     ScalingPlanVersion: int
@@ -71,6 +72,7 @@ class ApplicationSourceOutput(BaseValidatorModel):
     TagFilters: Optional[List[TagFilterOutput]] = None
 
 
+# This class is the output for the 'create_scaling_plan' function.
 class CreateScalingPlanResponse(BaseValidatorModel):
     ScalingPlanVersion: int
     ResponseMetadata: ResponseMetadata
@@ -108,6 +110,7 @@ class CustomizedScalingMetricSpecification(BaseValidatorModel):
     Unit: Optional[str] = None
 
 
+# This class is the output for the 'get_scaling_plan_resource_forecast_data' function.
 class GetScalingPlanResourceForecastDataResponse(BaseValidatorModel):
     Datapoints: List[Datapoint]
     ResponseMetadata: ResponseMetadata
@@ -119,6 +122,7 @@ class DescribeScalingPlanResourcesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_scaling_plan_resource_forecast_data' function.
 class GetScalingPlanResourceForecastDataRequest(BaseValidatorModel):
     ScalingPlanName: str
     ScalingPlanVersion: int
@@ -217,6 +221,7 @@ class DescribeScalingPlansRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_scaling_plans' function.
 class DescribeScalingPlansRequest(BaseValidatorModel):
     ScalingPlanNames: Optional[List[str]] = None
     ScalingPlanVersion: Optional[int] = None
@@ -225,12 +230,14 @@ class DescribeScalingPlansRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_scaling_plans' function.
 class DescribeScalingPlansResponse(BaseValidatorModel):
     ScalingPlans: List[ScalingPlan]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_scaling_plan_resources' function.
 class DescribeScalingPlanResourcesResponse(BaseValidatorModel):
     ScalingPlanResources: List[ScalingPlanResource]
     ResponseMetadata: ResponseMetadata
@@ -256,6 +263,7 @@ class ScalingInstruction(BaseValidatorModel):
 ScalingInstructionUnion = Union[ScalingInstruction, ScalingInstructionOutput]
 
 
+# This class is the input for the 'create_scaling_plan' function.
 class CreateScalingPlanRequest(BaseValidatorModel):
     ScalingPlanName: str
     ApplicationSource: ApplicationSourceUnion

@@ -50,6 +50,7 @@ class DeleteUserRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_group' function.
 class DescribeGroupRequest(BaseValidatorModel):
     DirectoryId: str
     SAMAccountName: str
@@ -57,6 +58,7 @@ class DescribeGroupRequest(BaseValidatorModel):
     Realm: Optional[str] = None
 
 
+# This class is the input for the 'describe_user' function.
 class DescribeUserRequest(BaseValidatorModel):
     DirectoryId: str
     SAMAccountName: str
@@ -83,6 +85,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_group_members' function.
 class ListGroupMembersRequest(BaseValidatorModel):
     DirectoryId: str
     SAMAccountName: str
@@ -98,6 +101,7 @@ class Member(BaseValidatorModel):
     SID: str
 
 
+# This class is the input for the 'list_groups_for_member' function.
 class ListGroupsForMemberRequest(BaseValidatorModel):
     DirectoryId: str
     SAMAccountName: str
@@ -107,6 +111,7 @@ class ListGroupsForMemberRequest(BaseValidatorModel):
     Realm: Optional[str] = None
 
 
+# This class is the input for the 'list_groups' function.
 class ListGroupsRequest(BaseValidatorModel):
     DirectoryId: str
     MaxResults: Optional[int] = None
@@ -114,6 +119,7 @@ class ListGroupsRequest(BaseValidatorModel):
     Realm: Optional[str] = None
 
 
+# This class is the input for the 'list_users' function.
 class ListUsersRequest(BaseValidatorModel):
     DirectoryId: str
     MaxResults: Optional[int] = None
@@ -137,6 +143,7 @@ class RemoveGroupMemberRequest(BaseValidatorModel):
     MemberRealm: Optional[str] = None
 
 
+# This class is the input for the 'search_groups' function.
 class SearchGroupsRequest(BaseValidatorModel):
     DirectoryId: str
     SearchAttributes: List[str]
@@ -146,6 +153,7 @@ class SearchGroupsRequest(BaseValidatorModel):
     Realm: Optional[str] = None
 
 
+# This class is the input for the 'search_users' function.
 class SearchUsersRequest(BaseValidatorModel):
     DirectoryId: str
     SearchAttributes: List[str]
@@ -178,6 +186,7 @@ class User(BaseValidatorModel):
 AttributeValueUnion = Union[AttributeValue, AttributeValueOutput]
 
 
+# This class is the output for the 'create_group' function.
 class CreateGroupResult(BaseValidatorModel):
     DirectoryId: str
     SAMAccountName: str
@@ -185,6 +194,7 @@ class CreateGroupResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_user' function.
 class CreateUserResult(BaseValidatorModel):
     DirectoryId: str
     SAMAccountName: str
@@ -192,6 +202,7 @@ class CreateUserResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_group' function.
 class DescribeGroupResult(BaseValidatorModel):
     DirectoryId: str
     DistinguishedName: str
@@ -204,6 +215,7 @@ class DescribeGroupResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_user' function.
 class DescribeUserResult(BaseValidatorModel):
     DirectoryId: str
     DistinguishedName: str
@@ -219,6 +231,7 @@ class DescribeUserResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_groups_for_member' function.
 class ListGroupsForMemberResult(BaseValidatorModel):
     DirectoryId: str
     Groups: List[GroupSummary]
@@ -228,6 +241,7 @@ class ListGroupsForMemberResult(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_groups' function.
 class ListGroupsResult(BaseValidatorModel):
     DirectoryId: str
     Groups: List[GroupSummary]
@@ -280,6 +294,7 @@ class SearchUsersRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_group_members' function.
 class ListGroupMembersResult(BaseValidatorModel):
     DirectoryId: str
     MemberRealm: str
@@ -289,6 +304,7 @@ class ListGroupMembersResult(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_users' function.
 class ListUsersResult(BaseValidatorModel):
     DirectoryId: str
     Realm: str
@@ -297,6 +313,7 @@ class ListUsersResult(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'search_groups' function.
 class SearchGroupsResult(BaseValidatorModel):
     DirectoryId: str
     Groups: List[Group]
@@ -305,6 +322,7 @@ class SearchGroupsResult(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'search_users' function.
 class SearchUsersResult(BaseValidatorModel):
     DirectoryId: str
     Realm: str
@@ -313,6 +331,7 @@ class SearchUsersResult(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_group' function.
 class CreateGroupRequest(BaseValidatorModel):
     DirectoryId: str
     SAMAccountName: str
@@ -322,6 +341,7 @@ class CreateGroupRequest(BaseValidatorModel):
     OtherAttributes: Optional[Dict[str, AttributeValueUnion]] = None
 
 
+# This class is the input for the 'create_user' function.
 class CreateUserRequest(BaseValidatorModel):
     DirectoryId: str
     SAMAccountName: str

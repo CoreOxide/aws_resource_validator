@@ -172,6 +172,7 @@ class S3ContentLocationUpdate(BaseValidatorModel):
     ObjectVersionUpdate: Optional[str] = None
 
 
+# This class is the input for the 'create_application_presigned_url' function.
 class CreateApplicationPresignedUrlRequest(BaseValidatorModel):
     ApplicationName: str
     UrlType: UrlTypeType
@@ -194,6 +195,7 @@ class MavenReference(BaseValidatorModel):
     Version: str
 
 
+# This class is the input for the 'delete_application_cloud_watch_logging_option' function.
 class DeleteApplicationCloudWatchLoggingOptionRequest(BaseValidatorModel):
     ApplicationName: str
     CloudWatchLoggingOptionId: str
@@ -201,18 +203,21 @@ class DeleteApplicationCloudWatchLoggingOptionRequest(BaseValidatorModel):
     ConditionalToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_application_input_processing_configuration' function.
 class DeleteApplicationInputProcessingConfigurationRequest(BaseValidatorModel):
     ApplicationName: str
     CurrentApplicationVersionId: int
     InputId: str
 
 
+# This class is the input for the 'delete_application_output' function.
 class DeleteApplicationOutputRequest(BaseValidatorModel):
     ApplicationName: str
     CurrentApplicationVersionId: int
     OutputId: str
 
 
+# This class is the input for the 'delete_application_reference_data_source' function.
 class DeleteApplicationReferenceDataSourceRequest(BaseValidatorModel):
     ApplicationName: str
     CurrentApplicationVersionId: int
@@ -221,6 +226,7 @@ class DeleteApplicationReferenceDataSourceRequest(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'delete_application_vpc_configuration' function.
 class DeleteApplicationVpcConfigurationRequest(BaseValidatorModel):
     ApplicationName: str
     VpcConfigurationId: str
@@ -243,16 +249,19 @@ class S3ContentBaseLocationUpdate(BaseValidatorModel):
     BasePathUpdate: Optional[str] = None
 
 
+# This class is the input for the 'describe_application_operation' function.
 class DescribeApplicationOperationRequest(BaseValidatorModel):
     ApplicationName: str
     OperationId: str
 
 
+# This class is the input for the 'describe_application' function.
 class DescribeApplicationRequest(BaseValidatorModel):
     ApplicationName: str
     IncludeAdditionalDetails: Optional[bool] = None
 
 
+# This class is the input for the 'describe_application_snapshot' function.
 class DescribeApplicationSnapshotRequest(BaseValidatorModel):
     ApplicationName: str
     SnapshotName: str
@@ -266,6 +275,7 @@ class SnapshotDetails(BaseValidatorModel):
     RuntimeEnvironment: Optional[RuntimeEnvironmentType] = None
 
 
+# This class is the input for the 'describe_application_version' function.
 class DescribeApplicationVersionRequest(BaseValidatorModel):
     ApplicationName: str
     ApplicationVersionId: int
@@ -439,6 +449,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_application_operations' function.
 class ListApplicationOperationsRequest(BaseValidatorModel):
     ApplicationName: str
     Limit: Optional[int] = None
@@ -447,23 +458,27 @@ class ListApplicationOperationsRequest(BaseValidatorModel):
     OperationStatus: Optional[OperationStatusType] = None
 
 
+# This class is the input for the 'list_application_snapshots' function.
 class ListApplicationSnapshotsRequest(BaseValidatorModel):
     ApplicationName: str
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_application_versions' function.
 class ListApplicationVersionsRequest(BaseValidatorModel):
     ApplicationName: str
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_applications' function.
 class ListApplicationsRequest(BaseValidatorModel):
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
@@ -489,11 +504,13 @@ class S3ReferenceDataSourceUpdate(BaseValidatorModel):
     FileKeyUpdate: Optional[str] = None
 
 
+# This class is the input for the 'rollback_application' function.
 class RollbackApplicationRequest(BaseValidatorModel):
     ApplicationName: str
     CurrentApplicationVersionId: int
 
 
+# This class is the input for the 'stop_application' function.
 class StopApplicationRequest(BaseValidatorModel):
     ApplicationName: str
     Force: Optional[bool] = None
@@ -516,6 +533,7 @@ class ZeppelinMonitoringConfigurationUpdate(BaseValidatorModel):
     LogLevelUpdate: LogLevelType
 
 
+# This class is the input for the 'add_application_cloud_watch_logging_option' function.
 class AddApplicationCloudWatchLoggingOptionRequest(BaseValidatorModel):
     ApplicationName: str
     CloudWatchLoggingOption: CloudWatchLoggingOption
@@ -523,6 +541,7 @@ class AddApplicationCloudWatchLoggingOptionRequest(BaseValidatorModel):
     ConditionalToken: Optional[str] = None
 
 
+# This class is the output for the 'add_application_cloud_watch_logging_option' function.
 class AddApplicationCloudWatchLoggingOptionResponse(BaseValidatorModel):
     ApplicationARN: str
     ApplicationVersionId: int
@@ -531,11 +550,13 @@ class AddApplicationCloudWatchLoggingOptionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_application_presigned_url' function.
 class CreateApplicationPresignedUrlResponse(BaseValidatorModel):
     AuthorizedUrl: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_application_cloud_watch_logging_option' function.
 class DeleteApplicationCloudWatchLoggingOptionResponse(BaseValidatorModel):
     ApplicationARN: str
     ApplicationVersionId: int
@@ -544,24 +565,28 @@ class DeleteApplicationCloudWatchLoggingOptionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_application_input_processing_configuration' function.
 class DeleteApplicationInputProcessingConfigurationResponse(BaseValidatorModel):
     ApplicationARN: str
     ApplicationVersionId: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_application_output' function.
 class DeleteApplicationOutputResponse(BaseValidatorModel):
     ApplicationARN: str
     ApplicationVersionId: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_application_reference_data_source' function.
 class DeleteApplicationReferenceDataSourceResponse(BaseValidatorModel):
     ApplicationARN: str
     ApplicationVersionId: int
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_application_vpc_configuration' function.
 class DeleteApplicationVpcConfigurationResponse(BaseValidatorModel):
     ApplicationARN: str
     ApplicationVersionId: int
@@ -569,16 +594,19 @@ class DeleteApplicationVpcConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_application' function.
 class StartApplicationResponse(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_application' function.
 class StopApplicationResponse(BaseValidatorModel):
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'add_application_vpc_configuration' function.
 class AddApplicationVpcConfigurationRequest(BaseValidatorModel):
     ApplicationName: str
     VpcConfiguration: VpcConfiguration
@@ -586,6 +614,7 @@ class AddApplicationVpcConfigurationRequest(BaseValidatorModel):
     ConditionalToken: Optional[str] = None
 
 
+# This class is the output for the 'add_application_vpc_configuration' function.
 class AddApplicationVpcConfigurationResponse(BaseValidatorModel):
     ApplicationARN: str
     ApplicationVersionId: int
@@ -594,29 +623,34 @@ class AddApplicationVpcConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_application_maintenance_configuration' function.
 class UpdateApplicationMaintenanceConfigurationResponse(BaseValidatorModel):
     ApplicationARN: str
     ApplicationMaintenanceConfigurationDescription: ApplicationMaintenanceConfigurationDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_application_maintenance_configuration' function.
 class UpdateApplicationMaintenanceConfigurationRequest(BaseValidatorModel):
     ApplicationName: str
     ApplicationMaintenanceConfigurationUpdate: ApplicationMaintenanceConfigurationUpdate
 
 
+# This class is the output for the 'list_application_operations' function.
 class ListApplicationOperationsResponse(BaseValidatorModel):
     ApplicationOperationInfoList: List[ApplicationOperationInfo]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_applications' function.
 class ListApplicationsResponse(BaseValidatorModel):
     ApplicationSummaries: List[ApplicationSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_application_versions' function.
 class ListApplicationVersionsResponse(BaseValidatorModel):
     ApplicationVersionSummaries: List[ApplicationVersionSummary]
     ResponseMetadata: ResponseMetadata
@@ -654,6 +688,7 @@ class CodeContentUpdate(BaseValidatorModel):
     S3ContentLocationUpdate: Optional[S3ContentLocationUpdate] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -699,11 +734,13 @@ class DeployAsApplicationConfigurationUpdate(BaseValidatorModel):
     S3ContentLocationUpdate: Optional[S3ContentBaseLocationUpdate] = None
 
 
+# This class is the output for the 'describe_application_snapshot' function.
 class DescribeApplicationSnapshotResponse(BaseValidatorModel):
     SnapshotDetails: SnapshotDetails
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_application_snapshots' function.
 class ListApplicationSnapshotsResponse(BaseValidatorModel):
     SnapshotSummaries: List[SnapshotDetails]
     ResponseMetadata: ResponseMetadata
@@ -870,6 +907,7 @@ class ApplicationOperationInfoDetails(BaseValidatorModel):
     OperationFailureDetails: Optional[OperationFailureDetails] = None
 
 
+# This class is the output for the 'add_application_input_processing_configuration' function.
 class AddApplicationInputProcessingConfigurationResponse(BaseValidatorModel):
     ApplicationARN: str
     ApplicationVersionId: int
@@ -878,6 +916,7 @@ class AddApplicationInputProcessingConfigurationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'add_application_input_processing_configuration' function.
 class AddApplicationInputProcessingConfigurationRequest(BaseValidatorModel):
     ApplicationName: str
     CurrentApplicationVersionId: int
@@ -885,6 +924,7 @@ class AddApplicationInputProcessingConfigurationRequest(BaseValidatorModel):
     InputProcessingConfiguration: InputProcessingConfiguration
 
 
+# This class is the input for the 'discover_input_schema' function.
 class DiscoverInputSchemaRequest(BaseValidatorModel):
     ServiceExecutionRole: str
     ResourceARN: Optional[str] = None
@@ -898,6 +938,7 @@ class RecordFormat(BaseValidatorModel):
     MappingParameters: Optional[MappingParameters] = None
 
 
+# This class is the output for the 'add_application_output' function.
 class AddApplicationOutputResponse(BaseValidatorModel):
     ApplicationARN: str
     ApplicationVersionId: int
@@ -905,6 +946,7 @@ class AddApplicationOutputResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'add_application_output' function.
 class AddApplicationOutputRequest(BaseValidatorModel):
     ApplicationName: str
     CurrentApplicationVersionId: int
@@ -919,11 +961,13 @@ class EnvironmentPropertyUpdates(BaseValidatorModel):
     PropertyGroups: List[PropertyGroupUnion]
 
 
+# This class is the input for the 'start_application' function.
 class StartApplicationRequest(BaseValidatorModel):
     ApplicationName: str
     RunConfiguration: Optional[RunConfiguration] = None
 
 
+# This class is the output for the 'describe_application_operation' function.
 class DescribeApplicationOperationResponse(BaseValidatorModel):
     ApplicationOperationInfoDetails: ApplicationOperationInfoDetails
     ResponseMetadata: ResponseMetadata
@@ -957,6 +1001,7 @@ class InputUpdate(BaseValidatorModel):
     InputParallelismUpdate: Optional[InputParallelismUpdate] = None
 
 
+# This class is the output for the 'discover_input_schema' function.
 class DiscoverInputSchemaResponse(BaseValidatorModel):
     InputSchema: SourceSchemaOutput
     ParsedInputRecords: List[List[str]]
@@ -986,6 +1031,7 @@ class ReferenceDataSourceDescription(BaseValidatorModel):
 SourceSchemaUnion = Union[SourceSchema, SourceSchemaOutput]
 
 
+# This class is the output for the 'add_application_input' function.
 class AddApplicationInputResponse(BaseValidatorModel):
     ApplicationARN: str
     ApplicationVersionId: int
@@ -993,6 +1039,7 @@ class AddApplicationInputResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'add_application_reference_data_source' function.
 class AddApplicationReferenceDataSourceResponse(BaseValidatorModel):
     ApplicationARN: str
     ApplicationVersionId: int
@@ -1040,12 +1087,14 @@ class ApplicationConfigurationDescription(BaseValidatorModel):
     ZeppelinApplicationConfigurationDescription: Optional[ZeppelinApplicationConfigurationDescription] = None
 
 
+# This class is the input for the 'add_application_input' function.
 class AddApplicationInputRequest(BaseValidatorModel):
     ApplicationName: str
     CurrentApplicationVersionId: int
     Input: Input
 
 
+# This class is the input for the 'add_application_reference_data_source' function.
 class AddApplicationReferenceDataSourceRequest(BaseValidatorModel):
     ApplicationName: str
     CurrentApplicationVersionId: int
@@ -1107,33 +1156,39 @@ class ApplicationConfigurationUpdate(BaseValidatorModel):
     ZeppelinApplicationConfigurationUpdate: Optional[ZeppelinApplicationConfigurationUpdate] = None
 
 
+# This class is the output for the 'create_application' function.
 class CreateApplicationResponse(BaseValidatorModel):
     ApplicationDetail: ApplicationDetail
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_application' function.
 class DescribeApplicationResponse(BaseValidatorModel):
     ApplicationDetail: ApplicationDetail
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_application_version' function.
 class DescribeApplicationVersionResponse(BaseValidatorModel):
     ApplicationVersionDetail: ApplicationDetail
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'rollback_application' function.
 class RollbackApplicationResponse(BaseValidatorModel):
     ApplicationDetail: ApplicationDetail
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_application' function.
 class UpdateApplicationResponse(BaseValidatorModel):
     ApplicationDetail: ApplicationDetail
     OperationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_application' function.
 class CreateApplicationRequest(BaseValidatorModel):
     ApplicationName: str
     RuntimeEnvironment: RuntimeEnvironmentType
@@ -1145,6 +1200,7 @@ class CreateApplicationRequest(BaseValidatorModel):
     ApplicationMode: Optional[ApplicationModeType] = None
 
 
+# This class is the input for the 'update_application' function.
 class UpdateApplicationRequest(BaseValidatorModel):
     ApplicationName: str
     CurrentApplicationVersionId: Optional[int] = None

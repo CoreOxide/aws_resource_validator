@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'accept_environment_account_connection' function.
 class AcceptEnvironmentAccountConnectionInput(BaseValidatorModel):
     id: str
 
@@ -41,6 +42,7 @@ class RepositoryBranch(BaseValidatorModel):
     provider: RepositoryProviderType
 
 
+# This class is the input for the 'cancel_component_deployment' function.
 class CancelComponentDeploymentInput(BaseValidatorModel):
     componentName: str
 
@@ -64,10 +66,12 @@ class Component(BaseValidatorModel):
     serviceSpec: Optional[str] = None
 
 
+# This class is the input for the 'cancel_environment_deployment' function.
 class CancelEnvironmentDeploymentInput(BaseValidatorModel):
     environmentName: str
 
 
+# This class is the input for the 'cancel_service_instance_deployment' function.
 class CancelServiceInstanceDeploymentInput(BaseValidatorModel):
     serviceInstanceName: str
     serviceName: str
@@ -92,6 +96,7 @@ class ServiceInstance(BaseValidatorModel):
     spec: Optional[str] = None
 
 
+# This class is the input for the 'cancel_service_pipeline_deployment' function.
 class CancelServicePipelineDeploymentInput(BaseValidatorModel):
     serviceName: str
 
@@ -197,6 +202,7 @@ class Repository(BaseValidatorModel):
     encryptionKey: Optional[str] = None
 
 
+# This class is the input for the 'create_service_sync_config' function.
 class CreateServiceSyncConfigInput(BaseValidatorModel):
     branch: str
     filePath: str
@@ -225,6 +231,7 @@ class ServiceTemplate(BaseValidatorModel):
     recommendedVersion: Optional[str] = None
 
 
+# This class is the input for the 'create_template_sync_config' function.
 class CreateTemplateSyncConfigInput(BaseValidatorModel):
     branch: str
     repositoryName: str
@@ -243,55 +250,67 @@ class TemplateSyncConfig(BaseValidatorModel):
     subdirectory: Optional[str] = None
 
 
+# This class is the input for the 'delete_component' function.
 class DeleteComponentInput(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'delete_deployment' function.
 class DeleteDeploymentInput(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'delete_environment_account_connection' function.
 class DeleteEnvironmentAccountConnectionInput(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'delete_environment' function.
 class DeleteEnvironmentInput(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'delete_environment_template' function.
 class DeleteEnvironmentTemplateInput(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'delete_environment_template_version' function.
 class DeleteEnvironmentTemplateVersionInput(BaseValidatorModel):
     majorVersion: str
     minorVersion: str
     templateName: str
 
 
+# This class is the input for the 'delete_repository' function.
 class DeleteRepositoryInput(BaseValidatorModel):
     name: str
     provider: RepositoryProviderType
 
 
+# This class is the input for the 'delete_service' function.
 class DeleteServiceInput(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'delete_service_sync_config' function.
 class DeleteServiceSyncConfigInput(BaseValidatorModel):
     serviceName: str
 
 
+# This class is the input for the 'delete_service_template' function.
 class DeleteServiceTemplateInput(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'delete_service_template_version' function.
 class DeleteServiceTemplateVersionInput(BaseValidatorModel):
     majorVersion: str
     minorVersion: str
     templateName: str
 
 
+# This class is the input for the 'delete_template_sync_config' function.
 class DeleteTemplateSyncConfigInput(BaseValidatorModel):
     templateName: str
     templateType: TemplateTypeType
@@ -402,6 +421,7 @@ class EnvironmentTemplateVersionSummary(BaseValidatorModel):
     statusMessage: Optional[str] = None
 
 
+# This class is the input for the 'get_component' function.
 class GetComponentInput(BaseValidatorModel):
     name: str
 
@@ -411,6 +431,7 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'get_deployment' function.
 class GetDeploymentInput(BaseValidatorModel):
     id: str
     componentName: Optional[str] = None
@@ -419,29 +440,35 @@ class GetDeploymentInput(BaseValidatorModel):
     serviceName: Optional[str] = None
 
 
+# This class is the input for the 'get_environment_account_connection' function.
 class GetEnvironmentAccountConnectionInput(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'get_environment' function.
 class GetEnvironmentInput(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'get_environment_template' function.
 class GetEnvironmentTemplateInput(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'get_environment_template_version' function.
 class GetEnvironmentTemplateVersionInput(BaseValidatorModel):
     majorVersion: str
     minorVersion: str
     templateName: str
 
 
+# This class is the input for the 'get_repository' function.
 class GetRepositoryInput(BaseValidatorModel):
     name: str
     provider: RepositoryProviderType
 
 
+# This class is the input for the 'get_repository_sync_status' function.
 class GetRepositorySyncStatusInput(BaseValidatorModel):
     branch: str
     repositoryName: str
@@ -449,15 +476,18 @@ class GetRepositorySyncStatusInput(BaseValidatorModel):
     syncType: SyncTypeType
 
 
+# This class is the input for the 'get_service' function.
 class GetServiceInput(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'get_service_instance' function.
 class GetServiceInstanceInput(BaseValidatorModel):
     name: str
     serviceName: str
 
 
+# This class is the input for the 'get_service_instance_sync_status' function.
 class GetServiceInstanceSyncStatusInput(BaseValidatorModel):
     serviceInstanceName: str
     serviceName: str
@@ -471,30 +501,36 @@ class Revision(BaseValidatorModel):
     sha: str
 
 
+# This class is the input for the 'get_service_sync_blocker_summary' function.
 class GetServiceSyncBlockerSummaryInput(BaseValidatorModel):
     serviceName: str
     serviceInstanceName: Optional[str] = None
 
 
+# This class is the input for the 'get_service_sync_config' function.
 class GetServiceSyncConfigInput(BaseValidatorModel):
     serviceName: str
 
 
+# This class is the input for the 'get_service_template' function.
 class GetServiceTemplateInput(BaseValidatorModel):
     name: str
 
 
+# This class is the input for the 'get_service_template_version' function.
 class GetServiceTemplateVersionInput(BaseValidatorModel):
     majorVersion: str
     minorVersion: str
     templateName: str
 
 
+# This class is the input for the 'get_template_sync_config' function.
 class GetTemplateSyncConfigInput(BaseValidatorModel):
     templateName: str
     templateType: TemplateTypeType
 
 
+# This class is the input for the 'get_template_sync_status' function.
 class GetTemplateSyncStatusInput(BaseValidatorModel):
     templateName: str
     templateType: TemplateTypeType
@@ -507,6 +543,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_component_outputs' function.
 class ListComponentOutputsInput(BaseValidatorModel):
     componentName: str
     deploymentId: Optional[str] = None
@@ -518,6 +555,7 @@ class Output(BaseValidatorModel):
     valueString: Optional[str] = None
 
 
+# This class is the input for the 'list_component_provisioned_resources' function.
 class ListComponentProvisionedResourcesInput(BaseValidatorModel):
     componentName: str
     nextToken: Optional[str] = None
@@ -529,6 +567,7 @@ class ProvisionedResource(BaseValidatorModel):
     provisioningEngine: Optional[ProvisionedResourceEngineType] = None
 
 
+# This class is the input for the 'list_components' function.
 class ListComponentsInput(BaseValidatorModel):
     environmentName: Optional[str] = None
     maxResults: Optional[int] = None
@@ -537,6 +576,7 @@ class ListComponentsInput(BaseValidatorModel):
     serviceName: Optional[str] = None
 
 
+# This class is the input for the 'list_deployments' function.
 class ListDeploymentsInput(BaseValidatorModel):
     componentName: Optional[str] = None
     environmentName: Optional[str] = None
@@ -546,6 +586,7 @@ class ListDeploymentsInput(BaseValidatorModel):
     serviceName: Optional[str] = None
 
 
+# This class is the input for the 'list_environment_account_connections' function.
 class ListEnvironmentAccountConnectionsInput(BaseValidatorModel):
     requestedBy: EnvironmentAccountConnectionRequesterAccountTypeType
     environmentName: Optional[str] = None
@@ -554,17 +595,20 @@ class ListEnvironmentAccountConnectionsInput(BaseValidatorModel):
     statuses: Optional[List[EnvironmentAccountConnectionStatusType]] = None
 
 
+# This class is the input for the 'list_environment_outputs' function.
 class ListEnvironmentOutputsInput(BaseValidatorModel):
     environmentName: str
     deploymentId: Optional[str] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_environment_provisioned_resources' function.
 class ListEnvironmentProvisionedResourcesInput(BaseValidatorModel):
     environmentName: str
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_environment_template_versions' function.
 class ListEnvironmentTemplateVersionsInput(BaseValidatorModel):
     templateName: str
     majorVersion: Optional[str] = None
@@ -572,11 +616,13 @@ class ListEnvironmentTemplateVersionsInput(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_environment_templates' function.
 class ListEnvironmentTemplatesInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_repositories' function.
 class ListRepositoriesInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -589,6 +635,7 @@ class RepositorySummary(BaseValidatorModel):
     provider: RepositoryProviderType
 
 
+# This class is the input for the 'list_repository_sync_definitions' function.
 class ListRepositorySyncDefinitionsInput(BaseValidatorModel):
     repositoryName: str
     repositoryProvider: RepositoryProviderType
@@ -603,6 +650,7 @@ class RepositorySyncDefinition(BaseValidatorModel):
     target: str
 
 
+# This class is the input for the 'list_service_instance_outputs' function.
 class ListServiceInstanceOutputsInput(BaseValidatorModel):
     serviceInstanceName: str
     serviceName: str
@@ -610,6 +658,7 @@ class ListServiceInstanceOutputsInput(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_service_instance_provisioned_resources' function.
 class ListServiceInstanceProvisionedResourcesInput(BaseValidatorModel):
     serviceInstanceName: str
     serviceName: str
@@ -638,17 +687,20 @@ class ServiceInstanceSummary(BaseValidatorModel):
     lastSucceededDeploymentId: Optional[str] = None
 
 
+# This class is the input for the 'list_service_pipeline_outputs' function.
 class ListServicePipelineOutputsInput(BaseValidatorModel):
     serviceName: str
     deploymentId: Optional[str] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_service_pipeline_provisioned_resources' function.
 class ListServicePipelineProvisionedResourcesInput(BaseValidatorModel):
     serviceName: str
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_service_template_versions' function.
 class ListServiceTemplateVersionsInput(BaseValidatorModel):
     templateName: str
     majorVersion: Optional[str] = None
@@ -669,6 +721,7 @@ class ServiceTemplateVersionSummary(BaseValidatorModel):
     statusMessage: Optional[str] = None
 
 
+# This class is the input for the 'list_service_templates' function.
 class ListServiceTemplatesInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -685,6 +738,7 @@ class ServiceTemplateSummary(BaseValidatorModel):
     recommendedVersion: Optional[str] = None
 
 
+# This class is the input for the 'list_services' function.
 class ListServicesInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -701,12 +755,14 @@ class ServiceSummary(BaseValidatorModel):
     statusMessage: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInput(BaseValidatorModel):
     resourceArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'reject_environment_account_connection' function.
 class RejectEnvironmentAccountConnectionInput(BaseValidatorModel):
     id: str
 
@@ -740,6 +796,7 @@ class UntagResourceInput(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_component' function.
 class UpdateComponentInput(BaseValidatorModel):
     deploymentType: ComponentDeploymentUpdateTypeType
     name: str
@@ -751,6 +808,7 @@ class UpdateComponentInput(BaseValidatorModel):
     templateFile: Optional[str] = None
 
 
+# This class is the input for the 'update_environment_account_connection' function.
 class UpdateEnvironmentAccountConnectionInput(BaseValidatorModel):
     id: str
     codebuildRoleArn: Optional[str] = None
@@ -758,12 +816,14 @@ class UpdateEnvironmentAccountConnectionInput(BaseValidatorModel):
     roleArn: Optional[str] = None
 
 
+# This class is the input for the 'update_environment_template' function.
 class UpdateEnvironmentTemplateInput(BaseValidatorModel):
     name: str
     description: Optional[str] = None
     displayName: Optional[str] = None
 
 
+# This class is the input for the 'update_environment_template_version' function.
 class UpdateEnvironmentTemplateVersionInput(BaseValidatorModel):
     majorVersion: str
     minorVersion: str
@@ -772,12 +832,14 @@ class UpdateEnvironmentTemplateVersionInput(BaseValidatorModel):
     status: Optional[TemplateVersionStatusType] = None
 
 
+# This class is the input for the 'update_service' function.
 class UpdateServiceInput(BaseValidatorModel):
     name: str
     description: Optional[str] = None
     spec: Optional[str] = None
 
 
+# This class is the input for the 'update_service_instance' function.
 class UpdateServiceInstanceInput(BaseValidatorModel):
     deploymentType: DeploymentUpdateTypeType
     name: str
@@ -788,6 +850,7 @@ class UpdateServiceInstanceInput(BaseValidatorModel):
     templateMinorVersion: Optional[str] = None
 
 
+# This class is the input for the 'update_service_pipeline' function.
 class UpdateServicePipelineInput(BaseValidatorModel):
     deploymentType: DeploymentUpdateTypeType
     serviceName: str
@@ -796,11 +859,13 @@ class UpdateServicePipelineInput(BaseValidatorModel):
     templateMinorVersion: Optional[str] = None
 
 
+# This class is the input for the 'update_service_sync_blocker' function.
 class UpdateServiceSyncBlockerInput(BaseValidatorModel):
     id: str
     resolvedReason: str
 
 
+# This class is the input for the 'update_service_sync_config' function.
 class UpdateServiceSyncConfigInput(BaseValidatorModel):
     branch: str
     filePath: str
@@ -809,12 +874,14 @@ class UpdateServiceSyncConfigInput(BaseValidatorModel):
     serviceName: str
 
 
+# This class is the input for the 'update_service_template' function.
 class UpdateServiceTemplateInput(BaseValidatorModel):
     name: str
     description: Optional[str] = None
     displayName: Optional[str] = None
 
 
+# This class is the input for the 'update_template_sync_config' function.
 class UpdateTemplateSyncConfigInput(BaseValidatorModel):
     branch: str
     repositoryName: str
@@ -824,31 +891,37 @@ class UpdateTemplateSyncConfigInput(BaseValidatorModel):
     subdirectory: Optional[str] = None
 
 
+# This class is the output for the 'accept_environment_account_connection' function.
 class AcceptEnvironmentAccountConnectionOutput(BaseValidatorModel):
     environmentAccountConnection: EnvironmentAccountConnection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_environment_account_connection' function.
 class CreateEnvironmentAccountConnectionOutput(BaseValidatorModel):
     environmentAccountConnection: EnvironmentAccountConnection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_environment_account_connection' function.
 class DeleteEnvironmentAccountConnectionOutput(BaseValidatorModel):
     environmentAccountConnection: EnvironmentAccountConnection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_environment_account_connection' function.
 class GetEnvironmentAccountConnectionOutput(BaseValidatorModel):
     environmentAccountConnection: EnvironmentAccountConnection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reject_environment_account_connection' function.
 class RejectEnvironmentAccountConnectionOutput(BaseValidatorModel):
     environmentAccountConnection: EnvironmentAccountConnection
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_environment_account_connection' function.
 class UpdateEnvironmentAccountConnectionOutput(BaseValidatorModel):
     environmentAccountConnection: EnvironmentAccountConnection
     ResponseMetadata: ResponseMetadata
@@ -884,51 +957,61 @@ class Environment(BaseValidatorModel):
     spec: Optional[str] = None
 
 
+# This class is the output for the 'cancel_component_deployment' function.
 class CancelComponentDeploymentOutput(BaseValidatorModel):
     component: Component
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_component' function.
 class CreateComponentOutput(BaseValidatorModel):
     component: Component
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_component' function.
 class DeleteComponentOutput(BaseValidatorModel):
     component: Component
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_component' function.
 class GetComponentOutput(BaseValidatorModel):
     component: Component
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_component' function.
 class UpdateComponentOutput(BaseValidatorModel):
     component: Component
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_service_instance_deployment' function.
 class CancelServiceInstanceDeploymentOutput(BaseValidatorModel):
     serviceInstance: ServiceInstance
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_service_instance' function.
 class CreateServiceInstanceOutput(BaseValidatorModel):
     serviceInstance: ServiceInstance
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_service_instance' function.
 class GetServiceInstanceOutput(BaseValidatorModel):
     serviceInstance: ServiceInstance
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_service_instance' function.
 class UpdateServiceInstanceOutput(BaseValidatorModel):
     serviceInstance: ServiceInstance
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_service_pipeline_deployment' function.
 class CancelServicePipelineDeploymentOutput(BaseValidatorModel):
     pipeline: ServicePipeline
     ResponseMetadata: ResponseMetadata
@@ -950,11 +1033,13 @@ class Service(BaseValidatorModel):
     statusMessage: Optional[str] = None
 
 
+# This class is the output for the 'update_service_pipeline' function.
 class UpdateServicePipelineOutput(BaseValidatorModel):
     pipeline: ServicePipeline
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_service_template_version' function.
 class UpdateServiceTemplateVersionInput(BaseValidatorModel):
     majorVersion: str
     minorVersion: str
@@ -981,6 +1066,7 @@ class ServiceTemplateVersion(BaseValidatorModel):
     supportedComponentSources: Optional[List[Literal['DIRECTLY_DEFINED']]] = None
 
 
+# This class is the output for the 'list_components' function.
 class ListComponentsOutput(BaseValidatorModel):
     components: List[ComponentSummary]
     ResponseMetadata: ResponseMetadata
@@ -997,6 +1083,7 @@ class CountsSummary(BaseValidatorModel):
     services: Optional[ResourceCountsSummary] = None
 
 
+# This class is the input for the 'create_component' function.
 class CreateComponentInput(BaseValidatorModel):
     manifest: str
     name: str
@@ -1010,6 +1097,7 @@ class CreateComponentInput(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_environment_account_connection' function.
 class CreateEnvironmentAccountConnectionInput(BaseValidatorModel):
     environmentName: str
     managementAccountId: str
@@ -1020,6 +1108,7 @@ class CreateEnvironmentAccountConnectionInput(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_environment_template' function.
 class CreateEnvironmentTemplateInput(BaseValidatorModel):
     name: str
     description: Optional[str] = None
@@ -1029,6 +1118,7 @@ class CreateEnvironmentTemplateInput(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_repository' function.
 class CreateRepositoryInput(BaseValidatorModel):
     connectionArn: str
     name: str
@@ -1037,6 +1127,7 @@ class CreateRepositoryInput(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_service' function.
 class CreateServiceInput(BaseValidatorModel):
     name: str
     spec: str
@@ -1050,6 +1141,7 @@ class CreateServiceInput(BaseValidatorModel):
     templateMinorVersion: Optional[str] = None
 
 
+# This class is the input for the 'create_service_instance' function.
 class CreateServiceInstanceInput(BaseValidatorModel):
     name: str
     serviceName: str
@@ -1060,6 +1152,7 @@ class CreateServiceInstanceInput(BaseValidatorModel):
     templateMinorVersion: Optional[str] = None
 
 
+# This class is the input for the 'create_service_template' function.
 class CreateServiceTemplateInput(BaseValidatorModel):
     name: str
     description: Optional[str] = None
@@ -1069,6 +1162,7 @@ class CreateServiceTemplateInput(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceOutput(BaseValidatorModel):
     tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -1080,6 +1174,7 @@ class TagResourceInput(BaseValidatorModel):
     tags: List[Tag]
 
 
+# This class is the input for the 'create_environment' function.
 class CreateEnvironmentInput(BaseValidatorModel):
     name: str
     spec: str
@@ -1095,6 +1190,7 @@ class CreateEnvironmentInput(BaseValidatorModel):
     templateMinorVersion: Optional[str] = None
 
 
+# This class is the input for the 'update_account_settings' function.
 class UpdateAccountSettingsInput(BaseValidatorModel):
     deletePipelineProvisioningRepository: Optional[bool] = None
     pipelineCodebuildRoleArn: Optional[str] = None
@@ -1102,6 +1198,7 @@ class UpdateAccountSettingsInput(BaseValidatorModel):
     pipelineServiceRoleArn: Optional[str] = None
 
 
+# This class is the input for the 'update_environment' function.
 class UpdateEnvironmentInput(BaseValidatorModel):
     deploymentType: DeploymentUpdateTypeType
     name: str
@@ -1116,116 +1213,139 @@ class UpdateEnvironmentInput(BaseValidatorModel):
     templateMinorVersion: Optional[str] = None
 
 
+# This class is the output for the 'create_environment_template' function.
 class CreateEnvironmentTemplateOutput(BaseValidatorModel):
     environmentTemplate: EnvironmentTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_environment_template' function.
 class DeleteEnvironmentTemplateOutput(BaseValidatorModel):
     environmentTemplate: EnvironmentTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_environment_template' function.
 class GetEnvironmentTemplateOutput(BaseValidatorModel):
     environmentTemplate: EnvironmentTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_environment_template' function.
 class UpdateEnvironmentTemplateOutput(BaseValidatorModel):
     environmentTemplate: EnvironmentTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_environment_template_version' function.
 class CreateEnvironmentTemplateVersionOutput(BaseValidatorModel):
     environmentTemplateVersion: EnvironmentTemplateVersion
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_environment_template_version' function.
 class DeleteEnvironmentTemplateVersionOutput(BaseValidatorModel):
     environmentTemplateVersion: EnvironmentTemplateVersion
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_environment_template_version' function.
 class GetEnvironmentTemplateVersionOutput(BaseValidatorModel):
     environmentTemplateVersion: EnvironmentTemplateVersion
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_environment_template_version' function.
 class UpdateEnvironmentTemplateVersionOutput(BaseValidatorModel):
     environmentTemplateVersion: EnvironmentTemplateVersion
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_repository' function.
 class CreateRepositoryOutput(BaseValidatorModel):
     repository: Repository
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_repository' function.
 class DeleteRepositoryOutput(BaseValidatorModel):
     repository: Repository
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_repository' function.
 class GetRepositoryOutput(BaseValidatorModel):
     repository: Repository
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_service_sync_config' function.
 class CreateServiceSyncConfigOutput(BaseValidatorModel):
     serviceSyncConfig: ServiceSyncConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_service_sync_config' function.
 class DeleteServiceSyncConfigOutput(BaseValidatorModel):
     serviceSyncConfig: ServiceSyncConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_service_sync_config' function.
 class GetServiceSyncConfigOutput(BaseValidatorModel):
     serviceSyncConfig: ServiceSyncConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_service_sync_config' function.
 class UpdateServiceSyncConfigOutput(BaseValidatorModel):
     serviceSyncConfig: ServiceSyncConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_service_template' function.
 class CreateServiceTemplateOutput(BaseValidatorModel):
     serviceTemplate: ServiceTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_service_template' function.
 class DeleteServiceTemplateOutput(BaseValidatorModel):
     serviceTemplate: ServiceTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_service_template' function.
 class GetServiceTemplateOutput(BaseValidatorModel):
     serviceTemplate: ServiceTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_service_template' function.
 class UpdateServiceTemplateOutput(BaseValidatorModel):
     serviceTemplate: ServiceTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_template_sync_config' function.
 class CreateTemplateSyncConfigOutput(BaseValidatorModel):
     templateSyncConfig: TemplateSyncConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_template_sync_config' function.
 class DeleteTemplateSyncConfigOutput(BaseValidatorModel):
     templateSyncConfig: TemplateSyncConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_template_sync_config' function.
 class GetTemplateSyncConfigOutput(BaseValidatorModel):
     templateSyncConfig: TemplateSyncConfig
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_template_sync_config' function.
 class UpdateTemplateSyncConfigOutput(BaseValidatorModel):
     templateSyncConfig: TemplateSyncConfig
     ResponseMetadata: ResponseMetadata
@@ -1238,36 +1358,42 @@ class DeploymentState(BaseValidatorModel):
     servicePipeline: Optional[ServicePipelineState] = None
 
 
+# This class is the output for the 'list_deployments' function.
 class ListDeploymentsOutput(BaseValidatorModel):
     deployments: List[DeploymentSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_environment_account_connections' function.
 class ListEnvironmentAccountConnectionsOutput(BaseValidatorModel):
     environmentAccountConnections: List[EnvironmentAccountConnectionSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_environments' function.
 class ListEnvironmentsOutput(BaseValidatorModel):
     environments: List[EnvironmentSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_environments' function.
 class ListEnvironmentsInput(BaseValidatorModel):
     environmentTemplates: Optional[List[EnvironmentTemplateFilter]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_environment_templates' function.
 class ListEnvironmentTemplatesOutput(BaseValidatorModel):
     templates: List[EnvironmentTemplateSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_environment_template_versions' function.
 class ListEnvironmentTemplateVersionsOutput(BaseValidatorModel):
     templateVersions: List[EnvironmentTemplateVersionSummary]
     ResponseMetadata: ResponseMetadata
@@ -1442,24 +1568,28 @@ class ListTagsForResourceInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_component_outputs' function.
 class ListComponentOutputsOutput(BaseValidatorModel):
     outputs: List[Output]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_environment_outputs' function.
 class ListEnvironmentOutputsOutput(BaseValidatorModel):
     outputs: List[Output]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_service_instance_outputs' function.
 class ListServiceInstanceOutputsOutput(BaseValidatorModel):
     outputs: List[Output]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_service_pipeline_outputs' function.
 class ListServicePipelineOutputsOutput(BaseValidatorModel):
     outputs: List[Output]
     ResponseMetadata: ResponseMetadata
@@ -1474,36 +1604,42 @@ class NotifyResourceDeploymentStatusChangeInput(BaseValidatorModel):
     statusMessage: Optional[str] = None
 
 
+# This class is the output for the 'list_component_provisioned_resources' function.
 class ListComponentProvisionedResourcesOutput(BaseValidatorModel):
     provisionedResources: List[ProvisionedResource]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_environment_provisioned_resources' function.
 class ListEnvironmentProvisionedResourcesOutput(BaseValidatorModel):
     provisionedResources: List[ProvisionedResource]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_service_instance_provisioned_resources' function.
 class ListServiceInstanceProvisionedResourcesOutput(BaseValidatorModel):
     provisionedResources: List[ProvisionedResource]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_service_pipeline_provisioned_resources' function.
 class ListServicePipelineProvisionedResourcesOutput(BaseValidatorModel):
     provisionedResources: List[ProvisionedResource]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_repositories' function.
 class ListRepositoriesOutput(BaseValidatorModel):
     repositories: List[RepositorySummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_repository_sync_definitions' function.
 class ListRepositorySyncDefinitionsOutput(BaseValidatorModel):
     syncDefinitions: List[RepositorySyncDefinition]
     ResponseMetadata: ResponseMetadata
@@ -1518,6 +1654,7 @@ class ListServiceInstancesInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_service_instances' function.
 class ListServiceInstancesInput(BaseValidatorModel):
     filters: Optional[List[ListServiceInstancesFilter]] = None
     maxResults: Optional[int] = None
@@ -1527,24 +1664,28 @@ class ListServiceInstancesInput(BaseValidatorModel):
     sortOrder: Optional[SortOrderType] = None
 
 
+# This class is the output for the 'list_service_instances' function.
 class ListServiceInstancesOutput(BaseValidatorModel):
     serviceInstances: List[ServiceInstanceSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_service_template_versions' function.
 class ListServiceTemplateVersionsOutput(BaseValidatorModel):
     templateVersions: List[ServiceTemplateVersionSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_service_templates' function.
 class ListServiceTemplatesOutput(BaseValidatorModel):
     templates: List[ServiceTemplateSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_services' function.
 class ListServicesOutput(BaseValidatorModel):
     services: List[ServiceSummary]
     ResponseMetadata: ResponseMetadata
@@ -1586,71 +1727,85 @@ class GetAccountSettingsOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_account_settings' function.
 class UpdateAccountSettingsOutput(BaseValidatorModel):
     accountSettings: AccountSettings
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'cancel_environment_deployment' function.
 class CancelEnvironmentDeploymentOutput(BaseValidatorModel):
     environment: Environment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_environment' function.
 class CreateEnvironmentOutput(BaseValidatorModel):
     environment: Environment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_environment' function.
 class DeleteEnvironmentOutput(BaseValidatorModel):
     environment: Environment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_environment' function.
 class GetEnvironmentOutput(BaseValidatorModel):
     environment: Environment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_environment' function.
 class UpdateEnvironmentOutput(BaseValidatorModel):
     environment: Environment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_service' function.
 class CreateServiceOutput(BaseValidatorModel):
     service: Service
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_service' function.
 class DeleteServiceOutput(BaseValidatorModel):
     service: Service
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_service' function.
 class GetServiceOutput(BaseValidatorModel):
     service: Service
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_service' function.
 class UpdateServiceOutput(BaseValidatorModel):
     service: Service
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_service_template_version' function.
 class CreateServiceTemplateVersionOutput(BaseValidatorModel):
     serviceTemplateVersion: ServiceTemplateVersion
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_service_template_version' function.
 class DeleteServiceTemplateVersionOutput(BaseValidatorModel):
     serviceTemplateVersion: ServiceTemplateVersion
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_service_template_version' function.
 class GetServiceTemplateVersionOutput(BaseValidatorModel):
     serviceTemplateVersion: ServiceTemplateVersion
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_service_template_version' function.
 class UpdateServiceTemplateVersionOutput(BaseValidatorModel):
     serviceTemplateVersion: ServiceTemplateVersion
     ResponseMetadata: ResponseMetadata
@@ -1682,11 +1837,13 @@ class Deployment(BaseValidatorModel):
     targetState: Optional[DeploymentState] = None
 
 
+# This class is the output for the 'get_repository_sync_status' function.
 class GetRepositorySyncStatusOutput(BaseValidatorModel):
     latestSync: RepositorySyncAttempt
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_service_instance_sync_status' function.
 class GetServiceInstanceSyncStatusOutput(BaseValidatorModel):
     desiredState: Revision
     latestSuccessfulSync: ResourceSyncAttempt
@@ -1694,6 +1851,7 @@ class GetServiceInstanceSyncStatusOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_template_sync_status' function.
 class GetTemplateSyncStatusOutput(BaseValidatorModel):
     desiredState: Revision
     latestSuccessfulSync: ResourceSyncAttempt
@@ -1701,6 +1859,7 @@ class GetTemplateSyncStatusOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_environment_template_version' function.
 class CreateEnvironmentTemplateVersionInput(BaseValidatorModel):
     source: TemplateVersionSourceInput
     templateName: str
@@ -1710,6 +1869,7 @@ class CreateEnvironmentTemplateVersionInput(BaseValidatorModel):
     tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_service_template_version' function.
 class CreateServiceTemplateVersionInput(BaseValidatorModel):
     compatibleEnvironmentTemplates: List[CompatibleEnvironmentTemplateInput]
     source: TemplateVersionSourceInput
@@ -1727,6 +1887,7 @@ class ServiceSyncBlockerSummary(BaseValidatorModel):
     serviceInstanceName: Optional[str] = None
 
 
+# This class is the output for the 'update_service_sync_blocker' function.
 class UpdateServiceSyncBlockerOutput(BaseValidatorModel):
     serviceInstanceName: str
     serviceName: str
@@ -1734,16 +1895,19 @@ class UpdateServiceSyncBlockerOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_deployment' function.
 class DeleteDeploymentOutput(BaseValidatorModel):
     deployment: Deployment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_deployment' function.
 class GetDeploymentOutput(BaseValidatorModel):
     deployment: Deployment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_service_sync_blocker_summary' function.
 class GetServiceSyncBlockerSummaryOutput(BaseValidatorModel):
     serviceSyncBlockerSummary: ServiceSyncBlockerSummary
     ResponseMetadata: ResponseMetadata

@@ -55,11 +55,13 @@ class Tag(BaseValidatorModel):
     Value: str
 
 
+# This class is the input for the 'delete_attendee' function.
 class DeleteAttendeeRequest(BaseValidatorModel):
     MeetingId: str
     AttendeeId: str
 
 
+# This class is the input for the 'delete_meeting' function.
 class DeleteMeetingRequest(BaseValidatorModel):
     MeetingId: str
 
@@ -92,21 +94,25 @@ class EngineTranscribeSettings(BaseValidatorModel):
     VocabularyFilterNames: Optional[str] = None
 
 
+# This class is the input for the 'get_attendee' function.
 class GetAttendeeRequest(BaseValidatorModel):
     MeetingId: str
     AttendeeId: str
 
 
+# This class is the input for the 'get_meeting' function.
 class GetMeetingRequest(BaseValidatorModel):
     MeetingId: str
 
 
+# This class is the input for the 'list_attendees' function.
 class ListAttendeesRequest(BaseValidatorModel):
     MeetingId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
@@ -126,6 +132,7 @@ class VideoFeatures(BaseValidatorModel):
     MaxResolution: Optional[VideoResolutionType] = None
 
 
+# This class is the input for the 'stop_meeting_transcription' function.
 class StopMeetingTranscriptionRequest(BaseValidatorModel):
     MeetingId: str
 
@@ -147,28 +154,33 @@ class CreateAttendeeRequestItem(BaseValidatorModel):
     Capabilities: Optional[AttendeeCapabilities] = None
 
 
+# This class is the input for the 'create_attendee' function.
 class CreateAttendeeRequest(BaseValidatorModel):
     MeetingId: str
     ExternalUserId: str
     Capabilities: Optional[AttendeeCapabilities] = None
 
 
+# This class is the input for the 'update_attendee_capabilities' function.
 class UpdateAttendeeCapabilitiesRequest(BaseValidatorModel):
     MeetingId: str
     AttendeeId: str
     Capabilities: AttendeeCapabilities
 
 
+# This class is the input for the 'batch_update_attendee_capabilities_except' function.
 class BatchUpdateAttendeeCapabilitiesExceptRequest(BaseValidatorModel):
     MeetingId: str
     ExcludedAttendeeIds: List[AttendeeIdItem]
     Capabilities: AttendeeCapabilities
 
 
+# This class is the output for the 'stop_meeting_transcription' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -191,43 +203,51 @@ class MeetingFeaturesConfiguration(BaseValidatorModel):
     Attendee: Optional[AttendeeFeatures] = None
 
 
+# This class is the output for the 'batch_create_attendee' function.
 class BatchCreateAttendeeResponse(BaseValidatorModel):
     Attendees: List[Attendee]
     Errors: List[CreateAttendeeError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_attendee' function.
 class CreateAttendeeResponse(BaseValidatorModel):
     Attendee: Attendee
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_attendee' function.
 class GetAttendeeResponse(BaseValidatorModel):
     Attendee: Attendee
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_attendees' function.
 class ListAttendeesResponse(BaseValidatorModel):
     Attendees: List[Attendee]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_attendee_capabilities' function.
 class UpdateAttendeeCapabilitiesResponse(BaseValidatorModel):
     Attendee: Attendee
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'batch_create_attendee' function.
 class BatchCreateAttendeeRequest(BaseValidatorModel):
     MeetingId: str
     Attendees: List[CreateAttendeeRequestItem]
 
 
+# This class is the input for the 'start_meeting_transcription' function.
 class StartMeetingTranscriptionRequest(BaseValidatorModel):
     MeetingId: str
     TranscriptionConfiguration: TranscriptionConfiguration
 
 
+# This class is the input for the 'create_meeting' function.
 class CreateMeetingRequest(BaseValidatorModel):
     ClientRequestToken: str
     MediaRegion: str
@@ -240,6 +260,7 @@ class CreateMeetingRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_meeting_with_attendees' function.
 class CreateMeetingWithAttendeesRequest(BaseValidatorModel):
     ClientRequestToken: str
     MediaRegion: str
@@ -265,11 +286,13 @@ class Meeting(BaseValidatorModel):
     MeetingArn: Optional[str] = None
 
 
+# This class is the output for the 'create_meeting' function.
 class CreateMeetingResponse(BaseValidatorModel):
     Meeting: Meeting
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_meeting_with_attendees' function.
 class CreateMeetingWithAttendeesResponse(BaseValidatorModel):
     Meeting: Meeting
     Attendees: List[Attendee]
@@ -277,6 +300,7 @@ class CreateMeetingWithAttendeesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_meeting' function.
 class GetMeetingResponse(BaseValidatorModel):
     Meeting: Meeting
     ResponseMetadata: ResponseMetadata

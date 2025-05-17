@@ -16,6 +16,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_sink' function.
 class CreateSinkInput(BaseValidatorModel):
     Name: str
     Tags: Optional[Dict[str, str]] = None
@@ -29,14 +30,17 @@ class DeleteSinkInput(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'get_link' function.
 class GetLinkInput(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'get_sink' function.
 class GetSinkInput(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'get_sink_policy' function.
 class GetSinkPolicyInput(BaseValidatorModel):
     SinkIdentifier: str
 
@@ -55,6 +59,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_attached_links' function.
 class ListAttachedLinksInput(BaseValidatorModel):
     SinkIdentifier: str
     MaxResults: Optional[int] = None
@@ -67,6 +72,7 @@ class ListAttachedLinksItem(BaseValidatorModel):
     ResourceTypes: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_links' function.
 class ListLinksInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -80,6 +86,7 @@ class ListLinksItem(BaseValidatorModel):
     SinkArn: Optional[str] = None
 
 
+# This class is the input for the 'list_sinks' function.
 class ListSinksInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -91,10 +98,12 @@ class ListSinksItem(BaseValidatorModel):
     Name: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInput(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'put_sink_policy' function.
 class PutSinkPolicyInput(BaseValidatorModel):
     Policy: str
     SinkIdentifier: str
@@ -110,6 +119,7 @@ class UntagResourceInput(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the output for the 'create_sink' function.
 class CreateSinkOutput(BaseValidatorModel):
     Arn: str
     Id: str
@@ -118,6 +128,7 @@ class CreateSinkOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_sink' function.
 class GetSinkOutput(BaseValidatorModel):
     Arn: str
     Id: str
@@ -126,6 +137,7 @@ class GetSinkOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_sink_policy' function.
 class GetSinkPolicyOutput(BaseValidatorModel):
     Policy: str
     SinkArn: str
@@ -133,11 +145,13 @@ class GetSinkPolicyOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceOutput(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_sink_policy' function.
 class PutSinkPolicyOutput(BaseValidatorModel):
     Policy: str
     SinkArn: str
@@ -163,24 +177,28 @@ class ListSinksInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_attached_links' function.
 class ListAttachedLinksOutput(BaseValidatorModel):
     Items: List[ListAttachedLinksItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_links' function.
 class ListLinksOutput(BaseValidatorModel):
     Items: List[ListLinksItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_sinks' function.
 class ListSinksOutput(BaseValidatorModel):
     Items: List[ListSinksItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_link' function.
 class CreateLinkInput(BaseValidatorModel):
     LabelTemplate: str
     ResourceTypes: List[ResourceTypeType]
@@ -189,6 +207,7 @@ class CreateLinkInput(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_link' function.
 class CreateLinkOutput(BaseValidatorModel):
     Arn: str
     Id: str
@@ -201,6 +220,7 @@ class CreateLinkOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_link' function.
 class GetLinkOutput(BaseValidatorModel):
     Arn: str
     Id: str
@@ -213,12 +233,14 @@ class GetLinkOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_link' function.
 class UpdateLinkInput(BaseValidatorModel):
     Identifier: str
     ResourceTypes: List[ResourceTypeType]
     LinkConfiguration: Optional[LinkConfiguration] = None
 
 
+# This class is the output for the 'update_link' function.
 class UpdateLinkOutput(BaseValidatorModel):
     Arn: str
     Id: str

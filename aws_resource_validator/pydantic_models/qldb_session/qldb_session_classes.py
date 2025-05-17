@@ -101,6 +101,7 @@ class ExecuteStatementRequest(BaseValidatorModel):
     Parameters: Optional[List[ValueHolderUnion]] = None
 
 
+# This class is the output for the 'send_command' function.
 class SendCommandResult(BaseValidatorModel):
     StartSession: StartSessionResult
     StartTransaction: StartTransactionResult
@@ -112,6 +113,7 @@ class SendCommandResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'send_command' function.
 class SendCommandRequest(BaseValidatorModel):
     SessionToken: Optional[str] = None
     StartSession: Optional[StartSessionRequest] = None

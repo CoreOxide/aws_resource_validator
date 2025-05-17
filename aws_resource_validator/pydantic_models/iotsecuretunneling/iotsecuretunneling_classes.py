@@ -18,6 +18,7 @@ class ConnectionState(BaseValidatorModel):
     lastUpdatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'describe_tunnel' function.
 class DescribeTunnelRequest(BaseValidatorModel):
     tunnelId: str
 
@@ -40,6 +41,7 @@ class DestinationConfig(BaseValidatorModel):
     thingName: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -49,6 +51,7 @@ class Tag(BaseValidatorModel):
     value: str
 
 
+# This class is the input for the 'list_tunnels' function.
 class ListTunnelsRequest(BaseValidatorModel):
     thingName: Optional[str] = None
     maxResults: Optional[int] = None
@@ -73,6 +76,7 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the output for the 'open_tunnel' function.
 class OpenTunnelResponse(BaseValidatorModel):
     tunnelId: str
     tunnelArn: str
@@ -81,6 +85,7 @@ class OpenTunnelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'rotate_tunnel_access_token' function.
 class RotateTunnelAccessTokenResponse(BaseValidatorModel):
     tunnelArn: str
     sourceAccessToken: str
@@ -90,6 +95,7 @@ class RotateTunnelAccessTokenResponse(BaseValidatorModel):
 DestinationConfigUnion = Union[DestinationConfig, DestinationConfigOutput]
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: List[Tag]
     ResponseMetadata: ResponseMetadata
@@ -100,6 +106,7 @@ class TagResourceRequest(BaseValidatorModel):
     tags: List[Tag]
 
 
+# This class is the output for the 'list_tunnels' function.
 class ListTunnelsResponse(BaseValidatorModel):
     tunnelSummaries: List[TunnelSummary]
     ResponseMetadata: ResponseMetadata
@@ -120,6 +127,7 @@ class Tunnel(BaseValidatorModel):
     lastUpdatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'open_tunnel' function.
 class OpenTunnelRequest(BaseValidatorModel):
     description: Optional[str] = None
     tags: Optional[List[Tag]] = None
@@ -127,12 +135,14 @@ class OpenTunnelRequest(BaseValidatorModel):
     timeoutConfig: Optional[TimeoutConfig] = None
 
 
+# This class is the input for the 'rotate_tunnel_access_token' function.
 class RotateTunnelAccessTokenRequest(BaseValidatorModel):
     tunnelId: str
     clientMode: ClientModeType
     destinationConfig: Optional[DestinationConfigUnion] = None
 
 
+# This class is the output for the 'describe_tunnel' function.
 class DescribeTunnelResponse(BaseValidatorModel):
     tunnel: Tunnel
     ResponseMetadata: ResponseMetadata

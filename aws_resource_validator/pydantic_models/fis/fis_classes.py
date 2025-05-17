@@ -57,6 +57,7 @@ class ExperimentTemplateTargetInputFilter(BaseValidatorModel):
     values: List[str]
 
 
+# This class is the input for the 'create_target_account_configuration' function.
 class CreateTargetAccountConfigurationRequest(BaseValidatorModel):
     experimentTemplateId: str
     accountId: str
@@ -71,10 +72,12 @@ class TargetAccountConfiguration(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'delete_experiment_template' function.
 class DeleteExperimentTemplateRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'delete_target_account_configuration' function.
 class DeleteTargetAccountConfigurationRequest(BaseValidatorModel):
     experimentTemplateId: str
     accountId: str
@@ -205,32 +208,39 @@ class ExperimentTemplateTargetFilter(BaseValidatorModel):
     values: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_action' function.
 class GetActionRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'get_experiment' function.
 class GetExperimentRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'get_experiment_target_account_configuration' function.
 class GetExperimentTargetAccountConfigurationRequest(BaseValidatorModel):
     experimentId: str
     accountId: str
 
 
+# This class is the input for the 'get_experiment_template' function.
 class GetExperimentTemplateRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'get_safety_lever' function.
 class GetSafetyLeverRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'get_target_account_configuration' function.
 class GetTargetAccountConfigurationRequest(BaseValidatorModel):
     experimentTemplateId: str
     accountId: str
 
 
+# This class is the input for the 'get_target_resource_type' function.
 class GetTargetResourceTypeRequest(BaseValidatorModel):
     resourceType: str
 
@@ -241,11 +251,13 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_actions' function.
 class ListActionsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_experiment_resolved_targets' function.
 class ListExperimentResolvedTargetsRequest(BaseValidatorModel):
     experimentId: str
     maxResults: Optional[int] = None
@@ -259,26 +271,31 @@ class ResolvedTarget(BaseValidatorModel):
     targetInformation: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_experiment_target_account_configurations' function.
 class ListExperimentTargetAccountConfigurationsRequest(BaseValidatorModel):
     experimentId: str
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_experiment_templates' function.
 class ListExperimentTemplatesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_experiments' function.
 class ListExperimentsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     experimentTemplateId: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'list_target_account_configurations' function.
 class ListTargetAccountConfigurationsRequest(BaseValidatorModel):
     experimentTemplateId: str
     maxResults: Optional[int] = None
@@ -291,6 +308,7 @@ class TargetAccountConfigurationSummary(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'list_target_resource_types' function.
 class ListTargetResourceTypesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -310,6 +328,7 @@ class StartExperimentExperimentOptionsInput(BaseValidatorModel):
     actionsMode: Optional[ActionsModeType] = None
 
 
+# This class is the input for the 'stop_experiment' function.
 class StopExperimentRequest(BaseValidatorModel):
     id: str
 
@@ -351,6 +370,7 @@ class UpdateSafetyLeverStateInput(BaseValidatorModel):
     reason: str
 
 
+# This class is the input for the 'update_target_account_configuration' function.
 class UpdateTargetAccountConfigurationRequest(BaseValidatorModel):
     experimentTemplateId: str
     accountId: str
@@ -387,6 +407,7 @@ class UpdateExperimentTemplateLogConfigurationInput(BaseValidatorModel):
     logSchemaVersion: Optional[int] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
@@ -410,21 +431,25 @@ class UpdateExperimentTemplateTargetInput(BaseValidatorModel):
     parameters: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_target_account_configuration' function.
 class CreateTargetAccountConfigurationResponse(BaseValidatorModel):
     targetAccountConfiguration: TargetAccountConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_target_account_configuration' function.
 class DeleteTargetAccountConfigurationResponse(BaseValidatorModel):
     targetAccountConfiguration: TargetAccountConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_target_account_configuration' function.
 class GetTargetAccountConfigurationResponse(BaseValidatorModel):
     targetAccountConfiguration: TargetAccountConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_target_account_configuration' function.
 class UpdateTargetAccountConfigurationResponse(BaseValidatorModel):
     targetAccountConfiguration: TargetAccountConfiguration
     ResponseMetadata: ResponseMetadata
@@ -467,12 +492,14 @@ class ExperimentReportState(BaseValidatorModel):
     error: Optional[ExperimentReportError] = None
 
 
+# This class is the output for the 'list_experiment_target_account_configurations' function.
 class ListExperimentTargetAccountConfigurationsResponse(BaseValidatorModel):
     targetAccountConfigurations: List[ExperimentTargetAccountConfigurationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_experiment_target_account_configuration' function.
 class GetExperimentTargetAccountConfigurationResponse(BaseValidatorModel):
     targetAccountConfiguration: ExperimentTargetAccountConfiguration
     ResponseMetadata: ResponseMetadata
@@ -509,6 +536,7 @@ class ExperimentTemplateReportConfigurationOutputs(BaseValidatorModel):
     s3Configuration: Optional[ReportConfigurationS3Output] = None
 
 
+# This class is the output for the 'list_experiment_templates' function.
 class ListExperimentTemplatesResponse(BaseValidatorModel):
     experimentTemplates: List[ExperimentTemplateSummary]
     ResponseMetadata: ResponseMetadata
@@ -552,18 +580,21 @@ class ListTargetResourceTypesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_experiment_resolved_targets' function.
 class ListExperimentResolvedTargetsResponse(BaseValidatorModel):
     resolvedTargets: List[ResolvedTarget]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_target_account_configurations' function.
 class ListTargetAccountConfigurationsResponse(BaseValidatorModel):
     targetAccountConfigurations: List[TargetAccountConfigurationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_target_resource_types' function.
 class ListTargetResourceTypesResponse(BaseValidatorModel):
     targetResourceTypes: List[TargetResourceTypeSummary]
     ResponseMetadata: ResponseMetadata
@@ -576,6 +607,7 @@ class SafetyLever(BaseValidatorModel):
     state: Optional[SafetyLeverState] = None
 
 
+# This class is the input for the 'start_experiment' function.
 class StartExperimentRequest(BaseValidatorModel):
     clientToken: str
     experimentTemplateId: str
@@ -589,17 +621,20 @@ class TargetResourceType(BaseValidatorModel):
     parameters: Optional[Dict[str, TargetResourceTypeParameter]] = None
 
 
+# This class is the input for the 'update_safety_lever_state' function.
 class UpdateSafetyLeverStateRequest(BaseValidatorModel):
     id: str
     state: UpdateSafetyLeverStateInput
 
 
+# This class is the output for the 'list_actions' function.
 class ListActionsResponse(BaseValidatorModel):
     actions: List[ActionSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_action' function.
 class GetActionResponse(BaseValidatorModel):
     action: Action
     ResponseMetadata: ResponseMetadata
@@ -648,21 +683,25 @@ class ExperimentTemplateReportConfiguration(BaseValidatorModel):
     postExperimentDuration: Optional[str] = None
 
 
+# This class is the output for the 'get_safety_lever' function.
 class GetSafetyLeverResponse(BaseValidatorModel):
     safetyLever: SafetyLever
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_safety_lever_state' function.
 class UpdateSafetyLeverStateResponse(BaseValidatorModel):
     safetyLever: SafetyLever
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_target_resource_type' function.
 class GetTargetResourceTypeResponse(BaseValidatorModel):
     targetResourceType: TargetResourceType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_experiments' function.
 class ListExperimentsResponse(BaseValidatorModel):
     experiments: List[ExperimentSummary]
     ResponseMetadata: ResponseMetadata
@@ -689,6 +728,7 @@ class Experiment(BaseValidatorModel):
     experimentReport: Optional[ExperimentReport] = None
 
 
+# This class is the input for the 'create_experiment_template' function.
 class CreateExperimentTemplateRequest(BaseValidatorModel):
     clientToken: str
     description: str
@@ -702,6 +742,7 @@ class CreateExperimentTemplateRequest(BaseValidatorModel):
     experimentReportConfiguration: Optional[CreateExperimentTemplateReportConfigurationInput] = None
 
 
+# This class is the input for the 'update_experiment_template' function.
 class UpdateExperimentTemplateRequest(BaseValidatorModel):
     id: str
     description: Optional[str] = None
@@ -731,36 +772,43 @@ class ExperimentTemplate(BaseValidatorModel):
     experimentReportConfiguration: Optional[ExperimentTemplateReportConfiguration] = None
 
 
+# This class is the output for the 'get_experiment' function.
 class GetExperimentResponse(BaseValidatorModel):
     experiment: Experiment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_experiment' function.
 class StartExperimentResponse(BaseValidatorModel):
     experiment: Experiment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_experiment' function.
 class StopExperimentResponse(BaseValidatorModel):
     experiment: Experiment
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_experiment_template' function.
 class CreateExperimentTemplateResponse(BaseValidatorModel):
     experimentTemplate: ExperimentTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_experiment_template' function.
 class DeleteExperimentTemplateResponse(BaseValidatorModel):
     experimentTemplate: ExperimentTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_experiment_template' function.
 class GetExperimentTemplateResponse(BaseValidatorModel):
     experimentTemplate: ExperimentTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_experiment_template' function.
 class UpdateExperimentTemplateResponse(BaseValidatorModel):
     experimentTemplate: ExperimentTemplate
     ResponseMetadata: ResponseMetadata

@@ -45,6 +45,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'search' function.
 class SearchRequest(BaseValidatorModel):
     query: str
     cursor: Optional[str] = None
@@ -73,6 +74,7 @@ class SuggestionMatch(BaseValidatorModel):
     id: Optional[str] = None
 
 
+# This class is the input for the 'suggest' function.
 class SuggestRequest(BaseValidatorModel):
     query: str
     suggester: str
@@ -84,6 +86,7 @@ class SuggestStatus(BaseValidatorModel):
     rid: Optional[str] = None
 
 
+# This class is the input for the 'upload_documents' function.
 class UploadDocumentsRequest(BaseValidatorModel):
     documents: Blob
     contentType: ContentTypeType
@@ -100,6 +103,7 @@ class Hits(BaseValidatorModel):
     hit: Optional[List[Hit]] = None
 
 
+# This class is the output for the 'upload_documents' function.
 class UploadDocumentsResponse(BaseValidatorModel):
     status: str
     adds: int
@@ -114,6 +118,7 @@ class SuggestModel(BaseValidatorModel):
     suggestions: Optional[List[SuggestionMatch]] = None
 
 
+# This class is the output for the 'search' function.
 class SearchResponse(BaseValidatorModel):
     status: SearchStatus
     hits: Hits
@@ -122,6 +127,7 @@ class SearchResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'suggest' function.
 class SuggestResponse(BaseValidatorModel):
     status: SuggestStatus
     suggest: SuggestModel

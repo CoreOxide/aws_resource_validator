@@ -131,18 +131,22 @@ class MediaStreamSource(BaseValidatorModel):
     SourceArn: str
 
 
+# This class is the input for the 'delete_media_capture_pipeline' function.
 class DeleteMediaCapturePipelineRequest(BaseValidatorModel):
     MediaPipelineId: str
 
 
+# This class is the input for the 'delete_media_insights_pipeline_configuration' function.
 class DeleteMediaInsightsPipelineConfigurationRequest(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'delete_media_pipeline_kinesis_video_stream_pool' function.
 class DeleteMediaPipelineKinesisVideoStreamPoolRequest(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'delete_media_pipeline' function.
 class DeleteMediaPipelineRequest(BaseValidatorModel):
     MediaPipelineId: str
 
@@ -152,22 +156,27 @@ class TimestampRangeOutput(BaseValidatorModel):
     EndTimestamp: datetime
 
 
+# This class is the input for the 'get_media_capture_pipeline' function.
 class GetMediaCapturePipelineRequest(BaseValidatorModel):
     MediaPipelineId: str
 
 
+# This class is the input for the 'get_media_insights_pipeline_configuration' function.
 class GetMediaInsightsPipelineConfigurationRequest(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'get_media_pipeline_kinesis_video_stream_pool' function.
 class GetMediaPipelineKinesisVideoStreamPoolRequest(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'get_media_pipeline' function.
 class GetMediaPipelineRequest(BaseValidatorModel):
     MediaPipelineId: str
 
 
+# This class is the input for the 'get_speaker_search_task' function.
 class GetSpeakerSearchTaskRequest(BaseValidatorModel):
     Identifier: str
     SpeakerSearchTaskId: str
@@ -180,6 +189,7 @@ class SpeakerSearchTask(BaseValidatorModel):
     UpdatedTimestamp: Optional[datetime] = None
 
 
+# This class is the input for the 'get_voice_tone_analysis_task' function.
 class GetVoiceToneAnalysisTaskRequest(BaseValidatorModel):
     Identifier: str
     VoiceToneAnalysisTaskId: str
@@ -261,6 +271,7 @@ class LambdaFunctionSinkConfiguration(BaseValidatorModel):
     InsightsTarget: Optional[str] = None
 
 
+# This class is the input for the 'list_media_capture_pipelines' function.
 class ListMediaCapturePipelinesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -271,6 +282,7 @@ class MediaCapturePipelineSummary(BaseValidatorModel):
     MediaPipelineArn: Optional[str] = None
 
 
+# This class is the input for the 'list_media_insights_pipeline_configurations' function.
 class ListMediaInsightsPipelineConfigurationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -282,11 +294,13 @@ class MediaInsightsPipelineConfigurationSummary(BaseValidatorModel):
     MediaInsightsPipelineConfigurationArn: Optional[str] = None
 
 
+# This class is the input for the 'list_media_pipeline_kinesis_video_stream_pools' function.
 class ListMediaPipelineKinesisVideoStreamPoolsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_media_pipelines' function.
 class ListMediaPipelinesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -297,6 +311,7 @@ class MediaPipelineSummary(BaseValidatorModel):
     MediaPipelineArn: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
@@ -350,11 +365,13 @@ class SelectedVideoStreams(BaseValidatorModel):
     ExternalUserIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'stop_speaker_search_task' function.
 class StopSpeakerSearchTaskRequest(BaseValidatorModel):
     Identifier: str
     SpeakerSearchTaskId: str
 
 
+# This class is the input for the 'stop_voice_tone_analysis_task' function.
 class StopVoiceToneAnalysisTaskRequest(BaseValidatorModel):
     Identifier: str
     VoiceToneAnalysisTaskId: str
@@ -367,6 +384,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_media_insights_pipeline_status' function.
 class UpdateMediaInsightsPipelineStatusRequest(BaseValidatorModel):
     Identifier: str
     UpdateStatus: MediaPipelineStatusUpdateType
@@ -434,15 +452,18 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the output for the 'update_media_insights_pipeline_status' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_media_pipeline_kinesis_video_stream_pool' function.
 class CreateMediaPipelineKinesisVideoStreamPoolRequest(BaseValidatorModel):
     StreamConfiguration: KinesisVideoStreamConfiguration
     PoolName: str
@@ -461,6 +482,7 @@ class KinesisVideoStreamPoolConfiguration(BaseValidatorModel):
     UpdatedTimestamp: Optional[datetime] = None
 
 
+# This class is the input for the 'create_media_stream_pipeline' function.
 class CreateMediaStreamPipelineRequest(BaseValidatorModel):
     Sources: List[MediaStreamSource]
     Sinks: List[MediaStreamSink]
@@ -483,21 +505,25 @@ class FragmentSelectorOutput(BaseValidatorModel):
     TimestampRange: TimestampRangeOutput
 
 
+# This class is the output for the 'get_speaker_search_task' function.
 class GetSpeakerSearchTaskResponse(BaseValidatorModel):
     SpeakerSearchTask: SpeakerSearchTask
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_speaker_search_task' function.
 class StartSpeakerSearchTaskResponse(BaseValidatorModel):
     SpeakerSearchTask: SpeakerSearchTask
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_voice_tone_analysis_task' function.
 class GetVoiceToneAnalysisTaskResponse(BaseValidatorModel):
     VoiceToneAnalysisTask: VoiceToneAnalysisTask
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_voice_tone_analysis_task' function.
 class StartVoiceToneAnalysisTaskResponse(BaseValidatorModel):
     VoiceToneAnalysisTask: VoiceToneAnalysisTask
     ResponseMetadata: ResponseMetadata
@@ -513,17 +539,20 @@ class GridViewConfiguration(BaseValidatorModel):
     CanvasOrientation: Optional[CanvasOrientationType] = None
 
 
+# This class is the input for the 'update_media_pipeline_kinesis_video_stream_pool' function.
 class UpdateMediaPipelineKinesisVideoStreamPoolRequest(BaseValidatorModel):
     Identifier: str
     StreamConfiguration: Optional[KinesisVideoStreamConfigurationUpdate] = None
 
 
+# This class is the output for the 'list_media_pipeline_kinesis_video_stream_pools' function.
 class ListMediaPipelineKinesisVideoStreamPoolsResponse(BaseValidatorModel):
     KinesisVideoStreamPools: List[KinesisVideoStreamPoolSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'start_speaker_search_task' function.
 class StartSpeakerSearchTaskRequest(BaseValidatorModel):
     Identifier: str
     VoiceProfileDomainArn: str
@@ -531,6 +560,7 @@ class StartSpeakerSearchTaskRequest(BaseValidatorModel):
     ClientRequestToken: Optional[str] = None
 
 
+# This class is the input for the 'start_voice_tone_analysis_task' function.
 class StartVoiceToneAnalysisTaskRequest(BaseValidatorModel):
     Identifier: str
     LanguageCode: Literal['en-US']
@@ -538,18 +568,21 @@ class StartVoiceToneAnalysisTaskRequest(BaseValidatorModel):
     ClientRequestToken: Optional[str] = None
 
 
+# This class is the output for the 'list_media_capture_pipelines' function.
 class ListMediaCapturePipelinesResponse(BaseValidatorModel):
     MediaCapturePipelines: List[MediaCapturePipelineSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_media_insights_pipeline_configurations' function.
 class ListMediaInsightsPipelineConfigurationsResponse(BaseValidatorModel):
     MediaInsightsPipelineConfigurations: List[MediaInsightsPipelineConfigurationSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_media_pipelines' function.
 class ListMediaPipelinesResponse(BaseValidatorModel):
     MediaPipelines: List[MediaPipelineSummary]
     ResponseMetadata: ResponseMetadata
@@ -617,21 +650,25 @@ class StreamConfiguration(BaseValidatorModel):
     FragmentNumber: Optional[str] = None
 
 
+# This class is the output for the 'create_media_pipeline_kinesis_video_stream_pool' function.
 class CreateMediaPipelineKinesisVideoStreamPoolResponse(BaseValidatorModel):
     KinesisVideoStreamPoolConfiguration: KinesisVideoStreamPoolConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_media_pipeline_kinesis_video_stream_pool' function.
 class GetMediaPipelineKinesisVideoStreamPoolResponse(BaseValidatorModel):
     KinesisVideoStreamPoolConfiguration: KinesisVideoStreamPoolConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_media_pipeline_kinesis_video_stream_pool' function.
 class UpdateMediaPipelineKinesisVideoStreamPoolResponse(BaseValidatorModel):
     KinesisVideoStreamPoolConfiguration: KinesisVideoStreamPoolConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_media_stream_pipeline' function.
 class CreateMediaStreamPipelineResponse(BaseValidatorModel):
     MediaStreamPipeline: MediaStreamPipeline
     ResponseMetadata: ResponseMetadata
@@ -768,16 +805,19 @@ class LiveConnectorSourceConfigurationOutput(BaseValidatorModel):
     ChimeSdkMeetingLiveConnectorConfiguration: ChimeSdkMeetingLiveConnectorConfigurationOutput
 
 
+# This class is the output for the 'create_media_insights_pipeline_configuration' function.
 class CreateMediaInsightsPipelineConfigurationResponse(BaseValidatorModel):
     MediaInsightsPipelineConfiguration: MediaInsightsPipelineConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_media_insights_pipeline_configuration' function.
 class GetMediaInsightsPipelineConfigurationResponse(BaseValidatorModel):
     MediaInsightsPipelineConfiguration: MediaInsightsPipelineConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_media_insights_pipeline_configuration' function.
 class UpdateMediaInsightsPipelineConfigurationResponse(BaseValidatorModel):
     MediaInsightsPipelineConfiguration: MediaInsightsPipelineConfiguration
     ResponseMetadata: ResponseMetadata
@@ -792,6 +832,7 @@ class ChimeSdkMeetingLiveConnectorConfiguration(BaseValidatorModel):
 KinesisVideoStreamRecordingSourceRuntimeConfigurationUnion = Union[KinesisVideoStreamRecordingSourceRuntimeConfiguration, KinesisVideoStreamRecordingSourceRuntimeConfigurationOutput]
 
 
+# This class is the input for the 'create_media_insights_pipeline_configuration' function.
 class CreateMediaInsightsPipelineConfigurationRequest(BaseValidatorModel):
     MediaInsightsPipelineConfigurationName: str
     ResourceAccessRoleArn: str
@@ -801,6 +842,7 @@ class CreateMediaInsightsPipelineConfigurationRequest(BaseValidatorModel):
     ClientRequestToken: Optional[str] = None
 
 
+# This class is the input for the 'update_media_insights_pipeline_configuration' function.
 class UpdateMediaInsightsPipelineConfigurationRequest(BaseValidatorModel):
     Identifier: str
     ResourceAccessRoleArn: str
@@ -808,6 +850,7 @@ class UpdateMediaInsightsPipelineConfigurationRequest(BaseValidatorModel):
     RealTimeAlertConfiguration: Optional[RealTimeAlertConfigurationUnion] = None
 
 
+# This class is the input for the 'create_media_concatenation_pipeline' function.
 class CreateMediaConcatenationPipelineRequest(BaseValidatorModel):
     Sources: List[ConcatenationSource]
     Sinks: List[ConcatenationSink]
@@ -825,6 +868,7 @@ class MediaConcatenationPipeline(BaseValidatorModel):
     UpdatedTimestamp: Optional[datetime] = None
 
 
+# This class is the output for the 'create_media_insights_pipeline' function.
 class CreateMediaInsightsPipelineResponse(BaseValidatorModel):
     MediaInsightsPipeline: MediaInsightsPipeline
     ResponseMetadata: ResponseMetadata
@@ -859,6 +903,7 @@ class MediaLiveConnectorPipeline(BaseValidatorModel):
 ChimeSdkMeetingLiveConnectorConfigurationUnion = Union[ChimeSdkMeetingLiveConnectorConfiguration, ChimeSdkMeetingLiveConnectorConfigurationOutput]
 
 
+# This class is the input for the 'create_media_insights_pipeline' function.
 class CreateMediaInsightsPipelineRequest(BaseValidatorModel):
     MediaInsightsPipelineConfigurationArn: str
     KinesisVideoStreamSourceRuntimeConfiguration: Optional[KinesisVideoStreamSourceRuntimeConfigurationUnion] = None
@@ -869,21 +914,25 @@ class CreateMediaInsightsPipelineRequest(BaseValidatorModel):
     ClientRequestToken: Optional[str] = None
 
 
+# This class is the output for the 'create_media_concatenation_pipeline' function.
 class CreateMediaConcatenationPipelineResponse(BaseValidatorModel):
     MediaConcatenationPipeline: MediaConcatenationPipeline
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_media_capture_pipeline' function.
 class CreateMediaCapturePipelineResponse(BaseValidatorModel):
     MediaCapturePipeline: MediaCapturePipeline
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_media_capture_pipeline' function.
 class GetMediaCapturePipelineResponse(BaseValidatorModel):
     MediaCapturePipeline: MediaCapturePipeline
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_media_capture_pipeline' function.
 class CreateMediaCapturePipelineRequest(BaseValidatorModel):
     SourceType: Literal['ChimeSdkMeeting']
     SourceArn: str
@@ -896,6 +945,7 @@ class CreateMediaCapturePipelineRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'create_media_live_connector_pipeline' function.
 class CreateMediaLiveConnectorPipelineResponse(BaseValidatorModel):
     MediaLiveConnectorPipeline: MediaLiveConnectorPipeline
     ResponseMetadata: ResponseMetadata
@@ -914,6 +964,7 @@ class LiveConnectorSourceConfiguration(BaseValidatorModel):
     ChimeSdkMeetingLiveConnectorConfiguration: ChimeSdkMeetingLiveConnectorConfigurationUnion
 
 
+# This class is the output for the 'get_media_pipeline' function.
 class GetMediaPipelineResponse(BaseValidatorModel):
     MediaPipeline: MediaPipeline
     ResponseMetadata: ResponseMetadata
@@ -921,6 +972,7 @@ class GetMediaPipelineResponse(BaseValidatorModel):
 LiveConnectorSourceConfigurationUnion = Union[LiveConnectorSourceConfiguration, LiveConnectorSourceConfigurationOutput]
 
 
+# This class is the input for the 'create_media_live_connector_pipeline' function.
 class CreateMediaLiveConnectorPipelineRequest(BaseValidatorModel):
     Sources: List[LiveConnectorSourceConfigurationUnion]
     Sinks: List[LiveConnectorSinkConfiguration]

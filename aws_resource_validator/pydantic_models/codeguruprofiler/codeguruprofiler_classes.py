@@ -61,6 +61,7 @@ class Channel(BaseValidatorModel):
     id: Optional[str] = None
 
 
+# This class is the input for the 'configure_agent' function.
 class ConfigureAgentRequest(BaseValidatorModel):
     profilingGroupName: str
     fleetInstanceId: Optional[str] = None
@@ -71,6 +72,7 @@ class DeleteProfilingGroupRequest(BaseValidatorModel):
     profilingGroupName: str
 
 
+# This class is the input for the 'describe_profiling_group' function.
 class DescribeProfilingGroupRequest(BaseValidatorModel):
     profilingGroupName: str
 
@@ -95,16 +97,19 @@ class FrameMetric(BaseValidatorModel):
     type: Literal['AggregatedRelativeTotalTime']
 
 
+# This class is the input for the 'get_findings_report_account_summary' function.
 class GetFindingsReportAccountSummaryRequest(BaseValidatorModel):
     dailyReportsOnly: Optional[bool] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_notification_configuration' function.
 class GetNotificationConfigurationRequest(BaseValidatorModel):
     profilingGroupName: str
 
 
+# This class is the input for the 'get_policy' function.
 class GetPolicyRequest(BaseValidatorModel):
     profilingGroupName: str
 
@@ -119,12 +124,14 @@ class ProfileTime(BaseValidatorModel):
     start: Optional[datetime] = None
 
 
+# This class is the input for the 'list_profiling_groups' function.
 class ListProfilingGroupsRequest(BaseValidatorModel):
     includeDescription: Optional[bool] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -145,6 +152,7 @@ class Pattern(BaseValidatorModel):
     thresholdPercent: Optional[float] = None
 
 
+# This class is the input for the 'put_permission' function.
 class PutPermissionRequest(BaseValidatorModel):
     actionGroup: Literal['agentPermissions']
     principals: List[str]
@@ -152,11 +160,13 @@ class PutPermissionRequest(BaseValidatorModel):
     revisionId: Optional[str] = None
 
 
+# This class is the input for the 'remove_notification_channel' function.
 class RemoveNotificationChannelRequest(BaseValidatorModel):
     channelId: str
     profilingGroupName: str
 
 
+# This class is the input for the 'remove_permission' function.
 class RemovePermissionRequest(BaseValidatorModel):
     actionGroup: Literal['agentPermissions']
     profilingGroupName: str
@@ -180,12 +190,14 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the output for the 'get_policy' function.
 class GetPolicyResponse(BaseValidatorModel):
     policy: str
     revisionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_profile' function.
 class GetProfileResponse(BaseValidatorModel):
     contentEncoding: str
     contentType: str
@@ -193,28 +205,33 @@ class GetProfileResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_permission' function.
 class PutPermissionResponse(BaseValidatorModel):
     policy: str
     revisionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'remove_permission' function.
 class RemovePermissionResponse(BaseValidatorModel):
     policy: str
     revisionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'configure_agent' function.
 class ConfigureAgentResponse(BaseValidatorModel):
     configuration: AgentConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_profiling_group' function.
 class CreateProfilingGroupRequest(BaseValidatorModel):
     clientToken: str
     profilingGroupName: str
@@ -223,6 +240,7 @@ class CreateProfilingGroupRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_profiling_group' function.
 class UpdateProfilingGroupRequest(BaseValidatorModel):
     agentOrchestrationConfig: AgentOrchestrationConfig
     profilingGroupName: str
@@ -241,6 +259,7 @@ class AnomalyInstance(BaseValidatorModel):
     userFeedback: Optional[UserFeedback] = None
 
 
+# This class is the input for the 'get_profile' function.
 class GetProfileRequest(BaseValidatorModel):
     profilingGroupName: str
     accept: Optional[str] = None
@@ -250,6 +269,7 @@ class GetProfileRequest(BaseValidatorModel):
     startTime: Optional[Timestamp] = None
 
 
+# This class is the input for the 'get_recommendations' function.
 class GetRecommendationsRequest(BaseValidatorModel):
     endTime: Timestamp
     profilingGroupName: str
@@ -257,6 +277,7 @@ class GetRecommendationsRequest(BaseValidatorModel):
     locale: Optional[str] = None
 
 
+# This class is the input for the 'list_findings_reports' function.
 class ListFindingsReportsRequest(BaseValidatorModel):
     endTime: Timestamp
     profilingGroupName: str
@@ -266,6 +287,7 @@ class ListFindingsReportsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_profile_times' function.
 class ListProfileTimesRequest(BaseValidatorModel):
     endTime: Timestamp
     period: AggregationPeriodType
@@ -289,12 +311,14 @@ class NotificationConfiguration(BaseValidatorModel):
 ChannelUnion = Union[Channel, ChannelOutput]
 
 
+# This class is the output for the 'get_findings_report_account_summary' function.
 class GetFindingsReportAccountSummaryResponse(BaseValidatorModel):
     reportSummaries: List[FindingsReportSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_findings_reports' function.
 class ListFindingsReportsResponse(BaseValidatorModel):
     findingsReportSummaries: List[FindingsReportSummary]
     ResponseMetadata: ResponseMetadata
@@ -317,6 +341,7 @@ class ListProfileTimesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_profile_times' function.
 class ListProfileTimesResponse(BaseValidatorModel):
     profileTimes: List[ProfileTime]
     ResponseMetadata: ResponseMetadata
@@ -349,26 +374,31 @@ class Anomaly(BaseValidatorModel):
     reason: str
 
 
+# This class is the output for the 'add_notification_channels' function.
 class AddNotificationChannelsResponse(BaseValidatorModel):
     notificationConfiguration: NotificationConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_notification_configuration' function.
 class GetNotificationConfigurationResponse(BaseValidatorModel):
     notificationConfiguration: NotificationConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'remove_notification_channel' function.
 class RemoveNotificationChannelResponse(BaseValidatorModel):
     notificationConfiguration: NotificationConfiguration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'add_notification_channels' function.
 class AddNotificationChannelsRequest(BaseValidatorModel):
     channels: List[ChannelUnion]
     profilingGroupName: str
 
 
+# This class is the output for the 'batch_get_frame_metric_data' function.
 class BatchGetFrameMetricDataResponse(BaseValidatorModel):
     endTime: datetime
     endTimes: List[TimestampStructure]
@@ -379,6 +409,7 @@ class BatchGetFrameMetricDataResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'batch_get_frame_metric_data' function.
 class BatchGetFrameMetricDataRequest(BaseValidatorModel):
     profilingGroupName: str
     endTime: Optional[Timestamp] = None
@@ -388,16 +419,19 @@ class BatchGetFrameMetricDataRequest(BaseValidatorModel):
     targetResolution: Optional[AggregationPeriodType] = None
 
 
+# This class is the output for the 'create_profiling_group' function.
 class CreateProfilingGroupResponse(BaseValidatorModel):
     profilingGroup: ProfilingGroupDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_profiling_group' function.
 class DescribeProfilingGroupResponse(BaseValidatorModel):
     profilingGroup: ProfilingGroupDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_profiling_groups' function.
 class ListProfilingGroupsResponse(BaseValidatorModel):
     profilingGroupNames: List[str]
     profilingGroups: List[ProfilingGroupDescription]
@@ -405,11 +439,13 @@ class ListProfilingGroupsResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_profiling_group' function.
 class UpdateProfilingGroupResponse(BaseValidatorModel):
     profilingGroup: ProfilingGroupDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_recommendations' function.
 class GetRecommendationsResponse(BaseValidatorModel):
     anomalies: List[Anomaly]
     profileEndTime: datetime

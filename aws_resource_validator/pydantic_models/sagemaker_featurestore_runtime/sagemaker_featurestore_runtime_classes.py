@@ -41,6 +41,7 @@ class FeatureValueOutput(BaseValidatorModel):
     ValueAsStringList: Optional[List[str]] = None
 
 
+# This class is the input for the 'delete_record' function.
 class DeleteRecordRequest(BaseValidatorModel):
     FeatureGroupName: str
     RecordIdentifierValueAsString: str
@@ -55,6 +56,7 @@ class FeatureValue(BaseValidatorModel):
     ValueAsStringList: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_record' function.
 class GetRecordRequest(BaseValidatorModel):
     FeatureGroupName: str
     RecordIdentifierValueAsString: str
@@ -69,6 +71,7 @@ class TtlDuration(BaseValidatorModel):
 BatchGetRecordIdentifierUnion = Union[BatchGetRecordIdentifier, BatchGetRecordIdentifierOutput]
 
 
+# This class is the output for the 'put_record' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
@@ -80,6 +83,7 @@ class BatchGetRecordResultDetail(BaseValidatorModel):
     ExpiresAt: Optional[str] = None
 
 
+# This class is the output for the 'get_record' function.
 class GetRecordResponse(BaseValidatorModel):
     Record: List[FeatureValueOutput]
     ExpiresAt: str
@@ -88,11 +92,13 @@ class GetRecordResponse(BaseValidatorModel):
 FeatureValueUnion = Union[FeatureValue, FeatureValueOutput]
 
 
+# This class is the input for the 'batch_get_record' function.
 class BatchGetRecordRequest(BaseValidatorModel):
     Identifiers: List[BatchGetRecordIdentifierUnion]
     ExpirationTimeResponse: Optional[ExpirationTimeResponseType] = None
 
 
+# This class is the output for the 'batch_get_record' function.
 class BatchGetRecordResponse(BaseValidatorModel):
     Records: List[BatchGetRecordResultDetail]
     Errors: List[BatchGetRecordError]
@@ -100,6 +106,7 @@ class BatchGetRecordResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'put_record' function.
 class PutRecordRequest(BaseValidatorModel):
     FeatureGroupName: str
     Record: List[FeatureValueUnion]

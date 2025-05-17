@@ -10,6 +10,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 Blob = Union[str, bytes, IO[Any], StreamingBody]
 
 
+# This class is the input for the 'describe_job_execution' function.
 class DescribeJobExecutionRequest(BaseValidatorModel):
     jobId: str
     thingName: str
@@ -39,6 +40,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'get_pending_job_executions' function.
 class GetPendingJobExecutionsRequest(BaseValidatorModel):
     thingName: str
 
@@ -58,12 +60,14 @@ class JobExecutionState(BaseValidatorModel):
     versionNumber: Optional[int] = None
 
 
+# This class is the input for the 'start_next_pending_job_execution' function.
 class StartNextPendingJobExecutionRequest(BaseValidatorModel):
     thingName: str
     statusDetails: Optional[Dict[str, str]] = None
     stepTimeoutInMinutes: Optional[int] = None
 
 
+# This class is the input for the 'update_job_execution' function.
 class UpdateJobExecutionRequest(BaseValidatorModel):
     jobId: str
     thingName: str
@@ -86,33 +90,39 @@ class CommandParameterValue(BaseValidatorModel):
     UL: Optional[str] = None
 
 
+# This class is the output for the 'describe_job_execution' function.
 class DescribeJobExecutionResponse(BaseValidatorModel):
     execution: JobExecution
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_command_execution' function.
 class StartCommandExecutionResponse(BaseValidatorModel):
     executionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_next_pending_job_execution' function.
 class StartNextPendingJobExecutionResponse(BaseValidatorModel):
     execution: JobExecution
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_pending_job_executions' function.
 class GetPendingJobExecutionsResponse(BaseValidatorModel):
     inProgressJobs: List[JobExecutionSummary]
     queuedJobs: List[JobExecutionSummary]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_job_execution' function.
 class UpdateJobExecutionResponse(BaseValidatorModel):
     executionState: JobExecutionState
     jobDocument: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_command_execution' function.
 class StartCommandExecutionRequest(BaseValidatorModel):
     targetArn: str
     commandArn: str

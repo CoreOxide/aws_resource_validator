@@ -37,6 +37,7 @@ class FieldToMatch(BaseValidatorModel):
     Data: Optional[str] = None
 
 
+# This class is the input for the 'create_byte_match_set' function.
 class CreateByteMatchSetRequest(BaseValidatorModel):
     Name: str
     ChangeToken: str
@@ -50,11 +51,13 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_geo_match_set' function.
 class CreateGeoMatchSetRequest(BaseValidatorModel):
     Name: str
     ChangeToken: str
 
 
+# This class is the input for the 'create_ip_set' function.
 class CreateIPSetRequest(BaseValidatorModel):
     Name: str
     ChangeToken: str
@@ -65,11 +68,13 @@ class Tag(BaseValidatorModel):
     Value: str
 
 
+# This class is the input for the 'create_regex_match_set' function.
 class CreateRegexMatchSetRequest(BaseValidatorModel):
     Name: str
     ChangeToken: str
 
 
+# This class is the input for the 'create_regex_pattern_set' function.
 class CreateRegexPatternSetRequest(BaseValidatorModel):
     Name: str
     ChangeToken: str
@@ -87,37 +92,44 @@ class RuleGroup(BaseValidatorModel):
     MetricName: Optional[str] = None
 
 
+# This class is the input for the 'create_size_constraint_set' function.
 class CreateSizeConstraintSetRequest(BaseValidatorModel):
     Name: str
     ChangeToken: str
 
 
+# This class is the input for the 'create_sql_injection_match_set' function.
 class CreateSqlInjectionMatchSetRequest(BaseValidatorModel):
     Name: str
     ChangeToken: str
 
 
+# This class is the input for the 'create_web_acl_migration_stack' function.
 class CreateWebACLMigrationStackRequest(BaseValidatorModel):
     WebACLId: str
     S3BucketName: str
     IgnoreUnsupportedType: bool
 
 
+# This class is the input for the 'create_xss_match_set' function.
 class CreateXssMatchSetRequest(BaseValidatorModel):
     Name: str
     ChangeToken: str
 
 
+# This class is the input for the 'delete_byte_match_set' function.
 class DeleteByteMatchSetRequest(BaseValidatorModel):
     ByteMatchSetId: str
     ChangeToken: str
 
 
+# This class is the input for the 'delete_geo_match_set' function.
 class DeleteGeoMatchSetRequest(BaseValidatorModel):
     GeoMatchSetId: str
     ChangeToken: str
 
 
+# This class is the input for the 'delete_ip_set' function.
 class DeleteIPSetRequest(BaseValidatorModel):
     IPSetId: str
     ChangeToken: str
@@ -131,46 +143,55 @@ class DeletePermissionPolicyRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'delete_rate_based_rule' function.
 class DeleteRateBasedRuleRequest(BaseValidatorModel):
     RuleId: str
     ChangeToken: str
 
 
+# This class is the input for the 'delete_regex_match_set' function.
 class DeleteRegexMatchSetRequest(BaseValidatorModel):
     RegexMatchSetId: str
     ChangeToken: str
 
 
+# This class is the input for the 'delete_regex_pattern_set' function.
 class DeleteRegexPatternSetRequest(BaseValidatorModel):
     RegexPatternSetId: str
     ChangeToken: str
 
 
+# This class is the input for the 'delete_rule_group' function.
 class DeleteRuleGroupRequest(BaseValidatorModel):
     RuleGroupId: str
     ChangeToken: str
 
 
+# This class is the input for the 'delete_rule' function.
 class DeleteRuleRequest(BaseValidatorModel):
     RuleId: str
     ChangeToken: str
 
 
+# This class is the input for the 'delete_size_constraint_set' function.
 class DeleteSizeConstraintSetRequest(BaseValidatorModel):
     SizeConstraintSetId: str
     ChangeToken: str
 
 
+# This class is the input for the 'delete_sql_injection_match_set' function.
 class DeleteSqlInjectionMatchSetRequest(BaseValidatorModel):
     SqlInjectionMatchSetId: str
     ChangeToken: str
 
 
+# This class is the input for the 'delete_web_acl' function.
 class DeleteWebACLRequest(BaseValidatorModel):
     WebACLId: str
     ChangeToken: str
 
 
+# This class is the input for the 'delete_xss_match_set' function.
 class DeleteXssMatchSetRequest(BaseValidatorModel):
     XssMatchSetId: str
     ChangeToken: str
@@ -190,51 +211,63 @@ class GeoMatchSetSummary(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'get_byte_match_set' function.
 class GetByteMatchSetRequest(BaseValidatorModel):
     ByteMatchSetId: str
 
 
+# This class is the input for the 'get_change_token_status' function.
 class GetChangeTokenStatusRequest(BaseValidatorModel):
     ChangeToken: str
 
 
+# This class is the input for the 'get_geo_match_set' function.
 class GetGeoMatchSetRequest(BaseValidatorModel):
     GeoMatchSetId: str
 
 
+# This class is the input for the 'get_ip_set' function.
 class GetIPSetRequest(BaseValidatorModel):
     IPSetId: str
 
 
+# This class is the input for the 'get_logging_configuration' function.
 class GetLoggingConfigurationRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'get_permission_policy' function.
 class GetPermissionPolicyRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'get_rate_based_rule_managed_keys' function.
 class GetRateBasedRuleManagedKeysRequest(BaseValidatorModel):
     RuleId: str
     NextMarker: Optional[str] = None
 
 
+# This class is the input for the 'get_rate_based_rule' function.
 class GetRateBasedRuleRequest(BaseValidatorModel):
     RuleId: str
 
 
+# This class is the input for the 'get_regex_match_set' function.
 class GetRegexMatchSetRequest(BaseValidatorModel):
     RegexMatchSetId: str
 
 
+# This class is the input for the 'get_regex_pattern_set' function.
 class GetRegexPatternSetRequest(BaseValidatorModel):
     RegexPatternSetId: str
 
 
+# This class is the input for the 'get_rule_group' function.
 class GetRuleGroupRequest(BaseValidatorModel):
     RuleGroupId: str
 
 
+# This class is the input for the 'get_rule' function.
 class GetRuleRequest(BaseValidatorModel):
     RuleId: str
 
@@ -244,14 +277,17 @@ class TimeWindowOutput(BaseValidatorModel):
     EndTime: datetime
 
 
+# This class is the input for the 'get_size_constraint_set' function.
 class GetSizeConstraintSetRequest(BaseValidatorModel):
     SizeConstraintSetId: str
 
 
+# This class is the input for the 'get_sql_injection_match_set' function.
 class GetSqlInjectionMatchSetRequest(BaseValidatorModel):
     SqlInjectionMatchSetId: str
 
 
+# This class is the input for the 'get_web_acl_for_resource' function.
 class GetWebACLForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -261,10 +297,12 @@ class WebACLSummary(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'get_web_acl' function.
 class GetWebACLRequest(BaseValidatorModel):
     WebACLId: str
 
 
+# This class is the input for the 'get_xss_match_set' function.
 class GetXssMatchSetRequest(BaseValidatorModel):
     XssMatchSetId: str
 
@@ -284,32 +322,38 @@ class IPSetSummary(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'list_activated_rules_in_rule_group' function.
 class ListActivatedRulesInRuleGroupRequest(BaseValidatorModel):
     RuleGroupId: Optional[str] = None
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'list_byte_match_sets' function.
 class ListByteMatchSetsRequest(BaseValidatorModel):
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'list_geo_match_sets' function.
 class ListGeoMatchSetsRequest(BaseValidatorModel):
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'list_ip_sets' function.
 class ListIPSetsRequest(BaseValidatorModel):
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'list_logging_configurations' function.
 class ListLoggingConfigurationsRequest(BaseValidatorModel):
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'list_rate_based_rules' function.
 class ListRateBasedRulesRequest(BaseValidatorModel):
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
@@ -320,6 +364,7 @@ class RuleSummary(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'list_regex_match_sets' function.
 class ListRegexMatchSetsRequest(BaseValidatorModel):
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
@@ -330,6 +375,7 @@ class RegexMatchSetSummary(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'list_regex_pattern_sets' function.
 class ListRegexPatternSetsRequest(BaseValidatorModel):
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
@@ -340,11 +386,13 @@ class RegexPatternSetSummary(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'list_resources_for_web_acl' function.
 class ListResourcesForWebACLRequest(BaseValidatorModel):
     WebACLId: str
     ResourceType: Optional[ResourceTypeType] = None
 
 
+# This class is the input for the 'list_rule_groups' function.
 class ListRuleGroupsRequest(BaseValidatorModel):
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
@@ -355,11 +403,13 @@ class RuleGroupSummary(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'list_rules' function.
 class ListRulesRequest(BaseValidatorModel):
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'list_size_constraint_sets' function.
 class ListSizeConstraintSetsRequest(BaseValidatorModel):
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
@@ -370,6 +420,7 @@ class SizeConstraintSetSummary(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'list_sql_injection_match_sets' function.
 class ListSqlInjectionMatchSetsRequest(BaseValidatorModel):
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
@@ -380,6 +431,7 @@ class SqlInjectionMatchSetSummary(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'list_subscribed_rule_groups' function.
 class ListSubscribedRuleGroupsRequest(BaseValidatorModel):
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
@@ -391,17 +443,20 @@ class SubscribedRuleGroupSummary(BaseValidatorModel):
     MetricName: str
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'list_web_acls' function.
 class ListWebACLsRequest(BaseValidatorModel):
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
 
 
+# This class is the input for the 'list_xss_match_sets' function.
 class ListXssMatchSetsRequest(BaseValidatorModel):
     NextMarker: Optional[str] = None
     Limit: Optional[int] = None
@@ -502,66 +557,79 @@ class XssMatchTuple(BaseValidatorModel):
     TextTransformation: TextTransformationType
 
 
+# This class is the output for the 'create_web_acl_migration_stack' function.
 class CreateWebACLMigrationStackResponse(BaseValidatorModel):
     S3ObjectUrl: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_byte_match_set' function.
 class DeleteByteMatchSetResponse(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_geo_match_set' function.
 class DeleteGeoMatchSetResponse(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_ip_set' function.
 class DeleteIPSetResponse(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_rate_based_rule' function.
 class DeleteRateBasedRuleResponse(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_regex_match_set' function.
 class DeleteRegexMatchSetResponse(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_regex_pattern_set' function.
 class DeleteRegexPatternSetResponse(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_rule_group' function.
 class DeleteRuleGroupResponse(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_rule' function.
 class DeleteRuleResponse(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_size_constraint_set' function.
 class DeleteSizeConstraintSetResponse(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_sql_injection_match_set' function.
 class DeleteSqlInjectionMatchSetResponse(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_web_acl' function.
 class DeleteWebACLResponse(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_xss_match_set' function.
 class DeleteXssMatchSetResponse(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
@@ -572,93 +640,111 @@ class GetChangeTokenResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_change_token_status' function.
 class GetChangeTokenStatusResponse(BaseValidatorModel):
     ChangeTokenStatus: ChangeTokenStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_permission_policy' function.
 class GetPermissionPolicyResponse(BaseValidatorModel):
     Policy: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_rate_based_rule_managed_keys' function.
 class GetRateBasedRuleManagedKeysResponse(BaseValidatorModel):
     ManagedKeys: List[str]
     NextMarker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_byte_match_sets' function.
 class ListByteMatchSetsResponse(BaseValidatorModel):
     NextMarker: str
     ByteMatchSets: List[ByteMatchSetSummary]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_resources_for_web_acl' function.
 class ListResourcesForWebACLResponse(BaseValidatorModel):
     ResourceArns: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_byte_match_set' function.
 class UpdateByteMatchSetResponse(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_geo_match_set' function.
 class UpdateGeoMatchSetResponse(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_ip_set' function.
 class UpdateIPSetResponse(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_rate_based_rule' function.
 class UpdateRateBasedRuleResponse(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_regex_match_set' function.
 class UpdateRegexMatchSetResponse(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_regex_pattern_set' function.
 class UpdateRegexPatternSetResponse(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_rule_group' function.
 class UpdateRuleGroupResponse(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_rule' function.
 class UpdateRuleResponse(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_size_constraint_set' function.
 class UpdateSizeConstraintSetResponse(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_sql_injection_match_set' function.
 class UpdateSqlInjectionMatchSetResponse(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_web_acl' function.
 class UpdateWebACLResponse(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_xss_match_set' function.
 class UpdateXssMatchSetResponse(BaseValidatorModel):
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_rate_based_rule' function.
 class CreateRateBasedRuleRequest(BaseValidatorModel):
     Name: str
     MetricName: str
@@ -668,6 +754,7 @@ class CreateRateBasedRuleRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_rule_group' function.
 class CreateRuleGroupRequest(BaseValidatorModel):
     Name: str
     MetricName: str
@@ -675,6 +762,7 @@ class CreateRuleGroupRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_rule' function.
 class CreateRuleRequest(BaseValidatorModel):
     Name: str
     MetricName: str
@@ -682,6 +770,7 @@ class CreateRuleRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_web_acl' function.
 class CreateWebACLRequest(BaseValidatorModel):
     Name: str
     MetricName: str
@@ -700,23 +789,27 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the output for the 'create_regex_pattern_set' function.
 class CreateRegexPatternSetResponse(BaseValidatorModel):
     RegexPatternSet: RegexPatternSet
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_regex_pattern_set' function.
 class GetRegexPatternSetResponse(BaseValidatorModel):
     RegexPatternSet: RegexPatternSet
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_rule_group' function.
 class CreateRuleGroupResponse(BaseValidatorModel):
     RuleGroup: RuleGroup
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_rule_group' function.
 class GetRuleGroupResponse(BaseValidatorModel):
     RuleGroup: RuleGroup
     ResponseMetadata: ResponseMetadata
@@ -733,17 +826,20 @@ class GeoMatchSetUpdate(BaseValidatorModel):
     GeoMatchConstraint: GeoMatchConstraint
 
 
+# This class is the output for the 'list_geo_match_sets' function.
 class ListGeoMatchSetsResponse(BaseValidatorModel):
     NextMarker: str
     GeoMatchSets: List[GeoMatchSetSummary]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_web_acl_for_resource' function.
 class GetWebACLForResourceResponse(BaseValidatorModel):
     WebACLSummary: WebACLSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_web_acls' function.
 class ListWebACLsResponse(BaseValidatorModel):
     NextMarker: str
     WebACLs: List[WebACLSummary]
@@ -770,60 +866,70 @@ class IPSetUpdate(BaseValidatorModel):
     IPSetDescriptor: IPSetDescriptor
 
 
+# This class is the output for the 'list_ip_sets' function.
 class ListIPSetsResponse(BaseValidatorModel):
     NextMarker: str
     IPSets: List[IPSetSummary]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_rate_based_rules' function.
 class ListRateBasedRulesResponse(BaseValidatorModel):
     NextMarker: str
     Rules: List[RuleSummary]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_rules' function.
 class ListRulesResponse(BaseValidatorModel):
     NextMarker: str
     Rules: List[RuleSummary]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_regex_match_sets' function.
 class ListRegexMatchSetsResponse(BaseValidatorModel):
     NextMarker: str
     RegexMatchSets: List[RegexMatchSetSummary]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_regex_pattern_sets' function.
 class ListRegexPatternSetsResponse(BaseValidatorModel):
     NextMarker: str
     RegexPatternSets: List[RegexPatternSetSummary]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_rule_groups' function.
 class ListRuleGroupsResponse(BaseValidatorModel):
     NextMarker: str
     RuleGroups: List[RuleGroupSummary]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_size_constraint_sets' function.
 class ListSizeConstraintSetsResponse(BaseValidatorModel):
     NextMarker: str
     SizeConstraintSets: List[SizeConstraintSetSummary]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_sql_injection_match_sets' function.
 class ListSqlInjectionMatchSetsResponse(BaseValidatorModel):
     NextMarker: str
     SqlInjectionMatchSets: List[SqlInjectionMatchSetSummary]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_subscribed_rule_groups' function.
 class ListSubscribedRuleGroupsResponse(BaseValidatorModel):
     NextMarker: str
     RuleGroups: List[SubscribedRuleGroupSummary]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_xss_match_sets' function.
 class ListXssMatchSetsResponse(BaseValidatorModel):
     NextMarker: str
     XssMatchSets: List[XssMatchSetSummary]
@@ -851,6 +957,7 @@ class RuleUpdate(BaseValidatorModel):
     Predicate: Predicate
 
 
+# This class is the input for the 'update_regex_pattern_set' function.
 class UpdateRegexPatternSetRequest(BaseValidatorModel):
     RegexPatternSetId: str
     Updates: List[RegexPatternSetUpdate]
@@ -862,6 +969,7 @@ class TimeWindow(BaseValidatorModel):
     EndTime: Timestamp
 
 
+# This class is the output for the 'list_activated_rules_in_rule_group' function.
 class ListActivatedRulesInRuleGroupResponse(BaseValidatorModel):
     NextMarker: str
     ActivatedRules: List[ActivatedRuleOutput]
@@ -887,17 +995,20 @@ class ByteMatchSet(BaseValidatorModel):
 ByteMatchTupleUnion = Union[ByteMatchTuple, ByteMatchTupleOutput]
 
 
+# This class is the output for the 'get_logging_configuration' function.
 class GetLoggingConfigurationResponse(BaseValidatorModel):
     LoggingConfiguration: LoggingConfigurationOutput
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_logging_configurations' function.
 class ListLoggingConfigurationsResponse(BaseValidatorModel):
     LoggingConfigurations: List[LoggingConfigurationOutput]
     NextMarker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_logging_configuration' function.
 class PutLoggingConfigurationResponse(BaseValidatorModel):
     LoggingConfiguration: LoggingConfigurationOutput
     ResponseMetadata: ResponseMetadata
@@ -949,23 +1060,27 @@ class XssMatchSetUpdate(BaseValidatorModel):
     XssMatchTuple: XssMatchTuple
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     NextMarker: str
     TagInfoForResource: TagInfoForResource
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_geo_match_set' function.
 class CreateGeoMatchSetResponse(BaseValidatorModel):
     GeoMatchSet: GeoMatchSet
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_geo_match_set' function.
 class GetGeoMatchSetResponse(BaseValidatorModel):
     GeoMatchSet: GeoMatchSet
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_geo_match_set' function.
 class UpdateGeoMatchSetRequest(BaseValidatorModel):
     GeoMatchSetId: str
     ChangeToken: str
@@ -980,45 +1095,53 @@ class SampledHTTPRequest(BaseValidatorModel):
     RuleWithinRuleGroup: Optional[str] = None
 
 
+# This class is the output for the 'create_ip_set' function.
 class CreateIPSetResponse(BaseValidatorModel):
     IPSet: IPSet
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_ip_set' function.
 class GetIPSetResponse(BaseValidatorModel):
     IPSet: IPSet
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_ip_set' function.
 class UpdateIPSetRequest(BaseValidatorModel):
     IPSetId: str
     ChangeToken: str
     Updates: List[IPSetUpdate]
 
 
+# This class is the output for the 'create_rate_based_rule' function.
 class CreateRateBasedRuleResponse(BaseValidatorModel):
     Rule: RateBasedRule
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_rate_based_rule' function.
 class GetRateBasedRuleResponse(BaseValidatorModel):
     Rule: RateBasedRule
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_rule' function.
 class CreateRuleResponse(BaseValidatorModel):
     Rule: Rule
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_rule' function.
 class GetRuleResponse(BaseValidatorModel):
     Rule: Rule
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_rate_based_rule' function.
 class UpdateRateBasedRuleRequest(BaseValidatorModel):
     RuleId: str
     ChangeToken: str
@@ -1026,6 +1149,7 @@ class UpdateRateBasedRuleRequest(BaseValidatorModel):
     RateLimit: int
 
 
+# This class is the input for the 'update_rule' function.
 class UpdateRuleRequest(BaseValidatorModel):
     RuleId: str
     ChangeToken: str
@@ -1034,12 +1158,14 @@ class UpdateRuleRequest(BaseValidatorModel):
 TimeWindowUnion = Union[TimeWindow, TimeWindowOutput]
 
 
+# This class is the output for the 'create_web_acl' function.
 class CreateWebACLResponse(BaseValidatorModel):
     WebACL: WebACL
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_web_acl' function.
 class GetWebACLResponse(BaseValidatorModel):
     WebACL: WebACL
     ResponseMetadata: ResponseMetadata
@@ -1055,12 +1181,14 @@ class WebACLUpdate(BaseValidatorModel):
     ActivatedRule: ActivatedRuleUnion
 
 
+# This class is the output for the 'create_byte_match_set' function.
 class CreateByteMatchSetResponse(BaseValidatorModel):
     ByteMatchSet: ByteMatchSet
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_byte_match_set' function.
 class GetByteMatchSetResponse(BaseValidatorModel):
     ByteMatchSet: ByteMatchSet
     ResponseMetadata: ResponseMetadata
@@ -1071,78 +1199,92 @@ class ByteMatchSetUpdate(BaseValidatorModel):
     ByteMatchTuple: ByteMatchTupleUnion
 
 
+# This class is the input for the 'put_logging_configuration' function.
 class PutLoggingConfigurationRequest(BaseValidatorModel):
     LoggingConfiguration: LoggingConfigurationUnion
 
 
+# This class is the output for the 'create_regex_match_set' function.
 class CreateRegexMatchSetResponse(BaseValidatorModel):
     RegexMatchSet: RegexMatchSet
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_regex_match_set' function.
 class GetRegexMatchSetResponse(BaseValidatorModel):
     RegexMatchSet: RegexMatchSet
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_regex_match_set' function.
 class UpdateRegexMatchSetRequest(BaseValidatorModel):
     RegexMatchSetId: str
     Updates: List[RegexMatchSetUpdate]
     ChangeToken: str
 
 
+# This class is the output for the 'create_size_constraint_set' function.
 class CreateSizeConstraintSetResponse(BaseValidatorModel):
     SizeConstraintSet: SizeConstraintSet
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_size_constraint_set' function.
 class GetSizeConstraintSetResponse(BaseValidatorModel):
     SizeConstraintSet: SizeConstraintSet
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_size_constraint_set' function.
 class UpdateSizeConstraintSetRequest(BaseValidatorModel):
     SizeConstraintSetId: str
     ChangeToken: str
     Updates: List[SizeConstraintSetUpdate]
 
 
+# This class is the output for the 'create_sql_injection_match_set' function.
 class CreateSqlInjectionMatchSetResponse(BaseValidatorModel):
     SqlInjectionMatchSet: SqlInjectionMatchSet
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_sql_injection_match_set' function.
 class GetSqlInjectionMatchSetResponse(BaseValidatorModel):
     SqlInjectionMatchSet: SqlInjectionMatchSet
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_sql_injection_match_set' function.
 class UpdateSqlInjectionMatchSetRequest(BaseValidatorModel):
     SqlInjectionMatchSetId: str
     ChangeToken: str
     Updates: List[SqlInjectionMatchSetUpdate]
 
 
+# This class is the output for the 'create_xss_match_set' function.
 class CreateXssMatchSetResponse(BaseValidatorModel):
     XssMatchSet: XssMatchSet
     ChangeToken: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_xss_match_set' function.
 class GetXssMatchSetResponse(BaseValidatorModel):
     XssMatchSet: XssMatchSet
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_xss_match_set' function.
 class UpdateXssMatchSetRequest(BaseValidatorModel):
     XssMatchSetId: str
     ChangeToken: str
     Updates: List[XssMatchSetUpdate]
 
 
+# This class is the output for the 'get_sampled_requests' function.
 class GetSampledRequestsResponse(BaseValidatorModel):
     SampledRequests: List[SampledHTTPRequest]
     PopulationSize: int
@@ -1150,6 +1292,7 @@ class GetSampledRequestsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'get_sampled_requests' function.
 class GetSampledRequestsRequest(BaseValidatorModel):
     WebAclId: str
     RuleId: str
@@ -1157,12 +1300,14 @@ class GetSampledRequestsRequest(BaseValidatorModel):
     MaxItems: int
 
 
+# This class is the input for the 'update_rule_group' function.
 class UpdateRuleGroupRequest(BaseValidatorModel):
     RuleGroupId: str
     Updates: List[RuleGroupUpdate]
     ChangeToken: str
 
 
+# This class is the input for the 'update_web_acl' function.
 class UpdateWebACLRequest(BaseValidatorModel):
     WebACLId: str
     ChangeToken: str
@@ -1170,6 +1315,7 @@ class UpdateWebACLRequest(BaseValidatorModel):
     DefaultAction: Optional[WafAction] = None
 
 
+# This class is the input for the 'update_byte_match_set' function.
 class UpdateByteMatchSetRequest(BaseValidatorModel):
     ByteMatchSetId: str
     ChangeToken: str

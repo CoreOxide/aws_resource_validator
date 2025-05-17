@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'assume_role_for_pod_identity' function.
 class AssumeRoleForPodIdentityRequest(BaseValidatorModel):
     clusterName: str
     token: str
@@ -43,6 +44,7 @@ class Subject(BaseValidatorModel):
     serviceAccount: str
 
 
+# This class is the output for the 'assume_role_for_pod_identity' function.
 class AssumeRoleForPodIdentityResponse(BaseValidatorModel):
     subject: Subject
     audience: str

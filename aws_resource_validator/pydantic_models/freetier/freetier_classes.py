@@ -55,6 +55,7 @@ class Expression(BaseValidatorModel):
     or_: Optional[List[Dict[str, Any]]] = None
 
 
+# This class is the output for the 'get_free_tier_usage' function.
 class GetFreeTierUsageResponse(BaseValidatorModel):
     freeTierUsages: List[FreeTierUsage]
     ResponseMetadata: ResponseMetadata
@@ -66,6 +67,7 @@ class GetFreeTierUsageRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'get_free_tier_usage' function.
 class GetFreeTierUsageRequest(BaseValidatorModel):
     filter: Optional[Expression] = None
     maxResults: Optional[int] = None

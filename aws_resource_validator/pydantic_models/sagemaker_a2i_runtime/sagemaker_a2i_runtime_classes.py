@@ -12,6 +12,7 @@ class DeleteHumanLoopRequest(BaseValidatorModel):
     HumanLoopName: str
 
 
+# This class is the input for the 'describe_human_loop' function.
 class DescribeHumanLoopRequest(BaseValidatorModel):
     HumanLoopName: str
 
@@ -56,6 +57,7 @@ class StopHumanLoopRequest(BaseValidatorModel):
     HumanLoopName: str
 
 
+# This class is the output for the 'describe_human_loop' function.
 class DescribeHumanLoopResponse(BaseValidatorModel):
     CreationTime: datetime
     FailureReason: str
@@ -68,11 +70,13 @@ class DescribeHumanLoopResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_human_loop' function.
 class StartHumanLoopResponse(BaseValidatorModel):
     HumanLoopArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_human_loop' function.
 class StartHumanLoopRequest(BaseValidatorModel):
     HumanLoopName: str
     FlowDefinitionArn: str
@@ -80,6 +84,7 @@ class StartHumanLoopRequest(BaseValidatorModel):
     DataAttributes: Optional[HumanLoopDataAttributes] = None
 
 
+# This class is the output for the 'list_human_loops' function.
 class ListHumanLoopsResponse(BaseValidatorModel):
     HumanLoopSummaries: List[HumanLoopSummary]
     ResponseMetadata: ResponseMetadata
@@ -94,6 +99,7 @@ class ListHumanLoopsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_human_loops' function.
 class ListHumanLoopsRequest(BaseValidatorModel):
     FlowDefinitionArn: str
     CreationTimeAfter: Optional[Timestamp] = None

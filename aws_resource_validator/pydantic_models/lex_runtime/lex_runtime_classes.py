@@ -20,6 +20,7 @@ class Button(BaseValidatorModel):
     value: str
 
 
+# This class is the input for the 'delete_session' function.
 class DeleteSessionRequest(BaseValidatorModel):
     botName: str
     botAlias: str
@@ -54,6 +55,7 @@ class DialogAction(BaseValidatorModel):
     messageFormat: Optional[MessageFormatTypeType] = None
 
 
+# This class is the input for the 'get_session' function.
 class GetSessionRequest(BaseValidatorModel):
     botName: str
     botAlias: str
@@ -102,6 +104,7 @@ class ActiveContext(BaseValidatorModel):
     parameters: Dict[str, str]
 
 
+# This class is the input for the 'post_content' function.
 class PostContentRequest(BaseValidatorModel):
     botName: str
     botAlias: str
@@ -122,6 +125,7 @@ class GenericAttachment(BaseValidatorModel):
     buttons: Optional[List[Button]] = None
 
 
+# This class is the output for the 'delete_session' function.
 class DeleteSessionResponse(BaseValidatorModel):
     botName: str
     botAlias: str
@@ -130,6 +134,7 @@ class DeleteSessionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'post_content' function.
 class PostContentResponse(BaseValidatorModel):
     contentType: str
     intentName: str
@@ -152,6 +157,7 @@ class PostContentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_session' function.
 class PutSessionResponse(BaseValidatorModel):
     contentType: str
     intentName: str
@@ -178,6 +184,7 @@ class PredictedIntent(BaseValidatorModel):
 IntentSummaryUnion = Union[IntentSummary, IntentSummaryOutput]
 
 
+# This class is the output for the 'get_session' function.
 class GetSessionResponse(BaseValidatorModel):
     recentIntentSummaryView: List[IntentSummaryOutput]
     sessionAttributes: Dict[str, str]
@@ -195,6 +202,7 @@ class ResponseCard(BaseValidatorModel):
     genericAttachments: Optional[List[GenericAttachment]] = None
 
 
+# This class is the input for the 'post_text' function.
 class PostTextRequest(BaseValidatorModel):
     botName: str
     botAlias: str
@@ -205,6 +213,7 @@ class PostTextRequest(BaseValidatorModel):
     activeContexts: Optional[List[ActiveContextUnion]] = None
 
 
+# This class is the input for the 'put_session' function.
 class PutSessionRequest(BaseValidatorModel):
     botName: str
     botAlias: str
@@ -216,6 +225,7 @@ class PutSessionRequest(BaseValidatorModel):
     activeContexts: Optional[List[ActiveContextUnion]] = None
 
 
+# This class is the output for the 'post_text' function.
 class PostTextResponse(BaseValidatorModel):
     intentName: str
     nluIntentConfidence: IntentConfidence

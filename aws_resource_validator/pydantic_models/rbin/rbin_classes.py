@@ -35,6 +35,7 @@ class DeleteRuleRequest(BaseValidatorModel):
     Identifier: str
 
 
+# This class is the input for the 'get_rule' function.
 class GetRuleRequest(BaseValidatorModel):
     Identifier: str
 
@@ -45,6 +46,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -54,6 +56,7 @@ class UnlockDelay(BaseValidatorModel):
     UnlockDelayUnit: Literal['DAYS']
 
 
+# This class is the input for the 'unlock_rule' function.
 class UnlockRuleRequest(BaseValidatorModel):
     Identifier: str
 
@@ -63,6 +66,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'list_rules' function.
 class ListRulesRequest(BaseValidatorModel):
     ResourceType: ResourceTypeType
     MaxResults: Optional[int] = None
@@ -80,6 +84,7 @@ class RuleSummary(BaseValidatorModel):
     RuleArn: Optional[str] = None
 
 
+# This class is the input for the 'update_rule' function.
 class UpdateRuleRequest(BaseValidatorModel):
     Identifier: str
     RetentionPeriod: Optional[RetentionPeriod] = None
@@ -94,11 +99,13 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_rule' function.
 class UpdateRuleResponse(BaseValidatorModel):
     Identifier: str
     RetentionPeriod: RetentionPeriod
@@ -125,12 +132,14 @@ class LockConfiguration(BaseValidatorModel):
     UnlockDelay: UnlockDelay
 
 
+# This class is the output for the 'list_rules' function.
 class ListRulesResponse(BaseValidatorModel):
     Rules: List[RuleSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_rule' function.
 class CreateRuleRequest(BaseValidatorModel):
     RetentionPeriod: RetentionPeriod
     ResourceType: ResourceTypeType
@@ -141,6 +150,7 @@ class CreateRuleRequest(BaseValidatorModel):
     ExcludeResourceTags: Optional[List[ResourceTag]] = None
 
 
+# This class is the output for the 'create_rule' function.
 class CreateRuleResponse(BaseValidatorModel):
     Identifier: str
     RetentionPeriod: RetentionPeriod
@@ -156,6 +166,7 @@ class CreateRuleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_rule' function.
 class GetRuleResponse(BaseValidatorModel):
     Identifier: str
     Description: str
@@ -171,11 +182,13 @@ class GetRuleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'lock_rule' function.
 class LockRuleRequest(BaseValidatorModel):
     Identifier: str
     LockConfiguration: LockConfiguration
 
 
+# This class is the output for the 'lock_rule' function.
 class LockRuleResponse(BaseValidatorModel):
     Identifier: str
     Description: str
@@ -190,6 +203,7 @@ class LockRuleResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'unlock_rule' function.
 class UnlockRuleResponse(BaseValidatorModel):
     Identifier: str
     Description: str

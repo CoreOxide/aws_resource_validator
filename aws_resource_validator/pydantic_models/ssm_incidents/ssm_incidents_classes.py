@@ -28,6 +28,7 @@ class BatchGetIncidentFindingsError(BaseValidatorModel):
     message: str
 
 
+# This class is the input for the 'batch_get_incident_findings' function.
 class BatchGetIncidentFindingsInput(BaseValidatorModel):
     findingIds: List[str]
     incidentRecordArn: str
@@ -110,10 +111,12 @@ class FindingSummary(BaseValidatorModel):
     lastModifiedTime: datetime
 
 
+# This class is the input for the 'get_incident_record' function.
 class GetIncidentRecordInput(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'get_replication_set' function.
 class GetReplicationSetInput(BaseValidatorModel):
     arn: str
 
@@ -129,6 +132,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'get_resource_policies' function.
 class GetResourcePoliciesInput(BaseValidatorModel):
     resourceArn: str
     maxResults: Optional[int] = None
@@ -141,10 +145,12 @@ class ResourcePolicy(BaseValidatorModel):
     ramResourceShareRegion: str
 
 
+# This class is the input for the 'get_response_plan' function.
 class GetResponsePlanInput(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'get_timeline_event' function.
 class GetTimelineEventInput(BaseValidatorModel):
     eventId: str
     incidentRecordArn: str
@@ -167,23 +173,27 @@ class PagerDutyIncidentDetail(BaseValidatorModel):
     secretId: Optional[str] = None
 
 
+# This class is the input for the 'list_incident_findings' function.
 class ListIncidentFindingsInput(BaseValidatorModel):
     incidentRecordArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_related_items' function.
 class ListRelatedItemsInput(BaseValidatorModel):
     incidentRecordArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_replication_sets' function.
 class ListReplicationSetsInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_response_plans' function.
 class ListResponsePlansInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -195,6 +205,7 @@ class ResponsePlanSummary(BaseValidatorModel):
     displayName: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -203,6 +214,7 @@ class PagerDutyIncidentConfiguration(BaseValidatorModel):
     serviceId: str
 
 
+# This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyInput(BaseValidatorModel):
     policy: str
     resourceArn: str
@@ -231,38 +243,45 @@ class UpdateDeletionProtectionInput(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the output for the 'create_replication_set' function.
 class CreateReplicationSetOutput(BaseValidatorModel):
     arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_response_plan' function.
 class CreateResponsePlanOutput(BaseValidatorModel):
     arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_timeline_event' function.
 class CreateTimelineEventOutput(BaseValidatorModel):
     eventId: str
     incidentRecordArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_replication_sets' function.
 class ListReplicationSetsOutput(BaseValidatorModel):
     replicationSetArns: List[str]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_resource_policy' function.
 class PutResourcePolicyOutput(BaseValidatorModel):
     policyId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_incident' function.
 class StartIncidentOutput(BaseValidatorModel):
     incidentRecordArn: str
     ResponseMetadata: ResponseMetadata
@@ -288,12 +307,14 @@ class TriggerDetails(BaseValidatorModel):
     triggerArn: Optional[str] = None
 
 
+# This class is the input for the 'create_replication_set' function.
 class CreateReplicationSetInput(BaseValidatorModel):
     regions: Dict[str, RegionMapInputValue]
     clientToken: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_timeline_event' function.
 class CreateTimelineEventInput(BaseValidatorModel):
     eventData: str
     eventTime: Timestamp
@@ -355,6 +376,7 @@ class SsmAutomation(BaseValidatorModel):
     targetAccount: Optional[SsmTargetAccountType] = None
 
 
+# This class is the output for the 'list_incident_findings' function.
 class ListIncidentFindingsOutput(BaseValidatorModel):
     findings: List[FindingSummary]
     ResponseMetadata: ResponseMetadata
@@ -394,6 +416,7 @@ class ListResponsePlansInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'get_resource_policies' function.
 class GetResourcePoliciesOutput(BaseValidatorModel):
     resourcePolicies: List[ResourcePolicy]
     ResponseMetadata: ResponseMetadata
@@ -452,6 +475,7 @@ class ItemValue(BaseValidatorModel):
     url: Optional[str] = None
 
 
+# This class is the output for the 'list_response_plans' function.
 class ListResponsePlansOutput(BaseValidatorModel):
     responsePlanSummaries: List[ResponsePlanSummary]
     ResponseMetadata: ResponseMetadata
@@ -498,12 +522,14 @@ class Filter(BaseValidatorModel):
     key: str
 
 
+# This class is the output for the 'list_timeline_events' function.
 class ListTimelineEventsOutput(BaseValidatorModel):
     eventSummaries: List[EventSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_timeline_event' function.
 class GetTimelineEventOutput(BaseValidatorModel):
     event: TimelineEvent
     ResponseMetadata: ResponseMetadata
@@ -521,12 +547,14 @@ class ActionOutput(BaseValidatorModel):
 SsmAutomationUnion = Union[SsmAutomation, SsmAutomationOutput]
 
 
+# This class is the output for the 'list_incident_records' function.
 class ListIncidentRecordsOutput(BaseValidatorModel):
     incidentRecordSummaries: List[IncidentRecordSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_incident_record' function.
 class GetIncidentRecordOutput(BaseValidatorModel):
     incidentRecord: IncidentRecord
     ResponseMetadata: ResponseMetadata
@@ -543,11 +571,13 @@ class Integration(BaseValidatorModel):
     pagerDutyConfiguration: Optional[PagerDutyConfiguration] = None
 
 
+# This class is the output for the 'get_replication_set' function.
 class GetReplicationSetOutput(BaseValidatorModel):
     replicationSet: ReplicationSet
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_get_incident_findings' function.
 class BatchGetIncidentFindingsOutput(BaseValidatorModel):
     errors: List[BatchGetIncidentFindingsError]
     findings: List[Finding]
@@ -559,6 +589,7 @@ class ListIncidentRecordsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_incident_records' function.
 class ListIncidentRecordsInput(BaseValidatorModel):
     filters: Optional[List[Filter]] = None
     maxResults: Optional[int] = None
@@ -573,6 +604,7 @@ class ListTimelineEventsInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_timeline_events' function.
 class ListTimelineEventsInput(BaseValidatorModel):
     incidentRecordArn: str
     filters: Optional[List[Filter]] = None
@@ -592,6 +624,7 @@ class RelatedItem(BaseValidatorModel):
     title: Optional[str] = None
 
 
+# This class is the output for the 'get_response_plan' function.
 class GetResponsePlanOutput(BaseValidatorModel):
     actions: List[ActionOutput]
     arn: str
@@ -606,6 +639,7 @@ class GetResponsePlanOutput(BaseValidatorModel):
 ActionUnion = Union[Action, ActionOutput]
 
 
+# This class is the output for the 'list_related_items' function.
 class ListRelatedItemsOutput(BaseValidatorModel):
     relatedItems: List[RelatedItem]
     ResponseMetadata: ResponseMetadata
@@ -617,6 +651,7 @@ class RelatedItemsUpdate(BaseValidatorModel):
     itemToRemove: Optional[ItemIdentifier] = None
 
 
+# This class is the input for the 'start_incident' function.
 class StartIncidentInput(BaseValidatorModel):
     responsePlanArn: str
     clientToken: Optional[str] = None
@@ -626,6 +661,7 @@ class StartIncidentInput(BaseValidatorModel):
     triggerDetails: Optional[TriggerDetails] = None
 
 
+# This class is the input for the 'create_response_plan' function.
 class CreateResponsePlanInput(BaseValidatorModel):
     incidentTemplate: IncidentTemplateUnion
     name: str

@@ -97,6 +97,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_outpost' function.
 class CreateOutpostInput(BaseValidatorModel):
     Name: str
     SiteId: str
@@ -142,6 +143,7 @@ class DeleteSiteInput(BaseValidatorModel):
     SiteId: str
 
 
+# This class is the input for the 'get_capacity_task' function.
 class GetCapacityTaskInput(BaseValidatorModel):
     CapacityTaskId: str
     OutpostIdentifier: str
@@ -158,18 +160,22 @@ class InstancesToExcludeOutput(BaseValidatorModel):
     Services: Optional[List[AWSServiceNameType]] = None
 
 
+# This class is the input for the 'get_catalog_item' function.
 class GetCatalogItemInput(BaseValidatorModel):
     CatalogItemId: str
 
 
+# This class is the input for the 'get_connection' function.
 class GetConnectionRequest(BaseValidatorModel):
     ConnectionId: str
 
 
+# This class is the input for the 'get_order' function.
 class GetOrderInput(BaseValidatorModel):
     OrderId: str
 
 
+# This class is the input for the 'get_outpost' function.
 class GetOutpostInput(BaseValidatorModel):
     OutpostId: str
 
@@ -180,6 +186,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'get_outpost_instance_types' function.
 class GetOutpostInstanceTypesInput(BaseValidatorModel):
     OutpostId: str
     NextToken: Optional[str] = None
@@ -191,6 +198,7 @@ class InstanceTypeItem(BaseValidatorModel):
     VCPUs: Optional[int] = None
 
 
+# This class is the input for the 'get_outpost_supported_instance_types' function.
 class GetOutpostSupportedInstanceTypesInput(BaseValidatorModel):
     OutpostIdentifier: str
     OrderId: Optional[str] = None
@@ -198,11 +206,13 @@ class GetOutpostSupportedInstanceTypesInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_site_address' function.
 class GetSiteAddressInput(BaseValidatorModel):
     SiteId: str
     AddressType: AddressTypeType
 
 
+# This class is the input for the 'get_site' function.
 class GetSiteInput(BaseValidatorModel):
     SiteId: str
 
@@ -223,6 +233,7 @@ class ShipmentInformation(BaseValidatorModel):
     ShipmentCarrier: Optional[ShipmentCarrierType] = None
 
 
+# This class is the input for the 'list_asset_instances' function.
 class ListAssetInstancesInput(BaseValidatorModel):
     OutpostIdentifier: str
     AssetIdFilter: Optional[List[str]] = None
@@ -233,6 +244,7 @@ class ListAssetInstancesInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_assets' function.
 class ListAssetsInput(BaseValidatorModel):
     OutpostIdentifier: str
     HostIdFilter: Optional[List[str]] = None
@@ -241,6 +253,7 @@ class ListAssetsInput(BaseValidatorModel):
     StatusFilter: Optional[List[AssetStateType]] = None
 
 
+# This class is the input for the 'list_blocking_instances_for_capacity_task' function.
 class ListBlockingInstancesForCapacityTaskInput(BaseValidatorModel):
     OutpostIdentifier: str
     CapacityTaskId: str
@@ -248,6 +261,7 @@ class ListBlockingInstancesForCapacityTaskInput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_capacity_tasks' function.
 class ListCapacityTasksInput(BaseValidatorModel):
     OutpostIdentifierFilter: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -255,6 +269,7 @@ class ListCapacityTasksInput(BaseValidatorModel):
     CapacityTaskStatusFilter: Optional[List[CapacityTaskStatusType]] = None
 
 
+# This class is the input for the 'list_catalog_items' function.
 class ListCatalogItemsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -263,6 +278,7 @@ class ListCatalogItemsInput(BaseValidatorModel):
     EC2FamilyFilter: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_orders' function.
 class ListOrdersInput(BaseValidatorModel):
     OutpostIdentifierFilter: Optional[str] = None
     NextToken: Optional[str] = None
@@ -279,6 +295,7 @@ class OrderSummary(BaseValidatorModel):
     OrderFulfilledDate: Optional[datetime] = None
 
 
+# This class is the input for the 'list_outposts' function.
 class ListOutpostsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -287,6 +304,7 @@ class ListOutpostsInput(BaseValidatorModel):
     AvailabilityZoneIdFilter: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_sites' function.
 class ListSitesInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -295,10 +313,12 @@ class ListSitesInput(BaseValidatorModel):
     OperatingAddressCityFilter: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'start_connection' function.
 class StartConnectionRequest(BaseValidatorModel):
     AssetId: str
     ClientPublicKey: str
@@ -316,6 +336,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_outpost' function.
 class UpdateOutpostInput(BaseValidatorModel):
     OutpostId: str
     Name: Optional[str] = None
@@ -323,6 +344,7 @@ class UpdateOutpostInput(BaseValidatorModel):
     SupportedHardwareType: Optional[SupportedHardwareTypeType] = None
 
 
+# This class is the input for the 'update_site' function.
 class UpdateSiteInput(BaseValidatorModel):
     SiteId: str
     Name: Optional[str] = None
@@ -330,6 +352,7 @@ class UpdateSiteInput(BaseValidatorModel):
     Notes: Optional[str] = None
 
 
+# This class is the input for the 'update_site_rack_physical_properties' function.
 class UpdateSiteRackPhysicalPropertiesInput(BaseValidatorModel):
     SiteId: str
     PowerDrawKva: Optional[PowerDrawKvaType] = None
@@ -343,6 +366,7 @@ class UpdateSiteRackPhysicalPropertiesInput(BaseValidatorModel):
     MaximumSupportedWeightLbs: Optional[MaximumSupportedWeightLbsType] = None
 
 
+# This class is the input for the 'update_site_address' function.
 class UpdateSiteAddressInput(BaseValidatorModel):
     SiteId: str
     AddressType: AddressTypeType
@@ -367,6 +391,7 @@ class CatalogItem(BaseValidatorModel):
     SupportedStorage: Optional[List[SupportedStorageEnumType]] = None
 
 
+# This class is the input for the 'create_order' function.
 class CreateOrderInput(BaseValidatorModel):
     OutpostIdentifier: str
     LineItems: List[LineItemRequest]
@@ -374,12 +399,14 @@ class CreateOrderInput(BaseValidatorModel):
     PaymentTerm: Optional[PaymentTermType] = None
 
 
+# This class is the output for the 'get_connection' function.
 class GetConnectionResponse(BaseValidatorModel):
     ConnectionId: str
     ConnectionDetails: ConnectionDetails
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_site_address' function.
 class GetSiteAddressOutput(BaseValidatorModel):
     SiteId: str
     AddressType: AddressTypeType
@@ -387,62 +414,73 @@ class GetSiteAddressOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_asset_instances' function.
 class ListAssetInstancesOutput(BaseValidatorModel):
     AssetInstances: List[AssetInstance]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_blocking_instances_for_capacity_task' function.
 class ListBlockingInstancesForCapacityTaskOutput(BaseValidatorModel):
     BlockingInstances: List[BlockingInstance]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_capacity_tasks' function.
 class ListCapacityTasksOutput(BaseValidatorModel):
     CapacityTasks: List[CapacityTaskSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_connection' function.
 class StartConnectionResponse(BaseValidatorModel):
     ConnectionId: str
     UnderlayIpAddress: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_site_address' function.
 class UpdateSiteAddressOutput(BaseValidatorModel):
     AddressType: AddressTypeType
     Address: Address
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_outpost' function.
 class CreateOutpostOutput(BaseValidatorModel):
     Outpost: Outpost
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_outpost' function.
 class GetOutpostOutput(BaseValidatorModel):
     Outpost: Outpost
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_outposts' function.
 class ListOutpostsOutput(BaseValidatorModel):
     Outposts: List[Outpost]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_outpost' function.
 class UpdateOutpostOutput(BaseValidatorModel):
     Outpost: Outpost
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_site' function.
 class CreateSiteInput(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
@@ -467,6 +505,7 @@ class Site(BaseValidatorModel):
     RackPhysicalProperties: Optional[RackPhysicalProperties] = None
 
 
+# This class is the output for the 'get_capacity_task' function.
 class GetCapacityTaskOutput(BaseValidatorModel):
     CapacityTaskId: str
     OutpostId: str
@@ -483,6 +522,7 @@ class GetCapacityTaskOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_capacity_task' function.
 class StartCapacityTaskOutput(BaseValidatorModel):
     CapacityTaskId: str
     OutpostId: str
@@ -564,6 +604,7 @@ class ListSitesInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'get_outpost_instance_types' function.
 class GetOutpostInstanceTypesOutput(BaseValidatorModel):
     InstanceTypes: List[InstanceTypeItem]
     OutpostId: str
@@ -572,6 +613,7 @@ class GetOutpostInstanceTypesOutput(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_outpost_supported_instance_types' function.
 class GetOutpostSupportedInstanceTypesOutput(BaseValidatorModel):
     InstanceTypes: List[InstanceTypeItem]
     ResponseMetadata: ResponseMetadata
@@ -591,6 +633,7 @@ class LineItem(BaseValidatorModel):
     PreviousOrderId: Optional[str] = None
 
 
+# This class is the output for the 'list_orders' function.
 class ListOrdersOutput(BaseValidatorModel):
     Orders: List[OrderSummary]
     ResponseMetadata: ResponseMetadata
@@ -605,43 +648,51 @@ class AssetInfo(BaseValidatorModel):
     AssetLocation: Optional[AssetLocation] = None
 
 
+# This class is the output for the 'get_catalog_item' function.
 class GetCatalogItemOutput(BaseValidatorModel):
     CatalogItem: CatalogItem
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_catalog_items' function.
 class ListCatalogItemsOutput(BaseValidatorModel):
     CatalogItems: List[CatalogItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_site' function.
 class CreateSiteOutput(BaseValidatorModel):
     Site: Site
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_site' function.
 class GetSiteOutput(BaseValidatorModel):
     Site: Site
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_sites' function.
 class ListSitesOutput(BaseValidatorModel):
     Sites: List[Site]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_site' function.
 class UpdateSiteOutput(BaseValidatorModel):
     Site: Site
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_site_rack_physical_properties' function.
 class UpdateSiteRackPhysicalPropertiesOutput(BaseValidatorModel):
     Site: Site
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_capacity_task' function.
 class StartCapacityTaskInput(BaseValidatorModel):
     OutpostIdentifier: str
     InstancePools: List[InstanceTypeCapacity]
@@ -663,17 +714,20 @@ class Order(BaseValidatorModel):
     OrderType: Optional[OrderTypeType] = None
 
 
+# This class is the output for the 'list_assets' function.
 class ListAssetsOutput(BaseValidatorModel):
     Assets: List[AssetInfo]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_order' function.
 class CreateOrderOutput(BaseValidatorModel):
     Order: Order
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_order' function.
 class GetOrderOutput(BaseValidatorModel):
     Order: Order
     ResponseMetadata: ResponseMetadata

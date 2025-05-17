@@ -129,6 +129,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_consumable_resource' function.
 class CreateConsumableResourceRequest(BaseValidatorModel):
     consumableResourceName: str
     totalQuantity: Optional[int] = None
@@ -169,16 +170,19 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_compute_environments' function.
 class DescribeComputeEnvironmentsRequest(BaseValidatorModel):
     computeEnvironments: Optional[List[str]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_consumable_resource' function.
 class DescribeConsumableResourceRequest(BaseValidatorModel):
     consumableResource: str
 
 
+# This class is the input for the 'describe_job_definitions' function.
 class DescribeJobDefinitionsRequest(BaseValidatorModel):
     jobDefinitions: Optional[List[str]] = None
     maxResults: Optional[int] = None
@@ -187,16 +191,19 @@ class DescribeJobDefinitionsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_job_queues' function.
 class DescribeJobQueuesRequest(BaseValidatorModel):
     jobQueues: Optional[List[str]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_jobs' function.
 class DescribeJobsRequest(BaseValidatorModel):
     jobs: List[str]
 
 
+# This class is the input for the 'describe_scheduling_policies' function.
 class DescribeSchedulingPoliciesRequest(BaseValidatorModel):
     arns: List[str]
 
@@ -308,6 +315,7 @@ class FrontOfQueueJobSummary(BaseValidatorModel):
     earliestTimeAtPosition: Optional[int] = None
 
 
+# This class is the input for the 'get_job_queue_snapshot' function.
 class GetJobQueueSnapshotRequest(BaseValidatorModel):
     jobQueue: str
 
@@ -367,6 +375,7 @@ class Tmpfs(BaseValidatorModel):
     mountOptions: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_scheduling_policies' function.
 class ListSchedulingPoliciesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -376,6 +385,7 @@ class SchedulingPolicyListingDetail(BaseValidatorModel):
     arn: str
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -400,6 +410,7 @@ class UntagResourceRequest(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_consumable_resource' function.
 class UpdateConsumableResourceRequest(BaseValidatorModel):
     consumableResource: str
     operation: Optional[str] = None
@@ -460,30 +471,35 @@ class LogConfiguration(BaseValidatorModel):
     secretOptions: Optional[List[Secret]] = None
 
 
+# This class is the output for the 'create_compute_environment' function.
 class CreateComputeEnvironmentResponse(BaseValidatorModel):
     computeEnvironmentName: str
     computeEnvironmentArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_consumable_resource' function.
 class CreateConsumableResourceResponse(BaseValidatorModel):
     consumableResourceName: str
     consumableResourceArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_job_queue' function.
 class CreateJobQueueResponse(BaseValidatorModel):
     jobQueueName: str
     jobQueueArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_scheduling_policy' function.
 class CreateSchedulingPolicyResponse(BaseValidatorModel):
     name: str
     arn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_consumable_resource' function.
 class DescribeConsumableResourceResponse(BaseValidatorModel):
     consumableResourceName: str
     consumableResourceArn: str
@@ -496,17 +512,20 @@ class DescribeConsumableResourceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_consumable_resources' function.
 class ListConsumableResourcesResponse(BaseValidatorModel):
     consumableResources: List[ConsumableResourceSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_job_definition' function.
 class RegisterJobDefinitionResponse(BaseValidatorModel):
     jobDefinitionName: str
     jobDefinitionArn: str
@@ -514,6 +533,7 @@ class RegisterJobDefinitionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'submit_job' function.
 class SubmitJobResponse(BaseValidatorModel):
     jobArn: str
     jobName: str
@@ -521,12 +541,14 @@ class SubmitJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_compute_environment' function.
 class UpdateComputeEnvironmentResponse(BaseValidatorModel):
     computeEnvironmentName: str
     computeEnvironmentArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_consumable_resource' function.
 class UpdateConsumableResourceResponse(BaseValidatorModel):
     consumableResourceName: str
     consumableResourceArn: str
@@ -534,12 +556,14 @@ class UpdateConsumableResourceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_job_queue' function.
 class UpdateJobQueueResponse(BaseValidatorModel):
     jobQueueName: str
     jobQueueArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_job_queue' function.
 class CreateJobQueueRequest(BaseValidatorModel):
     jobQueueName: str
     priority: int
@@ -563,6 +587,7 @@ class JobQueueDetail(BaseValidatorModel):
     jobStateTimeLimitActions: Optional[List[JobStateTimeLimitAction]] = None
 
 
+# This class is the input for the 'update_job_queue' function.
 class UpdateJobQueueRequest(BaseValidatorModel):
     jobQueue: str
     state: Optional[JQStateType] = None
@@ -710,6 +735,7 @@ class ListConsumableResourcesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_consumable_resources' function.
 class ListConsumableResourcesRequest(BaseValidatorModel):
     filters: Optional[List[KeyValuesPair]] = None
     maxResults: Optional[int] = None
@@ -722,6 +748,7 @@ class ListJobsByConsumableResourceRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_jobs_by_consumable_resource' function.
 class ListJobsByConsumableResourceRequest(BaseValidatorModel):
     consumableResource: str
     filters: Optional[List[KeyValuesPair]] = None
@@ -738,6 +765,7 @@ class ListJobsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_jobs' function.
 class ListJobsRequest(BaseValidatorModel):
     jobQueue: Optional[str] = None
     arrayJobId: Optional[str] = None
@@ -775,6 +803,7 @@ class LinuxParameters(BaseValidatorModel):
     swappiness: Optional[int] = None
 
 
+# This class is the output for the 'list_scheduling_policies' function.
 class ListSchedulingPoliciesResponse(BaseValidatorModel):
     schedulingPolicies: List[SchedulingPolicyListingDetail]
     ResponseMetadata: ResponseMetadata
@@ -807,6 +836,7 @@ class TaskPropertiesOverride(BaseValidatorModel):
     containers: Optional[List[TaskContainerOverrides]] = None
 
 
+# This class is the output for the 'describe_job_queues' function.
 class DescribeJobQueuesResponse(BaseValidatorModel):
     jobQueues: List[JobQueueDetail]
     ResponseMetadata: ResponseMetadata
@@ -877,11 +907,13 @@ class SchedulingPolicyDetail(BaseValidatorModel):
 FairsharePolicyUnion = Union[FairsharePolicy, FairsharePolicyOutput]
 
 
+# This class is the output for the 'get_job_queue_snapshot' function.
 class GetJobQueueSnapshotResponse(BaseValidatorModel):
     frontOfQueue: FrontOfQueueDetail
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_jobs' function.
 class ListJobsResponse(BaseValidatorModel):
     jobSummaryList: List[JobSummary]
     ResponseMetadata: ResponseMetadata
@@ -984,6 +1016,7 @@ class AttemptDetail(BaseValidatorModel):
     taskProperties: Optional[List[AttemptEcsTaskDetails]] = None
 
 
+# This class is the output for the 'list_jobs_by_consumable_resource' function.
 class ListJobsByConsumableResourceResponse(BaseValidatorModel):
     jobs: List[ListJobsByConsumableResourceSummary]
     ResponseMetadata: ResponseMetadata
@@ -1096,11 +1129,13 @@ class EksProperties(BaseValidatorModel):
     podProperties: Optional[EksPodProperties] = None
 
 
+# This class is the output for the 'describe_scheduling_policies' function.
 class DescribeSchedulingPoliciesResponse(BaseValidatorModel):
     schedulingPolicies: List[SchedulingPolicyDetail]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_scheduling_policy' function.
 class CreateSchedulingPolicyRequest(BaseValidatorModel):
     name: str
     fairsharePolicy: Optional[FairsharePolicyUnion] = None
@@ -1202,6 +1237,7 @@ class EksPropertiesOverride(BaseValidatorModel):
 EksPropertiesUnion = Union[EksProperties, EksPropertiesOutput]
 
 
+# This class is the output for the 'describe_compute_environments' function.
 class DescribeComputeEnvironmentsResponse(BaseValidatorModel):
     computeEnvironments: List[ComputeEnvironmentDetail]
     ResponseMetadata: ResponseMetadata
@@ -1251,6 +1287,7 @@ class NodePropertyOverride(BaseValidatorModel):
     consumableResourcePropertiesOverride: Optional[ConsumableResourcePropertiesUnion] = None
 
 
+# This class is the input for the 'create_compute_environment' function.
 class CreateComputeEnvironmentRequest(BaseValidatorModel):
     computeEnvironmentName: str
     type: CETypeType
@@ -1263,6 +1300,7 @@ class CreateComputeEnvironmentRequest(BaseValidatorModel):
     context: Optional[str] = None
 
 
+# This class is the input for the 'update_compute_environment' function.
 class UpdateComputeEnvironmentRequest(BaseValidatorModel):
     computeEnvironment: str
     state: Optional[CEStateType] = None
@@ -1310,6 +1348,7 @@ class NodeProperties(BaseValidatorModel):
     nodeRangeProperties: List[NodeRangeProperty]
 
 
+# This class is the input for the 'submit_job' function.
 class SubmitJobRequest(BaseValidatorModel):
     jobName: str
     jobQueue: str
@@ -1386,17 +1425,20 @@ class JobDetail(BaseValidatorModel):
 NodePropertiesUnion = Union[NodeProperties, NodePropertiesOutput]
 
 
+# This class is the output for the 'describe_job_definitions' function.
 class DescribeJobDefinitionsResponse(BaseValidatorModel):
     jobDefinitions: List[JobDefinition]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_jobs' function.
 class DescribeJobsResponse(BaseValidatorModel):
     jobs: List[JobDetail]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'register_job_definition' function.
 class RegisterJobDefinitionRequest(BaseValidatorModel):
     jobDefinitionName: str
     type: JobDefinitionTypeType

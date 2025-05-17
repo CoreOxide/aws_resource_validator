@@ -31,6 +31,7 @@ class DominantLanguage(BaseValidatorModel):
     Score: Optional[float] = None
 
 
+# This class is the input for the 'batch_detect_dominant_language' function.
 class BatchDetectDominantLanguageRequest(BaseValidatorModel):
     TextList: List[str]
 
@@ -49,6 +50,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'batch_detect_entities' function.
 class BatchDetectEntitiesRequest(BaseValidatorModel):
     TextList: List[str]
     LanguageCode: LanguageCodeType
@@ -61,6 +63,7 @@ class KeyPhrase(BaseValidatorModel):
     EndOffset: Optional[int] = None
 
 
+# This class is the input for the 'batch_detect_key_phrases' function.
 class BatchDetectKeyPhrasesRequest(BaseValidatorModel):
     TextList: List[str]
     LanguageCode: LanguageCodeType
@@ -73,16 +76,19 @@ class SentimentScore(BaseValidatorModel):
     Mixed: Optional[float] = None
 
 
+# This class is the input for the 'batch_detect_sentiment' function.
 class BatchDetectSentimentRequest(BaseValidatorModel):
     TextList: List[str]
     LanguageCode: LanguageCodeType
 
 
+# This class is the input for the 'batch_detect_syntax' function.
 class BatchDetectSyntaxRequest(BaseValidatorModel):
     TextList: List[str]
     LanguageCode: SyntaxLanguageCodeType
 
 
+# This class is the input for the 'batch_detect_targeted_sentiment' function.
 class BatchDetectTargetedSentimentRequest(BaseValidatorModel):
     TextList: List[str]
     LanguageCode: LanguageCodeType
@@ -148,6 +154,7 @@ class WarningsListItem(BaseValidatorModel):
     WarnMessage: Optional[str] = None
 
 
+# This class is the input for the 'contains_pii_entities' function.
 class ContainsPiiEntitiesRequest(BaseValidatorModel):
     Text: str
     LanguageCode: LanguageCodeType
@@ -241,22 +248,27 @@ class DeleteResourcePolicyRequest(BaseValidatorModel):
     PolicyRevisionId: Optional[str] = None
 
 
+# This class is the input for the 'describe_dataset' function.
 class DescribeDatasetRequest(BaseValidatorModel):
     DatasetArn: str
 
 
+# This class is the input for the 'describe_document_classification_job' function.
 class DescribeDocumentClassificationJobRequest(BaseValidatorModel):
     JobId: str
 
 
+# This class is the input for the 'describe_document_classifier' function.
 class DescribeDocumentClassifierRequest(BaseValidatorModel):
     DocumentClassifierArn: str
 
 
+# This class is the input for the 'describe_dominant_language_detection_job' function.
 class DescribeDominantLanguageDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
+# This class is the input for the 'describe_endpoint' function.
 class DescribeEndpointRequest(BaseValidatorModel):
     EndpointArn: str
 
@@ -276,60 +288,74 @@ class EndpointProperties(BaseValidatorModel):
     FlywheelArn: Optional[str] = None
 
 
+# This class is the input for the 'describe_entities_detection_job' function.
 class DescribeEntitiesDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
+# This class is the input for the 'describe_entity_recognizer' function.
 class DescribeEntityRecognizerRequest(BaseValidatorModel):
     EntityRecognizerArn: str
 
 
+# This class is the input for the 'describe_events_detection_job' function.
 class DescribeEventsDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
+# This class is the input for the 'describe_flywheel_iteration' function.
 class DescribeFlywheelIterationRequest(BaseValidatorModel):
     FlywheelArn: str
     FlywheelIterationId: str
 
 
+# This class is the input for the 'describe_flywheel' function.
 class DescribeFlywheelRequest(BaseValidatorModel):
     FlywheelArn: str
 
 
+# This class is the input for the 'describe_key_phrases_detection_job' function.
 class DescribeKeyPhrasesDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
+# This class is the input for the 'describe_pii_entities_detection_job' function.
 class DescribePiiEntitiesDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
+# This class is the input for the 'describe_resource_policy' function.
 class DescribeResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'describe_sentiment_detection_job' function.
 class DescribeSentimentDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
+# This class is the input for the 'describe_targeted_sentiment_detection_job' function.
 class DescribeTargetedSentimentDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
+# This class is the input for the 'describe_topics_detection_job' function.
 class DescribeTopicsDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
+# This class is the input for the 'detect_dominant_language' function.
 class DetectDominantLanguageRequest(BaseValidatorModel):
     Text: str
 
 
+# This class is the input for the 'detect_key_phrases' function.
 class DetectKeyPhrasesRequest(BaseValidatorModel):
     Text: str
     LanguageCode: LanguageCodeType
 
 
+# This class is the input for the 'detect_pii_entities' function.
 class DetectPiiEntitiesRequest(BaseValidatorModel):
     Text: str
     LanguageCode: LanguageCodeType
@@ -342,16 +368,19 @@ class PiiEntity(BaseValidatorModel):
     EndOffset: Optional[int] = None
 
 
+# This class is the input for the 'detect_sentiment' function.
 class DetectSentimentRequest(BaseValidatorModel):
     Text: str
     LanguageCode: LanguageCodeType
 
 
+# This class is the input for the 'detect_syntax' function.
 class DetectSyntaxRequest(BaseValidatorModel):
     Text: str
     LanguageCode: SyntaxLanguageCodeType
 
 
+# This class is the input for the 'detect_targeted_sentiment' function.
 class DetectTargetedSentimentRequest(BaseValidatorModel):
     Text: str
     LanguageCode: LanguageCodeType
@@ -479,16 +508,19 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_document_classifier_summaries' function.
 class ListDocumentClassifierSummariesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_entity_recognizer_summaries' function.
 class ListEntityRecognizerSummariesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -509,6 +541,7 @@ class RedactionConfigOutput(BaseValidatorModel):
     MaskCharacter: Optional[str] = None
 
 
+# This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
     ResourcePolicy: str
@@ -521,35 +554,43 @@ class RedactionConfig(BaseValidatorModel):
     MaskCharacter: Optional[str] = None
 
 
+# This class is the input for the 'start_flywheel_iteration' function.
 class StartFlywheelIterationRequest(BaseValidatorModel):
     FlywheelArn: str
     ClientRequestToken: Optional[str] = None
 
 
+# This class is the input for the 'stop_dominant_language_detection_job' function.
 class StopDominantLanguageDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
+# This class is the input for the 'stop_entities_detection_job' function.
 class StopEntitiesDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
+# This class is the input for the 'stop_events_detection_job' function.
 class StopEventsDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
+# This class is the input for the 'stop_key_phrases_detection_job' function.
 class StopKeyPhrasesDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
+# This class is the input for the 'stop_pii_entities_detection_job' function.
 class StopPiiEntitiesDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
+# This class is the input for the 'stop_sentiment_detection_job' function.
 class StopSentimentDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
 
+# This class is the input for the 'stop_targeted_sentiment_detection_job' function.
 class StopTargetedSentimentDetectionJobRequest(BaseValidatorModel):
     JobId: str
 
@@ -572,6 +613,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_endpoint' function.
 class UpdateEndpointRequest(BaseValidatorModel):
     EndpointArn: str
     DesiredModelArn: Optional[str] = None
@@ -585,33 +627,39 @@ class BatchDetectDominantLanguageItemResult(BaseValidatorModel):
     Languages: Optional[List[DominantLanguage]] = None
 
 
+# This class is the output for the 'create_dataset' function.
 class CreateDatasetResponse(BaseValidatorModel):
     DatasetArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_document_classifier' function.
 class CreateDocumentClassifierResponse(BaseValidatorModel):
     DocumentClassifierArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_endpoint' function.
 class CreateEndpointResponse(BaseValidatorModel):
     EndpointArn: str
     ModelArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_entity_recognizer' function.
 class CreateEntityRecognizerResponse(BaseValidatorModel):
     EntityRecognizerArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_flywheel' function.
 class CreateFlywheelResponse(BaseValidatorModel):
     FlywheelArn: str
     ActiveModelArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_resource_policy' function.
 class DescribeResourcePolicyResponse(BaseValidatorModel):
     ResourcePolicy: str
     CreationTime: datetime
@@ -620,21 +668,25 @@ class DescribeResourcePolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'detect_dominant_language' function.
 class DetectDominantLanguageResponse(BaseValidatorModel):
     Languages: List[DominantLanguage]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_model' function.
 class ImportModelResponse(BaseValidatorModel):
     ModelArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_resource_policy' function.
 class PutResourcePolicyResponse(BaseValidatorModel):
     PolicyRevisionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_document_classification_job' function.
 class StartDocumentClassificationJobResponse(BaseValidatorModel):
     JobId: str
     JobArn: str
@@ -643,6 +695,7 @@ class StartDocumentClassificationJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_dominant_language_detection_job' function.
 class StartDominantLanguageDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobArn: str
@@ -650,6 +703,7 @@ class StartDominantLanguageDetectionJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_entities_detection_job' function.
 class StartEntitiesDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobArn: str
@@ -658,6 +712,7 @@ class StartEntitiesDetectionJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_events_detection_job' function.
 class StartEventsDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobArn: str
@@ -665,12 +720,14 @@ class StartEventsDetectionJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_flywheel_iteration' function.
 class StartFlywheelIterationResponse(BaseValidatorModel):
     FlywheelArn: str
     FlywheelIterationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_key_phrases_detection_job' function.
 class StartKeyPhrasesDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobArn: str
@@ -678,6 +735,7 @@ class StartKeyPhrasesDetectionJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_pii_entities_detection_job' function.
 class StartPiiEntitiesDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobArn: str
@@ -685,6 +743,7 @@ class StartPiiEntitiesDetectionJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_sentiment_detection_job' function.
 class StartSentimentDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobArn: str
@@ -692,6 +751,7 @@ class StartSentimentDetectionJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_targeted_sentiment_detection_job' function.
 class StartTargetedSentimentDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobArn: str
@@ -699,6 +759,7 @@ class StartTargetedSentimentDetectionJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_topics_detection_job' function.
 class StartTopicsDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobArn: str
@@ -706,48 +767,56 @@ class StartTopicsDetectionJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_dominant_language_detection_job' function.
 class StopDominantLanguageDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobStatus: JobStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_entities_detection_job' function.
 class StopEntitiesDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobStatus: JobStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_events_detection_job' function.
 class StopEventsDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobStatus: JobStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_key_phrases_detection_job' function.
 class StopKeyPhrasesDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobStatus: JobStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_pii_entities_detection_job' function.
 class StopPiiEntitiesDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobStatus: JobStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_sentiment_detection_job' function.
 class StopSentimentDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobStatus: JobStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_targeted_sentiment_detection_job' function.
 class StopTargetedSentimentDetectionJobResponse(BaseValidatorModel):
     JobId: str
     JobStatus: JobStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_endpoint' function.
 class UpdateEndpointResponse(BaseValidatorModel):
     DesiredModelArn: str
     ResponseMetadata: ResponseMetadata
@@ -758,6 +827,7 @@ class BatchDetectKeyPhrasesItemResult(BaseValidatorModel):
     KeyPhrases: Optional[List[KeyPhrase]] = None
 
 
+# This class is the output for the 'detect_key_phrases' function.
 class DetectKeyPhrasesResponse(BaseValidatorModel):
     KeyPhrases: List[KeyPhrase]
     ResponseMetadata: ResponseMetadata
@@ -769,6 +839,7 @@ class BatchDetectSentimentItemResult(BaseValidatorModel):
     SentimentScore: Optional[SentimentScore] = None
 
 
+# This class is the output for the 'detect_sentiment' function.
 class DetectSentimentResponse(BaseValidatorModel):
     Sentiment: SentimentTypeType
     SentimentScore: SentimentScore
@@ -794,11 +865,13 @@ class ClassifierMetadata(BaseValidatorModel):
     EvaluationMetrics: Optional[ClassifierEvaluationMetrics] = None
 
 
+# This class is the output for the 'contains_pii_entities' function.
 class ContainsPiiEntitiesResponse(BaseValidatorModel):
     Labels: List[EntityLabel]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_endpoint' function.
 class CreateEndpointRequest(BaseValidatorModel):
     EndpointName: str
     DesiredInferenceUnits: int
@@ -809,6 +882,7 @@ class CreateEndpointRequest(BaseValidatorModel):
     FlywheelArn: Optional[str] = None
 
 
+# This class is the input for the 'import_model' function.
 class ImportModelRequest(BaseValidatorModel):
     SourceModelArn: str
     ModelName: Optional[str] = None
@@ -818,6 +892,7 @@ class ImportModelRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     ResourceArn: str
     Tags: List[Tag]
@@ -953,33 +1028,39 @@ class TopicsDetectionJobFilter(BaseValidatorModel):
     SubmitTimeAfter: Optional[Timestamp] = None
 
 
+# This class is the output for the 'describe_dataset' function.
 class DescribeDatasetResponse(BaseValidatorModel):
     DatasetProperties: DatasetProperties
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_datasets' function.
 class ListDatasetsResponse(BaseValidatorModel):
     DatasetPropertiesList: List[DatasetProperties]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_endpoint' function.
 class DescribeEndpointResponse(BaseValidatorModel):
     EndpointProperties: EndpointProperties
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_endpoints' function.
 class ListEndpointsResponse(BaseValidatorModel):
     EndpointPropertiesList: List[EndpointProperties]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'detect_pii_entities' function.
 class DetectPiiEntitiesResponse(BaseValidatorModel):
     Entities: List[PiiEntity]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'detect_toxic_content' function.
 class DetectToxicContentRequest(BaseValidatorModel):
     TextSegments: List[TextSegment]
     LanguageCode: LanguageCodeType
@@ -1021,6 +1102,7 @@ class InputDataConfig(BaseValidatorModel):
     DocumentReaderConfig: Optional[DocumentReaderConfig] = None
 
 
+# This class is the output for the 'list_document_classifier_summaries' function.
 class ListDocumentClassifierSummariesResponse(BaseValidatorModel):
     DocumentClassifierSummariesList: List[DocumentClassifierSummary]
     ResponseMetadata: ResponseMetadata
@@ -1064,6 +1146,7 @@ class EntityRecognizerMetadataEntityTypesListItem(BaseValidatorModel):
     NumberOfTrainMentions: Optional[int] = None
 
 
+# This class is the output for the 'list_entity_recognizer_summaries' function.
 class ListEntityRecognizerSummariesResponse(BaseValidatorModel):
     EntityRecognizerSummariesList: List[EntityRecognizerSummary]
     ResponseMetadata: ResponseMetadata
@@ -1084,6 +1167,7 @@ class FlywheelIterationProperties(BaseValidatorModel):
     EvaluationManifestS3Prefix: Optional[str] = None
 
 
+# This class is the output for the 'list_flywheels' function.
 class ListFlywheelsResponse(BaseValidatorModel):
     FlywheelSummaryList: List[FlywheelSummary]
     ResponseMetadata: ResponseMetadata
@@ -1110,18 +1194,21 @@ class ToxicLabels(BaseValidatorModel):
     Toxicity: Optional[float] = None
 
 
+# This class is the output for the 'batch_detect_dominant_language' function.
 class BatchDetectDominantLanguageResponse(BaseValidatorModel):
     ResultList: List[BatchDetectDominantLanguageItemResult]
     ErrorList: List[BatchItemError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_detect_key_phrases' function.
 class BatchDetectKeyPhrasesResponse(BaseValidatorModel):
     ResultList: List[BatchDetectKeyPhrasesItemResult]
     ErrorList: List[BatchItemError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_detect_sentiment' function.
 class BatchDetectSentimentResponse(BaseValidatorModel):
     ResultList: List[BatchDetectSentimentItemResult]
     ErrorList: List[BatchItemError]
@@ -1162,6 +1249,7 @@ class DatasetInputDataConfig(BaseValidatorModel):
     EntityRecognizerInputDataConfig: Optional[DatasetEntityRecognizerInputDataConfig] = None
 
 
+# This class is the input for the 'list_datasets' function.
 class ListDatasetsRequest(BaseValidatorModel):
     FlywheelArn: Optional[str] = None
     Filter: Optional[DatasetFilter] = None
@@ -1174,6 +1262,7 @@ class ListDocumentClassificationJobsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_document_classification_jobs' function.
 class ListDocumentClassificationJobsRequest(BaseValidatorModel):
     Filter: Optional[DocumentClassificationJobFilter] = None
     NextToken: Optional[str] = None
@@ -1185,6 +1274,7 @@ class ListDocumentClassifiersRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_document_classifiers' function.
 class ListDocumentClassifiersRequest(BaseValidatorModel):
     Filter: Optional[DocumentClassifierFilter] = None
     NextToken: Optional[str] = None
@@ -1196,6 +1286,7 @@ class ListDominantLanguageDetectionJobsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_dominant_language_detection_jobs' function.
 class ListDominantLanguageDetectionJobsRequest(BaseValidatorModel):
     Filter: Optional[DominantLanguageDetectionJobFilter] = None
     NextToken: Optional[str] = None
@@ -1207,6 +1298,7 @@ class ListEndpointsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_endpoints' function.
 class ListEndpointsRequest(BaseValidatorModel):
     Filter: Optional[EndpointFilter] = None
     NextToken: Optional[str] = None
@@ -1218,6 +1310,7 @@ class ListEntitiesDetectionJobsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_entities_detection_jobs' function.
 class ListEntitiesDetectionJobsRequest(BaseValidatorModel):
     Filter: Optional[EntitiesDetectionJobFilter] = None
     NextToken: Optional[str] = None
@@ -1229,24 +1322,28 @@ class ListEntityRecognizersRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_entity_recognizers' function.
 class ListEntityRecognizersRequest(BaseValidatorModel):
     Filter: Optional[EntityRecognizerFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_events_detection_jobs' function.
 class ListEventsDetectionJobsRequest(BaseValidatorModel):
     Filter: Optional[EventsDetectionJobFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_flywheels' function.
 class ListFlywheelsRequest(BaseValidatorModel):
     Filter: Optional[FlywheelFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_flywheel_iteration_history' function.
 class ListFlywheelIterationHistoryRequest(BaseValidatorModel):
     FlywheelArn: str
     Filter: Optional[FlywheelIterationFilter] = None
@@ -1259,6 +1356,7 @@ class ListKeyPhrasesDetectionJobsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_key_phrases_detection_jobs' function.
 class ListKeyPhrasesDetectionJobsRequest(BaseValidatorModel):
     Filter: Optional[KeyPhrasesDetectionJobFilter] = None
     NextToken: Optional[str] = None
@@ -1270,6 +1368,7 @@ class ListPiiEntitiesDetectionJobsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_pii_entities_detection_jobs' function.
 class ListPiiEntitiesDetectionJobsRequest(BaseValidatorModel):
     Filter: Optional[PiiEntitiesDetectionJobFilter] = None
     NextToken: Optional[str] = None
@@ -1281,12 +1380,14 @@ class ListSentimentDetectionJobsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_sentiment_detection_jobs' function.
 class ListSentimentDetectionJobsRequest(BaseValidatorModel):
     Filter: Optional[SentimentDetectionJobFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_targeted_sentiment_detection_jobs' function.
 class ListTargetedSentimentDetectionJobsRequest(BaseValidatorModel):
     Filter: Optional[TargetedSentimentDetectionJobFilter] = None
     NextToken: Optional[str] = None
@@ -1298,6 +1399,7 @@ class ListTopicsDetectionJobsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_topics_detection_jobs' function.
 class ListTopicsDetectionJobsRequest(BaseValidatorModel):
     Filter: Optional[TopicsDetectionJobFilter] = None
     NextToken: Optional[str] = None
@@ -1473,6 +1575,7 @@ class TopicsDetectionJobProperties(BaseValidatorModel):
 DocumentClassifierInputDataConfigUnion = Union[DocumentClassifierInputDataConfig, DocumentClassifierInputDataConfigOutput]
 
 
+# This class is the input for the 'classify_document' function.
 class ClassifyDocumentRequest(BaseValidatorModel):
     EndpointArn: str
     Text: Optional[str] = None
@@ -1480,6 +1583,7 @@ class ClassifyDocumentRequest(BaseValidatorModel):
     DocumentReaderConfig: Optional[DocumentReaderConfigUnion] = None
 
 
+# This class is the input for the 'detect_entities' function.
 class DetectEntitiesRequest(BaseValidatorModel):
     Text: Optional[str] = None
     LanguageCode: Optional[LanguageCodeType] = None
@@ -1490,6 +1594,7 @@ class DetectEntitiesRequest(BaseValidatorModel):
 InputDataConfigUnion = Union[InputDataConfig, InputDataConfigOutput]
 
 
+# This class is the output for the 'classify_document' function.
 class ClassifyDocumentResponse(BaseValidatorModel):
     Classes: List[DocumentClass]
     Labels: List[DocumentLabel]
@@ -1521,11 +1626,13 @@ class EntityRecognizerMetadata(BaseValidatorModel):
     EntityTypes: Optional[List[EntityRecognizerMetadataEntityTypesListItem]] = None
 
 
+# This class is the output for the 'describe_flywheel_iteration' function.
 class DescribeFlywheelIterationResponse(BaseValidatorModel):
     FlywheelIterationProperties: FlywheelIterationProperties
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_flywheel_iteration_history' function.
 class ListFlywheelIterationHistoryResponse(BaseValidatorModel):
     FlywheelIterationPropertiesList: List[FlywheelIterationProperties]
     ResponseMetadata: ResponseMetadata
@@ -1546,11 +1653,13 @@ class BatchDetectSyntaxItemResult(BaseValidatorModel):
     SyntaxTokens: Optional[List[SyntaxToken]] = None
 
 
+# This class is the output for the 'detect_syntax' function.
 class DetectSyntaxResponse(BaseValidatorModel):
     SyntaxTokens: List[SyntaxToken]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'detect_toxic_content' function.
 class DetectToxicContentResponse(BaseValidatorModel):
     ResultList: List[ToxicLabels]
     ResponseMetadata: ResponseMetadata
@@ -1566,6 +1675,7 @@ class BatchDetectEntitiesItemResult(BaseValidatorModel):
     Entities: Optional[List[Entity]] = None
 
 
+# This class is the input for the 'update_flywheel' function.
 class UpdateFlywheelRequest(BaseValidatorModel):
     FlywheelArn: str
     ActiveModelArn: Optional[str] = None
@@ -1573,6 +1683,7 @@ class UpdateFlywheelRequest(BaseValidatorModel):
     DataSecurityConfig: Optional[UpdateDataSecurityConfig] = None
 
 
+# This class is the input for the 'create_dataset' function.
 class CreateDatasetRequest(BaseValidatorModel):
     FlywheelArn: str
     DatasetName: str
@@ -1583,116 +1694,137 @@ class CreateDatasetRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'describe_document_classifier' function.
 class DescribeDocumentClassifierResponse(BaseValidatorModel):
     DocumentClassifierProperties: DocumentClassifierProperties
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_document_classifiers' function.
 class ListDocumentClassifiersResponse(BaseValidatorModel):
     DocumentClassifierPropertiesList: List[DocumentClassifierProperties]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_document_classification_job' function.
 class DescribeDocumentClassificationJobResponse(BaseValidatorModel):
     DocumentClassificationJobProperties: DocumentClassificationJobProperties
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_document_classification_jobs' function.
 class ListDocumentClassificationJobsResponse(BaseValidatorModel):
     DocumentClassificationJobPropertiesList: List[DocumentClassificationJobProperties]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_dominant_language_detection_job' function.
 class DescribeDominantLanguageDetectionJobResponse(BaseValidatorModel):
     DominantLanguageDetectionJobProperties: DominantLanguageDetectionJobProperties
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_dominant_language_detection_jobs' function.
 class ListDominantLanguageDetectionJobsResponse(BaseValidatorModel):
     DominantLanguageDetectionJobPropertiesList: List[DominantLanguageDetectionJobProperties]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_entities_detection_job' function.
 class DescribeEntitiesDetectionJobResponse(BaseValidatorModel):
     EntitiesDetectionJobProperties: EntitiesDetectionJobProperties
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_entities_detection_jobs' function.
 class ListEntitiesDetectionJobsResponse(BaseValidatorModel):
     EntitiesDetectionJobPropertiesList: List[EntitiesDetectionJobProperties]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_events_detection_job' function.
 class DescribeEventsDetectionJobResponse(BaseValidatorModel):
     EventsDetectionJobProperties: EventsDetectionJobProperties
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_events_detection_jobs' function.
 class ListEventsDetectionJobsResponse(BaseValidatorModel):
     EventsDetectionJobPropertiesList: List[EventsDetectionJobProperties]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_key_phrases_detection_job' function.
 class DescribeKeyPhrasesDetectionJobResponse(BaseValidatorModel):
     KeyPhrasesDetectionJobProperties: KeyPhrasesDetectionJobProperties
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_key_phrases_detection_jobs' function.
 class ListKeyPhrasesDetectionJobsResponse(BaseValidatorModel):
     KeyPhrasesDetectionJobPropertiesList: List[KeyPhrasesDetectionJobProperties]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_pii_entities_detection_job' function.
 class DescribePiiEntitiesDetectionJobResponse(BaseValidatorModel):
     PiiEntitiesDetectionJobProperties: PiiEntitiesDetectionJobProperties
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_pii_entities_detection_jobs' function.
 class ListPiiEntitiesDetectionJobsResponse(BaseValidatorModel):
     PiiEntitiesDetectionJobPropertiesList: List[PiiEntitiesDetectionJobProperties]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_sentiment_detection_job' function.
 class DescribeSentimentDetectionJobResponse(BaseValidatorModel):
     SentimentDetectionJobProperties: SentimentDetectionJobProperties
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_sentiment_detection_jobs' function.
 class ListSentimentDetectionJobsResponse(BaseValidatorModel):
     SentimentDetectionJobPropertiesList: List[SentimentDetectionJobProperties]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_targeted_sentiment_detection_job' function.
 class DescribeTargetedSentimentDetectionJobResponse(BaseValidatorModel):
     TargetedSentimentDetectionJobProperties: TargetedSentimentDetectionJobProperties
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_targeted_sentiment_detection_jobs' function.
 class ListTargetedSentimentDetectionJobsResponse(BaseValidatorModel):
     TargetedSentimentDetectionJobPropertiesList: List[TargetedSentimentDetectionJobProperties]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_topics_detection_job' function.
 class DescribeTopicsDetectionJobResponse(BaseValidatorModel):
     TopicsDetectionJobProperties: TopicsDetectionJobProperties
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_topics_detection_jobs' function.
 class ListTopicsDetectionJobsResponse(BaseValidatorModel):
     TopicsDetectionJobPropertiesList: List[TopicsDetectionJobProperties]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_document_classifier' function.
 class CreateDocumentClassifierRequest(BaseValidatorModel):
     DocumentClassifierName: str
     DataAccessRoleArn: str
@@ -1709,6 +1841,7 @@ class CreateDocumentClassifierRequest(BaseValidatorModel):
     ModelPolicy: Optional[str] = None
 
 
+# This class is the input for the 'start_document_classification_job' function.
 class StartDocumentClassificationJobRequest(BaseValidatorModel):
     InputDataConfig: InputDataConfigUnion
     OutputDataConfig: OutputDataConfig
@@ -1722,6 +1855,7 @@ class StartDocumentClassificationJobRequest(BaseValidatorModel):
     FlywheelArn: Optional[str] = None
 
 
+# This class is the input for the 'start_dominant_language_detection_job' function.
 class StartDominantLanguageDetectionJobRequest(BaseValidatorModel):
     InputDataConfig: InputDataConfigUnion
     OutputDataConfig: OutputDataConfig
@@ -1733,6 +1867,7 @@ class StartDominantLanguageDetectionJobRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'start_entities_detection_job' function.
 class StartEntitiesDetectionJobRequest(BaseValidatorModel):
     InputDataConfig: InputDataConfigUnion
     OutputDataConfig: OutputDataConfig
@@ -1747,6 +1882,7 @@ class StartEntitiesDetectionJobRequest(BaseValidatorModel):
     FlywheelArn: Optional[str] = None
 
 
+# This class is the input for the 'start_events_detection_job' function.
 class StartEventsDetectionJobRequest(BaseValidatorModel):
     InputDataConfig: InputDataConfigUnion
     OutputDataConfig: OutputDataConfig
@@ -1758,6 +1894,7 @@ class StartEventsDetectionJobRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'start_key_phrases_detection_job' function.
 class StartKeyPhrasesDetectionJobRequest(BaseValidatorModel):
     InputDataConfig: InputDataConfigUnion
     OutputDataConfig: OutputDataConfig
@@ -1770,6 +1907,7 @@ class StartKeyPhrasesDetectionJobRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'start_pii_entities_detection_job' function.
 class StartPiiEntitiesDetectionJobRequest(BaseValidatorModel):
     InputDataConfig: InputDataConfigUnion
     OutputDataConfig: OutputDataConfig
@@ -1782,6 +1920,7 @@ class StartPiiEntitiesDetectionJobRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'start_sentiment_detection_job' function.
 class StartSentimentDetectionJobRequest(BaseValidatorModel):
     InputDataConfig: InputDataConfigUnion
     OutputDataConfig: OutputDataConfig
@@ -1794,6 +1933,7 @@ class StartSentimentDetectionJobRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'start_targeted_sentiment_detection_job' function.
 class StartTargetedSentimentDetectionJobRequest(BaseValidatorModel):
     InputDataConfig: InputDataConfigUnion
     OutputDataConfig: OutputDataConfig
@@ -1806,6 +1946,7 @@ class StartTargetedSentimentDetectionJobRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'start_topics_detection_job' function.
 class StartTopicsDetectionJobRequest(BaseValidatorModel):
     InputDataConfig: InputDataConfigUnion
     OutputDataConfig: OutputDataConfig
@@ -1835,6 +1976,7 @@ class FlywheelProperties(BaseValidatorModel):
 TaskConfigUnion = Union[TaskConfig, TaskConfigOutput]
 
 
+# This class is the input for the 'create_entity_recognizer' function.
 class CreateEntityRecognizerRequest(BaseValidatorModel):
     RecognizerName: str
     DataAccessRoleArn: str
@@ -1870,6 +2012,7 @@ class EntityRecognizerProperties(BaseValidatorModel):
     OutputDataConfig: Optional[EntityRecognizerOutputDataConfig] = None
 
 
+# This class is the output for the 'detect_entities' function.
 class DetectEntitiesResponse(BaseValidatorModel):
     Entities: List[Entity]
     DocumentMetadata: DocumentMetadata
@@ -1879,6 +2022,7 @@ class DetectEntitiesResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_detect_syntax' function.
 class BatchDetectSyntaxResponse(BaseValidatorModel):
     ResultList: List[BatchDetectSyntaxItemResult]
     ErrorList: List[BatchItemError]
@@ -1890,27 +2034,32 @@ class BatchDetectTargetedSentimentItemResult(BaseValidatorModel):
     Entities: Optional[List[TargetedSentimentEntity]] = None
 
 
+# This class is the output for the 'detect_targeted_sentiment' function.
 class DetectTargetedSentimentResponse(BaseValidatorModel):
     Entities: List[TargetedSentimentEntity]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_detect_entities' function.
 class BatchDetectEntitiesResponse(BaseValidatorModel):
     ResultList: List[BatchDetectEntitiesItemResult]
     ErrorList: List[BatchItemError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_flywheel' function.
 class DescribeFlywheelResponse(BaseValidatorModel):
     FlywheelProperties: FlywheelProperties
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_flywheel' function.
 class UpdateFlywheelResponse(BaseValidatorModel):
     FlywheelProperties: FlywheelProperties
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_flywheel' function.
 class CreateFlywheelRequest(BaseValidatorModel):
     FlywheelName: str
     DataAccessRoleArn: str
@@ -1923,17 +2072,20 @@ class CreateFlywheelRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'describe_entity_recognizer' function.
 class DescribeEntityRecognizerResponse(BaseValidatorModel):
     EntityRecognizerProperties: EntityRecognizerProperties
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_entity_recognizers' function.
 class ListEntityRecognizersResponse(BaseValidatorModel):
     EntityRecognizerPropertiesList: List[EntityRecognizerProperties]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'batch_detect_targeted_sentiment' function.
 class BatchDetectTargetedSentimentResponse(BaseValidatorModel):
     ResultList: List[BatchDetectTargetedSentimentItemResult]
     ErrorList: List[BatchItemError]

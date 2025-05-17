@@ -121,15 +121,18 @@ class DeleteQueueRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the input for the 'get_cluster' function.
 class GetClusterRequest(BaseValidatorModel):
     clusterIdentifier: str
 
 
+# This class is the input for the 'get_compute_node_group' function.
 class GetComputeNodeGroupRequest(BaseValidatorModel):
     clusterIdentifier: str
     computeNodeGroupIdentifier: str
 
 
+# This class is the input for the 'get_queue' function.
 class GetQueueRequest(BaseValidatorModel):
     clusterIdentifier: str
     queueIdentifier: str
@@ -141,17 +144,20 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_clusters' function.
 class ListClustersRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_compute_node_groups' function.
 class ListComputeNodeGroupsRequest(BaseValidatorModel):
     clusterIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_queues' function.
 class ListQueuesRequest(BaseValidatorModel):
     clusterIdentifier: str
     nextToken: Optional[str] = None
@@ -168,20 +174,24 @@ class QueueSummary(BaseValidatorModel):
     status: QueueStatusType
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
+# This class is the input for the 'register_compute_node_group_instance' function.
 class RegisterComputeNodeGroupInstanceRequest(BaseValidatorModel):
     clusterIdentifier: str
     bootstrapId: str
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Dict[str, str]
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: List[str]
@@ -210,6 +220,7 @@ class ClusterSlurmConfiguration(BaseValidatorModel):
     authKey: Optional[SlurmAuthKey] = None
 
 
+# This class is the input for the 'create_queue' function.
 class CreateQueueRequest(BaseValidatorModel):
     clusterIdentifier: str
     queueName: str
@@ -230,6 +241,7 @@ class Queue(BaseValidatorModel):
     errorInfo: Optional[List[ErrorInfo]] = None
 
 
+# This class is the input for the 'update_queue' function.
 class UpdateQueueRequest(BaseValidatorModel):
     clusterIdentifier: str
     queueIdentifier: str
@@ -237,27 +249,32 @@ class UpdateQueueRequest(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
+# This class is the output for the 'untag_resource' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_clusters' function.
 class ListClustersResponse(BaseValidatorModel):
     clusters: List[ClusterSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_compute_node_groups' function.
 class ListComputeNodeGroupsResponse(BaseValidatorModel):
     computeNodeGroups: List[ComputeNodeGroupSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'register_compute_node_group_instance' function.
 class RegisterComputeNodeGroupInstanceResponse(BaseValidatorModel):
     nodeID: str
     sharedSecret: str
@@ -279,12 +296,14 @@ class ListQueuesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_queues' function.
 class ListQueuesResponse(BaseValidatorModel):
     queues: List[QueueSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_cluster' function.
 class CreateClusterRequest(BaseValidatorModel):
     clusterName: str
     scheduler: SchedulerRequest
@@ -295,6 +314,7 @@ class CreateClusterRequest(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_compute_node_group' function.
 class CreateComputeNodeGroupRequest(BaseValidatorModel):
     clusterIdentifier: str
     computeNodeGroupName: str
@@ -331,6 +351,7 @@ class ComputeNodeGroup(BaseValidatorModel):
     errorInfo: Optional[List[ErrorInfo]] = None
 
 
+# This class is the input for the 'update_compute_node_group' function.
 class UpdateComputeNodeGroupRequest(BaseValidatorModel):
     clusterIdentifier: str
     computeNodeGroupIdentifier: str
@@ -360,41 +381,49 @@ class Cluster(BaseValidatorModel):
     errorInfo: Optional[List[ErrorInfo]] = None
 
 
+# This class is the output for the 'create_queue' function.
 class CreateQueueResponse(BaseValidatorModel):
     queue: Queue
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_queue' function.
 class GetQueueResponse(BaseValidatorModel):
     queue: Queue
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_queue' function.
 class UpdateQueueResponse(BaseValidatorModel):
     queue: Queue
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_compute_node_group' function.
 class CreateComputeNodeGroupResponse(BaseValidatorModel):
     computeNodeGroup: ComputeNodeGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_compute_node_group' function.
 class GetComputeNodeGroupResponse(BaseValidatorModel):
     computeNodeGroup: ComputeNodeGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_compute_node_group' function.
 class UpdateComputeNodeGroupResponse(BaseValidatorModel):
     computeNodeGroup: ComputeNodeGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_cluster' function.
 class CreateClusterResponse(BaseValidatorModel):
     cluster: Cluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_cluster' function.
 class GetClusterResponse(BaseValidatorModel):
     cluster: Cluster
     ResponseMetadata: ResponseMetadata

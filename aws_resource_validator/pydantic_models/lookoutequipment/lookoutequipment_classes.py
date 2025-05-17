@@ -66,60 +66,74 @@ class DatasetSummary(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'delete_dataset' function.
 class DeleteDatasetRequest(BaseValidatorModel):
     DatasetName: str
 
 
+# This class is the input for the 'delete_inference_scheduler' function.
 class DeleteInferenceSchedulerRequest(BaseValidatorModel):
     InferenceSchedulerName: str
 
 
+# This class is the input for the 'delete_label_group' function.
 class DeleteLabelGroupRequest(BaseValidatorModel):
     LabelGroupName: str
 
 
+# This class is the input for the 'delete_label' function.
 class DeleteLabelRequest(BaseValidatorModel):
     LabelGroupName: str
     LabelId: str
 
 
+# This class is the input for the 'delete_model' function.
 class DeleteModelRequest(BaseValidatorModel):
     ModelName: str
 
 
+# This class is the input for the 'delete_resource_policy' function.
 class DeleteResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'delete_retraining_scheduler' function.
 class DeleteRetrainingSchedulerRequest(BaseValidatorModel):
     ModelName: str
 
 
+# This class is the input for the 'describe_data_ingestion_job' function.
 class DescribeDataIngestionJobRequest(BaseValidatorModel):
     JobId: str
 
 
+# This class is the input for the 'describe_dataset' function.
 class DescribeDatasetRequest(BaseValidatorModel):
     DatasetName: str
 
 
+# This class is the input for the 'describe_inference_scheduler' function.
 class DescribeInferenceSchedulerRequest(BaseValidatorModel):
     InferenceSchedulerName: str
 
 
+# This class is the input for the 'describe_label_group' function.
 class DescribeLabelGroupRequest(BaseValidatorModel):
     LabelGroupName: str
 
 
+# This class is the input for the 'describe_label' function.
 class DescribeLabelRequest(BaseValidatorModel):
     LabelGroupName: str
     LabelId: str
 
 
+# This class is the input for the 'describe_model' function.
 class DescribeModelRequest(BaseValidatorModel):
     ModelName: str
 
 
+# This class is the input for the 'describe_model_version' function.
 class DescribeModelVersionRequest(BaseValidatorModel):
     ModelName: str
     ModelVersion: int
@@ -130,10 +144,12 @@ class S3Object(BaseValidatorModel):
     Key: str
 
 
+# This class is the input for the 'describe_resource_policy' function.
 class DescribeResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'describe_retraining_scheduler' function.
 class DescribeRetrainingSchedulerRequest(BaseValidatorModel):
     ModelName: str
 
@@ -217,6 +233,7 @@ class LargeTimestampGaps(BaseValidatorModel):
     MaxTimestampGapInDays: Optional[int] = None
 
 
+# This class is the input for the 'list_data_ingestion_jobs' function.
 class ListDataIngestionJobsRequest(BaseValidatorModel):
     DatasetName: Optional[str] = None
     NextToken: Optional[str] = None
@@ -224,12 +241,14 @@ class ListDataIngestionJobsRequest(BaseValidatorModel):
     Status: Optional[IngestionJobStatusType] = None
 
 
+# This class is the input for the 'list_datasets' function.
 class ListDatasetsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     DatasetNameBeginsWith: Optional[str] = None
 
 
+# This class is the input for the 'list_inference_schedulers' function.
 class ListInferenceSchedulersRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -238,6 +257,7 @@ class ListInferenceSchedulersRequest(BaseValidatorModel):
     Status: Optional[InferenceSchedulerStatusType] = None
 
 
+# This class is the input for the 'list_label_groups' function.
 class ListLabelGroupsRequest(BaseValidatorModel):
     LabelGroupNameBeginsWith: Optional[str] = None
     NextToken: Optional[str] = None
@@ -255,6 +275,7 @@ class ModelVersionSummary(BaseValidatorModel):
     ModelQuality: Optional[ModelQualityType] = None
 
 
+# This class is the input for the 'list_models' function.
 class ListModelsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -263,6 +284,7 @@ class ListModelsRequest(BaseValidatorModel):
     DatasetNameBeginsWith: Optional[str] = None
 
 
+# This class is the input for the 'list_retraining_schedulers' function.
 class ListRetrainingSchedulersRequest(BaseValidatorModel):
     ModelNameBeginsWith: Optional[str] = None
     Status: Optional[RetrainingSchedulerStatusType] = None
@@ -279,6 +301,7 @@ class RetrainingSchedulerSummary(BaseValidatorModel):
     LookbackWindow: Optional[str] = None
 
 
+# This class is the input for the 'list_sensor_statistics' function.
 class ListSensorStatisticsRequest(BaseValidatorModel):
     DatasetName: str
     IngestionJobId: Optional[str] = None
@@ -286,6 +309,7 @@ class ListSensorStatisticsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -304,6 +328,7 @@ class MultipleOperatingModes(BaseValidatorModel):
     Status: StatisticalIssueStatusType
 
 
+# This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
     ResourcePolicy: str
@@ -311,18 +336,22 @@ class PutResourcePolicyRequest(BaseValidatorModel):
     PolicyRevisionId: Optional[str] = None
 
 
+# This class is the input for the 'start_inference_scheduler' function.
 class StartInferenceSchedulerRequest(BaseValidatorModel):
     InferenceSchedulerName: str
 
 
+# This class is the input for the 'start_retraining_scheduler' function.
 class StartRetrainingSchedulerRequest(BaseValidatorModel):
     ModelName: str
 
 
+# This class is the input for the 'stop_inference_scheduler' function.
 class StopInferenceSchedulerRequest(BaseValidatorModel):
     InferenceSchedulerName: str
 
 
+# This class is the input for the 'stop_retraining_scheduler' function.
 class StopRetrainingSchedulerRequest(BaseValidatorModel):
     ModelName: str
 
@@ -332,16 +361,19 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_active_model_version' function.
 class UpdateActiveModelVersionRequest(BaseValidatorModel):
     ModelName: str
     ModelVersion: int
 
 
+# This class is the input for the 'update_label_group' function.
 class UpdateLabelGroupRequest(BaseValidatorModel):
     LabelGroupName: str
     FaultCodes: Optional[List[str]] = None
 
 
+# This class is the input for the 'create_dataset' function.
 class CreateDatasetRequest(BaseValidatorModel):
     DatasetName: str
     ClientToken: str
@@ -350,6 +382,7 @@ class CreateDatasetRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_label_group' function.
 class CreateLabelGroupRequest(BaseValidatorModel):
     LabelGroupName: str
     ClientToken: str
@@ -357,6 +390,7 @@ class CreateLabelGroupRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'import_dataset' function.
 class ImportDatasetRequest(BaseValidatorModel):
     SourceDatasetArn: str
     ClientToken: str
@@ -370,6 +404,7 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the output for the 'create_dataset' function.
 class CreateDatasetResponse(BaseValidatorModel):
     DatasetName: str
     DatasetArn: str
@@ -377,6 +412,7 @@ class CreateDatasetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_inference_scheduler' function.
 class CreateInferenceSchedulerResponse(BaseValidatorModel):
     InferenceSchedulerArn: str
     InferenceSchedulerName: str
@@ -385,23 +421,27 @@ class CreateInferenceSchedulerResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_label_group' function.
 class CreateLabelGroupResponse(BaseValidatorModel):
     LabelGroupName: str
     LabelGroupArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_label' function.
 class CreateLabelResponse(BaseValidatorModel):
     LabelId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_model' function.
 class CreateModelResponse(BaseValidatorModel):
     ModelArn: str
     Status: ModelStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_retraining_scheduler' function.
 class CreateRetrainingSchedulerResponse(BaseValidatorModel):
     ModelName: str
     ModelArn: str
@@ -409,6 +449,7 @@ class CreateRetrainingSchedulerResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_label_group' function.
 class DescribeLabelGroupResponse(BaseValidatorModel):
     LabelGroupName: str
     LabelGroupArn: str
@@ -418,6 +459,7 @@ class DescribeLabelGroupResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_label' function.
 class DescribeLabelResponse(BaseValidatorModel):
     LabelGroupName: str
     LabelGroupArn: str
@@ -432,6 +474,7 @@ class DescribeLabelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_resource_policy' function.
 class DescribeResourcePolicyResponse(BaseValidatorModel):
     PolicyRevisionId: str
     ResourcePolicy: str
@@ -440,6 +483,7 @@ class DescribeResourcePolicyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_retraining_scheduler' function.
 class DescribeRetrainingSchedulerResponse(BaseValidatorModel):
     ModelName: str
     ModelArn: str
@@ -453,10 +497,12 @@ class DescribeRetrainingSchedulerResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_retraining_scheduler' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_dataset' function.
 class ImportDatasetResponse(BaseValidatorModel):
     DatasetName: str
     DatasetArn: str
@@ -465,6 +511,7 @@ class ImportDatasetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'import_model_version' function.
 class ImportModelVersionResponse(BaseValidatorModel):
     ModelName: str
     ModelArn: str
@@ -474,23 +521,27 @@ class ImportModelVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_resource_policy' function.
 class PutResourcePolicyResponse(BaseValidatorModel):
     ResourceArn: str
     PolicyRevisionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_data_ingestion_job' function.
 class StartDataIngestionJobResponse(BaseValidatorModel):
     JobId: str
     Status: IngestionJobStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_inference_scheduler' function.
 class StartInferenceSchedulerResponse(BaseValidatorModel):
     ModelArn: str
     ModelName: str
@@ -500,6 +551,7 @@ class StartInferenceSchedulerResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_retraining_scheduler' function.
 class StartRetrainingSchedulerResponse(BaseValidatorModel):
     ModelName: str
     ModelArn: str
@@ -507,6 +559,7 @@ class StartRetrainingSchedulerResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_inference_scheduler' function.
 class StopInferenceSchedulerResponse(BaseValidatorModel):
     ModelArn: str
     ModelName: str
@@ -516,6 +569,7 @@ class StopInferenceSchedulerResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_retraining_scheduler' function.
 class StopRetrainingSchedulerResponse(BaseValidatorModel):
     ModelName: str
     ModelArn: str
@@ -523,6 +577,7 @@ class StopRetrainingSchedulerResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_active_model_version' function.
 class UpdateActiveModelVersionResponse(BaseValidatorModel):
     ModelName: str
     ModelArn: str
@@ -533,6 +588,7 @@ class UpdateActiveModelVersionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_label' function.
 class CreateLabelRequest(BaseValidatorModel):
     LabelGroupName: str
     StartTime: Timestamp
@@ -544,6 +600,7 @@ class CreateLabelRequest(BaseValidatorModel):
     Equipment: Optional[str] = None
 
 
+# This class is the input for the 'create_retraining_scheduler' function.
 class CreateRetrainingSchedulerRequest(BaseValidatorModel):
     ModelName: str
     RetrainingFrequency: str
@@ -553,6 +610,7 @@ class CreateRetrainingSchedulerRequest(BaseValidatorModel):
     PromoteMode: Optional[ModelPromoteModeType] = None
 
 
+# This class is the input for the 'list_inference_events' function.
 class ListInferenceEventsRequest(BaseValidatorModel):
     InferenceSchedulerName: str
     IntervalStartTime: Timestamp
@@ -561,6 +619,7 @@ class ListInferenceEventsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_inference_executions' function.
 class ListInferenceExecutionsRequest(BaseValidatorModel):
     InferenceSchedulerName: str
     NextToken: Optional[str] = None
@@ -570,6 +629,7 @@ class ListInferenceExecutionsRequest(BaseValidatorModel):
     Status: Optional[InferenceExecutionStatusType] = None
 
 
+# This class is the input for the 'list_labels' function.
 class ListLabelsRequest(BaseValidatorModel):
     LabelGroupName: str
     IntervalStartTime: Optional[Timestamp] = None
@@ -580,6 +640,7 @@ class ListLabelsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_model_versions' function.
 class ListModelVersionsRequest(BaseValidatorModel):
     ModelName: str
     NextToken: Optional[str] = None
@@ -592,6 +653,7 @@ class ListModelVersionsRequest(BaseValidatorModel):
     MinModelVersion: Optional[int] = None
 
 
+# This class is the input for the 'update_retraining_scheduler' function.
 class UpdateRetrainingSchedulerRequest(BaseValidatorModel):
     ModelName: str
     RetrainingStartDate: Optional[Timestamp] = None
@@ -600,6 +662,7 @@ class UpdateRetrainingSchedulerRequest(BaseValidatorModel):
     PromoteMode: Optional[ModelPromoteModeType] = None
 
 
+# This class is the output for the 'list_datasets' function.
 class ListDatasetsResponse(BaseValidatorModel):
     DatasetSummaries: List[DatasetSummary]
     ResponseMetadata: ResponseMetadata
@@ -612,6 +675,7 @@ class IngestedFilesSummary(BaseValidatorModel):
     DiscardedFiles: Optional[List[S3Object]] = None
 
 
+# This class is the output for the 'list_inference_events' function.
 class ListInferenceEventsResponse(BaseValidatorModel):
     InferenceEventSummaries: List[InferenceEventSummary]
     ResponseMetadata: ResponseMetadata
@@ -629,6 +693,7 @@ class InferenceOutputConfiguration(BaseValidatorModel):
     KmsKeyId: Optional[str] = None
 
 
+# This class is the output for the 'list_inference_schedulers' function.
 class ListInferenceSchedulersResponse(BaseValidatorModel):
     InferenceSchedulerSummaries: List[InferenceSchedulerSummary]
     ResponseMetadata: ResponseMetadata
@@ -644,12 +709,14 @@ class InsufficientSensorData(BaseValidatorModel):
     SensorsWithShortDateRange: SensorsWithShortDateRange
 
 
+# This class is the output for the 'list_label_groups' function.
 class ListLabelGroupsResponse(BaseValidatorModel):
     LabelGroupSummaries: List[LabelGroupSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_labels' function.
 class ListLabelsResponse(BaseValidatorModel):
     LabelSummaries: List[LabelSummary]
     ResponseMetadata: ResponseMetadata
@@ -661,12 +728,14 @@ class LabelsInputConfiguration(BaseValidatorModel):
     LabelGroupName: Optional[str] = None
 
 
+# This class is the output for the 'list_model_versions' function.
 class ListModelVersionsResponse(BaseValidatorModel):
     ModelVersionSummaries: List[ModelVersionSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_retraining_schedulers' function.
 class ListRetrainingSchedulersResponse(BaseValidatorModel):
     RetrainingSchedulerSummaries: List[RetrainingSchedulerSummary]
     ResponseMetadata: ResponseMetadata
@@ -694,6 +763,7 @@ class SensorStatisticsSummary(BaseValidatorModel):
     DataEndTime: Optional[datetime] = None
 
 
+# This class is the input for the 'create_inference_scheduler' function.
 class CreateInferenceSchedulerRequest(BaseValidatorModel):
     ModelName: str
     InferenceSchedulerName: str
@@ -707,6 +777,7 @@ class CreateInferenceSchedulerRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'describe_inference_scheduler' function.
 class DescribeInferenceSchedulerResponse(BaseValidatorModel):
     ModelArn: str
     ModelName: str
@@ -742,6 +813,7 @@ class InferenceExecutionSummary(BaseValidatorModel):
     ModelVersionArn: Optional[str] = None
 
 
+# This class is the input for the 'update_inference_scheduler' function.
 class UpdateInferenceSchedulerRequest(BaseValidatorModel):
     InferenceSchedulerName: str
     DataDelayOffsetInMinutes: Optional[int] = None
@@ -759,6 +831,7 @@ class DataIngestionJobSummary(BaseValidatorModel):
     Status: Optional[IngestionJobStatusType] = None
 
 
+# This class is the input for the 'start_data_ingestion_job' function.
 class StartDataIngestionJobRequest(BaseValidatorModel):
     DatasetName: str
     IngestionInputConfiguration: IngestionInputConfiguration
@@ -774,6 +847,7 @@ class DataQualitySummary(BaseValidatorModel):
     DuplicateTimestamps: DuplicateTimestamps
 
 
+# This class is the input for the 'import_model_version' function.
 class ImportModelVersionRequest(BaseValidatorModel):
     SourceModelVersionArn: str
     DatasetName: str
@@ -786,6 +860,7 @@ class ImportModelVersionRequest(BaseValidatorModel):
     InferenceDataImportStrategy: Optional[InferenceDataImportStrategyType] = None
 
 
+# This class is the input for the 'create_model' function.
 class CreateModelRequest(BaseValidatorModel):
     ModelName: str
     DatasetName: str
@@ -804,6 +879,7 @@ class CreateModelRequest(BaseValidatorModel):
     ModelDiagnosticsOutputConfiguration: Optional[ModelDiagnosticsOutputConfiguration] = None
 
 
+# This class is the output for the 'describe_model' function.
 class DescribeModelResponse(BaseValidatorModel):
     ModelName: str
     ModelArn: str
@@ -850,6 +926,7 @@ class DescribeModelResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_model_version' function.
 class DescribeModelVersionResponse(BaseValidatorModel):
     ModelName: str
     ModelArn: str
@@ -907,6 +984,7 @@ class ModelSummary(BaseValidatorModel):
     ModelQuality: Optional[ModelQualityType] = None
 
 
+# This class is the input for the 'update_model' function.
 class UpdateModelRequest(BaseValidatorModel):
     ModelName: str
     LabelsInputConfiguration: Optional[LabelsInputConfiguration] = None
@@ -914,24 +992,28 @@ class UpdateModelRequest(BaseValidatorModel):
     ModelDiagnosticsOutputConfiguration: Optional[ModelDiagnosticsOutputConfiguration] = None
 
 
+# This class is the output for the 'list_sensor_statistics' function.
 class ListSensorStatisticsResponse(BaseValidatorModel):
     SensorStatisticsSummaries: List[SensorStatisticsSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_inference_executions' function.
 class ListInferenceExecutionsResponse(BaseValidatorModel):
     InferenceExecutionSummaries: List[InferenceExecutionSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_data_ingestion_jobs' function.
 class ListDataIngestionJobsResponse(BaseValidatorModel):
     DataIngestionJobSummaries: List[DataIngestionJobSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_data_ingestion_job' function.
 class DescribeDataIngestionJobResponse(BaseValidatorModel):
     JobId: str
     DatasetArn: str
@@ -950,6 +1032,7 @@ class DescribeDataIngestionJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_dataset' function.
 class DescribeDatasetResponse(BaseValidatorModel):
     DatasetName: str
     DatasetArn: str
@@ -968,6 +1051,7 @@ class DescribeDatasetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_models' function.
 class ListModelsResponse(BaseValidatorModel):
     ModelSummaries: List[ModelSummary]
     ResponseMetadata: ResponseMetadata

@@ -31,6 +31,7 @@ class Authentication(BaseValidatorModel):
     PasswordCount: Optional[int] = None
 
 
+# This class is the input for the 'authorize_cache_security_group_ingress' function.
 class AuthorizeCacheSecurityGroupIngressMessage(BaseValidatorModel):
     CacheSecurityGroupName: str
     EC2SecurityGroupName: str
@@ -41,12 +42,14 @@ class AvailabilityZone(BaseValidatorModel):
     Name: Optional[str] = None
 
 
+# This class is the input for the 'batch_apply_update_action' function.
 class BatchApplyUpdateActionMessage(BaseValidatorModel):
     ServiceUpdateName: str
     ReplicationGroupIds: Optional[List[str]] = None
     CacheClusterIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'batch_stop_update_action' function.
 class BatchStopUpdateActionMessage(BaseValidatorModel):
     ServiceUpdateName: str
     ReplicationGroupIds: Optional[List[str]] = None
@@ -144,6 +147,7 @@ class CloudWatchLogsDestinationDetails(BaseValidatorModel):
     LogGroup: Optional[str] = None
 
 
+# This class is the input for the 'complete_migration' function.
 class CompleteMigrationMessage(BaseValidatorModel):
     ReplicationGroupId: str
     Force: Optional[bool] = None
@@ -156,6 +160,7 @@ class ConfigureShard(BaseValidatorModel):
     PreferredOutpostArns: Optional[List[str]] = None
 
 
+# This class is the input for the 'create_global_replication_group' function.
 class CreateGlobalReplicationGroupMessage(BaseValidatorModel):
     GlobalReplicationGroupIdSuffix: str
     PrimaryReplicationGroupId: str
@@ -167,6 +172,7 @@ class CustomerNodeEndpoint(BaseValidatorModel):
     Port: Optional[int] = None
 
 
+# This class is the input for the 'decrease_node_groups_in_global_replication_group' function.
 class DecreaseNodeGroupsInGlobalReplicationGroupMessage(BaseValidatorModel):
     GlobalReplicationGroupId: str
     NodeGroupCount: int
@@ -175,51 +181,62 @@ class DecreaseNodeGroupsInGlobalReplicationGroupMessage(BaseValidatorModel):
     GlobalNodeGroupsToRetain: Optional[List[str]] = None
 
 
+# This class is the input for the 'delete_cache_cluster' function.
 class DeleteCacheClusterMessage(BaseValidatorModel):
     CacheClusterId: str
     FinalSnapshotIdentifier: Optional[str] = None
 
 
+# This class is the input for the 'delete_cache_parameter_group' function.
 class DeleteCacheParameterGroupMessage(BaseValidatorModel):
     CacheParameterGroupName: str
 
 
+# This class is the input for the 'delete_cache_security_group' function.
 class DeleteCacheSecurityGroupMessage(BaseValidatorModel):
     CacheSecurityGroupName: str
 
 
+# This class is the input for the 'delete_cache_subnet_group' function.
 class DeleteCacheSubnetGroupMessage(BaseValidatorModel):
     CacheSubnetGroupName: str
 
 
+# This class is the input for the 'delete_global_replication_group' function.
 class DeleteGlobalReplicationGroupMessage(BaseValidatorModel):
     GlobalReplicationGroupId: str
     RetainPrimaryReplicationGroup: bool
 
 
+# This class is the input for the 'delete_replication_group' function.
 class DeleteReplicationGroupMessage(BaseValidatorModel):
     ReplicationGroupId: str
     RetainPrimaryCluster: Optional[bool] = None
     FinalSnapshotIdentifier: Optional[str] = None
 
 
+# This class is the input for the 'delete_serverless_cache' function.
 class DeleteServerlessCacheRequest(BaseValidatorModel):
     ServerlessCacheName: str
     FinalSnapshotName: Optional[str] = None
 
 
+# This class is the input for the 'delete_serverless_cache_snapshot' function.
 class DeleteServerlessCacheSnapshotRequest(BaseValidatorModel):
     ServerlessCacheSnapshotName: str
 
 
+# This class is the input for the 'delete_snapshot' function.
 class DeleteSnapshotMessage(BaseValidatorModel):
     SnapshotName: str
 
 
+# This class is the input for the 'delete_user_group' function.
 class DeleteUserGroupMessage(BaseValidatorModel):
     UserGroupId: str
 
 
+# This class is the input for the 'delete_user' function.
 class DeleteUserMessage(BaseValidatorModel):
     UserId: str
 
@@ -230,6 +247,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_cache_clusters' function.
 class DescribeCacheClustersMessage(BaseValidatorModel):
     CacheClusterId: Optional[str] = None
     MaxRecords: Optional[int] = None
@@ -243,6 +261,7 @@ class WaiterConfig(BaseValidatorModel):
     MaxAttempts: Optional[int] = None
 
 
+# This class is the input for the 'describe_cache_engine_versions' function.
 class DescribeCacheEngineVersionsMessage(BaseValidatorModel):
     Engine: Optional[str] = None
     EngineVersion: Optional[str] = None
@@ -252,12 +271,14 @@ class DescribeCacheEngineVersionsMessage(BaseValidatorModel):
     DefaultOnly: Optional[bool] = None
 
 
+# This class is the input for the 'describe_cache_parameter_groups' function.
 class DescribeCacheParameterGroupsMessage(BaseValidatorModel):
     CacheParameterGroupName: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_cache_parameters' function.
 class DescribeCacheParametersMessage(BaseValidatorModel):
     CacheParameterGroupName: str
     Source: Optional[str] = None
@@ -265,18 +286,21 @@ class DescribeCacheParametersMessage(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_cache_security_groups' function.
 class DescribeCacheSecurityGroupsMessage(BaseValidatorModel):
     CacheSecurityGroupName: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_cache_subnet_groups' function.
 class DescribeCacheSubnetGroupsMessage(BaseValidatorModel):
     CacheSubnetGroupName: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_engine_default_parameters' function.
 class DescribeEngineDefaultParametersMessage(BaseValidatorModel):
     CacheParameterGroupFamily: str
     MaxRecords: Optional[int] = None
@@ -285,6 +309,7 @@ class DescribeEngineDefaultParametersMessage(BaseValidatorModel):
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'describe_global_replication_groups' function.
 class DescribeGlobalReplicationGroupsMessage(BaseValidatorModel):
     GlobalReplicationGroupId: Optional[str] = None
     MaxRecords: Optional[int] = None
@@ -292,12 +317,14 @@ class DescribeGlobalReplicationGroupsMessage(BaseValidatorModel):
     ShowMemberInfo: Optional[bool] = None
 
 
+# This class is the input for the 'describe_replication_groups' function.
 class DescribeReplicationGroupsMessage(BaseValidatorModel):
     ReplicationGroupId: Optional[str] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_reserved_cache_nodes' function.
 class DescribeReservedCacheNodesMessage(BaseValidatorModel):
     ReservedCacheNodeId: Optional[str] = None
     ReservedCacheNodesOfferingId: Optional[str] = None
@@ -309,6 +336,7 @@ class DescribeReservedCacheNodesMessage(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_reserved_cache_nodes_offerings' function.
 class DescribeReservedCacheNodesOfferingsMessage(BaseValidatorModel):
     ReservedCacheNodesOfferingId: Optional[str] = None
     CacheNodeType: Optional[str] = None
@@ -319,6 +347,7 @@ class DescribeReservedCacheNodesOfferingsMessage(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_serverless_cache_snapshots' function.
 class DescribeServerlessCacheSnapshotsRequest(BaseValidatorModel):
     ServerlessCacheName: Optional[str] = None
     ServerlessCacheSnapshotName: Optional[str] = None
@@ -327,12 +356,14 @@ class DescribeServerlessCacheSnapshotsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'describe_serverless_caches' function.
 class DescribeServerlessCachesRequest(BaseValidatorModel):
     ServerlessCacheName: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'describe_service_updates' function.
 class DescribeServiceUpdatesMessage(BaseValidatorModel):
     ServiceUpdateName: Optional[str] = None
     ServiceUpdateStatus: Optional[List[ServiceUpdateStatusType]] = None
@@ -340,6 +371,7 @@ class DescribeServiceUpdatesMessage(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
+# This class is the input for the 'describe_snapshots' function.
 class DescribeSnapshotsMessage(BaseValidatorModel):
     ReplicationGroupId: Optional[str] = None
     CacheClusterId: Optional[str] = None
@@ -350,6 +382,7 @@ class DescribeSnapshotsMessage(BaseValidatorModel):
     ShowNodeGroupConfig: Optional[bool] = None
 
 
+# This class is the input for the 'describe_user_groups' function.
 class DescribeUserGroupsMessage(BaseValidatorModel):
     UserGroupId: Optional[str] = None
     MaxRecords: Optional[int] = None
@@ -365,6 +398,7 @@ class KinesisFirehoseDestinationDetails(BaseValidatorModel):
     DeliveryStream: Optional[str] = None
 
 
+# This class is the input for the 'disassociate_global_replication_group' function.
 class DisassociateGlobalReplicationGroupMessage(BaseValidatorModel):
     GlobalReplicationGroupId: str
     ReplicationGroupId: str
@@ -378,11 +412,13 @@ class Event(BaseValidatorModel):
     Date: Optional[datetime] = None
 
 
+# This class is the input for the 'export_serverless_cache_snapshot' function.
 class ExportServerlessCacheSnapshotRequest(BaseValidatorModel):
     ServerlessCacheSnapshotName: str
     S3BucketName: str
 
 
+# This class is the input for the 'failover_global_replication_group' function.
 class FailoverGlobalReplicationGroupMessage(BaseValidatorModel):
     GlobalReplicationGroupId: str
     PrimaryRegion: str
@@ -407,11 +443,13 @@ class GlobalReplicationGroupMember(BaseValidatorModel):
     Status: Optional[str] = None
 
 
+# This class is the input for the 'list_allowed_node_type_modifications' function.
 class ListAllowedNodeTypeModificationsMessage(BaseValidatorModel):
     CacheClusterId: Optional[str] = None
     ReplicationGroupId: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceMessage(BaseValidatorModel):
     ResourceName: str
 
@@ -421,12 +459,14 @@ class ParameterNameValue(BaseValidatorModel):
     ParameterValue: Optional[str] = None
 
 
+# This class is the input for the 'modify_cache_subnet_group' function.
 class ModifyCacheSubnetGroupMessage(BaseValidatorModel):
     CacheSubnetGroupName: str
     CacheSubnetGroupDescription: Optional[str] = None
     SubnetIds: Optional[List[str]] = None
 
 
+# This class is the input for the 'modify_global_replication_group' function.
 class ModifyGlobalReplicationGroupMessage(BaseValidatorModel):
     GlobalReplicationGroupId: str
     ApplyImmediately: bool
@@ -443,6 +483,7 @@ class ReshardingConfiguration(BaseValidatorModel):
     PreferredAvailabilityZones: Optional[List[str]] = None
 
 
+# This class is the input for the 'modify_user_group' function.
 class ModifyUserGroupMessage(BaseValidatorModel):
     UserGroupId: str
     UserIdsToAdd: Optional[List[str]] = None
@@ -489,11 +530,13 @@ class ProcessedUpdateAction(BaseValidatorModel):
     UpdateActionStatus: Optional[UpdateActionStatusType] = None
 
 
+# This class is the input for the 'rebalance_slots_in_global_replication_group' function.
 class RebalanceSlotsInGlobalReplicationGroupMessage(BaseValidatorModel):
     GlobalReplicationGroupId: str
     ApplyImmediately: bool
 
 
+# This class is the input for the 'reboot_cache_cluster' function.
 class RebootCacheClusterMessage(BaseValidatorModel):
     CacheClusterId: str
     CacheNodeIdsToReboot: List[str]
@@ -504,6 +547,7 @@ class RecurringCharge(BaseValidatorModel):
     RecurringChargeFrequency: Optional[str] = None
 
 
+# This class is the input for the 'remove_tags_from_resource' function.
 class RemoveTagsFromResourceMessage(BaseValidatorModel):
     ResourceName: str
     TagKeys: List[str]
@@ -518,6 +562,7 @@ class SlotMigration(BaseValidatorModel):
     ProgressPercentage: Optional[float] = None
 
 
+# This class is the input for the 'revoke_cache_security_group_ingress' function.
 class RevokeCacheSecurityGroupIngressMessage(BaseValidatorModel):
     CacheSecurityGroupName: str
     EC2SecurityGroupName: str
@@ -549,6 +594,7 @@ class SubnetOutpost(BaseValidatorModel):
     SubnetOutpostArn: Optional[str] = None
 
 
+# This class is the input for the 'test_failover' function.
 class TestFailoverMessage(BaseValidatorModel):
     ReplicationGroupId: str
     NodeGroupId: str
@@ -567,11 +613,13 @@ class UserGroupPendingChanges(BaseValidatorModel):
     UserIdsToAdd: Optional[List[str]] = None
 
 
+# This class is the input for the 'add_tags_to_resource' function.
 class AddTagsToResourceMessage(BaseValidatorModel):
     ResourceName: str
     Tags: List[Tag]
 
 
+# This class is the input for the 'copy_serverless_cache_snapshot' function.
 class CopyServerlessCacheSnapshotRequest(BaseValidatorModel):
     SourceServerlessCacheSnapshotName: str
     TargetServerlessCacheSnapshotName: str
@@ -579,6 +627,7 @@ class CopyServerlessCacheSnapshotRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'copy_snapshot' function.
 class CopySnapshotMessage(BaseValidatorModel):
     SourceSnapshotName: str
     TargetSnapshotName: str
@@ -587,6 +636,7 @@ class CopySnapshotMessage(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_cache_parameter_group' function.
 class CreateCacheParameterGroupMessage(BaseValidatorModel):
     CacheParameterGroupName: str
     CacheParameterGroupFamily: str
@@ -594,12 +644,14 @@ class CreateCacheParameterGroupMessage(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_cache_security_group' function.
 class CreateCacheSecurityGroupMessage(BaseValidatorModel):
     CacheSecurityGroupName: str
     Description: str
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_cache_subnet_group' function.
 class CreateCacheSubnetGroupMessage(BaseValidatorModel):
     CacheSubnetGroupName: str
     CacheSubnetGroupDescription: str
@@ -607,6 +659,7 @@ class CreateCacheSubnetGroupMessage(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_serverless_cache_snapshot' function.
 class CreateServerlessCacheSnapshotRequest(BaseValidatorModel):
     ServerlessCacheSnapshotName: str
     ServerlessCacheName: str
@@ -614,6 +667,7 @@ class CreateServerlessCacheSnapshotRequest(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_snapshot' function.
 class CreateSnapshotMessage(BaseValidatorModel):
     SnapshotName: str
     ReplicationGroupId: Optional[str] = None
@@ -622,6 +676,7 @@ class CreateSnapshotMessage(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_user_group' function.
 class CreateUserGroupMessage(BaseValidatorModel):
     UserGroupId: str
     Engine: str
@@ -629,6 +684,7 @@ class CreateUserGroupMessage(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'purchase_reserved_cache_nodes_offering' function.
 class PurchaseReservedCacheNodesOfferingMessage(BaseValidatorModel):
     ReservedCacheNodesOfferingId: str
     ReservedCacheNodeId: Optional[str] = None
@@ -636,26 +692,31 @@ class PurchaseReservedCacheNodesOfferingMessage(BaseValidatorModel):
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the output for the 'list_allowed_node_type_modifications' function.
 class AllowedNodeTypeModificationsMessage(BaseValidatorModel):
     ScaleUpModifications: List[str]
     ScaleDownModifications: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reset_cache_parameter_group' function.
 class CacheParameterGroupNameMessage(BaseValidatorModel):
     CacheParameterGroupName: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_cache_subnet_group' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'remove_tags_from_resource' function.
 class TagListMessage(BaseValidatorModel):
     TagList: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_user' function.
 class CreateUserMessage(BaseValidatorModel):
     UserId: str
     UserName: str
@@ -667,6 +728,7 @@ class CreateUserMessage(BaseValidatorModel):
     AuthenticationMode: Optional[AuthenticationMode] = None
 
 
+# This class is the input for the 'modify_user' function.
 class ModifyUserMessage(BaseValidatorModel):
     UserId: str
     AccessString: Optional[str] = None
@@ -677,6 +739,7 @@ class ModifyUserMessage(BaseValidatorModel):
     Engine: Optional[str] = None
 
 
+# This class is the output for the 'modify_user' function.
 class UserResponse(BaseValidatorModel):
     UserId: str
     UserName: str
@@ -722,6 +785,7 @@ class NodeGroupMember(BaseValidatorModel):
     CurrentRole: Optional[str] = None
 
 
+# This class is the output for the 'describe_cache_engine_versions' function.
 class CacheEngineVersionMessage(BaseValidatorModel):
     Marker: str
     CacheEngineVersions: List[CacheEngineVersion]
@@ -740,12 +804,14 @@ class CacheNodeTypeSpecificParameter(BaseValidatorModel):
     ChangeType: Optional[ChangeTypeType] = None
 
 
+# This class is the output for the 'describe_cache_parameter_groups' function.
 class CacheParameterGroupsMessage(BaseValidatorModel):
     Marker: str
     CacheParameterGroups: List[CacheParameterGroup]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_cache_parameter_group' function.
 class CreateCacheParameterGroupResult(BaseValidatorModel):
     CacheParameterGroup: CacheParameterGroup
     ResponseMetadata: ResponseMetadata
@@ -764,6 +830,7 @@ class CacheUsageLimits(BaseValidatorModel):
     ECPUPerSecond: Optional[ECPUPerSecond] = None
 
 
+# This class is the input for the 'decrease_replica_count' function.
 class DecreaseReplicaCountMessage(BaseValidatorModel):
     ReplicationGroupId: str
     ApplyImmediately: bool
@@ -772,6 +839,7 @@ class DecreaseReplicaCountMessage(BaseValidatorModel):
     ReplicasToRemove: Optional[List[str]] = None
 
 
+# This class is the input for the 'increase_replica_count' function.
 class IncreaseReplicaCountMessage(BaseValidatorModel):
     ReplicationGroupId: str
     ApplyImmediately: bool
@@ -779,11 +847,13 @@ class IncreaseReplicaCountMessage(BaseValidatorModel):
     ReplicaConfiguration: Optional[List[ConfigureShard]] = None
 
 
+# This class is the input for the 'start_migration' function.
 class StartMigrationMessage(BaseValidatorModel):
     ReplicationGroupId: str
     CustomerNodeEndpointList: List[CustomerNodeEndpoint]
 
 
+# This class is the input for the 'test_migration' function.
 class TestMigrationMessage(BaseValidatorModel):
     ReplicationGroupId: str
     CustomerNodeEndpointList: List[CustomerNodeEndpoint]
@@ -933,6 +1003,7 @@ class DescribeEventsMessagePaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_events' function.
 class DescribeEventsMessage(BaseValidatorModel):
     SourceIdentifier: Optional[str] = None
     SourceType: Optional[SourceTypeType] = None
@@ -955,6 +1026,7 @@ class DescribeUsersMessagePaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_users' function.
 class DescribeUsersMessage(BaseValidatorModel):
     Engine: Optional[str] = None
     UserId: Optional[str] = None
@@ -968,6 +1040,7 @@ class DestinationDetails(BaseValidatorModel):
     KinesisFirehoseDetails: Optional[KinesisFirehoseDestinationDetails] = None
 
 
+# This class is the output for the 'describe_events' function.
 class EventsMessage(BaseValidatorModel):
     Marker: str
     Events: List[Event]
@@ -990,17 +1063,20 @@ class GlobalReplicationGroup(BaseValidatorModel):
     ARN: Optional[str] = None
 
 
+# This class is the input for the 'modify_cache_parameter_group' function.
 class ModifyCacheParameterGroupMessage(BaseValidatorModel):
     CacheParameterGroupName: str
     ParameterNameValues: List[ParameterNameValue]
 
 
+# This class is the input for the 'reset_cache_parameter_group' function.
 class ResetCacheParameterGroupMessage(BaseValidatorModel):
     CacheParameterGroupName: str
     ResetAllParameters: Optional[bool] = None
     ParameterNameValues: Optional[List[ParameterNameValue]] = None
 
 
+# This class is the input for the 'modify_replication_group_shard_configuration' function.
 class ModifyReplicationGroupShardConfigurationMessage(BaseValidatorModel):
     ReplicationGroupId: str
     NodeGroupCount: int
@@ -1076,6 +1152,7 @@ class ServerlessCacheSnapshot(BaseValidatorModel):
     ServerlessCacheConfiguration: Optional[ServerlessCacheConfiguration] = None
 
 
+# This class is the output for the 'describe_service_updates' function.
 class ServiceUpdatesMessage(BaseValidatorModel):
     Marker: str
     ServiceUpdates: List[ServiceUpdate]
@@ -1089,12 +1166,14 @@ class Subnet(BaseValidatorModel):
     SupportedNetworkTypes: Optional[List[NetworkTypeType]] = None
 
 
+# This class is the output for the 'batch_stop_update_action' function.
 class UpdateActionResultsMessage(BaseValidatorModel):
     ProcessedUpdateActions: List[ProcessedUpdateAction]
     UnprocessedUpdateActions: List[UnprocessedUpdateAction]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_user_group' function.
 class UserGroupResponse(BaseValidatorModel):
     UserGroupId: str
     Status: str
@@ -1120,6 +1199,7 @@ class UserGroup(BaseValidatorModel):
     ARN: Optional[str] = None
 
 
+# This class is the output for the 'describe_users' function.
 class DescribeUsersResult(BaseValidatorModel):
     Users: List[User]
     Marker: str
@@ -1135,6 +1215,7 @@ class NodeGroup(BaseValidatorModel):
     NodeGroupMembers: Optional[List[NodeGroupMember]] = None
 
 
+# This class is the output for the 'describe_cache_parameters' function.
 class CacheParameterGroupDetails(BaseValidatorModel):
     Marker: str
     Parameters: List[Parameter]
@@ -1149,27 +1230,32 @@ class EngineDefaults(BaseValidatorModel):
     CacheNodeTypeSpecificParameters: Optional[List[CacheNodeTypeSpecificParameter]] = None
 
 
+# This class is the output for the 'authorize_cache_security_group_ingress' function.
 class AuthorizeCacheSecurityGroupIngressResult(BaseValidatorModel):
     CacheSecurityGroup: CacheSecurityGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_cache_security_groups' function.
 class CacheSecurityGroupMessage(BaseValidatorModel):
     Marker: str
     CacheSecurityGroups: List[CacheSecurityGroup]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_cache_security_group' function.
 class CreateCacheSecurityGroupResult(BaseValidatorModel):
     CacheSecurityGroup: CacheSecurityGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'revoke_cache_security_group_ingress' function.
 class RevokeCacheSecurityGroupIngressResult(BaseValidatorModel):
     CacheSecurityGroup: CacheSecurityGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_serverless_cache' function.
 class CreateServerlessCacheRequest(BaseValidatorModel):
     ServerlessCacheName: str
     Engine: str
@@ -1186,6 +1272,7 @@ class CreateServerlessCacheRequest(BaseValidatorModel):
     DailySnapshotTime: Optional[str] = None
 
 
+# This class is the input for the 'modify_serverless_cache' function.
 class ModifyServerlessCacheRequest(BaseValidatorModel):
     ServerlessCacheName: str
     Description: Optional[str] = None
@@ -1231,6 +1318,7 @@ class DescribeUpdateActionsMessagePaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'describe_update_actions' function.
 class DescribeUpdateActionsMessage(BaseValidatorModel):
     ServiceUpdateName: Optional[str] = None
     ReplicationGroupIds: Optional[List[str]] = None
@@ -1268,52 +1356,62 @@ class PendingLogDeliveryConfiguration(BaseValidatorModel):
     LogFormat: Optional[LogFormatType] = None
 
 
+# This class is the output for the 'create_global_replication_group' function.
 class CreateGlobalReplicationGroupResult(BaseValidatorModel):
     GlobalReplicationGroup: GlobalReplicationGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'decrease_node_groups_in_global_replication_group' function.
 class DecreaseNodeGroupsInGlobalReplicationGroupResult(BaseValidatorModel):
     GlobalReplicationGroup: GlobalReplicationGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_global_replication_group' function.
 class DeleteGlobalReplicationGroupResult(BaseValidatorModel):
     GlobalReplicationGroup: GlobalReplicationGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_global_replication_groups' function.
 class DescribeGlobalReplicationGroupsResult(BaseValidatorModel):
     Marker: str
     GlobalReplicationGroups: List[GlobalReplicationGroup]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_global_replication_group' function.
 class DisassociateGlobalReplicationGroupResult(BaseValidatorModel):
     GlobalReplicationGroup: GlobalReplicationGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'failover_global_replication_group' function.
 class FailoverGlobalReplicationGroupResult(BaseValidatorModel):
     GlobalReplicationGroup: GlobalReplicationGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'increase_node_groups_in_global_replication_group' function.
 class IncreaseNodeGroupsInGlobalReplicationGroupResult(BaseValidatorModel):
     GlobalReplicationGroup: GlobalReplicationGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_global_replication_group' function.
 class ModifyGlobalReplicationGroupResult(BaseValidatorModel):
     GlobalReplicationGroup: GlobalReplicationGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'rebalance_slots_in_global_replication_group' function.
 class RebalanceSlotsInGlobalReplicationGroupResult(BaseValidatorModel):
     GlobalReplicationGroup: GlobalReplicationGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'increase_node_groups_in_global_replication_group' function.
 class IncreaseNodeGroupsInGlobalReplicationGroupMessage(BaseValidatorModel):
     GlobalReplicationGroupId: str
     NodeGroupCount: int
@@ -1372,44 +1470,52 @@ class UpdateAction(BaseValidatorModel):
     Engine: Optional[str] = None
 
 
+# This class is the output for the 'purchase_reserved_cache_nodes_offering' function.
 class PurchaseReservedCacheNodesOfferingResult(BaseValidatorModel):
     ReservedCacheNode: ReservedCacheNode
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_reserved_cache_nodes' function.
 class ReservedCacheNodeMessage(BaseValidatorModel):
     Marker: str
     ReservedCacheNodes: List[ReservedCacheNode]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_reserved_cache_nodes_offerings' function.
 class ReservedCacheNodesOfferingMessage(BaseValidatorModel):
     Marker: str
     ReservedCacheNodesOfferings: List[ReservedCacheNodesOffering]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'copy_serverless_cache_snapshot' function.
 class CopyServerlessCacheSnapshotResponse(BaseValidatorModel):
     ServerlessCacheSnapshot: ServerlessCacheSnapshot
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_serverless_cache_snapshot' function.
 class CreateServerlessCacheSnapshotResponse(BaseValidatorModel):
     ServerlessCacheSnapshot: ServerlessCacheSnapshot
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_serverless_cache_snapshot' function.
 class DeleteServerlessCacheSnapshotResponse(BaseValidatorModel):
     ServerlessCacheSnapshot: ServerlessCacheSnapshot
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_serverless_cache_snapshots' function.
 class DescribeServerlessCacheSnapshotsResponse(BaseValidatorModel):
     ServerlessCacheSnapshots: List[ServerlessCacheSnapshot]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'export_serverless_cache_snapshot' function.
 class ExportServerlessCacheSnapshotResponse(BaseValidatorModel):
     ServerlessCacheSnapshot: ServerlessCacheSnapshot
     ResponseMetadata: ResponseMetadata
@@ -1424,38 +1530,45 @@ class CacheSubnetGroup(BaseValidatorModel):
     SupportedNetworkTypes: Optional[List[NetworkTypeType]] = None
 
 
+# This class is the output for the 'describe_user_groups' function.
 class DescribeUserGroupsResult(BaseValidatorModel):
     UserGroups: List[UserGroup]
     Marker: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_engine_default_parameters' function.
 class DescribeEngineDefaultParametersResult(BaseValidatorModel):
     EngineDefaults: EngineDefaults
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_serverless_cache' function.
 class CreateServerlessCacheResponse(BaseValidatorModel):
     ServerlessCache: ServerlessCache
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_serverless_cache' function.
 class DeleteServerlessCacheResponse(BaseValidatorModel):
     ServerlessCache: ServerlessCache
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_serverless_caches' function.
 class DescribeServerlessCachesResponse(BaseValidatorModel):
     ServerlessCaches: List[ServerlessCache]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'modify_serverless_cache' function.
 class ModifyServerlessCacheResponse(BaseValidatorModel):
     ServerlessCache: ServerlessCache
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_cache_cluster' function.
 class CreateCacheClusterMessage(BaseValidatorModel):
     CacheClusterId: str
     ReplicationGroupId: Optional[str] = None
@@ -1489,6 +1602,7 @@ class CreateCacheClusterMessage(BaseValidatorModel):
     IpDiscovery: Optional[IpDiscoveryType] = None
 
 
+# This class is the input for the 'create_replication_group' function.
 class CreateReplicationGroupMessage(BaseValidatorModel):
     ReplicationGroupId: str
     ReplicationGroupDescription: str
@@ -1531,6 +1645,7 @@ class CreateReplicationGroupMessage(BaseValidatorModel):
     ServerlessCacheSnapshotName: Optional[str] = None
 
 
+# This class is the input for the 'modify_cache_cluster' function.
 class ModifyCacheClusterMessage(BaseValidatorModel):
     CacheClusterId: str
     NumCacheNodes: Optional[int] = None
@@ -1556,6 +1671,7 @@ class ModifyCacheClusterMessage(BaseValidatorModel):
     IpDiscovery: Optional[IpDiscoveryType] = None
 
 
+# This class is the input for the 'modify_replication_group' function.
 class ModifyReplicationGroupMessage(BaseValidatorModel):
     ReplicationGroupId: str
     ReplicationGroupDescription: Optional[str] = None
@@ -1612,44 +1728,52 @@ class ReplicationGroupPendingModifiedValues(BaseValidatorModel):
     ClusterMode: Optional[ClusterModeType] = None
 
 
+# This class is the output for the 'copy_snapshot' function.
 class CopySnapshotResult(BaseValidatorModel):
     Snapshot: Snapshot
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_snapshot' function.
 class CreateSnapshotResult(BaseValidatorModel):
     Snapshot: Snapshot
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_snapshot' function.
 class DeleteSnapshotResult(BaseValidatorModel):
     Snapshot: Snapshot
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_snapshots' function.
 class DescribeSnapshotsListMessage(BaseValidatorModel):
     Marker: str
     Snapshots: List[Snapshot]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_update_actions' function.
 class UpdateActionsMessage(BaseValidatorModel):
     Marker: str
     UpdateActions: List[UpdateAction]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_cache_subnet_groups' function.
 class CacheSubnetGroupMessage(BaseValidatorModel):
     Marker: str
     CacheSubnetGroups: List[CacheSubnetGroup]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_cache_subnet_group' function.
 class CreateCacheSubnetGroupResult(BaseValidatorModel):
     CacheSubnetGroup: CacheSubnetGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_cache_subnet_group' function.
 class ModifyCacheSubnetGroupResult(BaseValidatorModel):
     CacheSubnetGroup: CacheSubnetGroup
     ResponseMetadata: ResponseMetadata
@@ -1726,83 +1850,99 @@ class ReplicationGroup(BaseValidatorModel):
     Engine: Optional[str] = None
 
 
+# This class is the output for the 'describe_cache_clusters' function.
 class CacheClusterMessage(BaseValidatorModel):
     Marker: str
     CacheClusters: List[CacheCluster]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_cache_cluster' function.
 class CreateCacheClusterResult(BaseValidatorModel):
     CacheCluster: CacheCluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_cache_cluster' function.
 class DeleteCacheClusterResult(BaseValidatorModel):
     CacheCluster: CacheCluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_cache_cluster' function.
 class ModifyCacheClusterResult(BaseValidatorModel):
     CacheCluster: CacheCluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'reboot_cache_cluster' function.
 class RebootCacheClusterResult(BaseValidatorModel):
     CacheCluster: CacheCluster
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'complete_migration' function.
 class CompleteMigrationResponse(BaseValidatorModel):
     ReplicationGroup: ReplicationGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_replication_group' function.
 class CreateReplicationGroupResult(BaseValidatorModel):
     ReplicationGroup: ReplicationGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'decrease_replica_count' function.
 class DecreaseReplicaCountResult(BaseValidatorModel):
     ReplicationGroup: ReplicationGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_replication_group' function.
 class DeleteReplicationGroupResult(BaseValidatorModel):
     ReplicationGroup: ReplicationGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'increase_replica_count' function.
 class IncreaseReplicaCountResult(BaseValidatorModel):
     ReplicationGroup: ReplicationGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_replication_group' function.
 class ModifyReplicationGroupResult(BaseValidatorModel):
     ReplicationGroup: ReplicationGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'modify_replication_group_shard_configuration' function.
 class ModifyReplicationGroupShardConfigurationResult(BaseValidatorModel):
     ReplicationGroup: ReplicationGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_replication_groups' function.
 class ReplicationGroupMessage(BaseValidatorModel):
     Marker: str
     ReplicationGroups: List[ReplicationGroup]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_migration' function.
 class StartMigrationResponse(BaseValidatorModel):
     ReplicationGroup: ReplicationGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'test_failover' function.
 class TestFailoverResult(BaseValidatorModel):
     ReplicationGroup: ReplicationGroup
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'test_migration' function.
 class TestMigrationResponse(BaseValidatorModel):
     ReplicationGroup: ReplicationGroup
     ResponseMetadata: ResponseMetadata

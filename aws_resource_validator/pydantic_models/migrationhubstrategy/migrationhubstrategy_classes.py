@@ -168,6 +168,7 @@ class NoDatabaseMigrationPreference(BaseValidatorModel):
     targetDatabaseEngine: List[TargetDatabaseEngineType]
 
 
+# This class is the input for the 'get_application_component_details' function.
 class GetApplicationComponentDetailsRequest(BaseValidatorModel):
     applicationComponentId: str
 
@@ -180,18 +181,22 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'get_application_component_strategies' function.
 class GetApplicationComponentStrategiesRequest(BaseValidatorModel):
     applicationComponentId: str
 
 
+# This class is the input for the 'get_assessment' function.
 class GetAssessmentRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'get_import_file_task' function.
 class GetImportFileTaskRequest(BaseValidatorModel):
     id: str
 
 
+# This class is the input for the 'get_recommendation_report_details' function.
 class GetRecommendationReportDetailsRequest(BaseValidatorModel):
     id: str
 
@@ -211,12 +216,14 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'get_server_details' function.
 class GetServerDetailsRequest(BaseValidatorModel):
     serverId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'get_server_strategies' function.
 class GetServerStrategiesRequest(BaseValidatorModel):
     serverId: str
 
@@ -240,17 +247,20 @@ class ImportFileTaskInformation(BaseValidatorModel):
     statusReportS3Key: Optional[str] = None
 
 
+# This class is the input for the 'list_analyzable_servers' function.
 class ListAnalyzableServersRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     sort: Optional[SortOrderType] = None
 
 
+# This class is the input for the 'list_collectors' function.
 class ListCollectorsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_import_file_task' function.
 class ListImportFileTaskRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -359,6 +369,7 @@ class DatabaseMigrationPreference(BaseValidatorModel):
     noPreference: Optional[NoDatabaseMigrationPreference] = None
 
 
+# This class is the output for the 'get_assessment' function.
 class GetAssessmentResponse(BaseValidatorModel):
     assessmentTargets: List[AssessmentTargetOutput]
     dataCollectionDetails: DataCollectionDetails
@@ -366,6 +377,7 @@ class GetAssessmentResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_import_file_task' function.
 class GetImportFileTaskResponse(BaseValidatorModel):
     completionTime: datetime
     id: str
@@ -386,27 +398,32 @@ class GetLatestAssessmentIdResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_analyzable_servers' function.
 class ListAnalyzableServersResponse(BaseValidatorModel):
     analyzableServers: List[AnalyzableServerSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_assessment' function.
 class StartAssessmentResponse(BaseValidatorModel):
     assessmentId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_import_file_task' function.
 class StartImportFileTaskResponse(BaseValidatorModel):
     id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_recommendation_report_generation' function.
 class StartRecommendationReportGenerationResponse(BaseValidatorModel):
     id: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_recommendation_report_details' function.
 class GetRecommendationReportDetailsResponse(BaseValidatorModel):
     id: str
     recommendationReportDetails: RecommendationReportDetails
@@ -439,6 +456,7 @@ class ListApplicationComponentsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_application_components' function.
 class ListApplicationComponentsRequest(BaseValidatorModel):
     applicationComponentCriteria: Optional[ApplicationComponentCriteriaType] = None
     filterValue: Optional[str] = None
@@ -456,6 +474,7 @@ class ListServersRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_servers' function.
 class ListServersRequest(BaseValidatorModel):
     filterValue: Optional[str] = None
     groupIdFilter: Optional[List[Group]] = None
@@ -465,6 +484,7 @@ class ListServersRequest(BaseValidatorModel):
     sort: Optional[SortOrderType] = None
 
 
+# This class is the input for the 'start_import_file_task' function.
 class StartImportFileTaskRequest(BaseValidatorModel):
     S3Bucket: str
     name: str
@@ -474,11 +494,13 @@ class StartImportFileTaskRequest(BaseValidatorModel):
     s3bucketForReportData: Optional[str] = None
 
 
+# This class is the input for the 'start_recommendation_report_generation' function.
 class StartRecommendationReportGenerationRequest(BaseValidatorModel):
     groupIdFilter: Optional[List[Group]] = None
     outputFormat: Optional[OutputFormatType] = None
 
 
+# This class is the output for the 'list_import_file_task' function.
 class ListImportFileTaskResponse(BaseValidatorModel):
     taskInfos: List[ImportFileTaskInformation]
     ResponseMetadata: ResponseMetadata
@@ -537,6 +559,7 @@ class GetPortfolioSummaryResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'start_assessment' function.
 class StartAssessmentRequest(BaseValidatorModel):
     assessmentDataSourceType: Optional[AssessmentDataSourceTypeType] = None
     assessmentTargets: Optional[List[AssessmentTargetUnion]] = None
@@ -629,6 +652,7 @@ class ApplicationComponentDetail(BaseValidatorModel):
     statusMessage: Optional[str] = None
 
 
+# This class is the output for the 'list_collectors' function.
 class ListCollectorsResponse(BaseValidatorModel):
     Collectors: List[Collector]
     ResponseMetadata: ResponseMetadata
@@ -647,11 +671,13 @@ class GetPortfolioPreferencesResponse(BaseValidatorModel):
 ApplicationPreferencesUnion = Union[ApplicationPreferences, ApplicationPreferencesOutput]
 
 
+# This class is the output for the 'get_application_component_strategies' function.
 class GetApplicationComponentStrategiesResponse(BaseValidatorModel):
     applicationComponentStrategies: List[ApplicationComponentStrategy]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_server_details' function.
 class GetServerDetailsResponse(BaseValidatorModel):
     associatedApplications: List[AssociatedApplication]
     serverDetail: ServerDetail
@@ -659,17 +685,20 @@ class GetServerDetailsResponse(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_servers' function.
 class ListServersResponse(BaseValidatorModel):
     serverInfos: List[ServerDetail]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_server_strategies' function.
 class GetServerStrategiesResponse(BaseValidatorModel):
     serverStrategies: List[ServerStrategy]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_application_component_details' function.
 class GetApplicationComponentDetailsResponse(BaseValidatorModel):
     applicationComponentDetail: ApplicationComponentDetail
     associatedApplications: List[AssociatedApplication]
@@ -678,6 +707,7 @@ class GetApplicationComponentDetailsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_application_components' function.
 class ListApplicationComponentsResponse(BaseValidatorModel):
     applicationComponentInfos: List[ApplicationComponentDetail]
     ResponseMetadata: ResponseMetadata

@@ -67,12 +67,14 @@ class Validator(BaseValidatorModel):
     Content: str
 
 
+# This class is the input for the 'create_application' function.
 class CreateApplicationRequest(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_deployment_strategy' function.
 class CreateDeploymentStrategyRequest(BaseValidatorModel):
     Name: str
     DeploymentDurationInMinutes: int
@@ -89,6 +91,7 @@ class Monitor(BaseValidatorModel):
     AlarmRoleArn: Optional[str] = None
 
 
+# This class is the input for the 'create_extension_association' function.
 class CreateExtensionAssociationRequest(BaseValidatorModel):
     ExtensionIdentifier: str
     ResourceIdentifier: str
@@ -103,35 +106,42 @@ class Parameter(BaseValidatorModel):
     Dynamic: Optional[bool] = None
 
 
+# This class is the input for the 'delete_application' function.
 class DeleteApplicationRequest(BaseValidatorModel):
     ApplicationId: str
 
 
+# This class is the input for the 'delete_configuration_profile' function.
 class DeleteConfigurationProfileRequest(BaseValidatorModel):
     ApplicationId: str
     ConfigurationProfileId: str
     DeletionProtectionCheck: Optional[DeletionProtectionCheckType] = None
 
 
+# This class is the input for the 'delete_deployment_strategy' function.
 class DeleteDeploymentStrategyRequest(BaseValidatorModel):
     DeploymentStrategyId: str
 
 
+# This class is the input for the 'delete_environment' function.
 class DeleteEnvironmentRequest(BaseValidatorModel):
     EnvironmentId: str
     ApplicationId: str
     DeletionProtectionCheck: Optional[DeletionProtectionCheckType] = None
 
 
+# This class is the input for the 'delete_extension_association' function.
 class DeleteExtensionAssociationRequest(BaseValidatorModel):
     ExtensionAssociationId: str
 
 
+# This class is the input for the 'delete_extension' function.
 class DeleteExtensionRequest(BaseValidatorModel):
     ExtensionIdentifier: str
     VersionNumber: Optional[int] = None
 
 
+# This class is the input for the 'delete_hosted_configuration_version' function.
 class DeleteHostedConfigurationVersionRequest(BaseValidatorModel):
     ApplicationId: str
     ConfigurationProfileId: str
@@ -178,15 +188,18 @@ class ExtensionSummary(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'get_application' function.
 class GetApplicationRequest(BaseValidatorModel):
     ApplicationId: str
 
 
+# This class is the input for the 'get_configuration_profile' function.
 class GetConfigurationProfileRequest(BaseValidatorModel):
     ApplicationId: str
     ConfigurationProfileId: str
 
 
+# This class is the input for the 'get_configuration' function.
 class GetConfigurationRequest(BaseValidatorModel):
     Application: str
     Environment: str
@@ -195,30 +208,36 @@ class GetConfigurationRequest(BaseValidatorModel):
     ClientConfigurationVersion: Optional[str] = None
 
 
+# This class is the input for the 'get_deployment' function.
 class GetDeploymentRequest(BaseValidatorModel):
     ApplicationId: str
     EnvironmentId: str
     DeploymentNumber: int
 
 
+# This class is the input for the 'get_deployment_strategy' function.
 class GetDeploymentStrategyRequest(BaseValidatorModel):
     DeploymentStrategyId: str
 
 
+# This class is the input for the 'get_environment' function.
 class GetEnvironmentRequest(BaseValidatorModel):
     ApplicationId: str
     EnvironmentId: str
 
 
+# This class is the input for the 'get_extension_association' function.
 class GetExtensionAssociationRequest(BaseValidatorModel):
     ExtensionAssociationId: str
 
 
+# This class is the input for the 'get_extension' function.
 class GetExtensionRequest(BaseValidatorModel):
     ExtensionIdentifier: str
     VersionNumber: Optional[int] = None
 
 
+# This class is the input for the 'get_hosted_configuration_version' function.
 class GetHostedConfigurationVersionRequest(BaseValidatorModel):
     ApplicationId: str
     ConfigurationProfileId: str
@@ -241,11 +260,13 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_applications' function.
 class ListApplicationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_configuration_profiles' function.
 class ListConfigurationProfilesRequest(BaseValidatorModel):
     ApplicationId: str
     MaxResults: Optional[int] = None
@@ -253,11 +274,13 @@ class ListConfigurationProfilesRequest(BaseValidatorModel):
     Type: Optional[str] = None
 
 
+# This class is the input for the 'list_deployment_strategies' function.
 class ListDeploymentStrategiesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_deployments' function.
 class ListDeploymentsRequest(BaseValidatorModel):
     ApplicationId: str
     EnvironmentId: str
@@ -265,12 +288,14 @@ class ListDeploymentsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_environments' function.
 class ListEnvironmentsRequest(BaseValidatorModel):
     ApplicationId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_extension_associations' function.
 class ListExtensionAssociationsRequest(BaseValidatorModel):
     ResourceIdentifier: Optional[str] = None
     ExtensionIdentifier: Optional[str] = None
@@ -279,12 +304,14 @@ class ListExtensionAssociationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_extensions' function.
 class ListExtensionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Name: Optional[str] = None
 
 
+# This class is the input for the 'list_hosted_configuration_versions' function.
 class ListHostedConfigurationVersionsRequest(BaseValidatorModel):
     ApplicationId: str
     ConfigurationProfileId: str
@@ -293,10 +320,12 @@ class ListHostedConfigurationVersionsRequest(BaseValidatorModel):
     VersionLabel: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'start_deployment' function.
 class StartDeploymentRequest(BaseValidatorModel):
     ApplicationId: str
     EnvironmentId: str
@@ -309,6 +338,7 @@ class StartDeploymentRequest(BaseValidatorModel):
     DynamicExtensionParameters: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'stop_deployment' function.
 class StopDeploymentRequest(BaseValidatorModel):
     ApplicationId: str
     EnvironmentId: str
@@ -316,22 +346,26 @@ class StopDeploymentRequest(BaseValidatorModel):
     AllowRevert: Optional[bool] = None
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Dict[str, str]
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_application' function.
 class UpdateApplicationRequest(BaseValidatorModel):
     ApplicationId: str
     Name: Optional[str] = None
     Description: Optional[str] = None
 
 
+# This class is the input for the 'update_deployment_strategy' function.
 class UpdateDeploymentStrategyRequest(BaseValidatorModel):
     DeploymentStrategyId: str
     Description: Optional[str] = None
@@ -341,26 +375,31 @@ class UpdateDeploymentStrategyRequest(BaseValidatorModel):
     GrowthType: Optional[GrowthTypeType] = None
 
 
+# This class is the input for the 'update_extension_association' function.
 class UpdateExtensionAssociationRequest(BaseValidatorModel):
     ExtensionAssociationId: str
     Parameters: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'validate_configuration' function.
 class ValidateConfigurationRequest(BaseValidatorModel):
     ApplicationId: str
     ConfigurationProfileId: str
     ConfigurationVersion: str
 
 
+# This class is the input for the 'update_account_settings' function.
 class UpdateAccountSettingsRequest(BaseValidatorModel):
     DeletionProtection: Optional[DeletionProtectionSettings] = None
 
 
+# This class is the output for the 'update_account_settings' function.
 class AccountSettings(BaseValidatorModel):
     DeletionProtection: DeletionProtectionSettings
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_application' function.
 class ApplicationResponse(BaseValidatorModel):
     Id: str
     Name: str
@@ -368,6 +407,7 @@ class ApplicationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_configuration' function.
 class Configuration(BaseValidatorModel):
     Content: StreamingBody
     ConfigurationVersion: str
@@ -375,6 +415,7 @@ class Configuration(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_deployment_strategy' function.
 class DeploymentStrategyResponse(BaseValidatorModel):
     Id: str
     Name: str
@@ -387,10 +428,12 @@ class DeploymentStrategyResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'validate_configuration' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_extension_association' function.
 class ExtensionAssociation(BaseValidatorModel):
     Id: str
     ExtensionArn: str
@@ -401,6 +444,7 @@ class ExtensionAssociation(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_hosted_configuration_version' function.
 class HostedConfigurationVersion(BaseValidatorModel):
     ApplicationId: str
     ConfigurationProfileId: str
@@ -413,6 +457,7 @@ class HostedConfigurationVersion(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ResourceTags(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
@@ -426,12 +471,14 @@ class DeploymentEvent(BaseValidatorModel):
     OccurredAt: Optional[datetime] = None
 
 
+# This class is the output for the 'list_applications' function.
 class Applications(BaseValidatorModel):
     Items: List[Application]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_hosted_configuration_version' function.
 class CreateHostedConfigurationVersionRequest(BaseValidatorModel):
     ApplicationId: str
     ConfigurationProfileId: str
@@ -442,12 +489,14 @@ class CreateHostedConfigurationVersionRequest(BaseValidatorModel):
     VersionLabel: Optional[str] = None
 
 
+# This class is the output for the 'list_configuration_profiles' function.
 class ConfigurationProfiles(BaseValidatorModel):
     Items: List[ConfigurationProfileSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'update_configuration_profile' function.
 class ConfigurationProfile(BaseValidatorModel):
     ApplicationId: str
     Id: str
@@ -462,6 +511,7 @@ class ConfigurationProfile(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_configuration_profile' function.
 class CreateConfigurationProfileRequest(BaseValidatorModel):
     ApplicationId: str
     Name: str
@@ -474,6 +524,7 @@ class CreateConfigurationProfileRequest(BaseValidatorModel):
     KmsKeyIdentifier: Optional[str] = None
 
 
+# This class is the input for the 'update_configuration_profile' function.
 class UpdateConfigurationProfileRequest(BaseValidatorModel):
     ApplicationId: str
     ConfigurationProfileId: str
@@ -484,6 +535,7 @@ class UpdateConfigurationProfileRequest(BaseValidatorModel):
     KmsKeyIdentifier: Optional[str] = None
 
 
+# This class is the input for the 'create_environment' function.
 class CreateEnvironmentRequest(BaseValidatorModel):
     ApplicationId: str
     Name: str
@@ -492,6 +544,7 @@ class CreateEnvironmentRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'update_environment' function.
 class EnvironmentResponse(BaseValidatorModel):
     ApplicationId: str
     Id: str
@@ -511,6 +564,7 @@ class Environment(BaseValidatorModel):
     Monitors: Optional[List[Monitor]] = None
 
 
+# This class is the input for the 'update_environment' function.
 class UpdateEnvironmentRequest(BaseValidatorModel):
     ApplicationId: str
     EnvironmentId: str
@@ -519,6 +573,7 @@ class UpdateEnvironmentRequest(BaseValidatorModel):
     Monitors: Optional[List[Monitor]] = None
 
 
+# This class is the input for the 'create_extension' function.
 class CreateExtensionRequest(BaseValidatorModel):
     Name: str
     Actions: Dict[ActionPointType, List[Action]]
@@ -528,6 +583,7 @@ class CreateExtensionRequest(BaseValidatorModel):
     LatestVersionNumber: Optional[int] = None
 
 
+# This class is the output for the 'update_extension' function.
 class Extension(BaseValidatorModel):
     Id: str
     Name: str
@@ -539,6 +595,7 @@ class Extension(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_extension' function.
 class UpdateExtensionRequest(BaseValidatorModel):
     ExtensionIdentifier: str
     Description: Optional[str] = None
@@ -547,30 +604,35 @@ class UpdateExtensionRequest(BaseValidatorModel):
     VersionNumber: Optional[int] = None
 
 
+# This class is the output for the 'list_deployment_strategies' function.
 class DeploymentStrategies(BaseValidatorModel):
     Items: List[DeploymentStrategy]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_deployments' function.
 class Deployments(BaseValidatorModel):
     Items: List[DeploymentSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_extension_associations' function.
 class ExtensionAssociations(BaseValidatorModel):
     Items: List[ExtensionAssociationSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_extensions' function.
 class Extensions(BaseValidatorModel):
     Items: List[ExtensionSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_hosted_configuration_versions' function.
 class HostedConfigurationVersions(BaseValidatorModel):
     Items: List[HostedConfigurationVersionSummary]
     ResponseMetadata: ResponseMetadata
@@ -621,6 +683,7 @@ class ListHostedConfigurationVersionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'stop_deployment' function.
 class Deployment(BaseValidatorModel):
     ApplicationId: str
     EnvironmentId: str
@@ -647,6 +710,7 @@ class Deployment(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_environments' function.
 class Environments(BaseValidatorModel):
     Items: List[Environment]
     ResponseMetadata: ResponseMetadata

@@ -23,6 +23,7 @@ class AddObjectInput(BaseValidatorModel):
     PartitionValues: Optional[List[str]] = None
 
 
+# This class is the input for the 'assume_decorated_role_with_saml' function.
 class AssumeDecoratedRoleWithSAMLRequest(BaseValidatorModel):
     SAMLAssertion: str
     RoleArn: str
@@ -65,6 +66,7 @@ class ColumnWildcard(BaseValidatorModel):
     ExcludedColumnNames: Optional[List[str]] = None
 
 
+# This class is the input for the 'commit_transaction' function.
 class CommitTransactionRequest(BaseValidatorModel):
     TransactionId: str
 
@@ -142,6 +144,7 @@ class DeregisterResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'describe_lake_formation_identity_center_configuration' function.
 class DescribeLakeFormationIdentityCenterConfigurationRequest(BaseValidatorModel):
     CatalogId: Optional[str] = None
 
@@ -151,6 +154,7 @@ class ExternalFilteringConfigurationOutput(BaseValidatorModel):
     AuthorizedTargets: List[str]
 
 
+# This class is the input for the 'describe_resource' function.
 class DescribeResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -163,6 +167,7 @@ class ResourceInfo(BaseValidatorModel):
     HybridAccessEnabled: Optional[bool] = None
 
 
+# This class is the input for the 'describe_transaction' function.
 class DescribeTransactionRequest(BaseValidatorModel):
     TransactionId: str
 
@@ -199,6 +204,7 @@ class FilterCondition(BaseValidatorModel):
     StringValueList: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_data_cells_filter' function.
 class GetDataCellsFilterRequest(BaseValidatorModel):
     TableCatalogId: str
     DatabaseName: str
@@ -206,10 +212,12 @@ class GetDataCellsFilterRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'get_data_lake_settings' function.
 class GetDataLakeSettingsRequest(BaseValidatorModel):
     CatalogId: Optional[str] = None
 
 
+# This class is the input for the 'get_effective_permissions_for_path' function.
 class GetEffectivePermissionsForPathRequest(BaseValidatorModel):
     ResourceArn: str
     CatalogId: Optional[str] = None
@@ -217,6 +225,7 @@ class GetEffectivePermissionsForPathRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_lf_tag_expression' function.
 class GetLFTagExpressionRequest(BaseValidatorModel):
     Name: str
     CatalogId: Optional[str] = None
@@ -227,15 +236,18 @@ class LFTagOutput(BaseValidatorModel):
     TagValues: List[str]
 
 
+# This class is the input for the 'get_lf_tag' function.
 class GetLFTagRequest(BaseValidatorModel):
     TagKey: str
     CatalogId: Optional[str] = None
 
 
+# This class is the input for the 'get_query_state' function.
 class GetQueryStateRequest(BaseValidatorModel):
     QueryId: str
 
 
+# This class is the input for the 'get_query_statistics' function.
 class GetQueryStatisticsRequest(BaseValidatorModel):
     QueryId: str
 
@@ -253,6 +265,7 @@ class PartitionValueList(BaseValidatorModel):
     Values: List[str]
 
 
+# This class is the input for the 'get_work_unit_results' function.
 class GetWorkUnitResultsRequest(BaseValidatorModel):
     QueryId: str
     WorkUnitId: int
@@ -265,6 +278,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'get_work_units' function.
 class GetWorkUnitsRequest(BaseValidatorModel):
     QueryId: str
     NextToken: Optional[str] = None
@@ -305,12 +319,14 @@ class LFTag(BaseValidatorModel):
     TagValues: List[str]
 
 
+# This class is the input for the 'list_lf_tag_expressions' function.
 class ListLFTagExpressionsRequest(BaseValidatorModel):
     CatalogId: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_lf_tags' function.
 class ListLFTagsRequest(BaseValidatorModel):
     CatalogId: Optional[str] = None
     ResourceShareType: Optional[ResourceShareTypeType] = None
@@ -318,6 +334,7 @@ class ListLFTagsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_table_storage_optimizers' function.
 class ListTableStorageOptimizersRequest(BaseValidatorModel):
     DatabaseName: str
     TableName: str
@@ -335,6 +352,7 @@ class StorageOptimizer(BaseValidatorModel):
     LastRunDetails: Optional[str] = None
 
 
+# This class is the input for the 'list_transactions' function.
 class ListTransactionsRequest(BaseValidatorModel):
     CatalogId: Optional[str] = None
     StatusFilter: Optional[TransactionStatusFilterType] = None
@@ -363,6 +381,7 @@ class TableResourceOutput(BaseValidatorModel):
     TableWildcard: Optional[Dict[str, Any]] = None
 
 
+# This class is the input for the 'start_transaction' function.
 class StartTransactionRequest(BaseValidatorModel):
     TransactionType: Optional[TransactionTypeType] = None
 
@@ -388,6 +407,7 @@ class UpdateResourceRequest(BaseValidatorModel):
     HybridAccessEnabled: Optional[bool] = None
 
 
+# This class is the input for the 'update_table_storage_optimizer' function.
 class UpdateTableStorageOptimizerRequest(BaseValidatorModel):
     DatabaseName: str
     TableName: str
@@ -395,6 +415,7 @@ class UpdateTableStorageOptimizerRequest(BaseValidatorModel):
     CatalogId: Optional[str] = None
 
 
+# This class is the output for the 'assume_decorated_role_with_saml' function.
 class AssumeDecoratedRoleWithSAMLResponse(BaseValidatorModel):
     AccessKeyId: str
     SecretAccessKey: str
@@ -403,11 +424,13 @@ class AssumeDecoratedRoleWithSAMLResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'commit_transaction' function.
 class CommitTransactionResponse(BaseValidatorModel):
     TransactionStatus: TransactionStatusType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_lake_formation_identity_center_configuration' function.
 class CreateLakeFormationIdentityCenterConfigurationResponse(BaseValidatorModel):
     ApplicationArn: str
     ResponseMetadata: ResponseMetadata
@@ -418,6 +441,7 @@ class GetDataLakePrincipalResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_lf_tag' function.
 class GetLFTagResponse(BaseValidatorModel):
     CatalogId: str
     TagKey: str
@@ -425,12 +449,14 @@ class GetLFTagResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_query_state' function.
 class GetQueryStateResponse(BaseValidatorModel):
     Error: str
     State: QueryStateStringType
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_temporary_glue_partition_credentials' function.
 class GetTemporaryGluePartitionCredentialsResponse(BaseValidatorModel):
     AccessKeyId: str
     SecretAccessKey: str
@@ -439,6 +465,7 @@ class GetTemporaryGluePartitionCredentialsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_temporary_glue_table_credentials' function.
 class GetTemporaryGlueTableCredentialsResponse(BaseValidatorModel):
     AccessKeyId: str
     SecretAccessKey: str
@@ -448,21 +475,25 @@ class GetTemporaryGlueTableCredentialsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_work_unit_results' function.
 class GetWorkUnitResultsResponse(BaseValidatorModel):
     ResultStream: StreamingBody
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_query_planning' function.
 class StartQueryPlanningResponse(BaseValidatorModel):
     QueryId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_transaction' function.
 class StartTransactionResponse(BaseValidatorModel):
     TransactionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_table_storage_optimizer' function.
 class UpdateTableStorageOptimizerResponse(BaseValidatorModel):
     Result: str
     ResponseMetadata: ResponseMetadata
@@ -488,6 +519,7 @@ class LFTagError(BaseValidatorModel):
     Error: Optional[ErrorDetail] = None
 
 
+# This class is the output for the 'list_lf_tags' function.
 class ListLFTagsResponse(BaseValidatorModel):
     LFTags: List[LFTagPairOutput]
     ResponseMetadata: ResponseMetadata
@@ -544,6 +576,7 @@ class DeleteObjectsOnCancelRequest(BaseValidatorModel):
     CatalogId: Optional[str] = None
 
 
+# This class is the output for the 'describe_lake_formation_identity_center_configuration' function.
 class DescribeLakeFormationIdentityCenterConfigurationResponse(BaseValidatorModel):
     CatalogId: str
     InstanceArn: str
@@ -554,22 +587,26 @@ class DescribeLakeFormationIdentityCenterConfigurationResponse(BaseValidatorMode
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_resource' function.
 class DescribeResourceResponse(BaseValidatorModel):
     ResourceInfo: ResourceInfo
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_resources' function.
 class ListResourcesResponse(BaseValidatorModel):
     ResourceInfoList: List[ResourceInfo]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'describe_transaction' function.
 class DescribeTransactionResponse(BaseValidatorModel):
     TransactionDescription: TransactionDescription
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_transactions' function.
 class ListTransactionsResponse(BaseValidatorModel):
     Transactions: List[TransactionDescription]
     ResponseMetadata: ResponseMetadata
@@ -578,12 +615,14 @@ class ListTransactionsResponse(BaseValidatorModel):
 ExternalFilteringConfigurationUnion = Union[ExternalFilteringConfiguration, ExternalFilteringConfigurationOutput]
 
 
+# This class is the input for the 'list_resources' function.
 class ListResourcesRequest(BaseValidatorModel):
     FilterConditionList: Optional[List[FilterCondition]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_lf_tag_expression' function.
 class GetLFTagExpressionResponse(BaseValidatorModel):
     Name: str
     Description: str
@@ -606,6 +645,7 @@ class LFTagPolicyResourceOutput(BaseValidatorModel):
     ExpressionName: Optional[str] = None
 
 
+# This class is the output for the 'get_query_statistics' function.
 class GetQueryStatisticsResponse(BaseValidatorModel):
     ExecutionStatistics: ExecutionStatistics
     PlanningStatistics: PlanningStatistics
@@ -613,6 +653,7 @@ class GetQueryStatisticsResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'get_table_objects' function.
 class GetTableObjectsRequest(BaseValidatorModel):
     DatabaseName: str
     TableName: str
@@ -640,6 +681,7 @@ class QuerySessionContext(BaseValidatorModel):
     AdditionalContext: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'get_temporary_glue_partition_credentials' function.
 class GetTemporaryGluePartitionCredentialsRequest(BaseValidatorModel):
     TableArn: str
     Partition: PartitionValueList
@@ -665,6 +707,7 @@ class ListLFTagsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'get_work_units' function.
 class GetWorkUnitsResponse(BaseValidatorModel):
     QueryId: str
     WorkUnitRanges: List[WorkUnitRange]
@@ -678,6 +721,7 @@ LFTagPairUnion = Union[LFTagPair, LFTagPairOutput]
 LFTagUnion = Union[LFTag, LFTagOutput]
 
 
+# This class is the output for the 'list_table_storage_optimizers' function.
 class ListTableStorageOptimizersResponse(BaseValidatorModel):
     StorageOptimizerList: List[StorageOptimizer]
     ResponseMetadata: ResponseMetadata
@@ -717,6 +761,7 @@ class DataLakeSettings(BaseValidatorModel):
     AuthorizedSessionTagValueList: Optional[List[str]] = None
 
 
+# This class is the output for the 'get_resource_lf_tags' function.
 class GetResourceLFTagsResponse(BaseValidatorModel):
     LFTagOnDatabase: List[LFTagPairOutput]
     LFTagsOnTable: List[LFTagPairOutput]
@@ -731,11 +776,13 @@ class TaggedTable(BaseValidatorModel):
     LFTagsOnColumns: Optional[List[ColumnLFTag]] = None
 
 
+# This class is the output for the 'add_lf_tags_to_resource' function.
 class AddLFTagsToResourceResponse(BaseValidatorModel):
     Failures: List[LFTagError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'remove_lf_tags_from_resource' function.
 class RemoveLFTagsFromResourceResponse(BaseValidatorModel):
     Failures: List[LFTagError]
     ResponseMetadata: ResponseMetadata
@@ -749,11 +796,13 @@ class TableWithColumnsResource(BaseValidatorModel):
     ColumnWildcard: Optional[ColumnWildcardUnion] = None
 
 
+# This class is the output for the 'get_data_cells_filter' function.
 class GetDataCellsFilterResponse(BaseValidatorModel):
     DataCellsFilter: DataCellsFilterOutput
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_data_cells_filter' function.
 class ListDataCellsFilterResponse(BaseValidatorModel):
     DataCellsFilters: List[DataCellsFilterOutput]
     ResponseMetadata: ResponseMetadata
@@ -762,6 +811,7 @@ class ListDataCellsFilterResponse(BaseValidatorModel):
 DataCellsFilterUnion = Union[DataCellsFilter, DataCellsFilterOutput]
 
 
+# This class is the output for the 'search_databases_by_lf_tags' function.
 class SearchDatabasesByLFTagsResponse(BaseValidatorModel):
     DatabaseList: List[TaggedDatabase]
     ResponseMetadata: ResponseMetadata
@@ -776,6 +826,7 @@ class UpdateTableObjectsRequest(BaseValidatorModel):
     TransactionId: Optional[str] = None
 
 
+# This class is the input for the 'create_lake_formation_identity_center_configuration' function.
 class CreateLakeFormationIdentityCenterConfigurationRequest(BaseValidatorModel):
     CatalogId: Optional[str] = None
     InstanceArn: Optional[str] = None
@@ -790,6 +841,7 @@ class UpdateLakeFormationIdentityCenterConfigurationRequest(BaseValidatorModel):
     ExternalFiltering: Optional[ExternalFilteringConfigurationUnion] = None
 
 
+# This class is the output for the 'list_lf_tag_expressions' function.
 class ListLFTagExpressionsResponse(BaseValidatorModel):
     LFTagExpressions: List[LFTagExpression]
     ResponseMetadata: ResponseMetadata
@@ -808,11 +860,13 @@ class ResourceOutput(BaseValidatorModel):
     LFTagExpression: Optional[LFTagExpressionResource] = None
 
 
+# This class is the input for the 'start_query_planning' function.
 class StartQueryPlanningRequest(BaseValidatorModel):
     QueryPlanningContext: QueryPlanningContext
     QueryString: str
 
 
+# This class is the input for the 'get_temporary_glue_table_credentials' function.
 class GetTemporaryGlueTableCredentialsRequest(BaseValidatorModel):
     TableArn: str
     Permissions: Optional[List[PermissionType]] = None
@@ -843,6 +897,7 @@ class SearchDatabasesByLFTagsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_databases_by_lf_tags' function.
 class SearchDatabasesByLFTagsRequest(BaseValidatorModel):
     Expression: List[LFTagUnion]
     NextToken: Optional[str] = None
@@ -856,6 +911,7 @@ class SearchTablesByLFTagsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'search_tables_by_lf_tags' function.
 class SearchTablesByLFTagsRequest(BaseValidatorModel):
     Expression: List[LFTagUnion]
     NextToken: Optional[str] = None
@@ -870,6 +926,7 @@ class UpdateLFTagExpressionRequest(BaseValidatorModel):
     CatalogId: Optional[str] = None
 
 
+# This class is the output for the 'get_table_objects' function.
 class GetTableObjectsResponse(BaseValidatorModel):
     Objects: List[PartitionObjects]
     ResponseMetadata: ResponseMetadata
@@ -881,12 +938,14 @@ class ListDataCellsFilterRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_data_cells_filter' function.
 class ListDataCellsFilterRequest(BaseValidatorModel):
     Table: Optional[TableResourceUnion] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the output for the 'get_data_lake_settings' function.
 class GetDataLakeSettingsResponse(BaseValidatorModel):
     DataLakeSettings: DataLakeSettingsOutput
     ResponseMetadata: ResponseMetadata
@@ -894,6 +953,7 @@ class GetDataLakeSettingsResponse(BaseValidatorModel):
 DataLakeSettingsUnion = Union[DataLakeSettings, DataLakeSettingsOutput]
 
 
+# This class is the output for the 'search_tables_by_lf_tags' function.
 class SearchTablesByLFTagsResponse(BaseValidatorModel):
     TableList: List[TaggedTable]
     ResponseMetadata: ResponseMetadata
@@ -949,18 +1009,21 @@ class BatchPermissionsFailureEntry(BaseValidatorModel):
     Error: Optional[ErrorDetail] = None
 
 
+# This class is the output for the 'list_lake_formation_opt_ins' function.
 class ListLakeFormationOptInsResponse(BaseValidatorModel):
     LakeFormationOptInsInfoList: List[LakeFormationOptInsInfo]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_effective_permissions_for_path' function.
 class GetEffectivePermissionsForPathResponse(BaseValidatorModel):
     Permissions: List[PrincipalResourcePermissions]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_permissions' function.
 class ListPermissionsResponse(BaseValidatorModel):
     PrincipalResourcePermissions: List[PrincipalResourcePermissions]
     ResponseMetadata: ResponseMetadata
@@ -979,11 +1042,13 @@ class Resource(BaseValidatorModel):
     LFTagExpression: Optional[LFTagExpressionResource] = None
 
 
+# This class is the output for the 'batch_grant_permissions' function.
 class BatchGrantPermissionsResponse(BaseValidatorModel):
     Failures: List[BatchPermissionsFailureEntry]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_revoke_permissions' function.
 class BatchRevokePermissionsResponse(BaseValidatorModel):
     Failures: List[BatchPermissionsFailureEntry]
     ResponseMetadata: ResponseMetadata
@@ -991,6 +1056,7 @@ class BatchRevokePermissionsResponse(BaseValidatorModel):
 ResourceUnion = Union[Resource, ResourceOutput]
 
 
+# This class is the input for the 'add_lf_tags_to_resource' function.
 class AddLFTagsToResourceRequest(BaseValidatorModel):
     Resource: ResourceUnion
     LFTags: List[LFTagPairUnion]
@@ -1015,6 +1081,7 @@ class DeleteLakeFormationOptInRequest(BaseValidatorModel):
     Resource: ResourceUnion
 
 
+# This class is the input for the 'get_resource_lf_tags' function.
 class GetResourceLFTagsRequest(BaseValidatorModel):
     Resource: ResourceUnion
     CatalogId: Optional[str] = None
@@ -1029,6 +1096,7 @@ class GrantPermissionsRequest(BaseValidatorModel):
     PermissionsWithGrantOption: Optional[List[PermissionType]] = None
 
 
+# This class is the input for the 'list_lake_formation_opt_ins' function.
 class ListLakeFormationOptInsRequest(BaseValidatorModel):
     Principal: Optional[DataLakePrincipal] = None
     Resource: Optional[ResourceUnion] = None
@@ -1036,6 +1104,7 @@ class ListLakeFormationOptInsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_permissions' function.
 class ListPermissionsRequest(BaseValidatorModel):
     CatalogId: Optional[str] = None
     Principal: Optional[DataLakePrincipal] = None
@@ -1046,6 +1115,7 @@ class ListPermissionsRequest(BaseValidatorModel):
     IncludeRelated: Optional[str] = None
 
 
+# This class is the input for the 'remove_lf_tags_from_resource' function.
 class RemoveLFTagsFromResourceRequest(BaseValidatorModel):
     Resource: ResourceUnion
     LFTags: List[LFTagPairUnion]
@@ -1062,11 +1132,13 @@ class RevokePermissionsRequest(BaseValidatorModel):
 BatchPermissionsRequestEntryUnion = Union[BatchPermissionsRequestEntry, BatchPermissionsRequestEntryOutput]
 
 
+# This class is the input for the 'batch_grant_permissions' function.
 class BatchGrantPermissionsRequest(BaseValidatorModel):
     Entries: List[BatchPermissionsRequestEntryUnion]
     CatalogId: Optional[str] = None
 
 
+# This class is the input for the 'batch_revoke_permissions' function.
 class BatchRevokePermissionsRequest(BaseValidatorModel):
     Entries: List[BatchPermissionsRequestEntryUnion]
     CatalogId: Optional[str] = None

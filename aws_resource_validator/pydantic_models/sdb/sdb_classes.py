@@ -15,6 +15,7 @@ class Attribute(BaseValidatorModel):
     AlternateValueEncoding: Optional[str] = None
 
 
+# This class is the input for the 'create_domain' function.
 class CreateDomainRequest(BaseValidatorModel):
     DomainName: str
 
@@ -25,10 +26,12 @@ class UpdateCondition(BaseValidatorModel):
     Exists: Optional[bool] = None
 
 
+# This class is the input for the 'delete_domain' function.
 class DeleteDomainRequest(BaseValidatorModel):
     DomainName: str
 
 
+# This class is the input for the 'domain_metadata' function.
 class DomainMetadataRequest(BaseValidatorModel):
     DomainName: str
 
@@ -41,6 +44,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'get_attributes' function.
 class GetAttributesRequest(BaseValidatorModel):
     DomainName: str
     ItemName: str
@@ -54,6 +58,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_domains' function.
 class ListDomainsRequest(BaseValidatorModel):
     MaxNumberOfDomains: Optional[int] = None
     NextToken: Optional[str] = None
@@ -65,6 +70,7 @@ class ReplaceableAttribute(BaseValidatorModel):
     Replace: Optional[bool] = None
 
 
+# This class is the input for the 'select' function.
 class SelectRequest(BaseValidatorModel):
     SelectExpression: str
     NextToken: Optional[str] = None
@@ -82,6 +88,7 @@ class Item(BaseValidatorModel):
     AlternateNameEncoding: Optional[str] = None
 
 
+# This class is the input for the 'delete_attributes' function.
 class DeleteAttributesRequest(BaseValidatorModel):
     DomainName: str
     ItemName: str
@@ -89,6 +96,7 @@ class DeleteAttributesRequest(BaseValidatorModel):
     Expected: Optional[UpdateCondition] = None
 
 
+# This class is the output for the 'domain_metadata' function.
 class DomainMetadataResult(BaseValidatorModel):
     ItemCount: int
     ItemNamesSizeBytes: int
@@ -100,15 +108,18 @@ class DomainMetadataResult(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_attributes' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_attributes' function.
 class GetAttributesResult(BaseValidatorModel):
     Attributes: List[Attribute]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_domains' function.
 class ListDomainsResult(BaseValidatorModel):
     DomainNames: List[str]
     ResponseMetadata: ResponseMetadata
@@ -125,6 +136,7 @@ class SelectRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'put_attributes' function.
 class PutAttributesRequest(BaseValidatorModel):
     DomainName: str
     ItemName: str
@@ -137,17 +149,20 @@ class ReplaceableItem(BaseValidatorModel):
     Attributes: List[ReplaceableAttribute]
 
 
+# This class is the input for the 'batch_delete_attributes' function.
 class BatchDeleteAttributesRequest(BaseValidatorModel):
     DomainName: str
     Items: List[DeletableItem]
 
 
+# This class is the output for the 'select' function.
 class SelectResult(BaseValidatorModel):
     Items: List[Item]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'batch_put_attributes' function.
 class BatchPutAttributesRequest(BaseValidatorModel):
     DomainName: str
     Items: List[ReplaceableItem]

@@ -82,6 +82,7 @@ class BatchGetCollaborationAnalysisTemplateError(BaseValidatorModel):
     message: str
 
 
+# This class is the input for the 'batch_get_collaboration_analysis_template' function.
 class BatchGetCollaborationAnalysisTemplateInput(BaseValidatorModel):
     collaborationIdentifier: str
     analysisTemplateArns: List[str]
@@ -113,6 +114,7 @@ class BatchGetSchemaError(BaseValidatorModel):
     message: str
 
 
+# This class is the input for the 'batch_get_schema' function.
 class BatchGetSchemaInput(BaseValidatorModel):
     collaborationIdentifier: str
     names: List[str]
@@ -318,6 +320,7 @@ class ConfiguredTableSummary(BaseValidatorModel):
     analysisMethod: Literal['DIRECT_QUERY']
 
 
+# This class is the input for the 'create_configured_audience_model_association' function.
 class CreateConfiguredAudienceModelAssociationInput(BaseValidatorModel):
     membershipIdentifier: str
     configuredAudienceModelArn: str
@@ -327,6 +330,7 @@ class CreateConfiguredAudienceModelAssociationInput(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'create_configured_table_association' function.
 class CreateConfiguredTableAssociationInput(BaseValidatorModel):
     name: str
     membershipIdentifier: str
@@ -442,90 +446,108 @@ class DifferentialPrivacyTemplateUpdateParameters(BaseValidatorModel):
     usersNoisePerQuery: Optional[int] = None
 
 
+# This class is the input for the 'get_analysis_template' function.
 class GetAnalysisTemplateInput(BaseValidatorModel):
     membershipIdentifier: str
     analysisTemplateIdentifier: str
 
 
+# This class is the input for the 'get_collaboration_analysis_template' function.
 class GetCollaborationAnalysisTemplateInput(BaseValidatorModel):
     collaborationIdentifier: str
     analysisTemplateArn: str
 
 
+# This class is the input for the 'get_collaboration_configured_audience_model_association' function.
 class GetCollaborationConfiguredAudienceModelAssociationInput(BaseValidatorModel):
     collaborationIdentifier: str
     configuredAudienceModelAssociationIdentifier: str
 
 
+# This class is the input for the 'get_collaboration_id_namespace_association' function.
 class GetCollaborationIdNamespaceAssociationInput(BaseValidatorModel):
     collaborationIdentifier: str
     idNamespaceAssociationIdentifier: str
 
 
+# This class is the input for the 'get_collaboration' function.
 class GetCollaborationInput(BaseValidatorModel):
     collaborationIdentifier: str
 
 
+# This class is the input for the 'get_collaboration_privacy_budget_template' function.
 class GetCollaborationPrivacyBudgetTemplateInput(BaseValidatorModel):
     collaborationIdentifier: str
     privacyBudgetTemplateIdentifier: str
 
 
+# This class is the input for the 'get_configured_audience_model_association' function.
 class GetConfiguredAudienceModelAssociationInput(BaseValidatorModel):
     configuredAudienceModelAssociationIdentifier: str
     membershipIdentifier: str
 
 
+# This class is the input for the 'get_configured_table_analysis_rule' function.
 class GetConfiguredTableAnalysisRuleInput(BaseValidatorModel):
     configuredTableIdentifier: str
     analysisRuleType: ConfiguredTableAnalysisRuleTypeType
 
 
+# This class is the input for the 'get_configured_table_association_analysis_rule' function.
 class GetConfiguredTableAssociationAnalysisRuleInput(BaseValidatorModel):
     membershipIdentifier: str
     configuredTableAssociationIdentifier: str
     analysisRuleType: ConfiguredTableAssociationAnalysisRuleTypeType
 
 
+# This class is the input for the 'get_configured_table_association' function.
 class GetConfiguredTableAssociationInput(BaseValidatorModel):
     configuredTableAssociationIdentifier: str
     membershipIdentifier: str
 
 
+# This class is the input for the 'get_configured_table' function.
 class GetConfiguredTableInput(BaseValidatorModel):
     configuredTableIdentifier: str
 
 
+# This class is the input for the 'get_id_mapping_table' function.
 class GetIdMappingTableInput(BaseValidatorModel):
     idMappingTableIdentifier: str
     membershipIdentifier: str
 
 
+# This class is the input for the 'get_id_namespace_association' function.
 class GetIdNamespaceAssociationInput(BaseValidatorModel):
     idNamespaceAssociationIdentifier: str
     membershipIdentifier: str
 
 
+# This class is the input for the 'get_membership' function.
 class GetMembershipInput(BaseValidatorModel):
     membershipIdentifier: str
 
 
+# This class is the input for the 'get_privacy_budget_template' function.
 class GetPrivacyBudgetTemplateInput(BaseValidatorModel):
     membershipIdentifier: str
     privacyBudgetTemplateIdentifier: str
 
 
+# This class is the input for the 'get_protected_query' function.
 class GetProtectedQueryInput(BaseValidatorModel):
     membershipIdentifier: str
     protectedQueryIdentifier: str
 
 
+# This class is the input for the 'get_schema_analysis_rule' function.
 class GetSchemaAnalysisRuleInput(BaseValidatorModel):
     collaborationIdentifier: str
     name: str
     type: AnalysisRuleTypeType
 
 
+# This class is the input for the 'get_schema' function.
 class GetSchemaInput(BaseValidatorModel):
     collaborationIdentifier: str
     name: str
@@ -547,36 +569,42 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_analysis_templates' function.
 class ListAnalysisTemplatesInput(BaseValidatorModel):
     membershipIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_collaboration_analysis_templates' function.
 class ListCollaborationAnalysisTemplatesInput(BaseValidatorModel):
     collaborationIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_collaboration_configured_audience_model_associations' function.
 class ListCollaborationConfiguredAudienceModelAssociationsInput(BaseValidatorModel):
     collaborationIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_collaboration_id_namespace_associations' function.
 class ListCollaborationIdNamespaceAssociationsInput(BaseValidatorModel):
     collaborationIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_collaboration_privacy_budget_templates' function.
 class ListCollaborationPrivacyBudgetTemplatesInput(BaseValidatorModel):
     collaborationIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_collaboration_privacy_budgets' function.
 class ListCollaborationPrivacyBudgetsInput(BaseValidatorModel):
     collaborationIdentifier: str
     privacyBudgetType: Literal['DIFFERENTIAL_PRIVACY']
@@ -584,53 +612,62 @@ class ListCollaborationPrivacyBudgetsInput(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_collaborations' function.
 class ListCollaborationsInput(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     memberStatus: Optional[FilterableMemberStatusType] = None
 
 
+# This class is the input for the 'list_configured_audience_model_associations' function.
 class ListConfiguredAudienceModelAssociationsInput(BaseValidatorModel):
     membershipIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_configured_table_associations' function.
 class ListConfiguredTableAssociationsInput(BaseValidatorModel):
     membershipIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_configured_tables' function.
 class ListConfiguredTablesInput(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_id_mapping_tables' function.
 class ListIdMappingTablesInput(BaseValidatorModel):
     membershipIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_id_namespace_associations' function.
 class ListIdNamespaceAssociationsInput(BaseValidatorModel):
     membershipIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_members' function.
 class ListMembersInput(BaseValidatorModel):
     collaborationIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_memberships' function.
 class ListMembershipsInput(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     status: Optional[MembershipStatusType] = None
 
 
+# This class is the input for the 'list_privacy_budget_templates' function.
 class ListPrivacyBudgetTemplatesInput(BaseValidatorModel):
     membershipIdentifier: str
     nextToken: Optional[str] = None
@@ -649,6 +686,7 @@ class PrivacyBudgetTemplateSummary(BaseValidatorModel):
     updateTime: datetime
 
 
+# This class is the input for the 'list_privacy_budgets' function.
 class ListPrivacyBudgetsInput(BaseValidatorModel):
     membershipIdentifier: str
     privacyBudgetType: Literal['DIFFERENTIAL_PRIVACY']
@@ -656,6 +694,7 @@ class ListPrivacyBudgetsInput(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_protected_queries' function.
 class ListProtectedQueriesInput(BaseValidatorModel):
     membershipIdentifier: str
     status: Optional[ProtectedQueryStatusType] = None
@@ -663,6 +702,7 @@ class ListProtectedQueriesInput(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_schemas' function.
 class ListSchemasInput(BaseValidatorModel):
     collaborationIdentifier: str
     schemaType: Optional[SchemaTypeType] = None
@@ -682,6 +722,7 @@ class SchemaSummary(BaseValidatorModel):
     analysisMethod: Optional[Literal['DIRECT_QUERY']] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInput(BaseValidatorModel):
     resourceArn: str
 
@@ -725,6 +766,7 @@ class QueryComputePaymentConfig(BaseValidatorModel):
     isResponsible: bool
 
 
+# This class is the input for the 'populate_id_mapping_table' function.
 class PopulateIdMappingTableInput(BaseValidatorModel):
     idMappingTableIdentifier: str
     membershipIdentifier: str
@@ -783,18 +825,21 @@ class UntagResourceInput(BaseValidatorModel):
     tagKeys: List[str]
 
 
+# This class is the input for the 'update_analysis_template' function.
 class UpdateAnalysisTemplateInput(BaseValidatorModel):
     membershipIdentifier: str
     analysisTemplateIdentifier: str
     description: Optional[str] = None
 
 
+# This class is the input for the 'update_collaboration' function.
 class UpdateCollaborationInput(BaseValidatorModel):
     collaborationIdentifier: str
     name: Optional[str] = None
     description: Optional[str] = None
 
 
+# This class is the input for the 'update_configured_audience_model_association' function.
 class UpdateConfiguredAudienceModelAssociationInput(BaseValidatorModel):
     configuredAudienceModelAssociationIdentifier: str
     membershipIdentifier: str
@@ -802,6 +847,7 @@ class UpdateConfiguredAudienceModelAssociationInput(BaseValidatorModel):
     name: Optional[str] = None
 
 
+# This class is the input for the 'update_configured_table_association' function.
 class UpdateConfiguredTableAssociationInput(BaseValidatorModel):
     configuredTableAssociationIdentifier: str
     membershipIdentifier: str
@@ -809,12 +855,14 @@ class UpdateConfiguredTableAssociationInput(BaseValidatorModel):
     roleArn: Optional[str] = None
 
 
+# This class is the input for the 'update_configured_table' function.
 class UpdateConfiguredTableInput(BaseValidatorModel):
     configuredTableIdentifier: str
     name: Optional[str] = None
     description: Optional[str] = None
 
 
+# This class is the input for the 'update_id_mapping_table' function.
 class UpdateIdMappingTableInput(BaseValidatorModel):
     idMappingTableIdentifier: str
     membershipIdentifier: str
@@ -822,6 +870,7 @@ class UpdateIdMappingTableInput(BaseValidatorModel):
     kmsKeyArn: Optional[str] = None
 
 
+# This class is the input for the 'update_protected_query' function.
 class UpdateProtectedQueryInput(BaseValidatorModel):
     membershipIdentifier: str
     protectedQueryIdentifier: str
@@ -850,6 +899,7 @@ class AnalysisRuleAggregation(BaseValidatorModel):
     additionalAnalyses: Optional[AdditionalAnalysesType] = None
 
 
+# This class is the input for the 'create_analysis_template' function.
 class CreateAnalysisTemplateInput(BaseValidatorModel):
     membershipIdentifier: str
     name: str
@@ -866,22 +916,26 @@ class AnalysisTemplateValidationStatusDetail(BaseValidatorModel):
     reasons: Optional[List[AnalysisTemplateValidationStatusReason]] = None
 
 
+# This class is the output for the 'list_analysis_templates' function.
 class ListAnalysisTemplatesOutput(BaseValidatorModel):
     analysisTemplateSummaries: List[AnalysisTemplateSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceOutput(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'populate_id_mapping_table' function.
 class PopulateIdMappingTableOutput(BaseValidatorModel):
     idMappingJobId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'batch_get_schema_analysis_rule' function.
 class BatchGetSchemaAnalysisRuleInput(BaseValidatorModel):
     collaborationIdentifier: str
     schemaAnalysisRuleRequests: List[SchemaAnalysisRuleRequest]
@@ -892,18 +946,21 @@ class ProtectedQueryStatistics(BaseValidatorModel):
     billedResourceUtilization: Optional[BilledResourceUtilization] = None
 
 
+# This class is the output for the 'list_collaboration_analysis_templates' function.
 class ListCollaborationAnalysisTemplatesOutput(BaseValidatorModel):
     collaborationAnalysisTemplateSummaries: List[CollaborationAnalysisTemplateSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_collaboration_configured_audience_model_associations' function.
 class ListCollaborationConfiguredAudienceModelAssociationsOutput(BaseValidatorModel):
     collaborationConfiguredAudienceModelAssociationSummaries: List[CollaborationConfiguredAudienceModelAssociationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_collaboration_configured_audience_model_association' function.
 class GetCollaborationConfiguredAudienceModelAssociationOutput(BaseValidatorModel):
     collaborationConfiguredAudienceModelAssociation: CollaborationConfiguredAudienceModelAssociation
     ResponseMetadata: ResponseMetadata
@@ -938,6 +995,7 @@ class IdNamespaceAssociationSummary(BaseValidatorModel):
     description: Optional[str] = None
 
 
+# This class is the input for the 'create_id_namespace_association' function.
 class CreateIdNamespaceAssociationInput(BaseValidatorModel):
     membershipIdentifier: str
     inputReferenceConfig: IdNamespaceAssociationInputReferenceConfig
@@ -947,6 +1005,7 @@ class CreateIdNamespaceAssociationInput(BaseValidatorModel):
     idMappingConfig: Optional[IdMappingConfig] = None
 
 
+# This class is the input for the 'update_id_namespace_association' function.
 class UpdateIdNamespaceAssociationInput(BaseValidatorModel):
     idNamespaceAssociationIdentifier: str
     membershipIdentifier: str
@@ -986,12 +1045,14 @@ class IdNamespaceAssociation(BaseValidatorModel):
     idMappingConfig: Optional[IdMappingConfig] = None
 
 
+# This class is the output for the 'list_collaboration_privacy_budget_templates' function.
 class ListCollaborationPrivacyBudgetTemplatesOutput(BaseValidatorModel):
     collaborationPrivacyBudgetTemplateSummaries: List[CollaborationPrivacyBudgetTemplateSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_collaborations' function.
 class ListCollaborationsOutput(BaseValidatorModel):
     collaborationList: List[CollaborationSummary]
     ResponseMetadata: ResponseMetadata
@@ -1023,22 +1084,26 @@ class ConfigurationDetails(BaseValidatorModel):
     directAnalysisConfigurationDetails: Optional[DirectAnalysisConfigurationDetails] = None
 
 
+# This class is the output for the 'list_configured_audience_model_associations' function.
 class ListConfiguredAudienceModelAssociationsOutput(BaseValidatorModel):
     configuredAudienceModelAssociationSummaries: List[ConfiguredAudienceModelAssociationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_configured_audience_model_association' function.
 class CreateConfiguredAudienceModelAssociationOutput(BaseValidatorModel):
     configuredAudienceModelAssociation: ConfiguredAudienceModelAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_configured_audience_model_association' function.
 class GetConfiguredAudienceModelAssociationOutput(BaseValidatorModel):
     configuredAudienceModelAssociation: ConfiguredAudienceModelAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_configured_audience_model_association' function.
 class UpdateConfiguredAudienceModelAssociationOutput(BaseValidatorModel):
     configuredAudienceModelAssociation: ConfiguredAudienceModelAssociation
     ResponseMetadata: ResponseMetadata
@@ -1056,33 +1121,39 @@ class ConfiguredTableAssociationAnalysisRulePolicyV1(BaseValidatorModel):
     custom: Optional[ConfiguredTableAssociationAnalysisRuleCustom] = None
 
 
+# This class is the output for the 'list_configured_table_associations' function.
 class ListConfiguredTableAssociationsOutput(BaseValidatorModel):
     configuredTableAssociationSummaries: List[ConfiguredTableAssociationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_configured_table_association' function.
 class CreateConfiguredTableAssociationOutput(BaseValidatorModel):
     configuredTableAssociation: ConfiguredTableAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_configured_table_association' function.
 class GetConfiguredTableAssociationOutput(BaseValidatorModel):
     configuredTableAssociation: ConfiguredTableAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_configured_table_association' function.
 class UpdateConfiguredTableAssociationOutput(BaseValidatorModel):
     configuredTableAssociation: ConfiguredTableAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_configured_tables' function.
 class ListConfiguredTablesOutput(BaseValidatorModel):
     configuredTableSummaries: List[ConfiguredTableSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the input for the 'create_id_mapping_table' function.
 class CreateIdMappingTableInput(BaseValidatorModel):
     membershipIdentifier: str
     name: str
@@ -1244,12 +1315,14 @@ class ListSchemasInputPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_privacy_budget_templates' function.
 class ListPrivacyBudgetTemplatesOutput(BaseValidatorModel):
     privacyBudgetTemplateSummaries: List[PrivacyBudgetTemplateSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_schemas' function.
 class ListSchemasOutput(BaseValidatorModel):
     schemaSummaries: List[SchemaSummary]
     ResponseMetadata: ResponseMetadata
@@ -1339,48 +1412,57 @@ class CollaborationAnalysisTemplate(BaseValidatorModel):
     validations: Optional[List[AnalysisTemplateValidationStatusDetail]] = None
 
 
+# This class is the output for the 'list_collaboration_id_namespace_associations' function.
 class ListCollaborationIdNamespaceAssociationsOutput(BaseValidatorModel):
     collaborationIdNamespaceAssociationSummaries: List[CollaborationIdNamespaceAssociationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_id_namespace_associations' function.
 class ListIdNamespaceAssociationsOutput(BaseValidatorModel):
     idNamespaceAssociationSummaries: List[IdNamespaceAssociationSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_collaboration_id_namespace_association' function.
 class GetCollaborationIdNamespaceAssociationOutput(BaseValidatorModel):
     collaborationIdNamespaceAssociation: CollaborationIdNamespaceAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_id_namespace_association' function.
 class CreateIdNamespaceAssociationOutput(BaseValidatorModel):
     idNamespaceAssociation: IdNamespaceAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_id_namespace_association' function.
 class GetIdNamespaceAssociationOutput(BaseValidatorModel):
     idNamespaceAssociation: IdNamespaceAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_id_namespace_association' function.
 class UpdateIdNamespaceAssociationOutput(BaseValidatorModel):
     idNamespaceAssociation: IdNamespaceAssociation
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_collaboration' function.
 class CreateCollaborationOutput(BaseValidatorModel):
     collaboration: Collaboration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_collaboration' function.
 class GetCollaborationOutput(BaseValidatorModel):
     collaboration: Collaboration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_collaboration' function.
 class UpdateCollaborationOutput(BaseValidatorModel):
     collaboration: Collaboration
     ResponseMetadata: ResponseMetadata
@@ -1399,6 +1481,7 @@ class ConfiguredTableAssociationAnalysisRulePolicy(BaseValidatorModel):
     v1: Optional[ConfiguredTableAssociationAnalysisRulePolicyV1] = None
 
 
+# This class is the output for the 'list_id_mapping_tables' function.
 class ListIdMappingTablesOutput(BaseValidatorModel):
     idMappingTableSummaries: List[IdMappingTableSummary]
     ResponseMetadata: ResponseMetadata
@@ -1425,6 +1508,7 @@ class PrivacyImpact(BaseValidatorModel):
     differentialPrivacy: Optional[DifferentialPrivacyPrivacyImpact] = None
 
 
+# This class is the input for the 'preview_privacy_impact' function.
 class PreviewPrivacyImpactInput(BaseValidatorModel):
     membershipIdentifier: str
     parameters: PreviewPrivacyImpactParametersInput
@@ -1434,6 +1518,7 @@ class PrivacyBudget(BaseValidatorModel):
     differentialPrivacy: Optional[DifferentialPrivacyPrivacyBudget] = None
 
 
+# This class is the input for the 'create_privacy_budget_template' function.
 class CreatePrivacyBudgetTemplateInput(BaseValidatorModel):
     membershipIdentifier: str
     autoRefresh: PrivacyBudgetTemplateAutoRefreshType
@@ -1469,6 +1554,7 @@ class PrivacyBudgetTemplate(BaseValidatorModel):
     parameters: PrivacyBudgetTemplateParametersOutput
 
 
+# This class is the input for the 'update_privacy_budget_template' function.
 class UpdatePrivacyBudgetTemplateInput(BaseValidatorModel):
     membershipIdentifier: str
     privacyBudgetTemplateIdentifier: str
@@ -1543,27 +1629,32 @@ class SnowflakeTableReference(BaseValidatorModel):
     tableSchema: SnowflakeTableSchema
 
 
+# This class is the output for the 'create_analysis_template' function.
 class CreateAnalysisTemplateOutput(BaseValidatorModel):
     analysisTemplate: AnalysisTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_analysis_template' function.
 class GetAnalysisTemplateOutput(BaseValidatorModel):
     analysisTemplate: AnalysisTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_analysis_template' function.
 class UpdateAnalysisTemplateOutput(BaseValidatorModel):
     analysisTemplate: AnalysisTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'batch_get_collaboration_analysis_template' function.
 class BatchGetCollaborationAnalysisTemplateOutput(BaseValidatorModel):
     collaborationAnalysisTemplates: List[CollaborationAnalysisTemplate]
     errors: List[BatchGetCollaborationAnalysisTemplateError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_collaboration_analysis_template' function.
 class GetCollaborationAnalysisTemplateOutput(BaseValidatorModel):
     collaborationAnalysisTemplate: CollaborationAnalysisTemplate
     ResponseMetadata: ResponseMetadata
@@ -1602,6 +1693,7 @@ class ConfiguredTableAnalysisRulePolicyV1(BaseValidatorModel):
     custom: Optional[AnalysisRuleCustom] = None
 
 
+# This class is the output for the 'preview_privacy_impact' function.
 class PreviewPrivacyImpactOutput(BaseValidatorModel):
     privacyImpact: PrivacyImpact
     ResponseMetadata: ResponseMetadata
@@ -1634,36 +1726,43 @@ class PrivacyBudgetSummary(BaseValidatorModel):
     budget: PrivacyBudget
 
 
+# This class is the output for the 'get_collaboration_privacy_budget_template' function.
 class GetCollaborationPrivacyBudgetTemplateOutput(BaseValidatorModel):
     collaborationPrivacyBudgetTemplate: CollaborationPrivacyBudgetTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_privacy_budget_template' function.
 class CreatePrivacyBudgetTemplateOutput(BaseValidatorModel):
     privacyBudgetTemplate: PrivacyBudgetTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_privacy_budget_template' function.
 class GetPrivacyBudgetTemplateOutput(BaseValidatorModel):
     privacyBudgetTemplate: PrivacyBudgetTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_privacy_budget_template' function.
 class UpdatePrivacyBudgetTemplateOutput(BaseValidatorModel):
     privacyBudgetTemplate: PrivacyBudgetTemplate
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_id_mapping_table' function.
 class CreateIdMappingTableOutput(BaseValidatorModel):
     idMappingTable: IdMappingTable
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_id_mapping_table' function.
 class GetIdMappingTableOutput(BaseValidatorModel):
     idMappingTable: IdMappingTable
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_id_mapping_table' function.
 class UpdateIdMappingTableOutput(BaseValidatorModel):
     idMappingTable: IdMappingTable
     ResponseMetadata: ResponseMetadata
@@ -1723,6 +1822,7 @@ class MembershipSummary(BaseValidatorModel):
     mlMemberAbilities: Optional[MLMemberAbilitiesOutput] = None
 
 
+# This class is the input for the 'create_membership' function.
 class CreateMembershipInput(BaseValidatorModel):
     collaborationIdentifier: str
     queryLogStatus: MembershipQueryLogStatusType
@@ -1749,12 +1849,14 @@ class Membership(BaseValidatorModel):
     defaultResultConfiguration: Optional[MembershipProtectedQueryResultConfiguration] = None
 
 
+# This class is the input for the 'update_membership' function.
 class UpdateMembershipInput(BaseValidatorModel):
     membershipIdentifier: str
     queryLogStatus: Optional[MembershipQueryLogStatusType] = None
     defaultResultConfiguration: Optional[MembershipProtectedQueryResultConfiguration] = None
 
 
+# This class is the input for the 'start_protected_query' function.
 class StartProtectedQueryInput(BaseValidatorModel):
     type: Literal['SQL']
     membershipIdentifier: str
@@ -1797,27 +1899,32 @@ class TableReference(BaseValidatorModel):
     athena: Optional[AthenaTableReference] = None
 
 
+# This class is the output for the 'list_protected_queries' function.
 class ListProtectedQueriesOutput(BaseValidatorModel):
     protectedQueries: List[ProtectedQuerySummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_configured_table_association_analysis_rule' function.
 class CreateConfiguredTableAssociationAnalysisRuleOutput(BaseValidatorModel):
     analysisRule: ConfiguredTableAssociationAnalysisRule
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_configured_table_association_analysis_rule' function.
 class GetConfiguredTableAssociationAnalysisRuleOutput(BaseValidatorModel):
     analysisRule: ConfiguredTableAssociationAnalysisRule
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_configured_table_association_analysis_rule' function.
 class UpdateConfiguredTableAssociationAnalysisRuleOutput(BaseValidatorModel):
     analysisRule: ConfiguredTableAssociationAnalysisRule
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_configured_table_association_analysis_rule' function.
 class CreateConfiguredTableAssociationAnalysisRuleInput(BaseValidatorModel):
     membershipIdentifier: str
     configuredTableAssociationIdentifier: str
@@ -1825,6 +1932,7 @@ class CreateConfiguredTableAssociationAnalysisRuleInput(BaseValidatorModel):
     analysisRulePolicy: ConfiguredTableAssociationAnalysisRulePolicyUnion
 
 
+# This class is the input for the 'update_configured_table_association_analysis_rule' function.
 class UpdateConfiguredTableAssociationAnalysisRuleInput(BaseValidatorModel):
     membershipIdentifier: str
     configuredTableAssociationIdentifier: str
@@ -1840,29 +1948,34 @@ class ConfiguredTableAnalysisRulePolicy(BaseValidatorModel):
     v1: Optional[ConfiguredTableAnalysisRulePolicyV1] = None
 
 
+# This class is the output for the 'list_collaboration_privacy_budgets' function.
 class ListCollaborationPrivacyBudgetsOutput(BaseValidatorModel):
     collaborationPrivacyBudgetSummaries: List[CollaborationPrivacyBudgetSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_privacy_budgets' function.
 class ListPrivacyBudgetsOutput(BaseValidatorModel):
     privacyBudgetSummaries: List[PrivacyBudgetSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'batch_get_schema' function.
 class BatchGetSchemaOutput(BaseValidatorModel):
     schemas: List[Schema]
     errors: List[BatchGetSchemaError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_schema' function.
 class GetSchemaOutput(BaseValidatorModel):
     schema: Schema
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_collaboration' function.
 class CreateCollaborationInput(BaseValidatorModel):
     members: List[MemberSpecification]
     name: str
@@ -1877,43 +1990,51 @@ class CreateCollaborationInput(BaseValidatorModel):
     analyticsEngine: Optional[AnalyticsEngineType] = None
 
 
+# This class is the output for the 'list_members' function.
 class ListMembersOutput(BaseValidatorModel):
     memberSummaries: List[MemberSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_memberships' function.
 class ListMembershipsOutput(BaseValidatorModel):
     membershipSummaries: List[MembershipSummary]
     ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_membership' function.
 class CreateMembershipOutput(BaseValidatorModel):
     membership: Membership
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_membership' function.
 class GetMembershipOutput(BaseValidatorModel):
     membership: Membership
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_membership' function.
 class UpdateMembershipOutput(BaseValidatorModel):
     membership: Membership
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_protected_query' function.
 class GetProtectedQueryOutput(BaseValidatorModel):
     protectedQuery: ProtectedQuery
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_protected_query' function.
 class StartProtectedQueryOutput(BaseValidatorModel):
     protectedQuery: ProtectedQuery
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_protected_query' function.
 class UpdateProtectedQueryOutput(BaseValidatorModel):
     protectedQuery: ProtectedQuery
     ResponseMetadata: ResponseMetadata
@@ -1958,21 +2079,25 @@ class AnalysisRule(BaseValidatorModel):
     policy: AnalysisRulePolicy
 
 
+# This class is the output for the 'create_configured_table' function.
 class CreateConfiguredTableOutput(BaseValidatorModel):
     configuredTable: ConfiguredTable
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_configured_table' function.
 class GetConfiguredTableOutput(BaseValidatorModel):
     configuredTable: ConfiguredTable
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_configured_table' function.
 class UpdateConfiguredTableOutput(BaseValidatorModel):
     configuredTable: ConfiguredTable
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_configured_table' function.
 class CreateConfiguredTableInput(BaseValidatorModel):
     name: str
     tableReference: TableReferenceUnion
@@ -1982,39 +2107,46 @@ class CreateConfiguredTableInput(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'create_configured_table_analysis_rule' function.
 class CreateConfiguredTableAnalysisRuleOutput(BaseValidatorModel):
     analysisRule: ConfiguredTableAnalysisRule
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_configured_table_analysis_rule' function.
 class GetConfiguredTableAnalysisRuleOutput(BaseValidatorModel):
     analysisRule: ConfiguredTableAnalysisRule
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_configured_table_analysis_rule' function.
 class UpdateConfiguredTableAnalysisRuleOutput(BaseValidatorModel):
     analysisRule: ConfiguredTableAnalysisRule
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_configured_table_analysis_rule' function.
 class CreateConfiguredTableAnalysisRuleInput(BaseValidatorModel):
     configuredTableIdentifier: str
     analysisRuleType: ConfiguredTableAnalysisRuleTypeType
     analysisRulePolicy: ConfiguredTableAnalysisRulePolicyUnion
 
 
+# This class is the input for the 'update_configured_table_analysis_rule' function.
 class UpdateConfiguredTableAnalysisRuleInput(BaseValidatorModel):
     configuredTableIdentifier: str
     analysisRuleType: ConfiguredTableAnalysisRuleTypeType
     analysisRulePolicy: ConfiguredTableAnalysisRulePolicyUnion
 
 
+# This class is the output for the 'batch_get_schema_analysis_rule' function.
 class BatchGetSchemaAnalysisRuleOutput(BaseValidatorModel):
     analysisRules: List[AnalysisRule]
     errors: List[BatchGetSchemaAnalysisRuleError]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_schema_analysis_rule' function.
 class GetSchemaAnalysisRuleOutput(BaseValidatorModel):
     analysisRule: AnalysisRule
     ResponseMetadata: ResponseMetadata

@@ -28,6 +28,7 @@ class SecretsManagerCredentialsProvider(BaseValidatorModel):
     SecretId: Optional[str] = None
 
 
+# This class is the input for the 'delete_license_server_endpoint' function.
 class DeleteLicenseServerEndpointRequest(BaseValidatorModel):
     LicenseServerEndpointArn: str
     ServerType: Literal['RDS_SAL']
@@ -68,6 +69,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -93,12 +95,14 @@ class UpdateSettings(BaseValidatorModel):
     SecurityGroupId: Optional[str] = None
 
 
+# This class is the output for the 'create_license_server_endpoint' function.
 class CreateLicenseServerEndpointResponse(BaseValidatorModel):
     IdentityProviderArn: str
     LicenseServerEndpointArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
@@ -108,24 +112,28 @@ class CredentialsProvider(BaseValidatorModel):
     SecretsManagerCredentialsProvider: Optional[SecretsManagerCredentialsProvider] = None
 
 
+# This class is the input for the 'list_identity_providers' function.
 class ListIdentityProvidersRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_instances' function.
 class ListInstancesRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_license_server_endpoints' function.
 class ListLicenseServerEndpointsRequest(BaseValidatorModel):
     Filters: Optional[List[Filter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_instances' function.
 class ListInstancesResponse(BaseValidatorModel):
     InstanceSummaries: List[InstanceSummary]
     ResponseMetadata: ResponseMetadata
@@ -179,11 +187,13 @@ class RdsSalSettings(BaseValidatorModel):
     RdsSalCredentialsProvider: CredentialsProvider
 
 
+# This class is the output for the 'delete_license_server_endpoint' function.
 class DeleteLicenseServerEndpointResponse(BaseValidatorModel):
     LicenseServerEndpoint: LicenseServerEndpoint
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_license_server_endpoints' function.
 class ListLicenseServerEndpointsResponse(BaseValidatorModel):
     LicenseServerEndpoints: List[LicenseServerEndpoint]
     ResponseMetadata: ResponseMetadata
@@ -254,65 +264,77 @@ class ProductUserSummary(BaseValidatorModel):
 IdentityProviderUnion = Union[IdentityProvider, IdentityProviderOutput]
 
 
+# This class is the input for the 'create_license_server_endpoint' function.
 class CreateLicenseServerEndpointRequest(BaseValidatorModel):
     IdentityProviderArn: str
     LicenseServerSettings: LicenseServerSettings
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'deregister_identity_provider' function.
 class DeregisterIdentityProviderResponse(BaseValidatorModel):
     IdentityProviderSummary: IdentityProviderSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_identity_providers' function.
 class ListIdentityProvidersResponse(BaseValidatorModel):
     IdentityProviderSummaries: List[IdentityProviderSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'register_identity_provider' function.
 class RegisterIdentityProviderResponse(BaseValidatorModel):
     IdentityProviderSummary: IdentityProviderSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_identity_provider_settings' function.
 class UpdateIdentityProviderSettingsResponse(BaseValidatorModel):
     IdentityProviderSummary: IdentityProviderSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'associate_user' function.
 class AssociateUserResponse(BaseValidatorModel):
     InstanceUserSummary: InstanceUserSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'disassociate_user' function.
 class DisassociateUserResponse(BaseValidatorModel):
     InstanceUserSummary: InstanceUserSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_user_associations' function.
 class ListUserAssociationsResponse(BaseValidatorModel):
     InstanceUserSummaries: List[InstanceUserSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_product_subscriptions' function.
 class ListProductSubscriptionsResponse(BaseValidatorModel):
     ProductUserSummaries: List[ProductUserSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'start_product_subscription' function.
 class StartProductSubscriptionResponse(BaseValidatorModel):
     ProductUserSummary: ProductUserSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'stop_product_subscription' function.
 class StopProductSubscriptionResponse(BaseValidatorModel):
     ProductUserSummary: ProductUserSummary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'associate_user' function.
 class AssociateUserRequest(BaseValidatorModel):
     IdentityProvider: IdentityProviderUnion
     InstanceId: str
@@ -321,12 +343,14 @@ class AssociateUserRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'deregister_identity_provider' function.
 class DeregisterIdentityProviderRequest(BaseValidatorModel):
     IdentityProvider: Optional[IdentityProviderUnion] = None
     IdentityProviderArn: Optional[str] = None
     Product: Optional[str] = None
 
 
+# This class is the input for the 'disassociate_user' function.
 class DisassociateUserRequest(BaseValidatorModel):
     Domain: Optional[str] = None
     IdentityProvider: Optional[IdentityProviderUnion] = None
@@ -342,6 +366,7 @@ class ListProductSubscriptionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_product_subscriptions' function.
 class ListProductSubscriptionsRequest(BaseValidatorModel):
     IdentityProvider: IdentityProviderUnion
     Filters: Optional[List[Filter]] = None
@@ -357,6 +382,7 @@ class ListUserAssociationsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the input for the 'list_user_associations' function.
 class ListUserAssociationsRequest(BaseValidatorModel):
     IdentityProvider: IdentityProviderUnion
     InstanceId: str
@@ -365,6 +391,7 @@ class ListUserAssociationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'register_identity_provider' function.
 class RegisterIdentityProviderRequest(BaseValidatorModel):
     IdentityProvider: IdentityProviderUnion
     Product: str
@@ -372,6 +399,7 @@ class RegisterIdentityProviderRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'start_product_subscription' function.
 class StartProductSubscriptionRequest(BaseValidatorModel):
     IdentityProvider: IdentityProviderUnion
     Product: str
@@ -380,6 +408,7 @@ class StartProductSubscriptionRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'stop_product_subscription' function.
 class StopProductSubscriptionRequest(BaseValidatorModel):
     Domain: Optional[str] = None
     IdentityProvider: Optional[IdentityProviderUnion] = None
@@ -388,6 +417,7 @@ class StopProductSubscriptionRequest(BaseValidatorModel):
     Username: Optional[str] = None
 
 
+# This class is the input for the 'update_identity_provider_settings' function.
 class UpdateIdentityProviderSettingsRequest(BaseValidatorModel):
     UpdateSettings: UpdateSettings
     IdentityProvider: Optional[IdentityProviderUnion] = None

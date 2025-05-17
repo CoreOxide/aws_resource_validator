@@ -36,36 +36,43 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_directory_registration' function.
 class CreateDirectoryRegistrationRequest(BaseValidatorModel):
     DirectoryId: str
     ClientToken: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_service_principal_name' function.
 class CreateServicePrincipalNameRequest(BaseValidatorModel):
     ConnectorArn: str
     DirectoryRegistrationArn: str
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'delete_connector' function.
 class DeleteConnectorRequest(BaseValidatorModel):
     ConnectorArn: str
 
 
+# This class is the input for the 'delete_directory_registration' function.
 class DeleteDirectoryRegistrationRequest(BaseValidatorModel):
     DirectoryRegistrationArn: str
 
 
+# This class is the input for the 'delete_service_principal_name' function.
 class DeleteServicePrincipalNameRequest(BaseValidatorModel):
     ConnectorArn: str
     DirectoryRegistrationArn: str
 
 
+# This class is the input for the 'delete_template_group_access_control_entry' function.
 class DeleteTemplateGroupAccessControlEntryRequest(BaseValidatorModel):
     GroupSecurityIdentifier: str
     TemplateArn: str
 
 
+# This class is the input for the 'delete_template' function.
 class DeleteTemplateRequest(BaseValidatorModel):
     TemplateArn: str
 
@@ -127,14 +134,17 @@ class GeneralFlagsV4(BaseValidatorModel):
     MachineType: Optional[bool] = None
 
 
+# This class is the input for the 'get_connector' function.
 class GetConnectorRequest(BaseValidatorModel):
     ConnectorArn: str
 
 
+# This class is the input for the 'get_directory_registration' function.
 class GetDirectoryRegistrationRequest(BaseValidatorModel):
     DirectoryRegistrationArn: str
 
 
+# This class is the input for the 'get_service_principal_name' function.
 class GetServicePrincipalNameRequest(BaseValidatorModel):
     ConnectorArn: str
     DirectoryRegistrationArn: str
@@ -149,11 +159,13 @@ class ServicePrincipalName(BaseValidatorModel):
     UpdatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'get_template_group_access_control_entry' function.
 class GetTemplateGroupAccessControlEntryRequest(BaseValidatorModel):
     GroupSecurityIdentifier: str
     TemplateArn: str
 
 
+# This class is the input for the 'get_template' function.
 class GetTemplateRequest(BaseValidatorModel):
     TemplateArn: str
 
@@ -178,16 +190,19 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_connectors' function.
 class ListConnectorsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_directory_registrations' function.
 class ListDirectoryRegistrationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_service_principal_names' function.
 class ListServicePrincipalNamesRequest(BaseValidatorModel):
     DirectoryRegistrationArn: str
     MaxResults: Optional[int] = None
@@ -203,16 +218,19 @@ class ServicePrincipalNameSummary(BaseValidatorModel):
     UpdatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'list_template_group_access_control_entries' function.
 class ListTemplateGroupAccessControlEntriesRequest(BaseValidatorModel):
     TemplateArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_templates' function.
 class ListTemplatesRequest(BaseValidatorModel):
     ConnectorArn: str
     MaxResults: Optional[int] = None
@@ -292,6 +310,7 @@ class SubjectNameFlagsV4(BaseValidatorModel):
     SanRequireUpn: Optional[bool] = None
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Dict[str, str]
@@ -302,6 +321,7 @@ class TemplateRevision(BaseValidatorModel):
     MinorRevision: int
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: List[str]
@@ -330,6 +350,7 @@ class AccessControlEntry(BaseValidatorModel):
     UpdatedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'create_template_group_access_control_entry' function.
 class CreateTemplateGroupAccessControlEntryRequest(BaseValidatorModel):
     AccessRights: AccessRights
     GroupDisplayName: str
@@ -338,6 +359,7 @@ class CreateTemplateGroupAccessControlEntryRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the input for the 'update_template_group_access_control_entry' function.
 class UpdateTemplateGroupAccessControlEntryRequest(BaseValidatorModel):
     GroupSecurityIdentifier: str
     TemplateArn: str
@@ -384,41 +406,49 @@ class Connector(BaseValidatorModel):
     VpcInformation: Optional[VpcInformationOutput] = None
 
 
+# This class is the output for the 'create_connector' function.
 class CreateConnectorResponse(BaseValidatorModel):
     ConnectorArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_directory_registration' function.
 class CreateDirectoryRegistrationResponse(BaseValidatorModel):
     DirectoryRegistrationArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_template' function.
 class CreateTemplateResponse(BaseValidatorModel):
     TemplateArn: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_template_group_access_control_entry' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_directory_registrations' function.
 class ListDirectoryRegistrationsResponse(BaseValidatorModel):
     DirectoryRegistrations: List[DirectoryRegistrationSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_directory_registration' function.
 class GetDirectoryRegistrationResponse(BaseValidatorModel):
     DirectoryRegistration: DirectoryRegistration
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_service_principal_name' function.
 class GetServicePrincipalNameResponse(BaseValidatorModel):
     ServicePrincipalName: ServicePrincipalName
     ResponseMetadata: ResponseMetadata
@@ -457,6 +487,7 @@ class ListTemplatesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_service_principal_names' function.
 class ListServicePrincipalNamesResponse(BaseValidatorModel):
     ServicePrincipalNames: List[ServicePrincipalNameSummary]
     ResponseMetadata: ResponseMetadata
@@ -465,23 +496,27 @@ class ListServicePrincipalNamesResponse(BaseValidatorModel):
 VpcInformationUnion = Union[VpcInformation, VpcInformationOutput]
 
 
+# This class is the output for the 'list_template_group_access_control_entries' function.
 class ListTemplateGroupAccessControlEntriesResponse(BaseValidatorModel):
     AccessControlEntries: List[AccessControlEntrySummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_template_group_access_control_entry' function.
 class GetTemplateGroupAccessControlEntryResponse(BaseValidatorModel):
     AccessControlEntry: AccessControlEntry
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_connectors' function.
 class ListConnectorsResponse(BaseValidatorModel):
     Connectors: List[ConnectorSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_connector' function.
 class GetConnectorResponse(BaseValidatorModel):
     Connector: Connector
     ResponseMetadata: ResponseMetadata
@@ -549,6 +584,7 @@ class PrivateKeyAttributesV4(BaseValidatorModel):
     KeyUsageProperty: Optional[KeyUsageProperty] = None
 
 
+# This class is the input for the 'create_connector' function.
 class CreateConnectorRequest(BaseValidatorModel):
     CertificateAuthorityArn: str
     DirectoryId: str
@@ -667,17 +703,20 @@ class Template(BaseValidatorModel):
 TemplateDefinitionUnion = Union[TemplateDefinition, TemplateDefinitionOutput]
 
 
+# This class is the output for the 'list_templates' function.
 class ListTemplatesResponse(BaseValidatorModel):
     Templates: List[TemplateSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_template' function.
 class GetTemplateResponse(BaseValidatorModel):
     Template: Template
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_template' function.
 class CreateTemplateRequest(BaseValidatorModel):
     ConnectorArn: str
     Definition: TemplateDefinitionUnion
@@ -686,6 +725,7 @@ class CreateTemplateRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_template' function.
 class UpdateTemplateRequest(BaseValidatorModel):
     TemplateArn: str
     Definition: Optional[TemplateDefinitionUnion] = None

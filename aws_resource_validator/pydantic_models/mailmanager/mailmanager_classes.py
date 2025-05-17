@@ -158,26 +158,32 @@ class ExportStatus(BaseValidatorModel):
     SubmissionTimestamp: Optional[datetime] = None
 
 
+# This class is the input for the 'get_addon_instance' function.
 class GetAddonInstanceRequest(BaseValidatorModel):
     AddonInstanceId: str
 
 
+# This class is the input for the 'get_addon_subscription' function.
 class GetAddonSubscriptionRequest(BaseValidatorModel):
     AddonSubscriptionId: str
 
 
+# This class is the input for the 'get_address_list_import_job' function.
 class GetAddressListImportJobRequest(BaseValidatorModel):
     JobId: str
 
 
+# This class is the input for the 'get_address_list' function.
 class GetAddressListRequest(BaseValidatorModel):
     AddressListId: str
 
 
+# This class is the input for the 'get_archive_export' function.
 class GetArchiveExportRequest(BaseValidatorModel):
     ExportId: str
 
 
+# This class is the input for the 'get_archive_message_content' function.
 class GetArchiveMessageContentRequest(BaseValidatorModel):
     ArchivedMessageId: str
 
@@ -188,6 +194,7 @@ class MessageBody(BaseValidatorModel):
     Text: Optional[str] = None
 
 
+# This class is the input for the 'get_archive_message' function.
 class GetArchiveMessageRequest(BaseValidatorModel):
     ArchivedMessageId: str
 
@@ -208,10 +215,12 @@ class Metadata(BaseValidatorModel):
     TrafficPolicyId: Optional[str] = None
 
 
+# This class is the input for the 'get_archive' function.
 class GetArchiveRequest(BaseValidatorModel):
     ArchiveId: str
 
 
+# This class is the input for the 'get_archive_search' function.
 class GetArchiveSearchRequest(BaseValidatorModel):
     SearchId: str
 
@@ -223,19 +232,23 @@ class SearchStatus(BaseValidatorModel):
     SubmissionTimestamp: Optional[datetime] = None
 
 
+# This class is the input for the 'get_archive_search_results' function.
 class GetArchiveSearchResultsRequest(BaseValidatorModel):
     SearchId: str
 
 
+# This class is the input for the 'get_ingress_point' function.
 class GetIngressPointRequest(BaseValidatorModel):
     IngressPointId: str
 
 
+# This class is the input for the 'get_member_of_address_list' function.
 class GetMemberOfAddressListRequest(BaseValidatorModel):
     Address: str
     AddressListId: str
 
 
+# This class is the input for the 'get_relay' function.
 class GetRelayRequest(BaseValidatorModel):
     RelayId: str
 
@@ -245,10 +258,12 @@ class RelayAuthenticationOutput(BaseValidatorModel):
     SecretArn: Optional[str] = None
 
 
+# This class is the input for the 'get_rule_set' function.
 class GetRuleSetRequest(BaseValidatorModel):
     RuleSetId: str
 
 
+# This class is the input for the 'get_traffic_policy' function.
 class GetTrafficPolicyRequest(BaseValidatorModel):
     TrafficPolicyId: str
 
@@ -300,44 +315,52 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_addon_instances' function.
 class ListAddonInstancesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
+# This class is the input for the 'list_addon_subscriptions' function.
 class ListAddonSubscriptionsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
+# This class is the input for the 'list_address_list_import_jobs' function.
 class ListAddressListImportJobsRequest(BaseValidatorModel):
     AddressListId: str
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
+# This class is the input for the 'list_address_lists' function.
 class ListAddressListsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
+# This class is the input for the 'list_archive_exports' function.
 class ListArchiveExportsRequest(BaseValidatorModel):
     ArchiveId: str
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
+# This class is the input for the 'list_archive_searches' function.
 class ListArchiveSearchesRequest(BaseValidatorModel):
     ArchiveId: str
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
+# This class is the input for the 'list_archives' function.
 class ListArchivesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
+# This class is the input for the 'list_ingress_points' function.
 class ListIngressPointsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
@@ -348,6 +371,7 @@ class SavedAddress(BaseValidatorModel):
     CreatedTimestamp: datetime
 
 
+# This class is the input for the 'list_relays' function.
 class ListRelaysRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
@@ -359,6 +383,7 @@ class Relay(BaseValidatorModel):
     RelayName: Optional[str] = None
 
 
+# This class is the input for the 'list_rule_sets' function.
 class ListRuleSetsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
@@ -370,10 +395,12 @@ class RuleSet(BaseValidatorModel):
     RuleSetName: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'list_traffic_policies' function.
 class ListTrafficPoliciesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
@@ -478,6 +505,7 @@ class UntagResourceRequest(BaseValidatorModel):
     TagKeys: List[str]
 
 
+# This class is the input for the 'list_members_of_address_list' function.
 class ListMembersOfAddressListRequest(BaseValidatorModel):
     AddressListId: str
     Filter: Optional[AddressFilter] = None
@@ -513,24 +541,28 @@ class ArchiveStringExpression(BaseValidatorModel):
     Values: List[str]
 
 
+# This class is the input for the 'create_addon_instance' function.
 class CreateAddonInstanceRequest(BaseValidatorModel):
     AddonSubscriptionId: str
     ClientToken: Optional[str] = None
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_addon_subscription' function.
 class CreateAddonSubscriptionRequest(BaseValidatorModel):
     AddonName: str
     ClientToken: Optional[str] = None
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_address_list' function.
 class CreateAddressListRequest(BaseValidatorModel):
     AddressListName: str
     ClientToken: Optional[str] = None
     Tags: Optional[List[Tag]] = None
 
 
+# This class is the input for the 'create_archive' function.
 class CreateArchiveRequest(BaseValidatorModel):
     ArchiveName: str
     ClientToken: Optional[str] = None
@@ -544,52 +576,62 @@ class TagResourceRequest(BaseValidatorModel):
     Tags: List[Tag]
 
 
+# This class is the output for the 'create_addon_instance' function.
 class CreateAddonInstanceResponse(BaseValidatorModel):
     AddonInstanceId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_addon_subscription' function.
 class CreateAddonSubscriptionResponse(BaseValidatorModel):
     AddonSubscriptionId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_address_list_import_job' function.
 class CreateAddressListImportJobResponse(BaseValidatorModel):
     JobId: str
     PreSignedUrl: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_address_list' function.
 class CreateAddressListResponse(BaseValidatorModel):
     AddressListId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_archive' function.
 class CreateArchiveResponse(BaseValidatorModel):
     ArchiveId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_ingress_point' function.
 class CreateIngressPointResponse(BaseValidatorModel):
     IngressPointId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_relay' function.
 class CreateRelayResponse(BaseValidatorModel):
     RelayId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_rule_set' function.
 class CreateRuleSetResponse(BaseValidatorModel):
     RuleSetId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_traffic_policy' function.
 class CreateTrafficPolicyResponse(BaseValidatorModel):
     TrafficPolicyId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_addon_instance' function.
 class GetAddonInstanceResponse(BaseValidatorModel):
     AddonInstanceArn: str
     AddonName: str
@@ -598,6 +640,7 @@ class GetAddonInstanceResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_addon_subscription' function.
 class GetAddonSubscriptionResponse(BaseValidatorModel):
     AddonName: str
     AddonSubscriptionArn: str
@@ -605,6 +648,7 @@ class GetAddonSubscriptionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_address_list' function.
 class GetAddressListResponse(BaseValidatorModel):
     AddressListArn: str
     AddressListId: str
@@ -614,6 +658,7 @@ class GetAddressListResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_archive' function.
 class GetArchiveResponse(BaseValidatorModel):
     ArchiveArn: str
     ArchiveId: str
@@ -626,51 +671,60 @@ class GetArchiveResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_member_of_address_list' function.
 class GetMemberOfAddressListResponse(BaseValidatorModel):
     Address: str
     CreatedTimestamp: datetime
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_addon_instances' function.
 class ListAddonInstancesResponse(BaseValidatorModel):
     AddonInstances: List[AddonInstance]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_addon_subscriptions' function.
 class ListAddonSubscriptionsResponse(BaseValidatorModel):
     AddonSubscriptions: List[AddonSubscription]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_address_lists' function.
 class ListAddressListsResponse(BaseValidatorModel):
     AddressLists: List[AddressList]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_archives' function.
 class ListArchivesResponse(BaseValidatorModel):
     Archives: List[Archive]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: List[Tag]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_archive_export' function.
 class StartArchiveExportResponse(BaseValidatorModel):
     ExportId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'start_archive_search' function.
 class StartArchiveSearchResponse(BaseValidatorModel):
     SearchId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_address_list_import_job' function.
 class CreateAddressListImportJobRequest(BaseValidatorModel):
     AddressListId: str
     ImportDataFormat: ImportDataFormat
@@ -678,6 +732,7 @@ class CreateAddressListImportJobRequest(BaseValidatorModel):
     ClientToken: Optional[str] = None
 
 
+# This class is the output for the 'get_address_list_import_job' function.
 class GetAddressListImportJobResponse(BaseValidatorModel):
     AddressListId: str
     CompletedTimestamp: datetime
@@ -709,6 +764,7 @@ class ImportJob(BaseValidatorModel):
     StartTimestamp: Optional[datetime] = None
 
 
+# This class is the input for the 'create_ingress_point' function.
 class CreateIngressPointRequest(BaseValidatorModel):
     IngressPointName: str
     RuleSetId: str
@@ -759,11 +815,13 @@ class ExportSummary(BaseValidatorModel):
     Status: Optional[ExportStatus] = None
 
 
+# This class is the output for the 'get_archive_message_content' function.
 class GetArchiveMessageContentResponse(BaseValidatorModel):
     Body: MessageBody
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_archive_message' function.
 class GetArchiveMessageResponse(BaseValidatorModel):
     Envelope: Envelope
     MessageDownloadLink: str
@@ -776,6 +834,7 @@ class SearchSummary(BaseValidatorModel):
     Status: Optional[SearchStatus] = None
 
 
+# This class is the output for the 'get_relay' function.
 class GetRelayResponse(BaseValidatorModel):
     Authentication: RelayAuthenticationOutput
     CreatedTimestamp: datetime
@@ -812,6 +871,7 @@ class IngressPointAuthConfiguration(BaseValidatorModel):
     SecretArn: Optional[str] = None
 
 
+# This class is the output for the 'list_ingress_points' function.
 class ListIngressPointsResponse(BaseValidatorModel):
     IngressPoints: List[IngressPoint]
     ResponseMetadata: ResponseMetadata
@@ -889,24 +949,28 @@ class ListTrafficPoliciesRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_members_of_address_list' function.
 class ListMembersOfAddressListResponse(BaseValidatorModel):
     Addresses: List[SavedAddress]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_relays' function.
 class ListRelaysResponse(BaseValidatorModel):
     Relays: List[Relay]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_rule_sets' function.
 class ListRuleSetsResponse(BaseValidatorModel):
     RuleSets: List[RuleSet]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_traffic_policies' function.
 class ListTrafficPoliciesResponse(BaseValidatorModel):
     TrafficPolicies: List[TrafficPolicy]
     ResponseMetadata: ResponseMetadata
@@ -990,23 +1054,27 @@ class ArchiveFilterCondition(BaseValidatorModel):
     StringExpression: Optional[ArchiveStringExpression] = None
 
 
+# This class is the output for the 'list_address_list_import_jobs' function.
 class ListAddressListImportJobsResponse(BaseValidatorModel):
     ImportJobs: List[ImportJob]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_archive_search_results' function.
 class GetArchiveSearchResultsResponse(BaseValidatorModel):
     Rows: List[Row]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_archive_exports' function.
 class ListArchiveExportsResponse(BaseValidatorModel):
     Exports: List[ExportSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_archive_searches' function.
 class ListArchiveSearchesResponse(BaseValidatorModel):
     Searches: List[SearchSummary]
     ResponseMetadata: ResponseMetadata
@@ -1025,6 +1093,7 @@ class IngressBooleanToEvaluate(BaseValidatorModel):
     IsInAddressList: Optional[IngressIsInAddressListUnion] = None
 
 
+# This class is the output for the 'get_ingress_point' function.
 class GetIngressPointResponse(BaseValidatorModel):
     ARecord: str
     CreatedTimestamp: datetime
@@ -1042,6 +1111,7 @@ class GetIngressPointResponse(BaseValidatorModel):
 IngressStringExpressionUnion = Union[IngressStringExpression, IngressStringExpressionOutput]
 
 
+# This class is the input for the 'create_relay' function.
 class CreateRelayRequest(BaseValidatorModel):
     Authentication: RelayAuthenticationUnion
     RelayName: str
@@ -1119,6 +1189,7 @@ class RuleConditionOutput(BaseValidatorModel):
 RuleBooleanToEvaluateUnion = Union[RuleBooleanToEvaluate, RuleBooleanToEvaluateOutput]
 
 
+# This class is the output for the 'get_archive_export' function.
 class GetArchiveExportResponse(BaseValidatorModel):
     ArchiveId: str
     ExportDestinationConfiguration: ExportDestinationConfiguration
@@ -1130,6 +1201,7 @@ class GetArchiveExportResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_archive_search' function.
 class GetArchiveSearchResponse(BaseValidatorModel):
     ArchiveId: str
     Filters: ArchiveFiltersOutput
@@ -1164,6 +1236,7 @@ class RuleBooleanExpression(BaseValidatorModel):
     Operator: RuleBooleanOperatorType
 
 
+# This class is the input for the 'start_archive_export' function.
 class StartArchiveExportRequest(BaseValidatorModel):
     ArchiveId: str
     ExportDestinationConfiguration: ExportDestinationConfiguration
@@ -1174,6 +1247,7 @@ class StartArchiveExportRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'start_archive_search' function.
 class StartArchiveSearchRequest(BaseValidatorModel):
     ArchiveId: str
     FromTimestamp: Timestamp
@@ -1182,6 +1256,7 @@ class StartArchiveSearchRequest(BaseValidatorModel):
     Filters: Optional[ArchiveFiltersUnion] = None
 
 
+# This class is the output for the 'get_traffic_policy' function.
 class GetTrafficPolicyResponse(BaseValidatorModel):
     CreatedTimestamp: datetime
     DefaultAction: AcceptActionType
@@ -1196,6 +1271,7 @@ class GetTrafficPolicyResponse(BaseValidatorModel):
 IngressBooleanExpressionUnion = Union[IngressBooleanExpression, IngressBooleanExpressionOutput]
 
 
+# This class is the output for the 'get_rule_set' function.
 class GetRuleSetResponse(BaseValidatorModel):
     CreatedDate: datetime
     LastModificationDate: datetime
@@ -1244,6 +1320,7 @@ PolicyStatementUnion = Union[PolicyStatement, PolicyStatementOutput]
 RuleUnion = Union[Rule, RuleOutput]
 
 
+# This class is the input for the 'create_traffic_policy' function.
 class CreateTrafficPolicyRequest(BaseValidatorModel):
     DefaultAction: AcceptActionType
     PolicyStatements: List[PolicyStatementUnion]
@@ -1261,6 +1338,7 @@ class UpdateTrafficPolicyRequest(BaseValidatorModel):
     TrafficPolicyName: Optional[str] = None
 
 
+# This class is the input for the 'create_rule_set' function.
 class CreateRuleSetRequest(BaseValidatorModel):
     RuleSetName: str
     Rules: List[RuleUnion]

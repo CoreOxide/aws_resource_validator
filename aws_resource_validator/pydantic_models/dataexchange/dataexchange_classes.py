@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'accept_data_grant' function.
 class AcceptDataGrantRequest(BaseValidatorModel):
     DataGrantArn: str
 
@@ -61,12 +62,14 @@ class ExportServerSideEncryption(BaseValidatorModel):
     KmsKeyArn: Optional[str] = None
 
 
+# This class is the input for the 'cancel_job' function.
 class CancelJobRequest(BaseValidatorModel):
     JobId: str
 
 Timestamp = Union[datetime, str]
 
 
+# This class is the input for the 'create_data_set' function.
 class CreateDataSetRequest(BaseValidatorModel):
     AssetType: AssetTypeType
     Description: str
@@ -79,6 +82,7 @@ class OriginDetails(BaseValidatorModel):
     DataGrantId: Optional[str] = None
 
 
+# This class is the input for the 'create_revision' function.
 class CreateRevisionRequest(BaseValidatorModel):
     DataSetId: str
     Comment: Optional[str] = None
@@ -110,24 +114,29 @@ class LFTag(BaseValidatorModel):
     TagValues: List[str]
 
 
+# This class is the input for the 'delete_asset' function.
 class DeleteAssetRequest(BaseValidatorModel):
     AssetId: str
     DataSetId: str
     RevisionId: str
 
 
+# This class is the input for the 'delete_data_grant' function.
 class DeleteDataGrantRequest(BaseValidatorModel):
     DataGrantId: str
 
 
+# This class is the input for the 'delete_data_set' function.
 class DeleteDataSetRequest(BaseValidatorModel):
     DataSetId: str
 
 
+# This class is the input for the 'delete_event_action' function.
 class DeleteEventActionRequest(BaseValidatorModel):
     EventActionId: str
 
 
+# This class is the input for the 'delete_revision' function.
 class DeleteRevisionRequest(BaseValidatorModel):
     DataSetId: str
     RevisionId: str
@@ -161,32 +170,39 @@ class RevisionDestinationEntry(BaseValidatorModel):
     KeyPattern: Optional[str] = None
 
 
+# This class is the input for the 'get_asset' function.
 class GetAssetRequest(BaseValidatorModel):
     AssetId: str
     DataSetId: str
     RevisionId: str
 
 
+# This class is the input for the 'get_data_grant' function.
 class GetDataGrantRequest(BaseValidatorModel):
     DataGrantId: str
 
 
+# This class is the input for the 'get_data_set' function.
 class GetDataSetRequest(BaseValidatorModel):
     DataSetId: str
 
 
+# This class is the input for the 'get_event_action' function.
 class GetEventActionRequest(BaseValidatorModel):
     EventActionId: str
 
 
+# This class is the input for the 'get_job' function.
 class GetJobRequest(BaseValidatorModel):
     JobId: str
 
 
+# This class is the input for the 'get_received_data_grant' function.
 class GetReceivedDataGrantRequest(BaseValidatorModel):
     DataGrantArn: str
 
 
+# This class is the input for the 'get_revision' function.
 class GetRevisionRequest(BaseValidatorModel):
     DataSetId: str
     RevisionId: str
@@ -253,11 +269,13 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_data_grants' function.
 class ListDataGrantsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_data_set_revisions' function.
 class ListDataSetRevisionsRequest(BaseValidatorModel):
     DataSetId: str
     MaxResults: Optional[int] = None
@@ -278,18 +296,21 @@ class RevisionEntry(BaseValidatorModel):
     RevokedAt: Optional[datetime] = None
 
 
+# This class is the input for the 'list_data_sets' function.
 class ListDataSetsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Origin: Optional[str] = None
 
 
+# This class is the input for the 'list_event_actions' function.
 class ListEventActionsRequest(BaseValidatorModel):
     EventSourceId: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_jobs' function.
 class ListJobsRequest(BaseValidatorModel):
     DataSetId: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -297,6 +318,7 @@ class ListJobsRequest(BaseValidatorModel):
     RevisionId: Optional[str] = None
 
 
+# This class is the input for the 'list_received_data_grants' function.
 class ListReceivedDataGrantsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -317,6 +339,7 @@ class ReceivedDataGrantSummariesEntry(BaseValidatorModel):
     EndsAt: Optional[datetime] = None
 
 
+# This class is the input for the 'list_revision_assets' function.
 class ListRevisionAssetsRequest(BaseValidatorModel):
     DataSetId: str
     RevisionId: str
@@ -324,6 +347,7 @@ class ListRevisionAssetsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -337,6 +361,7 @@ class RedshiftDataShareDetails(BaseValidatorModel):
     View: Optional[str] = None
 
 
+# This class is the input for the 'revoke_revision' function.
 class RevokeRevisionRequest(BaseValidatorModel):
     DataSetId: str
     RevisionId: str
@@ -354,6 +379,7 @@ class SchemaChangeDetails(BaseValidatorModel):
     Description: Optional[str] = None
 
 
+# This class is the input for the 'send_api_asset' function.
 class SendApiAssetRequest(BaseValidatorModel):
     AssetId: str
     DataSetId: str
@@ -369,16 +395,19 @@ class StartJobRequest(BaseValidatorModel):
     JobId: str
 
 
+# This class is the input for the 'tag_resource' function.
 class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Dict[str, str]
 
 
+# This class is the input for the 'untag_resource' function.
 class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: List[str]
 
 
+# This class is the input for the 'update_asset' function.
 class UpdateAssetRequest(BaseValidatorModel):
     AssetId: str
     DataSetId: str
@@ -386,12 +415,14 @@ class UpdateAssetRequest(BaseValidatorModel):
     RevisionId: str
 
 
+# This class is the input for the 'update_data_set' function.
 class UpdateDataSetRequest(BaseValidatorModel):
     DataSetId: str
     Description: Optional[str] = None
     Name: Optional[str] = None
 
 
+# This class is the input for the 'update_revision' function.
 class UpdateRevisionRequest(BaseValidatorModel):
     DataSetId: str
     RevisionId: str
@@ -399,6 +430,7 @@ class UpdateRevisionRequest(BaseValidatorModel):
     Finalized: Optional[bool] = None
 
 
+# This class is the output for the 'accept_data_grant' function.
 class AcceptDataGrantResponse(BaseValidatorModel):
     Name: str
     SenderPrincipal: str
@@ -416,6 +448,7 @@ class AcceptDataGrantResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_data_grant' function.
 class CreateDataGrantResponse(BaseValidatorModel):
     Name: str
     SenderPrincipal: str
@@ -435,6 +468,7 @@ class CreateDataGrantResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_revision' function.
 class CreateRevisionResponse(BaseValidatorModel):
     Arn: str
     Comment: str
@@ -451,10 +485,12 @@ class CreateRevisionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'untag_resource' function.
 class EmptyResponseMetadata(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_data_grant' function.
 class GetDataGrantResponse(BaseValidatorModel):
     Name: str
     SenderPrincipal: str
@@ -474,6 +510,7 @@ class GetDataGrantResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_received_data_grant' function.
 class GetReceivedDataGrantResponse(BaseValidatorModel):
     Name: str
     SenderPrincipal: str
@@ -491,6 +528,7 @@ class GetReceivedDataGrantResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_revision' function.
 class GetRevisionResponse(BaseValidatorModel):
     Arn: str
     Comment: str
@@ -507,11 +545,13 @@ class GetRevisionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'revoke_revision' function.
 class RevokeRevisionResponse(BaseValidatorModel):
     Arn: str
     Comment: str
@@ -527,12 +567,14 @@ class RevokeRevisionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'send_api_asset' function.
 class SendApiAssetResponse(BaseValidatorModel):
     Body: str
     ResponseHeaders: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_revision' function.
 class UpdateRevisionResponse(BaseValidatorModel):
     Arn: str
     Comment: str
@@ -579,6 +621,7 @@ class ExportAssetsToS3ResponseDetails(BaseValidatorModel):
     Encryption: Optional[ExportServerSideEncryption] = None
 
 
+# This class is the input for the 'create_data_grant' function.
 class CreateDataGrantRequest(BaseValidatorModel):
     Name: str
     GrantDistributionScope: GrantDistributionScopeType
@@ -597,6 +640,7 @@ class DeprecationRequestDetails(BaseValidatorModel):
     DeprecationAt: Timestamp
 
 
+# This class is the output for the 'create_data_set' function.
 class CreateDataSetResponse(BaseValidatorModel):
     Arn: str
     AssetType: AssetTypeType
@@ -625,6 +669,7 @@ class DataSetEntry(BaseValidatorModel):
     SourceId: Optional[str] = None
 
 
+# This class is the output for the 'get_data_set' function.
 class GetDataSetResponse(BaseValidatorModel):
     Arn: str
     AssetType: AssetTypeType
@@ -640,6 +685,7 @@ class GetDataSetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_data_set' function.
 class UpdateDataSetResponse(BaseValidatorModel):
     Arn: str
     AssetType: AssetTypeType
@@ -654,6 +700,7 @@ class UpdateDataSetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_data_grants' function.
 class ListDataGrantsResponse(BaseValidatorModel):
     DataGrantSummaries: List[DataGrantSummaryEntry]
     ResponseMetadata: ResponseMetadata
@@ -778,12 +825,14 @@ class ListRevisionAssetsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_data_set_revisions' function.
 class ListDataSetRevisionsResponse(BaseValidatorModel):
     Revisions: List[RevisionEntry]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_received_data_grants' function.
 class ListReceivedDataGrantsResponse(BaseValidatorModel):
     DataGrantSummaries: List[ReceivedDataGrantSummariesEntry]
     ResponseMetadata: ResponseMetadata
@@ -805,6 +854,7 @@ class Action(BaseValidatorModel):
     ExportRevisionToS3: Optional[AutoExportRevisionToS3RequestDetails] = None
 
 
+# This class is the output for the 'list_data_sets' function.
 class ListDataSetsResponse(BaseValidatorModel):
     DataSets: List[DataSetEntry]
     ResponseMetadata: ResponseMetadata
@@ -856,11 +906,13 @@ class NotificationDetails(BaseValidatorModel):
     SchemaChange: Optional[SchemaChangeRequestDetails] = None
 
 
+# This class is the input for the 'create_event_action' function.
 class CreateEventActionRequest(BaseValidatorModel):
     Action: Action
     Event: Event
 
 
+# This class is the output for the 'create_event_action' function.
 class CreateEventActionResponse(BaseValidatorModel):
     Action: Action
     Arn: str
@@ -880,6 +932,7 @@ class EventActionEntry(BaseValidatorModel):
     UpdatedAt: datetime
 
 
+# This class is the output for the 'get_event_action' function.
 class GetEventActionResponse(BaseValidatorModel):
     Action: Action
     Arn: str
@@ -890,11 +943,13 @@ class GetEventActionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'update_event_action' function.
 class UpdateEventActionRequest(BaseValidatorModel):
     EventActionId: str
     Action: Optional[Action] = None
 
 
+# This class is the output for the 'update_event_action' function.
 class UpdateEventActionResponse(BaseValidatorModel):
     Action: Action
     Arn: str
@@ -940,6 +995,7 @@ class SendDataSetNotificationRequest(BaseValidatorModel):
     Details: Optional[NotificationDetails] = None
 
 
+# This class is the output for the 'list_event_actions' function.
 class ListEventActionsResponse(BaseValidatorModel):
     EventActions: List[EventActionEntry]
     ResponseMetadata: ResponseMetadata
@@ -959,6 +1015,7 @@ class ImportAssetsFromLakeFormationTagPolicyRequestDetails(BaseValidatorModel):
     Table: Optional[TableLFTagPolicyAndPermissionsUnion] = None
 
 
+# This class is the output for the 'create_job' function.
 class CreateJobResponse(BaseValidatorModel):
     Arn: str
     CreatedAt: datetime
@@ -971,6 +1028,7 @@ class CreateJobResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_job' function.
 class GetJobResponse(BaseValidatorModel):
     Arn: str
     CreatedAt: datetime
@@ -1013,6 +1071,7 @@ class RequestDetails(BaseValidatorModel):
     ImportAssetsFromLakeFormationTagPolicy: Optional[ImportAssetsFromLakeFormationTagPolicyRequestDetails] = None
 
 
+# This class is the output for the 'list_jobs' function.
 class ListJobsResponse(BaseValidatorModel):
     Jobs: List[JobEntry]
     ResponseMetadata: ResponseMetadata
@@ -1027,6 +1086,7 @@ class AssetDetails(BaseValidatorModel):
     LakeFormationDataPermissionAsset: Optional[LakeFormationDataPermissionAsset] = None
 
 
+# This class is the input for the 'create_job' function.
 class CreateJobRequest(BaseValidatorModel):
     Details: RequestDetails
     Type: TypeType
@@ -1045,6 +1105,7 @@ class AssetEntry(BaseValidatorModel):
     SourceId: Optional[str] = None
 
 
+# This class is the output for the 'get_asset' function.
 class GetAssetResponse(BaseValidatorModel):
     Arn: str
     AssetDetails: AssetDetails
@@ -1059,6 +1120,7 @@ class GetAssetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_asset' function.
 class UpdateAssetResponse(BaseValidatorModel):
     Arn: str
     AssetDetails: AssetDetails
@@ -1073,6 +1135,7 @@ class UpdateAssetResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_revision_assets' function.
 class ListRevisionAssetsResponse(BaseValidatorModel):
     Assets: List[AssetEntry]
     ResponseMetadata: ResponseMetadata

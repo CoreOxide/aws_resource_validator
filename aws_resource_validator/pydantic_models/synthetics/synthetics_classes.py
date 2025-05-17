@@ -103,6 +103,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'create_group' function.
 class CreateGroupRequest(BaseValidatorModel):
     Name: str
     Tags: Optional[Dict[str, str]] = None
@@ -126,18 +127,21 @@ class DeleteGroupRequest(BaseValidatorModel):
     GroupIdentifier: str
 
 
+# This class is the input for the 'describe_canaries_last_run' function.
 class DescribeCanariesLastRunRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Names: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_canaries' function.
 class DescribeCanariesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Names: Optional[List[str]] = None
 
 
+# This class is the input for the 'describe_runtime_versions' function.
 class DescribeRuntimeVersionsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -155,16 +159,19 @@ class DisassociateResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
+# This class is the input for the 'get_canary' function.
 class GetCanaryRequest(BaseValidatorModel):
     Name: str
 
 
+# This class is the input for the 'get_canary_runs' function.
 class GetCanaryRunsRequest(BaseValidatorModel):
     Name: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_group' function.
 class GetGroupRequest(BaseValidatorModel):
     GroupIdentifier: str
 
@@ -175,23 +182,27 @@ class GroupSummary(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
+# This class is the input for the 'list_associated_groups' function.
 class ListAssociatedGroupsRequest(BaseValidatorModel):
     ResourceArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_group_resources' function.
 class ListGroupResourcesRequest(BaseValidatorModel):
     GroupIdentifier: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_groups' function.
 class ListGroupsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
@@ -245,39 +256,46 @@ class CanaryRun(BaseValidatorModel):
     ArtifactS3Location: Optional[str] = None
 
 
+# This class is the output for the 'list_group_resources' function.
 class ListGroupResourcesResponse(BaseValidatorModel):
     Resources: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_group' function.
 class CreateGroupResponse(BaseValidatorModel):
     Group: Group
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_group' function.
 class GetGroupResponse(BaseValidatorModel):
     Group: Group
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_runtime_versions' function.
 class DescribeRuntimeVersionsResponse(BaseValidatorModel):
     RuntimeVersions: List[RuntimeVersion]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_associated_groups' function.
 class ListAssociatedGroupsResponse(BaseValidatorModel):
     Groups: List[GroupSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_groups' function.
 class ListGroupsResponse(BaseValidatorModel):
     Groups: List[GroupSummary]
     ResponseMetadata: ResponseMetadata
@@ -310,6 +328,7 @@ class VisualReferenceInput(BaseValidatorModel):
     BaseScreenshots: Optional[List[BaseScreenshotUnion]] = None
 
 
+# This class is the input for the 'create_canary' function.
 class CreateCanaryRequest(BaseValidatorModel):
     Name: str
     Code: CanaryCodeInput
@@ -332,23 +351,27 @@ class CanaryLastRun(BaseValidatorModel):
     LastRun: Optional[CanaryRun] = None
 
 
+# This class is the output for the 'get_canary_runs' function.
 class GetCanaryRunsResponse(BaseValidatorModel):
     CanaryRuns: List[CanaryRun]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'create_canary' function.
 class CreateCanaryResponse(BaseValidatorModel):
     Canary: Canary
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'describe_canaries' function.
 class DescribeCanariesResponse(BaseValidatorModel):
     Canaries: List[Canary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'get_canary' function.
 class GetCanaryResponse(BaseValidatorModel):
     Canary: Canary
     ResponseMetadata: ResponseMetadata
@@ -370,6 +393,7 @@ class UpdateCanaryRequest(BaseValidatorModel):
     ProvisionedResourceCleanup: Optional[ProvisionedResourceCleanupSettingType] = None
 
 
+# This class is the output for the 'describe_canaries_last_run' function.
 class DescribeCanariesLastRunResponse(BaseValidatorModel):
     CanariesLastRun: List[CanaryLastRun]
     ResponseMetadata: ResponseMetadata

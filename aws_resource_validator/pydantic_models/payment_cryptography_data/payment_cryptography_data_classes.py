@@ -292,6 +292,7 @@ class CryptogramAuthResponse(BaseValidatorModel):
     ArpcMethod2: Optional[CryptogramVerificationArpcMethod2] = None
 
 
+# This class is the output for the 'decrypt_data' function.
 class DecryptDataOutput(BaseValidatorModel):
     KeyArn: str
     KeyCheckValue: str
@@ -299,6 +300,7 @@ class DecryptDataOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'encrypt_data' function.
 class EncryptDataOutput(BaseValidatorModel):
     KeyArn: str
     KeyCheckValue: str
@@ -306,6 +308,7 @@ class EncryptDataOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'generate_card_validation_data' function.
 class GenerateCardValidationDataOutput(BaseValidatorModel):
     KeyArn: str
     KeyCheckValue: str
@@ -313,6 +316,7 @@ class GenerateCardValidationDataOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'generate_mac' function.
 class GenerateMacOutput(BaseValidatorModel):
     KeyArn: str
     KeyCheckValue: str
@@ -320,6 +324,7 @@ class GenerateMacOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 're_encrypt_data' function.
 class ReEncryptDataOutput(BaseValidatorModel):
     KeyArn: str
     KeyCheckValue: str
@@ -327,6 +332,7 @@ class ReEncryptDataOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'translate_pin_data' function.
 class TranslatePinDataOutput(BaseValidatorModel):
     PinBlock: str
     KeyArn: str
@@ -334,6 +340,7 @@ class TranslatePinDataOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'verify_auth_request_cryptogram' function.
 class VerifyAuthRequestCryptogramOutput(BaseValidatorModel):
     KeyArn: str
     KeyCheckValue: str
@@ -341,18 +348,21 @@ class VerifyAuthRequestCryptogramOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'verify_card_validation_data' function.
 class VerifyCardValidationDataOutput(BaseValidatorModel):
     KeyArn: str
     KeyCheckValue: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'verify_mac' function.
 class VerifyMacOutput(BaseValidatorModel):
     KeyArn: str
     KeyCheckValue: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'verify_pin_data' function.
 class VerifyPinDataOutput(BaseValidatorModel):
     VerificationKeyArn: str
     VerificationKeyCheckValue: str
@@ -378,6 +388,7 @@ class ReEncryptionAttributes(BaseValidatorModel):
     Dukpt: Optional[DukptEncryptionAttributes] = None
 
 
+# This class is the output for the 'generate_mac_emv_pin_change' function.
 class GenerateMacEmvPinChangeOutput(BaseValidatorModel):
     NewPinPekArn: str
     SecureMessagingIntegrityKeyArn: str
@@ -391,6 +402,7 @@ class GenerateMacEmvPinChangeOutput(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'generate_pin_data' function.
 class GeneratePinDataOutput(BaseValidatorModel):
     GenerationKeyArn: str
     GenerationKeyCheckValue: str
@@ -446,6 +458,7 @@ class DerivationMethodAttributes(BaseValidatorModel):
     Mastercard: Optional[MasterCardAttributes] = None
 
 
+# This class is the input for the 'generate_card_validation_data' function.
 class GenerateCardValidationDataInput(BaseValidatorModel):
     KeyIdentifier: str
     PrimaryAccountNumber: str
@@ -453,6 +466,7 @@ class GenerateCardValidationDataInput(BaseValidatorModel):
     ValidationDataLength: Optional[int] = None
 
 
+# This class is the input for the 'verify_card_validation_data' function.
 class VerifyCardValidationDataInput(BaseValidatorModel):
     KeyIdentifier: str
     PrimaryAccountNumber: str
@@ -473,6 +487,7 @@ class MacAttributes(BaseValidatorModel):
     DukptCmac: Optional[MacAlgorithmDukpt] = None
 
 
+# This class is the input for the 'verify_auth_request_cryptogram' function.
 class VerifyAuthRequestCryptogramInput(BaseValidatorModel):
     KeyIdentifier: str
     TransactionData: str
@@ -482,6 +497,7 @@ class VerifyAuthRequestCryptogramInput(BaseValidatorModel):
     AuthResponseAttributes: Optional[CryptogramAuthResponse] = None
 
 
+# This class is the input for the 'generate_mac_emv_pin_change' function.
 class GenerateMacEmvPinChangeInput(BaseValidatorModel):
     NewPinPekIdentifier: str
     NewEncryptedPinBlock: str
@@ -492,6 +508,7 @@ class GenerateMacEmvPinChangeInput(BaseValidatorModel):
     DerivationMethodAttributes: DerivationMethodAttributes
 
 
+# This class is the input for the 'decrypt_data' function.
 class DecryptDataInput(BaseValidatorModel):
     KeyIdentifier: str
     CipherText: str
@@ -499,6 +516,7 @@ class DecryptDataInput(BaseValidatorModel):
     WrappedKey: Optional[WrappedKey] = None
 
 
+# This class is the input for the 'encrypt_data' function.
 class EncryptDataInput(BaseValidatorModel):
     KeyIdentifier: str
     PlainText: str
@@ -506,6 +524,7 @@ class EncryptDataInput(BaseValidatorModel):
     WrappedKey: Optional[WrappedKey] = None
 
 
+# This class is the input for the 'generate_pin_data' function.
 class GeneratePinDataInput(BaseValidatorModel):
     GenerationKeyIdentifier: str
     EncryptionKeyIdentifier: str
@@ -516,6 +535,7 @@ class GeneratePinDataInput(BaseValidatorModel):
     EncryptionWrappedKey: Optional[WrappedKey] = None
 
 
+# This class is the input for the 're_encrypt_data' function.
 class ReEncryptDataInput(BaseValidatorModel):
     IncomingKeyIdentifier: str
     OutgoingKeyIdentifier: str
@@ -526,6 +546,7 @@ class ReEncryptDataInput(BaseValidatorModel):
     OutgoingWrappedKey: Optional[WrappedKey] = None
 
 
+# This class is the input for the 'translate_pin_data' function.
 class TranslatePinDataInput(BaseValidatorModel):
     IncomingKeyIdentifier: str
     OutgoingKeyIdentifier: str
@@ -538,6 +559,7 @@ class TranslatePinDataInput(BaseValidatorModel):
     OutgoingWrappedKey: Optional[WrappedKey] = None
 
 
+# This class is the input for the 'verify_pin_data' function.
 class VerifyPinDataInput(BaseValidatorModel):
     VerificationKeyIdentifier: str
     EncryptionKeyIdentifier: str
@@ -550,6 +572,7 @@ class VerifyPinDataInput(BaseValidatorModel):
     EncryptionWrappedKey: Optional[WrappedKey] = None
 
 
+# This class is the input for the 'generate_mac' function.
 class GenerateMacInput(BaseValidatorModel):
     KeyIdentifier: str
     MessageData: str
@@ -557,6 +580,7 @@ class GenerateMacInput(BaseValidatorModel):
     MacLength: Optional[int] = None
 
 
+# This class is the input for the 'verify_mac' function.
 class VerifyMacInput(BaseValidatorModel):
     KeyIdentifier: str
     MessageData: str

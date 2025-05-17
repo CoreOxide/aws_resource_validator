@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'get_action_recommendations' function.
 class GetActionRecommendationsRequest(BaseValidatorModel):
     campaignArn: Optional[str] = None
     userId: Optional[str] = None
@@ -29,6 +30,7 @@ class ResponseMetadata(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
+# This class is the input for the 'get_personalized_ranking' function.
 class GetPersonalizedRankingRequest(BaseValidatorModel):
     campaignArn: str
     inputList: List[str]
@@ -54,24 +56,28 @@ class Promotion(BaseValidatorModel):
     filterValues: Optional[Dict[str, str]] = None
 
 
+# This class is the output for the 'get_action_recommendations' function.
 class GetActionRecommendationsResponse(BaseValidatorModel):
     actionList: List[PredictedAction]
     recommendationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_personalized_ranking' function.
 class GetPersonalizedRankingResponse(BaseValidatorModel):
     personalizedRanking: List[PredictedItem]
     recommendationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_recommendations' function.
 class GetRecommendationsResponse(BaseValidatorModel):
     itemList: List[PredictedItem]
     recommendationId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'get_recommendations' function.
 class GetRecommendationsRequest(BaseValidatorModel):
     campaignArn: Optional[str] = None
     itemId: Optional[str] = None

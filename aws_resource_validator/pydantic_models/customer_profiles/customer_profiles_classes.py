@@ -8,6 +8,7 @@ from ..base_validator_model import BaseValidatorModel, EventStream
 
 
 
+# This class is the input for the 'add_profile_key' function.
 class AddProfileKeyRequest(BaseValidatorModel):
     ProfileId: str
     KeyName: str
@@ -130,6 +131,7 @@ class BatchGetProfileError(BaseValidatorModel):
     ProfileId: str
 
 
+# This class is the input for the 'batch_get_profile' function.
 class BatchGetProfileRequest(BaseValidatorModel):
     DomainName: str
     ProfileIds: List[str]
@@ -165,6 +167,7 @@ class Consolidation(BaseValidatorModel):
     MatchingAttributesList: List[List[str]]
 
 
+# This class is the input for the 'create_event_stream' function.
 class CreateEventStreamRequest(BaseValidatorModel):
     DomainName: str
     Uri: str
@@ -172,6 +175,7 @@ class CreateEventStreamRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_segment_snapshot' function.
 class CreateSegmentSnapshotRequest(BaseValidatorModel):
     DomainName: str
     SegmentDefinitionName: str
@@ -196,6 +200,7 @@ class DeleteCalculatedAttributeDefinitionRequest(BaseValidatorModel):
     CalculatedAttributeName: str
 
 
+# This class is the input for the 'delete_domain' function.
 class DeleteDomainRequest(BaseValidatorModel):
     DomainName: str
 
@@ -205,16 +210,19 @@ class DeleteEventStreamRequest(BaseValidatorModel):
     EventStreamName: str
 
 
+# This class is the input for the 'delete_event_trigger' function.
 class DeleteEventTriggerRequest(BaseValidatorModel):
     DomainName: str
     EventTriggerName: str
 
 
+# This class is the input for the 'delete_integration' function.
 class DeleteIntegrationRequest(BaseValidatorModel):
     DomainName: str
     Uri: str
 
 
+# This class is the input for the 'delete_profile_key' function.
 class DeleteProfileKeyRequest(BaseValidatorModel):
     ProfileId: str
     KeyName: str
@@ -222,6 +230,7 @@ class DeleteProfileKeyRequest(BaseValidatorModel):
     DomainName: str
 
 
+# This class is the input for the 'delete_profile_object' function.
 class DeleteProfileObjectRequest(BaseValidatorModel):
     ProfileId: str
     ProfileObjectUniqueKey: str
@@ -229,16 +238,19 @@ class DeleteProfileObjectRequest(BaseValidatorModel):
     DomainName: str
 
 
+# This class is the input for the 'delete_profile_object_type' function.
 class DeleteProfileObjectTypeRequest(BaseValidatorModel):
     DomainName: str
     ObjectTypeName: str
 
 
+# This class is the input for the 'delete_profile' function.
 class DeleteProfileRequest(BaseValidatorModel):
     ProfileId: str
     DomainName: str
 
 
+# This class is the input for the 'delete_segment_definition' function.
 class DeleteSegmentDefinitionRequest(BaseValidatorModel):
     DomainName: str
     SegmentDefinitionName: str
@@ -255,6 +267,7 @@ class DestinationSummary(BaseValidatorModel):
     UnhealthySince: Optional[datetime] = None
 
 
+# This class is the input for the 'detect_profile_object_type' function.
 class DetectProfileObjectTypeRequest(BaseValidatorModel):
     Objects: List[str]
     DomainName: str
@@ -367,31 +380,37 @@ class FoundByKeyValue(BaseValidatorModel):
     Values: Optional[List[str]] = None
 
 
+# This class is the input for the 'get_calculated_attribute_definition' function.
 class GetCalculatedAttributeDefinitionRequest(BaseValidatorModel):
     DomainName: str
     CalculatedAttributeName: str
 
 
+# This class is the input for the 'get_calculated_attribute_for_profile' function.
 class GetCalculatedAttributeForProfileRequest(BaseValidatorModel):
     DomainName: str
     ProfileId: str
     CalculatedAttributeName: str
 
 
+# This class is the input for the 'get_domain' function.
 class GetDomainRequest(BaseValidatorModel):
     DomainName: str
 
 
+# This class is the input for the 'get_event_stream' function.
 class GetEventStreamRequest(BaseValidatorModel):
     DomainName: str
     EventStreamName: str
 
 
+# This class is the input for the 'get_event_trigger' function.
 class GetEventTriggerRequest(BaseValidatorModel):
     DomainName: str
     EventTriggerName: str
 
 
+# This class is the input for the 'get_identity_resolution_job' function.
 class GetIdentityResolutionJobRequest(BaseValidatorModel):
     DomainName: str
     JobId: str
@@ -403,11 +422,13 @@ class JobStats(BaseValidatorModel):
     NumberOfMergesDone: Optional[int] = None
 
 
+# This class is the input for the 'get_integration' function.
 class GetIntegrationRequest(BaseValidatorModel):
     DomainName: str
     Uri: str
 
 
+# This class is the input for the 'get_matches' function.
 class GetMatchesRequest(BaseValidatorModel):
     DomainName: str
     NextToken: Optional[str] = None
@@ -420,25 +441,30 @@ class MatchItem(BaseValidatorModel):
     ConfidenceScore: Optional[float] = None
 
 
+# This class is the input for the 'get_profile_object_type' function.
 class GetProfileObjectTypeRequest(BaseValidatorModel):
     DomainName: str
     ObjectTypeName: str
 
 
+# This class is the input for the 'get_profile_object_type_template' function.
 class GetProfileObjectTypeTemplateRequest(BaseValidatorModel):
     TemplateId: str
 
 
+# This class is the input for the 'get_segment_definition' function.
 class GetSegmentDefinitionRequest(BaseValidatorModel):
     DomainName: str
     SegmentDefinitionName: str
 
 
+# This class is the input for the 'get_segment_estimate' function.
 class GetSegmentEstimateRequest(BaseValidatorModel):
     DomainName: str
     EstimateId: str
 
 
+# This class is the input for the 'get_segment_membership' function.
 class GetSegmentMembershipRequest(BaseValidatorModel):
     DomainName: str
     SegmentDefinitionName: str
@@ -451,6 +477,7 @@ class ProfileQueryFailures(BaseValidatorModel):
     Status: Optional[int] = None
 
 
+# This class is the input for the 'get_segment_snapshot' function.
 class GetSegmentSnapshotRequest(BaseValidatorModel):
     DomainName: str
     SegmentDefinitionName: str
@@ -463,6 +490,7 @@ class PaginatorConfig(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'get_similar_profiles' function.
 class GetSimilarProfilesRequest(BaseValidatorModel):
     DomainName: str
     MatchType: MatchTypeType
@@ -472,11 +500,13 @@ class GetSimilarProfilesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'get_workflow' function.
 class GetWorkflowRequest(BaseValidatorModel):
     DomainName: str
     WorkflowId: str
 
 
+# This class is the input for the 'get_workflow_steps' function.
 class GetWorkflowStepsRequest(BaseValidatorModel):
     DomainName: str
     WorkflowId: str
@@ -497,6 +527,7 @@ class JobSchedule(BaseValidatorModel):
     Time: str
 
 
+# This class is the input for the 'list_account_integrations' function.
 class ListAccountIntegrationsRequest(BaseValidatorModel):
     Uri: str
     NextToken: Optional[str] = None
@@ -527,6 +558,7 @@ class ListCalculatedAttributeDefinitionItem(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_calculated_attribute_definitions' function.
 class ListCalculatedAttributeDefinitionsRequest(BaseValidatorModel):
     DomainName: str
     NextToken: Optional[str] = None
@@ -540,6 +572,7 @@ class ListCalculatedAttributeForProfileItem(BaseValidatorModel):
     Value: Optional[str] = None
 
 
+# This class is the input for the 'list_calculated_attributes_for_profile' function.
 class ListCalculatedAttributesForProfileRequest(BaseValidatorModel):
     DomainName: str
     ProfileId: str
@@ -554,29 +587,34 @@ class ListDomainItem(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_domains' function.
 class ListDomainsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_event_streams' function.
 class ListEventStreamsRequest(BaseValidatorModel):
     DomainName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_event_triggers' function.
 class ListEventTriggersRequest(BaseValidatorModel):
     DomainName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_identity_resolution_jobs' function.
 class ListIdentityResolutionJobsRequest(BaseValidatorModel):
     DomainName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_integrations' function.
 class ListIntegrationsRequest(BaseValidatorModel):
     DomainName: str
     NextToken: Optional[str] = None
@@ -589,6 +627,7 @@ class ListObjectTypeAttributeItem(BaseValidatorModel):
     LastUpdatedAt: datetime
 
 
+# This class is the input for the 'list_object_type_attributes' function.
 class ListObjectTypeAttributesRequest(BaseValidatorModel):
     DomainName: str
     ObjectTypeName: str
@@ -612,11 +651,13 @@ class ListProfileObjectTypeTemplateItem(BaseValidatorModel):
     SourceObject: Optional[str] = None
 
 
+# This class is the input for the 'list_profile_object_type_templates' function.
 class ListProfileObjectTypeTemplatesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_profile_object_types' function.
 class ListProfileObjectTypesRequest(BaseValidatorModel):
     DomainName: str
     NextToken: Optional[str] = None
@@ -634,12 +675,14 @@ class ObjectFilter(BaseValidatorModel):
     Values: List[str]
 
 
+# This class is the input for the 'list_rule_based_matches' function.
 class ListRuleBasedMatchesRequest(BaseValidatorModel):
     DomainName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
+# This class is the input for the 'list_segment_definitions' function.
 class ListSegmentDefinitionsRequest(BaseValidatorModel):
     DomainName: str
     MaxResults: Optional[int] = None
@@ -655,6 +698,7 @@ class SegmentDefinitionItem(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
@@ -692,6 +736,7 @@ class ObjectTypeKey(BaseValidatorModel):
     FieldNames: Optional[List[str]] = None
 
 
+# This class is the input for the 'list_profile_attribute_values' function.
 class ProfileAttributeValuesRequest(BaseValidatorModel):
     DomainName: str
     AttributeName: str
@@ -702,6 +747,7 @@ class ProfileDimension(BaseValidatorModel):
     Values: List[str]
 
 
+# This class is the input for the 'put_profile_object' function.
 class PutProfileObjectRequest(BaseValidatorModel):
     ObjectTypeName: str
     Object: str
@@ -750,29 +796,34 @@ class UpdateAddress(BaseValidatorModel):
     PostalCode: Optional[str] = None
 
 
+# This class is the output for the 'add_profile_key' function.
 class AddProfileKeyResponse(BaseValidatorModel):
     KeyName: str
     Values: List[str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_event_stream' function.
 class CreateEventStreamResponse(BaseValidatorModel):
     EventStreamArn: str
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_integration_workflow' function.
 class CreateIntegrationWorkflowResponse(BaseValidatorModel):
     WorkflowId: str
     Message: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_profile' function.
 class CreateProfileResponse(BaseValidatorModel):
     ProfileId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_segment_definition' function.
 class CreateSegmentDefinitionResponse(BaseValidatorModel):
     SegmentDefinitionName: str
     DisplayName: str
@@ -783,6 +834,7 @@ class CreateSegmentDefinitionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_segment_estimate' function.
 class CreateSegmentEstimateResponse(BaseValidatorModel):
     DomainName: str
     EstimateId: str
@@ -790,51 +842,61 @@ class CreateSegmentEstimateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_segment_snapshot' function.
 class CreateSegmentSnapshotResponse(BaseValidatorModel):
     SnapshotId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_domain' function.
 class DeleteDomainResponse(BaseValidatorModel):
     Message: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_event_trigger' function.
 class DeleteEventTriggerResponse(BaseValidatorModel):
     Message: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_integration' function.
 class DeleteIntegrationResponse(BaseValidatorModel):
     Message: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_profile_key' function.
 class DeleteProfileKeyResponse(BaseValidatorModel):
     Message: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_profile_object' function.
 class DeleteProfileObjectResponse(BaseValidatorModel):
     Message: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_profile_object_type' function.
 class DeleteProfileObjectTypeResponse(BaseValidatorModel):
     Message: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_profile' function.
 class DeleteProfileResponse(BaseValidatorModel):
     Message: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'delete_segment_definition' function.
 class DeleteSegmentDefinitionResponse(BaseValidatorModel):
     Message: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_auto_merging_preview' function.
 class GetAutoMergingPreviewResponse(BaseValidatorModel):
     DomainName: str
     NumberOfMatchesInSample: int
@@ -843,6 +905,7 @@ class GetAutoMergingPreviewResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_calculated_attribute_for_profile' function.
 class GetCalculatedAttributeForProfileResponse(BaseValidatorModel):
     CalculatedAttributeName: str
     DisplayName: str
@@ -851,6 +914,7 @@ class GetCalculatedAttributeForProfileResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_integration' function.
 class GetIntegrationResponse(BaseValidatorModel):
     DomainName: str
     Uri: str
@@ -866,6 +930,7 @@ class GetIntegrationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_segment_estimate' function.
 class GetSegmentEstimateResponse(BaseValidatorModel):
     DomainName: str
     EstimateId: str
@@ -876,6 +941,7 @@ class GetSegmentEstimateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_segment_snapshot' function.
 class GetSegmentSnapshotResponse(BaseValidatorModel):
     SnapshotId: str
     Status: SegmentSnapshotStatusType
@@ -887,6 +953,7 @@ class GetSegmentSnapshotResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_similar_profiles' function.
 class GetSimilarProfilesResponse(BaseValidatorModel):
     ProfileIds: List[str]
     MatchId: str
@@ -897,22 +964,26 @@ class GetSimilarProfilesResponse(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_rule_based_matches' function.
 class ListRuleBasedMatchesResponse(BaseValidatorModel):
     MatchIds: List[str]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'merge_profiles' function.
 class MergeProfilesResponse(BaseValidatorModel):
     Message: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_integration' function.
 class PutIntegrationResponse(BaseValidatorModel):
     DomainName: str
     Uri: str
@@ -928,16 +999,19 @@ class PutIntegrationResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_profile_object' function.
 class PutProfileObjectResponse(BaseValidatorModel):
     ProfileObjectUniqueKey: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_profile' function.
 class UpdateProfileResponse(BaseValidatorModel):
     ProfileId: str
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'search_profiles' function.
 class SearchProfilesRequest(BaseValidatorModel):
     DomainName: str
     KeyName: str
@@ -957,6 +1031,7 @@ class AddressDimensionOutput(BaseValidatorModel):
     State: Optional[ProfileDimensionOutput] = None
 
 
+# This class is the input for the 'create_profile' function.
 class CreateProfileRequest(BaseValidatorModel):
     DomainName: str
     AccountNumber: Optional[str] = None
@@ -1010,6 +1085,7 @@ AttributeDimensionUnion = Union[AttributeDimension, AttributeDimensionOutput]
 AttributeTypesSelectorUnion = Union[AttributeTypesSelector, AttributeTypesSelectorOutput]
 
 
+# This class is the output for the 'list_profile_attribute_values' function.
 class ProfileAttributeValuesResponse(BaseValidatorModel):
     DomainName: str
     AttributeName: str
@@ -1030,6 +1106,7 @@ class Batch(BaseValidatorModel):
     EndTime: Timestamp
 
 
+# This class is the input for the 'list_workflows' function.
 class ListWorkflowsRequest(BaseValidatorModel):
     DomainName: str
     WorkflowType: Optional[Literal['APPFLOW_INTEGRATION']] = None
@@ -1088,6 +1165,7 @@ class DetectedProfileObjectType(BaseValidatorModel):
     Keys: Optional[Dict[str, List[ObjectTypeKeyOutput]]] = None
 
 
+# This class is the output for the 'get_profile_object_type' function.
 class GetProfileObjectTypeResponse(BaseValidatorModel):
     ObjectTypeName: str
     Description: str
@@ -1106,6 +1184,7 @@ class GetProfileObjectTypeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_profile_object_type_template' function.
 class GetProfileObjectTypeTemplateResponse(BaseValidatorModel):
     TemplateId: str
     SourceName: str
@@ -1117,6 +1196,7 @@ class GetProfileObjectTypeTemplateResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'put_profile_object_type' function.
 class PutProfileObjectTypeResponse(BaseValidatorModel):
     ObjectTypeName: str
     Description: str
@@ -1135,6 +1215,7 @@ class PutProfileObjectTypeResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_event_stream' function.
 class GetEventStreamResponse(BaseValidatorModel):
     DomainName: str
     EventStreamArn: str
@@ -1160,6 +1241,7 @@ class EventTriggerLimits(BaseValidatorModel):
     Periods: Optional[List[Period]] = None
 
 
+# This class is the output for the 'list_event_triggers' function.
 class ListEventTriggersResponse(BaseValidatorModel):
     Items: List[EventTriggerSummaryItem]
     ResponseMetadata: ResponseMetadata
@@ -1176,6 +1258,7 @@ class ExportingLocation(BaseValidatorModel):
 ExtraLengthValueProfileDimensionUnion = Union[ExtraLengthValueProfileDimension, ExtraLengthValueProfileDimensionOutput]
 
 
+# This class is the input for the 'merge_profiles' function.
 class MergeProfilesRequest(BaseValidatorModel):
     DomainName: str
     MainProfileId: str
@@ -1219,6 +1302,7 @@ class Profile(BaseValidatorModel):
     GenderString: Optional[str] = None
 
 
+# This class is the output for the 'get_matches' function.
 class GetMatchesResponse(BaseValidatorModel):
     MatchGenerationDate: datetime
     PotentialMatches: int
@@ -1261,60 +1345,70 @@ class ListSegmentDefinitionsRequestPaginate(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfig] = None
 
 
+# This class is the output for the 'list_account_integrations' function.
 class ListAccountIntegrationsResponse(BaseValidatorModel):
     Items: List[ListIntegrationItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_integrations' function.
 class ListIntegrationsResponse(BaseValidatorModel):
     Items: List[ListIntegrationItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_calculated_attribute_definitions' function.
 class ListCalculatedAttributeDefinitionsResponse(BaseValidatorModel):
     Items: List[ListCalculatedAttributeDefinitionItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_calculated_attributes_for_profile' function.
 class ListCalculatedAttributesForProfileResponse(BaseValidatorModel):
     Items: List[ListCalculatedAttributeForProfileItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_domains' function.
 class ListDomainsResponse(BaseValidatorModel):
     Items: List[ListDomainItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_object_type_attributes' function.
 class ListObjectTypeAttributesResponse(BaseValidatorModel):
     Items: List[ListObjectTypeAttributeItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_profile_object_types' function.
 class ListProfileObjectTypesResponse(BaseValidatorModel):
     Items: List[ListProfileObjectTypeItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_profile_object_type_templates' function.
 class ListProfileObjectTypeTemplatesResponse(BaseValidatorModel):
     Items: List[ListProfileObjectTypeTemplateItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_profile_objects' function.
 class ListProfileObjectsResponse(BaseValidatorModel):
     Items: List[ListProfileObjectsItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the input for the 'list_profile_objects' function.
 class ListProfileObjectsRequest(BaseValidatorModel):
     DomainName: str
     ObjectTypeName: str
@@ -1324,12 +1418,14 @@ class ListProfileObjectsRequest(BaseValidatorModel):
     ObjectFilter: Optional[ObjectFilter] = None
 
 
+# This class is the output for the 'list_segment_definitions' function.
 class ListSegmentDefinitionsResponse(BaseValidatorModel):
     Items: List[SegmentDefinitionItem]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'list_workflows' function.
 class ListWorkflowsResponse(BaseValidatorModel):
     Items: List[ListWorkflowsItem]
     ResponseMetadata: ResponseMetadata
@@ -1352,6 +1448,7 @@ class SourceConnectorProperties(BaseValidatorModel):
     Zendesk: Optional[ZendeskSourceProperties] = None
 
 
+# This class is the input for the 'update_profile' function.
 class UpdateProfileRequest(BaseValidatorModel):
     DomainName: str
     ProfileId: str
@@ -1404,6 +1501,7 @@ class ProfileAttributesOutput(BaseValidatorModel):
     Attributes: Optional[Dict[str, AttributeDimensionOutput]] = None
 
 
+# This class is the output for the 'get_workflow' function.
 class GetWorkflowResponse(BaseValidatorModel):
     WorkflowId: str
     WorkflowType: Literal['APPFLOW_INTEGRATION']
@@ -1416,6 +1514,7 @@ class GetWorkflowResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_workflow_steps' function.
 class GetWorkflowStepsResponse(BaseValidatorModel):
     WorkflowId: str
     WorkflowType: Literal['APPFLOW_INTEGRATION']
@@ -1430,6 +1529,7 @@ class TriggerProperties(BaseValidatorModel):
     Scheduled: Optional[ScheduledTriggerProperties] = None
 
 
+# This class is the input for the 'batch_get_calculated_attribute_for_profile' function.
 class BatchGetCalculatedAttributeForProfileRequest(BaseValidatorModel):
     CalculatedAttributeName: str
     DomainName: str
@@ -1437,6 +1537,7 @@ class BatchGetCalculatedAttributeForProfileRequest(BaseValidatorModel):
     ConditionOverrides: Optional[ConditionOverrides] = None
 
 
+# This class is the output for the 'batch_get_calculated_attribute_for_profile' function.
 class BatchGetCalculatedAttributeForProfileResponse(BaseValidatorModel):
     Errors: List[BatchGetCalculatedAttributeForProfileError]
     CalculatedAttributeValues: List[CalculatedAttributeValue]
@@ -1456,6 +1557,7 @@ class CalculatedAttributeDimension(BaseValidatorModel):
     ConditionOverrides: Optional[ConditionOverrides] = None
 
 
+# This class is the input for the 'update_calculated_attribute_definition' function.
 class UpdateCalculatedAttributeDefinitionRequest(BaseValidatorModel):
     DomainName: str
     CalculatedAttributeName: str
@@ -1464,6 +1566,7 @@ class UpdateCalculatedAttributeDefinitionRequest(BaseValidatorModel):
     Conditions: Optional[Conditions] = None
 
 
+# This class is the output for the 'update_calculated_attribute_definition' function.
 class UpdateCalculatedAttributeDefinitionResponse(BaseValidatorModel):
     CalculatedAttributeName: str
     DisplayName: str
@@ -1484,6 +1587,7 @@ class AutoMerging(BaseValidatorModel):
     MinAllowedConfidenceScoreForMerging: Optional[float] = None
 
 
+# This class is the input for the 'get_auto_merging_preview' function.
 class GetAutoMergingPreviewRequest(BaseValidatorModel):
     DomainName: str
     Consolidation: ConsolidationUnion
@@ -1491,12 +1595,14 @@ class GetAutoMergingPreviewRequest(BaseValidatorModel):
     MinAllowedConfidenceScoreForMerging: Optional[float] = None
 
 
+# This class is the output for the 'list_event_streams' function.
 class ListEventStreamsResponse(BaseValidatorModel):
     Items: List[EventStreamSummary]
     ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
+# This class is the output for the 'detect_profile_object_type' function.
 class DetectProfileObjectTypeResponse(BaseValidatorModel):
     DetectedProfileObjectTypes: List[DetectedProfileObjectType]
     ResponseMetadata: ResponseMetadata
@@ -1527,6 +1633,7 @@ class RuleBasedMatchingResponse(BaseValidatorModel):
     ExportingConfig: Optional[ExportingConfig] = None
 
 
+# This class is the output for the 'get_identity_resolution_job' function.
 class GetIdentityResolutionJobResponse(BaseValidatorModel):
     DomainName: str
     JobId: str
@@ -1563,6 +1670,7 @@ class FilterGroup(BaseValidatorModel):
     Dimensions: List[FilterDimension]
 
 
+# This class is the output for the 'batch_get_profile' function.
 class BatchGetProfileResponse(BaseValidatorModel):
     Errors: List[BatchGetProfileError]
     Profiles: List[Profile]
@@ -1575,6 +1683,7 @@ class ProfileQueryResult(BaseValidatorModel):
     Profile: Optional[Profile] = None
 
 
+# This class is the output for the 'search_profiles' function.
 class SearchProfilesResponse(BaseValidatorModel):
     Items: List[Profile]
     ResponseMetadata: ResponseMetadata
@@ -1595,6 +1704,7 @@ class EventTriggerDimension(BaseValidatorModel):
     ObjectAttributes: List[ObjectAttributeUnion]
 
 
+# This class is the input for the 'put_profile_object_type' function.
 class PutProfileObjectTypeRequest(BaseValidatorModel):
     DomainName: str
     ObjectTypeName: str
@@ -1640,6 +1750,7 @@ CalculatedAttributeDimensionUnion = Union[CalculatedAttributeDimension, Calculat
 AutoMergingUnion = Union[AutoMerging, AutoMergingOutput]
 
 
+# This class is the output for the 'create_event_trigger' function.
 class CreateEventTriggerResponse(BaseValidatorModel):
     EventTriggerName: str
     ObjectTypeName: str
@@ -1653,6 +1764,7 @@ class CreateEventTriggerResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_event_trigger' function.
 class GetEventTriggerResponse(BaseValidatorModel):
     EventTriggerName: str
     ObjectTypeName: str
@@ -1666,6 +1778,7 @@ class GetEventTriggerResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_event_trigger' function.
 class UpdateEventTriggerResponse(BaseValidatorModel):
     EventTriggerName: str
     ObjectTypeName: str
@@ -1679,6 +1792,7 @@ class UpdateEventTriggerResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'create_domain' function.
 class CreateDomainResponse(BaseValidatorModel):
     DomainName: str
     DefaultExpirationDays: int
@@ -1692,6 +1806,7 @@ class CreateDomainResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_domain' function.
 class GetDomainResponse(BaseValidatorModel):
     DomainName: str
     DefaultExpirationDays: int
@@ -1706,6 +1821,7 @@ class GetDomainResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'update_domain' function.
 class UpdateDomainResponse(BaseValidatorModel):
     DomainName: str
     DefaultExpirationDays: int
@@ -1719,6 +1835,7 @@ class UpdateDomainResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'list_identity_resolution_jobs' function.
 class ListIdentityResolutionJobsResponse(BaseValidatorModel):
     IdentityResolutionJobsList: List[IdentityResolutionJob]
     ResponseMetadata: ResponseMetadata
@@ -1735,6 +1852,7 @@ class Filter(BaseValidatorModel):
     Groups: List[FilterGroup]
 
 
+# This class is the output for the 'get_segment_membership' function.
 class GetSegmentMembershipResponse(BaseValidatorModel):
     SegmentDefinitionName: str
     Profiles: List[ProfileQueryResult]
@@ -1769,6 +1887,7 @@ class MatchingRequest(BaseValidatorModel):
     ExportingConfig: Optional[ExportingConfig] = None
 
 
+# This class is the output for the 'create_calculated_attribute_definition' function.
 class CreateCalculatedAttributeDefinitionResponse(BaseValidatorModel):
     CalculatedAttributeName: str
     DisplayName: str
@@ -1783,6 +1902,7 @@ class CreateCalculatedAttributeDefinitionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the output for the 'get_calculated_attribute_definition' function.
 class GetCalculatedAttributeDefinitionResponse(BaseValidatorModel):
     CalculatedAttributeName: str
     DisplayName: str
@@ -1833,6 +1953,7 @@ class AppflowIntegration(BaseValidatorModel):
     Batches: Optional[List[Batch]] = None
 
 
+# This class is the input for the 'put_integration' function.
 class PutIntegrationRequest(BaseValidatorModel):
     DomainName: str
     Uri: Optional[str] = None
@@ -1849,6 +1970,7 @@ class SegmentGroupOutput(BaseValidatorModel):
     Include: Optional[IncludeOptionsType] = None
 
 
+# This class is the input for the 'create_domain' function.
 class CreateDomainRequest(BaseValidatorModel):
     DomainName: str
     DefaultExpirationDays: int
@@ -1859,6 +1981,7 @@ class CreateDomainRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_domain' function.
 class UpdateDomainRequest(BaseValidatorModel):
     DomainName: str
     DefaultExpirationDays: Optional[int] = None
@@ -1869,6 +1992,7 @@ class UpdateDomainRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'create_calculated_attribute_definition' function.
 class CreateCalculatedAttributeDefinitionRequest(BaseValidatorModel):
     DomainName: str
     CalculatedAttributeName: str
@@ -1889,6 +2013,7 @@ class IntegrationConfig(BaseValidatorModel):
     AppflowIntegration: Optional[AppflowIntegration] = None
 
 
+# This class is the output for the 'get_segment_definition' function.
 class GetSegmentDefinitionResponse(BaseValidatorModel):
     SegmentDefinitionName: str
     DisplayName: str
@@ -1900,6 +2025,7 @@ class GetSegmentDefinitionResponse(BaseValidatorModel):
     ResponseMetadata: ResponseMetadata
 
 
+# This class is the input for the 'create_event_trigger' function.
 class CreateEventTriggerRequest(BaseValidatorModel):
     DomainName: str
     EventTriggerName: str
@@ -1911,6 +2037,7 @@ class CreateEventTriggerRequest(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
+# This class is the input for the 'update_event_trigger' function.
 class UpdateEventTriggerRequest(BaseValidatorModel):
     DomainName: str
     EventTriggerName: str
@@ -1926,6 +2053,7 @@ class Dimension(BaseValidatorModel):
     CalculatedAttributes: Optional[Dict[str, CalculatedAttributeDimensionUnion]] = None
 
 
+# This class is the input for the 'create_integration_workflow' function.
 class CreateIntegrationWorkflowRequest(BaseValidatorModel):
     DomainName: str
     WorkflowType: Literal['APPFLOW_INTEGRATION']
@@ -1958,11 +2086,13 @@ class SegmentGroupStructure(BaseValidatorModel):
 SegmentGroupUnion = Union[SegmentGroup, SegmentGroupOutput]
 
 
+# This class is the input for the 'create_segment_estimate' function.
 class CreateSegmentEstimateRequest(BaseValidatorModel):
     DomainName: str
     SegmentQuery: SegmentGroupStructure
 
 
+# This class is the input for the 'create_segment_definition' function.
 class CreateSegmentDefinitionRequest(BaseValidatorModel):
     DomainName: str
     SegmentDefinitionName: str
