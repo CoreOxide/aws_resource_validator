@@ -1,0 +1,34 @@
+{
+  "classes": [
+    "BlueprintTypeDef",
+    "DataAutomationConfigurationTypeDef",
+    "EncryptionConfigurationTypeDef",
+    "EventBridgeConfigurationTypeDef",
+    "GetDataAutomationStatusRequestTypeDef",
+    "OutputConfigurationTypeDef",
+    "ResponseMetadataTypeDef",
+    "TagTypeDef",
+    "OutputSegmentTypeDef",
+    "ListTagsForResourceRequestTypeDef",
+    "TimestampSegmentTypeDef",
+    "UntagResourceRequestTypeDef",
+    "SyncInputConfigurationTypeDef",
+    "NotificationConfigurationTypeDef",
+    "GetDataAutomationStatusResponseTypeDef",
+    "InvokeDataAutomationAsyncResponseTypeDef",
+    "ListTagsForResourceResponseTypeDef",
+    "TagResourceRequestTypeDef",
+    "InvokeDataAutomationResponseTypeDef",
+    "VideoSegmentConfigurationTypeDef",
+    "InvokeDataAutomationRequestTypeDef",
+    "VideoAssetProcessingConfigurationTypeDef",
+    "AssetProcessingConfigurationTypeDef",
+    "InputConfigurationTypeDef",
+    "InvokeDataAutomationAsyncRequestTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.bedrock_data_automation_runtime.bedrock_data_automation_runtime_classes",
+  "service": "bedrock_data_automation_runtime",
+  "union_aliases": [
+    "BlobTypeDef"
+  ]
+}

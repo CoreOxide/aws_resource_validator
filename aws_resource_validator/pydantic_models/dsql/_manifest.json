@@ -1,0 +1,42 @@
+{
+  "classes": [
+    "ClusterSummaryTypeDef",
+    "EncryptionDetailsTypeDef",
+    "MultiRegionPropertiesOutputTypeDef",
+    "ResponseMetadataTypeDef",
+    "DeleteClusterInputTypeDef",
+    "DeleteClusterPolicyInputTypeDef",
+    "GetClusterInputTypeDef",
+    "WaiterConfigTypeDef",
+    "GetClusterPolicyInputTypeDef",
+    "GetVpcEndpointServiceNameInputTypeDef",
+    "PaginatorConfigTypeDef",
+    "ListClustersInputTypeDef",
+    "ListTagsForResourceInputTypeDef",
+    "MultiRegionPropertiesTypeDef",
+    "PutClusterPolicyInputTypeDef",
+    "TagResourceInputTypeDef",
+    "UntagResourceInputTypeDef",
+    "CreateClusterOutputTypeDef",
+    "DeleteClusterOutputTypeDef",
+    "DeleteClusterPolicyOutputTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "GetClusterOutputTypeDef",
+    "GetClusterPolicyOutputTypeDef",
+    "GetVpcEndpointServiceNameOutputTypeDef",
+    "ListClustersOutputTypeDef",
+    "ListTagsForResourceOutputTypeDef",
+    "PutClusterPolicyOutputTypeDef",
+    "UpdateClusterOutputTypeDef",
+    "GetClusterInputWaitExtraTypeDef",
+    "GetClusterInputWaitTypeDef",
+    "ListClustersInputPaginateTypeDef",
+    "CreateClusterInputTypeDef",
+    "UpdateClusterInputTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.dsql.dsql_classes",
+  "service": "dsql",
+  "union_aliases": [
+    "MultiRegionPropertiesUnionTypeDef"
+  ]
+}

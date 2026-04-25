@@ -1,0 +1,13 @@
+{
+  "classes": [
+    "AuditEventResultEntryTypeDef",
+    "AuditEventTypeDef",
+    "ResponseMetadataTypeDef",
+    "ResultErrorEntryTypeDef",
+    "PutAuditEventsRequestTypeDef",
+    "PutAuditEventsResponseTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.cloudtrail_data.cloudtrail_data_classes",
+  "service": "cloudtrail_data",
+  "union_aliases": []
+}

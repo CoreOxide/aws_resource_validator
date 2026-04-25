@@ -1,0 +1,26 @@
+{
+  "classes": [
+    "ResponseMetadataTypeDef",
+    "RegisterUsageRequestTypeDef",
+    "ResolveCustomerRequestTypeDef",
+    "TagTypeDef",
+    "MeterUsageResultTypeDef",
+    "RegisterUsageResultTypeDef",
+    "ResolveCustomerResultTypeDef",
+    "UsageAllocationOutputTypeDef",
+    "UsageAllocationTypeDef",
+    "UsageRecordOutputTypeDef",
+    "UsageRecordResultTypeDef",
+    "MeterUsageRequestTypeDef",
+    "UsageRecordTypeDef",
+    "BatchMeterUsageResultTypeDef",
+    "BatchMeterUsageRequestTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.meteringmarketplace.meteringmarketplace_classes",
+  "service": "meteringmarketplace",
+  "union_aliases": [
+    "TimestampTypeDef",
+    "UsageAllocationUnionTypeDef",
+    "UsageRecordUnionTypeDef"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "classes": [
+    "EntitlementValueTypeDef",
+    "PaginatorConfigTypeDef",
+    "GetEntitlementsRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "EntitlementTypeDef",
+    "GetEntitlementsRequestPaginateTypeDef",
+    "GetEntitlementsResultTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.marketplace_entitlement.marketplace_entitlement_classes",
+  "service": "marketplace_entitlement",
+  "union_aliases": []
+}

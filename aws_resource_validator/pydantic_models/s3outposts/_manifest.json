@@ -1,0 +1,26 @@
+{
+  "classes": [
+    "CreateEndpointRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "DeleteEndpointRequestTypeDef",
+    "FailedReasonTypeDef",
+    "NetworkInterfaceTypeDef",
+    "PaginatorConfigTypeDef",
+    "ListEndpointsRequestTypeDef",
+    "ListOutpostsWithS3RequestTypeDef",
+    "OutpostTypeDef",
+    "ListSharedEndpointsRequestTypeDef",
+    "CreateEndpointResultTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "EndpointTypeDef",
+    "ListEndpointsRequestPaginateTypeDef",
+    "ListOutpostsWithS3RequestPaginateTypeDef",
+    "ListSharedEndpointsRequestPaginateTypeDef",
+    "ListOutpostsWithS3ResultTypeDef",
+    "ListEndpointsResultTypeDef",
+    "ListSharedEndpointsResultTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.s3outposts.s3outposts_classes",
+  "service": "s3outposts",
+  "union_aliases": []
+}

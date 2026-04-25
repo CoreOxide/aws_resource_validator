@@ -1,0 +1,28 @@
+{
+  "classes": [
+    "DeleteConnectionRequestTypeDef",
+    "DeleteThingShadowRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "GetRetainedMessageRequestTypeDef",
+    "GetThingShadowRequestTypeDef",
+    "ListNamedShadowsForThingRequestTypeDef",
+    "PaginatorConfigTypeDef",
+    "ListRetainedMessagesRequestTypeDef",
+    "RetainedMessageSummaryTypeDef",
+    "PublishRequestTypeDef",
+    "UpdateThingShadowRequestTypeDef",
+    "DeleteThingShadowResponseTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "GetRetainedMessageResponseTypeDef",
+    "GetThingShadowResponseTypeDef",
+    "ListNamedShadowsForThingResponseTypeDef",
+    "UpdateThingShadowResponseTypeDef",
+    "ListRetainedMessagesRequestPaginateTypeDef",
+    "ListRetainedMessagesResponseTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.iot_data.iot_data_classes",
+  "service": "iot_data",
+  "union_aliases": [
+    "BlobTypeDef"
+  ]
+}

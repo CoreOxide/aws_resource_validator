@@ -1,0 +1,35 @@
+{
+  "classes": [
+    "FragmentTypeDef",
+    "ResponseMetadataTypeDef",
+    "PaginatorConfigTypeDef",
+    "ImageTypeDef",
+    "GetMediaForFragmentListInputTypeDef",
+    "ClipTimestampRangeTypeDef",
+    "DASHTimestampRangeTypeDef",
+    "GetImagesInputTypeDef",
+    "HLSTimestampRangeTypeDef",
+    "TimestampRangeTypeDef",
+    "GetClipOutputTypeDef",
+    "GetDASHStreamingSessionURLOutputTypeDef",
+    "GetHLSStreamingSessionURLOutputTypeDef",
+    "GetMediaForFragmentListOutputTypeDef",
+    "ListFragmentsOutputTypeDef",
+    "GetImagesInputPaginateTypeDef",
+    "GetImagesOutputTypeDef",
+    "ClipFragmentSelectorTypeDef",
+    "DASHFragmentSelectorTypeDef",
+    "HLSFragmentSelectorTypeDef",
+    "FragmentSelectorTypeDef",
+    "GetClipInputTypeDef",
+    "GetDASHStreamingSessionURLInputTypeDef",
+    "GetHLSStreamingSessionURLInputTypeDef",
+    "ListFragmentsInputPaginateTypeDef",
+    "ListFragmentsInputTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.kinesis_video_archived_media.kinesis_video_archived_media_classes",
+  "service": "kinesis_video_archived_media",
+  "union_aliases": [
+    "TimestampTypeDef"
+  ]
+}

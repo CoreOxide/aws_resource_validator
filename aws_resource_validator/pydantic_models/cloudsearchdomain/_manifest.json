@@ -1,0 +1,26 @@
+{
+  "classes": [
+    "BucketTypeDef",
+    "DocumentServiceWarningTypeDef",
+    "FieldStatsTypeDef",
+    "HitTypeDef",
+    "ResponseMetadataTypeDef",
+    "SearchRequestTypeDef",
+    "SearchStatusTypeDef",
+    "SuggestionMatchTypeDef",
+    "SuggestRequestTypeDef",
+    "SuggestStatusTypeDef",
+    "UploadDocumentsRequestTypeDef",
+    "BucketInfoTypeDef",
+    "HitsTypeDef",
+    "UploadDocumentsResponseTypeDef",
+    "SuggestModelTypeDef",
+    "SearchResponseTypeDef",
+    "SuggestResponseTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.cloudsearchdomain.cloudsearchdomain_classes",
+  "service": "cloudsearchdomain",
+  "union_aliases": [
+    "BlobTypeDef"
+  ]
+}

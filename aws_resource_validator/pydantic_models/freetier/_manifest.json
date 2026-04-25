@@ -1,0 +1,27 @@
+{
+  "classes": [
+    "MonetaryAmountTypeDef",
+    "DimensionValuesTypeDef",
+    "FreeTierUsageTypeDef",
+    "GetAccountActivityRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "PaginatorConfigTypeDef",
+    "ListAccountActivitiesRequestTypeDef",
+    "UpgradeAccountPlanRequestTypeDef",
+    "ActivityRewardTypeDef",
+    "ExpressionPaginatorTypeDef",
+    "ExpressionTypeDef",
+    "GetAccountPlanStateResponseTypeDef",
+    "GetFreeTierUsageResponseTypeDef",
+    "UpgradeAccountPlanResponseTypeDef",
+    "ListAccountActivitiesRequestPaginateTypeDef",
+    "ActivitySummaryTypeDef",
+    "GetAccountActivityResponseTypeDef",
+    "GetFreeTierUsageRequestPaginateTypeDef",
+    "GetFreeTierUsageRequestTypeDef",
+    "ListAccountActivitiesResponseTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.freetier.freetier_classes",
+  "service": "freetier",
+  "union_aliases": []
+}

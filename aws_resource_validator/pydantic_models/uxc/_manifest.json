@@ -1,0 +1,15 @@
+{
+  "classes": [
+    "ResponseMetadataTypeDef",
+    "PaginatorConfigTypeDef",
+    "ListServicesInputTypeDef",
+    "UpdateAccountCustomizationsInputTypeDef",
+    "GetAccountCustomizationsOutputTypeDef",
+    "ListServicesOutputTypeDef",
+    "UpdateAccountCustomizationsOutputTypeDef",
+    "ListServicesInputPaginateTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.uxc.uxc_classes",
+  "service": "uxc",
+  "union_aliases": []
+}

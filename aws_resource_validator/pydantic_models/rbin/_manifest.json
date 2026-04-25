@@ -1,0 +1,33 @@
+{
+  "classes": [
+    "ResourceTagTypeDef",
+    "RetentionPeriodTypeDef",
+    "TagTypeDef",
+    "ResponseMetadataTypeDef",
+    "DeleteRuleRequestTypeDef",
+    "GetRuleRequestTypeDef",
+    "PaginatorConfigTypeDef",
+    "ListTagsForResourceRequestTypeDef",
+    "UnlockDelayTypeDef",
+    "UnlockRuleRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "ListRulesRequestTypeDef",
+    "RuleSummaryTypeDef",
+    "UpdateRuleRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
+    "UpdateRuleResponseTypeDef",
+    "ListRulesRequestPaginateTypeDef",
+    "LockConfigurationTypeDef",
+    "ListRulesResponseTypeDef",
+    "CreateRuleRequestTypeDef",
+    "CreateRuleResponseTypeDef",
+    "GetRuleResponseTypeDef",
+    "LockRuleRequestTypeDef",
+    "LockRuleResponseTypeDef",
+    "UnlockRuleResponseTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.rbin.rbin_classes",
+  "service": "rbin",
+  "union_aliases": []
+}

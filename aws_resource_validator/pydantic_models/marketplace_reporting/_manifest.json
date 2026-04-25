@@ -1,0 +1,10 @@
+{
+  "classes": [
+    "GetBuyerDashboardInputTypeDef",
+    "ResponseMetadataTypeDef",
+    "GetBuyerDashboardOutputTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.marketplace_reporting.marketplace_reporting_classes",
+  "service": "marketplace_reporting",
+  "union_aliases": []
+}

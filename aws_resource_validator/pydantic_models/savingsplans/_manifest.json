@@ -1,0 +1,39 @@
+{
+  "classes": [
+    "ResponseMetadataTypeDef",
+    "DeleteQueuedSavingsPlanRequestTypeDef",
+    "SavingsPlanRateFilterTypeDef",
+    "SavingsPlanOfferingRateFilterElementTypeDef",
+    "SavingsPlanOfferingFilterElementTypeDef",
+    "SavingsPlanFilterTypeDef",
+    "SavingsPlanTypeDef",
+    "ListTagsForResourceRequestTypeDef",
+    "ParentSavingsPlanOfferingTypeDef",
+    "ReturnSavingsPlanRequestTypeDef",
+    "SavingsPlanOfferingPropertyTypeDef",
+    "SavingsPlanOfferingRatePropertyTypeDef",
+    "SavingsPlanRatePropertyTypeDef",
+    "TagResourceRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "CreateSavingsPlanRequestTypeDef",
+    "CreateSavingsPlanResponseTypeDef",
+    "ListTagsForResourceResponseTypeDef",
+    "ReturnSavingsPlanResponseTypeDef",
+    "DescribeSavingsPlanRatesRequestTypeDef",
+    "DescribeSavingsPlansOfferingRatesRequestTypeDef",
+    "DescribeSavingsPlansOfferingsRequestTypeDef",
+    "DescribeSavingsPlansRequestTypeDef",
+    "DescribeSavingsPlansResponseTypeDef",
+    "SavingsPlanOfferingTypeDef",
+    "SavingsPlanOfferingRateTypeDef",
+    "SavingsPlanRateTypeDef",
+    "DescribeSavingsPlansOfferingsResponseTypeDef",
+    "DescribeSavingsPlansOfferingRatesResponseTypeDef",
+    "DescribeSavingsPlanRatesResponseTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.savingsplans.savingsplans_classes",
+  "service": "savingsplans",
+  "union_aliases": [
+    "TimestampTypeDef"
+  ]
+}

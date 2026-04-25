@@ -1,0 +1,24 @@
+{
+  "classes": [
+    "DeleteHumanLoopRequestTypeDef",
+    "DescribeHumanLoopRequestTypeDef",
+    "HumanLoopOutputTypeDef",
+    "ResponseMetadataTypeDef",
+    "HumanLoopDataAttributesTypeDef",
+    "HumanLoopInputTypeDef",
+    "HumanLoopSummaryTypeDef",
+    "PaginatorConfigTypeDef",
+    "StopHumanLoopRequestTypeDef",
+    "DescribeHumanLoopResponseTypeDef",
+    "StartHumanLoopResponseTypeDef",
+    "StartHumanLoopRequestTypeDef",
+    "ListHumanLoopsResponseTypeDef",
+    "ListHumanLoopsRequestPaginateTypeDef",
+    "ListHumanLoopsRequestTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.sagemaker_a2i_runtime.sagemaker_a2i_runtime_classes",
+  "service": "sagemaker_a2i_runtime",
+  "union_aliases": [
+    "TimestampTypeDef"
+  ]
+}

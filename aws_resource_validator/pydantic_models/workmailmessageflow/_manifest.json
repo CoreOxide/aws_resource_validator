@@ -1,0 +1,13 @@
+{
+  "classes": [
+    "GetRawMessageContentRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "S3ReferenceTypeDef",
+    "GetRawMessageContentResponseTypeDef",
+    "RawMessageContentTypeDef",
+    "PutRawMessageContentRequestTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.workmailmessageflow.workmailmessageflow_classes",
+  "service": "workmailmessageflow",
+  "union_aliases": []
+}

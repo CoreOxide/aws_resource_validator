@@ -1,0 +1,33 @@
+{
+  "classes": [
+    "CancelResourceRequestInputTypeDef",
+    "ProgressEventTypeDef",
+    "ResponseMetadataTypeDef",
+    "CreateResourceInputTypeDef",
+    "DeleteResourceInputTypeDef",
+    "GetResourceInputTypeDef",
+    "ResourceDescriptionTypeDef",
+    "GetResourceRequestStatusInputTypeDef",
+    "WaiterConfigTypeDef",
+    "HookProgressEventTypeDef",
+    "PaginatorConfigTypeDef",
+    "ResourceRequestStatusFilterTypeDef",
+    "ListResourcesInputTypeDef",
+    "UpdateResourceInputTypeDef",
+    "CancelResourceRequestOutputTypeDef",
+    "CreateResourceOutputTypeDef",
+    "DeleteResourceOutputTypeDef",
+    "ListResourceRequestsOutputTypeDef",
+    "UpdateResourceOutputTypeDef",
+    "GetResourceOutputTypeDef",
+    "ListResourcesOutputTypeDef",
+    "GetResourceRequestStatusInputWaitTypeDef",
+    "GetResourceRequestStatusOutputTypeDef",
+    "ListResourcesInputPaginateTypeDef",
+    "ListResourceRequestsInputPaginateTypeDef",
+    "ListResourceRequestsInputTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.cloudcontrol.cloudcontrol_classes",
+  "service": "cloudcontrol",
+  "union_aliases": []
+}

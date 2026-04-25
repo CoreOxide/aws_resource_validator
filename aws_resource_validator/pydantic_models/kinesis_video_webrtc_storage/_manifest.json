@@ -1,0 +1,11 @@
+{
+  "classes": [
+    "ResponseMetadataTypeDef",
+    "JoinStorageSessionAsViewerInputTypeDef",
+    "JoinStorageSessionInputTypeDef",
+    "EmptyResponseMetadataTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.kinesis_video_webrtc_storage.kinesis_video_webrtc_storage_classes",
+  "service": "kinesis_video_webrtc_storage",
+  "union_aliases": []
+}

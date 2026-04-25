@@ -1,0 +1,14 @@
+{
+  "classes": [
+    "AssumeRoleForPodIdentityRequestTypeDef",
+    "AssumedRoleUserTypeDef",
+    "CredentialsTypeDef",
+    "PodIdentityAssociationTypeDef",
+    "ResponseMetadataTypeDef",
+    "SubjectTypeDef",
+    "AssumeRoleForPodIdentityResponseTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.eks_auth.eks_auth_classes",
+  "service": "eks_auth",
+  "union_aliases": []
+}

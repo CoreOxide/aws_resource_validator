@@ -1,0 +1,14 @@
+{
+  "classes": [
+    "DataPointTypeDef",
+    "QueryForecastRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "QueryWhatIfForecastRequestTypeDef",
+    "ForecastTypeDef",
+    "QueryForecastResponseTypeDef",
+    "QueryWhatIfForecastResponseTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.forecastquery.forecastquery_classes",
+  "service": "forecastquery",
+  "union_aliases": []
+}

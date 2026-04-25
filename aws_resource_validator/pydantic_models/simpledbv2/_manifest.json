@@ -1,0 +1,19 @@
+{
+  "classes": [
+    "ExportSummaryTypeDef",
+    "GetExportRequestTypeDef",
+    "WaiterConfigTypeDef",
+    "ResponseMetadataTypeDef",
+    "PaginatorConfigTypeDef",
+    "ListExportsRequestTypeDef",
+    "StartDomainExportRequestTypeDef",
+    "GetExportRequestWaitTypeDef",
+    "GetExportResponseTypeDef",
+    "ListExportsResponseTypeDef",
+    "StartDomainExportResponseTypeDef",
+    "ListExportsRequestPaginateTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.simpledbv2.simpledbv2_classes",
+  "service": "simpledbv2",
+  "union_aliases": []
+}

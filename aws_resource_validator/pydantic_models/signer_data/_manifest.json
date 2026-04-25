@@ -1,0 +1,12 @@
+{
+  "classes": [
+    "ResponseMetadataTypeDef",
+    "GetRevocationStatusRequestTypeDef",
+    "GetRevocationStatusResponseTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.signer_data.signer_data_classes",
+  "service": "signer_data",
+  "union_aliases": [
+    "TimestampTypeDef"
+  ]
+}

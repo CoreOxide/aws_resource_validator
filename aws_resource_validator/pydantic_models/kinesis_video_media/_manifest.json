@@ -1,0 +1,13 @@
+{
+  "classes": [
+    "ResponseMetadataTypeDef",
+    "GetMediaOutputTypeDef",
+    "StartSelectorTypeDef",
+    "GetMediaInputTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.kinesis_video_media.kinesis_video_media_classes",
+  "service": "kinesis_video_media",
+  "union_aliases": [
+    "TimestampTypeDef"
+  ]
+}

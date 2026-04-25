@@ -1,0 +1,29 @@
+{
+  "classes": [
+    "AttributeValueTypeDef",
+    "PaginatorConfigTypeDef",
+    "DescribeServicesRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "ServiceTypeDef",
+    "FilterTypeDef",
+    "GetAttributeValuesRequestTypeDef",
+    "GetPriceListFileUrlRequestTypeDef",
+    "PriceListTypeDef",
+    "DescribeServicesRequestPaginateTypeDef",
+    "GetAttributeValuesRequestPaginateTypeDef",
+    "GetAttributeValuesResponseTypeDef",
+    "GetPriceListFileUrlResponseTypeDef",
+    "GetProductsResponseTypeDef",
+    "DescribeServicesResponseTypeDef",
+    "GetProductsRequestPaginateTypeDef",
+    "GetProductsRequestTypeDef",
+    "ListPriceListsRequestPaginateTypeDef",
+    "ListPriceListsRequestTypeDef",
+    "ListPriceListsResponseTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.pricing.pricing_classes",
+  "service": "pricing",
+  "union_aliases": [
+    "TimestampTypeDef"
+  ]
+}

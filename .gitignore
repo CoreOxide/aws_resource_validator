@@ -1,0 +1,40 @@
+# Python bytecode / caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+
+# Build artefacts
+build/
+dist/
+.eggs/
+
+# Virtualenvs
+.venv/
+venv/
+env/
+
+# Test / tooling caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+
+# IDE / editor metadata
+.idea/
+.vscode/
+.idx/
+*.swp
+*.swo
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Local scratch
+*.tmp
+/tmp_*

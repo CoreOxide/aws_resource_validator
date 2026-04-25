@@ -1,0 +1,28 @@
+{
+  "classes": [
+    "CapacityUnitsConfigurationTypeDef",
+    "TagTypeDef",
+    "ResponseMetadataTypeDef",
+    "DeleteRescoreExecutionPlanRequestTypeDef",
+    "DescribeRescoreExecutionPlanRequestTypeDef",
+    "DocumentTypeDef",
+    "ListRescoreExecutionPlansRequestTypeDef",
+    "RescoreExecutionPlanSummaryTypeDef",
+    "ListTagsForResourceRequestTypeDef",
+    "RescoreResultItemTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateRescoreExecutionPlanRequestTypeDef",
+    "CreateRescoreExecutionPlanRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "CreateRescoreExecutionPlanResponseTypeDef",
+    "DescribeRescoreExecutionPlanResponseTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "ListTagsForResourceResponseTypeDef",
+    "RescoreRequestTypeDef",
+    "ListRescoreExecutionPlansResponseTypeDef",
+    "RescoreResultTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.kendra_ranking.kendra_ranking_classes",
+  "service": "kendra_ranking",
+  "union_aliases": []
+}

@@ -1,0 +1,25 @@
+{
+  "classes": [
+    "BatchGetRecordErrorTypeDef",
+    "BatchGetRecordIdentifierOutputTypeDef",
+    "BatchGetRecordIdentifierTypeDef",
+    "ResponseMetadataTypeDef",
+    "FeatureValueOutputTypeDef",
+    "DeleteRecordRequestTypeDef",
+    "FeatureValueTypeDef",
+    "GetRecordRequestTypeDef",
+    "TtlDurationTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "BatchGetRecordResultDetailTypeDef",
+    "GetRecordResponseTypeDef",
+    "BatchGetRecordRequestTypeDef",
+    "BatchGetRecordResponseTypeDef",
+    "PutRecordRequestTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime.sagemaker_featurestore_runtime_classes",
+  "service": "sagemaker_featurestore_runtime",
+  "union_aliases": [
+    "BatchGetRecordIdentifierUnionTypeDef",
+    "FeatureValueUnionTypeDef"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "classes": [
+    "AccountInfoTypeDef",
+    "ResponseMetadataTypeDef",
+    "GetRoleCredentialsRequestTypeDef",
+    "RoleCredentialsTypeDef",
+    "PaginatorConfigTypeDef",
+    "ListAccountRolesRequestTypeDef",
+    "RoleInfoTypeDef",
+    "ListAccountsRequestTypeDef",
+    "LogoutRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "ListAccountsResponseTypeDef",
+    "GetRoleCredentialsResponseTypeDef",
+    "ListAccountRolesRequestPaginateTypeDef",
+    "ListAccountsRequestPaginateTypeDef",
+    "ListAccountRolesResponseTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.sso.sso_classes",
+  "service": "sso",
+  "union_aliases": []
+}

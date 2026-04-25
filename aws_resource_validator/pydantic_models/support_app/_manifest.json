@@ -1,0 +1,23 @@
+{
+  "classes": [
+    "CreateSlackChannelConfigurationRequestTypeDef",
+    "DeleteSlackChannelConfigurationRequestTypeDef",
+    "DeleteSlackWorkspaceConfigurationRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "ListSlackChannelConfigurationsRequestTypeDef",
+    "SlackChannelConfigurationTypeDef",
+    "ListSlackWorkspaceConfigurationsRequestTypeDef",
+    "SlackWorkspaceConfigurationTypeDef",
+    "PutAccountAliasRequestTypeDef",
+    "RegisterSlackWorkspaceForOrganizationRequestTypeDef",
+    "UpdateSlackChannelConfigurationRequestTypeDef",
+    "GetAccountAliasResultTypeDef",
+    "RegisterSlackWorkspaceForOrganizationResultTypeDef",
+    "UpdateSlackChannelConfigurationResultTypeDef",
+    "ListSlackChannelConfigurationsResultTypeDef",
+    "ListSlackWorkspaceConfigurationsResultTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.support_app.support_app_classes",
+  "service": "support_app",
+  "union_aliases": []
+}

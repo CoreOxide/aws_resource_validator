@@ -1,0 +1,20 @@
+{
+  "classes": [
+    "DeleteConnectionRecordingPreferencesRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "S3BucketTypeDef",
+    "DeleteConnectionRecordingPreferencesResponseTypeDef",
+    "RecordingDestinationsOutputTypeDef",
+    "RecordingDestinationsTypeDef",
+    "ConnectionRecordingPreferencesOutputTypeDef",
+    "ConnectionRecordingPreferencesTypeDef",
+    "GetConnectionRecordingPreferencesResponseTypeDef",
+    "UpdateConnectionRecordingPreferencesResponseTypeDef",
+    "UpdateConnectionRecordingPreferencesRequestTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.ssm_guiconnect.ssm_guiconnect_classes",
+  "service": "ssm_guiconnect",
+  "union_aliases": [
+    "ConnectionRecordingPreferencesUnionTypeDef"
+  ]
+}

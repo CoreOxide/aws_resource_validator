@@ -1,0 +1,24 @@
+{
+  "classes": [
+    "ActivateEmailContactRequestTypeDef",
+    "CreateEmailContactRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "DeleteEmailContactRequestTypeDef",
+    "EmailContactTypeDef",
+    "GetEmailContactRequestTypeDef",
+    "PaginatorConfigTypeDef",
+    "ListEmailContactsRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
+    "SendActivationCodeRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "CreateEmailContactResponseTypeDef",
+    "ListTagsForResourceResponseTypeDef",
+    "GetEmailContactResponseTypeDef",
+    "ListEmailContactsResponseTypeDef",
+    "ListEmailContactsRequestPaginateTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.notificationscontacts.notificationscontacts_classes",
+  "service": "notificationscontacts",
+  "union_aliases": []
+}

@@ -1,0 +1,10 @@
+{
+  "classes": [
+    "ResponseMetadataTypeDef",
+    "ScanSbomRequestTypeDef",
+    "ScanSbomResponseTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.inspector_scan.inspector_scan_classes",
+  "service": "inspector_scan",
+  "union_aliases": []
+}

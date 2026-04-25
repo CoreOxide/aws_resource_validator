@@ -1,0 +1,32 @@
+{
+  "classes": [
+    "AttributeTypeDef",
+    "CreateDomainRequestTypeDef",
+    "UpdateConditionTypeDef",
+    "DeleteDomainRequestTypeDef",
+    "DomainMetadataRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "GetAttributesRequestTypeDef",
+    "PaginatorConfigTypeDef",
+    "ListDomainsRequestTypeDef",
+    "ReplaceableAttributeTypeDef",
+    "SelectRequestTypeDef",
+    "DeletableItemTypeDef",
+    "ItemTypeDef",
+    "DeleteAttributesRequestTypeDef",
+    "DomainMetadataResultTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "GetAttributesResultTypeDef",
+    "ListDomainsResultTypeDef",
+    "ListDomainsRequestPaginateTypeDef",
+    "SelectRequestPaginateTypeDef",
+    "PutAttributesRequestTypeDef",
+    "ReplaceableItemTypeDef",
+    "BatchDeleteAttributesRequestTypeDef",
+    "SelectResultTypeDef",
+    "BatchPutAttributesRequestTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.sdb.sdb_classes",
+  "service": "sdb",
+  "union_aliases": []
+}

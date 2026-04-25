@@ -1,0 +1,31 @@
+{
+  "classes": [
+    "CrossAccountConfigurationTypeDef",
+    "EncryptionConfigurationTypeDef",
+    "ResponseMetadataTypeDef",
+    "DeleteInvestigationGroupPolicyRequestTypeDef",
+    "DeleteInvestigationGroupRequestTypeDef",
+    "GetInvestigationGroupPolicyRequestTypeDef",
+    "GetInvestigationGroupRequestTypeDef",
+    "PaginatorConfigTypeDef",
+    "ListInvestigationGroupsInputTypeDef",
+    "ListInvestigationGroupsModelTypeDef",
+    "ListTagsForResourceRequestTypeDef",
+    "PutInvestigationGroupPolicyRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "CreateInvestigationGroupInputTypeDef",
+    "UpdateInvestigationGroupRequestTypeDef",
+    "CreateInvestigationGroupOutputTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "GetInvestigationGroupPolicyResponseTypeDef",
+    "GetInvestigationGroupResponseTypeDef",
+    "ListTagsForResourceOutputTypeDef",
+    "PutInvestigationGroupPolicyResponseTypeDef",
+    "ListInvestigationGroupsInputPaginateTypeDef",
+    "ListInvestigationGroupsOutputTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.aiops.aiops_classes",
+  "service": "aiops",
+  "union_aliases": []
+}

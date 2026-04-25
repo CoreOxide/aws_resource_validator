@@ -1,0 +1,22 @@
+{
+  "classes": [
+    "DeleteObjectRequestTypeDef",
+    "DescribeObjectRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "GetObjectRequestTypeDef",
+    "ItemTypeDef",
+    "PaginatorConfigTypeDef",
+    "ListItemsRequestTypeDef",
+    "PutObjectRequestTypeDef",
+    "DescribeObjectResponseTypeDef",
+    "GetObjectResponseTypeDef",
+    "PutObjectResponseTypeDef",
+    "ListItemsResponseTypeDef",
+    "ListItemsRequestPaginateTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.mediastore_data.mediastore_data_classes",
+  "service": "mediastore_data",
+  "union_aliases": [
+    "BlobTypeDef"
+  ]
+}

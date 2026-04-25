@@ -1,0 +1,25 @@
+{
+  "classes": [
+    "DeleteReportDefinitionRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "GetReportDefinitionRequestTypeDef",
+    "S3LocationTypeDef",
+    "SourceS3LocationTypeDef",
+    "PaginatorConfigTypeDef",
+    "ListReportDefinitionsRequestTypeDef",
+    "DeleteReportDefinitionResultTypeDef",
+    "ImportApplicationUsageResultTypeDef",
+    "PutReportDefinitionResultTypeDef",
+    "UpdateReportDefinitionResultTypeDef",
+    "GetReportDefinitionResultTypeDef",
+    "PutReportDefinitionRequestTypeDef",
+    "ReportDefinitionTypeDef",
+    "UpdateReportDefinitionRequestTypeDef",
+    "ImportApplicationUsageRequestTypeDef",
+    "ListReportDefinitionsRequestPaginateTypeDef",
+    "ListReportDefinitionsResultTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.applicationcostprofiler.applicationcostprofiler_classes",
+  "service": "applicationcostprofiler",
+  "union_aliases": []
+}

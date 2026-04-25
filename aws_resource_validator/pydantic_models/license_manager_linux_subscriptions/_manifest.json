@@ -1,0 +1,38 @@
+{
+  "classes": [
+    "DeregisterSubscriptionProviderRequestTypeDef",
+    "FilterTypeDef",
+    "GetRegisteredSubscriptionProviderRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "LinuxSubscriptionsDiscoverySettingsOutputTypeDef",
+    "InstanceTypeDef",
+    "LinuxSubscriptionsDiscoverySettingsTypeDef",
+    "PaginatorConfigTypeDef",
+    "SubscriptionTypeDef",
+    "ListRegisteredSubscriptionProvidersRequestTypeDef",
+    "RegisteredSubscriptionProviderTypeDef",
+    "ListTagsForResourceRequestTypeDef",
+    "RegisterSubscriptionProviderRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "ListLinuxSubscriptionInstancesRequestTypeDef",
+    "ListLinuxSubscriptionsRequestTypeDef",
+    "GetRegisteredSubscriptionProviderResponseTypeDef",
+    "ListTagsForResourceResponseTypeDef",
+    "RegisterSubscriptionProviderResponseTypeDef",
+    "GetServiceSettingsResponseTypeDef",
+    "UpdateServiceSettingsResponseTypeDef",
+    "ListLinuxSubscriptionInstancesResponseTypeDef",
+    "ListLinuxSubscriptionInstancesRequestPaginateTypeDef",
+    "ListLinuxSubscriptionsRequestPaginateTypeDef",
+    "ListRegisteredSubscriptionProvidersRequestPaginateTypeDef",
+    "ListLinuxSubscriptionsResponseTypeDef",
+    "ListRegisteredSubscriptionProvidersResponseTypeDef",
+    "UpdateServiceSettingsRequestTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.license_manager_linux_subscriptions.license_manager_linux_subscriptions_classes",
+  "service": "license_manager_linux_subscriptions",
+  "union_aliases": [
+    "LinuxSubscriptionsDiscoverySettingsUnionTypeDef"
+  ]
+}

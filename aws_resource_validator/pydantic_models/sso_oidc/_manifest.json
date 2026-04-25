@@ -1,0 +1,17 @@
+{
+  "classes": [
+    "AwsAdditionalDetailsTypeDef",
+    "CreateTokenRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "CreateTokenWithIAMRequestTypeDef",
+    "RegisterClientRequestTypeDef",
+    "StartDeviceAuthorizationRequestTypeDef",
+    "CreateTokenResponseTypeDef",
+    "CreateTokenWithIAMResponseTypeDef",
+    "RegisterClientResponseTypeDef",
+    "StartDeviceAuthorizationResponseTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.sso_oidc.sso_oidc_classes",
+  "service": "sso_oidc",
+  "union_aliases": []
+}

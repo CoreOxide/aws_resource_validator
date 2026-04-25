@@ -1,0 +1,17 @@
+{
+  "classes": [
+    "DeploymentParameterInputTypeDef",
+    "ListTagsForResourceRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "TagResourceRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
+    "PutDeploymentParameterResponseTypeDef",
+    "PutDeploymentParameterRequestTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.marketplace_deployment.marketplace_deployment_classes",
+  "service": "marketplace_deployment",
+  "union_aliases": [
+    "TimestampTypeDef"
+  ]
+}

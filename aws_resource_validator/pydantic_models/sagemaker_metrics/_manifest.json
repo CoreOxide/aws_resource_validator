@@ -1,0 +1,18 @@
+{
+  "classes": [
+    "MetricQueryTypeDef",
+    "MetricQueryResultTypeDef",
+    "ResponseMetadataTypeDef",
+    "BatchPutMetricsErrorTypeDef",
+    "BatchGetMetricsRequestTypeDef",
+    "BatchGetMetricsResponseTypeDef",
+    "BatchPutMetricsResponseTypeDef",
+    "RawMetricDataTypeDef",
+    "BatchPutMetricsRequestTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.sagemaker_metrics.sagemaker_metrics_classes",
+  "service": "sagemaker_metrics",
+  "union_aliases": [
+    "TimestampTypeDef"
+  ]
+}
