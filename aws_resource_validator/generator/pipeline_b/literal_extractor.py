@@ -17,9 +17,9 @@ def extract_literals(tree: ast.Module) -> tuple[LiteralAliasIR, ...]:
         target = node.targets[0]
         if not isinstance(target, ast.Name):
             continue
-        if not _is_literal_subscript(node.value):
+        if not isinstance(node.value, ast.Subscript) or not _is_literal_subscript(node.value):
             continue
-        slice_node = node.value.slice  # type: ignore[union-attr]
+        slice_node = node.value.slice
         elements = slice_node.elts if isinstance(slice_node, ast.Tuple) else [slice_node]
         values = tuple(format_literal_element(e) for e in elements)
         if values:
@@ -27,9 +27,7 @@ def extract_literals(tree: ast.Module) -> tuple[LiteralAliasIR, ...]:
     return tuple(aliases)
 
 
-def _is_literal_subscript(value: ast.expr) -> bool:
-    if not isinstance(value, ast.Subscript):
-        return False
+def _is_literal_subscript(value: ast.Subscript) -> bool:
     sub = value.value
     if isinstance(sub, ast.Name) and sub.id == "Literal":
         return True

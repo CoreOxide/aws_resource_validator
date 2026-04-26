@@ -73,9 +73,10 @@ class Service:
         return len(self._api_objects)
 
     def __getattr__(self, name: str) -> APIObject:
-        aliases = object.__getattribute__(self, "_aliases")
+        aliases: dict[str, str] = object.__getattribute__(self, "_aliases")
         if name in aliases:
-            return object.__getattribute__(self, "_api_objects")[aliases[name]]
+            api_objects: dict[str, APIObject] = object.__getattribute__(self, "_api_objects")
+            return api_objects[aliases[name]]
         raise AttributeError(f"{type(self).__name__!r} has no API object {name!r}")
 
     def __repr__(self) -> str:
