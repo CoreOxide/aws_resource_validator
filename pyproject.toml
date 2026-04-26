@@ -26,7 +26,7 @@ black = "*"
 boto3-stubs = { extras = ["all"], version = "*" }
 
 # Test & lint.
-pytest = "^8.0"
+pytest = "^9.0"
 pytest-xdist = "*"
 pytest-cov = "*"
 responses = "*"
