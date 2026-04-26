@@ -1,0 +1,26 @@
+{
+  "classes": [
+    "AttributeValueTypeDef",
+    "ShardFilterTypeDef",
+    "ResponseMetadataTypeDef",
+    "GetRecordsInputTypeDef",
+    "GetShardIteratorInputTypeDef",
+    "IdentityTypeDef",
+    "KeySchemaElementTypeDef",
+    "ListStreamsInputTypeDef",
+    "StreamTypeDef",
+    "SequenceNumberRangeTypeDef",
+    "StreamRecordTypeDef",
+    "DescribeStreamInputTypeDef",
+    "GetShardIteratorOutputTypeDef",
+    "ListStreamsOutputTypeDef",
+    "ShardTypeDef",
+    "RecordTypeDef",
+    "StreamDescriptionTypeDef",
+    "GetRecordsOutputTypeDef",
+    "DescribeStreamOutputTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.dynamodbstreams.dynamodbstreams_classes",
+  "service": "dynamodbstreams",
+  "union_aliases": []
+}

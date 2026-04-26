@@ -1,0 +1,36 @@
+{
+  "classes": [
+    "ActiveContextTimeToLiveTypeDef",
+    "ButtonTypeDef",
+    "DeleteSessionRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "DialogActionOutputTypeDef",
+    "DialogActionTypeDef",
+    "GetSessionRequestTypeDef",
+    "IntentSummaryOutputTypeDef",
+    "IntentConfidenceTypeDef",
+    "IntentSummaryTypeDef",
+    "SentimentResponseTypeDef",
+    "ActiveContextOutputTypeDef",
+    "ActiveContextTypeDef",
+    "PostContentRequestTypeDef",
+    "GenericAttachmentTypeDef",
+    "DeleteSessionResponseTypeDef",
+    "PostContentResponseTypeDef",
+    "PutSessionResponseTypeDef",
+    "PredictedIntentTypeDef",
+    "GetSessionResponseTypeDef",
+    "ResponseCardTypeDef",
+    "PostTextRequestTypeDef",
+    "PutSessionRequestTypeDef",
+    "PostTextResponseTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.lex_runtime.lex_runtime_classes",
+  "service": "lex_runtime",
+  "union_aliases": [
+    "BlobTypeDef",
+    "DialogActionUnionTypeDef",
+    "IntentSummaryUnionTypeDef",
+    "ActiveContextUnionTypeDef"
+  ]
+}

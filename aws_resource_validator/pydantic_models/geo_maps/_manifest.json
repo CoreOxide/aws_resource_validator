@@ -1,0 +1,18 @@
+{
+  "classes": [
+    "GetGlyphsRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "GetSpritesRequestTypeDef",
+    "GetStaticMapRequestTypeDef",
+    "GetStyleDescriptorRequestTypeDef",
+    "GetTileRequestTypeDef",
+    "GetGlyphsResponseTypeDef",
+    "GetSpritesResponseTypeDef",
+    "GetStaticMapResponseTypeDef",
+    "GetStyleDescriptorResponseTypeDef",
+    "GetTileResponseTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.geo_maps.geo_maps_classes",
+  "service": "geo_maps",
+  "union_aliases": []
+}

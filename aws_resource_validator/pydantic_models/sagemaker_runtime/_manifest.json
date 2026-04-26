@@ -1,0 +1,20 @@
+{
+  "classes": [
+    "InternalStreamFailureTypeDef",
+    "InvokeEndpointAsyncInputTypeDef",
+    "ResponseMetadataTypeDef",
+    "ModelStreamErrorTypeDef",
+    "PayloadPartTypeDef",
+    "InvokeEndpointInputTypeDef",
+    "InvokeEndpointWithResponseStreamInputTypeDef",
+    "InvokeEndpointAsyncOutputTypeDef",
+    "InvokeEndpointOutputTypeDef",
+    "ResponseStreamTypeDef",
+    "InvokeEndpointWithResponseStreamOutputTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.sagemaker_runtime.sagemaker_runtime_classes",
+  "service": "sagemaker_runtime",
+  "union_aliases": [
+    "BlobTypeDef"
+  ]
+}

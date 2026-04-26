@@ -1,0 +1,15 @@
+{
+  "classes": [
+    "ActionFilterTypeDef",
+    "PaginatorConfigTypeDef",
+    "RecommendedActionTypeDef",
+    "ResponseMetadataTypeDef",
+    "RequestFilterTypeDef",
+    "ListRecommendedActionsResponseTypeDef",
+    "ListRecommendedActionsRequestPaginateTypeDef",
+    "ListRecommendedActionsRequestTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.bcm_recommended_actions.bcm_recommended_actions_classes",
+  "service": "bcm_recommended_actions",
+  "union_aliases": []
+}

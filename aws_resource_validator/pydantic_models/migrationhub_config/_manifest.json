@@ -1,0 +1,16 @@
+{
+  "classes": [
+    "TargetTypeDef",
+    "ResponseMetadataTypeDef",
+    "DeleteHomeRegionControlRequestTypeDef",
+    "CreateHomeRegionControlRequestTypeDef",
+    "DescribeHomeRegionControlsRequestTypeDef",
+    "HomeRegionControlTypeDef",
+    "GetHomeRegionResultTypeDef",
+    "CreateHomeRegionControlResultTypeDef",
+    "DescribeHomeRegionControlsResultTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.migrationhub_config.migrationhub_config_classes",
+  "service": "migrationhub_config",
+  "union_aliases": []
+}

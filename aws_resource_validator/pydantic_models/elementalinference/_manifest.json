@@ -1,0 +1,41 @@
+{
+  "classes": [
+    "ResponseMetadataTypeDef",
+    "ClippingConfigTypeDef",
+    "FeedAssociationTypeDef",
+    "DeleteFeedRequestTypeDef",
+    "DisassociateFeedRequestTypeDef",
+    "GetFeedRequestTypeDef",
+    "WaiterConfigTypeDef",
+    "PaginatorConfigTypeDef",
+    "ListFeedsRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "AssociateFeedResponseTypeDef",
+    "DeleteFeedResponseTypeDef",
+    "DisassociateFeedResponseTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "ListTagsForResourceResponseTypeDef",
+    "OutputConfigOutputTypeDef",
+    "OutputConfigTypeDef",
+    "FeedSummaryTypeDef",
+    "GetFeedRequestWaitTypeDef",
+    "ListFeedsRequestPaginateTypeDef",
+    "GetOutputTypeDef",
+    "ListFeedsResponseTypeDef",
+    "CreateFeedResponseTypeDef",
+    "GetFeedResponseTypeDef",
+    "UpdateFeedResponseTypeDef",
+    "CreateOutputTypeDef",
+    "UpdateOutputTypeDef",
+    "AssociateFeedRequestTypeDef",
+    "CreateFeedRequestTypeDef",
+    "UpdateFeedRequestTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.elementalinference.elementalinference_classes",
+  "service": "elementalinference",
+  "union_aliases": [
+    "OutputConfigUnionTypeDef"
+  ]
+}

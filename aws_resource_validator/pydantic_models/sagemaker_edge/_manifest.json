@@ -1,0 +1,23 @@
+{
+  "classes": [
+    "ChecksumTypeDef",
+    "DeploymentModelTypeDef",
+    "ResponseMetadataTypeDef",
+    "GetDeploymentsRequestTypeDef",
+    "GetDeviceRegistrationRequestTypeDef",
+    "DefinitionTypeDef",
+    "DeploymentResultTypeDef",
+    "EdgeMetricTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "GetDeviceRegistrationResultTypeDef",
+    "EdgeDeploymentTypeDef",
+    "ModelTypeDef",
+    "GetDeploymentsResultTypeDef",
+    "SendHeartbeatRequestTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.sagemaker_edge.sagemaker_edge_classes",
+  "service": "sagemaker_edge",
+  "union_aliases": [
+    "TimestampTypeDef"
+  ]
+}

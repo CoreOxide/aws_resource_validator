@@ -1,0 +1,16 @@
+{
+  "classes": [
+    "DeleteConnectionRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "GetConnectionRequestTypeDef",
+    "IdentityTypeDef",
+    "PostToConnectionRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "GetConnectionResponseTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.apigatewaymanagementapi.apigatewaymanagementapi_classes",
+  "service": "apigatewaymanagementapi",
+  "union_aliases": [
+    "BlobTypeDef"
+  ]
+}

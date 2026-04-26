@@ -1,0 +1,29 @@
+{
+  "classes": [
+    "GetRecordsInputTypeDef",
+    "ResponseMetadataTypeDef",
+    "GetShardIteratorInputTypeDef",
+    "PaginatorConfigTypeDef",
+    "ShardFilterTypeDef",
+    "KeyspacesMetadataTypeDef",
+    "ListStreamsInputTypeDef",
+    "StreamTypeDef",
+    "SequenceNumberRangeTypeDef",
+    "GetShardIteratorOutputTypeDef",
+    "ListStreamsInputPaginateTypeDef",
+    "GetStreamInputPaginateTypeDef",
+    "GetStreamInputTypeDef",
+    "KeyspacesCellMapDefinitionTypeDef",
+    "KeyspacesCellTypeDef",
+    "ListStreamsOutputTypeDef",
+    "ShardTypeDef",
+    "KeyspacesCellValueTypeDef",
+    "KeyspacesRowTypeDef",
+    "GetStreamOutputTypeDef",
+    "RecordTypeDef",
+    "GetRecordsOutputTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.keyspacesstreams.keyspacesstreams_classes",
+  "service": "keyspacesstreams",
+  "union_aliases": []
+}

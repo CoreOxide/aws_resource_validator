@@ -1,0 +1,25 @@
+{
+  "classes": [
+    "BlockTypeDef",
+    "ChangedBlockTypeDef",
+    "CompleteSnapshotRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "GetSnapshotBlockRequestTypeDef",
+    "ListChangedBlocksRequestTypeDef",
+    "ListSnapshotBlocksRequestTypeDef",
+    "TagTypeDef",
+    "PutSnapshotBlockRequestTypeDef",
+    "CompleteSnapshotResponseTypeDef",
+    "GetSnapshotBlockResponseTypeDef",
+    "ListChangedBlocksResponseTypeDef",
+    "ListSnapshotBlocksResponseTypeDef",
+    "PutSnapshotBlockResponseTypeDef",
+    "StartSnapshotRequestTypeDef",
+    "StartSnapshotResponseTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.ebs.ebs_classes",
+  "service": "ebs",
+  "union_aliases": [
+    "BlobTypeDef"
+  ]
+}

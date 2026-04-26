@@ -1,0 +1,25 @@
+{
+  "classes": [
+    "DimensionEntryTypeDef",
+    "EmissionsTypeDef",
+    "TimePeriodOutputTypeDef",
+    "FilterExpressionTypeDef",
+    "PaginatorConfigTypeDef",
+    "ResponseMetadataTypeDef",
+    "GranularityConfigurationTypeDef",
+    "EstimatedCarbonEmissionsTypeDef",
+    "GetEstimatedCarbonEmissionsDimensionValuesResponseTypeDef",
+    "TimePeriodTypeDef",
+    "GetEstimatedCarbonEmissionsResponseTypeDef",
+    "GetEstimatedCarbonEmissionsDimensionValuesRequestPaginateTypeDef",
+    "GetEstimatedCarbonEmissionsDimensionValuesRequestTypeDef",
+    "GetEstimatedCarbonEmissionsRequestPaginateTypeDef",
+    "GetEstimatedCarbonEmissionsRequestTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.sustainability.sustainability_classes",
+  "service": "sustainability",
+  "union_aliases": [
+    "TimestampTypeDef",
+    "TimePeriodUnionTypeDef"
+  ]
+}

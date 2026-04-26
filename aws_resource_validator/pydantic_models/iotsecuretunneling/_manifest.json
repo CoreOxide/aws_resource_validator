@@ -1,0 +1,30 @@
+{
+  "classes": [
+    "CloseTunnelRequestTypeDef",
+    "ConnectionStateTypeDef",
+    "DescribeTunnelRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "DestinationConfigOutputTypeDef",
+    "DestinationConfigTypeDef",
+    "ListTagsForResourceRequestTypeDef",
+    "TagTypeDef",
+    "ListTunnelsRequestTypeDef",
+    "TunnelSummaryTypeDef",
+    "TimeoutConfigTypeDef",
+    "UntagResourceRequestTypeDef",
+    "OpenTunnelResponseTypeDef",
+    "RotateTunnelAccessTokenResponseTypeDef",
+    "ListTagsForResourceResponseTypeDef",
+    "TagResourceRequestTypeDef",
+    "ListTunnelsResponseTypeDef",
+    "TunnelTypeDef",
+    "OpenTunnelRequestTypeDef",
+    "RotateTunnelAccessTokenRequestTypeDef",
+    "DescribeTunnelResponseTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.iotsecuretunneling.iotsecuretunneling_classes",
+  "service": "iotsecuretunneling",
+  "union_aliases": [
+    "DestinationConfigUnionTypeDef"
+  ]
+}

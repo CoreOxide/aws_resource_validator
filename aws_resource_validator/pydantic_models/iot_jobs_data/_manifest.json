@@ -1,0 +1,24 @@
+{
+  "classes": [
+    "DescribeJobExecutionRequestTypeDef",
+    "JobExecutionTypeDef",
+    "ResponseMetadataTypeDef",
+    "GetPendingJobExecutionsRequestTypeDef",
+    "JobExecutionSummaryTypeDef",
+    "JobExecutionStateTypeDef",
+    "StartNextPendingJobExecutionRequestTypeDef",
+    "UpdateJobExecutionRequestTypeDef",
+    "CommandParameterValueTypeDef",
+    "DescribeJobExecutionResponseTypeDef",
+    "StartCommandExecutionResponseTypeDef",
+    "StartNextPendingJobExecutionResponseTypeDef",
+    "GetPendingJobExecutionsResponseTypeDef",
+    "UpdateJobExecutionResponseTypeDef",
+    "StartCommandExecutionRequestTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.iot_jobs_data.iot_jobs_data_classes",
+  "service": "iot_jobs_data",
+  "union_aliases": [
+    "BlobTypeDef"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "classes": [
+    "ArrayValueOutputTypeDef",
+    "ArrayValueTypeDef",
+    "ResponseMetadataTypeDef",
+    "BeginTransactionRequestTypeDef",
+    "ColumnMetadataTypeDef",
+    "CommitTransactionRequestTypeDef",
+    "ExecuteSqlRequestTypeDef",
+    "ResultSetOptionsTypeDef",
+    "RollbackTransactionRequestTypeDef",
+    "StructValueTypeDef",
+    "FieldOutputTypeDef",
+    "BeginTransactionResponseTypeDef",
+    "CommitTransactionResponseTypeDef",
+    "RollbackTransactionResponseTypeDef",
+    "ResultSetMetadataTypeDef",
+    "ValueTypeDef",
+    "ExecuteStatementResponseTypeDef",
+    "UpdateResultTypeDef",
+    "FieldTypeDef",
+    "RecordTypeDef",
+    "BatchExecuteStatementResponseTypeDef",
+    "ResultFrameTypeDef",
+    "SqlParameterTypeDef",
+    "SqlStatementResultTypeDef",
+    "BatchExecuteStatementRequestTypeDef",
+    "ExecuteStatementRequestTypeDef",
+    "ExecuteSqlResponseTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.rds_data.rds_data_classes",
+  "service": "rds_data",
+  "union_aliases": [
+    "BlobTypeDef",
+    "ArrayValueUnionTypeDef",
+    "FieldUnionTypeDef"
+  ]
+}

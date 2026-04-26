@@ -1,0 +1,14 @@
+{
+  "classes": [
+    "ResponseMetadataTypeDef",
+    "GenerateDataSetRequestTypeDef",
+    "StartSupportDataExportRequestTypeDef",
+    "GenerateDataSetResultTypeDef",
+    "StartSupportDataExportResultTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.marketplacecommerceanalytics.marketplacecommerceanalytics_classes",
+  "service": "marketplacecommerceanalytics",
+  "union_aliases": [
+    "TimestampTypeDef"
+  ]
+}

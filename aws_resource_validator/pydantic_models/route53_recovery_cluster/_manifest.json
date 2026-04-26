@@ -1,0 +1,18 @@
+{
+  "classes": [
+    "GetRoutingControlStateRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "PaginatorConfigTypeDef",
+    "ListRoutingControlsRequestTypeDef",
+    "RoutingControlTypeDef",
+    "UpdateRoutingControlStateEntryTypeDef",
+    "UpdateRoutingControlStateRequestTypeDef",
+    "GetRoutingControlStateResponseTypeDef",
+    "ListRoutingControlsRequestPaginateTypeDef",
+    "ListRoutingControlsResponseTypeDef",
+    "UpdateRoutingControlStatesRequestTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.route53_recovery_cluster.route53_recovery_cluster_classes",
+  "service": "route53_recovery_cluster",
+  "union_aliases": []
+}

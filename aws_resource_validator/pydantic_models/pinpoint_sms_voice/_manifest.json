@@ -1,0 +1,28 @@
+{
+  "classes": [
+    "CallInstructionsMessageTypeTypeDef",
+    "CloudWatchLogsDestinationTypeDef",
+    "CreateConfigurationSetRequestTypeDef",
+    "DeleteConfigurationSetEventDestinationRequestTypeDef",
+    "DeleteConfigurationSetRequestTypeDef",
+    "KinesisFirehoseDestinationTypeDef",
+    "SnsDestinationTypeDef",
+    "GetConfigurationSetEventDestinationsRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "ListConfigurationSetsRequestTypeDef",
+    "PlainTextMessageTypeTypeDef",
+    "SSMLMessageTypeTypeDef",
+    "EventDestinationDefinitionTypeDef",
+    "EventDestinationTypeDef",
+    "ListConfigurationSetsResponseTypeDef",
+    "SendVoiceMessageResponseTypeDef",
+    "VoiceMessageContentTypeDef",
+    "CreateConfigurationSetEventDestinationRequestTypeDef",
+    "UpdateConfigurationSetEventDestinationRequestTypeDef",
+    "GetConfigurationSetEventDestinationsResponseTypeDef",
+    "SendVoiceMessageRequestTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.pinpoint_sms_voice.pinpoint_sms_voice_classes",
+  "service": "pinpoint_sms_voice",
+  "union_aliases": []
+}

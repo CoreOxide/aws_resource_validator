@@ -1,0 +1,25 @@
+{
+  "classes": [
+    "DeleteKeyRequestListItemTypeDef",
+    "DeleteKeyRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "DescribeKeyValueStoreRequestTypeDef",
+    "GetKeyRequestTypeDef",
+    "PaginatorConfigTypeDef",
+    "ListKeysRequestTypeDef",
+    "ListKeysResponseListItemTypeDef",
+    "PutKeyRequestListItemTypeDef",
+    "PutKeyRequestTypeDef",
+    "DeleteKeyResponseTypeDef",
+    "DescribeKeyValueStoreResponseTypeDef",
+    "GetKeyResponseTypeDef",
+    "PutKeyResponseTypeDef",
+    "UpdateKeysResponseTypeDef",
+    "ListKeysRequestPaginateTypeDef",
+    "ListKeysResponseTypeDef",
+    "UpdateKeysRequestTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.cloudfront_keyvaluestore.cloudfront_keyvaluestore_classes",
+  "service": "cloudfront_keyvaluestore",
+  "union_aliases": []
+}

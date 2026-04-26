@@ -1,0 +1,24 @@
+{
+  "classes": [
+    "ArtifactTypeDef",
+    "CancelJobInputTypeDef",
+    "ResponseMetadataTypeDef",
+    "CreateJobInputTypeDef",
+    "GetShippingLabelInputTypeDef",
+    "GetStatusInputTypeDef",
+    "JobTypeDef",
+    "PaginatorConfigTypeDef",
+    "ListJobsInputTypeDef",
+    "UpdateJobInputTypeDef",
+    "CancelJobOutputTypeDef",
+    "CreateJobOutputTypeDef",
+    "GetShippingLabelOutputTypeDef",
+    "GetStatusOutputTypeDef",
+    "UpdateJobOutputTypeDef",
+    "ListJobsOutputTypeDef",
+    "ListJobsInputPaginateTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.importexport.importexport_classes",
+  "service": "importexport",
+  "union_aliases": []
+}

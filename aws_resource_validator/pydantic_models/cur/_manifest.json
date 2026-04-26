@@ -1,0 +1,26 @@
+{
+  "classes": [
+    "DeleteReportDefinitionRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "PaginatorConfigTypeDef",
+    "DescribeReportDefinitionsRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
+    "TagTypeDef",
+    "ReportStatusTypeDef",
+    "UntagResourceRequestTypeDef",
+    "DeleteReportDefinitionResponseTypeDef",
+    "DescribeReportDefinitionsRequestPaginateTypeDef",
+    "ListTagsForResourceResponseTypeDef",
+    "TagResourceRequestTypeDef",
+    "ReportDefinitionOutputTypeDef",
+    "ReportDefinitionTypeDef",
+    "DescribeReportDefinitionsResponseTypeDef",
+    "ModifyReportDefinitionRequestTypeDef",
+    "PutReportDefinitionRequestTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.cur.cur_classes",
+  "service": "cur",
+  "union_aliases": [
+    "ReportDefinitionUnionTypeDef"
+  ]
+}

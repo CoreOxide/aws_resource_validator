@@ -1,0 +1,18 @@
+{
+  "classes": [
+    "PointOfInterestTypeDef",
+    "CharacterOffsetsTypeDef",
+    "ListRealtimeContactAnalysisSegmentsRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "PostContactSummaryTypeDef",
+    "CategoryDetailsTypeDef",
+    "IssueDetectedTypeDef",
+    "CategoriesTypeDef",
+    "TranscriptTypeDef",
+    "RealtimeContactAnalysisSegmentTypeDef",
+    "ListRealtimeContactAnalysisSegmentsResponseTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.connect_contact_lens.connect_contact_lens_classes",
+  "service": "connect_contact_lens",
+  "union_aliases": []
+}

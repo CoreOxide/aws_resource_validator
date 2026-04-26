@@ -1,0 +1,12 @@
+{
+  "classes": [
+    "ResponseMetadataTypeDef",
+    "SendSSHPublicKeyRequestTypeDef",
+    "SendSerialConsoleSSHPublicKeyRequestTypeDef",
+    "SendSSHPublicKeyResponseTypeDef",
+    "SendSerialConsoleSSHPublicKeyResponseTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.ec2_instance_connect.ec2_instance_connect_classes",
+  "service": "ec2_instance_connect",
+  "union_aliases": []
+}

@@ -1,0 +1,13 @@
+{
+  "classes": [
+    "GetIceServerConfigRequestTypeDef",
+    "IceServerTypeDef",
+    "ResponseMetadataTypeDef",
+    "SendAlexaOfferToMasterRequestTypeDef",
+    "GetIceServerConfigResponseTypeDef",
+    "SendAlexaOfferToMasterResponseTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.kinesis_video_signaling.kinesis_video_signaling_classes",
+  "service": "kinesis_video_signaling",
+  "union_aliases": []
+}

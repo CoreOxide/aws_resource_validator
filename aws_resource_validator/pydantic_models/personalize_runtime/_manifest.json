@@ -1,0 +1,17 @@
+{
+  "classes": [
+    "GetActionRecommendationsRequestTypeDef",
+    "PredictedActionTypeDef",
+    "ResponseMetadataTypeDef",
+    "GetPersonalizedRankingRequestTypeDef",
+    "PredictedItemTypeDef",
+    "PromotionTypeDef",
+    "GetActionRecommendationsResponseTypeDef",
+    "GetPersonalizedRankingResponseTypeDef",
+    "GetRecommendationsResponseTypeDef",
+    "GetRecommendationsRequestTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.personalize_runtime.personalize_runtime_classes",
+  "service": "personalize_runtime",
+  "union_aliases": []
+}

@@ -1,0 +1,22 @@
+{
+  "classes": [
+    "ActionTypeDef",
+    "ResponseMetadataTypeDef",
+    "MetricAttributionTypeDef",
+    "ItemTypeDef",
+    "UserTypeDef",
+    "ActionInteractionTypeDef",
+    "PutActionsRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "EventTypeDef",
+    "PutItemsRequestTypeDef",
+    "PutUsersRequestTypeDef",
+    "PutActionInteractionsRequestTypeDef",
+    "PutEventsRequestTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.personalize_events.personalize_events_classes",
+  "service": "personalize_events",
+  "union_aliases": [
+    "TimestampTypeDef"
+  ]
+}

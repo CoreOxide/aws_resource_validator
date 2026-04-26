@@ -1,0 +1,12 @@
+{
+  "classes": [
+    "GetLatestConfigurationRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "StartConfigurationSessionRequestTypeDef",
+    "GetLatestConfigurationResponseTypeDef",
+    "StartConfigurationSessionResponseTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.appconfigdata.appconfigdata_classes",
+  "service": "appconfigdata",
+  "union_aliases": []
+}

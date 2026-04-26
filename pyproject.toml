@@ -4,28 +4,96 @@ priority = "primary"
 
 [tool.poetry]
 name = "aws-resource-validator"
-version = "1.0.2"
-description = "Validate, get validation patterns and generate valid AWS resource names (for testing \\ mocks)"
+version = "2.0.0"
+description = "Validate, get validation patterns and generate valid AWS resource names, plus Pydantic v2 models mirroring the boto3 typed-dicts for every AWS service."
 authors = ["Alexy Grabov <alexy.grabov@gmail.com>", "Yafit Tupman <ytupman@gmail.com>"]
 license = "Apache License 2.0"
 readme = "README.md"
-packages = [
-    {include = "aws_resource_validator/class_definitions.py", from = "."},
-    {include = "aws_resource_validator/models.py", from = "."},
-]
+packages = [{ include = "aws_resource_validator" }]
 
 [tool.poetry.dependencies]
-python = "^3.9 || ^3.12 || ^3.13"
+python = "^3.11"
 exrex = "*"
-pydantic = "^2.8.2"
+pydantic = "^2.8"
 botocore = "*"
 
 [tool.poetry.group.dev.dependencies]
+# Generator-only dependencies.
 requests = "*"
+jinja2 = "*"
+typer = "*"
+black = "*"
 boto3-stubs = { extras = ["all"], version = "*" }
-ruamel-yaml = "*"
-toml = "*"
+
+# Test & lint.
+pytest = "^8.0"
+pytest-xdist = "*"
+pytest-cov = "*"
+responses = "*"
+ruff = "*"
+mypy = "*"
+
+[tool.poetry.scripts]
+arv-generate = "aws_resource_validator.generator.cli:app"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+# ---------------------------------------------------------------------------
+# pytest
+# ---------------------------------------------------------------------------
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+addopts = "-ra --strict-markers --strict-config"
+markers = [
+    "generated: auto-generated parametrized tests over pydantic models",
+    "integration: cross-module integration tests",
+]
+
+# ---------------------------------------------------------------------------
+# coverage
+# ---------------------------------------------------------------------------
+[tool.coverage.run]
+source = ["aws_resource_validator"]
+omit = [
+    "aws_resource_validator/class_definitions.py",
+    "aws_resource_validator/pydantic_models/*",
+]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+
+# ---------------------------------------------------------------------------
+# ruff
+# ---------------------------------------------------------------------------
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+extend-exclude = [
+    "aws_resource_validator/class_definitions.py",
+    "aws_resource_validator/pydantic_models",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF", "PL"]
+ignore = ["PLR0913", "PLR2004"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["PLR2004", "S101", "B018", "PLW0108", "PLC0415"]
+# Typer's documented API requires calling ``typer.Option`` in argument defaults.
+"aws_resource_validator/generator/cli.py" = ["B008"]
+
+# ---------------------------------------------------------------------------
+# mypy
+# ---------------------------------------------------------------------------
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = ["aws_resource_validator/core", "aws_resource_validator/generator"]
+
+[[tool.mypy.overrides]]
+module = ["exrex.*", "responses.*", "botocore.*"]
+ignore_missing_imports = true

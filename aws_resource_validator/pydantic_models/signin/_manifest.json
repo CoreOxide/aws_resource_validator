@@ -1,0 +1,13 @@
+{
+  "classes": [
+    "AccessTokenTypeDef",
+    "CreateOAuth2TokenRequestBodyTypeDef",
+    "ResponseMetadataTypeDef",
+    "CreateOAuth2TokenResponseBodyTypeDef",
+    "CreateOAuth2TokenRequestTypeDef",
+    "CreateOAuth2TokenResponseTypeDef"
+  ],
+  "module": "aws_resource_validator.pydantic_models.signin.signin_classes",
+  "service": "signin",
+  "union_aliases": []
+}
