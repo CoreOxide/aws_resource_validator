@@ -128,7 +128,8 @@ class GitHubBotocoreSource:
         if not content:
             raise _ServiceNotFound("service-2.json has no content blob")
         decoded = base64.b64decode(content).decode("utf-8")
-        return json.loads(decoded)
+        parsed: dict[str, Any] = json.loads(decoded)
+        return parsed
 
 
 class _ServiceNotFound(RuntimeError):

@@ -95,5 +95,5 @@ strict = true
 files = ["aws_resource_validator/core", "aws_resource_validator/generator"]
 
 [[tool.mypy.overrides]]
-module = ["exrex.*", "responses.*", "botocore.*"]
+module = ["exrex.*", "responses.*", "botocore.*", "requests.*"]
 ignore_missing_imports = true

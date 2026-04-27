@@ -52,7 +52,7 @@ class APIRegistry(Mapping[str, "Service"]):
         return name in self._services
 
     def __getattr__(self, name: str) -> Service:
-        services = object.__getattribute__(self, "_services")
+        services: dict[str, Service] = object.__getattribute__(self, "_services")
         if name in services:
             return services[name]
         raise AttributeError(f"{type(self).__name__!r} has no service {name!r}")
