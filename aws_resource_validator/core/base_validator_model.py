@@ -25,7 +25,7 @@ class BaseValidatorModel(BaseModel):
     model_config = ConfigDict(arbitrary_types_allowed=True, extra="allow")
 
 
-class EventStream(BaseEventStream, Generic[T]):
+class EventStream(BaseEventStream, Generic[T]):  # type: ignore[type-arg]
     """Generic wrapper making :class:`botocore.eventstream.EventStream` subscriptable.
 
     Pydantic's schema generator requires annotated generics; the bare botocore

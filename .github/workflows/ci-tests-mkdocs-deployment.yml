@@ -3,7 +3,7 @@ name: CI Tests, Linter, and MkDocs Deployment
 on:
   push:
     branches:
-      - '*' # Triggers for all branches for tests and linter
+      - '*'
   pull_request:
     branches:
       - main
@@ -14,63 +14,69 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  linter-and-test:
+  lint-and-typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Poetry
+        run: pipx install poetry
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: poetry
+
+      - name: Install dependencies
+        run: poetry install --no-interaction
+
+      - name: Ruff
+        run: poetry run ruff check aws_resource_validator tests
+
+      - name: Mypy
+        run: poetry run mypy aws_resource_validator/core aws_resource_validator/generator
+
+  test:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        python-version: ["3.9", "3.12", "3.13"]
+        python-version: ["3.11", "3.12", "3.13"]
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v3
-      with:
-        python-version: ${{ matrix.python-version }}
+      - name: Install Poetry
+        run: pipx install poetry
 
-    - name: Cache dependencies
-      uses: actions/cache@v3
-      with:
-        path: ~/.cache/pip
-        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-        restore-keys: |
-          ${{ runner.os }}-pip-
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: poetry
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install pylint flake8 pytest poetry
-        poetry self add poetry-plugin-export
-        poetry export -f requirements.txt --output requirements.txt
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Install dependencies
+        run: poetry install --no-interaction
 
-    - name: Analysing the code with pylint
-      run: |
-        pylint ./aws_resource_validator --fail-under=8
+      - name: Unit and integration tests
+        run: poetry run pytest tests/unit tests/integration
 
-    - name: Lint with flake8
-      run: |
-        flake8 ./aws_resource_validator
+      - name: Generated model tests
+        run: poetry run pytest tests/generated -n auto
 
-    - name: Test with pytest
-      run: |
-        pytest
-
-  update-github-pages:
+  mkdocs-deploy:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    needs: [lint-and-typecheck, test]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     permissions:
       contents: write
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
-          cache: 'pip'
+          python-version: "3.12"
+          cache: pip
 
-      - name: Install dependencies
+      - name: Install MkDocs dependencies
         run: |
           python -m pip install --upgrade pip
           pip install mkdocs mkdocs-material mkdocs_render_swagger_plugin mkdocs-awesome-pages-plugin

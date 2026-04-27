@@ -56,7 +56,7 @@ Pydantic models for AWS {model_name.capitalize()}.
                     "Alexy Grabov <alexy.grabov@gmail.com>", "Yafit Tupman <ytupman@gmail.com>"
                 ],
                 "dependencies": {
-                    "python": "^3.9 || ^3.12 || ^3.13",
+                    "python": "^3.11",
                     "pydantic": "^2.8.2",
                     "botocore": "*"
                 },

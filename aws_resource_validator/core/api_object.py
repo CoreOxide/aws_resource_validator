@@ -54,4 +54,5 @@ class APIObject:
         default, so unbounded quantifiers like ``.+`` always terminate.
         """
         limit = self.max_length if self.max_length is not None else _DEFAULT_GENERATE_LIMIT
-        return exrex.getone(self.pattern, limit=limit)
+        result: str = exrex.getone(self.pattern, limit=limit)
+        return result
