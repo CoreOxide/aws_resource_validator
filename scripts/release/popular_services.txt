@@ -1,0 +1,37 @@
+# Services that get their own ``aws-resource-validator-<svc>`` PyPI project
+# AND their own ``[<svc>]`` extra on the main package. Everything else is
+# still shipped, but only via the domain shards in shards.toml.
+#
+# Every name here must also appear in shards.toml (each service lives in
+# exactly one shard). Keep this file short and curated — it's a UX knob,
+# not a manifest.
+s3
+ec2
+lambda_
+dynamodb
+iam
+sts
+cloudwatch
+logs
+sns
+sqs
+kms
+secretsmanager
+ssm
+stepfunctions
+ecs
+rds
+elbv2
+apigateway
+apigatewayv2
+cloudformation
+events
+kinesis
+firehose
+glue
+athena
+redshift
+sagemaker
+bedrock
+cognito_idp
+route53

@@ -19,11 +19,36 @@
 
 ## Installation
 
-You can install the package via pip:
+The core package ships the resource validator and the `BaseValidatorModel`
+runtime; per-service Pydantic models are shipped as extras so you only
+download what you need.
 
 ```sh
-pip install aws_resource_validator
+# Core only (validators, generators, BaseValidatorModel).
+pip install aws-resource-validator
+
+# One or more individual services.
+pip install 'aws-resource-validator[s3,ec2,lambda]'
+
+# A whole domain shard (installs every service in that shard).
+pip install 'aws-resource-validator[data]'       # storage, databases, analytics
+pip install 'aws-resource-validator[security]'   # IAM, KMS, WAF, ...
+pip install 'aws-resource-validator[compute]'    # EC2, Lambda, ECS, EKS, ...
+pip install 'aws-resource-validator[ai]'         # Bedrock, SageMaker, ...
+pip install 'aws-resource-validator[networking]' # VPC, DNS, CDN, ...
+pip install 'aws-resource-validator[integration]' # SNS, SQS, EventBridge, ...
+pip install 'aws-resource-validator[management]' # CloudWatch, CloudFormation, ...
+pip install 'aws-resource-validator[rest]'       # Media, IoT, gaming, long tail
+
+# Everything.
+pip install 'aws-resource-validator[all]'
+
+# Regenerate models yourself (maintainers only).
+pip install 'aws-resource-validator[generator]'
 ```
+
+See [`docs/packaging.md`](docs/packaging.md) for the full list of standalone
+service packages, shard membership, and the detailed install matrix.
 
 ## Usage Example
 
