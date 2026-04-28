@@ -2,72 +2,46 @@
 name = "PyPI"
 priority = "primary"
 
-[tool.poetry]
+# ---------------------------------------------------------------------------
+# Core package metadata (PEP 621).
+#
+# Using [project] + [project.optional-dependencies] instead of the older
+# [tool.poetry.dependencies] + [tool.poetry.extras] shape because the
+# per-service ``aws-resource-validator-<svc>`` wheels are released in
+# lock-step with the main package — and the first release can't succeed
+# if ``poetry lock`` insists on resolving them from PyPI before they
+# exist. PEP 621 optional-dependencies are treated as resolver-inert by
+# Poetry (they're only fetched when a downstream ``pip install
+# aws-resource-validator[...]`` requests the extra), which sidesteps the
+# chicken-and-egg on first publish.
+# ---------------------------------------------------------------------------
+[project]
 name = "aws-resource-validator"
 version = "2.0.0"
 description = "Validate, get validation patterns and generate valid AWS resource names, plus Pydantic v2 models mirroring the boto3 typed-dicts for every AWS service."
-authors = ["Alexy Grabov <alexy.grabov@gmail.com>", "Yafit Tupman <ytupman@gmail.com>"]
-license = "Apache License 2.0"
+authors = [
+    { name = "Alexy Grabov", email = "alexy.grabov@gmail.com" },
+    { name = "Yafit Tupman", email = "ytupman@gmail.com" },
+]
+license = { text = "Apache-2.0" }
 readme = "README.md"
-packages = [{ include = "aws_resource_validator" }]
-# pydantic_models/ ships as sibling PEP 420 namespace wheels
-# (aws-resource-validator-<svc>); keep it out of the main wheel.
-exclude = ["aws_resource_validator/pydantic_models/**"]
+requires-python = ">=3.11,<4.0"
+dependencies = [
+    "exrex",
+    "pydantic (>=2.8,<3.0)",
+    "botocore",
+]
 
-[tool.poetry.dependencies]
-python = "^3.11"
-exrex = "*"
-pydantic = "^2.8"
-botocore = "*"
-# Generator extra — installs the libs needed to run ``arv-generate``.
-# The generator code itself always ships in the main wheel; these are
-# the heavy third-party deps it imports.
-requests = { version = "*", optional = true }
-jinja2 = { version = "*", optional = true }
-typer = { version = "*", optional = true }
-black = { version = "*", optional = true }
-# --- BEGIN GENERATED OPTIONAL DEPS ---
-# Popular services — one optional dep per service (popular_services.txt).
-"aws-resource-validator-apigateway" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-apigatewayv2" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-athena" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-bedrock" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-cloudformation" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-cloudwatch" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-cognito-idp" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-dynamodb" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-ec2" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-ecs" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-elbv2" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-events" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-firehose" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-glue" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-iam" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-kinesis" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-kms" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-lambda" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-logs" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-rds" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-redshift" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-route53" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-s3" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-sagemaker" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-secretsmanager" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-sns" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-sqs" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-ssm" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-stepfunctions" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-sts" = { version = "==2.0.0", optional = true }
-# Domain shards — metapackages (shards.toml).
-"aws-resource-validator-ai" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-compute" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-data" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-integration" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-management" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-networking" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-rest" = { version = "==2.0.0", optional = true }
-"aws-resource-validator-security" = { version = "==2.0.0", optional = true }
-# --- END GENERATED OPTIONAL DEPS ---
+[project.scripts]
+arv-generate = "aws_resource_validator.generator.__main__:main"
+
+[tool.poetry]
+# PEP 621 [project] above owns name / version / description / authors /
+# dependencies. This table only carries Poetry-specific tuning that PEP
+# 621 doesn't express: what to include in the wheel, and what to
+# exclude. Requires Poetry 2.0+ (CI uses 2.2+; local dev likewise).
+packages = [{ include = "aws_resource_validator" }]
+exclude = ["aws_resource_validator/pydantic_models/**"]
 
 [tool.poetry.group.dev.dependencies]
 # Generator deps, pulled in for local development so ``arv-generate``
@@ -90,70 +64,36 @@ mypy = "*"
 build = "*"
 hatchling = "*"
 
-[tool.poetry.scripts]
-arv-generate = "aws_resource_validator.generator.__main__:main"
-
 # ---------------------------------------------------------------------------
 # Extras
 #
-# The entire [tool.poetry.extras] table is generated by
+# [project.optional-dependencies] is generated by
 # ``scripts/release/sync_extras.py`` from
 # ``scripts/release/popular_services.txt`` + ``scripts/release/shards.toml``.
 # Do not hand-edit between the BEGIN/END markers — run ``sync_extras.py
 # --write`` instead. CI enforces synchronization via ``--check``.
 # ---------------------------------------------------------------------------
 # --- BEGIN GENERATED EXTRAS ---
-[tool.poetry.extras]
-generator = ["requests", "jinja2", "typer", "black"]
+[project.optional-dependencies]
+generator = [
+    "requests",
+    "jinja2",
+    "typer",
+    "black",
+]
 
-# Individual services (popular — curated in popular_services.txt).
-apigateway = ["aws-resource-validator-apigateway"]
-apigatewayv2 = ["aws-resource-validator-apigatewayv2"]
-athena = ["aws-resource-validator-athena"]
-bedrock = ["aws-resource-validator-bedrock"]
-cloudformation = ["aws-resource-validator-cloudformation"]
-cloudwatch = ["aws-resource-validator-cloudwatch"]
-cognito-idp = ["aws-resource-validator-cognito-idp"]
-dynamodb = ["aws-resource-validator-dynamodb"]
-ec2 = ["aws-resource-validator-ec2"]
-ecs = ["aws-resource-validator-ecs"]
-elbv2 = ["aws-resource-validator-elbv2"]
-events = ["aws-resource-validator-events"]
-firehose = ["aws-resource-validator-firehose"]
-glue = ["aws-resource-validator-glue"]
-iam = ["aws-resource-validator-iam"]
-kinesis = ["aws-resource-validator-kinesis"]
-kms = ["aws-resource-validator-kms"]
-lambda = ["aws-resource-validator-lambda"]
-logs = ["aws-resource-validator-logs"]
-rds = ["aws-resource-validator-rds"]
-redshift = ["aws-resource-validator-redshift"]
-route53 = ["aws-resource-validator-route53"]
-s3 = ["aws-resource-validator-s3"]
-sagemaker = ["aws-resource-validator-sagemaker"]
-secretsmanager = ["aws-resource-validator-secretsmanager"]
-sns = ["aws-resource-validator-sns"]
-sqs = ["aws-resource-validator-sqs"]
-ssm = ["aws-resource-validator-ssm"]
-stepfunctions = ["aws-resource-validator-stepfunctions"]
-sts = ["aws-resource-validator-sts"]
-
-# Domain shards (metapackages — shards.toml).
-ai = ["aws-resource-validator-ai"]
-compute = ["aws-resource-validator-compute"]
-data = ["aws-resource-validator-data"]
-integration = ["aws-resource-validator-integration"]
-management = ["aws-resource-validator-management"]
-networking = ["aws-resource-validator-networking"]
-rest = ["aws-resource-validator-rest"]
-security = ["aws-resource-validator-security"]
-
-# ``all`` = every shard (transitively every service).
-all = ["aws-resource-validator-ai", "aws-resource-validator-compute", "aws-resource-validator-data", "aws-resource-validator-integration", "aws-resource-validator-management", "aws-resource-validator-networking", "aws-resource-validator-rest", "aws-resource-validator-security"]
+# Bootstrap mode: service/shard extras omitted because the
+# per-service PyPI projects don't exist yet. Re-run
+# ``sync_extras.py --write`` (without --bootstrap) after the
+# first release registers those projects on PyPI.
 # --- END GENERATED EXTRAS ---
 
 [build-system]
-requires = ["poetry-core"]
+# poetry-core >=2 is required: it reads extras from
+# [project.optional-dependencies]. Older versions only honor
+# [tool.poetry.extras], which silently produces a wheel with no
+# Provides-Extra / Requires-Dist entries.
+requires = ["poetry-core>=2.0"]
 build-backend = "poetry.core.masonry.api"
 
 # ---------------------------------------------------------------------------
