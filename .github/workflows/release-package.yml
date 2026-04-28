@@ -2,106 +2,75 @@ name: Release Package
 
 on:
   release:
-    types: [ published ]
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      dry-run:
+        description: "Build everything but skip the publish step"
+        type: boolean
+        default: false
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  publish-package:
+  build:
+    name: Build main + per-service + shard wheels
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # Ensure full history is fetched for version comparison
+      - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v3
+      - uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
+          cache: "pip"
 
-      - name: Install dependencies
+      - name: Install build tooling
         run: |
           python -m pip install --upgrade pip
-          pip install poetry twine
-          poetry install
+          pip install "poetry>=2.0" build hatchling
 
-      - name: Build package
+      - name: Install project (for sync_extras + smoke_test)
+        run: poetry install --no-interaction --no-root --with dev
+
+      - name: Verify generated blocks in pyproject.toml are in sync
+        run: poetry run python -m scripts.release.sync_extras --check
+
+      - name: Verify docs/packaging.md is in sync
+        run: poetry run python -m scripts.release.sync_packaging_docs --check
+
+      - name: Build main wheel
         run: poetry build -f wheel
 
-      - name: Publish package
-        uses: pypa/gh-action-pypi-publish@v1.5.1
+      - name: Build per-service + shard wheels
+        run: poetry run python -m scripts.release.build_subpackages --outdir dist
+
+      - name: Verify wheel contents
+        run: poetry run python -m scripts.release.verify_wheels dist/
+
+      - name: Install smoke test
+        run: poetry run python -m scripts.release.smoke_test dist/
+
+      - uses: actions/upload-artifact@v4
         with:
-          user: __token__
+          name: wheels
+          path: dist/
+          retention-days: 7
+
+  publish:
+    name: Publish to PyPI
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release' && !inputs.dry-run
+    environment: pypi
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: wheels
+          path: dist/
+
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
           password: ${{ secrets.PYPI_API_TOKEN }}
-
-      - name: Generate sub-packages
-        run: poetry run scripts/create_subpackages.py
-
-      - name: Build sub-packages to common directory
-        run: |
-          mkdir -p combined_dist
-          # Only iterate through directories with trailing slash
-          for pkg_dir in aws_resource_validator/pydantic_models/*/; do
-            if [ -d "$pkg_dir" ]; then
-              echo "Building package in $pkg_dir"
-              cd "$pkg_dir"
-              poetry build -f wheel
-              cp dist/* "$GITHUB_WORKSPACE/combined_dist/"
-              cd "$GITHUB_WORKSPACE"
-            fi
-          done
-
-      - name: Publish packages individually with delay
-        run: |
-          # Count total packages for better progress reporting
-          total_pkgs=$(ls combined_dist/*.whl | wc -l)
-          current=0
-          
-          for wheel in combined_dist/*.whl; do
-            current=$((current+1))
-            echo "Processing package $current/$total_pkgs: $wheel"
-            
-            # Extract package name and version from wheel filename
-            wheel_filename=$(basename "$wheel")
-            # Extract package_name-version part (everything before the first -)
-            pkg_info=${wheel_filename%-py*}
-            # Split into name and version (last - separates them)
-            pkg_name=$(echo "$pkg_info" | rev | cut -d'-' -f2- | rev)
-            pkg_version=$(echo "$pkg_info" | rev | cut -d'-' -f1 | rev)
-            
-            echo "Package: $pkg_name, Version: $pkg_version"
-            
-            # Check if package already exists on PyPI
-            if curl --head --silent --fail "https://pypi.org/pypi/$pkg_name/$pkg_version/json" > /dev/null; then
-              echo "📦 Package $pkg_name==$pkg_version already exists on PyPI. Skipping upload."
-              continue
-            fi
-            
-            # Try up to 3 times with exponential backoff
-            max_attempts=3
-            for attempt in $(seq 1 $max_attempts); do
-              echo "Attempt $attempt of $max_attempts for $wheel"
-              
-              if python -m twine upload --verbose --username __token__ --password ${{ secrets.PYPI_API_TOKEN }} "$wheel"; then
-                echo "✅ Successfully uploaded $wheel"
-                break
-              else
-                if [ $attempt -eq $max_attempts ]; then
-                  echo "❌ All attempts failed for $wheel. Moving to next package."
-                else
-                  # Exponential backoff: 2^attempt * 15 seconds (30s, 60s, 120s, 240s)
-                  sleep_time=$((2 ** attempt * 15))
-                  echo "⚠️ Upload failed, waiting $sleep_time seconds before retry..."
-                  sleep $sleep_time
-                fi
-              fi
-            done
-            
-            # Wait 3 minutes between packages to avoid rate limiting
-            if [ $current -lt $total_pkgs ]; then
-              echo "⏱️ Waiting 3 minutes before next package upload to avoid rate limiting..."
-              sleep 180
-            fi
-          done
+          skip-existing: true
+          verbose: true
