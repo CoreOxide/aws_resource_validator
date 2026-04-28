@@ -61,16 +61,30 @@ jobs:
     name: Publish to PyPI
     needs: build
     runs-on: ubuntu-latest
+    # PyPI caps new-project registrations at ~20/hour. The first release
+    # creates ~410 new project names so the uploader sleeps 65 min
+    # between chunks; worst case ~22 hours end-to-end. Subsequent
+    # releases only bump versions on existing projects and finish in
+    # minutes.
+    timeout-minutes: 1440
     if: github.event_name == 'release' && !inputs.dry-run
     environment: pypi
     steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install twine
+        run: pip install twine
+
       - uses: actions/download-artifact@v4
         with:
           name: wheels
           path: dist/
 
-      - uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          password: ${{ secrets.PYPI_API_TOKEN }}
-          skip-existing: true
-          verbose: true
+      - name: Publish wheels in rate-limited chunks
+        env:
+          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+        run: python -m scripts.release.publish_wheels dist/
