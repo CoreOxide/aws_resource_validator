@@ -12,7 +12,7 @@ priority = "primary"
 # ---------------------------------------------------------------------------
 [project]
 name = "aws-resource-validator"
-version = "2.0.0"
+version = "2.0.2"
 description = "Validate, get validation patterns and generate valid AWS resource names, plus Pydantic v2 models mirroring the boto3 typed-dicts for every AWS service."
 authors = [
     { name = "Alexy Grabov", email = "alexy.grabov@gmail.com" },
@@ -79,132 +79,132 @@ generator = [
 
 # Individual services (popular — curated in popular_services.txt).
 apigateway = [
-    "aws-resource-validator-apigateway==2.0.0",
+    "aws-resource-validator-apigateway==2.0.2",
 ]
 apigatewayv2 = [
-    "aws-resource-validator-apigatewayv2==2.0.0",
+    "aws-resource-validator-apigatewayv2==2.0.2",
 ]
 athena = [
-    "aws-resource-validator-athena==2.0.0",
+    "aws-resource-validator-athena==2.0.2",
 ]
 bedrock = [
-    "aws-resource-validator-bedrock==2.0.0",
+    "aws-resource-validator-bedrock==2.0.2",
 ]
 cloudformation = [
-    "aws-resource-validator-cloudformation==2.0.0",
+    "aws-resource-validator-cloudformation==2.0.2",
 ]
 cloudwatch = [
-    "aws-resource-validator-cloudwatch==2.0.0",
+    "aws-resource-validator-cloudwatch==2.0.2",
 ]
 cognito-idp = [
-    "aws-resource-validator-cognito-idp==2.0.0",
+    "aws-resource-validator-cognito-idp==2.0.2",
 ]
 dynamodb = [
-    "aws-resource-validator-dynamodb==2.0.0",
+    "aws-resource-validator-dynamodb==2.0.2",
 ]
 ec2 = [
-    "aws-resource-validator-ec2==2.0.0",
+    "aws-resource-validator-ec2==2.0.2",
 ]
 ecs = [
-    "aws-resource-validator-ecs==2.0.0",
+    "aws-resource-validator-ecs==2.0.2",
 ]
 elbv2 = [
-    "aws-resource-validator-elbv2==2.0.0",
+    "aws-resource-validator-elbv2==2.0.2",
 ]
 events = [
-    "aws-resource-validator-events==2.0.0",
+    "aws-resource-validator-events==2.0.2",
 ]
 firehose = [
-    "aws-resource-validator-firehose==2.0.0",
+    "aws-resource-validator-firehose==2.0.2",
 ]
 glue = [
-    "aws-resource-validator-glue==2.0.0",
+    "aws-resource-validator-glue==2.0.2",
 ]
 iam = [
-    "aws-resource-validator-iam==2.0.0",
+    "aws-resource-validator-iam==2.0.2",
 ]
 kinesis = [
-    "aws-resource-validator-kinesis==2.0.0",
+    "aws-resource-validator-kinesis==2.0.2",
 ]
 kms = [
-    "aws-resource-validator-kms==2.0.0",
+    "aws-resource-validator-kms==2.0.2",
 ]
 lambda = [
-    "aws-resource-validator-lambda==2.0.0",
+    "aws-resource-validator-lambda==2.0.2",
 ]
 logs = [
-    "aws-resource-validator-logs==2.0.0",
+    "aws-resource-validator-logs==2.0.2",
 ]
 rds = [
-    "aws-resource-validator-rds==2.0.0",
+    "aws-resource-validator-rds==2.0.2",
 ]
 redshift = [
-    "aws-resource-validator-redshift==2.0.0",
+    "aws-resource-validator-redshift==2.0.2",
 ]
 route53 = [
-    "aws-resource-validator-route53==2.0.0",
+    "aws-resource-validator-route53==2.0.2",
 ]
 s3 = [
-    "aws-resource-validator-s3==2.0.0",
+    "aws-resource-validator-s3==2.0.2",
 ]
 sagemaker = [
-    "aws-resource-validator-sagemaker==2.0.0",
+    "aws-resource-validator-sagemaker==2.0.2",
 ]
 secretsmanager = [
-    "aws-resource-validator-secretsmanager==2.0.0",
+    "aws-resource-validator-secretsmanager==2.0.2",
 ]
 sns = [
-    "aws-resource-validator-sns==2.0.0",
+    "aws-resource-validator-sns==2.0.2",
 ]
 sqs = [
-    "aws-resource-validator-sqs==2.0.0",
+    "aws-resource-validator-sqs==2.0.2",
 ]
 ssm = [
-    "aws-resource-validator-ssm==2.0.0",
+    "aws-resource-validator-ssm==2.0.2",
 ]
 stepfunctions = [
-    "aws-resource-validator-stepfunctions==2.0.0",
+    "aws-resource-validator-stepfunctions==2.0.2",
 ]
 sts = [
-    "aws-resource-validator-sts==2.0.0",
+    "aws-resource-validator-sts==2.0.2",
 ]
 
 # Domain shards (metapackages — shards.toml).
 ai = [
-    "aws-resource-validator-ai==2.0.0",
+    "aws-resource-validator-ai==2.0.2",
 ]
 compute = [
-    "aws-resource-validator-compute==2.0.0",
+    "aws-resource-validator-compute==2.0.2",
 ]
 data = [
-    "aws-resource-validator-data==2.0.0",
+    "aws-resource-validator-data==2.0.2",
 ]
 integration = [
-    "aws-resource-validator-integration==2.0.0",
+    "aws-resource-validator-integration==2.0.2",
 ]
 management = [
-    "aws-resource-validator-management==2.0.0",
+    "aws-resource-validator-management==2.0.2",
 ]
 networking = [
-    "aws-resource-validator-networking==2.0.0",
+    "aws-resource-validator-networking==2.0.2",
 ]
 rest = [
-    "aws-resource-validator-rest==2.0.0",
+    "aws-resource-validator-rest==2.0.2",
 ]
 security = [
-    "aws-resource-validator-security==2.0.0",
+    "aws-resource-validator-security==2.0.2",
 ]
 
 # ``all`` = every shard (transitively every service).
 all = [
-    "aws-resource-validator-ai==2.0.0",
-    "aws-resource-validator-compute==2.0.0",
-    "aws-resource-validator-data==2.0.0",
-    "aws-resource-validator-integration==2.0.0",
-    "aws-resource-validator-management==2.0.0",
-    "aws-resource-validator-networking==2.0.0",
-    "aws-resource-validator-rest==2.0.0",
-    "aws-resource-validator-security==2.0.0",
+    "aws-resource-validator-ai==2.0.2",
+    "aws-resource-validator-compute==2.0.2",
+    "aws-resource-validator-data==2.0.2",
+    "aws-resource-validator-integration==2.0.2",
+    "aws-resource-validator-management==2.0.2",
+    "aws-resource-validator-networking==2.0.2",
+    "aws-resource-validator-rest==2.0.2",
+    "aws-resource-validator-security==2.0.2",
 ]
 # --- END GENERATED EXTRAS ---
 

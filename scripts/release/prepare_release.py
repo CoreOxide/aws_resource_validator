@@ -1,8 +1,8 @@
 """Prepare a release bump commit.
 
 Bumps the package version, re-pins the generated extras block to match,
-and regenerates the lockfile. Leaves the changes unstaged so you can
-review and commit yourself.
+regenerates the packaging docs, and runs the CI gauntlet. Leaves the
+changes unstaged so you can review and commit yourself.
 
 Usage:
     python -m scripts.release.prepare_release 2.1.0
@@ -12,18 +12,20 @@ Steps performed (in order):
 
   1. Validate the new version is a valid PEP 440 string and not already
      on PyPI for the main package.
-  2. Rewrite ``version`` in ``pyproject.toml``'s ``[project]`` table.
-  3. Rewrite ``__version__`` in ``aws_resource_validator/__init__.py``.
-  4. Run ``scripts.release.sync_extras --write`` to re-pin every extra
+  2. Rewrite ``version`` in ``pyproject.toml``'s ``[project]`` table and
+     ``__version__`` in ``aws_resource_validator/__init__.py``.
+  3. Run ``scripts.release.sync_extras --write`` to re-pin every extra
      to the new version.
-  5. Run ``scripts.release.sync_packaging_docs --write`` so the service
+  4. Run ``scripts.release.sync_packaging_docs --write`` so the service
      list in ``docs/packaging.md`` reflects the new version.
-  6. Run ``poetry lock`` (via ``sys.executable -m poetry`` if a venv
-     Poetry is available; falls back to PATH ``poetry``) so the
-     lockfile resolves against the new extras pins.
-  7. Run the static gauntlet: ``sync_extras --check``,
+  5. Run the static gauntlet: ``sync_extras --check``,
      ``sync_packaging_docs --check``, ``pytest tests/unit
      tests/integration``, ``ruff``, ``mypy``.
+
+No ``poetry lock`` step — the repo doesn't commit ``poetry.lock``
+because the circular constraint between main and the per-service
+sub-packages can't be resolved across a version bump until the new
+sub-packages exist on PyPI.
 
 The script prints a summary of files it changed and the suggested
 ``git add`` + ``git commit`` commands. It does NOT commit or push.
@@ -33,7 +35,6 @@ from __future__ import annotations
 
 import argparse
 import re
-import shutil
 import subprocess
 import sys
 import urllib.error
@@ -128,19 +129,6 @@ def _run(cmd: list[str], *, cwd: Path | None = None, dry_run: bool = False) -> N
         )
 
 
-def _poetry_cmd() -> list[str]:
-    """Resolve the Poetry executable preferring the active venv's copy."""
-    venv_poetry = Path(sys.prefix) / "bin" / "poetry"
-    if venv_poetry.exists():
-        return [str(venv_poetry)]
-    path_poetry = shutil.which("poetry")
-    if path_poetry:
-        return [path_poetry]
-    raise SystemExit(
-        "could not find a ``poetry`` executable. Install with: pip install 'poetry>=2.0'"
-    )
-
-
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("version", help="New version string, e.g. 2.1.0 or 2.0.1")
@@ -178,10 +166,7 @@ def main(argv: list[str] | None = None) -> int:
             "you're deliberately re-running this script without a new release."
         )
 
-    poetry = _poetry_cmd()
-    print(f"using poetry:    {' '.join(poetry)}")
-
-    print("\n[1/6] rewriting __version__ and [project].version...")
+    print("\n[1/5] rewriting __version__ and [project].version...")
     if args.dry_run:
         print(f"  [dry-run] would set version = {new!r} in:")
         print(f"    {INIT_PATH.relative_to(REPO_ROOT)}")
@@ -190,25 +175,22 @@ def main(argv: list[str] | None = None) -> int:
         _bump_init(new)
         _bump_pyproject(new)
 
-    print("\n[2/6] regenerating pyproject.toml extras block...")
+    print("\n[2/5] regenerating pyproject.toml extras block...")
     _run(
         [sys.executable, "-m", "scripts.release.sync_extras", "--write"],
         dry_run=args.dry_run,
     )
 
-    print("\n[3/6] regenerating docs/packaging.md...")
+    print("\n[3/5] regenerating docs/packaging.md...")
     _run(
         [sys.executable, "-m", "scripts.release.sync_packaging_docs", "--write"],
         dry_run=args.dry_run,
     )
 
-    print("\n[4/6] regenerating poetry.lock...")
-    _run([*poetry, "lock"], dry_run=args.dry_run)
-
     if args.skip_checks:
-        print("\n[5-6/6] skipping checks (--skip-checks).")
+        print("\n[4-5/5] skipping checks (--skip-checks).")
     else:
-        print("\n[5/6] running sync --check and tests...")
+        print("\n[4/5] running sync --check and tests...")
         _run(
             [sys.executable, "-m", "scripts.release.sync_extras", "--check"],
             dry_run=args.dry_run,
@@ -222,7 +204,7 @@ def main(argv: list[str] | None = None) -> int:
             dry_run=args.dry_run,
         )
 
-        print("\n[6/6] running ruff + mypy...")
+        print("\n[5/5] running ruff + mypy...")
         _run(
             [sys.executable, "-m", "ruff", "check", "scripts/release", "aws_resource_validator", "tests"],
             dry_run=args.dry_run,
@@ -235,7 +217,7 @@ def main(argv: list[str] | None = None) -> int:
     print("\n" + "=" * 60)
     print(f"release {new} is prepared. Suggested commit:")
     print()
-    print("  git add aws_resource_validator/__init__.py pyproject.toml poetry.lock docs/packaging.md")
+    print("  git add aws_resource_validator/__init__.py pyproject.toml docs/packaging.md")
     print(f'  git commit -m "Bump version to {new}"')
     print()
     print("Then cut the GitHub release on the committed tag:")

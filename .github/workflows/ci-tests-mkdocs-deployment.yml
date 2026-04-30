@@ -19,22 +19,26 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Poetry
-        run: pipx install poetry
-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-          cache: poetry
+          cache: pip
 
-      - name: Install dependencies
-        run: poetry install --no-interaction
+      # pip, not poetry, because poetry's resolver eagerly resolves every
+      # ``[project.optional-dependencies]`` entry at install time — and the
+      # per-service sub-packages pinned there may not exist at the version
+      # we're preparing. pip only resolves extras you actually request.
+      - name: Install project + dev deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e '.[generator]'
+          pip install ruff mypy pytest pytest-xdist pytest-cov responses "boto3-stubs[all]"
 
       - name: Ruff
-        run: poetry run ruff check aws_resource_validator tests
+        run: ruff check aws_resource_validator tests
 
       - name: Mypy
-        run: poetry run mypy aws_resource_validator/core aws_resource_validator/generator
+        run: mypy aws_resource_validator/core aws_resource_validator/generator
 
   test:
     runs-on: ubuntu-latest
@@ -45,22 +49,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Poetry
-        run: pipx install poetry
-
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-          cache: poetry
+          cache: pip
 
-      - name: Install dependencies
-        run: poetry install --no-interaction
+      - name: Install project + dev deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e '.[generator]'
+          pip install pytest pytest-xdist pytest-cov responses "boto3-stubs[all]"
 
       - name: Unit and integration tests
-        run: poetry run pytest tests/unit tests/integration
+        run: pytest tests/unit tests/integration
 
       - name: Generated model tests
-        run: poetry run pytest tests/generated -n auto
+        run: pytest tests/generated -n auto
 
   mkdocs-deploy:
     runs-on: ubuntu-latest

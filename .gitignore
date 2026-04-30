@@ -10,6 +10,12 @@ build/
 dist/
 .eggs/
 
+# Lock files — not committed. See scripts/release/README for why:
+# sub-packages release in lock-step with main, and Poetry can't lock
+# the circular ``main <-> aws-resource-validator-<svc>`` constraint
+# across a version bump.
+poetry.lock
+
 # Virtualenvs
 .venv/
 venv/
