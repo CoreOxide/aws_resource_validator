@@ -1,32 +1,32 @@
-"""Chunked PyPI uploader that respects the new-project rate limit.
+"""PyPI uploader that chunks only when the new-project rate limit is relevant.
 
 PyPI caps *new project name* registrations at ~20 per hour per account.
-``gh-action-pypi-publish`` treats that limit as a hard failure and
-aborts the whole batch. When we're rolling out 430+ wheels for the
-first time, ~410 of those names are new, so a single invocation would
-always 429 out around wheel #20.
+The bootstrap release of this project created ~410 names; subsequent
+releases are version bumps on projects that already exist and aren't
+subject to any comparable limit.
 
 This uploader:
 
   1. Filters out wheels whose ``<name>==<version>`` is already on PyPI
      (skip-existing behaviour, but done client-side via the JSON API
      so we don't burn rate-limit budget on needless POSTs).
-  2. Walks the remaining wheels in chunks of ``--chunk-size`` (default
-     18 — leaves headroom under the 20/hour cap).
-  3. On HTTP 429 responses, sleeps ``--backoff-seconds`` (default 3900
-     = 65 min) and retries. Once all new-project creations have
-     landed, subsequent releases are version-bumps on existing
-     projects, which aren't subject to the same limit.
-  4. Always passes ``--skip-existing`` to twine so already-uploaded
+  2. Counts how many of the remaining wheels belong to project names
+     that don't exist on PyPI yet ("new projects").
+  3. If zero new projects: uploads everything in a single ``twine``
+     call and returns. This is the steady-state path, seconds per
+     release.
+  4. Otherwise: uploads in chunks of ``--chunk-size`` (default 18),
+     sleeping ``--backoff-seconds`` (default 3900 s / 65 min) between
+     chunks AND on 429 retries. Only the first bootstrap release
+     exercises this path.
+  5. Always passes ``--skip-existing`` to twine so already-uploaded
      files from a prior attempt succeed silently.
-
-Designed to run unattended in CI — expect ~22 hours of wall-clock time
-for a ~410-new-project bootstrap upload, then normal speed thereafter.
 """
 
 from __future__ import annotations
 
 import argparse
+import concurrent.futures
 import os
 import pathlib
 import re
@@ -37,7 +37,8 @@ import urllib.error
 import urllib.request
 from collections.abc import Iterable
 
-PYPI_JSON = "https://pypi.org/pypi/{name}/{version}/json"
+PYPI_VERSION_JSON = "https://pypi.org/pypi/{name}/{version}/json"
+PYPI_PROJECT_JSON = "https://pypi.org/pypi/{name}/json"
 
 # ``aws_resource_validator-2.0.0-py3-none-any.whl`` →
 # name = "aws_resource_validator", version = "2.0.0".
@@ -54,8 +55,7 @@ def parse_wheel(path: pathlib.Path) -> tuple[str, str] | None:
     return match.group("name").replace("_", "-"), match.group("version")
 
 
-def version_exists(name: str, version: str, timeout: float = 15) -> bool:
-    url = PYPI_JSON.format(name=name, version=version)
+def _pypi_head(url: str, timeout: float = 15) -> bool:
     request = urllib.request.Request(url, method="HEAD")
     try:
         with urllib.request.urlopen(request, timeout=timeout) as response:
@@ -70,19 +70,28 @@ def version_exists(name: str, version: str, timeout: float = 15) -> bool:
         return False
 
 
+def version_exists(name: str, version: str, timeout: float = 15) -> bool:
+    return _pypi_head(PYPI_VERSION_JSON.format(name=name, version=version), timeout)
+
+
+def project_exists(name: str, timeout: float = 15) -> bool:
+    return _pypi_head(PYPI_PROJECT_JSON.format(name=name), timeout)
+
+
 def filter_fresh_wheels(wheels: Iterable[pathlib.Path]) -> list[pathlib.Path]:
-    fresh: list[pathlib.Path] = []
-    skipped = 0
+    candidates: list[tuple[pathlib.Path, str, str]] = []
     for wheel in wheels:
         parsed = parse_wheel(wheel)
         if parsed is None:
             print(f"[publish] skipping unparseable filename: {wheel.name}", flush=True)
             continue
-        name, version = parsed
-        if version_exists(name, version):
-            skipped += 1
-            continue
-        fresh.append(wheel)
+        candidates.append((wheel, parsed[0], parsed[1]))
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=24) as pool:
+        exists = list(pool.map(lambda c: version_exists(c[1], c[2]), candidates))
+
+    fresh = [c[0] for c, ok in zip(candidates, exists, strict=True) if not ok]
+    skipped = len(candidates) - len(fresh)
     if skipped:
         print(f"[publish] {skipped} wheel(s) already on PyPI — skipped client-side", flush=True)
     return fresh
@@ -130,6 +139,37 @@ def publish(
         print("[publish] nothing to do — every wheel is already on PyPI.")
         return 0
 
+    # Decide between the fast path (single upload) and the chunked path.
+    # New-project names are the only thing PyPI rate-limits here; if
+    # every project already exists, pipe the whole batch to twine at
+    # once — takes seconds, not hours.
+    fresh_project_names = {
+        parse_wheel(w)[0]  # type: ignore[index]  # filtered above
+        for w in fresh
+    }
+    names = sorted(fresh_project_names)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=24) as pool:
+        exists = list(pool.map(project_exists, names))
+    new_project_names = [name for name, ok in zip(names, exists, strict=True) if not ok]
+    if not new_project_names:
+        print(
+            f"[publish] every project already exists on PyPI — "
+            f"uploading {len(fresh)} wheel(s) in one shot",
+            flush=True,
+        )
+        result = run_twine(fresh, repository_url)
+        sys.stdout.write(result.stdout or "")
+        sys.stderr.write(result.stderr or "")
+        if result.returncode != 0:
+            return 1
+        print(f"\n[publish] all {len(fresh)} wheel(s) uploaded.")
+        return 0
+
+    print(
+        f"[publish] {len(new_project_names)} new project name(s) — "
+        f"chunking uploads to respect PyPI's 20/hour new-project cap",
+        flush=True,
+    )
     print(f"[publish] {len(fresh)} wheel(s) to upload in chunks of {chunk_size}", flush=True)
 
     index = 0
