@@ -42,18 +42,6 @@ def test_render_extras_emits_pep621_table() -> None:
     assert '"aws-resource-validator-rest==2.1.0"' in block
 
 
-def test_render_extras_bootstrap_omits_service_and_shard_extras() -> None:
-    block = render_extras(_fixture_manifest(), bootstrap=True)
-    # Generator still present.
-    assert '"requests"' in block
-    # Service + shard + all extras must NOT be present — the whole point
-    # of bootstrap is that those projects don't exist on PyPI yet.
-    assert "aws-resource-validator-s3" not in block
-    assert "aws-resource-validator-data" not in block
-    assert "aws-resource-validator-rest" not in block
-    assert "\nall = [" not in block
-
-
 def test_splice_replaces_region_between_markers() -> None:
     original = f"before\n{EXTRAS_BEGIN}\nstale\n{EXTRAS_END}\nafter\n"
     replacement = f"{EXTRAS_BEGIN}\nfresh\n{EXTRAS_END}\n"

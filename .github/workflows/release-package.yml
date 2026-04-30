@@ -28,28 +28,31 @@ jobs:
       - name: Install build tooling
         run: |
           python -m pip install --upgrade pip
-          pip install "poetry>=2.0" build hatchling
+          pip install "poetry-core>=2.0" "poetry>=2.0" build hatchling twine
 
-      - name: Install project (for sync_extras + smoke_test)
-        run: poetry install --no-interaction --no-root --with dev
+      # pip, not poetry, for reasons in ci-tests-mkdocs-deployment.yml
+      # (poetry's resolver chokes on unpublished sub-package pins in
+      # [project.optional-dependencies]).
+      - name: Install project + release tooling
+        run: pip install -e '.[generator]'
 
       - name: Verify generated blocks in pyproject.toml are in sync
-        run: poetry run python -m scripts.release.sync_extras --check
+        run: python -m scripts.release.sync_extras --check
 
       - name: Verify docs/packaging.md is in sync
-        run: poetry run python -m scripts.release.sync_packaging_docs --check
+        run: python -m scripts.release.sync_packaging_docs --check
 
       - name: Build main wheel
-        run: poetry build -f wheel
+        run: python -m build --wheel --outdir dist
 
       - name: Build per-service + shard wheels
-        run: poetry run python -m scripts.release.build_subpackages --outdir dist
+        run: python -m scripts.release.build_subpackages --outdir dist
 
       - name: Verify wheel contents
-        run: poetry run python -m scripts.release.verify_wheels dist/
+        run: python -m scripts.release.verify_wheels dist/
 
       - name: Install smoke test
-        run: poetry run python -m scripts.release.smoke_test dist/
+        run: python -m scripts.release.smoke_test dist/
 
       - uses: actions/upload-artifact@v4
         with:

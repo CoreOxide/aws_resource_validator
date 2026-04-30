@@ -4,14 +4,12 @@ Run with ``--check`` in CI to fail if the block is stale; run with
 ``--write`` locally to regenerate it from
 ``scripts/release/popular_services.txt`` + ``scripts/release/shards.toml``.
 
-We write PEP 621 ``[project.optional-dependencies]`` (PEP 508
-requirement strings) rather than Poetry's older
-``[tool.poetry.dependencies] + [tool.poetry.extras]`` pairing. That
-form is resolver-inert: ``poetry lock`` does NOT attempt to fetch
-extras at lock time, which lets us ship a lockfile before any of the
-per-service sub-packages have been published to PyPI. Sub-packages are
-pinned strictly (``==<version>``); main and all sub-packages release
-in lock-step.
+Extras pin sub-packages strictly (``==<version>``). Main + every
+sub-package release in lock-step, so a pinned install guarantees
+consumers get a coherent version set. The repo does not commit a
+``poetry.lock`` — circular constraints between main and the
+per-service wheels would break lockfile resolution across version
+bumps. See ``.gitignore`` for the why.
 """
 
 from __future__ import annotations
@@ -40,46 +38,32 @@ def _extra(key: str, entries: list[str]) -> list[str]:
     return lines
 
 
-def render_extras(manifest: Manifest, bootstrap: bool = False) -> str:
-    """Render the full ``[project.optional-dependencies]`` table.
-
-    When ``bootstrap`` is true, omits the per-service and shard extras —
-    those reference ``aws-resource-validator-<svc>`` projects that don't
-    exist on PyPI yet. Used exactly once, for the very first release
-    that creates those projects. After that release, switch back to the
-    full extras set (the default).
-    """
+def render_extras(manifest: Manifest) -> str:
+    """Render the full ``[project.optional-dependencies]`` table."""
     version = manifest.version
     lines: list[str] = [EXTRAS_BEGIN, "[project.optional-dependencies]"]
 
     lines.extend(_extra("generator", list(GENERATOR_EXTRA)))
+    lines.append("")
 
-    if bootstrap:
-        lines.append("")
-        lines.append("# Bootstrap mode: service/shard extras omitted because the")
-        lines.append("# per-service PyPI projects don't exist yet. Re-run")
-        lines.append("# ``sync_extras.py --write`` (without --bootstrap) after the")
-        lines.append("# first release registers those projects on PyPI.")
-    else:
-        lines.append("")
-        lines.append("# Individual services (popular — curated in popular_services.txt).")
-        for svc in sorted(manifest.popular, key=extra_key):
-            key = extra_key(svc)
-            lines.extend(_extra(key, [f"{pypi_name(svc)}=={version}"]))
-        lines.append("")
+    lines.append("# Individual services (popular — curated in popular_services.txt).")
+    for svc in sorted(manifest.popular, key=extra_key):
+        key = extra_key(svc)
+        lines.extend(_extra(key, [f"{pypi_name(svc)}=={version}"]))
+    lines.append("")
 
-        lines.append("# Domain shards (metapackages — shards.toml).")
-        for shard in sorted(manifest.shards, key=lambda s: s.name):
-            key = extra_key(shard.name)
-            lines.extend(_extra(key, [f"{shard_pypi_name(shard.name)}=={version}"]))
-        lines.append("")
+    lines.append("# Domain shards (metapackages — shards.toml).")
+    for shard in sorted(manifest.shards, key=lambda s: s.name):
+        key = extra_key(shard.name)
+        lines.extend(_extra(key, [f"{shard_pypi_name(shard.name)}=={version}"]))
+    lines.append("")
 
-        lines.append("# ``all`` = every shard (transitively every service).")
-        all_deps = [
-            f"{shard_pypi_name(s.name)}=={version}"
-            for s in sorted(manifest.shards, key=lambda s: s.name)
-        ]
-        lines.extend(_extra("all", all_deps))
+    lines.append("# ``all`` = every shard (transitively every service).")
+    all_deps = [
+        f"{shard_pypi_name(s.name)}=={version}"
+        for s in sorted(manifest.shards, key=lambda s: s.name)
+    ]
+    lines.extend(_extra("all", all_deps))
 
     lines.append(EXTRAS_END)
     return "\n".join(lines) + "\n"
@@ -100,8 +84,8 @@ def splice(text: str, begin: str, end: str, new_block: str) -> str:
     return text[:b] + new_block.rstrip("\n") + text[eol:]
 
 
-def apply_all(text: str, manifest: Manifest, bootstrap: bool = False) -> str:
-    return splice(text, EXTRAS_BEGIN, EXTRAS_END, render_extras(manifest, bootstrap=bootstrap))
+def apply_all(text: str, manifest: Manifest) -> str:
+    return splice(text, EXTRAS_BEGIN, EXTRAS_END, render_extras(manifest))
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -109,44 +93,22 @@ def main(argv: list[str] | None = None) -> int:
     mode = parser.add_mutually_exclusive_group(required=True)
     mode.add_argument("--check", action="store_true", help="Fail if the block is stale.")
     mode.add_argument("--write", action="store_true", help="Regenerate the block in-place.")
-    parser.add_argument(
-        "--bootstrap",
-        action="store_true",
-        help=(
-            "Omit the service/shard extras (only 'generator' is emitted). "
-            "Use this exactly once, for the very first release that creates "
-            "the per-service PyPI projects. Lets ``poetry lock`` succeed "
-            "before those projects exist."
-        ),
-    )
     args = parser.parse_args(argv)
 
     manifest = resolve()
     current = PYPROJECT.read_text(encoding="utf-8")
+    rendered = apply_all(current, manifest)
 
     if args.check:
-        # Accept either shape: full (default) or bootstrap. ``--bootstrap``
-        # forces one specific mode; without it we're lenient so CI doesn't
-        # flap between bootstrap and post-bootstrap releases.
-        candidates = (
-            [args.bootstrap]
-            if args.bootstrap
-            else [False, True]
-        )
-        for bootstrap in candidates:
-            if current == apply_all(current, manifest, bootstrap=bootstrap):
-                mode_name = "bootstrap" if bootstrap else "full"
-                print(f"pyproject.toml [project.optional-dependencies] is in sync ({mode_name}).")
-                return 0
-        sys.stderr.write(
-            "pyproject.toml [project.optional-dependencies] is out of sync with "
-            "popular_services.txt / shards.toml. Run one of:\n"
-            "    python -m scripts.release.sync_extras --write\n"
-            "    python -m scripts.release.sync_extras --write --bootstrap\n"
-        )
-        return 1
-
-    rendered = apply_all(current, manifest, bootstrap=args.bootstrap)
+        if current != rendered:
+            sys.stderr.write(
+                "pyproject.toml [project.optional-dependencies] is out of sync with "
+                "popular_services.txt / shards.toml. Run:\n"
+                "    python -m scripts.release.sync_extras --write\n"
+            )
+            return 1
+        print("pyproject.toml [project.optional-dependencies] is in sync.")
+        return 0
 
     if args.write:
         if current == rendered:
