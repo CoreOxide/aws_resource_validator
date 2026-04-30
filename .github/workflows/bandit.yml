@@ -36,6 +36,10 @@ jobs:
       with:
         exit_zero: true  # optional, default is DEFAULT
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information.
+        # Tests rely on pytest's `assert`, and the generated trees are excluded
+        # from every other linter (see CLAUDE.md) so Bandit matches.
+        excluded_paths: 'tests,aws_resource_validator/pydantic_models,aws_resource_validator/class_definitions.py'
+        skips: 'B101'
 
     - name: Check for Issues in SARIF
       id: check_sarif

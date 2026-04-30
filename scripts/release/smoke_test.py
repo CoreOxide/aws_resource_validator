@@ -15,7 +15,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
-import subprocess
+import subprocess  # nosec B404 - used only with fixed argv lists; never shell=True
 import sys
 import tempfile
 import venv
@@ -74,17 +74,17 @@ def main(argv: list[str] | None = None) -> int:
 
         print(f"[smoke] venv: {venv_dir}")
         print(f"[smoke] installing {main_wheel.name} + {service_wheel.name}")
-        subprocess.run(
+        subprocess.run(  # nosec B603 - fixed argv; paths are venv-derived Path objects
             [str(python), "-m", "pip", "install", "--quiet", str(main_wheel), str(service_wheel)],
             check=True,
         )
 
         print("[smoke] cross-namespace import")
-        subprocess.run([str(python), "-c", IMPORT_SCRIPT], check=True)
+        subprocess.run([str(python), "-c", IMPORT_SCRIPT], check=True)  # nosec B603 - IMPORT_SCRIPT is a module-level literal
 
         print("[smoke] arv-generate without [generator] extra")
         arv_cmd = venv_dir / ("Scripts" if sys.platform == "win32" else "bin") / "arv-generate"
-        subprocess.run([str(python), "-c", ARV_WITHOUT_GENERATOR, str(arv_cmd)], check=True)
+        subprocess.run([str(python), "-c", ARV_WITHOUT_GENERATOR, str(arv_cmd)], check=True)  # nosec B603 - script literal; arv_cmd is a venv-derived Path
 
     print("[smoke] all checks passed")
     return 0

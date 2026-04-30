@@ -36,7 +36,7 @@ from __future__ import annotations
 import argparse
 import os
 import shutil
-import subprocess
+import subprocess  # nosec B404 - used only with fixed argv lists; never shell=True
 import sys
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from dataclasses import dataclass
@@ -235,7 +235,7 @@ def run_build(job: BuildJob) -> tuple[str, int, str]:
     Returns ``(name, returncode, combined_stderr)`` so the caller can
     collect failures after the pool drains.
     """
-    proc = subprocess.run(
+    proc = subprocess.run(  # nosec B603 - fixed argv; outdir/project_dir are Path instances resolved under BUILD_DIR
         [
             sys.executable,
             "-m",

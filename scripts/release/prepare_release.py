@@ -35,9 +35,10 @@ from __future__ import annotations
 
 import argparse
 import re
-import subprocess
+import subprocess  # nosec B404 - used only via `_run` with list-form argv; never shell=True
 import sys
 import urllib.error
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
@@ -70,8 +71,11 @@ def _validate_new_version(new: str, current: str) -> None:
 
 def _version_on_pypi(version: str) -> bool:
     url = f"https://pypi.org/pypi/aws-resource-validator/{version}/json"
+    parsed = urllib.parse.urlparse(url)
+    if parsed.scheme != "https" or parsed.netloc != "pypi.org":
+        raise ValueError(f"refusing non-pypi.org URL: {url!r}")
     try:
-        with urllib.request.urlopen(
+        with urllib.request.urlopen(  # nosec B310 - scheme+host validated above
             urllib.request.Request(url, method="HEAD"), timeout=15
         ) as response:
             return response.status == 200
@@ -122,7 +126,7 @@ def _run(cmd: list[str], *, cwd: Path | None = None, dry_run: bool = False) -> N
         print(f"  [dry-run] would run: {display}")
         return
     print(f"  $ {display}")
-    result = subprocess.run(cmd, cwd=cwd or REPO_ROOT, check=False)
+    result = subprocess.run(cmd, cwd=cwd or REPO_ROOT, check=False)  # nosec B603 - cmd is a list built from sys.executable + module paths at call sites; shell=False
     if result.returncode != 0:
         raise SystemExit(
             f"command failed (exit {result.returncode}): {display}"
