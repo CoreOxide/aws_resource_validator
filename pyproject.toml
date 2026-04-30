@@ -5,15 +5,10 @@ priority = "primary"
 # ---------------------------------------------------------------------------
 # Core package metadata (PEP 621).
 #
-# Using [project] + [project.optional-dependencies] instead of the older
-# [tool.poetry.dependencies] + [tool.poetry.extras] shape because the
-# per-service ``aws-resource-validator-<svc>`` wheels are released in
-# lock-step with the main package — and the first release can't succeed
-# if ``poetry lock`` insists on resolving them from PyPI before they
-# exist. PEP 621 optional-dependencies are treated as resolver-inert by
-# Poetry (they're only fetched when a downstream ``pip install
-# aws-resource-validator[...]`` requests the extra), which sidesteps the
-# chicken-and-egg on first publish.
+# Uses [project] + [project.optional-dependencies] instead of the older
+# [tool.poetry.dependencies] + [tool.poetry.extras] shape so that
+# poetry-core 2.x emits ``Provides-Extra`` / ``Requires-Dist`` entries
+# referencing the sibling ``aws-resource-validator-<svc>`` wheels.
 # ---------------------------------------------------------------------------
 [project]
 name = "aws-resource-validator"
@@ -82,10 +77,135 @@ generator = [
     "black",
 ]
 
-# Bootstrap mode: service/shard extras omitted because the
-# per-service PyPI projects don't exist yet. Re-run
-# ``sync_extras.py --write`` (without --bootstrap) after the
-# first release registers those projects on PyPI.
+# Individual services (popular — curated in popular_services.txt).
+apigateway = [
+    "aws-resource-validator-apigateway==2.0.0",
+]
+apigatewayv2 = [
+    "aws-resource-validator-apigatewayv2==2.0.0",
+]
+athena = [
+    "aws-resource-validator-athena==2.0.0",
+]
+bedrock = [
+    "aws-resource-validator-bedrock==2.0.0",
+]
+cloudformation = [
+    "aws-resource-validator-cloudformation==2.0.0",
+]
+cloudwatch = [
+    "aws-resource-validator-cloudwatch==2.0.0",
+]
+cognito-idp = [
+    "aws-resource-validator-cognito-idp==2.0.0",
+]
+dynamodb = [
+    "aws-resource-validator-dynamodb==2.0.0",
+]
+ec2 = [
+    "aws-resource-validator-ec2==2.0.0",
+]
+ecs = [
+    "aws-resource-validator-ecs==2.0.0",
+]
+elbv2 = [
+    "aws-resource-validator-elbv2==2.0.0",
+]
+events = [
+    "aws-resource-validator-events==2.0.0",
+]
+firehose = [
+    "aws-resource-validator-firehose==2.0.0",
+]
+glue = [
+    "aws-resource-validator-glue==2.0.0",
+]
+iam = [
+    "aws-resource-validator-iam==2.0.0",
+]
+kinesis = [
+    "aws-resource-validator-kinesis==2.0.0",
+]
+kms = [
+    "aws-resource-validator-kms==2.0.0",
+]
+lambda = [
+    "aws-resource-validator-lambda==2.0.0",
+]
+logs = [
+    "aws-resource-validator-logs==2.0.0",
+]
+rds = [
+    "aws-resource-validator-rds==2.0.0",
+]
+redshift = [
+    "aws-resource-validator-redshift==2.0.0",
+]
+route53 = [
+    "aws-resource-validator-route53==2.0.0",
+]
+s3 = [
+    "aws-resource-validator-s3==2.0.0",
+]
+sagemaker = [
+    "aws-resource-validator-sagemaker==2.0.0",
+]
+secretsmanager = [
+    "aws-resource-validator-secretsmanager==2.0.0",
+]
+sns = [
+    "aws-resource-validator-sns==2.0.0",
+]
+sqs = [
+    "aws-resource-validator-sqs==2.0.0",
+]
+ssm = [
+    "aws-resource-validator-ssm==2.0.0",
+]
+stepfunctions = [
+    "aws-resource-validator-stepfunctions==2.0.0",
+]
+sts = [
+    "aws-resource-validator-sts==2.0.0",
+]
+
+# Domain shards (metapackages — shards.toml).
+ai = [
+    "aws-resource-validator-ai==2.0.0",
+]
+compute = [
+    "aws-resource-validator-compute==2.0.0",
+]
+data = [
+    "aws-resource-validator-data==2.0.0",
+]
+integration = [
+    "aws-resource-validator-integration==2.0.0",
+]
+management = [
+    "aws-resource-validator-management==2.0.0",
+]
+networking = [
+    "aws-resource-validator-networking==2.0.0",
+]
+rest = [
+    "aws-resource-validator-rest==2.0.0",
+]
+security = [
+    "aws-resource-validator-security==2.0.0",
+]
+
+# ``all`` = every shard (transitively every service).
+all = [
+    "aws-resource-validator-ai==2.0.0",
+    "aws-resource-validator-compute==2.0.0",
+    "aws-resource-validator-data==2.0.0",
+    "aws-resource-validator-integration==2.0.0",
+    "aws-resource-validator-management==2.0.0",
+    "aws-resource-validator-networking==2.0.0",
+    "aws-resource-validator-rest==2.0.0",
+    "aws-resource-validator-security==2.0.0",
+]
 # --- END GENERATED EXTRAS ---
 
 [build-system]
