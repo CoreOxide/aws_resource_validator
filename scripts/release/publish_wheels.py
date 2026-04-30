@@ -117,6 +117,50 @@ def looks_like_429(output: str) -> bool:
     return "429" in output or "too many new projects" in output.lower()
 
 
+def is_new_project_limit(output: str) -> bool:
+    """Distinguish the 20/hour new-project cap from any other 429."""
+    return "too many new projects" in output.lower()
+
+
+def upload_with_retry(
+    wheels: list[pathlib.Path],
+    repository_url: str | None,
+    *,
+    short_retries: int = 4,
+    short_backoff_base: int = 30,
+) -> subprocess.CompletedProcess[str]:
+    """Upload ``wheels`` once, retrying short 429s with exponential backoff.
+
+    Handles the generic "PyPI is busy right now" case that can hit a
+    single large upload batch on a shared CI IP. Returns the final
+    ``CompletedProcess``. Does NOT wait for the 65-min new-project cap
+    — that's a different beast and the caller should fall back to the
+    chunked path if ``is_new_project_limit`` is true on the final
+    attempt.
+    """
+    for attempt in range(short_retries + 1):
+        result = run_twine(wheels, repository_url)
+        stdout = result.stdout or ""
+        stderr = result.stderr or ""
+        sys.stdout.write(stdout)
+        sys.stderr.write(stderr)
+        if result.returncode == 0:
+            return result
+        combined = stdout + "\n" + stderr
+        if not looks_like_429(combined) or attempt == short_retries:
+            return result
+        if is_new_project_limit(combined):
+            return result  # Caller will switch to chunked path.
+        wait = short_backoff_base * (2 ** attempt)
+        print(
+            f"\n[publish] hit a generic 429 — sleeping {wait}s before retry "
+            f"{attempt + 1}/{short_retries}",
+            flush=True,
+        )
+        time.sleep(wait)
+    return result
+
+
 def publish(
     dist: pathlib.Path,
     chunk_size: int,
@@ -157,13 +201,26 @@ def publish(
             f"uploading {len(fresh)} wheel(s) in one shot",
             flush=True,
         )
-        result = run_twine(fresh, repository_url)
-        sys.stdout.write(result.stdout or "")
-        sys.stderr.write(result.stderr or "")
-        if result.returncode != 0:
+        result = upload_with_retry(fresh, repository_url)
+        if result.returncode == 0:
+            print(f"\n[publish] all {len(fresh)} wheel(s) uploaded.")
+            return 0
+        # If we bounced off the new-project cap despite thinking every
+        # project existed, fall through to the chunked path — it's more
+        # defensive anyway. Otherwise we're out of options.
+        combined = (result.stdout or "") + "\n" + (result.stderr or "")
+        if not is_new_project_limit(combined):
+            print(
+                "\n[publish] single-shot upload failed; aborting.",
+                file=sys.stderr,
+                flush=True,
+            )
             return 1
-        print(f"\n[publish] all {len(fresh)} wheel(s) uploaded.")
-        return 0
+        print(
+            "\n[publish] single-shot upload hit the new-project cap — "
+            "falling back to chunked uploads",
+            flush=True,
+        )
 
     print(
         f"[publish] {len(new_project_names)} new project name(s) — "
@@ -186,32 +243,25 @@ def publish(
         for w in chunk:
             print(f"  {w.name}", flush=True)
 
-        backoff_round = 0
+        # Each chunk gets the generic-429 retry loop inside upload_with_retry;
+        # only the new-project cap escalates to the longer backoff_seconds
+        # sleep (which then loops back to retry the same chunk).
+        new_project_round = 0
         while True:
-            result = run_twine(chunk, repository_url)
-            stdout = result.stdout or ""
-            stderr = result.stderr or ""
-            combined = stdout + "\n" + stderr
-            sys.stdout.write(stdout)
-            sys.stderr.write(stderr)
-
+            result = upload_with_retry(chunk, repository_url)
             if result.returncode == 0:
                 break
-
-            if looks_like_429(combined) and backoff_round < max_backoff_rounds:
-                backoff_round += 1
-                wait = backoff_seconds
+            combined = (result.stdout or "") + "\n" + (result.stderr or "")
+            if is_new_project_limit(combined) and new_project_round < max_backoff_rounds:
+                new_project_round += 1
                 print(
-                    f"\n[publish] chunk {chunk_num} hit 429 — sleeping "
-                    f"{wait}s before retry {backoff_round}/{max_backoff_rounds}",
+                    f"\n[publish] chunk {chunk_num} hit new-project 429 — "
+                    f"sleeping {backoff_seconds}s before retry "
+                    f"{new_project_round}/{max_backoff_rounds}",
                     flush=True,
                 )
-                # The filter was run before the outer loop; any wheels in this
-                # chunk that slipped through and actually uploaded during the
-                # failed attempt will be handled by --skip-existing on retry.
-                time.sleep(wait)
+                time.sleep(backoff_seconds)
                 continue
-
             print(
                 f"\n[publish] chunk {chunk_num} failed permanently "
                 f"(exit {result.returncode}).",
