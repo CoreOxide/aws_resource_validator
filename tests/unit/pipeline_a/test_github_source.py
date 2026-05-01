@@ -74,7 +74,7 @@ def test_rate_limit_triggers_sleep(monkeypatch: pytest.MonkeyPatch) -> None:
 @responses.activate
 def test_includes_bearer_token_header() -> None:
     responses.get(_BASE_URL, json=[])
-    source = GitHubBotocoreSource(token="tok-123")
+    source = GitHubBotocoreSource(token="tok-123")  # nosec B106 - placeholder; @responses.activate mocks the request
     list(source.iter_services())
     assert responses.calls[0].request.headers["Authorization"] == "Bearer tok-123"
 

@@ -11,7 +11,7 @@ from collections.abc import Callable, Mapping
 from functools import cache
 from pathlib import Path
 
-from jinja2 import Environment, FileSystemLoader, StrictUndefined
+from jinja2 import Environment, FileSystemLoader, StrictUndefined, select_autoescape
 
 
 @cache
@@ -22,7 +22,7 @@ def get_environment(template_dir: str) -> Environment:
         keep_trailing_newline=True,
         trim_blocks=True,
         lstrip_blocks=True,
-        autoescape=False,
+        autoescape=select_autoescape(),
     )
     env.filters["repr"] = repr
     return env

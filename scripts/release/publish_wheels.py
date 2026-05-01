@@ -30,10 +30,11 @@ import concurrent.futures
 import os
 import pathlib
 import re
-import subprocess
+import subprocess  # nosec B404 - used only with fixed argv lists; never shell=True
 import sys
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 from collections.abc import Iterable
 
@@ -56,9 +57,12 @@ def parse_wheel(path: pathlib.Path) -> tuple[str, str] | None:
 
 
 def _pypi_head(url: str, timeout: float = 15) -> bool:
+    parsed = urllib.parse.urlparse(url)
+    if parsed.scheme != "https" or parsed.netloc != "pypi.org":
+        raise ValueError(f"refusing non-pypi.org URL: {url!r}")
     request = urllib.request.Request(url, method="HEAD")
     try:
-        with urllib.request.urlopen(request, timeout=timeout) as response:
+        with urllib.request.urlopen(request, timeout=timeout) as response:  # nosec B310 - scheme+host validated above
             return response.status == 200
     except urllib.error.HTTPError as exc:
         if exc.code == 404:
@@ -109,7 +113,7 @@ def run_twine(chunk: list[pathlib.Path], repository_url: str | None) -> subproce
     if repository_url:
         args.extend(["--repository-url", repository_url])
     args.extend(str(p) for p in chunk)
-    return subprocess.run(args, env=env, capture_output=True, text=True, check=False)
+    return subprocess.run(args, env=env, capture_output=True, text=True, check=False)  # nosec B603 - fixed argv; repository_url is a twine flag value, shell=False
 
 
 def looks_like_429(output: str) -> bool:
