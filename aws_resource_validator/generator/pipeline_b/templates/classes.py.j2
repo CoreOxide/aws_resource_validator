@@ -3,13 +3,14 @@
 # Do not edit manually; run `arv-generate pipeline-b` to refresh it.
 from datetime import datetime
 from decimal import Decimal
-from typing import Any, Callable, Dict, FrozenSet, IO, List, Literal, Mapping, Optional, Sequence, Set, Tuple, Type, Union
+from typing import Annotated, Any, Callable, Dict, FrozenSet, IO, List, Literal, Mapping, Optional, Sequence, Set, Tuple, Type, Union
 
 from botocore.client import BaseClient
 from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.{{ service }}.{{ service }}_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them

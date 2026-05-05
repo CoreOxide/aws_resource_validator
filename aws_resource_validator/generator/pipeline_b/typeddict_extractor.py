@@ -11,9 +11,16 @@ from __future__ import annotations
 import ast
 import keyword
 from collections.abc import Mapping
+from dataclasses import dataclass
 
 from aws_resource_validator.generator.common.logging import get_logger
-from aws_resource_validator.generator.pipeline_b.model_ir import ClassIR, FieldIR, UnionAliasIR
+from aws_resource_validator.generator.pipeline_b.model_ir import (
+    AwsPatternTarget,
+    ClassIR,
+    FieldIR,
+    UnionAliasIR,
+)
+from aws_resource_validator.generator.pipeline_b.shape_pattern_map import FieldPatternLookup
 from aws_resource_validator.generator.pipeline_b.type_map import has_typeddict_base
 from aws_resource_validator.generator.pipeline_b.type_resolver import TypeResolver
 
@@ -23,30 +30,58 @@ _EVENT_STREAM_MARKER = "EventStream"
 _TYPEDDICT_BASE = "TypedDict"
 _PY_KEYWORDS = frozenset(keyword.kwlist) | frozenset(keyword.softkwlist)
 
+# Only annotations matching one of these exact strings are eligible for the
+# AWS-pattern wrap. More complex types (``Union[str, int]``, ``Dict[str, str]``,
+# nested optionals) would require AST-aware rewriting and are intentionally
+# left untouched.
+_SCALAR_STR_ANNOTATIONS = frozenset({"str", "Optional[str]"})
+_LIST_STR_ANNOTATIONS = frozenset({"List[str]", "Optional[List[str]]"})
+
+
+@dataclass(frozen=True, slots=True)
+class PatternContext:
+    """Inputs the extractor needs to tag fields with an :class:`AwsPatternTarget`.
+
+    ``lookup`` answers "what shape name backs this TypeDef field"; ``service``
+    is the PascalCase key used by the runtime ``class_registry`` so the
+    emitted wrap references the same service identifier Pipeline A produced.
+    """
+
+    lookup: FieldPatternLookup
+    service: str
+
 
 def extract_items(
     tree: ast.Module,
     type_map: Mapping[str, str],
     resolver: TypeResolver | None = None,
+    pattern_context: PatternContext | None = None,
 ) -> tuple[ClassIR | UnionAliasIR, ...]:
     """Walk ``tree`` once; return classes and aliases in source order.
 
     Preserving source order is what prevents ``NameError`` at import time:
     the upstream stubs are deliberately topologically sorted so each type is
     defined before use, and we must faithfully reproduce that ordering.
+
+    When ``pattern_context`` is supplied, scalar-string and list-of-string
+    fields whose target botocore shape carries a regex are tagged with an
+    :class:`AwsPatternTarget` so the emitter can wrap them with an opt-in
+    validator. Omitting it leaves every ``FieldIR`` untagged.
     """
     resolver = resolver or TypeResolver()
     items: list[ClassIR | UnionAliasIR] = []
 
     for node in tree.body:
         if isinstance(node, ast.ClassDef) and has_typeddict_base(node):
-            items.append(_extract_class(node, type_map, resolver))
+            items.append(_extract_class(node, type_map, resolver, pattern_context))
         elif isinstance(node, ast.Assign) and len(node.targets) == 1:
             alias = _try_extract_alias(node, type_map, resolver)
             if alias is not None:
                 items.append(alias)
                 continue
-            typeddict_cls = _try_extract_functional_typeddict(node, type_map, resolver)
+            typeddict_cls = _try_extract_functional_typeddict(
+                node, type_map, resolver, pattern_context
+            )
             if typeddict_cls is not None:
                 items.append(typeddict_cls)
     return tuple(items)
@@ -59,6 +94,7 @@ def _extract_class(
     node: ast.ClassDef,
     type_map: Mapping[str, str],
     resolver: TypeResolver,
+    pattern_context: PatternContext | None,
 ) -> ClassIR:
     sanitized = type_map.get(node.name, node.name)
     fields: list[FieldIR] = []
@@ -68,7 +104,16 @@ def _extract_class(
         event_inner = _event_stream_inner(item.annotation, type_map, resolver)
         if event_inner is not None:
             return ClassIR(name=sanitized, base=f"EventStream[{event_inner}]")
-        fields.append(_build_field(item.target.id, item.annotation, type_map, resolver))
+        fields.append(
+            _build_field(
+                item.target.id,
+                item.annotation,
+                type_map,
+                resolver,
+                pattern_context,
+                sanitized,
+            )
+        )
     return ClassIR(name=sanitized, fields=tuple(fields))
 
 
@@ -93,6 +138,7 @@ def _try_extract_functional_typeddict(
     node: ast.Assign,
     type_map: Mapping[str, str],
     resolver: TypeResolver,
+    pattern_context: PatternContext | None,
 ) -> ClassIR | None:
     """Handle ``Name = TypedDict('Name', {'field': Type, ...})``."""
     target = node.targets[0]
@@ -111,7 +157,9 @@ def _try_extract_functional_typeddict(
     fields: list[FieldIR] = []
     for key, value in zip(call.args[1].keys, call.args[1].values, strict=False):
         if isinstance(key, ast.Constant) and isinstance(key.value, str):
-            fields.append(_build_field(key.value, value, type_map, resolver))
+            fields.append(
+                _build_field(key.value, value, type_map, resolver, pattern_context, sanitized)
+            )
     return ClassIR(name=sanitized, fields=tuple(fields))
 
 
@@ -149,19 +197,38 @@ def _build_field(
     annotation_node: ast.expr,
     type_map: Mapping[str, str],
     resolver: TypeResolver,
+    pattern_context: PatternContext | None,
+    class_name: str,
 ) -> FieldIR:
     annotation = resolver.resolve(annotation_node, type_map)
     required = not annotation.startswith("Optional[")
-    # Required fields get no default; optional get ``None``.
     default_expr = None if required else "None"
     py_name = _safe_field_name(field_name)
+    aws_pattern = _resolve_aws_pattern(class_name, field_name, annotation, pattern_context)
     return FieldIR(
         name=field_name,
         py_name=py_name,
         annotation=annotation,
         required=required,
         default_expr=default_expr,
+        aws_pattern=aws_pattern,
     )
+
+
+def _resolve_aws_pattern(
+    class_name: str,
+    field_name: str,
+    annotation: str,
+    pattern_context: PatternContext | None,
+) -> AwsPatternTarget | None:
+    if pattern_context is None:
+        return None
+    scalar_target, list_target = pattern_context.lookup.for_field(class_name, field_name)
+    if scalar_target is not None and annotation in _SCALAR_STR_ANNOTATIONS:
+        return AwsPatternTarget(pattern_context.service, scalar_target)
+    if list_target is not None and annotation in _LIST_STR_ANNOTATIONS:
+        return AwsPatternTarget(pattern_context.service, list_target, is_list_element=True)
+    return None
 
 
 def _safe_field_name(name: str) -> str:

@@ -7,16 +7,21 @@ from collections.abc import Iterable
 from dataclasses import replace
 from pathlib import Path
 
+from aws_resource_validator.core.naming import to_pascal_case
 from aws_resource_validator.generator.common.logging import get_logger
 from aws_resource_validator.generator.pipeline_b.ast_reader import read_module
 from aws_resource_validator.generator.pipeline_b.literal_extractor import extract_literals
 from aws_resource_validator.generator.pipeline_b.model_ir import ClassIR, ServiceModelIR, UnionAliasIR
 from aws_resource_validator.generator.pipeline_b.python_emitter import EmittedArtifacts, emit_service
 from aws_resource_validator.generator.pipeline_b.service_annotator import MethodRole, extract_method_roles
+from aws_resource_validator.generator.pipeline_b.shape_pattern_map import get_pattern_map
 from aws_resource_validator.generator.pipeline_b.stubs_source import StubPackage
 from aws_resource_validator.generator.pipeline_b.type_map import build_type_map
 from aws_resource_validator.generator.pipeline_b.type_resolver import TypeResolver
-from aws_resource_validator.generator.pipeline_b.typeddict_extractor import extract_items
+from aws_resource_validator.generator.pipeline_b.typeddict_extractor import (
+    PatternContext,
+    extract_items,
+)
 
 _logger = get_logger(__name__)
 
@@ -29,7 +34,16 @@ def build_service_ir(stub: StubPackage) -> ServiceModelIR:
     client_tree = _read_optional(stub.client_file)
 
     type_map = build_type_map(type_defs_tree)
-    items = extract_items(type_defs_tree, type_map, resolver)
+    # ``service`` is the PascalCase key Pipeline A uses in the runtime
+    # ``class_registry`` (stub ``acm_pca`` -> ``AcmPca``); the lookup resolves
+    # field names against the same botocore struct shapes those regexes came from.
+    # Skip the context entirely when botocore has no info for this service —
+    # the extractor would short-circuit on every lookup anyway.
+    lookup = get_pattern_map(stub.service)
+    pattern_context: PatternContext | None = (
+        None if lookup.is_empty() else PatternContext(lookup=lookup, service=to_pascal_case(stub.service))
+    )
+    items = extract_items(type_defs_tree, type_map, resolver, pattern_context=pattern_context)
     literals = extract_literals(literals_tree) if literals_tree is not None else ()
     roles = extract_method_roles(client_tree) if client_tree is not None else {}
 
