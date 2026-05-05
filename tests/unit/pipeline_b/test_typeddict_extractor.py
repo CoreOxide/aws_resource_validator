@@ -127,7 +127,10 @@ class TestPatternTagging:
         StrayDict: Dict[str, str]
     """
 
-    def _tagged(self, lookup_entries: dict[tuple[str, str], tuple[str | None, str | None]]) -> dict[str, AwsPatternTarget | None]:
+    def _tagged(
+        self,
+        lookup_entries: dict[tuple[str, str], tuple[str | None, str | None]],
+    ) -> dict[str, AwsPatternTarget | None]:
         tree = _parse(self._SOURCE)
         ctx = PatternContext(lookup=FieldPatternLookup(lookup_entries), service="Fake")
         items = extract_items(tree, build_type_map(tree), pattern_context=ctx)
