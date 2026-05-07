@@ -16,6 +16,9 @@
 - **Validation**: Check if a given AWS resource name meets the AWS naming constraints.
 - **Constraint Display**: Display constraints for different AWS resource names.
 - **Pattern Generation**: Generate compatible patterns for AWS resource names for testing purposes.
+- **Opt-in Pydantic pattern validation**: String fields on the generated Pydantic
+  models can be checked against the AWS-documented regex + length bounds on
+  demand, without changing the default construction path.
 
 ## Installation
 
@@ -83,6 +86,48 @@ if __name__ == "__main__":
     tables: List[str] = list_dynamo_tables()
     print("DynamoDB Tables:", tables)
 ```
+
+### Opt-in pattern validation on generated Pydantic models
+
+Generated models carry the AWS-documented regex + length bounds for every
+string field backed by a botocore shape that defines one. The check is
+**off by default** so that `Cls(**data)` behaves exactly as before — no
+overhead, no new exceptions, full backward compatibility. Activate it per
+call by passing `context={"aws_validate_patterns": True}` to
+`model_validate`:
+
+```python
+from pydantic import ValidationError
+
+from aws_resource_validator.pydantic_models.acm_pca.acm_pca_classes import (
+    CreateCertificateAuthorityAuditReportRequestTypeDef as Req,
+)
+
+payload = {
+    "CertificateAuthorityArn": "not-an-arn",
+    "S3BucketName": "my-bucket",
+    "AuditReportResponseFormat": "JSON",
+}
+
+# Default: no pattern check. Accepts the bad ARN silently.
+Req.model_validate(payload)
+
+# Opt-in: rejects values that don't match the AWS shape regex / length bounds.
+try:
+    Req.model_validate(payload, context={"aws_validate_patterns": True})
+except ValidationError as exc:
+    for err in exc.errors():
+        # err["type"] == "aws_pattern" for fields that failed the AWS regex.
+        print(err["loc"], err["type"], err["msg"])
+```
+
+Validation runs through `APIObject.validate(value)` from Pipeline A, so the
+regex and length bounds are always in lockstep with `class_registry`.
+Fields whose target shape has no regex (or whose annotation is more
+complex than `str` / `Optional[str]` / `List[str]` / `Optional[List[str]]`)
+are not decorated and pass through unchanged even when validation is
+active. Unknown `(service, shape)` pairs resolve to a permissive no-op —
+a stale emitter will never break a caller's validation call.
 
 ## Maintainer workflows
 
